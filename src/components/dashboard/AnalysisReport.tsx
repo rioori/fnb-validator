@@ -2,7 +2,8 @@
 
 import type { CalcResults, ModelKey } from '@/types';
 import { formatVND } from '@/lib/format';
-import { MODELS } from '@/lib/constants';
+import { useModels } from '@/hooks/useModels';
+import { useTranslation, tpl } from '@/i18n/LocaleProvider';
 
 interface AnalysisReportProps {
   results: CalcResults;
@@ -13,13 +14,15 @@ interface AnalysisReportProps {
 
 /** Human-readable analysis report generated from CalcResults */
 export default function AnalysisReport({ results: r, model, rent, totalInvestment }: AnalysisReportProps) {
+  const { t } = useTranslation();
+  const models = useModels();
   const sm = r.stableMonth;
-  const modelName = model ? MODELS[model].name : 'Mô hình F&B';
+  const modelName = model ? models[model].name : t.dashboard.analysis.defaultModelName;
   const profitable = sm.netProfit > 0;
   const month1 = r.months[0];
 
   // ─── Score interpretation ───
-  const scoreLabel = r.score >= 80 ? 'Khả thi tốt' : r.score >= 60 ? 'Cần cân nhắc' : r.score >= 40 ? 'Rủi ro cao' : 'Rất rủi ro';
+  const scoreLabel = r.score >= 80 ? t.dashboard.analysis.scoreLabelExcellent : r.score >= 60 ? t.dashboard.analysis.scoreLabelModerate : r.score >= 40 ? t.dashboard.analysis.scoreLabelRisky : t.dashboard.analysis.scoreLabelVeryRisky;
   const scoreColor = r.score >= 80 ? 'text-cta' : r.score >= 60 ? 'text-warning' : 'text-danger';
 
   // ─── Dynamic paragraphs ───
@@ -28,12 +31,12 @@ export default function AnalysisReport({ results: r, model, rent, totalInvestmen
   // 1. Overall verdict
   paras.push({
     icon: r.score >= 60 ? '✅' : '⚠️',
-    title: 'Đánh giá tổng quan',
-    body: `Với mô hình ${modelName}, tổng vốn đầu tư ${formatVND(totalInvestment)}, mô hình của bạn được chấm ${r.score}/100 điểm — mức "${scoreLabel}". ${
+    title: t.dashboard.analysis.overallTitle,
+    body: tpl(t.dashboard.analysis.overallVerdict, { modelName, investment: formatVND(totalInvestment), score: r.score, label: scoreLabel }) + ' ' + (
       profitable
-        ? `Khi hoạt động ổn định (từ tháng 7+), dự kiến lợi nhuận ròng đạt khoảng ${formatVND(sm.netProfit)}/tháng, tương đương biên lợi nhuận ${sm.netMargin.toFixed(1)}%.`
-        : `Tuy nhiên, mô hình hiện tại dự kiến LỖ ${formatVND(Math.abs(sm.netProfit))}/tháng ngay cả khi đã ổn định. Bạn cần xem xét lại cấu trúc chi phí hoặc tăng doanh thu.`
-    }`,
+        ? tpl(t.dashboard.analysis.overallProfitable, { profit: formatVND(sm.netProfit), margin: sm.netMargin.toFixed(1) })
+        : tpl(t.dashboard.analysis.overallLoss, { loss: formatVND(Math.abs(sm.netProfit)) })
+    ),
     type: profitable ? (r.score >= 60 ? 'good' : 'warn') : 'bad',
   });
 
@@ -41,54 +44,54 @@ export default function AnalysisReport({ results: r, model, rent, totalInvestmen
   const revGrowth = month1.netRev > 0 ? ((sm.netRev - month1.netRev) / month1.netRev * 100).toFixed(0) : '0';
   paras.push({
     icon: '📈',
-    title: 'Doanh thu dự kiến',
-    body: `Tháng đầu tiên (giai đoạn khởi động), doanh thu ước tính khoảng ${formatVND(month1.netRev)}. Khi đạt 100% công suất (từ tháng 7), doanh thu tăng lên ${formatVND(sm.netRev)}/tháng (+${revGrowth}%). ${
+    title: t.dashboard.analysis.revenueTitle,
+    body: tpl(t.dashboard.analysis.revenueBody, { m1Rev: formatVND(month1.netRev), stableRev: formatVND(sm.netRev), growthPct: revGrowth }) + ' ' + (
       r.deliveryPct > 30
-        ? `Lưu ý: ${r.deliveryPct.toFixed(0)}% doanh thu đến từ delivery — hoa hồng app sẽ ăn mất khoảng ${formatVND(sm.deliveryComm)}/tháng.`
+        ? tpl(t.dashboard.analysis.deliveryHighNote, { pct: r.deliveryPct.toFixed(0), commission: formatVND(sm.deliveryComm) })
         : r.deliveryPct > 0
-        ? `Phí delivery app chiếm ${formatVND(sm.deliveryComm)}/tháng — mức chấp nhận được.`
+        ? tpl(t.dashboard.analysis.deliveryOkNote, { commission: formatVND(sm.deliveryComm) })
         : ''
-    }`,
+    ),
     type: 'info',
   });
 
   // 3. Cost structure
   paras.push({
     icon: '💰',
-    title: 'Cấu trúc chi phí',
-    body: `Chi phí cố định hàng tháng: ${formatVND(r.fixedMonthly)} (thuê ${formatVND(rent)} + nhân sự ${formatVND(sm.staffTotal + sm.bhxh)} + khác ${formatVND(sm.fixedOther)}). Nguyên vật liệu chiếm ${r.cogsPct.toFixed(0)}% doanh thu. Tổng Prime Cost (NVL + Nhân sự) = ${r.primeCost.toFixed(0)}% — ${
-      r.primeCost <= 60 ? 'mức lý tưởng, còn dư biên lợi nhuận tốt' : r.primeCost <= 70 ? 'ở ngưỡng trung bình, nên tối ưu thêm' : 'quá cao! Cần giảm NVL hoặc tinh gọn nhân sự'
-    }.`,
+    title: t.dashboard.analysis.costTitle,
+    body: tpl(t.dashboard.analysis.costBody, { fixedMonthly: formatVND(r.fixedMonthly), rent: formatVND(rent), staff: formatVND(sm.staffTotal + sm.bhxh), otherFixed: formatVND(sm.fixedOther), cogsPct: r.cogsPct.toFixed(0), primeCost: r.primeCost.toFixed(0) }) + ' — ' + (
+      r.primeCost <= 60 ? t.dashboard.analysis.primeCostGood : r.primeCost <= 70 ? t.dashboard.analysis.primeCostAvg : t.dashboard.analysis.primeCostBad
+    ) + '.',
     type: r.primeCost <= 65 ? 'good' : r.primeCost <= 70 ? 'warn' : 'bad',
   });
 
   // 4. Rent ratio
   paras.push({
     icon: '🏠',
-    title: 'Tỷ lệ thuê mặt bằng',
-    body: `Tiền thuê chiếm ${r.rentRatio.toFixed(1)}% doanh thu ròng. ${
-      r.rentRatio <= 15 ? 'Đây là tỷ lệ rất tốt — bạn có nhiều dư địa để sinh lời.' : r.rentRatio <= 20 ? 'Mức hợp lý cho ngành F&B. Cố gắng giữ dưới 20%.' : r.rentRatio <= 25 ? 'Hơi cao. Mỗi % thuê vượt 20% là ăn thẳng vào lợi nhuận ròng. Cân nhắc đàm phán lại hoặc tìm mặt bằng khác.' : 'QUÁ CAO! Với tỷ lệ này, rất khó để có lãi bền vững. Đây là nguyên nhân hàng đầu khiến quán F&B đóng cửa.'
-    }`,
+    title: t.dashboard.analysis.rentTitle,
+    body: tpl(t.dashboard.analysis.rentIntro, { pct: r.rentRatio.toFixed(1) }) + ' ' + (
+      r.rentRatio <= 15 ? t.dashboard.analysis.rentExcellent : r.rentRatio <= 20 ? t.dashboard.analysis.rentOk : r.rentRatio <= 25 ? t.dashboard.analysis.rentHigh : t.dashboard.analysis.rentTooHigh
+    ),
     type: r.rentRatio <= 20 ? 'good' : r.rentRatio <= 25 ? 'warn' : 'bad',
   });
 
   // 5. Break-even
   paras.push({
     icon: '⏱️',
-    title: 'Thời gian hòa vốn',
+    title: t.dashboard.analysis.breakEvenTitle,
     body: r.paybackMonth
-      ? `Với tốc độ tăng trưởng dự kiến, bạn sẽ hòa vốn sau khoảng ${r.paybackMonth} tháng. Để hòa vốn hàng tháng, cần tối thiểu ${formatVND(r.bepRevenue)} doanh thu — tương đương ${r.bepCustomersDay < Infinity ? r.bepCustomersDay : '∞'} khách/ngày. ${r.paybackMonth <= 12 ? 'Đây là thời gian hoàn vốn khá tốt cho ngành F&B.' : r.paybackMonth <= 18 ? 'Thời gian hòa vốn chấp nhận được, nhưng cần kiểm soát chi phí chặt trong giai đoạn đầu.' : 'Thời gian khá dài — bạn cần đảm bảo có đủ vốn dự phòng để trụ được.'}`
-      : `Với cấu trúc hiện tại, mô hình KHÔNG hòa vốn trong 12 tháng đầu. Cần doanh thu tối thiểu ${formatVND(r.bepRevenue)}/tháng (${r.bepCustomersDay < Infinity ? r.bepCustomersDay + ' khách/ngày' : '—'}) mới đạt điểm hòa vốn. Hãy xem xét giảm chi phí cố định hoặc tăng giá bill trung bình.`,
+      ? tpl(t.dashboard.analysis.breakEvenWithPayback, { months: r.paybackMonth, bepRevenue: formatVND(r.bepRevenue), bepCust: r.bepCustomersDay < Infinity ? r.bepCustomersDay : '∞' }) + ' ' + (r.paybackMonth <= 12 ? t.dashboard.analysis.breakEvenFast : r.paybackMonth <= 18 ? t.dashboard.analysis.breakEvenMedium : t.dashboard.analysis.breakEvenSlow)
+      : tpl(t.dashboard.analysis.breakEvenNever, { bepRevenue: formatVND(r.bepRevenue), bepCust: r.bepCustomersDay < Infinity ? r.bepCustomersDay + ' khách/ngày' : '—' }),
     type: r.paybackMonth && r.paybackMonth <= 12 ? 'good' : r.paybackMonth ? 'warn' : 'bad',
   });
 
   // 6. Working capital
   paras.push({
     icon: '🛡️',
-    title: 'Vốn dự phòng',
-    body: `Vốn lưu động dự phòng của bạn đủ cho ${r.workingCapMonths.toFixed(1)} tháng vận hành (nếu không có doanh thu). ${
-      r.workingCapMonths >= 3 ? 'Đây là mức an toàn — đủ để vượt qua giai đoạn khởi động khó khăn nhất.' : r.workingCapMonths >= 2 ? 'Hơi mỏng. Ngành F&B khuyến nghị ít nhất 3 tháng dự phòng. Giai đoạn đầu thường lỗ, nếu hết tiền trước khi có khách quen, bạn sẽ phải đóng cửa.' : 'NGUY HIỂM! Không đủ vốn dự phòng là nguyên nhân số 1 khiến quán F&B đóng cửa sớm. Hãy tăng ngân sách dự phòng lên ít nhất 3 tháng chi phí cố định.'
-    }`,
+    title: t.dashboard.analysis.workingCapTitle,
+    body: tpl(t.dashboard.analysis.workingCapIntro, { months: r.workingCapMonths.toFixed(1) }) + ' ' + (
+      r.workingCapMonths >= 3 ? t.dashboard.analysis.workingCapGood : r.workingCapMonths >= 2 ? t.dashboard.analysis.workingCapWarn : t.dashboard.analysis.workingCapBad
+    ),
     type: r.workingCapMonths >= 3 ? 'good' : r.workingCapMonths >= 2 ? 'warn' : 'bad',
   });
 
@@ -99,22 +102,31 @@ export default function AnalysisReport({ results: r, model, rent, totalInvestmen
   const totalProfit12 = r.months.reduce((s, m) => s + m.netProfit, 0);
   paras.push({
     icon: '📊',
-    title: 'Quỹ đạo lợi nhuận 12 tháng',
-    body: `Tháng 1: ${profitM1 >= 0 ? 'lãi' : 'lỗ'} ${formatVND(Math.abs(profitM1))} → Tháng 6: ${profitM6 >= 0 ? 'lãi' : 'lỗ'} ${formatVND(Math.abs(profitM6))} → Tháng 12: ${profitM12 >= 0 ? 'lãi' : 'lỗ'} ${formatVND(Math.abs(profitM12))}. Tổng lợi nhuận 12 tháng: ${totalProfit12 >= 0 ? '' : 'lỗ '}${formatVND(Math.abs(totalProfit12))}. ${
-      totalProfit12 > 0 ? 'Sau 1 năm, bạn đã bắt đầu thu hồi vốn đầu tư ban đầu.' : 'Sau 1 năm, bạn vẫn chưa thu hồi được vốn. Cần xem xét lại mô hình kinh doanh.'
-    }`,
+    title: t.dashboard.analysis.profitTrajectoryTitle,
+    body: tpl(t.dashboard.analysis.totalProfit12, {
+      m1Sign: profitM1 >= 0 ? t.dashboard.analysis.profitLabel : t.dashboard.analysis.lossLabel,
+      m1: formatVND(Math.abs(profitM1)),
+      m6Sign: profitM6 >= 0 ? t.dashboard.analysis.profitLabel : t.dashboard.analysis.lossLabel,
+      m6: formatVND(Math.abs(profitM6)),
+      m12Sign: profitM12 >= 0 ? t.dashboard.analysis.profitLabel : t.dashboard.analysis.lossLabel,
+      m12: formatVND(Math.abs(profitM12)),
+      totalSign: totalProfit12 >= 0 ? '' : t.dashboard.analysis.lossLabel + ' ',
+      total: formatVND(Math.abs(totalProfit12)),
+    }) + ' ' + (
+      totalProfit12 > 0 ? t.dashboard.analysis.profitTrajectoryGood : t.dashboard.analysis.profitTrajectoryBad
+    ),
     type: totalProfit12 > 0 ? 'good' : 'bad',
   });
 
   // 8. Key recommendation
-  const topRisk = r.rentRatio > 25 ? 'thuê mặt bằng quá cao' : r.primeCost > 70 ? 'prime cost quá cao' : r.workingCapMonths < 2 ? 'vốn dự phòng quá mỏng' : !profitable ? 'chưa có lãi ở trạng thái ổn định' : '';
+  const topRisk = r.rentRatio > 25 ? t.dashboard.analysis.topRiskRent : r.primeCost > 70 ? t.dashboard.analysis.topRiskPrimeCost : r.workingCapMonths < 2 ? t.dashboard.analysis.topRiskWorkingCap : !profitable ? t.dashboard.analysis.topRiskNoProfit : '';
   if (topRisk) {
     paras.push({
       icon: '💡',
-      title: 'Khuyến nghị quan trọng nhất',
-      body: `Rủi ro lớn nhất hiện tại: ${topRisk}. ${
-        r.rentRatio > 25 ? 'Ưu tiên tìm mặt bằng thuê thấp hơn — đây là yếu tố ảnh hưởng lớn nhất đến khả năng sinh lời.' : r.primeCost > 70 ? 'Cần tối ưu hóa chi phí nguyên vật liệu (đàm phán NCC, giảm hao hụt) hoặc tinh gọn nhân sự.' : r.workingCapMonths < 2 ? 'Hãy chuẩn bị thêm vốn dự phòng trước khi bắt đầu. "Hết tiền" là cách phổ biến nhất mà các quán F&B đóng cửa.' : 'Xem xét tăng giá bill trung bình, giảm chi phí, hoặc tăng lượng khách để đạt điểm hòa vốn.'
-      }`,
+      title: t.dashboard.analysis.recommendationTitle,
+      body: tpl(t.dashboard.analysis.riskIntro, { risk: topRisk }) + ' ' + (
+        r.rentRatio > 25 ? t.dashboard.analysis.adviceRent : r.primeCost > 70 ? t.dashboard.analysis.advicePrimeCost : r.workingCapMonths < 2 ? t.dashboard.analysis.adviceWorkingCap : t.dashboard.analysis.adviceGeneral
+      ),
       type: 'warn',
     });
   }
@@ -131,7 +143,7 @@ export default function AnalysisReport({ results: r, model, rent, totalInvestmen
       {/* Header */}
       <div className="flex items-center justify-between mb-1">
         <h4 className="text-[13px] font-semibold font-[family-name:var(--font-heading)] uppercase tracking-wider text-text-muted">
-          Phân tích chi tiết
+          {t.dashboard.analysis.sectionTitle}
         </h4>
         <span className={`text-[14px] font-bold font-[family-name:var(--font-heading)] ${scoreColor}`}>
           {r.score}/100 — {scoreLabel}
@@ -153,7 +165,7 @@ export default function AnalysisReport({ results: r, model, rent, totalInvestmen
 
       {/* Disclaimer */}
       <p className="text-[11px] text-text-muted italic text-center pt-1">
-        * Phân tích dựa trên dữ liệu bạn nhập và benchmark ngành. Kết quả thực tế có thể khác tùy vào điều kiện thị trường.
+        {t.dashboard.analysis.disclaimer}
       </p>
     </div>
   );

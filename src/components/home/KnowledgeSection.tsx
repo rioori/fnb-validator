@@ -2,34 +2,30 @@
 
 import { useState } from 'react';
 import { motion } from 'framer-motion';
+import Link from 'next/link';
 import { KNOWLEDGE_BASE } from '@/lib/constants';
 import KBTopicCard from '@/components/knowledge/KBTopicCard';
 import Icon from '@/components/ui/Icon';
+import { useTranslation } from '@/i18n/LocaleProvider';
 import type { KBCategory } from '@/types';
-
-const STATS = [
-  { label: 'Tỷ lệ đóng cửa/năm', value: '~30%', sub: 'quán F&B tại VN' },
-  { label: 'Lý do #1', value: 'Thiếu vốn', sub: '+ chi phí thực > dự tính' },
-  { label: 'Thời gian hoàn vốn TB', value: '8-18 tháng', sub: 'nếu quản lý tốt' },
-  { label: 'Prime Cost an toàn', value: '<65%', sub: 'NVL + Nhân sự / DT' },
-];
-
-const CATEGORY_CONFIG: Record<'all' | KBCategory, { label: string }> = {
-  all: { label: 'Tất cả' },
-  cost: { label: 'Chi phí' },
-  operations: { label: 'Vận hành' },
-  strategy: { label: 'Chiến lược' },
-  legal: { label: 'Pháp lý' },
-};
 
 type FilterType = 'all' | KBCategory;
 
 export default function KnowledgeSection() {
+  const { t } = useTranslation();
   const [filter, setFilter] = useState<FilterType>('all');
 
   const filtered = filter === 'all'
     ? KNOWLEDGE_BASE
-    : KNOWLEDGE_BASE.filter((t) => t.category === filter);
+    : KNOWLEDGE_BASE.filter((item) => item.category === filter);
+
+  const CATEGORY_CONFIG: Record<'all' | KBCategory, { label: string }> = {
+    all: { label: t.knowledge.section.filterAll },
+    cost: { label: t.knowledge.categories.cost },
+    operations: { label: t.knowledge.categories.operations },
+    strategy: { label: t.knowledge.categories.strategy },
+    legal: { label: t.knowledge.categories.legal },
+  };
 
   const filterOptions = Object.entries(CATEGORY_CONFIG) as [FilterType, { label: string }][];
 
@@ -40,10 +36,10 @@ export default function KnowledgeSection() {
         <div className="text-center">
           <Icon name="book" size={48} className="mx-auto mb-2" />
           <h2 className="text-lg font-bold text-text font-[family-name:var(--font-heading)]">
-            Kiến thức F&B cơ bản
+            {t.knowledge.section.heading}
           </h2>
           <p className="text-[13px] text-text-muted mt-1 max-w-[520px] mx-auto">
-            Tổng hợp kiến thức nền tảng cho người chuẩn bị mở quán F&B — từ chi phí, vận hành, chiến lược đến pháp lý.
+            {t.knowledge.section.desc}
           </p>
         </div>
       </div>
@@ -56,10 +52,10 @@ export default function KnowledgeSection() {
         transition={{ delay: 0.1, duration: 0.4 }}
       >
         <h3 className="text-[11px] font-bold font-[family-name:var(--font-heading)] uppercase tracking-wider text-text-muted mb-3 text-center">
-          Bạn cần biết
+          {t.knowledge.section.needToKnow}
         </h3>
         <div className="grid grid-cols-4 gap-2 max-md:grid-cols-2">
-          {STATS.map((stat) => (
+          {t.knowledge.sectionStats.map((stat) => (
             <div key={stat.label} className="text-center p-2 rounded-xl bg-surface3/50">
               <span className="text-[18px] font-bold font-[family-name:var(--font-heading)] text-text block max-md:text-[15px]">
                 {stat.value}
@@ -113,6 +109,14 @@ export default function KnowledgeSection() {
             transition={{ type: 'spring', stiffness: 300, damping: 24 }}
           >
             <KBTopicCard topic={topic} defaultOpen={index === 0} />
+            <div className="text-right -mt-1 mb-3 mr-2">
+              <Link
+                href={`/kien-thuc/${topic.slug}`}
+                className="text-[11px] text-cta hover:underline"
+              >
+                {t.knowledge.section.viewArticle}
+              </Link>
+            </div>
           </motion.div>
         ))}
       </motion.div>
@@ -120,15 +124,15 @@ export default function KnowledgeSection() {
       {/* Empty state */}
       {filtered.length === 0 && (
         <div className="text-center py-8 text-text-muted text-[13px]">
-          Không có nội dung cho danh mục này.
+          {t.knowledge.section.emptyState}
         </div>
       )}
 
       {/* Footer note */}
       <p className="text-center text-[11px] text-text-muted italic mt-4">
-        Nội dung tổng hợp từ kinh nghiệm thực tế và số liệu thị trường F&B Việt Nam 2024-2025.
+        {t.knowledge.section.footerNote}
         <br />
-        Sử dụng công cụ Thẩm định để tính toán cụ thể cho mô hình của bạn.
+        {t.knowledge.section.footerNoteLine2}
       </p>
     </div>
   );

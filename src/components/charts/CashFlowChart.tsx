@@ -3,14 +3,16 @@
 import { AreaChart, Area, XAxis, YAxis, CartesianGrid, Legend, ResponsiveContainer, Tooltip, ReferenceLine } from 'recharts';
 import type { MonthData } from '@/types';
 import { formatVND } from '@/lib/format';
+import { useTranslation } from '@/i18n/LocaleProvider';
 
 interface CashFlowChartProps {
   months: MonthData[];
 }
 
 export default function CashFlowChart({ months }: CashFlowChartProps) {
+  const { t } = useTranslation();
   const data = months.map(m => ({
-    name: 'T' + m.month,
+    name: t.dashboard.charts.monthPrefix + m.month,
     cumulative: Math.round(m.cumulativeProfit),
   }));
 
@@ -24,7 +26,7 @@ export default function CashFlowChart({ months }: CashFlowChartProps) {
           <Tooltip formatter={(value) => formatVND(Number(value))} labelStyle={{ fontFamily: 'Montserrat, system-ui, sans-serif', fontWeight: 600 }} />
           <Legend wrapperStyle={{ fontSize: 12, fontFamily: 'Montserrat, system-ui, sans-serif' }} iconType="circle" />
           <ReferenceLine y={0} stroke="#E4E4E7" strokeDasharray="4 4" />
-          <Area dataKey="cumulative" name="Lãi/lỗ tích lũy" stroke="#2D3748" fill="rgba(152,255,152,0.15)" strokeWidth={2.5} dot={{ r: 4, fill: '#2D3748', stroke: '#fff', strokeWidth: 2 }} />
+          <Area dataKey="cumulative" name={t.dashboard.charts.cumulativeProfitLoss} stroke="#2D3748" fill="rgba(152,255,152,0.15)" strokeWidth={2.5} dot={{ r: 4, fill: '#2D3748', stroke: '#fff', strokeWidth: 2 }} />
         </AreaChart>
       </ResponsiveContainer>
     </div>

@@ -7,6 +7,7 @@ import VNDInput from '@/components/ui/VNDInput';
 import Tooltip from '@/components/ui/Tooltip';
 import NavButtons from '@/components/ui/NavButtons';
 import { formatVND, formatFullVND } from '@/lib/format';
+import { useTranslation, tpl } from '@/i18n/LocaleProvider';
 
 function SubtotalBar({ label, amount, total }: { label: string; amount: number; total: number }) {
   const pct = total > 0 ? (amount / total * 100) : 0;
@@ -23,6 +24,7 @@ function SubtotalBar({ label, amount, total }: { label: string; amount: number; 
 }
 
 export default function StepInvestment() {
+  const { t } = useTranslation();
   const store = useWizardStore();
   const deposit = store.getDeposit();
   const totalInv = store.getTotalInvestment();
@@ -33,11 +35,11 @@ export default function StepInvestment() {
   const khacTotal = store.getDynTotal(store.invKhac);
 
   const cats = [
-    { name: 'Mặt bằng', val: matbangTotal, color: 'var(--color-text)' },
-    { name: 'Xây dựng', val: xaydungTotal, color: 'var(--color-primary)' },
-    { name: 'Thiết bị', val: thietbiTotal, color: 'var(--color-secondary)' },
-    { name: 'Khác', val: khacTotal, color: 'var(--color-mint)' },
-    { name: 'Dự phòng', val: store.workingCap, color: 'var(--color-cta)' },
+    { name: t.wizard.stepInvestment.catPremises, val: matbangTotal, color: 'var(--color-text)' },
+    { name: t.wizard.stepInvestment.catConstruction, val: xaydungTotal, color: 'var(--color-primary)' },
+    { name: t.wizard.stepInvestment.catEquipment, val: thietbiTotal, color: 'var(--color-secondary)' },
+    { name: t.wizard.stepInvestment.catOther, val: khacTotal, color: 'var(--color-mint)' },
+    { name: t.wizard.stepInvestment.catReserve, val: store.workingCap, color: 'var(--color-cta)' },
   ].filter(c => c.val > 0);
 
   const overBudget = store.budget > 0 && totalInv > store.budget;
@@ -45,18 +47,18 @@ export default function StepInvestment() {
   return (
     <div>
       <h2 className="text-lg font-bold mb-1 text-text font-[family-name:var(--font-heading)]">
-        Vốn đầu tư ban đầu
+        {t.wizard.stepInvestment.title}
       </h2>
       <p className="text-text-muted text-[13px] mb-3">
-        Tổng tiền cần bỏ ra trước khi mở cửa. Bạn có thể thêm/sửa/xóa các mục tùy ý.
+        {t.wizard.stepInvestment.desc}
       </p>
 
       {/* Mặt bằng */}
-      <SectionCard title="Mặt bằng">
+      <SectionCard title={t.wizard.stepInvestment.sectionPremises}>
         <div className="mb-4">
           <label className="block font-medium text-[13px] mb-1.5 text-text">
-            Tiền cọc
-            <Tooltip text="Thường từ 1-6 tháng tiền thuê, tùy chủ nhà. Trung tâm thường đòi 3-6 tháng, ngoại ô 1-3 tháng." />
+            {t.wizard.stepInvestment.labelDeposit}
+            <Tooltip text={t.wizard.stepInvestment.tooltipDeposit} />
           </label>
           <div className="flex gap-2 items-center">
             <div className="flex-1">
@@ -73,11 +75,11 @@ export default function StepInvestment() {
               className="w-[120px] clay-input !px-2 !py-2.5 text-sm font-[family-name:var(--font-body)] text-text shrink-0"
             >
               {[1,2,3,4,5,6].map(m => (
-                <option key={m} value={m}>{m} tháng thuê</option>
+                <option key={m} value={m}>{tpl(t.wizard.stepInvestment.depositMonthsOption, { n: m })}</option>
               ))}
             </select>
           </div>
-          <p className="text-[11px] text-text-muted mt-1">Chọn số tháng hoặc nhập trực tiếp số tiền cọc.</p>
+          <p className="text-[11px] text-text-muted mt-1">{t.wizard.stepInvestment.depositHint}</p>
         </div>
         <DynItemList
           items={store.invMatbang}
@@ -85,46 +87,46 @@ export default function StepInvestment() {
           onRemove={(id) => store.removeInvItem('invMatbang', id)}
           onUpdate={(id, field, value) => store.updateInvItem('invMatbang', id, field, value)}
         />
-        <SubtotalBar label="Tổng mặt bằng" amount={matbangTotal} total={totalInv} />
+        <SubtotalBar label={t.wizard.stepInvestment.subtotalPremises} amount={matbangTotal} total={totalInv} />
       </SectionCard>
 
       {/* Xây dựng */}
-      <SectionCard title="Xây dựng & Trang trí">
+      <SectionCard title={t.wizard.stepInvestment.sectionConstruction}>
         <DynItemList
           items={store.invXaydung}
           onAdd={() => store.addInvItem('invXaydung')}
           onRemove={(id) => store.removeInvItem('invXaydung', id)}
           onUpdate={(id, field, value) => store.updateInvItem('invXaydung', id, field, value)}
         />
-        <SubtotalBar label="Tổng xây dựng" amount={xaydungTotal} total={totalInv} />
+        <SubtotalBar label={t.wizard.stepInvestment.subtotalConstruction} amount={xaydungTotal} total={totalInv} />
       </SectionCard>
 
       {/* Thiết bị */}
-      <SectionCard title="Thiết bị">
+      <SectionCard title={t.wizard.stepInvestment.sectionEquipment}>
         <DynItemList
           items={store.invThietbi}
           onAdd={() => store.addInvItem('invThietbi')}
           onRemove={(id) => store.removeInvItem('invThietbi', id)}
           onUpdate={(id, field, value) => store.updateInvItem('invThietbi', id, field, value)}
         />
-        <SubtotalBar label="Tổng thiết bị" amount={thietbiTotal} total={totalInv} />
+        <SubtotalBar label={t.wizard.stepInvestment.subtotalEquipment} amount={thietbiTotal} total={totalInv} />
       </SectionCard>
 
       {/* Khác */}
-      <SectionCard title="Khác">
+      <SectionCard title={t.wizard.stepInvestment.sectionOther}>
         <DynItemList
           items={store.invKhac}
           onAdd={() => store.addInvItem('invKhac')}
           onRemove={(id) => store.removeInvItem('invKhac', id)}
           onUpdate={(id, field, value) => store.updateInvItem('invKhac', id, field, value)}
         />
-        <SubtotalBar label="Tổng khác" amount={khacTotal} total={totalInv} />
+        <SubtotalBar label={t.wizard.stepInvestment.subtotalOther} amount={khacTotal} total={totalInv} />
       </SectionCard>
 
       {/* Vốn lưu động */}
-      <SectionCard title={<>Vốn lưu động dự phòng <Tooltip text="Tiền dự trữ để trả chi phí 2-3 tháng đầu khi chưa đủ khách. Thiếu khoản này là nguyên nhân phá sản số 1!" /></>}>
+      <SectionCard title={<>{t.wizard.stepInvestment.sectionWorkingCap} <Tooltip text={t.wizard.stepInvestment.tooltipWorkingCap} /></>}>
         <VNDInput value={store.workingCap} onChange={store.setWorkingCap} />
-        <SubtotalBar label="Dự phòng" amount={store.workingCap} total={totalInv} />
+        <SubtotalBar label={t.wizard.stepInvestment.subtotalWorkingCap} amount={store.workingCap} total={totalInv} />
       </SectionCard>
 
       {/* Breakdown */}
@@ -149,7 +151,7 @@ export default function StepInvestment() {
       {/* Running Total */}
       <div className="rounded-2xl bg-text py-4 px-5 text-center text-white mt-3 relative overflow-hidden border-2 border-text">
         <div className="text-[11px] opacity-60 font-medium uppercase tracking-widest mb-0.5">
-          TỔNG VỐN ĐẦU TƯ BAN ĐẦU
+          {t.wizard.stepInvestment.totalLabel}
         </div>
         <div className="text-2xl font-bold font-[family-name:var(--font-heading)] tracking-tight max-md:text-xl">
           {formatFullVND(totalInv)}
@@ -158,11 +160,11 @@ export default function StepInvestment() {
           <div className="mt-2">
             {overBudget ? (
               <span className="clay-pill !bg-danger/20 !text-red-300 !border-red-400/30">
-                Vượt ngân sách {formatVND(totalInv - store.budget)}
+                {tpl(t.wizard.stepInvestment.overBudget, { amount: formatVND(totalInv - store.budget) })}
               </span>
             ) : (
               <span className="clay-pill !bg-success/20 !text-green-300 !border-green-400/30">
-                Trong ngân sách ({formatVND(store.budget)})
+                {tpl(t.wizard.stepInvestment.withinBudget, { budget: formatVND(store.budget) })}
               </span>
             )}
           </div>

@@ -4,8 +4,10 @@ import { useWizardStore } from '@/hooks/useWizardStore';
 import SectionCard from '@/components/ui/SectionCard';
 import Tooltip from '@/components/ui/Tooltip';
 import NavButtons from '@/components/ui/NavButtons';
+import { useTranslation, tpl } from '@/i18n/LocaleProvider';
 
 export default function StepLocation() {
+  const { t } = useTranslation();
   const store = useWizardStore();
 
   const seatRatio = store.sqm > 0 && store.seats > 0 ? store.sqm / store.seats : 0;
@@ -14,86 +16,86 @@ export default function StepLocation() {
   return (
     <div>
       <h2 className="text-lg font-bold mb-1 text-text font-[family-name:var(--font-heading)]">
-        Vị trí & Quy mô
+        {t.wizard.stepLocation.title}
       </h2>
       <p className="text-text-muted text-[13px] mb-3">
-        Địa điểm quyết định 80% thành bại. Hãy chọn kỹ!
+        {t.wizard.stepLocation.desc}
       </p>
 
-      <SectionCard title="Địa điểm">
+      <SectionCard title={t.wizard.stepLocation.sectionLocation}>
         <div className="grid grid-cols-2 gap-3.5 max-md:grid-cols-1">
           <div>
-            <label className="block font-medium text-[13px] mb-1.5 text-text">Thành phố</label>
+            <label className="block font-medium text-[13px] mb-1.5 text-text">{t.wizard.stepLocation.labelCity}</label>
             <select value={store.city} onChange={(e) => store.setCity(e.target.value)} className="w-full clay-input font-[family-name:var(--font-body)] text-text">
-              <option value="hcm">TP. Hồ Chí Minh</option>
-              <option value="hanoi">Hà Nội</option>
-              <option value="danang">Đà Nẵng</option>
-              <option value="other">Tỉnh/thành khác</option>
+              <option value="hcm">{t.wizard.stepLocation.cities.hcm}</option>
+              <option value="hanoi">{t.wizard.stepLocation.cities.hanoi}</option>
+              <option value="danang">{t.wizard.stepLocation.cities.danang}</option>
+              <option value="other">{t.wizard.stepLocation.cities.other}</option>
             </select>
           </div>
           <div>
-            <label className="block font-medium text-[13px] mb-1.5 text-text">Khu vực</label>
+            <label className="block font-medium text-[13px] mb-1.5 text-text">{t.wizard.stepLocation.labelArea}</label>
             <select value={store.area} onChange={(e) => store.setArea(e.target.value)} className="w-full clay-input font-[family-name:var(--font-body)] text-text">
-              <option value="center">Quận trung tâm</option>
-              <option value="suburb">Quận ngoại ô</option>
-              <option value="residential">Khu dân cư</option>
-              <option value="mall">Trung tâm thương mại</option>
+              <option value="center">{t.wizard.stepLocation.areas.center}</option>
+              <option value="suburb">{t.wizard.stepLocation.areas.suburb}</option>
+              <option value="residential">{t.wizard.stepLocation.areas.residential}</option>
+              <option value="mall">{t.wizard.stepLocation.areas.mall}</option>
             </select>
           </div>
         </div>
       </SectionCard>
 
-      <SectionCard title="Quy mô">
+      <SectionCard title={t.wizard.stepLocation.sectionScale}>
         <div className="grid grid-cols-3 gap-3.5 max-md:grid-cols-1">
           <div>
             <label className="block font-medium text-[13px] mb-1.5 text-text">
-              Diện tích kê bàn ghế (m²)
-              <Tooltip text="Chỉ tính phần dành cho khách ngồi, KHÔNG tính bếp/kho. Bếp thường chiếm thêm 30-40% diện tích." />
+              {t.wizard.stepLocation.labelSqm}
+              <Tooltip text={t.wizard.stepLocation.tooltipSqm} />
             </label>
             <input type="text" inputMode="numeric" value={store.sqm || ''} onChange={(e) => store.setSqm(parseInt(e.target.value.replace(/\D/g, '')) || 0)} placeholder="0" className="w-full clay-input font-[family-name:var(--font-body)] text-text" />
           </div>
           <div>
-            <label className="block font-medium text-[13px] mb-1.5 text-text">Số chỗ ngồi</label>
+            <label className="block font-medium text-[13px] mb-1.5 text-text">{t.wizard.stepLocation.labelSeats}</label>
             <input type="text" inputMode="numeric" value={store.seats || ''} onChange={(e) => store.setSeats(parseInt(e.target.value.replace(/\D/g, '')) || 0)} placeholder="0" className="w-full clay-input font-[family-name:var(--font-body)] text-text" />
           </div>
           <div>
-            <label className="block font-medium text-[13px] mb-1.5 text-text">Ngày mở cửa/tuần</label>
+            <label className="block font-medium text-[13px] mb-1.5 text-text">{t.wizard.stepLocation.labelDaysPerWeek}</label>
             <select value={store.daysPerWeek} onChange={(e) => store.setDaysPerWeek(parseInt(e.target.value))} className="w-full clay-input font-[family-name:var(--font-body)] text-text">
-              <option value="7">7 ngày</option>
-              <option value="6">6 ngày</option>
-              <option value="5">5 ngày</option>
+              <option value="7">{tpl(t.wizard.stepLocation.daysOption, { n: 7 })}</option>
+              <option value="6">{tpl(t.wizard.stepLocation.daysOption, { n: 6 })}</option>
+              <option value="5">{tpl(t.wizard.stepLocation.daysOption, { n: 5 })}</option>
             </select>
           </div>
         </div>
         {seatRatio > 0 && seatRatio < 1 && (
           <div className="mt-2 px-4 py-2.5 rounded-2xl text-[13px] bg-danger/10 text-danger border-2 border-danger/30 font-medium">
-            ⚠ Quá chật! Cần tối thiểu 1m²/chỗ ngồi. Hiện: {seatRatio.toFixed(1)}m²/chỗ.
+            {tpl(t.wizard.stepLocation.alertTooCramped, { ratio: seatRatio.toFixed(1) })}
           </div>
         )}
         {seatRatio >= 1 && seatRatio < 1.3 && (
           <div className="mt-2 px-4 py-2.5 rounded-2xl text-[13px] bg-primary-light text-text border-2 border-border font-medium">
-            ⚠ Hơi chật ({seatRatio.toFixed(1)}m²/chỗ). Lý tưởng: 1.3-2m²/chỗ.
+            {tpl(t.wizard.stepLocation.alertSlightlyTight, { ratio: seatRatio.toFixed(1) })}
           </div>
         )}
         {seatRatio >= 1.3 && seatRatio <= 3 && (
           <div className="mt-2 px-4 py-2.5 rounded-2xl text-[13px] bg-mint-light text-text border-2 border-border font-medium">
-            ✓ Hợp lý ({seatRatio.toFixed(1)}m²/chỗ ngồi)
+            {tpl(t.wizard.stepLocation.alertReasonable, { ratio: seatRatio.toFixed(1) })}
           </div>
         )}
         {seatRatio > 3 && (
           <div className="mt-2 px-4 py-2.5 rounded-2xl text-[13px] bg-primary-light text-text border-2 border-border font-medium">
-            ⚠ Quá rộng ({seatRatio.toFixed(1)}m²/chỗ) — lãng phí diện tích, chi phí thuê cao. Nên &lt;3m²/chỗ.
+            {tpl(t.wizard.stepLocation.alertTooSpacious, { ratio: seatRatio.toFixed(1) })}
           </div>
         )}
       </SectionCard>
 
-      <SectionCard title={<>Kênh bán hàng <Tooltip text="Tỷ lệ doanh thu dự kiến từ mỗi kênh. Giao hàng app sẽ bị trừ phí hoa hồng 20-30%." /></>}>
-        <p className="text-xs text-text-muted mb-2">Nhập phần trăm dự kiến cho mỗi kênh (tổng nên = 100%)</p>
+      <SectionCard title={<>{t.wizard.stepLocation.sectionChannels} <Tooltip text={t.wizard.stepLocation.tooltipChannels} /></>}>
+        <p className="text-xs text-text-muted mb-2">{t.wizard.stepLocation.channelsHint}</p>
         <div className="grid grid-cols-3 gap-3 max-md:grid-cols-1">
           {[
-            { label: 'Tại quán', value: store.chDinein, set: (v: number) => store.setChannels(v, store.chTakeaway, store.chDelivery) },
-            { label: 'Mang về', value: store.chTakeaway, set: (v: number) => store.setChannels(store.chDinein, v, store.chDelivery) },
-            { label: 'Giao hàng app', value: store.chDelivery, set: (v: number) => store.setChannels(store.chDinein, store.chTakeaway, v) },
+            { label: t.wizard.stepLocation.channelDinein, value: store.chDinein, set: (v: number) => store.setChannels(v, store.chTakeaway, store.chDelivery) },
+            { label: t.wizard.stepLocation.channelTakeaway, value: store.chTakeaway, set: (v: number) => store.setChannels(store.chDinein, v, store.chDelivery) },
+            { label: t.wizard.stepLocation.channelDelivery, value: store.chDelivery, set: (v: number) => store.setChannels(store.chDinein, store.chTakeaway, v) },
           ].map(({ label, value, set }) => (
             <div key={label} className="text-center">
               <label className="text-[13px] font-medium block mb-1 text-text-muted">{label}</label>
@@ -106,7 +108,7 @@ export default function StepLocation() {
         </div>
         {channelSum !== 100 && (
           <div className="mt-2 px-4 py-2.5 rounded-2xl text-[13px] bg-primary-light text-text border-2 border-text font-medium">
-            Tổng đang = {channelSum}% (cần = 100%)
+            {tpl(t.wizard.stepLocation.channelSumWarning, { sum: channelSum })}
           </div>
         )}
       </SectionCard>

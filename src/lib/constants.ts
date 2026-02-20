@@ -153,6 +153,7 @@ export const KNOWLEDGE_BASE: KBTopic[] = [
   // ── CHI PHÍ ──
   {
     id: 'cost_structure',
+    slug: 'cau-truc-chi-phi-fnb',
     icon: 'money',
     title: 'Cấu trúc chi phí F&B',
     subtitle: 'Hiểu tiền đi đâu trước khi bắt đầu',
@@ -197,6 +198,7 @@ export const KNOWLEDGE_BASE: KBTopic[] = [
   },
   {
     id: 'key_metrics',
+    slug: 'cac-chi-so-song-con',
     icon: 'chart',
     title: 'Các chỉ số sống còn',
     subtitle: '4 con số quyết định quán sống hay chết',
@@ -249,6 +251,7 @@ export const KNOWLEDGE_BASE: KBTopic[] = [
   // ── VẬN HÀNH ──
   {
     id: 'business_models',
+    slug: 'mo-hinh-fnb-pho-bien',
     icon: 'kiosk',
     title: 'Mô hình F&B phổ biến',
     subtitle: 'Mỗi loại có đặc điểm riêng',
@@ -293,6 +296,7 @@ export const KNOWLEDGE_BASE: KBTopic[] = [
   },
   {
     id: 'lifecycle',
+    slug: 'vong-doi-quan-fnb',
     icon: 'trending',
     title: 'Vòng đời quán F&B',
     subtitle: 'Đừng kỳ vọng lãi từ tháng đầu',
@@ -332,6 +336,7 @@ export const KNOWLEDGE_BASE: KBTopic[] = [
   // ── CHIẾN LƯỢC ──
   {
     id: 'pricing_strategy',
+    slug: 'dinh-gia-menu',
     icon: 'money',
     title: 'Định giá menu',
     subtitle: 'Nghệ thuật đặt giá để có lãi',
@@ -377,6 +382,7 @@ export const KNOWLEDGE_BASE: KBTopic[] = [
   },
   {
     id: 'marketing_101',
+    slug: 'marketing-fnb-co-ban',
     icon: 'megaphone',
     title: 'Marketing F&B cơ bản',
     subtitle: 'Có quán ngon mà không ai biết = thất bại',
@@ -420,6 +426,7 @@ export const KNOWLEDGE_BASE: KBTopic[] = [
   // ── VẬN HÀNH (tiếp) ──
   {
     id: 'common_mistakes',
+    slug: 'loi-thuong-gap',
     icon: 'warning',
     title: 'Lỗi thường gặp',
     subtitle: '80% quán đóng cửa vì những lỗi này',
@@ -447,6 +454,7 @@ export const KNOWLEDGE_BASE: KBTopic[] = [
   // ── CHI PHÍ (tiếp) ──
   {
     id: 'financial_management',
+    slug: 'quan-ly-tai-chinh',
     icon: 'chart',
     title: 'Quản lý tài chính',
     subtitle: 'Tiền vào, tiền ra — phải rõ từng đồng',
@@ -494,6 +502,7 @@ export const KNOWLEDGE_BASE: KBTopic[] = [
   // ── PHÁP LÝ ──
   {
     id: 'legal_basics',
+    slug: 'phap-ly-giay-phep',
     icon: 'legal',
     title: 'Pháp lý & Giấy phép',
     subtitle: 'Đừng mở quán khi chưa đủ giấy tờ',
@@ -544,6 +553,7 @@ export const KNOWLEDGE_BASE: KBTopic[] = [
   // ── PHÁP LÝ (tiếp) ──
   {
     id: 'business_registration',
+    slug: 'ho-kinh-doanh-hay-cong-ty',
     icon: 'building',
     title: 'Hộ kinh doanh hay Công ty?',
     subtitle: 'Không phải lúc nào cũng cần mở công ty',
@@ -637,6 +647,7 @@ export const KNOWLEDGE_BASE: KBTopic[] = [
   // ── CHIẾN LƯỢC (tiếp) ──
   {
     id: 'checklist_mindset',
+    slug: 'tu-duy-chuan-bi',
     icon: 'check',
     title: 'Tư duy chuẩn bị',
     subtitle: 'Validate trước, mở quán sau',
@@ -677,6 +688,16 @@ export const KNOWLEDGE_BASE: KBTopic[] = [
 ];
 
 // Index 0 unused — months are 1-indexed
+/** Find a KB topic by its URL slug */
+export function getKBTopicBySlug(slug: string): KBTopic | undefined {
+  return KNOWLEDGE_BASE.find((t) => t.slug === slug);
+}
+
+/** Get all KB slugs (for generateStaticParams) */
+export function getAllKBSlugs(): string[] {
+  return KNOWLEDGE_BASE.map((t) => t.slug);
+}
+
 export const SEASONAL = [1, 0.85, 0.75, 1, 1.05, 1, 0.95, 0.95, 1, 1, 1.05, 1.1, 1.15];
 
 export const RAMP_DEFAULT = [0.45, 0.6, 0.7, 0.8, 0.9, 1];

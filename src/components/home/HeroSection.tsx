@@ -5,42 +5,33 @@ import Image from 'next/image';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useWizardStore } from '@/hooks/useWizardStore';
 import Icon from '@/components/ui/Icon';
-import { MODELS } from '@/lib/constants';
-import type { ModelKey } from '@/types';
+import { useTranslation } from '@/i18n/LocaleProvider';
+import { useModels } from '@/hooks/useModels';
+import type { ModelKey, FnBModel } from '@/types';
 import type { HomeView } from './HomePage';
 
-const QUOTES = [
-  'F&B là ngành mà ai cũng nghĩ mình làm được, cho đến khi thực sự làm.',
-  'Quán ngon chưa chắc sống, nhưng quán biết quản lý thì chắc chắn trụ được.',
-  'Quán đóng cửa không phải là thất bại — đó là học phí để lần sau mở đúng hơn.',
-  'Người thắng trong F&B không phải người có ý tưởng hay nhất, mà là người chuẩn bị kỹ nhất.',
-  'Trước khi hỏi "mở quán gì?", hãy hỏi "mình chịu được bao lâu khi chưa có lãi?"',
-  'Quán có thể nhỏ, nhưng giấc mơ thì không giới hạn.',
-  'F&B thành công không phải vì ý tưởng hay, mà vì người chủ yêu từng chi tiết nhỏ mỗi ngày.',
-];
+const CTA_ICONS = ['wizard', 'bolt', 'chat'] as const;
+const CTA_CLS = ['clay-btn-primary', 'bg-pastel-mint', 'bg-pastel-blue'] as const;
 
 const spring = { type: 'spring' as const, stiffness: 300, damping: 22 };
-
-const CTA_BUTTONS = [
-  { icon: 'wizard', label: 'Thẩm định', desc: 'Phân tích chi tiết 6 bước', cls: 'clay-btn-primary' },
-  { icon: 'bolt', label: 'Tính nhanh', desc: 'Ước tính lợi nhuận 30 giây', cls: 'bg-pastel-mint' },
-  { icon: 'chat', label: 'Chat với AI', desc: 'Hỏi đáp chiến lược F&B', cls: 'bg-pastel-blue' },
-] as const;
 
 interface HeroSectionProps {
   onNavigate: (view: HomeView) => void;
 }
 
 export default function HeroSection({ onNavigate }: HeroSectionProps) {
+  const { t } = useTranslation();
+  const models = useModels();
   const setStep = useWizardStore((s) => s.setStep);
   const [quoteIdx, setQuoteIdx] = useState(0);
+  const quotes = t.fnbHome.quotes;
 
   useEffect(() => {
     const timer = setInterval(() => {
-      setQuoteIdx((prev) => (prev + 1) % QUOTES.length);
+      setQuoteIdx((prev) => (prev + 1) % quotes.length);
     }, 5000);
     return () => clearInterval(timer);
-  }, []);
+  }, [quotes.length]);
 
   const handleCta = (i: number) => {
     if (i === 0) setStep(1);
@@ -56,7 +47,7 @@ export default function HeroSection({ onNavigate }: HeroSectionProps) {
         animate={{ opacity: 1, filter: 'blur(0px)' }}
         transition={{ duration: 0.6 }}
       >
-        <Image src="/logo.png" alt="F&B Validator" width={180} height={113} className="mx-auto mb-1" />
+        <Image src="/logo.png" alt={t.fnbHome.hero.logoAlt} width={180} height={113} className="mx-auto mb-1" />
       </motion.div>
 
       {/* Tagline — fade up */}
@@ -66,7 +57,7 @@ export default function HeroSection({ onNavigate }: HeroSectionProps) {
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.2, duration: 0.5 }}
       >
-        Công cụ miễn phí cho cộng đồng khởi nghiệp F&B tại Việt Nam
+        {t.fnbHome.hero.tagline}
       </motion.p>
 
       {/* Heading — fade up */}
@@ -76,7 +67,7 @@ export default function HeroSection({ onNavigate }: HeroSectionProps) {
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.35, duration: 0.5 }}
       >
-        Thẩm định ý tưởng kinh doanh F&B của bạn
+        {t.fnbHome.hero.heading}
       </motion.h2>
 
       {/* Rotating quotes — AnimatePresence crossfade + slide */}
@@ -90,7 +81,7 @@ export default function HeroSection({ onNavigate }: HeroSectionProps) {
             exit={{ opacity: 0, x: -20 }}
             transition={{ duration: 0.3 }}
           >
-            &ldquo;{QUOTES[quoteIdx]}&rdquo;
+            &ldquo;{quotes[quoteIdx]}&rdquo;
           </motion.p>
         </AnimatePresence>
       </div>
@@ -105,10 +96,10 @@ export default function HeroSection({ onNavigate }: HeroSectionProps) {
           show: { transition: { staggerChildren: 0.1, delayChildren: 0.5 } },
         }}
       >
-        {CTA_BUTTONS.map((btn, i) => (
+        {t.fnbHome.cta.map((btn, i) => (
           <motion.div
             key={btn.label}
-            className="flex flex-col items-center w-[160px]"
+            className="flex flex-col items-center w-[180px]"
             variants={{
               hidden: { opacity: 0, scale: 0.85 },
               show: { opacity: 1, scale: 1 },
@@ -117,12 +108,12 @@ export default function HeroSection({ onNavigate }: HeroSectionProps) {
           >
             <motion.button
               onClick={() => handleCta(i)}
-              className={`clay-btn text-[14px] w-full py-2.5 justify-center ${btn.cls}`}
+              className={`clay-btn text-[14px] w-full py-2.5 justify-center whitespace-nowrap ${CTA_CLS[i]}`}
               whileHover={{ scale: 1.04, y: -2 }}
               whileTap={{ scale: 0.96 }}
               transition={{ type: 'spring', stiffness: 400, damping: 17 }}
             >
-              <Icon name={btn.icon} size={18} className="inline-flex align-text-bottom !border-0 !shadow-none !bg-transparent mr-1" />
+              <Icon name={CTA_ICONS[i]} size={18} className="inline-flex align-text-bottom !border-0 !shadow-none !bg-transparent mr-1" />
               {btn.label}
             </motion.button>
             <span className="text-[10px] text-text-muted mt-1.5">{btn.desc}</span>
@@ -137,14 +128,14 @@ export default function HeroSection({ onNavigate }: HeroSectionProps) {
         animate="show"
         variants={{
           hidden: {},
-          show: { transition: { staggerChildren: 0.04, delayChildren: 0.8 } },
+          show: { transition: { staggerChildren: 0.04, delayChildren: 0.7 } },
         }}
       >
         <h3 className="text-[12px] font-bold font-[family-name:var(--font-heading)] uppercase tracking-wider text-text-muted mb-3">
-          Các mô hình F&B
+          {t.fnbHome.models.sectionTitle}
         </h3>
         <div className="grid grid-cols-8 gap-2 max-[480px]:grid-cols-4">
-          {(Object.entries(MODELS) as [ModelKey, typeof MODELS[ModelKey]][]).map(([key, m]) => (
+          {(Object.entries(models) as [ModelKey, FnBModel][]).map(([key, m]) => (
             <motion.div
               key={key}
               className="rounded-xl py-4 px-2 text-center border border-border-light bg-white/60"

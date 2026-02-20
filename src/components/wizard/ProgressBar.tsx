@@ -1,18 +1,13 @@
 'use client';
 
 import { useWizardStore } from '@/hooks/useWizardStore';
-
-const STEPS = [
-  { num: 1, label: 'Mô hình' },
-  { num: 2, label: 'Vị trí' },
-  { num: 3, label: 'Vốn đầu tư' },
-  { num: 4, label: 'Doanh thu' },
-  { num: 5, label: 'Chi phí' },
-  { num: 6, label: 'Kết quả' },
-];
+import { useTranslation } from '@/i18n/LocaleProvider';
 
 export default function ProgressBar() {
+  const { t } = useTranslation();
   const { currentStep, setStep, selectedModel } = useWizardStore();
+
+  const STEPS = t.wizard.progress.steps.map((label, i) => ({ num: i + 1, label }));
 
   const handleClick = (step: number) => {
     if (step === 1 || selectedModel) setStep(step);

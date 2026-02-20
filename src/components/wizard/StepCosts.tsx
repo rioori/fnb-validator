@@ -10,8 +10,10 @@ import VNDInput from '@/components/ui/VNDInput';
 import Tooltip from '@/components/ui/Tooltip';
 import NavButtons from '@/components/ui/NavButtons';
 import SliderField from '@/components/ui/SliderField';
+import { useTranslation, tpl } from '@/i18n/LocaleProvider';
 
 export default function StepCosts() {
+  const { t } = useTranslation();
   const store = useWizardStore();
   const model = store.selectedModel ? MODELS[store.selectedModel] : null;
 
@@ -41,30 +43,30 @@ export default function StepCosts() {
   return (
     <div>
       <h2 className="text-lg font-bold mb-1 text-text font-[family-name:var(--font-heading)]">
-        Chi phí vận hành hàng tháng
+        {t.wizard.stepCosts.title}
       </h2>
       <p className="text-text-muted text-[13px] mb-3">
-        Mỗi tháng cần trả bao nhiêu? Bạn có thể thêm/sửa mục tùy ý.
+        {t.wizard.stepCosts.desc}
       </p>
 
       {/* Fixed Costs */}
-      <SectionCard title={<>Chi phí cố định <Tooltip text="Phải trả đều đặn dù bán được hay không: thuê, lương, internet..." /></>}>
+      <SectionCard title={<>{t.wizard.stepCosts.sectionFixed} <Tooltip text={t.wizard.stepCosts.tooltipFixed} /></>}>
         <div className="mb-4">
-          <label className="block font-medium text-[13px] mb-1.5 text-text">Tiền thuê (đã nhập ở bước 1)</label>
+          <label className="block font-medium text-[13px] mb-1.5 text-text">{t.wizard.stepCosts.labelRent}</label>
           <VNDInput value={store.rent} onChange={() => {}} readOnly />
         </div>
 
         {/* Staff Table */}
         <div className="mb-4">
-          <label className="block font-medium text-[13px] mb-1.5 text-text">Nhân sự</label>
+          <label className="block font-medium text-[13px] mb-1.5 text-text">{t.wizard.stepCosts.labelStaff}</label>
           <div className="overflow-x-auto">
             <table className="w-full border-collapse text-sm">
               <thead>
                 <tr>
-                  <th className="text-left px-1.5 py-2 border-b border-border text-[11px] text-text-muted font-medium uppercase tracking-wider font-[family-name:var(--font-heading)]">Vị trí</th>
-                  <th className="text-left px-1.5 py-2 border-b border-border text-[11px] text-text-muted font-medium uppercase tracking-wider font-[family-name:var(--font-heading)]">Số người</th>
-                  <th className="text-left px-1.5 py-2 border-b border-border text-[11px] text-text-muted font-medium uppercase tracking-wider font-[family-name:var(--font-heading)]">Lương/người</th>
-                  <th className="text-left px-1.5 py-2 border-b border-border text-[11px] text-text-muted font-medium uppercase tracking-wider font-[family-name:var(--font-heading)]">Tổng</th>
+                  <th className="text-left px-1.5 py-2 border-b border-border text-[11px] text-text-muted font-medium uppercase tracking-wider font-[family-name:var(--font-heading)]">{t.wizard.stepCosts.staffColPosition}</th>
+                  <th className="text-left px-1.5 py-2 border-b border-border text-[11px] text-text-muted font-medium uppercase tracking-wider font-[family-name:var(--font-heading)]">{t.wizard.stepCosts.staffColCount}</th>
+                  <th className="text-left px-1.5 py-2 border-b border-border text-[11px] text-text-muted font-medium uppercase tracking-wider font-[family-name:var(--font-heading)]">{t.wizard.stepCosts.staffColSalary}</th>
+                  <th className="text-left px-1.5 py-2 border-b border-border text-[11px] text-text-muted font-medium uppercase tracking-wider font-[family-name:var(--font-heading)]">{t.wizard.stepCosts.staffColTotal}</th>
                   <th className="px-1.5 py-2 border-b border-border" />
                 </tr>
               </thead>
@@ -94,7 +96,7 @@ export default function StepCosts() {
             </table>
           </div>
           <button onClick={() => store.addStaffRow()} className="mt-2 clay-btn clay-btn-secondary text-xs py-2 px-4 !border-dashed">
-            + Thêm vị trí
+            {t.wizard.stepCosts.addPosition}
           </button>
         </div>
 
@@ -107,13 +109,13 @@ export default function StepCosts() {
               onChange={(e) => store.setBhxhOn(e.target.checked)}
               className="w-4 h-4 mr-1.5 align-middle accent-accent"
             />
-            Có đóng BHXH (27.5%)
-            <Tooltip text="Nếu bạn là hộ kinh doanh cá thể hoặc chưa đăng ký BHXH cho nhân viên, có thể bỏ tick này." />
+            {t.wizard.stepCosts.labelBhxh}
+            <Tooltip text={t.wizard.stepCosts.tooltipBhxh} />
           </label>
           <VNDInput value={bhxh} onChange={() => {}} readOnly />
         </div>
 
-        <h4 className="text-sm font-semibold font-[family-name:var(--font-heading)] my-3">Chi phí cố định khác</h4>
+        <h4 className="text-sm font-semibold font-[family-name:var(--font-heading)] my-3">{t.wizard.stepCosts.sectionFixedOther}</h4>
         <DynItemList
           items={store.fixedOther}
           onAdd={() => store.addFixedOtherItem()}
@@ -124,37 +126,37 @@ export default function StepCosts() {
         {/* Fixed subtotal */}
         <div className="clay-sm bg-secondary-light px-4 py-3 mt-3">
           <div className="flex items-center justify-between text-sm">
-            <span className="text-text-muted">Thuê mặt bằng</span>
+            <span className="text-text-muted">{t.wizard.stepCosts.subtotalRent}</span>
             <span className="font-medium">{formatFullVND(store.rent)} <span className="text-text-muted text-xs">({pct(store.rent)}%)</span></span>
           </div>
           <div className="flex items-center justify-between text-sm mt-1">
-            <span className="text-text-muted">Lương nhân sự</span>
+            <span className="text-text-muted">{t.wizard.stepCosts.subtotalStaff}</span>
             <span className="font-medium">{formatFullVND(staffTotal)} <span className="text-text-muted text-xs">({pct(staffTotal)}%)</span></span>
           </div>
           {bhxh > 0 && (
             <div className="flex items-center justify-between text-sm mt-1">
-              <span className="text-text-muted">BHXH (27.5%)</span>
+              <span className="text-text-muted">{t.wizard.stepCosts.subtotalBhxh}</span>
               <span className="font-medium">{formatFullVND(bhxh)} <span className="text-text-muted text-xs">({pct(bhxh)}%)</span></span>
             </div>
           )}
           {fixedOtherTotal > 0 && (
             <div className="flex items-center justify-between text-sm mt-1">
-              <span className="text-text-muted">Cố định khác</span>
+              <span className="text-text-muted">{t.wizard.stepCosts.subtotalFixedOther}</span>
               <span className="font-medium">{formatFullVND(fixedOtherTotal)} <span className="text-text-muted text-xs">({pct(fixedOtherTotal)}%)</span></span>
             </div>
           )}
           <div className="border-t border-border mt-2 pt-2 flex items-center justify-between">
-            <span className="font-semibold text-sm font-[family-name:var(--font-heading)]">Tổng chi phí cố định</span>
+            <span className="font-semibold text-sm font-[family-name:var(--font-heading)]">{t.wizard.stepCosts.subtotalFixedTotal}</span>
             <span className="font-bold text-base font-[family-name:var(--font-heading)]">{formatFullVND(fixedTotal)} <span className="text-text-muted text-xs font-normal">({pct(fixedTotal)}%)</span></span>
           </div>
         </div>
       </SectionCard>
 
       {/* Variable Costs */}
-      <SectionCard title={<>Chi phí biến đổi <Tooltip text="Tăng/giảm theo doanh thu: nguyên liệu, bao bì, phí app..." /></>}>
+      <SectionCard title={<>{t.wizard.stepCosts.sectionVariable} <Tooltip text={t.wizard.stepCosts.tooltipVariable} /></>}>
         <div className="grid grid-cols-2 gap-3.5 max-md:grid-cols-1">
           <SliderField
-            label="Nguyên vật liệu (% doanh thu)"
+            label={t.wizard.stepCosts.labelCogs}
             value={store.cogsPct}
             min={10}
             max={50}
@@ -162,7 +164,7 @@ export default function StepCosts() {
             hint={model ? `${model.name}: ${model.benchmarks.food_cost[0]}%-${model.benchmarks.food_cost[1]}%` : undefined}
           />
           <SliderField
-            label="Hao hụt / đổ bỏ (% NVL)"
+            label={t.wizard.stepCosts.labelWaste}
             value={store.wastePct}
             min={0}
             max={15}
@@ -170,14 +172,14 @@ export default function StepCosts() {
           />
         </div>
         <SliderField
-          label="Phí app giao hàng (% đơn delivery)"
+          label={t.wizard.stepCosts.labelDeliveryComm}
           value={store.deliveryCommPct}
           min={0}
           max={35}
           onChange={store.setDeliveryCommPct}
-          hint="GrabFood 20-30%, ShopeeFood 15-25%"
+          hint={t.wizard.stepCosts.hintDeliveryComm}
         />
-        <h4 className="text-sm font-semibold font-[family-name:var(--font-heading)] my-3">Chi phí biến đổi khác (hàng tháng)</h4>
+        <h4 className="text-sm font-semibold font-[family-name:var(--font-heading)] my-3">{t.wizard.stepCosts.sectionVarOther}</h4>
         <DynItemList
           items={store.varOther}
           onAdd={() => store.addVarOtherItem()}
@@ -188,29 +190,29 @@ export default function StepCosts() {
         {/* Variable subtotal */}
         <div className="clay-sm bg-secondary-light px-4 py-3 mt-3">
           <div className="flex items-center justify-between text-sm">
-            <span className="text-text-muted">Nguyên vật liệu ({store.cogsPct}%)</span>
+            <span className="text-text-muted">{tpl(t.wizard.stepCosts.subtotalCogs, { pct: store.cogsPct })}</span>
             <span className="font-medium">{formatFullVND(cogsEst)} <span className="text-text-muted text-xs">({pct(cogsEst)}%)</span></span>
           </div>
           {wasteEst > 0 && (
             <div className="flex items-center justify-between text-sm mt-1">
-              <span className="text-text-muted">Hao hụt ({store.wastePct}% NVL)</span>
+              <span className="text-text-muted">{tpl(t.wizard.stepCosts.subtotalWaste, { pct: store.wastePct })}</span>
               <span className="font-medium">{formatFullVND(wasteEst)} <span className="text-text-muted text-xs">({pct(wasteEst)}%)</span></span>
             </div>
           )}
           {delEst > 0 && (
             <div className="flex items-center justify-between text-sm mt-1">
-              <span className="text-text-muted">Phí giao hàng ({store.deliveryCommPct}%)</span>
+              <span className="text-text-muted">{tpl(t.wizard.stepCosts.subtotalDelivery, { pct: store.deliveryCommPct })}</span>
               <span className="font-medium">{formatFullVND(delEst)} <span className="text-text-muted text-xs">({pct(delEst)}%)</span></span>
             </div>
           )}
           {varOtherTotal > 0 && (
             <div className="flex items-center justify-between text-sm mt-1">
-              <span className="text-text-muted">Biến đổi khác</span>
+              <span className="text-text-muted">{t.wizard.stepCosts.subtotalVarOther}</span>
               <span className="font-medium">{formatFullVND(varOtherTotal)} <span className="text-text-muted text-xs">({pct(varOtherTotal)}%)</span></span>
             </div>
           )}
           <div className="border-t border-border mt-2 pt-2 flex items-center justify-between">
-            <span className="font-semibold text-sm font-[family-name:var(--font-heading)]">Tổng chi phí biến đổi</span>
+            <span className="font-semibold text-sm font-[family-name:var(--font-heading)]">{t.wizard.stepCosts.subtotalVarTotal}</span>
             <span className="font-bold text-base font-[family-name:var(--font-heading)]">{formatFullVND(varTotal)} <span className="text-text-muted text-xs font-normal">({pct(varTotal)}%)</span></span>
           </div>
         </div>
@@ -219,20 +221,20 @@ export default function StepCosts() {
       {/* Monthly Total */}
       <div className="rounded-2xl bg-cta py-4 px-5 text-center text-white mt-3 border-2 border-text">
         <div className="text-[11px] opacity-60 font-medium uppercase tracking-widest mb-0.5">
-          TỔNG CHI PHÍ ƯỚC TÍNH / THÁNG (khi ổn định)
+          {t.wizard.stepCosts.monthlyTotalLabel}
         </div>
         <div className="text-2xl font-bold font-[family-name:var(--font-heading)] tracking-tight max-md:text-xl">
           {formatFullVND(monthlyTotal)}
         </div>
         {stableRev > 0 && (
           <div className="text-[13px] opacity-85 mt-1">
-            Chi phí chiếm {costRatio.toFixed(0)}% doanh thu
-            {costRatio > 85 ? ' — Quá cao!' : costRatio > 70 ? ' — Hơi cao' : ' — Hợp lý'}
+            {tpl(t.wizard.stepCosts.costRatioText, { pct: costRatio.toFixed(0) })}
+            {costRatio > 85 ? t.wizard.stepCosts.costRatioHigh : costRatio > 70 ? t.wizard.stepCosts.costRatioSlightlyHigh : t.wizard.stepCosts.costRatioOk}
           </div>
         )}
       </div>
 
-      <NavButtons onBack={store.prevStep} onNext={handleShowResults} nextLabel="Xem kết quả" nextVariant="accent" />
+      <NavButtons onBack={store.prevStep} onNext={handleShowResults} nextLabel={t.wizard.stepCosts.nextLabel} nextVariant="accent" />
     </div>
   );
 }

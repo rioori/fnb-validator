@@ -3,14 +3,16 @@
 import { ComposedChart, Bar, Line, XAxis, YAxis, CartesianGrid, Legend, ResponsiveContainer, Tooltip } from 'recharts';
 import type { MonthData } from '@/types';
 import { formatVND } from '@/lib/format';
+import { useTranslation } from '@/i18n/LocaleProvider';
 
 interface PnLChartProps {
   months: MonthData[];
 }
 
 export default function PnLChart({ months }: PnLChartProps) {
+  const { t } = useTranslation();
   const data = months.map(m => ({
-    name: 'T' + m.month,
+    name: t.dashboard.charts.monthPrefix + m.month,
     revenue: Math.round(m.netRev),
     costs: Math.round(m.cogs + m.waste + m.fixedMonthly + m.varOther),
     profit: Math.round(m.netProfit),
@@ -25,9 +27,9 @@ export default function PnLChart({ months }: PnLChartProps) {
           <YAxis tick={{ fontSize: 11, fontFamily: 'Roboto, system-ui, sans-serif' }} tickFormatter={(v) => formatVND(v)} />
           <Tooltip formatter={(value) => formatVND(Number(value))} labelStyle={{ fontFamily: 'Montserrat, system-ui, sans-serif', fontWeight: 600 }} />
           <Legend wrapperStyle={{ fontSize: 12, fontFamily: 'Montserrat, system-ui, sans-serif' }} iconType="circle" />
-          <Bar dataKey="revenue" name="Doanh thu" fill="#98FF98" stroke="#2D3748" strokeWidth={1} radius={[6, 6, 0, 0]} />
-          <Bar dataKey="costs" name="Chi phí" fill="#FDBCB4" stroke="#2D3748" strokeWidth={1} radius={[6, 6, 0, 0]} />
-          <Line dataKey="profit" name="Lợi nhuận" stroke="#2D3748" strokeWidth={2.5} dot={{ r: 4, fill: '#2D3748', stroke: '#fff', strokeWidth: 2 }} />
+          <Bar dataKey="revenue" name={t.dashboard.charts.revenue} fill="#98FF98" stroke="#2D3748" strokeWidth={1} radius={[6, 6, 0, 0]} />
+          <Bar dataKey="costs" name={t.dashboard.charts.costs} fill="#FDBCB4" stroke="#2D3748" strokeWidth={1} radius={[6, 6, 0, 0]} />
+          <Line dataKey="profit" name={t.dashboard.charts.profit} stroke="#2D3748" strokeWidth={2.5} dot={{ r: 4, fill: '#2D3748', stroke: '#fff', strokeWidth: 2 }} />
         </ComposedChart>
       </ResponsiveContainer>
     </div>

@@ -1,5 +1,7 @@
 'use client';
 
+import { useTranslation } from '@/i18n/LocaleProvider';
+
 interface NavButtonsProps {
   onBack?: () => void;
   onNext?: () => void;
@@ -8,7 +10,11 @@ interface NavButtonsProps {
   backLabel?: string;
 }
 
-export default function NavButtons({ onBack, onNext, nextLabel = 'Tiếp tục', nextVariant = 'primary', backLabel = 'Quay lại' }: NavButtonsProps) {
+export default function NavButtons({ onBack, onNext, nextLabel, nextVariant = 'primary', backLabel }: NavButtonsProps) {
+  const { t } = useTranslation();
+  const resolvedNextLabel = nextLabel ?? t.common.buttons.next;
+  const resolvedBackLabel = backLabel ?? t.common.buttons.back;
+
   return (
     <div className="flex gap-3 mt-7 no-print max-[480px]:flex-col">
       {onBack && (
@@ -16,7 +22,7 @@ export default function NavButtons({ onBack, onNext, nextLabel = 'Tiếp tục',
           onClick={onBack}
           className="clay-btn clay-btn-secondary text-sm max-[480px]:w-full max-[480px]:text-center"
         >
-          {backLabel}
+          {resolvedBackLabel}
         </button>
       )}
       {onNext && (
@@ -24,7 +30,7 @@ export default function NavButtons({ onBack, onNext, nextLabel = 'Tiếp tục',
           onClick={onNext}
           className={`clay-btn text-sm max-[480px]:w-full max-[480px]:text-center ${nextVariant === 'accent' ? 'clay-btn-accent' : 'clay-btn-primary'}`}
         >
-          {nextLabel} →
+          {resolvedNextLabel} →
         </button>
       )}
     </div>

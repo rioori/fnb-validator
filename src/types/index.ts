@@ -178,6 +178,7 @@ export type KBCategory = 'cost' | 'operations' | 'strategy' | 'legal';
 
 export interface KBTopic {
   id: string;
+  slug: string;
   icon: string;
   title: string;
   subtitle: string;

@@ -1,18 +1,20 @@
 import type { CalcResults } from '@/types';
+import { useTranslation, tpl } from '@/i18n/LocaleProvider';
 
 interface HealthGaugesProps {
   results: CalcResults;
 }
 
 export default function HealthGauges({ results: r }: HealthGaugesProps) {
+  const { t } = useTranslation();
   const sm = r.stableMonth;
   const gauges = [
-    { l: 'Nguyên vật liệu', v: r.cogsPct, b: [25, 35] },
-    { l: 'Tiền thuê', v: r.rentRatio, b: [10, 20] },
-    { l: 'Nhân sự', v: r.laborRatio, b: [15, 25] },
-    { l: 'Prime Cost (NVL+NS)', v: r.primeCost, b: [50, 65] },
-    { l: 'Biên lợi nhuận', v: sm.netMargin, b: [8, 15], rev: true },
-    { l: 'Delivery', v: r.deliveryPct, b: [10, 30] },
+    { l: t.dashboard.health.rawMaterials, v: r.cogsPct, b: [25, 35] },
+    { l: t.dashboard.health.rent, v: r.rentRatio, b: [10, 20] },
+    { l: t.dashboard.health.labor, v: r.laborRatio, b: [15, 25] },
+    { l: t.dashboard.health.primeCost, v: r.primeCost, b: [50, 65] },
+    { l: t.dashboard.health.netMargin, v: sm.netMargin, b: [8, 15], rev: true },
+    { l: t.dashboard.health.delivery, v: r.deliveryPct, b: [10, 30] },
   ];
 
   return (
@@ -33,7 +35,7 @@ export default function HealthGauges({ results: r }: HealthGaugesProps) {
             </div>
             <div className="flex justify-between text-[11px] text-text-light">
               <span>0%</span>
-              <span>Ngành: {g.b[0]}-{g.b[1]}%</span>
+              <span>{tpl(t.dashboard.health.industryBenchmark, { lo: g.b[0], hi: g.b[1] })}</span>
             </div>
           </div>
         );

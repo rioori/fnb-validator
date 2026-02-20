@@ -3,8 +3,9 @@
 import { useState } from 'react';
 import type { CalcResults } from '@/types';
 import { formatFullVND } from '@/lib/format';
-import { MODELS } from '@/lib/constants';
+import { useModels } from '@/hooks/useModels';
 import type { ModelKey } from '@/types';
+import { useTranslation, tpl } from '@/i18n/LocaleProvider';
 
 interface AIAdvisorProps {
   results: CalcResults;
@@ -12,19 +13,34 @@ interface AIAdvisorProps {
 }
 
 export default function AIAdvisor({ results: r, selectedModel }: AIAdvisorProps) {
+  const { t } = useTranslation();
   const [apiKey, setApiKey] = useState('');
   const [response, setResponse] = useState('');
   const [loading, setLoading] = useState(false);
 
   const sm = r.stableMonth;
-  const modelName = selectedModel ? MODELS[selectedModel].name : 'N/A';
+  const models = useModels();
+  const modelName = selectedModel ? models[selectedModel].name : 'N/A';
 
   const handleAsk = async () => {
-    if (!apiKey.trim()) { alert('Nhập API key!'); return; }
+    if (!apiKey.trim()) { alert(t.dashboard.advisor.enterApiKey); return; }
     setLoading(true);
-    setResponse('AI đang phân tích...');
+    setResponse(t.dashboard.advisor.aiAnalyzing);
 
-    const prompt = `Phân tích F&B:\nMÔ HÌNH: ${modelName}\nVỐN: ${formatFullVND(r.totalInvestment)}\nDT/tháng (ổn định): ${formatFullVND(sm.netRev)}\nLợi nhuận: ${formatFullVND(sm.netProfit)} (${sm.netMargin.toFixed(1)}%)\nThuê: ${r.rentRatio.toFixed(0)}%, NVL: ${r.cogsPct.toFixed(0)}%, NS: ${r.laborRatio.toFixed(0)}%\nPrime Cost: ${r.primeCost.toFixed(0)}%\nHòa vốn: ${r.bepCustomersDay} khách/ngày, hoàn vốn ${r.paybackMonth || '>12'} tháng\nĐiểm: ${r.score}/100\n\nPhân tích: 1)Tổng quan 2)Điểm mạnh 3)Rủi ro 4)Khuyến nghị cụ thể 5)Mẹo tiết kiệm. Dùng tiếng Việt đời thường.`;
+    const prompt = tpl(t.dashboard.advisor.userPromptTemplate, {
+      modelName,
+      investment: formatFullVND(r.totalInvestment),
+      revenue: formatFullVND(sm.netRev),
+      profit: formatFullVND(sm.netProfit),
+      netMargin: sm.netMargin.toFixed(1),
+      rentPct: r.rentRatio.toFixed(0),
+      cogsPct: r.cogsPct.toFixed(0),
+      laborPct: r.laborRatio.toFixed(0),
+      primeCost: r.primeCost.toFixed(0),
+      bepCust: r.bepCustomersDay,
+      payback: r.paybackMonth || '>12',
+      score: r.score,
+    });
 
     try {
       const res = await fetch('https://api.openai.com/v1/chat/completions', {
@@ -33,7 +49,7 @@ export default function AIAdvisor({ results: r, selectedModel }: AIAdvisorProps)
         body: JSON.stringify({
           model: 'gpt-4o-mini',
           messages: [
-            { role: 'system', content: 'Bạn là chuyên gia tư vấn F&B Việt Nam 15 năm. Phân tích bằng tiếng Việt dễ hiểu, có số liệu cụ thể.' },
+            { role: 'system', content: t.dashboard.advisor.systemPrompt },
             { role: 'user', content: prompt },
           ],
           temperature: 0.7,
@@ -44,17 +60,17 @@ export default function AIAdvisor({ results: r, selectedModel }: AIAdvisorProps)
       if (data.error) throw new Error(data.error.message);
       setResponse(data.choices[0].message.content);
     } catch (e: unknown) {
-      setResponse(`Lỗi: ${e instanceof Error ? e.message : 'Unknown error'}`);
+      setResponse(`${t.dashboard.advisor.errorPrefix} ${e instanceof Error ? e.message : 'Unknown error'}`);
     }
     setLoading(false);
   };
 
   return (
     <div>
-      <p className="text-[13px] text-text-muted mb-3">Nhập API key OpenAI để nhận phân tích chi tiết.</p>
+      <p className="text-[13px] text-text-muted mb-3">{t.dashboard.advisor.description}</p>
       <div className="grid grid-cols-2 gap-3.5 max-md:grid-cols-1">
         <div>
-          <label className="block font-medium text-[13px] mb-1.5 text-text">OpenAI API Key</label>
+          <label className="block font-medium text-[13px] mb-1.5 text-text">{t.dashboard.advisor.apiKeyLabel}</label>
           <input
             type="text"
             value={apiKey}
@@ -69,7 +85,7 @@ export default function AIAdvisor({ results: r, selectedModel }: AIAdvisorProps)
             disabled={loading}
             className="clay-btn clay-btn-accent disabled:opacity-50"
           >
-            {loading ? 'Đang phân tích...' : 'Nhờ AI tư vấn'}
+            {loading ? t.dashboard.advisor.analyzing : t.dashboard.advisor.askAI}
           </button>
         </div>
       </div>

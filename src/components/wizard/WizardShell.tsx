@@ -1,11 +1,14 @@
 'use client';
 
 import { useEffect } from 'react';
+import Link from 'next/link';
 import Image from 'next/image';
 import { track } from '@vercel/analytics';
 import { useWizardStore, restoreDraft } from '@/hooks/useWizardStore';
 import { useAuth } from '@/hooks/useAuth';
+import { useTranslation } from '@/i18n/LocaleProvider';
 import Icon from '@/components/ui/Icon';
+import { localePath } from '@/i18n/link';
 import ProgressBar from './ProgressBar';
 import StepModel from './StepModel';
 import StepLocation from './StepLocation';
@@ -18,6 +21,7 @@ import AuthOverlay from '@/components/auth/AuthOverlay';
 import UserBar from '@/components/auth/UserBar';
 
 export default function WizardShell() {
+  const { t, locale } = useTranslation();
   const currentStep = useWizardStore((s) => s.currentStep);
   const setStep = useWizardStore((s) => s.setStep);
   const checkSession = useAuth((s) => s.checkSession);
@@ -38,7 +42,16 @@ export default function WizardShell() {
     <>
       <AuthOverlay active={currentStep >= 1} />
       <div className="max-w-[1200px] mx-auto px-8 pt-4 pb-[80px] max-lg:px-5 max-md:px-3 max-md:pt-4 max-md:pb-[100px]">
-        <UserBar />
+        {/* Back to master homepage */}
+        <nav className="flex items-center justify-between mb-2">
+          <Link
+            href={localePath('/', locale)}
+            className="text-[12px] text-text-muted hover:text-cta transition-colors font-[family-name:var(--font-heading)] font-medium inline-flex items-center gap-1"
+          >
+            {t.wizard.shell.backLink}
+          </Link>
+          <UserBar />
+        </nav>
 
         {/* Header — only in wizard steps, homepage has its own Hero */}
         {currentStep >= 1 && (
@@ -46,14 +59,14 @@ export default function WizardShell() {
             <button
               onClick={() => setStep(0)}
               className="absolute left-4 top-1/2 -translate-y-1/2 w-9 h-9 rounded-full border-2 border-text bg-white flex items-center justify-center text-[16px] hover:bg-surface3 transition-colors cursor-pointer no-print shadow-[2px_2px_0_var(--color-text)]"
-              title="Về trang chủ"
+              title={t.wizard.shell.homeTitle}
             >
               <Icon name="home" size={20} className="!border-0 !shadow-none !bg-transparent" />
             </button>
-            <Image src="/logo.png" alt="F&B Validator" width={80} height={50} className="mx-auto" />
+            <Image src="/logo.png" alt="Validator.vn" width={80} height={50} className="mx-auto" />
             <p className="text-[10px] text-text font-[family-name:var(--font-heading)] font-medium">
-              Built with <Icon name="heart" size={14} className="inline-flex align-text-bottom !border-0 !shadow-none !bg-transparent" /> by{' '}
-              <a href="https://linkedin.com/in/phamdinhkhang" target="_blank" rel="noopener noreferrer" className="text-cta hover:underline font-bold">Khang Pham</a>
+              {t.wizard.shell.builtWith} <Icon name="heart" size={14} className="inline-flex align-text-bottom !border-0 !shadow-none !bg-transparent" /> {t.wizard.shell.forCommunity}{' '}
+              <Link href={localePath('/about', locale)} className="text-cta hover:underline font-bold">{t.wizard.shell.authorName}</Link>
             </p>
           </div>
         )}

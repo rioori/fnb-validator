@@ -7,6 +7,7 @@ import { useAuth } from '@/hooks/useAuth';
 import { useChat } from '@/hooks/useChat';
 import { useWizardStore } from '@/hooks/useWizardStore';
 import { MODELS } from '@/lib/constants';
+import { useModels } from '@/hooks/useModels';
 import { formatVND } from '@/lib/format';
 
 const GENERIC_PROMPTS = [
@@ -79,6 +80,7 @@ export default function AIChatPage() {
     clearError,
   } = useChat();
 
+  const models = useModels();
   const selectedModel = useWizardStore((s) => s.selectedModel);
   const hasContext = !!selectedModel;
   const suggestedPrompts = hasContext ? CONTEXTUAL_PROMPTS : GENERIC_PROMPTS;
@@ -241,7 +243,7 @@ export default function AIChatPage() {
                   <p className="text-text-muted text-sm mb-1 font-semibold">Hỏi bất kỳ điều gì về F&B!</p>
                   {hasContext ? (
                     <p className="text-success text-xs mb-5 font-semibold">
-                      ✓ AI đã nắm thông tin dự án {MODELS[selectedModel].name} của bạn
+                      ✓ AI đã nắm thông tin dự án {models[selectedModel].name} của bạn
                     </p>
                   ) : (
                     <p className="text-text-light text-xs mb-5">

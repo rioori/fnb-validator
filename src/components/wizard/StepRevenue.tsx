@@ -9,8 +9,10 @@ import VNDInput from '@/components/ui/VNDInput';
 import Tooltip from '@/components/ui/Tooltip';
 import NavButtons from '@/components/ui/NavButtons';
 import SliderField from '@/components/ui/SliderField';
+import { useTranslation, tpl } from '@/i18n/LocaleProvider';
 
 export default function StepRevenue() {
+  const { t } = useTranslation();
   const store = useWizardStore();
   const model = store.selectedModel ? MODELS[store.selectedModel] : null;
   const benchmarks = model?.benchmarks;
@@ -32,15 +34,15 @@ export default function StepRevenue() {
   return (
     <div>
       <h2 className="text-lg font-bold mb-1 text-text font-[family-name:var(--font-heading)]">
-        Doanh thu dự kiến
+        {t.wizard.stepRevenue.title}
       </h2>
       <p className="text-text-muted text-[13px] mb-3">
-        Ước tính lượng khách và mức chi tiêu trung bình.
+        {t.wizard.stepRevenue.desc}
       </p>
 
       {/* Ticket Items */}
-      <SectionCard title={<>Giá bill trung bình <Tooltip text="Tổng tiền TB 1 khách chi 1 lần. Thêm các mục con để tính chính xác hơn." /></>}>
-        <p className="text-xs text-text-muted mb-2.5">Thêm các mục khách thường gọi, hệ thống tự tính giá bill TB.</p>
+      <SectionCard title={<>{t.wizard.stepRevenue.sectionTicket} <Tooltip text={t.wizard.stepRevenue.tooltipTicket} /></>}>
+        <p className="text-xs text-text-muted mb-2.5">{t.wizard.stepRevenue.ticketHint}</p>
         <div className="mb-2">
           {store.ticketItems.map((item) => (
             <div key={item.id} className="flex gap-2 items-center mb-1.5 animate-fade-in-up">
@@ -48,48 +50,48 @@ export default function StepRevenue() {
                 type="text"
                 value={item.name}
                 onChange={(e) => store.updateTicketItem(item.id, 'name', e.target.value)}
-                placeholder="Tên món (VD: Cà phê sữa)"
+                placeholder={t.wizard.stepRevenue.itemNamePlaceholder}
                 className="flex-[2] clay-input font-[family-name:var(--font-body)] text-text"
               />
               <div className="flex-1">
-                <VNDInput value={item.price} onChange={(v) => store.updateTicketItem(item.id, 'price', v)} placeholder="Giá" />
+                <VNDInput value={item.price} onChange={(v) => store.updateTicketItem(item.id, 'price', v)} placeholder={t.wizard.stepRevenue.itemPricePlaceholder} />
               </div>
               <button onClick={() => store.removeTicketItem(item.id)} className="shrink-0 w-8 h-8 flex items-center justify-center rounded-full border-2 border-border-light text-text-light hover:border-danger hover:text-danger hover:bg-danger/10 transition-colors cursor-pointer font-bold text-sm">✕</button>
             </div>
           ))}
         </div>
         <button onClick={() => store.addTicketItem()} className="clay-btn clay-btn-secondary text-xs py-2 px-4 !border-dashed">
-          + Thêm mục
+          {t.wizard.stepRevenue.addItem}
         </button>
         <div className="clay-sm bg-mint-light px-4 py-3 flex items-center justify-between font-medium mt-3">
-          <span className="text-sm font-semibold font-[family-name:var(--font-heading)]">Giá bill trung bình</span>
+          <span className="text-sm font-semibold font-[family-name:var(--font-heading)]">{t.wizard.stepRevenue.avgTicketLabel}</span>
           <span className="text-lg font-bold text-text font-[family-name:var(--font-heading)]">{formatFullVND(avgTicket)}</span>
         </div>
         {benchmarks && (
-          <div className="text-xs text-text-muted mt-1">{model?.name}: {formatVND(benchmarks.ticket[0])} - {formatVND(benchmarks.ticket[1])}</div>
+          <div className="text-xs text-text-muted mt-1">{tpl(t.wizard.stepRevenue.benchmarkTicket, { model: model?.name ?? '', min: formatVND(benchmarks.ticket[0]), max: formatVND(benchmarks.ticket[1]) })}</div>
         )}
       </SectionCard>
 
       {/* Customer Matrix */}
-      <SectionCard title="Lượng khách / ngày">
-        <p className="text-xs text-text-muted mb-2.5">Nhập số khách dự kiến theo từng khung giờ. Bỏ trống = không hoạt động giờ đó.</p>
+      <SectionCard title={t.wizard.stepRevenue.sectionCustomers}>
+        <p className="text-xs text-text-muted mb-2.5">{t.wizard.stepRevenue.customersHint}</p>
         <div className="overflow-x-auto">
           <table className="w-full border-collapse text-sm">
             <thead>
               <tr>
                 <th className="px-1.5 py-2 text-left text-[11px] font-medium text-text-muted uppercase tracking-wider font-[family-name:var(--font-heading)] border-b border-border" />
-                <th className="px-1.5 py-2 text-center text-[11px] font-medium text-text-muted uppercase tracking-wider font-[family-name:var(--font-heading)] border-b border-border">Sáng<br /><small className="font-normal normal-case">(6-11h)</small></th>
-                <th className="px-1.5 py-2 text-center text-[11px] font-medium text-text-muted uppercase tracking-wider font-[family-name:var(--font-heading)] border-b border-border">Trưa<br /><small className="font-normal normal-case">(11-14h)</small></th>
-                <th className="px-1.5 py-2 text-center text-[11px] font-medium text-text-muted uppercase tracking-wider font-[family-name:var(--font-heading)] border-b border-border">Chiều<br /><small className="font-normal normal-case">(14-17h)</small></th>
-                <th className="px-1.5 py-2 text-center text-[11px] font-medium text-text-muted uppercase tracking-wider font-[family-name:var(--font-heading)] border-b border-border">Tối<br /><small className="font-normal normal-case">(17-22h)</small></th>
-                <th className="px-1.5 py-2 text-center text-[11px] font-medium text-text-muted font-[family-name:var(--font-heading)] border-b border-border">Tổng/ngày</th>
+                <th className="px-1.5 py-2 text-center text-[11px] font-medium text-text-muted uppercase tracking-wider font-[family-name:var(--font-heading)] border-b border-border">{t.wizard.stepRevenue.periodMorning}<br /><small className="font-normal normal-case">{t.wizard.stepRevenue.periodMorningTime}</small></th>
+                <th className="px-1.5 py-2 text-center text-[11px] font-medium text-text-muted uppercase tracking-wider font-[family-name:var(--font-heading)] border-b border-border">{t.wizard.stepRevenue.periodNoon}<br /><small className="font-normal normal-case">{t.wizard.stepRevenue.periodNoonTime}</small></th>
+                <th className="px-1.5 py-2 text-center text-[11px] font-medium text-text-muted uppercase tracking-wider font-[family-name:var(--font-heading)] border-b border-border">{t.wizard.stepRevenue.periodAfternoon}<br /><small className="font-normal normal-case">{t.wizard.stepRevenue.periodAfternoonTime}</small></th>
+                <th className="px-1.5 py-2 text-center text-[11px] font-medium text-text-muted uppercase tracking-wider font-[family-name:var(--font-heading)] border-b border-border">{t.wizard.stepRevenue.periodEvening}<br /><small className="font-normal normal-case">{t.wizard.stepRevenue.periodEveningTime}</small></th>
+                <th className="px-1.5 py-2 text-center text-[11px] font-medium text-text-muted font-[family-name:var(--font-heading)] border-b border-border">{t.wizard.stepRevenue.totalPerDay}</th>
               </tr>
             </thead>
             <tbody>
               {(['wd', 'we'] as const).map((period) => (
                 <tr key={period}>
                   <td className="text-left font-medium text-[13px] text-text-muted px-1.5 py-1.5 border-b border-border-light">
-                    {period === 'wd' ? 'T2-T6' : 'T7-CN'}
+                    {period === 'wd' ? t.wizard.stepRevenue.weekday : t.wizard.stepRevenue.weekend}
                   </td>
                   {[0, 1, 2, 3].map((i) => (
                     <td key={i} className="text-center px-1.5 py-1.5 border-b border-border-light">
@@ -118,17 +120,17 @@ export default function StepRevenue() {
         </div>
         {benchmarks && (
           <div className="text-xs text-text-muted mt-1.5">
-            {model?.name}: ngày thường {benchmarks.cust_wd[0]}-{benchmarks.cust_wd[1]} khách, cuối tuần {benchmarks.cust_we[0]}-{benchmarks.cust_we[1]} khách
+            {tpl(t.wizard.stepRevenue.benchmarkCustomers, { model: model?.name ?? '', wdMin: benchmarks.cust_wd[0], wdMax: benchmarks.cust_wd[1], weMin: benchmarks.cust_we[0], weMax: benchmarks.cust_we[1] })}
           </div>
         )}
       </SectionCard>
 
       {/* Ramp Sliders */}
-      <SectionCard title={<>Giai đoạn khởi động <Tooltip text="Tháng đầu mới mở chưa ai biết, khách chỉ bằng 40-60% mục tiêu. Dần dần mới đạt tối đa." /></>}>
+      <SectionCard title={<>{t.wizard.stepRevenue.sectionRamp} <Tooltip text={t.wizard.stepRevenue.tooltipRamp} /></>}>
         {store.rampFactors.map((val, i) => (
           <SliderField
             key={i}
-            label={`Tháng ${i + 1}`}
+            label={tpl(t.wizard.stepRevenue.rampMonth, { n: i + 1 })}
             value={Math.round(val * 100)}
             min={10}
             max={100}
@@ -138,18 +140,18 @@ export default function StepRevenue() {
       </SectionCard>
 
       {/* Revenue Preview */}
-      <SectionCard title="Doanh thu ước tính">
+      <SectionCard title={t.wizard.stepRevenue.sectionPreview}>
         <div className="grid grid-cols-3 gap-2.5 max-md:grid-cols-1">
           <div className="clay-sm p-4 text-center">
-            <div className="text-xs text-text-muted">Trung bình / ngày</div>
+            <div className="text-xs text-text-muted">{t.wizard.stepRevenue.previewDaily}</div>
             <div className="text-xl font-bold font-[family-name:var(--font-heading)] tracking-tight mt-0.5">{formatVND(revDayAvg)}</div>
           </div>
           <div className="clay-sm p-4 text-center">
-            <div className="text-xs text-text-muted">Tháng đầu tiên</div>
+            <div className="text-xs text-text-muted">{t.wizard.stepRevenue.previewMonth1}</div>
             <div className="text-xl font-bold font-[family-name:var(--font-heading)] tracking-tight mt-0.5">{formatVND(revMonth1)}</div>
           </div>
           <div className="clay-sm p-4 text-center">
-            <div className="text-xs text-text-muted">Khi ổn định (tháng 6+)</div>
+            <div className="text-xs text-text-muted">{t.wizard.stepRevenue.previewStable}</div>
             <div className="text-xl font-bold font-[family-name:var(--font-heading)] tracking-tight mt-0.5">{formatVND(revStable)}</div>
           </div>
         </div>

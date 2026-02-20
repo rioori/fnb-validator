@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import type { CalcResults } from '@/types';
 import { formatVND, formatFullVND } from '@/lib/format';
+import { useTranslation, tpl } from '@/i18n/LocaleProvider';
 
 interface SensitivityPanelProps {
   results: CalcResults;
@@ -12,6 +13,7 @@ interface SensitivityPanelProps {
 }
 
 export default function SensitivityPanel({ results: r, wastePct, baseTicket, baseCustDay }: SensitivityPanelProps) {
+  const { t } = useTranslation();
   const [sensCust, setSensCust] = useState(100);
   const [sensTicket, setSensTicket] = useState(100);
   const [sensCogs, setSensCogs] = useState(100);
@@ -37,26 +39,26 @@ export default function SensitivityPanel({ results: r, wastePct, baseTicket, bas
   return (
     <div>
       <h4 className="mb-3 font-[family-name:var(--font-heading)] text-sm font-semibold text-text">
-        Nếu thay đổi thì sao?
+        {t.dashboard.sensitivity.title}
       </h4>
-      <p className="text-[13px] text-text-muted mb-3">Kéo thanh trượt để xem lợi nhuận thay đổi thế nào.</p>
+      <p className="text-[13px] text-text-muted mb-3">{t.dashboard.sensitivity.subtitle}</p>
 
-      <SensSlider label="Số khách" value={sensCust} min={50} max={150} onChange={setSensCust} absLabel={`${absCust} khách/ngày`} />
-      <SensSlider label="Giá bill" value={sensTicket} min={70} max={130} onChange={setSensTicket} absLabel={formatFullVND(absTicket)} />
-      <SensSlider label="Chi phí NVL" value={sensCogs} min={80} max={130} onChange={setSensCogs} absLabel={`${absCogsRate}% DT`} />
-      <SensSlider label="Tiền thuê" value={sensRent} min={70} max={150} onChange={setSensRent} absLabel={formatFullVND(absRent)} />
+      <SensSlider label={t.dashboard.sensitivity.customers} value={sensCust} min={50} max={150} onChange={setSensCust} absLabel={tpl(t.dashboard.sensitivity.customersPerDay, { n: absCust })} />
+      <SensSlider label={t.dashboard.sensitivity.ticketSize} value={sensTicket} min={70} max={130} onChange={setSensTicket} absLabel={formatFullVND(absTicket)} />
+      <SensSlider label={t.dashboard.sensitivity.cogsCost} value={sensCogs} min={80} max={130} onChange={setSensCogs} absLabel={tpl(t.dashboard.sensitivity.revenueOfSales, { pct: absCogsRate })} />
+      <SensSlider label={t.dashboard.sensitivity.rentCost} value={sensRent} min={70} max={150} onChange={setSensRent} absLabel={formatFullVND(absRent)} />
 
       <div className="grid grid-cols-3 gap-2.5 max-md:grid-cols-1">
         <div className="clay-sm p-4 text-center bg-secondary-light">
-          <div className="text-xs text-text-muted">Doanh thu</div>
+          <div className="text-xs text-text-muted">{t.dashboard.sensitivity.resultRevenue}</div>
           <div className="text-xl font-bold font-[family-name:var(--font-heading)] tracking-tight">{formatVND(nRev)}</div>
         </div>
         <div className={`clay-sm p-4 text-center ${nProfit > 0 ? 'bg-mint-light border-l-[4px] border-l-cta' : 'bg-[#FEE2E2] border-l-[4px] border-l-danger'}`}>
-          <div className="text-xs text-text-muted">Lợi nhuận</div>
+          <div className="text-xs text-text-muted">{t.dashboard.sensitivity.resultProfit}</div>
           <div className="text-xl font-bold font-[family-name:var(--font-heading)] tracking-tight">{formatVND(nProfit)}</div>
         </div>
         <div className={`clay-sm p-4 text-center ${diff >= 0 ? 'bg-mint-light border-l-[4px] border-l-cta' : 'bg-[#FEE2E2] border-l-[4px] border-l-danger'}`}>
-          <div className="text-xs text-text-muted">Thay đổi</div>
+          <div className="text-xs text-text-muted">{t.dashboard.sensitivity.resultChange}</div>
           <div className="text-xl font-bold font-[family-name:var(--font-heading)] tracking-tight">{diff >= 0 ? '+' : ''}{formatVND(diff)}</div>
         </div>
       </div>

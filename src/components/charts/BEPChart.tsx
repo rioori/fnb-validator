@@ -3,14 +3,16 @@
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Legend, ResponsiveContainer, Tooltip, ReferenceLine, Cell } from 'recharts';
 import type { MonthData } from '@/types';
 import { formatVND } from '@/lib/format';
+import { useTranslation } from '@/i18n/LocaleProvider';
 
 interface BEPChartProps {
   months: MonthData[];
 }
 
 export default function BEPChart({ months }: BEPChartProps) {
+  const { t } = useTranslation();
   const data = months.map(m => ({
-    name: 'T' + m.month,
+    name: t.dashboard.charts.monthPrefix + m.month,
     value: Math.round(m.cumulativeProfit),
   }));
 
@@ -24,7 +26,7 @@ export default function BEPChart({ months }: BEPChartProps) {
           <Tooltip formatter={(value) => formatVND(Number(value))} labelStyle={{ fontFamily: 'Montserrat, system-ui, sans-serif', fontWeight: 600 }} />
           <Legend wrapperStyle={{ fontSize: 12, fontFamily: 'Montserrat, system-ui, sans-serif' }} iconType="circle" />
           <ReferenceLine y={0} stroke="#E4E4E7" strokeDasharray="4 4" />
-          <Bar dataKey="value" name="Lãi/lỗ tích lũy" radius={[6, 6, 0, 0]} stroke="#2D3748" strokeWidth={1}>
+          <Bar dataKey="value" name={t.dashboard.charts.cumulativeProfitLoss} radius={[6, 6, 0, 0]} stroke="#2D3748" strokeWidth={1}>
             {data.map((entry, index) => (
               <Cell key={`cell-${index}`} fill={entry.value >= 0 ? '#98FF98' : '#FDBCB4'} />
             ))}

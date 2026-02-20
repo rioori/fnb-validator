@@ -12,10 +12,11 @@ import AboutAuthor from './AboutAuthor';
 import StoriesPage from './StoriesPage';
 import ChecklistPage from './ChecklistPage';
 import TrendsPage from './TrendsPage';
+import WhyFnBPage from './WhyFnBPage';
 import AIChatPage from './AIChatPage';
 import Footer from './Footer';
 
-export type HomeView = 'main' | 'quick-calc' | 'knowledge' | 'about' | 'stories' | 'checklist' | 'trends' | 'ai-chat';
+export type HomeView = 'main' | 'quick-calc' | 'knowledge' | 'about' | 'stories' | 'checklist' | 'trends' | 'why-fnb' | 'ai-chat';
 
 export default function HomePage() {
   const [view, setView] = useState<HomeView>('main');
@@ -45,6 +46,7 @@ export default function HomePage() {
         {view === 'stories' && <StoriesPage />}
         {view === 'checklist' && <ChecklistPage />}
         {view === 'trends' && <TrendsPage />}
+        {view === 'why-fnb' && <WhyFnBPage />}
         {view === 'ai-chat' && <AIChatPage />}
         <Footer />
       </div>

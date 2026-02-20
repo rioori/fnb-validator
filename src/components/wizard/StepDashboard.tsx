@@ -6,6 +6,7 @@ import { runCalculations } from '@/lib/calculations';
 import { formatVND } from '@/lib/format';
 import { exportToExcel } from '@/lib/exportExcel';
 import type { CalcInput } from '@/types';
+import { useTranslation, tpl } from '@/i18n/LocaleProvider';
 
 import ScoreRing from '@/components/dashboard/ScoreRing';
 import KPIGrid from '@/components/dashboard/KPIGrid';
@@ -21,6 +22,7 @@ import NavButtons from '@/components/ui/NavButtons';
 import Icon from '@/components/ui/Icon';
 
 export default function StepDashboard() {
+  const { t } = useTranslation();
   const store = useWizardStore();
 
   const results = useMemo(() => {
@@ -92,41 +94,41 @@ export default function StepDashboard() {
 
   const s = (v: 'good' | 'warn' | 'bad') => v;
   const overviewKPIs = [
-    { label: 'Lợi nhuận/tháng', value: formatVND(sm.netProfit), status: s(sm.netProfit > 0 ? 'good' : 'bad') },
-    { label: 'Hoàn vốn sau', value: results.paybackMonth ? results.paybackMonth + ' tháng' : '>12 tháng', status: s(results.paybackMonth && results.paybackMonth <= 18 ? 'good' : results.paybackMonth ? 'warn' : 'bad') },
-    { label: 'Biên lợi nhuận', value: sm.netMargin.toFixed(1) + '%', status: s(sm.netMargin >= 10 ? 'good' : sm.netMargin >= 5 ? 'warn' : 'bad') },
-    { label: 'Dự phòng', value: results.workingCapMonths.toFixed(1) + ' tháng', status: s(results.workingCapMonths >= 3 ? 'good' : results.workingCapMonths >= 2 ? 'warn' : 'bad') },
+    { label: t.wizard.stepDashboard.kpiProfit, value: formatVND(sm.netProfit), status: s(sm.netProfit > 0 ? 'good' : 'bad') },
+    { label: t.wizard.stepDashboard.kpiPayback, value: results.paybackMonth ? tpl(t.wizard.stepDashboard.kpiPaybackMonths, { n: results.paybackMonth }) : t.wizard.stepDashboard.kpiPaybackLong, status: s(results.paybackMonth && results.paybackMonth <= 18 ? 'good' : results.paybackMonth ? 'warn' : 'bad') },
+    { label: t.wizard.stepDashboard.kpiMargin, value: sm.netMargin.toFixed(1) + '%', status: s(sm.netMargin >= 10 ? 'good' : sm.netMargin >= 5 ? 'warn' : 'bad') },
+    { label: t.wizard.stepDashboard.kpiReserve, value: tpl(t.wizard.stepDashboard.kpiReserveMonths, { n: results.workingCapMonths.toFixed(1) }), status: s(results.workingCapMonths >= 3 ? 'good' : results.workingCapMonths >= 2 ? 'warn' : 'bad') },
   ];
 
   return (
     <div>
       <h2 className="text-lg font-bold mb-1 text-text font-[family-name:var(--font-heading)]">
-        Kết quả phân tích
+        {t.wizard.stepDashboard.title}
       </h2>
       <p className="text-text-muted text-[13px] mb-3">
-        Dựa trên thông tin bạn cung cấp, đây là bức tranh tài chính dự kiến.
+        {t.wizard.stepDashboard.desc}
       </p>
 
       {/* Overview */}
       <div className="clay-card-static p-4 mb-3">
-        <h3 className="text-[13px] mb-3 font-semibold font-[family-name:var(--font-heading)] uppercase tracking-wider text-text-muted">Tổng quan</h3>
+        <h3 className="text-[13px] mb-3 font-semibold font-[family-name:var(--font-heading)] uppercase tracking-wider text-text-muted">{t.wizard.stepDashboard.sectionOverview}</h3>
         <ScoreRing score={results.score} />
         <KPIGrid kpis={overviewKPIs} />
         <OverviewAlerts results={results} />
       </div>
 
       {/* P&L + Cash Flow */}
-      <CollapsibleSection title="Lãi lỗ & Dòng tiền 12 tháng">
+      <CollapsibleSection title={t.wizard.stepDashboard.sectionPnl}>
         <PnLSection results={results} />
       </CollapsibleSection>
 
       {/* Break-even */}
-      <CollapsibleSection title="Bao giờ hòa vốn?">
+      <CollapsibleSection title={t.wizard.stepDashboard.sectionBreakeven}>
         <BreakEvenSection results={results} />
       </CollapsibleSection>
 
       {/* Detailed Analysis Report */}
-      <CollapsibleSection title="Báo cáo phân tích chi tiết">
+      <CollapsibleSection title={t.wizard.stepDashboard.sectionAnalysis}>
         <AnalysisReport
           results={results}
           model={store.selectedModel}
@@ -136,7 +138,7 @@ export default function StepDashboard() {
       </CollapsibleSection>
 
       {/* Health + Sensitivity */}
-      <CollapsibleSection title="Sức khỏe chi phí & Sensitivity">
+      <CollapsibleSection title={t.wizard.stepDashboard.sectionHealth}>
         <HealthGauges results={results} />
         <hr className="my-3 border-t-2 border-border-light" />
         <SensitivityPanel
@@ -156,21 +158,21 @@ export default function StepDashboard() {
           onClick={() => store.setStep(1)}
           className="clay-pill flex-1 py-3 px-4 text-[13px] font-semibold bg-white text-text cursor-pointer hover:bg-surface3 transition-colors"
         >
-          ← Chỉnh sửa lại
+          {t.wizard.stepDashboard.btnEdit}
         </button>
         <button
           onClick={handleExportExcel}
           className="clay-pill flex-1 py-3 px-4 text-[13px] font-semibold bg-pastel-mint text-text cursor-pointer hover:brightness-95 transition-all flex items-center justify-center gap-2"
         >
           <Icon name="download" size={20} className="!border-0 !shadow-none !bg-transparent" />
-          Xuất Excel
+          {t.wizard.stepDashboard.btnExportExcel}
         </button>
         <button
           onClick={() => window.print()}
           className="clay-pill flex-1 py-3 px-4 text-[13px] font-semibold bg-pastel-blue text-text cursor-pointer hover:brightness-95 transition-all flex items-center justify-center gap-2"
         >
           <Icon name="print" size={20} className="!border-0 !shadow-none !bg-transparent" />
-          In / Xuất PDF
+          {t.wizard.stepDashboard.btnPrint}
         </button>
       </div>
     </div>

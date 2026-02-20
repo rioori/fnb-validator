@@ -1,23 +1,25 @@
 import type { CalcResults } from '@/types';
 import { formatVND } from '@/lib/format';
+import { useTranslation, tpl } from '@/i18n/LocaleProvider';
 
 interface OverviewAlertsProps {
   results: CalcResults;
 }
 
 export default function OverviewAlerts({ results: r }: OverviewAlertsProps) {
+  const { t } = useTranslation();
   const sm = r.stableMonth;
   const alerts: { type: 'red' | 'yellow' | 'green'; text: string }[] = [];
 
-  if (r.rentRatio > 25) alerts.push({ type: 'red', text: `Tiền thuê ${r.rentRatio.toFixed(0)}% DT — quá cao! Nên < 20%.` });
-  else if (r.rentRatio > 20) alerts.push({ type: 'yellow', text: `Tiền thuê ${r.rentRatio.toFixed(0)}% — hơi cao.` });
+  if (r.rentRatio > 25) alerts.push({ type: 'red', text: tpl(t.dashboard.alerts.rentTooHigh, { pct: r.rentRatio.toFixed(0) }) });
+  else if (r.rentRatio > 20) alerts.push({ type: 'yellow', text: tpl(t.dashboard.alerts.rentSlightlyHigh, { pct: r.rentRatio.toFixed(0) }) });
 
-  if (r.cogsPct > 40) alerts.push({ type: 'red', text: `NVL ${r.cogsPct.toFixed(0)}% — quá cao!` });
-  if (r.primeCost > 70) alerts.push({ type: 'red', text: `NVL + Nhân sự = ${r.primeCost.toFixed(0)}% — nguy hiểm!` });
-  if (r.workingCapMonths < 2) alerts.push({ type: 'red', text: `Vốn dự phòng chỉ ${r.workingCapMonths.toFixed(1)} tháng — cần >= 3!` });
-  if (r.deliveryPct > 50) alerts.push({ type: 'yellow', text: `Phụ thuộc delivery ${r.deliveryPct.toFixed(0)}% — phí cao.` });
-  if (sm.netProfit <= 0) alerts.push({ type: 'red', text: `Dự kiến LỖ ${formatVND(Math.abs(sm.netProfit))}/tháng khi ổn định!` });
-  if (alerts.length === 0 && sm.netProfit > 0) alerts.push({ type: 'green', text: 'Mô hình khả thi! Xem chi tiết bên dưới.' });
+  if (r.cogsPct > 40) alerts.push({ type: 'red', text: tpl(t.dashboard.alerts.cogsTooHigh, { pct: r.cogsPct.toFixed(0) }) });
+  if (r.primeCost > 70) alerts.push({ type: 'red', text: tpl(t.dashboard.alerts.primeCostDanger, { pct: r.primeCost.toFixed(0) }) });
+  if (r.workingCapMonths < 2) alerts.push({ type: 'red', text: tpl(t.dashboard.alerts.workingCapLow, { months: r.workingCapMonths.toFixed(1) }) });
+  if (r.deliveryPct > 50) alerts.push({ type: 'yellow', text: tpl(t.dashboard.alerts.deliveryHigh, { pct: r.deliveryPct.toFixed(0) }) });
+  if (sm.netProfit <= 0) alerts.push({ type: 'red', text: tpl(t.dashboard.alerts.projectedLoss, { amount: formatVND(Math.abs(sm.netProfit)) }) });
+  if (alerts.length === 0 && sm.netProfit > 0) alerts.push({ type: 'green', text: t.dashboard.alerts.viable });
 
   const styles = {
     red: 'bg-[#FEE2E2] text-text border-2 border-danger',
