@@ -1,26 +1,333 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  /* Claymorphism Design System */
+  --color-primary: #FDBCB4;
+  --color-primary-light: #FDE8E4;
+  --color-secondary: #ADD8E6;
+  --color-secondary-light: #D4EDFC;
+  --color-mint: #98FF98;
+  --color-mint-light: #D4FFD4;
+  --color-cta: #22C55E;
+  --color-cta-hover: #16A34A;
+  --color-accent: #22C55E;
+  --color-accent-light: #86EFAC;
+
+  /* BenAI-inspired pastel palette */
+  --color-pastel-cream: #FAF3E3;
+  --color-pastel-blue: #E5F4F8;
+  --color-pastel-mint: #D2ECD0;
+  --color-pastel-gold: #FDEEC4;
+  --color-pastel-blush: #FDE8E4;
+
+  --color-surface: #FFFFFF;
+  --color-surface2: #F8FAFC;
+  --color-surface3: #F1F5F9;
+  --color-text: #2D3748;
+  --color-text-muted: #64748B;
+  --color-text-light: #94A3B8;
+  --color-border: #2D3748;
+  --color-border-light: #E2E8F0;
+  --color-success: #22C55E;
+  --color-warning: #EAB308;
+  --color-danger: #EF4444;
+
+  /* Radius */
+  --radius-sm: 8px;
+  --radius-DEFAULT: 12px;
+  --radius-lg: 16px;
+  --radius-xl: 20px;
+  --radius-full: 9999px;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+/* Base styles */
+body {
+  font-family: var(--font-body), system-ui, sans-serif;
+  background: #FFFEF8;
+  color: var(--color-text);
+  line-height: 1.6;
+  font-size: 15px;
+}
+
+h1, h2, h3, h4 {
+  font-family: var(--font-heading), system-ui, sans-serif;
+  letter-spacing: -0.01em;
+}
+
+/* Selection */
+::selection {
+  background: rgba(34, 197, 94, 0.15);
+  color: var(--color-text);
+}
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 5px; height: 5px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: var(--color-border-light); border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: var(--color-text-light); }
+
+/* ===== CLAYMORPHISM SYSTEM (BenAI-style) ===== */
+/* 2px dark outlines, 12px radius, offset box-shadows */
+/* Wrapped in @layer components so Tailwind utilities (bg-*) can override */
+
+@layer components {
+
+/* Clay Card - the core component */
+.clay-card {
+  background: var(--color-surface);
+  border-radius: 12px;
+  border: 2px solid var(--color-text);
+  box-shadow: 2px 2px 0 var(--color-text);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.clay-card:hover {
+  transform: translate(-1px, -1px);
+  box-shadow: 4px 4px 0 var(--color-text);
+}
+.clay-card-static {
+  background: var(--color-surface);
+  border-radius: 12px;
+  border: 2px solid var(--color-text);
+  box-shadow: 2px 2px 0 var(--color-text);
+}
+
+/* Clay small - lighter version for inner elements */
+.clay-sm {
+  background: var(--color-surface);
+  border-radius: 10px;
+  border: 1.5px solid var(--color-border-light);
+}
+
+/* Clay input */
+.clay-input {
+  border-radius: 10px;
+  border: 2px solid var(--color-border-light);
+  padding: 8px 12px;
+  font-size: 14px;
+  background: var(--color-surface);
+  transition: border-color 0.2s;
+  outline: none;
+}
+.clay-input:focus {
+  border-color: var(--color-text);
+}
+.clay-input::placeholder {
+  color: var(--color-text-light);
+}
+
+/* Clay button */
+.clay-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 10px 20px;
+  border-radius: 8px;
+  font-weight: 700;
+  font-size: 14px;
+  font-family: var(--font-heading), system-ui, sans-serif;
+  cursor: pointer;
+  transition: transform 0.15s, box-shadow 0.15s, background 0.15s;
+  border: 2px solid var(--color-text);
+  box-shadow: 3px 3px 0 var(--color-primary);
+}
+.clay-btn:active {
+  transform: translate(2px, 2px);
+  box-shadow: 0 0 0 var(--color-primary);
+}
+.clay-btn-primary {
+  background: var(--color-cta);
+  color: white;
+  box-shadow: 3px 3px 0 var(--color-cta-hover);
+}
+.clay-btn-primary:hover {
+  background: var(--color-cta-hover);
+  transform: translate(-1px, -1px);
+  box-shadow: 4px 4px 0 var(--color-cta-hover);
+}
+.clay-btn-primary:active {
+  box-shadow: 0 0 0 var(--color-cta-hover);
+}
+.clay-btn-secondary {
+  background: white;
+  color: var(--color-text);
+  box-shadow: 3px 3px 0 var(--color-secondary);
+}
+.clay-btn-secondary:hover {
+  background: var(--color-surface3);
+  transform: translate(-1px, -1px);
+  box-shadow: 4px 4px 0 var(--color-secondary);
+}
+.clay-btn-secondary:active {
+  box-shadow: 0 0 0 var(--color-secondary);
+}
+.clay-btn-accent {
+  background: var(--color-primary);
+  color: var(--color-text);
+  box-shadow: 3px 3px 0 var(--color-primary-light);
+}
+.clay-btn-accent:hover {
+  transform: translate(-1px, -1px);
+  box-shadow: 4px 4px 0 var(--color-primary-light);
+}
+.clay-btn-accent:active {
+  box-shadow: 0 0 0 var(--color-primary-light);
+}
+
+/* Clay pill / badge */
+.clay-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 4px 12px;
+  border-radius: 9999px;
+  border: 2px solid var(--color-text);
+  font-size: 12px;
+  font-weight: 700;
+  font-family: var(--font-heading), system-ui, sans-serif;
+}
+
+/* Clay slider */
+input[type="range"] {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 100%;
+  height: 6px;
+  border-radius: 9999px;
+  border: none;
+  background: var(--color-border-light);
+  outline: none;
+  cursor: pointer;
+}
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: var(--color-cta);
+  border: 2px solid var(--color-text);
+  cursor: pointer;
+  transition: transform 0.15s;
+}
+input[type="range"]::-webkit-slider-thumb:hover {
+  transform: scale(1.15);
+}
+input[type="range"]::-moz-range-thumb {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: var(--color-cta);
+  border: 2px solid var(--color-text);
+  cursor: pointer;
+}
+
+/* Clay checkbox */
+input[type="checkbox"] {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  border-radius: 6px;
+  border: 2px solid var(--color-text);
+  background: white;
+  cursor: pointer;
+  position: relative;
+  vertical-align: middle;
+  transition: border-color 0.15s, background 0.15s;
+}
+input[type="checkbox"]:checked {
+  background: var(--color-cta);
+}
+input[type="checkbox"]:checked::after {
+  content: '✓';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+/* Clay select */
+select {
+  border-radius: 10px;
+  border: 2px solid var(--color-border-light);
+  padding: 8px 12px;
+  font-size: 14px;
+  background: var(--color-surface);
+  cursor: pointer;
+  outline: none;
+}
+select:focus {
+  border-color: var(--color-text);
+}
+
+} /* end @layer components */
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+/* Print */
+@media print {
+  .no-print { display: none !important; }
+  body { font-size: 12px; }
+  .clay-card, .clay-card-static, .clay-sm { box-shadow: none; border-width: 1px; }
+}
+
+/* Custom animations */
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: none; }
+}
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+@keyframes bounce-in {
+  0% { opacity: 0; transform: scale(0.9); }
+  60% { transform: scale(1.02); }
+  100% { opacity: 1; transform: scale(1); }
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.animate-fade-in {
+  animation: fadeIn 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.animate-bounce-in {
+  animation: bounce-in 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Hero ambient gradient — slow moving background glow */
+@keyframes ambientGradient {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+.hero-ambient {
+  background-image: linear-gradient(
+    135deg,
+    var(--color-pastel-cream) 0%,
+    var(--color-pastel-blue) 25%,
+    var(--color-pastel-mint) 50%,
+    var(--color-pastel-gold) 75%,
+    var(--color-pastel-cream) 100%
+  );
+  background-size: 300% 300%;
+  animation: ambientGradient 15s ease infinite;
+}
+
+/* Reduced motion — respect user preference */
+@media (prefers-reduced-motion: reduce) {
+  .hero-ambient { animation: none; }
+  .animate-fade-in-up,
+  .animate-fade-in,
+  .animate-bounce-in { animation: none; }
 }
