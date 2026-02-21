@@ -15,6 +15,16 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   return {
     title: dict.landing.meta.title,
     description: dict.landing.meta.description,
+    openGraph: {
+      title: dict.landing.meta.title,
+      description: dict.landing.meta.description,
+      url: canonical,
+      images: [{ url: `/api/og?locale=${locale}&page=landing`, width: 1200, height: 630 }],
+    },
+    twitter: {
+      card: 'summary_large_image',
+      images: [`/api/og?locale=${locale}&page=landing`],
+    },
     alternates: {
       canonical,
       languages: { vi: BASE_URL, en: `${BASE_URL}/en` },

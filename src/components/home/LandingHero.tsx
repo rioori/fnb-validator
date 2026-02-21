@@ -69,10 +69,10 @@ export default function LandingHero() {
           transition={{ duration: 0.7 }}
         >
           <Image
-            src="/logo-vn.png"
+            src="/logo.png"
             alt={t.landing.hero.logoAlt}
-            width={240}
-            height={120}
+            width={160}
+            height={160}
             unoptimized
             className="mx-auto mb-3"
           />
@@ -138,6 +138,42 @@ export default function LandingHero() {
           </div>
         </motion.div>
       </div>
+
+      {/* About Validator.vn */}
+      <StaggeredSection className="clay-card-static bg-white p-5 mb-4" delay={0.1}>
+        <motion.h2
+          className="text-[15px] font-bold font-[family-name:var(--font-heading)] text-text mb-1 text-center"
+          variants={{ hidden: { opacity: 0, y: 10 }, show: { opacity: 1, y: 0 } }}
+        >
+          {t.landing.about.heading}
+        </motion.h2>
+        <motion.p
+          className="text-[12px] text-text-muted text-center mb-4"
+          variants={{ hidden: { opacity: 0 }, show: { opacity: 1 } }}
+        >
+          {t.landing.about.desc}
+        </motion.p>
+        <div className="grid grid-cols-3 gap-3 max-md:grid-cols-1">
+          {t.landing.about.points.map((p, i) => (
+            <motion.div
+              key={p.title}
+              className="clay-sm bg-pastel-cream p-4 text-center"
+              variants={cardItem}
+              transition={spring}
+            >
+              <Icon name={p.icon} size={36} className="mx-auto mb-2" />
+              <h3 className="text-[13px] font-bold font-[family-name:var(--font-heading)] text-text mb-1">{p.title}</h3>
+              <p className="text-[11px] text-text-muted leading-relaxed">{p.desc}</p>
+            </motion.div>
+          ))}
+        </div>
+        <motion.p
+          className="text-[11px] text-cta font-semibold text-center mt-3"
+          variants={{ hidden: { opacity: 0 }, show: { opacity: 1 } }}
+        >
+          {t.landing.about.cta}
+        </motion.p>
+      </StaggeredSection>
 
       {/* Stats — count-up animation on scroll */}
       <motion.div

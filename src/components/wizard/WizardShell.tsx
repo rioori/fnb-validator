@@ -63,10 +63,9 @@ export default function WizardShell() {
             >
               <Icon name="home" size={20} className="!border-0 !shadow-none !bg-transparent" />
             </button>
-            <Image src="/logo.png" alt="Validator.vn" width={80} height={50} className="mx-auto" />
+            <Image src="/logo.png" alt="Validator.vn" width={56} height={56} className="mx-auto" />
             <p className="text-[10px] text-text font-[family-name:var(--font-heading)] font-medium">
-              {t.wizard.shell.builtWith} <Icon name="heart" size={14} className="inline-flex align-text-bottom !border-0 !shadow-none !bg-transparent" /> {t.wizard.shell.forCommunity}{' '}
-              <Link href={localePath('/about', locale)} className="text-cta hover:underline font-bold">{t.wizard.shell.authorName}</Link>
+              {t.wizard.shell.builtWith} <Icon name="heart" size={14} className="inline-flex align-text-bottom !border-0 !shadow-none !bg-transparent" /> {t.wizard.shell.forCommunity}
             </p>
           </div>
         )}

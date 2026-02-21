@@ -47,7 +47,7 @@ export default function HeroSection({ onNavigate }: HeroSectionProps) {
         animate={{ opacity: 1, filter: 'blur(0px)' }}
         transition={{ duration: 0.6 }}
       >
-        <Image src="/logo.png" alt={t.fnbHome.hero.logoAlt} width={180} height={113} className="mx-auto mb-1" />
+        <Image src="/logo.png" alt={t.fnbHome.hero.logoAlt} width={120} height={120} className="mx-auto mb-1" />
       </motion.div>
 
       {/* Tagline — fade up */}

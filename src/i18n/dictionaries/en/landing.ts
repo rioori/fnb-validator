@@ -53,6 +53,16 @@ const landing = {
     { title: 'Knowledge Base', desc: 'Foundational knowledge, legal, tax, and marketing for each industry' },
     { title: 'Checklist', desc: '80+ items to prepare before opening — from legal to operations' },
   ],
+  about: {
+    heading: 'What is Validator.vn?',
+    desc: 'A free tool to validate your business idea before investing.',
+    points: [
+      { icon: 'chart', title: 'Financial Analysis', desc: '12-month P&L, break-even, payback — auto-calculated and scored' },
+      { icon: 'chat', title: 'AI Advisor', desc: 'Ask about strategy, costs, and operations with artificial intelligence' },
+      { icon: 'book', title: 'Knowledge Base', desc: '11 articles covering legal, tax, marketing, and operations' },
+    ],
+    cta: 'Free · No signup required · Bilingual Vietnamese-English',
+  },
   sections: {
     whyValidate: 'Why Validate?',
     chooseVertical: 'Choose your business vertical',

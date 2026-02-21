@@ -17,6 +17,16 @@ export async function generateMetadata({ params }: LayoutProps): Promise<Metadat
   return {
     title: dict.fnbHome.meta.title,
     description: dict.fnbHome.meta.description,
+    openGraph: {
+      title: dict.fnbHome.meta.title,
+      description: dict.fnbHome.meta.description,
+      url: canonical,
+      images: [{ url: `/api/og?locale=${locale}&page=fnb`, width: 1200, height: 630 }],
+    },
+    twitter: {
+      card: 'summary_large_image',
+      images: [`/api/og?locale=${locale}&page=fnb`],
+    },
     alternates: {
       canonical,
       languages: { vi: `${BASE_URL}/fnb`, en: `${BASE_URL}/en/fnb` },

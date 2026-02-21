@@ -24,7 +24,13 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     openGraph: {
       title: about.meta.title,
       description: about.meta.description,
+      url: canonical,
       type: 'profile',
+      images: [{ url: `/api/og?locale=${locale}&page=landing`, width: 1200, height: 630 }],
+    },
+    twitter: {
+      card: 'summary_large_image',
+      images: [`/api/og?locale=${locale}&page=landing`],
     },
     alternates: {
       canonical,

@@ -25,7 +25,7 @@ export default async function KienThucLayout({ children, params }: LayoutProps) 
           {dict.knowledge.layout.backHome}
         </Link>
         <Link href={localePath('/', locale as Locale)}>
-          <Image src="/logo.png" alt={dict.knowledge.layout.logoAlt} width={80} height={50} className="mx-auto" />
+          <Image src="/logo.png" alt={dict.knowledge.layout.logoAlt} width={56} height={56} className="mx-auto" />
         </Link>
         <Link
           href={localePath('/kien-thuc', locale as Locale)}

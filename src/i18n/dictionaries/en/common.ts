@@ -8,7 +8,7 @@ const common = {
   footer: {
     builtWith: 'Built with',
     heart: '♥',
-    forCommunity: 'for community by',
+    forCommunity: 'for community',
     author: 'Khang Pham',
   },
   auth: {
@@ -47,6 +47,9 @@ const common = {
     save: 'Save scenario',
     print: 'Print report',
     download: 'Download',
+    addItem: '+ Add item',
+    itemName: 'Item name',
+    amount: 'Amount',
   },
   locale: {
     switchTo: 'VI',

@@ -40,7 +40,28 @@ export async function generateMetadata({ params }: LayoutProps): Promise<Metadat
   return {
     title: dict.landing.meta.title,
     description: dict.landing.meta.description,
-    icons: { icon: '/logo.png', apple: '/logo.png' },
+    icons: {
+      icon: [
+        { url: '/favicon-32x32.png', sizes: '32x32', type: 'image/png' },
+      ],
+      apple: '/apple-touch-icon.png',
+    },
+    metadataBase: new URL(BASE_URL),
+    openGraph: {
+      title: dict.landing.meta.title,
+      description: dict.landing.meta.description,
+      url: canonical,
+      siteName: 'Validator.vn',
+      images: [{ url: `/api/og?locale=${locale}&page=landing`, width: 1200, height: 630 }],
+      locale: locale === 'vi' ? 'vi_VN' : 'en_US',
+      type: 'website',
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: dict.landing.meta.title,
+      description: dict.landing.meta.description,
+      images: [`/api/og?locale=${locale}&page=landing`],
+    },
     alternates: {
       canonical,
       languages: { vi: BASE_URL, en: `${BASE_URL}/en` },

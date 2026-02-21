@@ -31,7 +31,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     entry('', 'weekly', 1),
     entry('/fnb', 'weekly', 0.95),
     entry('/kien-thuc', 'monthly', 0.9),
-    entry('/about', 'monthly', 0.6),
     ...knowledgePages,
   ];
 }

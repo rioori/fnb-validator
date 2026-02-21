@@ -4,7 +4,7 @@ const wizard = {
     backLink: '← Validator.vn',
     homeTitle: 'Về trang chủ',
     builtWith: 'Built with',
-    forCommunity: 'for community by',
+    forCommunity: 'for community',
     authorName: 'Khang Pham',
   },
 

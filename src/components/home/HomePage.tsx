@@ -37,7 +37,7 @@ export default function HomePage() {
           >
             <Icon name="home" size={20} className="!border-0 !shadow-none !bg-transparent" />
           </button>
-          <Image src="/logo.png" alt="F&B Validator" width={80} height={50} className="mx-auto" />
+          <Image src="/logo.png" alt="Validator.vn" width={56} height={56} className="mx-auto" />
         </div>
 
         {view === 'quick-calc' && <QuickCalc />}

@@ -53,6 +53,16 @@ const landing = {
     { title: 'Knowledge Base', desc: 'Kiến thức nền tảng, pháp lý, thuế, marketing cho từng ngành' },
     { title: 'Checklist', desc: '80+ mục cần chuẩn bị trước khi mở — từ pháp lý đến vận hành' },
   ],
+  about: {
+    heading: 'Validator.vn là gì?',
+    desc: 'Một công cụ miễn phí giúp bạn thẩm định ý tưởng kinh doanh trước khi bỏ vốn.',
+    points: [
+      { icon: 'chart', title: 'Phân tích tài chính', desc: 'P&L 12 tháng, break-even, payback — tự động tính toán và chấm điểm' },
+      { icon: 'chat', title: 'AI Advisor', desc: 'Hỏi đáp chiến lược, chi phí, vận hành với trí tuệ nhân tạo' },
+      { icon: 'book', title: 'Kiến thức nền tảng', desc: '11 bài học từ pháp lý, thuế, marketing đến quản lý vận hành' },
+    ],
+    cta: 'Miễn phí · Không cần đăng ký · Song ngữ Việt-Anh',
+  },
   sections: {
     whyValidate: 'Tại sao cần Validate?',
     chooseVertical: 'Chọn lĩnh vực kinh doanh',

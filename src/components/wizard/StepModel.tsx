@@ -10,6 +10,7 @@ import VNDInput from '@/components/ui/VNDInput';
 import Tooltip from '@/components/ui/Tooltip';
 import NavButtons from '@/components/ui/NavButtons';
 import Icon from '@/components/ui/Icon';
+import QuickSelect from '@/components/ui/QuickSelect';
 import { useTranslation, tpl } from '@/i18n/LocaleProvider';
 
 const CARD_COLORS: Record<string, string> = {
@@ -34,6 +35,22 @@ export default function StepModel() {
   };
 
   const model = selectedModel ? models[selectedModel] : null;
+
+  const budgetPresets = model
+    ? [
+        Math.round(model.defaults.budget * 0.5 / 50_000_000) * 50_000_000,
+        model.defaults.budget,
+        Math.round(model.defaults.budget * 1.5 / 100_000_000) * 100_000_000,
+      ].filter((v, i, a) => a.indexOf(v) === i)
+    : [300_000_000, 500_000_000, 1_000_000_000, 2_000_000_000];
+
+  const rentPresets = model
+    ? [
+        Math.round(model.defaults.rent * 0.6 / 1_000_000) * 1_000_000,
+        model.defaults.rent,
+        Math.round(model.defaults.rent * 1.5 / 5_000_000) * 5_000_000,
+      ].filter((v, i, a) => a.indexOf(v) === i)
+    : [10_000_000, 20_000_000, 35_000_000, 50_000_000];
 
   return (
     <div>
@@ -90,6 +107,7 @@ export default function StepModel() {
               <Tooltip text={t.wizard.stepModel.tooltipBudget} />
             </label>
             <VNDInput value={budget} onChange={setBudget} placeholder={t.wizard.stepModel.placeholderBudget} />
+            <QuickSelect values={budgetPresets} onSelect={setBudget} current={budget} />
             {model && (
               <div className="text-xs text-text-muted mt-1.5 leading-relaxed">
                 {tpl(t.wizard.stepModel.investHint, { model: model.name, range: model.investRange })}
@@ -101,6 +119,7 @@ export default function StepModel() {
               {t.wizard.stepModel.labelRent}
             </label>
             <VNDInput value={rent} onChange={setRent} placeholder={t.wizard.stepModel.placeholderRent} />
+            <QuickSelect values={rentPresets} onSelect={setRent} current={rent} />
             {model ? (
               <div className="text-xs text-text-muted mt-1.5 leading-relaxed">
                 {tpl(t.wizard.stepModel.rentHint, { model: model.name, min: formatVND(model.defaults.rent * 0.6), max: formatVND(model.defaults.rent * 1.5) })}

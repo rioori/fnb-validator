@@ -8,7 +8,7 @@ const common = {
   footer: {
     builtWith: 'Built with',
     heart: '♥',
-    forCommunity: 'for community by',
+    forCommunity: 'for community',
     author: 'Khang Pham',
   },
   auth: {
@@ -47,6 +47,9 @@ const common = {
     save: 'Lưu kịch bản',
     print: 'In báo cáo',
     download: 'Tải về',
+    addItem: '+ Thêm mục',
+    itemName: 'Tên mục',
+    amount: 'Số tiền',
   },
   locale: {
     switchTo: 'EN',

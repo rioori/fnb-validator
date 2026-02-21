@@ -1,6 +1,7 @@
 'use client';
 
-import { useMemo } from 'react';
+import { useMemo, useEffect, useRef } from 'react';
+import { track } from '@vercel/analytics';
 import { useWizardStore } from '@/hooks/useWizardStore';
 import { runCalculations } from '@/lib/calculations';
 import { formatVND } from '@/lib/format';
@@ -57,6 +58,7 @@ export default function StepDashboard() {
   ]);
 
   const handleExportExcel = () => {
+    track('export_excel', { model: store.selectedModel || 'unknown' });
     exportToExcel({
       model: store.selectedModel,
       city: store.city,
@@ -89,6 +91,19 @@ export default function StepDashboard() {
       results,
     });
   };
+
+  // Track wizard completion once
+  const tracked = useRef(false);
+  useEffect(() => {
+    if (!tracked.current) {
+      tracked.current = true;
+      track('wizard_complete', {
+        model: store.selectedModel || 'unknown',
+        score: results.score,
+        profitable: results.stableMonth.netProfit > 0,
+      });
+    }
+  }, [store.selectedModel, results.score, results.stableMonth.netProfit]);
 
   const sm = results.stableMonth;
 
