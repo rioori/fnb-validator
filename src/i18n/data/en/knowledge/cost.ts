@@ -211,6 +211,67 @@ const COST_ARTICLES: KBTopic[] = [
       },
     ],
   },
+  {
+    id: 'rent_analysis',
+    slug: 'chi-phi-thue-mat-bang',
+    icon: 'location',
+    title: 'Rental Cost Analysis',
+    subtitle: 'Location rent benchmarks by area & lease negotiation tips',
+    color: 'primary-light',
+    category: 'cost',
+    highlights: [
+      { label: 'Rent-to-revenue', value: '≤ 15%' },
+      { label: 'Typical deposit', value: '3-6 months' },
+      { label: 'Min lease term', value: '3 years' },
+    ],
+    sections: [
+      {
+        type: 'stat-grid',
+        heading: 'Rent Benchmarks (Ho Chi Minh City)',
+        content: [
+          { icon: 'trending', label: 'District 1, 3, Binh Thanh', value: '80-250M/mo', desc: 'Main street frontage, dense foot traffic. Suited for established brands and franchises. High competition but maximum visibility.' },
+          { icon: 'chart', label: 'District 7, Thu Duc, 2', value: '30-80M/mo', desc: 'New residential areas, apartment complexes. Ideal for cafes, milk tea shops. Young demographics with decent income.' },
+          { icon: 'money', label: 'Outer districts', value: '10-30M/mo', desc: 'Go Vap, Tan Binh, Binh Tan. Lower rent but requires stronger marketing. Best for rice, noodle, pho shops.' },
+          { icon: 'home', label: 'Alley / Upper floors', value: '5-20M/mo', desc: 'Car-accessible alleys or 2nd-3rd floors. Low cost but needs a unique concept to attract customers. "Hidden gem" strategy.' },
+        ] as KBStat[],
+      },
+      {
+        type: 'table',
+        heading: 'Rent-to-Revenue Ratio Guidelines',
+        content: [
+          { label: '< 10%', range: 'Good', note: 'Safe zone. Plenty of room for other costs and profit margins.' },
+          { label: '10-15%', range: 'Acceptable', note: 'Industry average for F&B. Need tight control on other expenses.' },
+          { label: '15-20%', range: 'Dangerous', note: 'Near loss threshold. Only acceptable if location is prime and revenue will grow fast.' },
+          { label: '> 20%', range: 'Extremely risky', note: 'Almost certain loss. Look for another location or renegotiate rent.' },
+        ] as KBTableRow[],
+      },
+      {
+        type: 'list',
+        heading: 'Lease Negotiation Checklist',
+        content: [
+          'Request 2-3 months rent-free period for setup and renovation. Most landlords agree for long-term leases.',
+          'Lock rent for at least 2 years. Cap annual increases at 5-8% after year 2. Avoid leases allowing arbitrary rent increases.',
+          'Read restoration clauses carefully: must you return to original state or can you keep renovations? Demolition can cost VND 50-100M.',
+          'Ask about management fees, parking fees, utility rates. Many buildings charge 2-3x EVN rates (VND 3,000-5,000/kWh vs VND 1,800).',
+          'Require subletting/transfer rights in case business fails. Without this clause, you lose everything if you must close.',
+          'Verify legal status: land title, building permit, zoning. There are cases of tenants losing locations to urban redevelopment after 6 months.',
+        ],
+      },
+      {
+        type: 'warning-list',
+        heading: 'Common Rental Traps',
+        content: [
+          { icon: 'warning', title: 'Choosing "cheap" rent with no foot traffic', desc: 'Rent 50% cheaper but revenue drops 70% due to zero walk-in traffic. Cheap rent doesn\'t compensate for low revenue.', severity: 'critical' },
+          { icon: 'warning', title: 'Signing short leases (under 2 years)', desc: 'F&B needs 6-12 months to break even. A 1-year lease means just as customers come, the lease ends and landlord raises rent.', severity: 'critical' },
+          { icon: 'warning', title: 'Not surveying peak hours', desc: 'Location is busy at lunch but dead at night. Count pedestrians for at least 3 different days, including weekdays and weekends.', severity: 'warning' },
+        ] as KBWarningItem[],
+      },
+      {
+        type: 'text',
+        content: 'Rent is the largest fixed cost and the hardest to change once committed. Use F&B Validator to calculate what percentage of projected revenue your rent represents, and whether there\'s enough margin left for profit.',
+      },
+    ],
+  },
 ];
 
 export default COST_ARTICLES;

@@ -211,6 +211,67 @@ const COST_ARTICLES: KBTopic[] = [
       },
     ],
   },
+  {
+    id: 'rent_analysis',
+    slug: 'chi-phi-thue-mat-bang',
+    icon: 'location',
+    title: 'Chi phí thuê mặt bằng',
+    subtitle: 'Phân tích giá thuê theo khu vực & cách đàm phán hợp đồng',
+    color: 'primary-light',
+    category: 'cost',
+    highlights: [
+      { label: 'Tỷ lệ thuê / DT', value: '≤ 15%' },
+      { label: 'Đặt cọc thường gặp', value: '3-6 tháng' },
+      { label: 'Thời hạn tối thiểu', value: '3 năm' },
+    ],
+    sections: [
+      {
+        type: 'stat-grid',
+        heading: 'Mức giá thuê tham khảo (TPHCM)',
+        content: [
+          { icon: 'trending', label: 'Quận 1, 3, Bình Thạnh', value: '80-250tr/th', desc: 'Mặt tiền đường lớn, dân cư đông. Phù hợp thương hiệu có vốn mạnh, nhượng quyền. Foot traffic cao nhưng cạnh tranh khốc liệt.' },
+          { icon: 'chart', label: 'Quận 7, Thủ Đức, 2', value: '30-80tr/th', desc: 'Khu dân cư mới, chung cư, khu đô thị. Lý tưởng cho quán cà phê, trà sữa. Dân số trẻ, thu nhập khá.' },
+          { icon: 'money', label: 'Quận ngoại thành', value: '10-30tr/th', desc: 'Gò Vấp, Tân Bình, Bình Tân. Giá rẻ hơn nhưng cần marketing mạnh để thu hút khách. Phù hợp cơm, bún, phở.' },
+          { icon: 'home', label: 'Hẻm / Tầng trên', value: '5-20tr/th', desc: 'Mặt bằng hẻm xe hơi hoặc tầng 2-3. Chi phí thấp nhưng cần concept độc đáo để khách tìm đến. "Hidden gem" strategy.' },
+        ] as KBStat[],
+      },
+      {
+        type: 'table',
+        heading: 'Quy tắc tỷ lệ thuê trên doanh thu',
+        content: [
+          { label: '< 10%', range: 'Tốt', note: 'Vùng an toàn. Còn nhiều room cho chi phí khác và lợi nhuận.' },
+          { label: '10-15%', range: 'Chấp nhận được', note: 'Mức trung bình ngành F&B. Cần kiểm soát chặt các chi phí khác.' },
+          { label: '15-20%', range: 'Nguy hiểm', note: 'Gần ngưỡng thua lỗ. Chỉ chấp nhận nếu location cực tốt và doanh thu sẽ tăng nhanh.' },
+          { label: '> 20%', range: 'Cực kỳ rủi ro', note: 'Gần như chắc chắn thua lỗ. Nên tìm mặt bằng khác hoặc đàm phán lại giá.' },
+        ] as KBTableRow[],
+      },
+      {
+        type: 'list',
+        heading: 'Checklist đàm phán hợp đồng thuê',
+        content: [
+          'Xin giảm tiền thuê 2-3 tháng đầu (rent-free period) để setup, trang trí. Hầu hết chủ nhà đều đồng ý nếu ký hợp đồng dài hạn.',
+          'Cố định giá thuê ít nhất 2 năm đầu. Quy định tăng giá tối đa 5-8%/năm sau năm thứ 2. Tránh hợp đồng cho phép tăng giá tùy ý.',
+          'Đọc kỹ điều khoản hoàn trả mặt bằng: phải trả về nguyên trạng hay được giữ cải tạo? Chi phí phá dỡ có thể tốn 50-100 triệu.',
+          'Hỏi rõ về phí quản lý, phí gửi xe, phí điện nước. Nhiều tòa nhà tính giá điện gấp 2-3 lần EVN (3.000-5.000đ/kWh thay vì 1.800đ).',
+          'Yêu cầu quyền chuyển nhượng hợp đồng (sang quán) nếu kinh doanh không tốt. Không có điều khoản này = mất trắng nếu phải đóng cửa.',
+          'Kiểm tra pháp lý mặt bằng: sổ hồng, giấy phép xây dựng, quy hoạch. Đã có trường hợp thuê mặt bằng bị giải tỏa sau 6 tháng.',
+        ],
+      },
+      {
+        type: 'warning-list',
+        heading: 'Bẫy thường gặp khi thuê mặt bằng',
+        content: [
+          { icon: 'warning', title: 'Thuê mặt bằng vì "rẻ" mà không có foot traffic', desc: 'Giá thuê rẻ 50% nhưng doanh thu giảm 70% vì không có khách đi ngang. Tiền thuê rẻ không bù được doanh thu thấp.', severity: 'critical' },
+          { icon: 'warning', title: 'Ký hợp đồng ngắn hạn (dưới 2 năm)', desc: 'Quán F&B cần 6-12 tháng để hòa vốn. Hợp đồng 1 năm = vừa có khách thì hết hạn, chủ nhà tăng giá hoặc không cho thuê tiếp.', severity: 'critical' },
+          { icon: 'warning', title: 'Không khảo sát giờ cao điểm', desc: 'Mặt bằng đông buổi trưa nhưng vắng tối. Hãy đếm người đi bộ ít nhất 3 ngày khác nhau, vào cả ngày thường và cuối tuần.', severity: 'warning' },
+        ] as KBWarningItem[],
+      },
+      {
+        type: 'text',
+        content: 'Mặt bằng là chi phí cố định lớn nhất và cũng là yếu tố khó thay đổi nhất sau khi bắt đầu. Hãy dùng F&B Validator để tính xem mức thuê dự kiến chiếm bao nhiêu % doanh thu, và liệu bạn còn đủ room cho lợi nhuận không.',
+      },
+    ],
+  },
 ];
 
 export default COST_ARTICLES;

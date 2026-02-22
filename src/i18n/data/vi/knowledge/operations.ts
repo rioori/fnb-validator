@@ -193,6 +193,61 @@ const OPERATIONS_ARTICLES: KBTopic[] = [
       },
     ],
   },
+  {
+    id: 'failure_lessons',
+    slug: 'bai-hoc-tu-quan-that-bai',
+    icon: 'warning',
+    title: 'Bài học từ quán thất bại',
+    subtitle: '7 nguyên nhân phổ biến khiến quán F&B đóng cửa trong năm đầu',
+    color: 'secondary-light',
+    category: 'operations',
+    highlights: [
+      { label: 'Tỷ lệ đóng cửa Y1', value: '60%' },
+      { label: 'Nguyên nhân #1', value: 'Hết vốn' },
+      { label: 'Thời gian TB', value: '8 tháng' },
+    ],
+    sections: [
+      {
+        type: 'stat-grid',
+        heading: 'Thực trạng F&B Việt Nam',
+        content: [
+          { icon: 'chart', label: 'Đóng cửa năm 1', value: '60%', desc: '6 trên 10 quán F&B đóng cửa trong 12 tháng đầu. Con số thực tế có thể cao hơn vì nhiều quán không đăng ký kinh doanh.' },
+          { icon: 'money', label: 'Lỗ trung bình', value: '300-500tr', desc: 'Số tiền trung bình mất khi đóng cửa: tiền cọc, setup, trang thiết bị, lỗ vận hành. Phần lớn không thu hồi được.' },
+          { icon: 'trending', label: 'Thời gian hòa vốn', value: '12-18 tháng', desc: 'Quán thành công trung bình cần 12-18 tháng để hòa vốn. Nhiều chủ quán chỉ dự trù vốn cho 3-6 tháng.' },
+          { icon: 'people', label: 'Mở lại lần 2', value: '< 20%', desc: 'Dưới 20% người thất bại lần 1 thử lại lần 2. Phần lớn bị "trauma" tài chính và tinh thần.' },
+        ] as KBStat[],
+      },
+      {
+        type: 'warning-list',
+        heading: '7 nguyên nhân thất bại phổ biến nhất',
+        content: [
+          { icon: 'warning', title: '1. Hết vốn lưu động trước khi hòa vốn', desc: 'Dùng hết tiền cho setup (trang trí, thiết bị) mà không để dự trữ 6 tháng vận hành. Doanh thu tháng 1-3 thường chỉ đạt 30-50% kế hoạch. Khi hết tiền trả lương + thuê → đóng cửa.', severity: 'critical' },
+          { icon: 'warning', title: '2. Chọn mặt bằng sai', desc: 'Thuê mặt bằng "rẻ" nhưng không có khách, hoặc thuê mặt bằng đẹp nhưng giá thuê nuốt hết lợi nhuận. Mặt bằng = yếu tố quyết định 50% thành bại.', severity: 'critical' },
+          { icon: 'warning', title: '3. Không biết số liệu tài chính', desc: 'Không biết food cost thực tế, không biết break-even point, không biết margin từng món. Chỉ "cảm giác" có lãi nhưng thực tế đang lỗ âm thầm mỗi tháng.', severity: 'critical' },
+          { icon: 'warning', title: '4. Menu quá rộng, không có món signature', desc: 'Bán 50-80 món nhưng không món nào nổi bật. Chi phí NVL cao (nhiều loại), chất lượng không đồng đều, khách không nhớ quán bán gì. Nên tập trung 15-20 món và có 2-3 hero items.', severity: 'warning' },
+          { icon: 'warning', title: '5. Đầu tư setup quá mức so với quy mô', desc: 'Chi 500 triệu trang trí cho quán 30m² với doanh thu dự kiến 100 triệu/tháng. Thời gian hoàn vốn setup = 2+ năm. Nên giữ setup ≤ 3 tháng doanh thu dự kiến.', severity: 'warning' },
+          { icon: 'warning', title: '6. Kinh doanh theo trend, không có bản sắc', desc: 'Mở quán trà sữa vì "trend" nhưng không có gì khác biệt so với 100 quán cùng khu vực. Khi trend qua đi, không có lý do để khách quay lại.', severity: 'warning' },
+          { icon: 'warning', title: '7. Founder làm tất cả, không xây hệ thống', desc: 'Chủ quán kiêm bếp trưởng, thu ngân, phục vụ, marketing. Burn out sau 3-6 tháng. Khi founder nghỉ = quán tê liệt. Cần build SOP + đội ngũ từ tháng thứ 2.', severity: 'warning' },
+        ] as KBWarningItem[],
+      },
+      {
+        type: 'list',
+        heading: 'Checklist phòng tránh thất bại',
+        content: [
+          'Chuẩn bị vốn lưu động ít nhất 6 tháng chi phí vận hành (thuê + lương + NVL + điện nước). Đây là tiền "sống sót", không phải tiền đầu tư.',
+          'Validate ý tưởng TRƯỚC khi ký hợp đồng thuê: khảo sát đối thủ cùng khu vực, đếm foot traffic, thử bán nhỏ (pop-up/online) để test sản phẩm.',
+          'Biết break-even point chính xác: bao nhiêu đơn/ngày × giá trị đơn TB = hòa vốn? Nếu con số này phi thực tế với khu vực đó → đừng mở.',
+          'Giữ setup đơn giản, tập trung vào sản phẩm. Khách đến vì đồ ăn/uống ngon + giá hợp lý, không phải vì trang trí đẹp. Trang trí đẹp chỉ giúp check-in lần đầu.',
+          'Có kế hoạch B: nếu sau 3 tháng doanh thu chỉ đạt 50% kế hoạch, bạn sẽ làm gì? Cắt giảm chi phí ở đâu? Pivot menu như thế nào? Lên kế hoạch trước khi cần.',
+          'Dùng F&B Validator để stress-test kịch bản xấu nhất. Nếu ở kịch bản xấu nhất bạn vẫn cầm cự được 6 tháng → đó là một kế hoạch tốt.',
+        ],
+      },
+      {
+        type: 'text',
+        content: 'Thất bại không xấu — nhưng thất bại vì những lý do đã được cảnh báo trước thì đáng tiếc. 90% nguyên nhân thất bại trong F&B đều có thể phòng tránh bằng cách làm bài tập tài chính nghiêm túc trước khi bắt đầu.',
+      },
+    ],
+  },
 ];
 
 export default OPERATIONS_ARTICLES;

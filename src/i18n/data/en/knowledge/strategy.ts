@@ -130,6 +130,66 @@ const STRATEGY_ARTICLES: KBTopic[] = [
       },
     ],
   },
+  {
+    id: 'revenue_optimization',
+    slug: 'toi-uu-doanh-thu',
+    icon: 'trending',
+    title: 'F&B Revenue Optimization',
+    subtitle: '12 tactics to increase revenue without raising prices',
+    color: 'primary-light',
+    category: 'strategy',
+    highlights: [
+      { label: 'Increase avg ticket', value: '+20-40%' },
+      { label: 'Boost repeat visits', value: '+30%' },
+      { label: 'Reduce leakage', value: '-15%' },
+    ],
+    sections: [
+      {
+        type: 'stat-grid',
+        heading: 'The F&B Revenue Formula',
+        content: [
+          { icon: 'people', label: 'Customers/day', value: 'Traffic', desc: 'How many people walk in? Increase via marketing, location, branding. This is the hardest variable to improve.' },
+          { icon: 'money', label: 'Average ticket', value: 'Avg. Ticket', desc: 'How much does each customer spend? Increase via upselling, combos, menu engineering. The easiest variable to improve.' },
+          { icon: 'chart', label: 'Visit frequency', value: 'Frequency', desc: 'How often do customers return per month? Increase via loyalty programs, consistency, seasonal menus.' },
+          { icon: 'target', label: 'Conversion rate', value: 'Conversion', desc: 'What % of passersby enter? Average is 3-5%. Increase via storefront, outdoor menu board, aroma.' },
+        ] as KBStat[],
+      },
+      {
+        type: 'list',
+        heading: 'Increase Average Ticket (Quick Wins)',
+        content: [
+          'Systematic upselling: Train staff to ask "Would you like to add a topping/upgrade to large?" for EVERY order. Acceptance rate 20-30%. Just +VND 10K/order × 100 customers = +VND 1M/day.',
+          'Smart combos: Bundle 2-3 bestsellers, discount 10-15% vs. buying separately. Customers feel they\'re getting a deal, you increase ticket 25-35%. Example: Coffee 35K + Pastry 25K = Combo 50K.',
+          'Menu engineering: Place high-margin items at the top-right corner (the "golden eye zone" of menus). Add photos, highlight boxes. Sales of that item increase 15-20%.',
+          'Happy Hour: Discount 20% during 2-4pm to fill dead hours. Additional revenue > discount cost. Especially effective for cafes and milk tea shops.',
+          'Delivery optimization: Price delivery 10-15% higher than dine-in (to cover platform fees). Create a delivery-specific menu: only items that transport well with high margins.',
+        ],
+      },
+      {
+        type: 'list',
+        heading: 'Increase Repeat Visit Frequency',
+        content: [
+          'Simple loyalty: Stamp cards ("buy 10 get 1 free") still work. Digital loyalty (via messaging apps) is better because you can track data. Cost is nearly zero.',
+          'Consistency is king: Customers return because THE DISH TASTES THE SAME. Standardize recipes, weigh precisely. One "off" experience = lost customer forever.',
+          'Seasonal menu updates: Add 2-3 seasonal items each quarter. Creates a reason for customers to return and "try something new." Keep 70% menu fixed + 30% rotating.',
+          'Post-purchase care: Send a message after 7 days: "We miss you! Here\'s a 10% voucher." Return rate increases by 25%.',
+        ],
+      },
+      {
+        type: 'warning-list',
+        heading: 'Common Revenue Leaks',
+        content: [
+          { icon: 'warning', title: 'Staff not upselling', desc: 'Missing 50-100 upsell opportunities daily × VND 15K = losing VND 750K-1.5M/day. Solution: upsell KPIs, bonus based on incremental revenue.', severity: 'critical' },
+          { icon: 'warning', title: 'Ingredient waste', desc: 'Average 5-10% of raw materials wasted (discarded, spoiled, pilfered). With 35% food cost, 10% waste = losing 3.5% of revenue. Solution: daily inventory counts.', severity: 'critical' },
+          { icon: 'warning', title: 'Not utilizing off-peak hours', desc: 'Open 12 hours but only busy for 4-5. Still paying wages + electricity for 7-8 idle hours. Solution: happy hour, workshops, events, co-working space.', severity: 'warning' },
+        ] as KBWarningItem[],
+      },
+      {
+        type: 'text',
+        content: 'F&B Revenue = Traffic × Ticket × Frequency. Increasing each variable by 20% yields a total revenue increase of 73% (1.2 × 1.2 × 1.2 = 1.73). Use F&B Validator to simulate different revenue scenarios and find the optimal combination for your business model.',
+      },
+    ],
+  },
 ];
 
 export default STRATEGY_ARTICLES;

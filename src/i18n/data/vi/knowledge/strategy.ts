@@ -130,6 +130,66 @@ const STRATEGY_ARTICLES: KBTopic[] = [
       },
     ],
   },
+  {
+    id: 'revenue_optimization',
+    slug: 'toi-uu-doanh-thu',
+    icon: 'trending',
+    title: 'Tối ưu doanh thu F&B',
+    subtitle: '12 chiến thuật tăng doanh thu không cần tăng giá',
+    color: 'primary-light',
+    category: 'strategy',
+    highlights: [
+      { label: 'Tăng bill TB', value: '+20-40%' },
+      { label: 'Tăng tần suất', value: '+30%' },
+      { label: 'Giảm thất thoát', value: '-15%' },
+    ],
+    sections: [
+      {
+        type: 'stat-grid',
+        heading: 'Công thức doanh thu F&B',
+        content: [
+          { icon: 'people', label: 'Số khách/ngày', value: 'Traffic', desc: 'Bao nhiêu người bước vào quán? Tăng bằng marketing, vị trí, thương hiệu. Đây là biến khó tăng nhất.' },
+          { icon: 'money', label: 'Giá trị đơn TB', value: 'Avg. Ticket', desc: 'Mỗi khách chi bao nhiêu? Tăng bằng upsell, combo, menu engineering. Biến dễ tăng nhất.' },
+          { icon: 'chart', label: 'Tần suất quay lại', value: 'Frequency', desc: 'Khách quay lại bao nhiêu lần/tháng? Tăng bằng loyalty, trải nghiệm, consistency.' },
+          { icon: 'target', label: 'Tỷ lệ chuyển đổi', value: 'Conversion', desc: 'Bao nhiêu % người đi ngang vào quán? Trung bình 3-5%. Tăng bằng facade, menu board ngoài, mùi hương.' },
+        ] as KBStat[],
+      },
+      {
+        type: 'list',
+        heading: 'Tăng giá trị đơn hàng (Quick wins)',
+        content: [
+          'Upsell có hệ thống: Train nhân viên hỏi "Anh/chị muốn thêm topping/size lớn không?" cho MỖI đơn. Tỷ lệ chấp nhận 20-30%. Chỉ cần +10K/đơn × 100 khách = +1 triệu/ngày.',
+          'Combo thông minh: Gộp 2-3 món bán chạy, giảm 10-15% so với mua lẻ. Khách thấy "hời", bạn tăng doanh thu 25-35% per ticket. Ví dụ: Cà phê 35K + Bánh 25K = Combo 50K.',
+          'Menu engineering: Đặt món biên lợi nhuận cao ở góc trên bên phải (vùng "mắt vàng" trên menu). Thêm ảnh, highlight box. Doanh số món đó tăng 15-20%.',
+          'Giờ vàng (Happy Hour): Giảm giá 20% khung 14h-16h để lấp giờ chết. Doanh thu thêm > chi phí giảm giá. Đặc biệt hiệu quả cho quán cà phê, trà sữa.',
+          'Delivery optimization: Đặt giá delivery cao hơn dine-in 10-15% (cover phí app). Menu riêng cho delivery: chỉ giữ món vận chuyển tốt, biên cao.',
+        ],
+      },
+      {
+        type: 'list',
+        heading: 'Tăng tần suất quay lại',
+        content: [
+          'Loyalty đơn giản: Stamp card "mua 10 tặng 1" vẫn hiệu quả. Digital loyalty (Zalo OA) tốt hơn vì track được data. Chi phí gần = 0.',
+          'Consistency là vua: Khách quay lại vì MÓN ĂN GIỐNG LẦN TRƯỚC. Chuẩn hóa recipe, cân đo chính xác. Một lần "lạ miệng" = mất khách vĩnh viễn.',
+          'Cập nhật menu theo mùa: Thêm 2-3 món seasonal mỗi quý. Tạo lý do để khách quay lại "thử món mới". Giữ 70% menu cố định + 30% xoay vòng.',
+          'Chăm sóc sau bán: Gửi tin nhắn Zalo OA sau 7 ngày: "Lâu rồi không thấy anh/chị ghé, nhớ lắm!" kèm voucher 10%. Tỷ lệ quay lại +25%.',
+        ],
+      },
+      {
+        type: 'warning-list',
+        heading: 'Thất thoát doanh thu thường gặp',
+        content: [
+          { icon: 'warning', title: 'Nhân viên không upsell', desc: 'Mỗi ngày bỏ lỡ 50-100 cơ hội upsell × 15K = mất 750K-1.5 triệu/ngày. Giải pháp: KPI upsell, thưởng theo % doanh thu tăng thêm.', severity: 'critical' },
+          { icon: 'warning', title: 'Thất thoát nguyên liệu', desc: 'Trung bình 5-10% NVL bị lãng phí (đổ bỏ, hư hỏng, ăn bớt). Với food cost 35%, thất thoát 10% NVL = mất 3.5% doanh thu. Giải pháp: kiểm kê hàng ngày.', severity: 'critical' },
+          { icon: 'warning', title: 'Không tận dụng giờ thấp điểm', desc: 'Quán mở 12 giờ nhưng chỉ đông 4-5 giờ. 7-8 giờ còn lại vẫn trả lương + điện. Giải pháp: happy hour, workshop, event, co-working space.', severity: 'warning' },
+        ] as KBWarningItem[],
+      },
+      {
+        type: 'text',
+        content: 'Doanh thu F&B = Traffic × Ticket × Frequency. Tăng mỗi biến 20% sẽ cho tổng doanh thu tăng 73% (1.2 × 1.2 × 1.2 = 1.73). Hãy dùng F&B Validator để mô phỏng các kịch bản doanh thu khác nhau và tìm combo tối ưu cho mô hình của bạn.',
+      },
+    ],
+  },
 ];
 
 export default STRATEGY_ARTICLES;

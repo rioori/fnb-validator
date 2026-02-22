@@ -194,6 +194,61 @@ const OPERATIONS_ARTICLES: KBTopic[] = [
       },
     ],
   },
+  {
+    id: 'failure_lessons',
+    slug: 'bai-hoc-tu-quan-that-bai',
+    icon: 'warning',
+    title: 'Lessons from Failed F&B Businesses',
+    subtitle: '7 most common reasons F&B businesses close in their first year',
+    color: 'secondary-light',
+    category: 'operations',
+    highlights: [
+      { label: 'Year-1 closure rate', value: '60%' },
+      { label: 'Top cause', value: 'Cash crunch' },
+      { label: 'Average lifespan', value: '8 months' },
+    ],
+    sections: [
+      {
+        type: 'stat-grid',
+        heading: 'Vietnam F&B Reality Check',
+        content: [
+          { icon: 'chart', label: 'Close in year 1', value: '60%', desc: '6 out of 10 F&B businesses close within their first 12 months. The actual figure may be higher as many unregistered businesses go uncounted.' },
+          { icon: 'money', label: 'Average loss', value: 'VND 300-500M', desc: 'Average capital lost when closing: deposit, setup, equipment, operating losses. Most of it is unrecoverable.' },
+          { icon: 'trending', label: 'Break-even time', value: '12-18 months', desc: 'Successful F&B businesses typically need 12-18 months to break even. Many owners only budget for 3-6 months.' },
+          { icon: 'people', label: 'Try again', value: '< 20%', desc: 'Less than 20% of first-time failures attempt a second F&B venture. Most suffer financial and psychological "trauma."' },
+        ] as KBStat[],
+      },
+      {
+        type: 'warning-list',
+        heading: '7 Most Common Causes of Failure',
+        content: [
+          { icon: 'warning', title: '1. Running out of working capital before break-even', desc: 'Spending all money on setup (decor, equipment) with no reserve for 6 months of operations. Revenue in months 1-3 typically reaches only 30-50% of projections. When cash runs out for rent + wages → game over.', severity: 'critical' },
+          { icon: 'warning', title: '2. Wrong location choice', desc: 'Renting a "cheap" location with no customers, or a beautiful spot where rent eats all profit. Location determines 50% of success or failure.', severity: 'critical' },
+          { icon: 'warning', title: '3. No financial visibility', desc: 'Not knowing actual food cost, break-even point, or per-item margins. Going by "gut feeling" while silently losing money every month.', severity: 'critical' },
+          { icon: 'warning', title: '4. Menu too broad, no signature dish', desc: 'Selling 50-80 items but none stand out. High ingredient costs (too many varieties), inconsistent quality, customers can\'t remember what you sell. Focus on 15-20 items with 2-3 hero items.', severity: 'warning' },
+          { icon: 'warning', title: '5. Over-investing in setup relative to scale', desc: 'Spending VND 500M on decor for a 30m² shop with VND 100M/month projected revenue. Setup payback = 2+ years. Keep setup ≤ 3 months of projected revenue.', severity: 'warning' },
+          { icon: 'warning', title: '6. Chasing trends without identity', desc: 'Opening a milk tea shop because it\'s "trending" but nothing differentiates it from 100 competitors in the area. When the trend passes, there\'s no reason for customers to return.', severity: 'warning' },
+          { icon: 'warning', title: '7. Founder does everything, builds no systems', desc: 'Owner is head chef, cashier, waiter, and marketing manager. Burns out after 3-6 months. When founder is absent = business paralyzed. Must build SOPs + team from month 2.', severity: 'warning' },
+        ] as KBWarningItem[],
+      },
+      {
+        type: 'list',
+        heading: 'Failure Prevention Checklist',
+        content: [
+          'Prepare working capital for at least 6 months of operating expenses (rent + wages + ingredients + utilities). This is survival money, not investment money.',
+          'Validate your idea BEFORE signing a lease: survey competitors in the area, count foot traffic, test-sell small (pop-up/online) to validate the product.',
+          'Know your exact break-even point: how many orders/day × average ticket = break even? If that number is unrealistic for the area → don\'t open.',
+          'Keep setup simple, focus on product. Customers come for good food/drinks at fair prices, not for beautiful decor. Pretty decor only helps the first check-in photo.',
+          'Have a Plan B: if after 3 months revenue reaches only 50% of plan, what will you do? Where to cut costs? How to pivot the menu? Plan before you need to.',
+          'Use F&B Validator to stress-test the worst-case scenario. If you can survive 6 months in the worst case → that\'s a solid plan.',
+        ],
+      },
+      {
+        type: 'text',
+        content: 'Failure isn\'t shameful — but failing for reasons that have been warned about is regrettable. 90% of F&B failure causes can be prevented by doing serious financial homework before starting.',
+      },
+    ],
+  },
 ];
 
 export default OPERATIONS_ARTICLES;
