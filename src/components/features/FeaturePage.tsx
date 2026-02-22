@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import Icon from '@/components/ui/Icon';
 import Footer from '@/components/home/Footer';
+import PageTracker from '@/components/ui/PageTracker';
 import { localePath } from '@/i18n/link';
 import { defaultLocale, type Locale } from '@/i18n/config';
 
@@ -50,6 +51,7 @@ export default function FeaturePage({ feature, breadcrumb, verticalCta, vertical
 
   return (
     <div className="max-w-3xl mx-auto px-4 py-8 max-md:px-3 max-md:py-6">
+      <PageTracker event="feature_page_view" data={{ feature: feature.heading }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }} />
       {/* Breadcrumb */}
       <nav className="text-[13px] text-text-muted mb-6">

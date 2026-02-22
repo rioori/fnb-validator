@@ -21,6 +21,7 @@ import SavePrompt from '@/components/dashboard/SavePrompt';
 import CollapsibleSection from '@/components/ui/CollapsibleSection';
 import NavButtons from '@/components/ui/NavButtons';
 import Icon from '@/components/ui/Icon';
+import FeedbackForm from '@/components/dashboard/FeedbackForm';
 
 export default function StepDashboard() {
   const { t } = useTranslation();
@@ -190,6 +191,9 @@ export default function StepDashboard() {
           {t.wizard.stepDashboard.btnPrint}
         </button>
       </div>
+
+      {/* Feedback */}
+      <FeedbackForm />
     </div>
   );
 }

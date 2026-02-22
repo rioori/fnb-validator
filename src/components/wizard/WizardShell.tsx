@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect } from 'react';
+import { useEffect, useRef } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { track } from '@vercel/analytics';
@@ -35,10 +35,19 @@ export default function WizardShell() {
   }, [checkSession, setStep]);
 
   const stepNames = ['home', 'model', 'location', 'investment', 'revenue', 'costs', 'dashboard'];
+  const stepEnteredAt = useRef<number>(Date.now());
+  const prevStep = useRef<number>(currentStep);
   useEffect(() => {
     if (currentStep >= 1) {
+      // Track time spent on previous step
+      if (prevStep.current >= 1 && prevStep.current !== currentStep) {
+        const seconds = Math.round((Date.now() - stepEnteredAt.current) / 1000);
+        track('wizard_step_time', { step: prevStep.current, name: stepNames[prevStep.current], seconds });
+      }
       track('wizard_step', { step: currentStep, name: stepNames[currentStep] });
+      stepEnteredAt.current = Date.now();
     }
+    prevStep.current = currentStep;
   }, [currentStep]);
 
   return (

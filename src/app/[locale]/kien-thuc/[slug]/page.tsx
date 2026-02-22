@@ -8,6 +8,7 @@ import { getDictionary } from '@/i18n/get-dictionary';
 import { defaultLocale, type Locale } from '@/i18n/config';
 import { localePath } from '@/i18n/link';
 import type { KBTopic } from '@/types';
+import PageTracker from '@/components/ui/PageTracker';
 import KNOWLEDGE_BASE_VI from '@/i18n/data/vi/knowledge';
 import KNOWLEDGE_BASE_EN from '@/i18n/data/en/knowledge';
 
@@ -126,6 +127,7 @@ export default async function KienThucTopicPage({ params }: PageProps) {
 
   return (
     <>
+      <PageTracker event="article_read" data={{ slug: topic.slug, category: topic.category }} />
       <ArticleJsonLd topic={topic} categoryLabel={categoryLabel} locale={locale} />
       <BreadcrumbJsonLd topic={topic} locale={locale} dict={dict} />
 

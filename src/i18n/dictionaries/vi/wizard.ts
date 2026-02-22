@@ -285,6 +285,16 @@ const wizard = {
     ctaButton: 'Muốn phân tích chi tiết hơn? Bắt đầu Wizard →',
   },
 
+  // ─── Feedback ────────────────────────────────────────────
+  feedback: {
+    heading: 'Trải nghiệm của bạn thế nào?',
+    desc: 'Giúp mình cải thiện công cụ nhé — chỉ mất 5 giây!',
+    ratings: ['Rất tệ', 'Tệ', 'Bình thường', 'Tốt', 'Rất tốt'],
+    commentPlaceholder: 'Góp ý thêm (tuỳ chọn)...',
+    submit: 'Gửi đánh giá',
+    thanks: 'Cảm ơn bạn đã đánh giá! 🙏',
+  },
+
   // ─── Shared / Common ─────────────────────────────────────
   common: {
     next: 'Tiếp theo',

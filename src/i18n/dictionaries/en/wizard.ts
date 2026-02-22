@@ -285,6 +285,16 @@ const wizard = {
     ctaButton: 'Want a deeper analysis? Start the Wizard \u2192',
   },
 
+  // ─── Feedback ────────────────────────────────────────────
+  feedback: {
+    heading: 'How was your experience?',
+    desc: 'Help us improve — takes just 5 seconds!',
+    ratings: ['Terrible', 'Bad', 'Okay', 'Good', 'Great'],
+    commentPlaceholder: 'Additional feedback (optional)...',
+    submit: 'Submit',
+    thanks: 'Thank you for your feedback! 🙏',
+  },
+
   // ─── Shared / Common ─────────────────────────────────────
   common: {
     next: 'Next',
