@@ -14,10 +14,21 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const meta = dict.features.knowledgeBase.meta;
   const canonical = locale === defaultLocale ? `${BASE_URL}/tinh-nang/${SLUG}` : `${BASE_URL}/en/tinh-nang/${SLUG}`;
 
+  const ogImage = `/api/og?locale=${locale}&page=feature&title=${encodeURIComponent(meta.title)}&subtitle=${encodeURIComponent(meta.description)}`;
+
   return {
     title: meta.title,
     description: meta.description,
-    openGraph: { title: meta.title, description: meta.description, url: canonical },
+    openGraph: {
+      title: meta.title,
+      description: meta.description,
+      url: canonical,
+      images: [{ url: ogImage, width: 1200, height: 630 }],
+    },
+    twitter: {
+      card: 'summary_large_image',
+      images: [ogImage],
+    },
     alternates: {
       canonical,
       languages: { vi: `${BASE_URL}/tinh-nang/${SLUG}`, en: `${BASE_URL}/en/tinh-nang/${SLUG}` },

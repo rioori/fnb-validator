@@ -8,6 +8,10 @@ export async function GET(request: NextRequest) {
   const locale = searchParams.get('locale') || 'vi';
   const page = searchParams.get('page') || 'landing';
 
+  // Support custom title/subtitle via query params (for articles & features)
+  const customTitle = searchParams.get('title');
+  const customSubtitle = searchParams.get('subtitle');
+
   const titles: Record<string, Record<string, string>> = {
     landing: {
       vi: 'Thẩm định & tối ưu\nkinh doanh',
@@ -20,6 +24,14 @@ export async function GET(request: NextRequest) {
     knowledge: {
       vi: 'Kiến thức F&B\ncho người mới bắt đầu',
       en: 'F&B Knowledge Base\nfor beginners',
+    },
+    feature: {
+      vi: customTitle || 'Tính năng',
+      en: customTitle || 'Feature',
+    },
+    article: {
+      vi: customTitle || 'Bài viết',
+      en: customTitle || 'Article',
     },
   };
 
@@ -35,6 +47,14 @@ export async function GET(request: NextRequest) {
     knowledge: {
       vi: '11 bài học · Pháp lý · Thuế · Marketing · Vận hành',
       en: '11 articles · Legal · Tax · Marketing · Operations',
+    },
+    feature: {
+      vi: customSubtitle || 'Validator.vn',
+      en: customSubtitle || 'Validator.vn',
+    },
+    article: {
+      vi: customSubtitle || 'Validator.vn · Kiến thức F&B',
+      en: customSubtitle || 'Validator.vn · F&B Knowledge',
     },
   };
 

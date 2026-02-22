@@ -2,7 +2,9 @@ import Link from 'next/link';
 import Icon from '@/components/ui/Icon';
 import Footer from '@/components/home/Footer';
 import { localePath } from '@/i18n/link';
-import type { Locale } from '@/i18n/config';
+import { defaultLocale, type Locale } from '@/i18n/config';
+
+const BASE_URL = 'https://www.validator.vn';
 
 interface Highlight {
   icon: string;
@@ -36,8 +38,19 @@ interface FeaturePageProps {
 }
 
 export default function FeaturePage({ feature, breadcrumb, verticalCta, verticals, locale }: FeaturePageProps) {
+  const prefix = locale === defaultLocale ? '' : '/en';
+  const breadcrumbJsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: breadcrumb.home, item: `${BASE_URL}${prefix}` || BASE_URL },
+      { '@type': 'ListItem', position: 2, name: feature.heading, item: `${BASE_URL}${prefix}/tinh-nang` },
+    ],
+  };
+
   return (
     <div className="max-w-3xl mx-auto px-4 py-8 max-md:px-3 max-md:py-6">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }} />
       {/* Breadcrumb */}
       <nav className="text-[13px] text-text-muted mb-6">
         <Link href={localePath('/', locale as Locale)} className="hover:text-cta transition-colors">

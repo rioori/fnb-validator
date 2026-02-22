@@ -38,10 +38,22 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const enUrl = `${BASE_URL}/en/kien-thuc/${topic.slug}`;
   const canonical = locale === defaultLocale ? viUrl : enUrl;
 
+  const ogImage = `/api/og?locale=${locale}&page=article&title=${encodeURIComponent(topic.title)}&subtitle=${encodeURIComponent(topic.subtitle)}`;
+
   return {
     title,
     description,
-    openGraph: { title, description, type: 'article', url: canonical },
+    openGraph: {
+      title,
+      description,
+      type: 'article',
+      url: canonical,
+      images: [{ url: ogImage, width: 1200, height: 630 }],
+    },
+    twitter: {
+      card: 'summary_large_image',
+      images: [ogImage],
+    },
     alternates: {
       canonical,
       languages: { vi: viUrl, en: enUrl },

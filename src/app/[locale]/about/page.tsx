@@ -39,6 +39,22 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   };
 }
 
+function PersonJsonLd() {
+  const jsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'Person',
+    name: 'Khang Pham',
+    url: 'https://linkedin.com/in/phamdinhkhang',
+    sameAs: [
+      'https://linkedin.com/in/phamdinhkhang',
+      'https://facebook.com/phamdinhkhang',
+    ],
+    jobTitle: 'Founder',
+    worksFor: { '@type': 'Organization', name: 'Validator.vn', url: BASE_URL },
+  };
+  return <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />;
+}
+
 export default async function AboutPage({ params }: PageProps) {
   const { locale } = await params;
   const dict = await getDictionary(locale as Locale);
@@ -46,6 +62,7 @@ export default async function AboutPage({ params }: PageProps) {
 
   return (
     <div className="max-w-3xl mx-auto px-4 py-8 max-md:px-3 max-md:py-6">
+      <PersonJsonLd />
       {/* Breadcrumb */}
       <nav className="text-[13px] text-text-muted mb-6">
         <Link href={localePath('/', locale as Locale)} className="hover:text-cta transition-colors">{dict.knowledge.breadcrumb.home}</Link>
