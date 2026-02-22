@@ -9,13 +9,15 @@ const dictionaries = {
       import('./dictionaries/vi/landing'),
       import('./dictionaries/vi/fnb-home'),
       import('./dictionaries/vi/knowledge'),
-    ]).then(([common, wizard, dashboard, landing, fnbHome, knowledge]) => ({
+      import('./dictionaries/vi/features'),
+    ]).then(([common, wizard, dashboard, landing, fnbHome, knowledge, features]) => ({
       common: common.default,
       wizard: wizard.default,
       dashboard: dashboard.default,
       landing: landing.default,
       fnbHome: fnbHome.default,
       knowledge: knowledge.default,
+      features: features.default,
     })),
 
   en: () =>
@@ -26,13 +28,15 @@ const dictionaries = {
       import('./dictionaries/en/landing'),
       import('./dictionaries/en/fnb-home'),
       import('./dictionaries/en/knowledge'),
-    ]).then(([common, wizard, dashboard, landing, fnbHome, knowledge]) => ({
+      import('./dictionaries/en/features'),
+    ]).then(([common, wizard, dashboard, landing, fnbHome, knowledge, features]) => ({
       common: common.default,
       wizard: wizard.default,
       dashboard: dashboard.default,
       landing: landing.default,
       fnbHome: fnbHome.default,
       knowledge: knowledge.default,
+      features: features.default,
     })),
 };
 

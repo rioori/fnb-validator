@@ -1,0 +1,199 @@
+import type { KBTopic, KBTableRow, KBStat, KBTimelineStep, KBWarningItem } from '@/types';
+
+const OPERATIONS_ARTICLES: KBTopic[] = [
+  {
+    id: 'business_models',
+    slug: 'mo-hinh-fnb-pho-bien',
+    icon: 'kiosk',
+    title: 'Common F&B Models',
+    subtitle: 'Each type has unique characteristics',
+    color: 'mint-light',
+    category: 'operations',
+    highlights: [
+      { label: 'Model Types', value: '8 types' },
+      { label: 'Lowest Capital', value: 'VND 100 million' },
+      { label: '3-Year Survival Rate', value: '~20%' },
+    ],
+    sections: [
+      {
+        type: 'table',
+        heading: 'Quick Comparison: Capital & Margins',
+        content: [
+          { label: 'Coffee Shop', range: 'VND 200M - 1.5B', note: 'Gross margin 70-80%. Intense competition — differentiation is key.' },
+          { label: 'Eatery', range: 'VND 100 - 500M', note: 'Gross margin 55-65%. Steady demand, but food cost is high at 30-40%.' },
+          { label: 'Bubble Tea', range: 'VND 300M - 1.5B', note: 'Gross margin 75-85%. Saturated market — strong branding required.' },
+          { label: 'Restaurant', range: 'VND 1 - 5B', note: 'Gross margin 60-70%. High capital, needs professional management.' },
+          { label: 'Cloud Kitchen', range: 'VND 100 - 500M', note: 'Gross margin 55-65%. No rent, but 20-30% delivery app fees.' },
+          { label: 'Bakery', range: 'VND 300M - 2B', note: 'Gross margin 65-75%. Requires skills and hero products.' },
+          { label: 'Bar / Pub', range: 'VND 1 - 8B', note: 'Gross margin 75-85%. Regulatory risks, tight management needed.' },
+          { label: 'Kiosk / Food Court', range: 'VND 200M - 1B', note: 'Gross margin 60-70%. Built-in foot traffic, but mall rent is high.' },
+        ] as KBTableRow[],
+      },
+      {
+        type: 'list',
+        heading: 'Which model suits you?',
+        content: [
+          'Low capital (<VND 300M), limited experience → Small eatery or Cloud Kitchen. Test the concept first, then scale.',
+          'Medium capital (VND 300M - 1B), passion for beverages → Coffee or Bubble Tea. A unique concept is essential.',
+          'Solid capital (VND 1 - 3B), management experience → Restaurant or Bar. Requires a professional operations team.',
+          'Want low risk, fast validation → Mall kiosk or Cloud Kitchen. Faster break-even.',
+          'Skilled in cooking/mixology → Bakery or Specialty Coffee. Your core product is your competitive edge.',
+        ],
+      },
+      {
+        type: 'text',
+        content: 'There is no "easy" model — each comes with its own risks. What matters is choosing one that matches your experience, budget, and risk appetite.',
+      },
+    ],
+  },
+  {
+    id: 'lifecycle',
+    slug: 'vong-doi-quan-fnb',
+    icon: 'trending',
+    title: 'F&B Business Lifecycle',
+    subtitle: 'Don\'t expect profits from month one',
+    color: 'primary-light',
+    category: 'operations',
+    highlights: [
+      { label: 'Preparation', value: '2-4 months', note: 'before opening' },
+      { label: 'Ramp-up', value: '1-3 months', note: 'revenue at 40-70%' },
+      { label: 'Stabilization', value: 'months 4-6' },
+      { label: 'Payback', value: 'months 8-18' },
+    ],
+    sections: [
+      {
+        type: 'timeline',
+        content: [
+          { month: 'Pre-opening', title: 'Preparation Phase (2-4 months)', desc: 'Market research, finding a location, permits & licenses, design and build-out, hiring, training. THIS phase determines 80% of your success or failure.', status: 'ramp' },
+          { month: 'Months 1-2', title: 'Ramp-up', desc: 'Revenue at only 40-60% of capacity. Customers are trying you out but haven\'t formed a habit yet. Team is running in. EXPENSES > REVENUE is normal.', status: 'ramp' },
+          { month: 'Months 3-4', title: 'Acceleration', desc: 'Revenue at 70-90%. Regulars begin to form. Optimize the menu, cut underperforming items. Start trimming costs.', status: 'ramp' },
+          { month: 'Months 5-8', title: 'Stabilization', desc: 'Revenue reaches 100% of projections. If profitable — maintain course. If not — reassess immediately. This is the make-or-break stage.', status: 'stable' },
+          { month: 'Months 9-12', title: 'Saturation / Growth', desc: 'With good management: 5-10% annual growth. Without: gradual decline due to new competitors. Menu refresh and marketing are critical.', status: 'stable' },
+          { month: 'Year 2-3+', title: 'Renewal or Decline', desc: 'The average F&B business in Vietnam lasts 2-3 years. Only 20% survive past year 3. Continuous improvement is essential.', status: 'decline' },
+        ] as KBTimelineStep[],
+      },
+      {
+        type: 'list',
+        heading: 'Key Actions by Phase',
+        content: [
+          'Months 1-2: Focus on smooth operations, refine SOPs, listen to customer feedback. Don\'t push heavy marketing yet.',
+          'Months 3-4: Analyze sales data, cut the bottom 20% of menu items, renegotiate supplier prices, launch a loyalty program.',
+          'Months 5-8: Review P&L weekly, optimize shift scheduling, add delivery channels if not already present, build online presence.',
+          'Months 9-12: Refresh 20-30% of the menu, add seasonal items, review pricing, evaluate staff performance, plan for the next year.',
+          'Year 2+: Consider a second location or pivot the model. Don\'t let the business run on autopilot — that\'s when decline begins.',
+        ],
+      },
+    ],
+  },
+  {
+    id: 'common_mistakes',
+    slug: 'loi-thuong-gap',
+    icon: 'warning',
+    title: 'Common Mistakes',
+    subtitle: '80% of closures trace back to these errors',
+    color: 'secondary-light',
+    category: 'operations',
+    sections: [
+      {
+        type: 'warning-list',
+        content: [
+          { icon: 'cashout', title: 'Underestimating costs', desc: 'Forgetting: Social Insurance, spoilage, depreciation, monthly marketing, delivery app fees, VAT on lease. Actual costs typically run 20-30% above projections.', severity: 'critical' },
+          { icon: 'trendingup', title: 'Overestimating revenue', desc: 'Don\'t use your best day as the average. Month 1 only reaches 40-60% of capacity. Project based on weekdays, not weekends.', severity: 'critical' },
+          { icon: 'rent', title: 'Overpaying for rent', desc: 'Prime location but rent exceeds 20% of revenue = guaranteed loss. "High foot traffic" does not equal "customers walking in."', severity: 'critical' },
+          { icon: 'wallet', title: 'Insufficient cash reserves', desc: 'You need at least 3-6 months of operating costs in reserve. Many businesses close at month 3-4 because they ran out of cash, not customers.', severity: 'critical' },
+          { icon: 'chart', title: 'Not tracking financials', desc: 'Not knowing actual food cost, no monthly P&L, not measuring customer acquisition cost. "Gut feeling" is not a substitute for data.', severity: 'critical' },
+          { icon: 'clipboard', title: 'No SOPs from the start', desc: 'No standardized processes = inconsistent quality = lost customers. Write SOPs for everything: preparation, service, opening/closing.', severity: 'warning' },
+          { icon: 'target', title: 'No defined target customer', desc: 'Trying to serve everyone = serving no one well. Define clearly: who, age range, income level, reason for visiting.', severity: 'warning' },
+          { icon: 'phone', title: 'Neglecting online marketing', desc: 'In today\'s digital age, 70%+ of customers find businesses through Google Maps, TikTok, or Facebook. No online presence = you don\'t exist.', severity: 'warning' },
+          { icon: 'bolt', title: 'Skipping concept validation', desc: 'Opening based on "intuition" without real-world testing. You should: sell online/popup for 1-2 months, survey 50+ people, research competitors.', severity: 'warning' },
+          { icon: 'handshake', title: 'Unclear partnership agreements', desc: 'Capital contributions, profit sharing, and decision-making authority must be documented from day one. Many businesses collapse because partners disagree.', severity: 'tip' },
+          { icon: 'gear', title: 'Owner wearing too many hats', desc: 'Cooking, serving, marketing, and accounting simultaneously → burnout in 3-6 months. Prioritize hiring or outsourcing tasks outside your strengths.', severity: 'tip' },
+        ] as KBWarningItem[],
+      },
+    ],
+  },
+  {
+    id: 'hr_management',
+    slug: 'quan-ly-nhan-su',
+    icon: 'users',
+    title: 'F&B HR Management',
+    subtitle: 'Hiring, training, and retention — the hardest challenge',
+    color: 'secondary-light',
+    category: 'operations',
+    highlights: [
+      { label: 'F&B Turnover Rate', value: '60-120%', note: 'per year in Vietnam' },
+      { label: 'Training Cost per Head', value: 'VND 3-8M', note: 'lost when staff quits' },
+      { label: 'Target Labor %', value: '20-30%', note: 'of revenue' },
+      { label: 'Staff per Shift', value: '1 per 15-20 seats', note: 'service staff benchmark' },
+    ],
+    sections: [
+      {
+        type: 'stat-grid',
+        heading: 'Key HR Metrics',
+        content: [
+          { icon: 'users', label: 'Labor Cost %', value: '20-30%', desc: '= Total labor cost (wages + BHXH + meals + allowances) / Revenue. Above 30% = overstaffed or under-revenue.' },
+          { icon: 'clock', label: 'Staff Turnover Rate', value: '<50%/year', desc: '= Staff who left / Average headcount × 100. Vietnam F&B averages 60-120% — aim to beat the average.' },
+          { icon: 'money', label: 'Revenue per Employee', value: 'VND 25-50M/month', desc: '= Total revenue / Total employees. Below VND 20M/month = team is underperforming or overstaffed.' },
+          { icon: 'chart', label: 'Training ROI', value: '3-6 months', desc: 'A new hire takes 2-4 weeks to train and 3-6 months to become fully productive. Every departure restarts this clock.' },
+        ] as KBStat[],
+      },
+      {
+        type: 'table',
+        heading: 'Typical Salary Ranges in Vietnamese F&B (2025)',
+        content: [
+          { label: 'Restaurant Manager', range: 'VND 12-25M/month', note: 'Experienced: VND 18-25M. Must manage P&L, staff, and customer experience.' },
+          { label: 'Head Chef / Kitchen Manager', range: 'VND 12-20M/month', note: 'Critical role. Good chefs command premium pay — and are worth it.' },
+          { label: 'Line Cook', range: 'VND 7-12M/month', note: 'VND 8-10M in HCMC/Hanoi. Add VND 1-2M for experienced cooks.' },
+          { label: 'Barista (Coffee Shop)', range: 'VND 6-10M/month', note: 'VND 7-9M average. Skilled specialty baristas: VND 10-15M.' },
+          { label: 'Service Staff / Waiter', range: 'VND 5-8M/month', note: 'Lowest-paid but highest-turnover. Tips can add VND 1-3M in upscale venues.' },
+          { label: 'Cashier', range: 'VND 5-7M/month', note: 'Often doubles as receptionist. Trustworthiness is key.' },
+          { label: 'Dishwasher / Kitchen Helper', range: 'VND 5-7M/month', note: 'Hardest to retain. Improve conditions: breaks, meals, and fair scheduling.' },
+          { label: 'Part-time Staff', range: 'VND 25-35K/hour', note: 'Students, flexible scheduling. Great for peak hours. Less loyal but cost-effective.' },
+        ] as KBTableRow[],
+      },
+      {
+        type: 'list',
+        heading: 'Recruitment Tips for F&B',
+        content: [
+          'Post on Facebook groups specific to your district/city — F&B workers search locally. "Tuyển dụng [district name]" groups are goldmines.',
+          'Offer a trial shift (paid) before committing. 2-3 days of trial reveals more than any interview. Watch how they handle pressure, not just skills.',
+          'Employee referral bonus: pay VND 500K-1M if a current staff member refers someone who stays 3+ months. Your best people know other good people.',
+          'Be transparent about pay, hours, and expectations in the job post. Vague listings attract the wrong candidates and waste everyone\'s time.',
+          'Hire for attitude, train for skills. A motivated person with zero experience will outperform a skilled worker with a bad attitude within 2 months.',
+          'Build a bench: always be passively recruiting. When someone quits (and they will), you need a replacement within days, not weeks.',
+        ],
+      },
+      {
+        type: 'list',
+        heading: 'Training & Retention Strategies',
+        content: [
+          'Create written SOPs for every position: opening checklist, closing checklist, recipe cards, service scripts, cleaning routines. New hires should be productive within 1 week.',
+          'Pair new hires with a senior "buddy" for the first 2 weeks. This reduces mistakes and builds team bonds — the #1 reason people stay.',
+          'Provide staff meals every shift — this costs VND 20-30K/person but reduces theft, boosts morale, and is expected in Vietnamese F&B culture.',
+          'Implement a simple incentive system: monthly bonus for best performer (VND 500K-1M), team bonus when monthly revenue targets are hit.',
+          'Schedule fairly: rotate weekend/holiday shifts. Staff who always work weekends while others get time off will quit first.',
+          'Conduct monthly 1-on-1 check-ins (10 minutes each). Ask: "What\'s frustrating you? What can we improve?" Most people quit over fixable issues that nobody asked about.',
+          'Career path: show staff a clear progression. Kitchen helper → Line cook → Sous chef. Service staff → Shift leader → Floor manager. People stay where they can grow.',
+          'Pay on time, every time. Late salary is the #1 fastest way to lose staff trust. Set up automatic bank transfers on the same date each month.',
+        ],
+      },
+      {
+        type: 'warning-list',
+        heading: 'HR Mistakes That Kill F&B Businesses',
+        content: [
+          { icon: 'warning', title: 'Not paying Social Insurance (BHXH)', desc: 'From 2025, enforcement is strict. Penalty: 12-15%/year on unpaid amounts + mandatory back payment. Employees can (and do) report violations.', severity: 'critical' },
+          { icon: 'warning', title: 'No written labor contracts', desc: 'Even for part-timers, a simple contract protects both sides. Without one, you have zero leverage in disputes and face fines of VND 2-5M per employee.', severity: 'critical' },
+          { icon: 'warning', title: 'Depending on one "star" employee', desc: 'If your entire kitchen relies on one chef, you are one resignation away from disaster. Cross-train everything. Document all recipes.', severity: 'warning' },
+          { icon: 'warning', title: 'Ignoring workplace culture', desc: 'Yelling, unfair treatment, or playing favorites creates a toxic environment. Word spreads fast in the local F&B community — bad employers struggle to hire.', severity: 'warning' },
+          { icon: 'warning', title: 'Overstaffing at launch', desc: 'Hiring a full team before you know your actual revenue is a classic mistake. Start lean (70-80% of planned headcount), then add staff as demand grows.', severity: 'tip' },
+        ] as KBWarningItem[],
+      },
+      {
+        type: 'text',
+        content: 'People are your most valuable — and most volatile — asset in F&B. The cost of replacing one employee (recruiting, training, lost productivity) is typically 2-3 months of their salary. Invest in retention: it\'s always cheaper than replacement.',
+      },
+    ],
+  },
+];
+
+export default OPERATIONS_ARTICLES;

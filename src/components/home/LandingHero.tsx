@@ -27,14 +27,22 @@ const VERTICAL_META = [
 
 const FEATURE_ICONS = ['chart', 'chat', 'book', 'checklist'];
 
+const FEATURE_LINKS = [
+  '/tinh-nang/phan-tich-tai-chinh',
+  '/tinh-nang/ai-advisor',
+  '/tinh-nang/kien-thuc',
+  '/tinh-nang/checklist',
+];
+
 const spring = { type: 'spring' as const, stiffness: 300, damping: 22 };
 
-function StaggeredSection({ children, className, delay = 0 }: { children: React.ReactNode; className?: string; delay?: number }) {
+function StaggeredSection({ children, className, delay = 0, id }: { children: React.ReactNode; className?: string; delay?: number; id?: string }) {
   const ref = useRef(null);
   const inView = useInView(ref, { once: true, margin: '-60px' });
   return (
     <motion.div
       ref={ref}
+      id={id}
       className={className}
       initial="hidden"
       animate={inView ? 'show' : 'hidden'}
@@ -121,18 +129,22 @@ export default function LandingHero() {
             {t.landing.features.map((f, i) => (
               <motion.div
                 key={f.title}
-                className="text-center"
                 variants={{
                   hidden: { opacity: 0, scale: 0.85, y: 10 },
                   show: { opacity: 1, scale: 1, y: 0 },
                 }}
                 transition={spring}
               >
-                <Icon name={FEATURE_ICONS[i]} size={36} className="mx-auto mb-2" />
-                <h3 className="text-[13px] font-bold font-[family-name:var(--font-heading)] text-text mb-1">
-                  {f.title}
-                </h3>
-                <p className="text-[11px] text-text-muted leading-relaxed">{f.desc}</p>
+                <Link
+                  href={localePath(FEATURE_LINKS[i], locale)}
+                  className="clay-card bg-white/60 p-3 text-center block h-full"
+                >
+                  <Icon name={FEATURE_ICONS[i]} size={36} className="mx-auto mb-2" />
+                  <h3 className="text-[13px] font-bold font-[family-name:var(--font-heading)] text-text mb-1">
+                    {f.title}
+                  </h3>
+                  <p className="text-[11px] text-text-muted leading-relaxed">{f.desc}</p>
+                </Link>
               </motion.div>
             ))}
           </div>
@@ -154,33 +166,40 @@ export default function LandingHero() {
           {t.landing.about.desc}
         </motion.p>
         {/* Audience pills */}
-        <div className="flex gap-3 justify-center mb-4 max-md:flex-col max-md:gap-2">
+        <div className="grid grid-cols-2 gap-3 max-w-[600px] mx-auto mb-4 max-md:grid-cols-1">
           {t.landing.about.audiences.map((a) => (
             <motion.div
               key={a.label}
-              className="clay-sm bg-mint-light px-4 py-2.5 flex items-center gap-2.5 max-md:justify-center"
+              className="clay-sm bg-mint-light px-4 py-3 flex flex-col items-center text-center gap-1.5"
               variants={cardItem}
               transition={spring}
             >
-              <Icon name={a.icon} size={24} className="shrink-0 !border-0 !shadow-none !bg-transparent" />
-              <div>
-                <span className="text-[12px] font-bold font-[family-name:var(--font-heading)] text-text block leading-tight">{a.label}</span>
-                <span className="text-[11px] text-text-muted leading-tight">{a.desc}</span>
-              </div>
+              <Icon name={a.icon} size={24} className="!border-0 !shadow-none !bg-transparent" />
+              <span className="text-[12px] font-bold font-[family-name:var(--font-heading)] text-text leading-tight">{a.label}</span>
+              <span className="text-[11px] text-text-muted leading-tight">{a.desc}</span>
             </motion.div>
           ))}
         </div>
+        {/* How it works — 3-step flow */}
+        <motion.h3
+          className="text-[12px] font-bold font-[family-name:var(--font-heading)] uppercase tracking-wider text-text-muted mb-3 text-center"
+          variants={{ hidden: { opacity: 0 }, show: { opacity: 1 } }}
+        >
+          {t.landing.about.howItWorks}
+        </motion.h3>
         <div className="grid grid-cols-3 gap-3 max-md:grid-cols-1">
-          {t.landing.about.points.map((p, i) => (
+          {t.landing.about.steps.map((s) => (
             <motion.div
-              key={p.title}
+              key={s.step}
               className="clay-sm bg-pastel-cream p-4 text-center"
               variants={cardItem}
               transition={spring}
             >
-              <Icon name={p.icon} size={36} className="mx-auto mb-2" />
-              <h3 className="text-[13px] font-bold font-[family-name:var(--font-heading)] text-text mb-1">{p.title}</h3>
-              <p className="text-[11px] text-text-muted leading-relaxed">{p.desc}</p>
+              <span className="inline-flex items-center justify-center w-8 h-8 rounded-full bg-cta text-white text-[14px] font-bold font-[family-name:var(--font-heading)] mb-2">
+                {s.step}
+              </span>
+              <h4 className="text-[13px] font-bold font-[family-name:var(--font-heading)] text-text mb-1">{s.title}</h4>
+              <p className="text-[11px] text-text-muted leading-relaxed">{s.desc}</p>
             </motion.div>
           ))}
         </div>

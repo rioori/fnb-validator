@@ -46,6 +46,8 @@ const knowledge = {
     metaDescSuffix: '. Detailed guide for F&B shop owners in Vietnam.',
     prevArticle: '← Previous',
     nextArticle: 'Next →',
+    relatedInCategory: 'More in',
+    allArticles: '← View all articles',
   },
   cta: {
     validateIdea: 'Validate F&B Idea',

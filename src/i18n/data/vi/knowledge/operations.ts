@@ -1,0 +1,198 @@
+import type { KBTopic, KBTableRow, KBStat, KBTimelineStep, KBWarningItem } from '@/types';
+
+const OPERATIONS_ARTICLES: KBTopic[] = [
+  {
+    id: 'business_models',
+    slug: 'mo-hinh-fnb-pho-bien',
+    icon: 'kiosk',
+    title: 'Mô hình F&B phổ biến',
+    subtitle: 'Mỗi loại có đặc điểm riêng',
+    color: 'mint-light',
+    category: 'operations',
+    highlights: [
+      { label: 'Số mô hình', value: '8 loại' },
+      { label: 'Vốn thấp nhất', value: '100 triệu' },
+      { label: 'Tỷ lệ sống 3 năm', value: '~20%' },
+    ],
+    sections: [
+      {
+        type: 'table',
+        heading: 'So sánh nhanh: vốn & biên lợi nhuận',
+        content: [
+          { label: 'Cà phê', range: '200tr - 1.5 tỷ', note: 'Biên gộp 70-80%. Cạnh tranh khốc liệt, cần khác biệt.' },
+          { label: 'Quán ăn', range: '100 - 500tr', note: 'Biên gộp 55-65%. Nhu cầu ổn, food cost cao 30-40%.' },
+          { label: 'Trà sữa', range: '300tr - 1.5 tỷ', note: 'Biên gộp 75-85%. Thị trường bão hòa, cần brand mạnh.' },
+          { label: 'Nhà hàng', range: '1 - 5 tỷ', note: 'Biên gộp 60-70%. Vốn lớn, cần quản lý chuyên nghiệp.' },
+          { label: 'Cloud Kitchen', range: '100 - 500tr', note: 'Biên gộp 55-65%. Không mặt bằng, phí app 20-30%.' },
+          { label: 'Tiệm bánh', range: '300tr - 2 tỷ', note: 'Biên gộp 65-75%. Cần tay nghề, sản phẩm chủ lực.' },
+          { label: 'Bar / Pub', range: '1 - 8 tỷ', note: 'Biên gộp 75-85%. Rủi ro pháp lý, cần quản lý chặt.' },
+          { label: 'Kiosk / Food Court', range: '200tr - 1 tỷ', note: 'Biên gộp 60-70%. Có sẵn traffic, thuê TTTM cao.' },
+        ] as KBTableRow[],
+      },
+      {
+        type: 'list',
+        heading: 'Phù hợp với ai?',
+        content: [
+          'Ít vốn (<300tr), ít kinh nghiệm → Quán ăn nhỏ hoặc Cloud Kitchen. Test concept trước, mở rộng sau.',
+          'Vốn trung bình (300tr-1 tỷ), đam mê đồ uống → Cà phê hoặc Trà sữa. Cần concept khác biệt.',
+          'Vốn khá (1-3 tỷ), có kinh nghiệm quản lý → Nhà hàng hoặc Bar. Cần team vận hành chuyên nghiệp.',
+          'Muốn rủi ro thấp, test nhanh → Kiosk trong TTTM hoặc Cloud Kitchen. Break-even nhanh hơn.',
+          'Có tay nghề bếp/pha chế → Tiệm bánh hoặc Cà phê specialty. Sản phẩm lõi là lợi thế cạnh tranh.',
+        ],
+      },
+      {
+        type: 'text',
+        content: 'Không có mô hình "dễ" — mỗi loại đều có rủi ro riêng. Quan trọng là chọn loại phù hợp kinh nghiệm, ngân sách và khẩu vị rủi ro của bạn.',
+      },
+    ],
+  },
+  {
+    id: 'lifecycle',
+    slug: 'vong-doi-quan-fnb',
+    icon: 'trending',
+    title: 'Vòng đời quán F&B',
+    subtitle: 'Đừng kỳ vọng lãi từ tháng đầu',
+    color: 'primary-light',
+    category: 'operations',
+    highlights: [
+      { label: 'Chuẩn bị', value: '2-4 tháng', note: 'trước khi mở' },
+      { label: 'Ramp-up', value: '1-3 tháng', note: 'doanh thu 40-70%' },
+      { label: 'Ổn định', value: 'tháng 4-6' },
+      { label: 'Hoàn vốn', value: 'tháng 8-18' },
+    ],
+    sections: [
+      {
+        type: 'timeline',
+        content: [
+          { month: 'Trước khi mở', title: 'Giai đoạn chuẩn bị (2-4 tháng)', desc: 'Khảo sát thị trường, tìm mặt bằng, đăng ký giấy phép, thiết kế thi công, tuyển dụng, training. ĐÂY là giai đoạn quyết định 80% thành bại.', status: 'ramp' },
+          { month: 'Tháng 1-2', title: 'Khởi động (Ramp-up)', desc: 'Doanh thu chỉ 40-60% công suất. Khách thử, chưa quay lại đều. Đội ngũ đang chạy rốt-in. CHI > THU là bình thường.', status: 'ramp' },
+          { month: 'Tháng 3-4', title: 'Tăng tốc', desc: 'Doanh thu 70-90%. Khách quen bắt đầu hình thành. Tối ưu menu, cắt món không bán. Bắt đầu tinh gọn chi phí.', status: 'ramp' },
+          { month: 'Tháng 5-8', title: 'Ổn định', desc: 'Doanh thu đạt 100% kỳ vọng. Nếu có lãi — giữ nguyên. Nếu lỗ — xem lại ngay. Đây là lúc quyết định quán "sống" hay "chết".', status: 'stable' },
+          { month: 'Tháng 9-12', title: 'Bão hòa / Tăng trưởng', desc: 'Nếu quản lý tốt: tăng trưởng 5-10%/năm. Nếu không: khách giảm dần do đối thủ mới. Cần đổi mới menu, marketing.', status: 'stable' },
+          { month: 'Năm 2-3+', title: 'Đổi mới hoặc suy thoái', desc: 'Quán F&B trung bình tại VN tồn tại 2-3 năm. Chỉ 20% sống qua năm thứ 3. Cần liên tục cải thiện.', status: 'decline' },
+        ] as KBTimelineStep[],
+      },
+      {
+        type: 'list',
+        heading: 'Việc cần làm mỗi giai đoạn',
+        content: [
+          'Tháng 1-2: Tập trung vận hành mượt, sửa SOP, lắng nghe feedback khách. Chưa cần marketing mạnh.',
+          'Tháng 3-4: Phân tích data bán hàng, cắt 20% món không bán, đàm phán lại giá NCC, bắt đầu loyalty program.',
+          'Tháng 5-8: Kiểm tra P&L hàng tuần, tối ưu ca làm, mở kênh delivery nếu chưa có, xây online presence.',
+          'Tháng 9-12: Đổi mới menu 20-30%, thêm seasonal items, review giá bán, đánh giá nhân sự, plan năm tiếp.',
+          'Năm 2+: Cân nhắc mở chi nhánh 2 hoặc pivot mô hình. Đừng để quán "chạy tự động" — đó là lúc suy thoái bắt đầu.',
+        ],
+      },
+    ],
+  },
+  {
+    id: 'common_mistakes',
+    slug: 'loi-thuong-gap',
+    icon: 'warning',
+    title: 'Lỗi thường gặp',
+    subtitle: '80% quán đóng cửa vì những lỗi này',
+    color: 'secondary-light',
+    category: 'operations',
+    sections: [
+      {
+        type: 'warning-list',
+        content: [
+          { icon: 'cashout', title: 'Dự tính chi phí quá thấp', desc: 'Quên tính: BHXH, hao hụt, khấu hao, marketing tháng, phí app delivery, VAT thuê mặt bằng. Thực tế thường cao hơn dự tính 20-30%.', severity: 'critical' },
+          { icon: 'trendingup', title: 'Kỳ vọng doanh thu quá cao', desc: 'Đừng lấy ngày đông nhất làm trung bình. Tháng đầu chỉ đạt 40-60% công suất. Tính theo ngày thường, không phải cuối tuần.', severity: 'critical' },
+          { icon: 'rent', title: 'Thuê mặt bằng quá đắt', desc: 'Vị trí đẹp nhưng chi phí thuê > 20% doanh thu = lỗ chắc. "Nhiều người qua lại" không = "nhiều khách vào quán".', severity: 'critical' },
+          { icon: 'wallet', title: 'Thiếu vốn dự phòng', desc: 'Cần ít nhất 3-6 tháng chi phí vận hành dự phòng. Nhiều quán lỗ tháng 3-4 là đóng cửa vì hết tiền, không phải hết khách.', severity: 'critical' },
+          { icon: 'chart', title: 'Không theo dõi số liệu', desc: 'Không biết food cost thực tế, không có P&L hàng tháng, không đo lường customer acquisition cost. "Cảm giác" không thay thế được data.', severity: 'critical' },
+          { icon: 'clipboard', title: 'Không có SOP từ đầu', desc: 'Không chuẩn hóa quy trình = chất lượng không đồng nhất = mất khách. Viết SOP cho mọi thứ: pha chế, phục vụ, đóng/mở cửa.', severity: 'warning' },
+          { icon: 'target', title: 'Không xác định khách mục tiêu', desc: 'Muốn phục vụ tất cả = không phục vụ ai tốt. Xác định rõ: ai, độ tuổi, thu nhập, lý do đến quán.', severity: 'warning' },
+          { icon: 'phone', title: 'Bỏ qua marketing online', desc: 'Thời đại số, 70%+ khách tìm quán qua Google Maps, TikTok, Facebook. Không có hiện diện online = không tồn tại.', severity: 'warning' },
+          { icon: 'bolt', title: 'Không test concept trước khi mở', desc: 'Mở quán luôn dựa trên "cảm giác" mà chưa test thực tế. Nên: bán thử online/popup 1-2 tháng, khảo sát 50+ người, nghiên cứu đối thủ.', severity: 'warning' },
+          { icon: 'handshake', title: 'Hùn vốn không rõ ràng', desc: 'Phân chia vốn, lợi nhuận, quyền quyết định phải có trên giấy từ đầu. Nhiều quán sập vì chủ cãi nhau.', severity: 'tip' },
+          { icon: 'gear', title: 'Chủ quán kiêm quá nhiều vai', desc: 'Vừa bếp, vừa phục vụ, vừa marketing, vừa kế toán → kiệt sức sau 3-6 tháng. Ưu tiên thuê/outsource những gì không phải sở trường.', severity: 'tip' },
+        ] as KBWarningItem[],
+      },
+    ],
+  },
+  {
+    id: 'hr_management',
+    slug: 'quan-ly-nhan-su',
+    icon: 'users',
+    title: 'Quản lý nhân sự F&B',
+    subtitle: 'Tuyển dụng, đào tạo, giữ người — bài toán khó nhất',
+    color: 'secondary-light',
+    category: 'operations',
+    highlights: [
+      { label: 'Tỷ lệ nghỉ việc/năm', value: '40-60%', note: 'ngành F&B Việt Nam' },
+      { label: 'Chi phí đào tạo/người', value: '3-8 triệu', note: 'mất trắng nếu nghỉ sớm' },
+      { label: 'Labor cost mục tiêu', value: '20-30%', note: 'trên doanh thu' },
+      { label: 'Nhân sự/ca (quán nhỏ)', value: '3-5 người', note: 'tùy quy mô và mô hình' },
+    ],
+    sections: [
+      {
+        type: 'stat-grid',
+        heading: 'Chỉ số nhân sự quan trọng',
+        content: [
+          { icon: 'users', label: 'Turnover rate', value: '40-60%/năm', desc: 'Trung bình ngành F&B. Mỗi người nghỉ = mất 3-8 triệu chi phí tuyển + đào tạo lại.' },
+          { icon: 'money', label: 'Chi phí đào tạo', value: '3-8 triệu/người', desc: 'Bao gồm: thời gian training 1-2 tuần, NVL hao hụt khi tập, năng suất thấp tháng đầu.' },
+          { icon: 'chart', label: 'Labor Cost %', value: '20-30%', desc: '= Tổng chi phí nhân sự / Doanh thu. Bao gồm lương, BHXH, phụ cấp, ăn ca. Trên 35% = nguy hiểm.' },
+          { icon: 'clock', label: 'Nhân sự/ca hiệu quả', value: '3-6 người', desc: 'Quán nhỏ 3-4 người/ca, quán vừa 5-8 người/ca. Tính theo năng suất phục vụ 15-20 khách/nhân viên/ca.' },
+        ] as KBStat[],
+      },
+      {
+        type: 'table',
+        heading: 'Mức lương phổ biến ngành F&B Việt Nam (2025-2026)',
+        content: [
+          { label: 'Quản lý quán / Store Manager', range: '10-18 triệu', note: 'Tùy quy mô. Quán nhỏ 10-12tr, chuỗi 15-18tr + KPI bonus.' },
+          { label: 'Bếp trưởng / Head Chef', range: '12-25 triệu', note: 'Nhà hàng cao cấp có thể 25-40tr. Quán ăn bình dân 8-12tr.' },
+          { label: 'Bếp phụ / Line Cook', range: '6-10 triệu', note: 'Phụ thuộc kinh nghiệm. Fresher 5-6tr, 2+ năm KN 8-10tr.' },
+          { label: 'Barista / Pha chế', range: '5-9 triệu', note: 'Cà phê specialty 7-10tr. Trà sữa chuỗi 5-7tr + tips.' },
+          { label: 'Phục vụ / Server', range: '4.5-7 triệu', note: 'Full-time. Part-time: 22-30K/giờ. Tips có thể thêm 1-2tr/tháng.' },
+          { label: 'Thu ngân / Cashier', range: '5-7 triệu', note: 'Cần tỉ mỉ, biết dùng POS. Một số quán gộp vai phục vụ + thu ngân.' },
+          { label: 'Rửa chén / Tạp vụ', range: '4-5.5 triệu', note: 'Thường khó tuyển nhất. Có thể thuê part-time theo ca.' },
+          { label: 'Shipper nội bộ', range: '5-8 triệu', note: 'Lương cứng + phụ cấp xăng + thưởng đơn. Hoặc thuê ngoài.' },
+        ] as KBTableRow[],
+      },
+      {
+        type: 'list',
+        heading: 'Tuyển dụng — tìm đúng người, đúng cách',
+        content: [
+          'Đăng tuyển đa kênh: Facebook group F&B (Hội Barista, Nghề Bếp VN), Zalo group khu vực, dán tờ rơi tại quán, nhờ nhân viên giới thiệu (thưởng 500K-1tr nếu người giới thiệu làm đủ 3 tháng).',
+          'Ưu tiên thái độ hơn kỹ năng: F&B có thể đào tạo kỹ năng trong 1-2 tuần, nhưng thái độ phục vụ, chịu khó, đúng giờ — rất khó dạy. Hỏi về tình huống thực tế khi phỏng vấn.',
+          'Thử việc có trả lương: 2-4 tuần thử việc, trả ít nhất 85% lương. Đánh giá cuối tuần 2: nếu không phù hợp, kết thúc sớm — đỡ mất thời gian cả hai.',
+          'Luôn có ứng viên dự phòng: Trong F&B, nhân viên có thể nghỉ đột xuất bất cứ lúc nào. Giữ danh sách 3-5 ứng viên part-time sẵn sàng gọi khi cần.',
+          'Phỏng vấn thực tế: Cho ứng viên bếp thử nấu 1 món đơn giản, barista pha 1 ly cà phê. Quan sát vệ sinh, tốc độ, thái độ quan trọng hơn kết quả.',
+          'Rõ ràng từ đầu: Trình bày rõ ca làm, lương, ngày nghỉ, nội quy TRƯỚC khi nhận việc. Tránh mâu thuẫn sau này vì "anh/chị không nói trước".',
+        ],
+      },
+      {
+        type: 'list',
+        heading: 'Đào tạo & giữ chân nhân viên',
+        content: [
+          'Xây SOP cho mọi vị trí: Viết rõ từng bước — từ mở cửa, chuẩn bị, phục vụ, đến đóng cửa. Kèm hình ảnh/video ngắn. Nhân viên mới đọc SOP + được kèm 3-5 ngày.',
+          'Lộ trình thăng tiến rõ ràng: Phục vụ → Phục vụ Senior → Trưởng ca → Quản lý. Mỗi bậc có tiêu chí rõ (thời gian, kỹ năng, KPI) + tăng lương 10-20%.',
+          'Thưởng hiệu suất hàng tháng: Thưởng doanh thu (đạt target = thưởng 500K-2tr), thưởng 0 complaint, thưởng đúng giờ 100%. Tổng thưởng = 15-25% lương cứng.',
+          'Xây văn hóa team: Họp đầu ca 5 phút (cập nhật, feedback), ăn cùng nhau, team building 1 lần/quý. Nhân viên gắn bó với TEAM, không chỉ với lương.',
+          'Lắng nghe và phản hồi: Hỏi ý kiến nhân viên về quy trình, menu mới, ca làm. Khi họ cảm thấy được lắng nghe → ở lại lâu hơn.',
+          'Không phạt tiền — dùng hệ thống cảnh cáo: Nhắc nhở miệng → cảnh cáo bằng văn bản → kỷ luật. Phạt tiền tạo tâm lý tiêu cực, không giúp cải thiện.',
+          'Đào tạo chéo (cross-training): Mỗi nhân viên biết ít nhất 2 vị trí. Khi có người nghỉ, quán vẫn chạy mượt. Thưởng thêm 500K cho mỗi vị trí biết thêm.',
+        ],
+      },
+      {
+        type: 'warning-list',
+        heading: 'Sai lầm nhân sự phổ biến',
+        content: [
+          { icon: 'warning', title: 'Không có hợp đồng lao động bằng văn bản', desc: 'Dù là hộ KD, vẫn nên có hợp đồng/thỏa thuận viết tay. Khi tranh chấp (trộm cắp, bỏ ca), không có gì để bảo vệ chủ quán.', severity: 'critical' },
+          { icon: 'warning', title: 'Bỏ qua BHXH, BHYT cho nhân viên', desc: 'Từ 2025, thanh tra BHXH siết chặt. HĐ lao động ≥1 tháng phải đóng BHXH. Phạt truy thu + 12-15%/năm số tiền trốn đóng.', severity: 'critical' },
+          { icon: 'warning', title: 'Không có SOP — mỗi người làm một kiểu', desc: 'Kết quả: chất lượng không đồng nhất, training mất 3x thời gian, khách phàn nàn "lần này khác lần trước". Viết SOP MẤT 1 ngày, tiết kiệm HÀNG NĂM.', severity: 'warning' },
+          { icon: 'warning', title: 'Quá phụ thuộc 1 nhân viên chủ chốt', desc: 'Bếp trưởng/barista giỏi nhất nghỉ → quán tê liệt. Giải pháp: recipe card chuẩn, cross-training, và luôn có người backup cho mọi vị trí.', severity: 'warning' },
+          { icon: 'warning', title: 'Tuyển người quen/họ hàng không phù hợp', desc: 'Khó kỷ luật, khó đuổi, gây mất đoàn kết. Nếu tuyển người quen: đối xử công bằng như nhân viên bình thường, nói rõ từ đầu.', severity: 'tip' },
+        ] as KBWarningItem[],
+      },
+      {
+        type: 'text',
+        content: 'Nhân sự là bài toán khó nhất của F&B — khó hơn cả tìm mặt bằng hay làm menu. Quán nào giữ được đội ngũ ổn định trên 1 năm, quán đó có lợi thế cạnh tranh rất lớn. Đầu tư vào con người không thấy kết quả ngay, nhưng là khoản đầu tư sinh lời cao nhất.',
+      },
+    ],
+  },
+];
+
+export default OPERATIONS_ARTICLES;

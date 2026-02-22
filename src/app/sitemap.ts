@@ -27,10 +27,18 @@ export default function sitemap(): MetadataRoute.Sitemap {
     entry(`/kien-thuc/${topic.slug}`, 'monthly', 0.8),
   );
 
+  const featurePages = [
+    '/tinh-nang/phan-tich-tai-chinh',
+    '/tinh-nang/ai-advisor',
+    '/tinh-nang/kien-thuc',
+    '/tinh-nang/checklist',
+  ].map((path) => entry(path, 'monthly', 0.85));
+
   return [
     entry('', 'weekly', 1),
     entry('/fnb', 'weekly', 0.95),
     entry('/kien-thuc', 'monthly', 0.9),
+    ...featurePages,
     ...knowledgePages,
   ];
 }

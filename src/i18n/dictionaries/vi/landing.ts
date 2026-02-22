@@ -58,12 +58,13 @@ const landing = {
     desc: 'Công cụ miễn phí giúp bạn thẩm định ý tưởng kinh doanh hoặc tối ưu mô hình đang vận hành.',
     audiences: [
       { icon: 'rocket', label: 'Chuẩn bị khởi nghiệp?', desc: 'Kiểm tra tính khả thi trước khi bỏ vốn' },
-      { icon: 'chart', label: 'Đang kinh doanh?', desc: 'Nhập số liệu thực tế để chẩn đoán sức khỏe tài chính' },
+      { icon: 'chart', label: 'Đang kinh doanh?', desc: 'Chẩn đoán sức khỏe tài chính từ số liệu thực tế' },
     ],
-    points: [
-      { icon: 'chart', title: 'Phân tích tài chính', desc: 'P&L 12 tháng, break-even, payback — tự động tính toán và chấm điểm' },
-      { icon: 'chat', title: 'AI Advisor', desc: 'Hỏi đáp chiến lược, chi phí, vận hành với trí tuệ nhân tạo' },
-      { icon: 'book', title: 'Kiến thức nền tảng', desc: '11 bài học từ pháp lý, thuế, marketing đến quản lý vận hành' },
+    howItWorks: 'Hoạt động thế nào?',
+    steps: [
+      { step: '1', title: 'Nhập dữ liệu', desc: 'Chọn mô hình, nhập chi phí đầu tư, doanh thu & chi phí vận hành dự kiến' },
+      { step: '2', title: 'Phân tích tự động', desc: 'AI tính P&L 12 tháng, break-even, health score và đánh giá rủi ro' },
+      { step: '3', title: 'Nhận kết quả', desc: 'Báo cáo chi tiết, AI advisor tư vấn chiến lược, checklist mở quán' },
     ],
     cta: 'Miễn phí · Không cần đăng ký · Song ngữ Việt-Anh',
   },

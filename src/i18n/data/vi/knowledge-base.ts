@@ -1,1 +1,2 @@
-export { KNOWLEDGE_BASE as default } from '@/lib/constants';
+export { default } from './knowledge';
+export { COST_ARTICLES, OPERATIONS_ARTICLES, STRATEGY_ARTICLES, LEGAL_ARTICLES } from './knowledge';

@@ -29,7 +29,10 @@ export default function WizardShell() {
   useEffect(() => {
     checkSession();
     restoreDraft();
-  }, [checkSession]);
+    // Deep-link: if ?view= param exists, force step=0 so HomePage handles it
+    const viewParam = new URLSearchParams(window.location.search).get('view');
+    if (viewParam) setStep(0);
+  }, [checkSession, setStep]);
 
   const stepNames = ['home', 'model', 'location', 'investment', 'revenue', 'costs', 'dashboard'];
   useEffect(() => {

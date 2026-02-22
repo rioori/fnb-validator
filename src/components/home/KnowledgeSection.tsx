@@ -3,21 +3,29 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
-import { KNOWLEDGE_BASE } from '@/lib/constants';
 import KBTopicCard from '@/components/knowledge/KBTopicCard';
 import Icon from '@/components/ui/Icon';
-import { useTranslation } from '@/i18n/LocaleProvider';
-import type { KBCategory } from '@/types';
+import { useTranslation, useLocale } from '@/i18n/LocaleProvider';
+import { localePath } from '@/i18n/link';
+import type { KBCategory, KBTopic } from '@/types';
+import KNOWLEDGE_BASE_VI from '@/i18n/data/vi/knowledge';
+import KNOWLEDGE_BASE_EN from '@/i18n/data/en/knowledge';
+
+function getKB(locale: string): KBTopic[] {
+  return locale === 'en' ? KNOWLEDGE_BASE_EN : KNOWLEDGE_BASE_VI;
+}
 
 type FilterType = 'all' | KBCategory;
 
 export default function KnowledgeSection() {
   const { t } = useTranslation();
+  const locale = useLocale();
+  const kb = getKB(locale);
   const [filter, setFilter] = useState<FilterType>('all');
 
   const filtered = filter === 'all'
-    ? KNOWLEDGE_BASE
-    : KNOWLEDGE_BASE.filter((item) => item.category === filter);
+    ? kb
+    : kb.filter((item) => item.category === filter);
 
   const CATEGORY_CONFIG: Record<'all' | KBCategory, { label: string }> = {
     all: { label: t.knowledge.section.filterAll },
@@ -111,7 +119,7 @@ export default function KnowledgeSection() {
             <KBTopicCard topic={topic} defaultOpen={index === 0} />
             <div className="text-right -mt-1 mb-3 mr-2">
               <Link
-                href={`/kien-thuc/${topic.slug}`}
+                href={localePath(`/kien-thuc/${topic.slug}`, locale)}
                 className="text-[11px] text-cta hover:underline"
               >
                 {t.knowledge.section.viewArticle}

@@ -46,6 +46,8 @@ const knowledge = {
     metaDescSuffix: '. Hướng dẫn chi tiết cho người mở quán F&B tại Việt Nam.',
     prevArticle: '← Bài trước',
     nextArticle: 'Bài tiếp →',
+    relatedInCategory: 'Xem thêm trong mục',
+    allArticles: '← Xem tất cả bài viết',
   },
   cta: {
     validateIdea: 'Thẩm định ý tưởng F&B',

@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
+import { useSearchParams } from 'next/navigation';
 import { track } from '@vercel/analytics';
 import Image from 'next/image';
 import Icon from '@/components/ui/Icon';
@@ -18,8 +19,25 @@ import Footer from './Footer';
 
 export type HomeView = 'main' | 'quick-calc' | 'knowledge' | 'about' | 'stories' | 'checklist' | 'trends' | 'why-fnb' | 'ai-chat';
 
+const VALID_VIEWS = new Set<string>([
+  'main', 'quick-calc', 'knowledge', 'about', 'stories',
+  'checklist', 'trends', 'why-fnb', 'ai-chat',
+]);
+
 export default function HomePage() {
-  const [view, setView] = useState<HomeView>('main');
+  const searchParams = useSearchParams();
+  const viewParam = searchParams.get('view');
+  const [view, setView] = useState<HomeView>(
+    viewParam && VALID_VIEWS.has(viewParam) ? (viewParam as HomeView) : 'main',
+  );
+
+  // Clean URL after consuming the ?view= param
+  useEffect(() => {
+    if (viewParam && VALID_VIEWS.has(viewParam)) {
+      window.history.replaceState({}, '', window.location.pathname);
+    }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   useEffect(() => {
     track('page_view', { page: view });

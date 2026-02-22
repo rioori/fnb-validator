@@ -60,10 +60,11 @@ const landing = {
       { icon: 'rocket', label: 'Preparing to launch?', desc: 'Test feasibility before investing capital' },
       { icon: 'chart', label: 'Already running?', desc: 'Input real numbers to diagnose financial health' },
     ],
-    points: [
-      { icon: 'chart', title: 'Financial Analysis', desc: '12-month P&L, break-even, payback — auto-calculated and scored' },
-      { icon: 'chat', title: 'AI Advisor', desc: 'Ask about strategy, costs, and operations with artificial intelligence' },
-      { icon: 'book', title: 'Knowledge Base', desc: '11 articles covering legal, tax, marketing, and operations' },
+    howItWorks: 'How it works',
+    steps: [
+      { step: '1', title: 'Enter your data', desc: 'Choose a model, input investment costs, projected revenue & operating expenses' },
+      { step: '2', title: 'Auto analysis', desc: 'AI calculates 12-month P&L, break-even, health score & risk assessment' },
+      { step: '3', title: 'Get results', desc: 'Detailed report, AI advisor for strategy, and pre-opening checklist' },
     ],
     cta: 'Free · No signup required · Bilingual Vietnamese-English',
   },

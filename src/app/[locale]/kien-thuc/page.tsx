@@ -1,11 +1,17 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
-import { KNOWLEDGE_BASE } from '@/lib/constants';
 import Icon from '@/components/ui/Icon';
+import KBListingFilter from '@/components/knowledge/KBListingFilter';
 import { getDictionary } from '@/i18n/get-dictionary';
 import { defaultLocale, type Locale } from '@/i18n/config';
 import { localePath } from '@/i18n/link';
-import type { KBCategory } from '@/types';
+import type { KBTopic } from '@/types';
+import KNOWLEDGE_BASE_VI from '@/i18n/data/vi/knowledge';
+import KNOWLEDGE_BASE_EN from '@/i18n/data/en/knowledge';
+
+function getKB(locale: string): KBTopic[] {
+  return locale === 'en' ? KNOWLEDGE_BASE_EN : KNOWLEDGE_BASE_VI;
+}
 
 const BASE_URL = 'https://www.validator.vn';
 
@@ -37,14 +43,6 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   };
 }
 
-const CATEGORY_KEYS: KBCategory[] = ['cost', 'operations', 'strategy', 'legal'];
-
-const colorMap: Record<string, string> = {
-  'primary-light': 'bg-primary-light',
-  'secondary-light': 'bg-secondary-light',
-  'mint-light': 'bg-mint-light',
-};
-
 function BreadcrumbJsonLd({ locale }: { locale: string }) {
   const isEn = locale === 'en';
   const jsonLd = {
@@ -71,6 +69,13 @@ function BreadcrumbJsonLd({ locale }: { locale: string }) {
 export default async function KienThucPage({ params }: PageProps) {
   const { locale } = await params;
   const dict = await getDictionary(locale as Locale);
+  const kb = getKB(locale);
+
+  // Pre-compute locale-prefixed paths for the client component
+  const localePrefixedPaths: Record<string, string> = {};
+  for (const topic of kb) {
+    localePrefixedPaths[topic.slug] = localePath(`/kien-thuc/${topic.slug}`, locale as Locale);
+  }
 
   return (
     <>
@@ -97,50 +102,14 @@ export default async function KienThucPage({ params }: PageProps) {
           </p>
         </div>
 
-        {/* Topic listing by category */}
-        {CATEGORY_KEYS.map((key) => {
-          const label = dict.knowledge.categories[key];
-          const topics = KNOWLEDGE_BASE.filter((t) => t.category === key);
-          if (topics.length === 0) return null;
-          return (
-            <section key={key} className="mb-8">
-              <h2 className="text-[14px] font-bold font-[family-name:var(--font-heading)] uppercase tracking-wider text-text-muted mb-3">
-                {label}
-              </h2>
-              <div className="space-y-3">
-                {topics.map((topic) => (
-                  <Link
-                    key={topic.id}
-                    href={localePath(`/kien-thuc/${topic.slug}`, locale as Locale)}
-                    className={`clay-card-static block p-4 hover:shadow-[3px_3px_0_var(--color-text)] transition-shadow ${colorMap[topic.color] || ''}`}
-                  >
-                    <div className="flex items-center gap-3">
-                      <Icon name={topic.icon} size={36} />
-                      <div className="min-w-0">
-                        <h3 className="text-[15px] font-bold font-[family-name:var(--font-heading)] text-text">
-                          {topic.title}
-                        </h3>
-                        <p className="text-[12px] text-text-muted">{topic.subtitle}</p>
-                      </div>
-                    </div>
-                    {topic.highlights && (
-                      <div className="flex flex-wrap gap-1.5 mt-2 ml-[48px]">
-                        {topic.highlights.slice(0, 3).map((h, i) => (
-                          <span
-                            key={i}
-                            className="clay-pill bg-white/80 !py-0.5 !px-2 !text-[10px]"
-                          >
-                            <strong className="text-cta">{h.value}</strong> {h.label}
-                          </span>
-                        ))}
-                      </div>
-                    )}
-                  </Link>
-                ))}
-              </div>
-            </section>
-          );
-        })}
+        {/* Filterable topic listing */}
+        <KBListingFilter
+          topics={kb}
+          categoryLabels={dict.knowledge.categories}
+          filterAllLabel={dict.knowledge.section.filterAll}
+          locale={locale}
+          localePrefixedPaths={localePrefixedPaths}
+        />
 
         {/* CTA */}
         <div className="text-center mt-8">

@@ -1,13 +1,19 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
-import { KNOWLEDGE_BASE, getKBTopicBySlug, getAllKBSlugs } from '@/lib/constants';
+import { getAllKBSlugs } from '@/lib/constants';
 import KBSectionRenderer from '@/components/knowledge/KBSectionRenderer';
 import Icon from '@/components/ui/Icon';
 import { getDictionary } from '@/i18n/get-dictionary';
 import { defaultLocale, type Locale } from '@/i18n/config';
 import { localePath } from '@/i18n/link';
 import type { KBTopic } from '@/types';
+import KNOWLEDGE_BASE_VI from '@/i18n/data/vi/knowledge';
+import KNOWLEDGE_BASE_EN from '@/i18n/data/en/knowledge';
+
+function getKB(locale: string): KBTopic[] {
+  return locale === 'en' ? KNOWLEDGE_BASE_EN : KNOWLEDGE_BASE_VI;
+}
 
 const BASE_URL = 'https://www.validator.vn';
 
@@ -21,7 +27,8 @@ type PageProps = { params: Promise<{ locale: string; slug: string }> };
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const { locale, slug } = await params;
-  const topic = getKBTopicBySlug(slug);
+  const kb = getKB(locale);
+  const topic = kb.find((t) => t.slug === slug);
   if (!topic) return {};
 
   const dict = await getDictionary(locale as Locale);
@@ -49,12 +56,9 @@ const colorMap: Record<string, string> = {
   'mint-light': 'bg-mint-light',
 };
 
-function getAdjacentTopics(slug: string): { prev: KBTopic | null; next: KBTopic | null } {
-  const idx = KNOWLEDGE_BASE.findIndex((t) => t.slug === slug);
-  return {
-    prev: idx > 0 ? KNOWLEDGE_BASE[idx - 1] : null,
-    next: idx < KNOWLEDGE_BASE.length - 1 ? KNOWLEDGE_BASE[idx + 1] : null,
-  };
+function getRelatedTopics(slug: string, category: string, locale: string): KBTopic[] {
+  const kb = getKB(locale);
+  return kb.filter((t) => t.category === category && t.slug !== slug).slice(0, 3);
 }
 
 // ── JSON-LD Structured Data ──
@@ -101,10 +105,11 @@ function BreadcrumbJsonLd({ topic, locale, dict }: { topic: KBTopic; locale: str
 export default async function KienThucTopicPage({ params }: PageProps) {
   const { locale, slug } = await params;
   const dict = await getDictionary(locale as Locale);
-  const topic = getKBTopicBySlug(slug);
+  const kb = getKB(locale);
+  const topic = kb.find((t) => t.slug === slug);
   if (!topic) notFound();
 
-  const { prev, next } = getAdjacentTopics(slug);
+  const related = getRelatedTopics(slug, topic.category, locale);
   const categoryLabel = dict.knowledge.categories[topic.category as keyof typeof dict.knowledge.categories];
 
   return (
@@ -157,35 +162,43 @@ export default async function KienThucTopicPage({ params }: PageProps) {
           ))}
         </div>
 
-        {/* Prev / Next navigation */}
-        <nav className="flex gap-4 mt-8 max-md:flex-col">
-          {prev ? (
-            <Link
-              href={localePath(`/kien-thuc/${prev.slug}`, locale as Locale)}
-              className="clay-card-static p-3 flex-1 hover:shadow-[3px_3px_0_var(--color-text)] transition-shadow"
-            >
-              <span className="text-[11px] text-text-muted block">{dict.knowledge.article.prevArticle}</span>
-              <span className="text-[13px] font-bold font-[family-name:var(--font-heading)]">
-                {prev.title}
-              </span>
-            </Link>
-          ) : (
-            <div className="flex-1" />
-          )}
-          {next ? (
-            <Link
-              href={localePath(`/kien-thuc/${next.slug}`, locale as Locale)}
-              className="clay-card-static p-3 flex-1 text-right hover:shadow-[3px_3px_0_var(--color-text)] transition-shadow"
-            >
-              <span className="text-[11px] text-text-muted block">{dict.knowledge.article.nextArticle}</span>
-              <span className="text-[13px] font-bold font-[family-name:var(--font-heading)]">
-                {next.title}
-              </span>
-            </Link>
-          ) : (
-            <div className="flex-1" />
-          )}
-        </nav>
+        {/* Related articles in same category */}
+        {related.length > 0 && (
+          <div className="mt-8">
+            <h2 className="text-[13px] font-bold font-[family-name:var(--font-heading)] uppercase tracking-wider text-text-muted mb-3">
+              {dict.knowledge.article.relatedInCategory} {categoryLabel}
+            </h2>
+            <div className="space-y-3">
+              {related.map((r) => (
+                <Link
+                  key={r.id}
+                  href={localePath(`/kien-thuc/${r.slug}`, locale as Locale)}
+                  className={`clay-card-static block p-4 hover:shadow-[3px_3px_0_var(--color-text)] transition-shadow ${colorMap[r.color] || ''}`}
+                >
+                  <div className="flex items-center gap-3">
+                    <Icon name={r.icon} size={32} />
+                    <div className="min-w-0">
+                      <h3 className="text-[14px] font-bold font-[family-name:var(--font-heading)] text-text">
+                        {r.title}
+                      </h3>
+                      <p className="text-[11px] text-text-muted">{r.subtitle}</p>
+                    </div>
+                  </div>
+                </Link>
+              ))}
+            </div>
+          </div>
+        )}
+
+        {/* Back to all articles */}
+        <div className="mt-4">
+          <Link
+            href={localePath('/kien-thuc', locale as Locale)}
+            className="text-[13px] text-cta hover:underline"
+          >
+            {dict.knowledge.article.allArticles}
+          </Link>
+        </div>
 
         {/* CTA */}
         <div className="text-center mt-8">
