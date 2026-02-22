@@ -1,17 +1,17 @@
 const landing = {
   meta: {
-    title: 'Validate Your Business Idea — Validator.vn',
+    title: 'Validate & Optimize Your Business — Validator.vn',
     description:
-      'Free tool to analyze finances, assess risks, and prepare thoroughly before investing — for any business vertical.',
+      'Free tool to analyze finances and assess risks — whether you\'re preparing to launch or optimizing an existing business.',
   },
   hero: {
     logoAlt: 'Vietnam Validator',
-    h1: 'Validate your business idea before investing',
-    desc: 'Free tool to analyze finances, assess risks, and prepare thoroughly before investing — for any business vertical.',
+    h1: 'Validate & optimize your business',
+    desc: 'Free tool to analyze finances and assess risks — whether you\'re preparing to launch or optimizing an existing business.',
   },
   quotes: [
-    '90% of startups fail because they didn\'t validate their idea before investing.',
-    'Validate now. Invest later.',
+    '90% of startups fail because they didn\'t validate before investing.',
+    'Know your numbers — whether you\'re starting out or already running.',
     'Your business dream deserves a solid foundation.',
     'You don\'t need to be perfect to start. You just need to start right.',
   ],
@@ -55,7 +55,11 @@ const landing = {
   ],
   about: {
     heading: 'What is Validator.vn?',
-    desc: 'A free tool to validate your business idea before investing.',
+    desc: 'A free tool to validate your business idea or optimize an existing operation.',
+    audiences: [
+      { icon: 'rocket', label: 'Preparing to launch?', desc: 'Test feasibility before investing capital' },
+      { icon: 'chart', label: 'Already running?', desc: 'Input real numbers to diagnose financial health' },
+    ],
     points: [
       { icon: 'chart', title: 'Financial Analysis', desc: '12-month P&L, break-even, payback — auto-calculated and scored' },
       { icon: 'chat', title: 'AI Advisor', desc: 'Ask about strategy, costs, and operations with artificial intelligence' },

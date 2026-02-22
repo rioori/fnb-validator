@@ -148,11 +148,28 @@ export default function LandingHero() {
           {t.landing.about.heading}
         </motion.h2>
         <motion.p
-          className="text-[12px] text-text-muted text-center mb-4"
+          className="text-[12px] text-text-muted text-center mb-3"
           variants={{ hidden: { opacity: 0 }, show: { opacity: 1 } }}
         >
           {t.landing.about.desc}
         </motion.p>
+        {/* Audience pills */}
+        <div className="flex gap-3 justify-center mb-4 max-md:flex-col max-md:gap-2">
+          {t.landing.about.audiences.map((a) => (
+            <motion.div
+              key={a.label}
+              className="clay-sm bg-mint-light px-4 py-2.5 flex items-center gap-2.5 max-md:justify-center"
+              variants={cardItem}
+              transition={spring}
+            >
+              <Icon name={a.icon} size={24} className="shrink-0 !border-0 !shadow-none !bg-transparent" />
+              <div>
+                <span className="text-[12px] font-bold font-[family-name:var(--font-heading)] text-text block leading-tight">{a.label}</span>
+                <span className="text-[11px] text-text-muted leading-tight">{a.desc}</span>
+              </div>
+            </motion.div>
+          ))}
+        </div>
         <div className="grid grid-cols-3 gap-3 max-md:grid-cols-1">
           {t.landing.about.points.map((p, i) => (
             <motion.div

@@ -1,17 +1,17 @@
 const landing = {
   meta: {
-    title: 'Validate ý tưởng kinh doanh — Validator.vn',
+    title: 'Thẩm định & tối ưu kinh doanh — Validator.vn',
     description:
-      'Công cụ miễn phí giúp bạn phân tích tài chính, đánh giá rủi ro và chuẩn bị kỹ lưỡng trước khi bỏ vốn — cho mọi lĩnh vực kinh doanh.',
+      'Công cụ miễn phí giúp bạn phân tích tài chính, đánh giá rủi ro — dù bạn đang chuẩn bị khởi nghiệp hay muốn tối ưu mô hình đang vận hành.',
   },
   hero: {
     logoAlt: 'Vietnam Validator',
-    h1: 'Validate ý tưởng kinh doanh trước khi đầu tư',
-    desc: 'Công cụ miễn phí giúp bạn phân tích tài chính, đánh giá rủi ro và chuẩn bị kỹ lưỡng trước khi bỏ vốn — cho mọi lĩnh vực kinh doanh.',
+    h1: 'Thẩm định & tối ưu kinh doanh',
+    desc: 'Công cụ miễn phí giúp bạn phân tích tài chính, đánh giá rủi ro — dù bạn đang chuẩn bị khởi nghiệp hay muốn tối ưu mô hình đang vận hành.',
   },
   quotes: [
-    '90% startup thất bại vì không validate ý tưởng trước khi bỏ vốn.',
-    'Validate now. Invest later.',
+    '90% startup thất bại vì không validate trước khi bỏ vốn.',
+    'Biết rõ con số — dù bạn mới bắt đầu hay đang vận hành.',
     'Giấc mơ kinh doanh của bạn xứng đáng có một nền tảng vững chắc.',
     'Bạn không cần hoàn hảo để bắt đầu. Bạn chỉ cần bắt đầu đúng cách.',
   ],
@@ -55,7 +55,11 @@ const landing = {
   ],
   about: {
     heading: 'Validator.vn là gì?',
-    desc: 'Một công cụ miễn phí giúp bạn thẩm định ý tưởng kinh doanh trước khi bỏ vốn.',
+    desc: 'Công cụ miễn phí giúp bạn thẩm định ý tưởng kinh doanh hoặc tối ưu mô hình đang vận hành.',
+    audiences: [
+      { icon: 'rocket', label: 'Chuẩn bị khởi nghiệp?', desc: 'Kiểm tra tính khả thi trước khi bỏ vốn' },
+      { icon: 'chart', label: 'Đang kinh doanh?', desc: 'Nhập số liệu thực tế để chẩn đoán sức khỏe tài chính' },
+    ],
     points: [
       { icon: 'chart', title: 'Phân tích tài chính', desc: 'P&L 12 tháng, break-even, payback — tự động tính toán và chấm điểm' },
       { icon: 'chat', title: 'AI Advisor', desc: 'Hỏi đáp chiến lược, chi phí, vận hành với trí tuệ nhân tạo' },

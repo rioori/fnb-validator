@@ -10,8 +10,8 @@ export async function GET(request: NextRequest) {
 
   const titles: Record<string, Record<string, string>> = {
     landing: {
-      vi: 'Validate ý tưởng kinh doanh\ntrước khi đầu tư',
-      en: 'Validate your business idea\nbefore investing',
+      vi: 'Thẩm định & tối ưu\nkinh doanh',
+      en: 'Validate & optimize\nyour business',
     },
     fnb: {
       vi: 'Thẩm định ý tưởng\nkinh doanh F&B',
