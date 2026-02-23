@@ -1,9 +1,12 @@
 'use client';
 
+import { useRouter } from 'next/navigation';
 import { motion } from 'framer-motion';
 import { useWizardStore } from '@/hooks/useWizardStore';
 import Icon from '@/components/ui/Icon';
 import { useTranslation } from '@/i18n/LocaleProvider';
+import { localePath } from '@/i18n/link';
+import type { Locale } from '@/i18n/config';
 import type { HomeView } from './HomePage';
 
 const FEATURE_META = [
@@ -12,8 +15,6 @@ const FEATURE_META = [
   { icon: 'bolt', action: 'quick-calc' as const, bg: 'bg-pastel-mint' },
   { icon: 'chat', action: 'ai-chat' as const, bg: 'bg-pastel-blue' },
   { icon: 'book', action: 'knowledge' as const, bg: 'bg-pastel-cream' },
-  { icon: 'stories', action: 'stories' as const, bg: 'bg-pastel-blush' },
-  { icon: 'trending', action: 'trends' as const, bg: 'bg-pastel-gold' },
   { icon: 'checklist', action: 'checklist' as const, bg: 'bg-pastel-blue' },
 ];
 
@@ -22,8 +23,9 @@ interface FeatureCardsProps {
 }
 
 export default function FeatureCards({ onNavigate }: FeatureCardsProps) {
-  const { t } = useTranslation();
+  const { t, locale } = useTranslation();
   const setStep = useWizardStore((s) => s.setStep);
+  const router = useRouter();
 
   const comingSoon: string[] = [];
 
@@ -31,6 +33,8 @@ export default function FeatureCards({ onNavigate }: FeatureCardsProps) {
     if (comingSoon.includes(action)) return;
     if (action === 'start-wizard') {
       setStep(1);
+    } else if (action === 'knowledge') {
+      router.push(localePath('/kien-thuc', locale as Locale));
     } else {
       onNavigate(action as HomeView);
     }
@@ -38,7 +42,7 @@ export default function FeatureCards({ onNavigate }: FeatureCardsProps) {
 
   return (
     <motion.div
-      className="grid grid-cols-4 gap-3 mb-4 max-md:grid-cols-2"
+      className="grid grid-cols-3 gap-3 mb-4 max-md:grid-cols-2"
       initial="hidden"
       whileInView="show"
       viewport={{ once: true, amount: 0.05 }}

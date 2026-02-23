@@ -1,14 +1,16 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import { useSearchParams } from 'next/navigation';
+import { useSearchParams, useRouter } from 'next/navigation';
 import { track } from '@vercel/analytics';
 import Image from 'next/image';
 import Icon from '@/components/ui/Icon';
+import { useTranslation } from '@/i18n/LocaleProvider';
+import { localePath } from '@/i18n/link';
+import type { Locale } from '@/i18n/config';
 import HeroSection from './HeroSection';
 import FeatureCards from './FeatureCards';
 import QuickCalc from './QuickCalc';
-import KnowledgeSection from './KnowledgeSection';
 import AboutAuthor from './AboutAuthor';
 import StoriesPage from './StoriesPage';
 import ChecklistPage from './ChecklistPage';
@@ -26,14 +28,25 @@ const VALID_VIEWS = new Set<string>([
 
 export default function HomePage() {
   const searchParams = useSearchParams();
+  const router = useRouter();
+  const { locale } = useTranslation();
   const viewParam = searchParams.get('view');
   const [view, setView] = useState<HomeView>(
     viewParam && VALID_VIEWS.has(viewParam) ? (viewParam as HomeView) : 'main',
   );
 
+  // Redirect ?view=knowledge to /kien-thuc route
+  useEffect(() => {
+    if (viewParam === 'knowledge') {
+      router.replace(localePath('/kien-thuc', locale as Locale));
+      return;
+    }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [viewParam]);
+
   // Clean URL after consuming the ?view= param
   useEffect(() => {
-    if (viewParam && VALID_VIEWS.has(viewParam)) {
+    if (viewParam && VALID_VIEWS.has(viewParam) && viewParam !== 'knowledge') {
       window.history.replaceState({}, '', window.location.pathname);
     }
   // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -59,7 +72,6 @@ export default function HomePage() {
         </div>
 
         {view === 'quick-calc' && <QuickCalc />}
-        {view === 'knowledge' && <KnowledgeSection />}
         {view === 'about' && <AboutAuthor />}
         {view === 'stories' && <StoriesPage />}
         {view === 'checklist' && <ChecklistPage />}
