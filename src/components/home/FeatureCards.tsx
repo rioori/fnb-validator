@@ -1,6 +1,7 @@
 'use client';
 
 import { useRouter } from 'next/navigation';
+import Image from 'next/image';
 import { motion } from 'framer-motion';
 import { useWizardStore } from '@/hooks/useWizardStore';
 import Icon from '@/components/ui/Icon';
@@ -10,12 +11,12 @@ import type { Locale } from '@/i18n/config';
 import type { HomeView } from './HomePage';
 
 const FEATURE_META = [
-  { icon: 'trendingup', action: 'why-fnb' as const, bg: 'bg-pastel-gold' },
-  { icon: 'wizard', action: 'start-wizard' as const, bg: 'bg-pastel-blush' },
-  { icon: 'bolt', action: 'quick-calc' as const, bg: 'bg-pastel-mint' },
-  { icon: 'chat', action: 'ai-chat' as const, bg: 'bg-pastel-blue' },
-  { icon: 'book', action: 'knowledge' as const, bg: 'bg-pastel-cream' },
-  { icon: 'checklist', action: 'checklist' as const, bg: 'bg-pastel-blue' },
+  { icon: 'trendingup', action: 'why-fnb' as const, bg: 'bg-pastel-gold', illust: 'feat-whyfnb' },
+  { icon: 'wizard', action: 'start-wizard' as const, bg: 'bg-pastel-blush', illust: 'feat-validate' },
+  { icon: 'bolt', action: 'quick-calc' as const, bg: 'bg-pastel-mint', illust: 'feat-quickcalc' },
+  { icon: 'chat', action: 'ai-chat' as const, bg: 'bg-pastel-blue', illust: 'feat-aichat' },
+  { icon: 'book', action: 'knowledge' as const, bg: 'bg-pastel-cream', illust: 'feat-knowledge' },
+  { icon: 'checklist', action: 'checklist' as const, bg: 'bg-pastel-blue', illust: 'feat-checklist' },
 ];
 
 interface FeatureCardsProps {
@@ -65,7 +66,17 @@ export default function FeatureCards({ onNavigate }: FeatureCardsProps) {
             }}
             transition={{ type: 'spring', stiffness: 300, damping: 22 }}
           >
-            <Icon name={meta.icon} size={44} className="mx-auto mb-2" />
+            <div className="h-[72px] flex items-center justify-center mb-1">
+              <Image
+                src={`/illustrations/${meta.illust}.webp`}
+                alt=""
+                width={72}
+                height={72}
+                loading="lazy"
+                className="opacity-85 rounded-2xl"
+              />
+            </div>
+            <Icon name={meta.icon} size={28} className="mx-auto mb-1.5 !border-[1.5px] !shadow-none" />
             <h3 className="text-[14px] font-bold font-[family-name:var(--font-heading)] text-text mb-1">
               {f.title}
             </h3>

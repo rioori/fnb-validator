@@ -10,6 +10,17 @@ const common = {
     heart: '♥',
     forCommunity: 'for community',
     author: 'Khang Pham',
+    aboutTitle: 'About Validator.vn',
+    aboutDesc: 'Free tool for validating F&B business ideas in Vietnam. Financial analysis, AI advisor, and in-depth knowledge base.',
+    linksTitle: 'Links',
+    links: [
+      { label: 'Home', href: '/' },
+      { label: 'F&B Validator', href: '/fnb' },
+      { label: 'F&B Knowledge', href: '/kien-thuc' },
+      { label: 'About', href: '/about' },
+    ],
+    connectTitle: 'Connect',
+    connectDesc: 'Follow us for the latest F&B tips and updates.',
   },
   auth: {
     loginToSave: 'Sign in to save your business scenarios',

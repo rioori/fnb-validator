@@ -12,6 +12,7 @@ const knowledge = {
     backHome: '← Trang chủ',
     knowledgeLink: 'Kiến thức',
     logoAlt: 'F&B Validator',
+    menuLabel: 'Mục lục',
   },
   index: {
     heading: 'Kiến thức F&B cơ bản',
@@ -48,6 +49,17 @@ const knowledge = {
     nextArticle: 'Bài tiếp →',
     relatedInCategory: 'Xem thêm trong mục',
     allArticles: '← Xem tất cả bài viết',
+  },
+  explore: {
+    heading: 'Khám phá thêm',
+    stories: 'Câu chuyện F&B',
+    storiesDesc: 'Case studies thật từ thị trường Việt Nam',
+    trends: 'Xu hướng ngành',
+    trendsDesc: 'Số liệu & xu hướng F&B mới nhất',
+  },
+  featured: {
+    badge: 'Bài nổi bật',
+    readNow: 'Đọc ngay →',
   },
   cta: {
     validateIdea: 'Thẩm định ý tưởng F&B',

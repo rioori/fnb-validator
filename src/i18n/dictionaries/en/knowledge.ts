@@ -12,6 +12,7 @@ const knowledge = {
     backHome: '← Home',
     knowledgeLink: 'Knowledge',
     logoAlt: 'F&B Validator',
+    menuLabel: 'Menu',
   },
   index: {
     heading: 'F&B Fundamentals',
@@ -48,6 +49,17 @@ const knowledge = {
     nextArticle: 'Next →',
     relatedInCategory: 'More in',
     allArticles: '← View all articles',
+  },
+  explore: {
+    heading: 'Explore more',
+    stories: 'F&B Stories',
+    storiesDesc: 'Real case studies from the Vietnam market',
+    trends: 'Industry Trends',
+    trendsDesc: 'Latest F&B data & trends',
+  },
+  featured: {
+    badge: 'Featured',
+    readNow: 'Read now →',
   },
   cta: {
     validateIdea: 'Validate F&B Idea',

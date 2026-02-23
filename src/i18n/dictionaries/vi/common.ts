@@ -10,6 +10,17 @@ const common = {
     heart: '♥',
     forCommunity: 'for community',
     author: 'Khang Pham',
+    aboutTitle: 'Về Validator.vn',
+    aboutDesc: 'Công cụ miễn phí giúp thẩm định ý tưởng kinh doanh F&B tại Việt Nam. Phân tích tài chính, AI advisor, kiến thức chuyên sâu.',
+    linksTitle: 'Liên kết',
+    links: [
+      { label: 'Trang chủ', href: '/' },
+      { label: 'F&B Validator', href: '/fnb' },
+      { label: 'Kiến thức F&B', href: '/kien-thuc' },
+      { label: 'Tác giả & Tác phẩm', href: '/about' },
+    ],
+    connectTitle: 'Kết nối',
+    connectDesc: 'Theo dõi để nhận tips & cập nhật F&B mới nhất.',
   },
   auth: {
     loginToSave: 'Đăng nhập để lưu kịch bản kinh doanh',

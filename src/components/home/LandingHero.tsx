@@ -22,7 +22,7 @@ const VERTICAL_META = [
   { id: 'fnb', icon: 'coffee', path: '/fnb', active: true, bg: 'bg-pastel-cream' },
   { id: 'retail', icon: 'retail', path: '#', active: false, bg: 'bg-pastel-blue' },
   { id: 'education', icon: 'education', path: '#', active: false, bg: 'bg-pastel-gold' },
-  { id: 'spa', icon: 'spa', path: '#', active: false, bg: 'bg-pastel-blush' },
+  { id: 'services', icon: 'services', path: '#', active: false, bg: 'bg-pastel-blush' },
 ];
 
 const FEATURE_ICONS = ['chart', 'chat', 'book', 'checklist'];
@@ -69,7 +69,25 @@ export default function LandingHero() {
   return (
     <div className="max-w-[1200px] mx-auto px-8 pt-4 pb-8 max-lg:px-5 max-md:px-3">
       {/* Hero */}
-      <div className="clay-card-static bg-pastel-cream px-6 py-8 mb-4 text-center max-md:px-4 max-md:py-6 overflow-hidden hero-ambient">
+      <div className="clay-card-static bg-white pb-8 mb-4 text-center max-md:pb-6 overflow-hidden">
+        {/* Storefront banner — flush top */}
+        <motion.div
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+        >
+          <Image
+            src="/illustrations/landing-hero-v4.webp"
+            alt=""
+            width={1584}
+            height={672}
+            className="w-full"
+            priority
+          />
+        </motion.div>
+
+        {/* Content area */}
+        <div className="px-6 max-md:px-4">
         {/* Logo — blur-to-sharp */}
         <motion.div
           initial={{ opacity: 0, filter: 'blur(12px)' }}
@@ -79,10 +97,9 @@ export default function LandingHero() {
           <Image
             src="/logo.png"
             alt={t.landing.hero.logoAlt}
-            width={160}
-            height={160}
-            unoptimized
-            className="mx-auto mb-3"
+            width={100}
+            height={100}
+            className="mx-auto mb-2"
           />
         </motion.div>
 
@@ -149,6 +166,7 @@ export default function LandingHero() {
             ))}
           </div>
         </motion.div>
+        </div>
       </div>
 
       {/* About Validator.vn */}

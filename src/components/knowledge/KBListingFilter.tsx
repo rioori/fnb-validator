@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { motion, AnimatePresence } from 'framer-motion';
 import Icon from '@/components/ui/Icon';
 import type { KBCategory, KBTopic } from '@/types';
@@ -21,10 +22,12 @@ interface Props {
   categoryLabels: Record<KBCategory, string>;
   filterAllLabel: string;
   locale: string;
-  localePrefixedPaths: Record<string, string>; // slug → href
+  localePrefixedPaths: Record<string, string>;
+  featuredBadge: string;
+  featuredReadNow: string;
 }
 
-export default function KBListingFilter({ topics, categoryLabels, filterAllLabel, localePrefixedPaths }: Props) {
+export default function KBListingFilter({ topics, categoryLabels, filterAllLabel, localePrefixedPaths, featuredBadge, featuredReadNow }: Props) {
   const [filter, setFilter] = useState<FilterType>('all');
 
   const filterOptions: [FilterType, string][] = [
@@ -45,8 +48,50 @@ export default function KBListingFilter({ topics, categoryLabels, filterAllLabel
     }))
     .filter((g) => g.items.length > 0);
 
+  const featuredTopic = topics[0];
+
   return (
     <>
+      {/* Featured article — only when showing all */}
+      {filter === 'all' && featuredTopic && (
+        <Link
+          href={localePrefixedPaths[featuredTopic.slug] || `/kien-thuc/${featuredTopic.slug}`}
+          className="clay-card-static block mb-6 overflow-hidden hover:shadow-[3px_3px_0_var(--color-text)] transition-shadow bg-pastel-gold"
+        >
+          <div className="h-[100px] max-md:h-[70px] overflow-hidden flex items-center justify-center bg-pastel-cream/50">
+            <Image
+              src="/illustrations/kb-featured-banner.webp"
+              alt=""
+              width={600}
+              height={200}
+              className="object-contain opacity-80"
+              loading="lazy"
+            />
+          </div>
+          <div className="p-4">
+            <span className="clay-pill bg-cta text-white !text-[10px] !border-cta mb-2 inline-flex">
+              {featuredBadge}
+            </span>
+            <h3 className="text-[16px] font-bold font-[family-name:var(--font-heading)] text-text">
+              {featuredTopic.title}
+            </h3>
+            <p className="text-[13px] text-text-muted mt-1">{featuredTopic.subtitle}</p>
+            {featuredTopic.highlights && (
+              <div className="flex flex-wrap gap-1.5 mt-2">
+                {featuredTopic.highlights.slice(0, 3).map((h, i) => (
+                  <span key={i} className="clay-pill bg-white/80 !py-0.5 !px-2 !text-[10px]">
+                    <strong className="text-cta">{h.value}</strong> {h.label}
+                  </span>
+                ))}
+              </div>
+            )}
+            <span className="inline-block mt-3 text-[13px] font-semibold text-cta">
+              {featuredReadNow}
+            </span>
+          </div>
+        </Link>
+      )}
+
       {/* Filter pills */}
       <div className="flex flex-wrap gap-2 justify-center mb-6">
         {filterOptions.map(([key, label]) => (
