@@ -264,6 +264,32 @@ select:focus {
   border-color: var(--color-text);
 }
 
+/* Coming-soon diagonal ribbon badge on vertical cards */
+.coming-soon-ribbon {
+  position: absolute;
+  top: 12px;
+  right: -30px;
+  width: 110px;
+  padding: 3px 0;
+  background: var(--color-pastel-gold);
+  border: 1.5px solid var(--color-border-light);
+  font-size: 10px;
+  font-weight: 700;
+  font-family: var(--font-heading), system-ui, sans-serif;
+  text-align: center;
+  color: var(--color-text);
+  transform: rotate(35deg);
+  pointer-events: none;
+}
+
+/* CTA band — gradient background with clay border */
+.cta-band {
+  background: linear-gradient(135deg, var(--color-pastel-mint) 0%, var(--color-pastel-blue) 100%);
+  border-radius: 12px;
+  border: 2px solid var(--color-text);
+  box-shadow: 2px 2px 0 var(--color-text);
+}
+
 } /* end @layer components */
 
 /* Reduced motion */

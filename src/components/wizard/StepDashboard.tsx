@@ -1,13 +1,15 @@
 'use client';
 
-import { useMemo, useEffect, useRef } from 'react';
+import { useMemo, useEffect, useRef, useState } from 'react';
 import { track } from '@vercel/analytics';
 import { useWizardStore } from '@/hooks/useWizardStore';
+import { useAuth } from '@/hooks/useAuth';
 import { runCalculations } from '@/lib/calculations';
 import { formatVND } from '@/lib/format';
 import { exportToExcel } from '@/lib/exportExcel';
 import type { CalcInput } from '@/types';
 import { useTranslation, tpl } from '@/i18n/LocaleProvider';
+import LoginPromptCard from '@/components/auth/LoginPromptCard';
 
 import ScoreRing from '@/components/dashboard/ScoreRing';
 import KPIGrid from '@/components/dashboard/KPIGrid';
@@ -25,7 +27,10 @@ import FeedbackForm from '@/components/dashboard/FeedbackForm';
 
 export default function StepDashboard() {
   const { t, locale } = useTranslation();
+  const { user } = useAuth();
   const store = useWizardStore();
+  const [showLoginModal, setShowLoginModal] = useState(false);
+  const pendingAction = useRef<'excel' | 'print' | null>(null);
 
   const results = useMemo(() => {
     const input: CalcInput = {
@@ -58,7 +63,32 @@ export default function StepDashboard() {
     store.getStaffTotal, store.getDynTotal, store.getTotalInvestment,
   ]);
 
-  const handleExportExcel = async () => {
+  const handleLoginSuccess = () => {
+    setShowLoginModal(false);
+    if (pendingAction.current === 'excel') doExportExcel();
+    else if (pendingAction.current === 'print') window.print();
+    pendingAction.current = null;
+  };
+
+  const handleExportExcel = () => {
+    if (!user) {
+      pendingAction.current = 'excel';
+      setShowLoginModal(true);
+      return;
+    }
+    doExportExcel();
+  };
+
+  const handlePrint = () => {
+    if (!user) {
+      pendingAction.current = 'print';
+      setShowLoginModal(true);
+      return;
+    }
+    window.print();
+  };
+
+  const doExportExcel = async () => {
     track('export_excel', { model: store.selectedModel || 'unknown' });
     await exportToExcel({
       model: store.selectedModel,
@@ -185,13 +215,28 @@ export default function StepDashboard() {
           {t.wizard.stepDashboard.btnExportExcel}
         </button>
         <button
-          onClick={() => window.print()}
+          onClick={handlePrint}
           className="clay-pill flex-1 py-3 px-4 text-[13px] font-semibold bg-pastel-blue text-text cursor-pointer hover:brightness-95 transition-all flex items-center justify-center gap-2"
         >
           <Icon name="print" size={20} className="!border-0 !shadow-none !bg-transparent" />
           {t.wizard.stepDashboard.btnPrint}
         </button>
       </div>
+
+      {/* Login modal for export/print */}
+      {showLoginModal && (
+        <div className="fixed inset-0 bg-black/30 backdrop-blur-sm flex items-center justify-center z-[1000] no-print">
+          <div className="w-[90%] max-w-[460px]">
+            <LoginPromptCard
+              heading={t.common.auth.loginForExport}
+              description={t.common.auth.loginForExportDesc}
+              showFeatures
+              onSuccess={handleLoginSuccess}
+              onSkip={() => { setShowLoginModal(false); pendingAction.current = null; }}
+            />
+          </div>
+        </div>
+      )}
 
       {/* Feedback */}
       <FeedbackForm />

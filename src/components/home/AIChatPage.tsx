@@ -3,7 +3,9 @@
 import { useState, useEffect, useRef } from 'react';
 import { track } from '@vercel/analytics';
 import Icon from '@/components/ui/Icon';
+import LoginPromptCard from '@/components/auth/LoginPromptCard';
 import { useAuth } from '@/hooks/useAuth';
+import { useTranslation } from '@/i18n/LocaleProvider';
 import { useChat } from '@/hooks/useChat';
 import { useWizardStore } from '@/hooks/useWizardStore';
 import { MODELS } from '@/lib/constants';
@@ -62,6 +64,7 @@ function buildBusinessContext(): string | undefined {
 }
 
 export default function AIChatPage() {
+  const { t } = useTranslation();
   const { user } = useAuth();
   const {
     sessions,
@@ -137,16 +140,11 @@ export default function AIChatPage() {
   // Auth gate
   if (!user) {
     return (
-      <div className="clay-card-static bg-pastel-cream p-8 text-center animate-fade-in-up">
-        <Icon name="chat" size={56} className="mx-auto mb-4" />
-        <h2 className="text-xl font-bold font-[family-name:var(--font-heading)] mb-2">Hỏi đáp AI</h2>
-        <p className="text-text-muted text-sm mb-4">
-          Vui lòng đăng nhập để sử dụng tính năng hỏi đáp AI về F&B.
-        </p>
-        <p className="text-text-light text-xs">
-          Đăng nhập bằng cách quay về trang chủ và chọn Thẩm định mô hình.
-        </p>
-      </div>
+      <LoginPromptCard
+        heading={t.common.auth.loginForAI}
+        description={t.common.auth.loginForAIDesc}
+        showFeatures
+      />
     );
   }
 

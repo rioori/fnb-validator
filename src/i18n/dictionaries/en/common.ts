@@ -37,6 +37,18 @@ const common = {
     loginSuccess: 'Logged in successfully!',
     signupSuccess: 'Signed up successfully!',
     error: 'An error occurred',
+    unlockTitle: 'Sign in to unlock features',
+    unlockDesc: 'Just phone + password, done in 5 seconds',
+    premiumFeatures: [
+      'Save & load business scenarios',
+      'Export detailed Excel reports',
+      'Print PDF reports',
+      'AI expert Q&A',
+    ] as string[],
+    loginForExport: 'Sign in to export reports',
+    loginForExportDesc: 'Create a free account to download Excel and print detailed PDF reports.',
+    loginForAI: 'Sign in to use AI Q&A',
+    loginForAIDesc: 'Create a free account to chat with AI expert about business strategy.',
   },
   userBar: {
     greeting: 'Hello,',

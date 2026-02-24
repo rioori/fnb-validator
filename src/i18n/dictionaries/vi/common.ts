@@ -37,6 +37,18 @@ const common = {
     loginSuccess: 'Đăng nhập thành công!',
     signupSuccess: 'Đăng ký thành công!',
     error: 'Đã có lỗi xảy ra',
+    unlockTitle: 'Đăng nhập để mở khóa tính năng',
+    unlockDesc: 'Chỉ cần SĐT + mật khẩu, xong trong 5 giây',
+    premiumFeatures: [
+      'Lưu & tải kịch bản kinh doanh',
+      'Xuất báo cáo Excel chi tiết',
+      'In PDF báo cáo',
+      'Hỏi đáp AI chuyên gia',
+    ] as string[],
+    loginForExport: 'Đăng nhập để xuất báo cáo',
+    loginForExportDesc: 'Tạo tài khoản miễn phí để tải Excel và in PDF báo cáo chi tiết.',
+    loginForAI: 'Đăng nhập để sử dụng Hỏi đáp AI',
+    loginForAIDesc: 'Tạo tài khoản miễn phí để chat với AI chuyên gia về chiến lược kinh doanh.',
   },
   userBar: {
     greeting: 'Xin chào,',

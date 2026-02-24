@@ -51,7 +51,7 @@ const landing = {
     { title: 'Financial Analysis', desc: '12-month P&L, break-even, payback period, automated scoring' },
     { title: 'AI Advisor', desc: 'Chat directly with AI about strategy, costs, and operations' },
     { title: 'Knowledge Library', desc: 'In-depth articles, market reports, and real-world insights for each industry' },
-    { title: 'Checklist', desc: '80+ items to prepare before opening — from legal to operations' },
+    { title: 'Checklist', desc: '80+ items to prepare before launching — from legal to operations' },
   ],
   about: {
     heading: 'What is Validator.vn?',
@@ -62,7 +62,7 @@ const landing = {
     ],
     howItWorks: 'How it works',
     steps: [
-      { step: '1', title: 'Enter your data', desc: 'Choose a model, input investment costs, projected revenue & operating expenses' },
+      { step: '1', title: 'Enter your data', desc: 'Choose an industry & model, input investment costs, projected revenue & operating expenses' },
       { step: '2', title: 'Auto analysis', desc: 'AI calculates 12-month P&L, break-even, health score & risk assessment' },
       { step: '3', title: 'Get results', desc: 'Detailed report, AI advisor for strategy, and business preparation checklist' },
     ],
@@ -71,6 +71,14 @@ const landing = {
   sections: {
     whyValidate: 'Why Validate?',
     chooseVertical: 'Choose your business vertical',
+  },
+  midCta: {
+    label: 'Validate now',
+  },
+  closing: {
+    heading: 'Ready to validate your idea?',
+    desc: 'Free · No signup required · Bilingual Vietnamese-English',
+    cta: 'Start validating',
   },
   footer: {
     builtForCommunity: 'Built with {heart} for community by',

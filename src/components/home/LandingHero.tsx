@@ -1,6 +1,6 @@
 'use client';
 
-import { useRef } from 'react';
+import React, { useRef } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { motion, useInView } from 'framer-motion';
@@ -26,6 +26,7 @@ const VERTICAL_META = [
 ];
 
 const FEATURE_ICONS = ['chart', 'chat', 'book', 'checklist'];
+const FEATURE_BGS = ['bg-pastel-mint', 'bg-pastel-blue', 'bg-pastel-gold', 'bg-pastel-blush'];
 
 const FEATURE_LINKS = [
   '/tinh-nang/phan-tich-tai-chinh',
@@ -33,6 +34,9 @@ const FEATURE_LINKS = [
   '/tinh-nang/kien-thuc',
   '/tinh-nang/checklist',
 ];
+
+const AUDIENCE_BGS = ['bg-pastel-mint', 'bg-pastel-gold'];
+const STEP_BGS = ['bg-pastel-cream', 'bg-pastel-mint', 'bg-pastel-gold'];
 
 const spring = { type: 'spring' as const, stiffness: 300, damping: 22 };
 
@@ -60,6 +64,17 @@ const cardItem = {
   hidden: { opacity: 0, y: 20, scale: 0.95 },
   show: { opacity: 1, y: 0, scale: 1 },
 };
+
+/* Inline SVG arrow for step flow connectors */
+function StepArrow() {
+  return (
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+         strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"
+         className="text-text-light flex-shrink-0">
+      <path d="M5 12h14M13 6l6 6-6 6" />
+    </svg>
+  );
+}
 
 export default function LandingHero() {
   const { t, locale } = useTranslation();
@@ -132,7 +147,7 @@ export default function LandingHero() {
           <QuoteRotator />
         </motion.div>
 
-        {/* Features — staggered spring pop */}
+        {/* D1: Features — staggered spring pop, unique pastel backgrounds */}
         <motion.div
           className="border-t border-border-light mt-5 pt-4"
           initial="hidden"
@@ -154,7 +169,7 @@ export default function LandingHero() {
               >
                 <Link
                   href={localePath(FEATURE_LINKS[i], locale)}
-                  className="clay-card bg-white/60 p-3 text-center block h-full"
+                  className={`clay-card ${FEATURE_BGS[i]} p-3 text-center block h-full`}
                 >
                   <Icon name={FEATURE_ICONS[i]} size={36} className="mx-auto mb-2" />
                   <h3 className="text-[13px] font-bold font-[family-name:var(--font-heading)] text-text mb-1">
@@ -183,12 +198,12 @@ export default function LandingHero() {
         >
           {t.landing.about.desc}
         </motion.p>
-        {/* Audience pills */}
+        {/* D2: Audience pills — unique pastel backgrounds */}
         <div className="grid grid-cols-2 gap-3 max-w-[600px] mx-auto mb-4 max-md:grid-cols-1">
-          {t.landing.about.audiences.map((a) => (
+          {t.landing.about.audiences.map((a, audienceIdx) => (
             <motion.div
               key={a.label}
-              className="clay-sm bg-mint-light px-4 py-3 flex flex-col items-center text-center gap-1.5"
+              className={`clay-sm ${AUDIENCE_BGS[audienceIdx]} px-4 py-3 flex flex-col items-center text-center gap-1.5`}
               variants={cardItem}
               transition={spring}
             >
@@ -198,27 +213,40 @@ export default function LandingHero() {
             </motion.div>
           ))}
         </div>
-        {/* How it works — 3-step flow */}
+        {/* D3: How it works — step flow with connectors + unique tints */}
         <motion.h3
           className="text-[12px] font-bold font-[family-name:var(--font-heading)] uppercase tracking-wider text-text-muted mb-3 text-center"
           variants={{ hidden: { opacity: 0 }, show: { opacity: 1 } }}
         >
           {t.landing.about.howItWorks}
         </motion.h3>
-        <div className="grid grid-cols-3 gap-3 max-md:grid-cols-1">
-          {t.landing.about.steps.map((s) => (
-            <motion.div
-              key={s.step}
-              className="clay-sm bg-pastel-cream p-4 text-center"
-              variants={cardItem}
-              transition={spring}
-            >
-              <span className="inline-flex items-center justify-center w-8 h-8 rounded-full bg-cta text-white text-[14px] font-bold font-[family-name:var(--font-heading)] mb-2">
-                {s.step}
-              </span>
-              <h4 className="text-[13px] font-bold font-[family-name:var(--font-heading)] text-text mb-1">{s.title}</h4>
-              <p className="text-[11px] text-text-muted leading-relaxed">{s.desc}</p>
-            </motion.div>
+        <div className="flex items-stretch gap-2 max-md:flex-col max-md:gap-0">
+          {t.landing.about.steps.map((s, stepIdx) => (
+            <React.Fragment key={s.step}>
+              <motion.div
+                className={`clay-sm ${STEP_BGS[stepIdx]} p-4 text-center flex-1`}
+                variants={cardItem}
+                transition={spring}
+              >
+                <span className="inline-flex items-center justify-center w-8 h-8 rounded-full bg-cta text-white text-[14px] font-bold font-[family-name:var(--font-heading)] mb-2">
+                  {s.step}
+                </span>
+                <h4 className="text-[13px] font-bold font-[family-name:var(--font-heading)] text-text mb-1">{s.title}</h4>
+                <p className="text-[11px] text-text-muted leading-relaxed">{s.desc}</p>
+              </motion.div>
+              {/* Desktop: horizontal arrow between steps */}
+              {stepIdx < 2 && (
+                <div className="flex items-center justify-center px-0.5 max-md:hidden" aria-hidden="true">
+                  <StepArrow />
+                </div>
+              )}
+              {/* Mobile: vertical dashed connector */}
+              {stepIdx < 2 && (
+                <div className="hidden max-md:flex justify-center py-1" aria-hidden="true">
+                  <div className="w-0.5 h-5 border-l-2 border-dashed border-border-light" />
+                </div>
+              )}
+            </React.Fragment>
           ))}
         </div>
         <motion.p
@@ -229,7 +257,7 @@ export default function LandingHero() {
         </motion.p>
       </StaggeredSection>
 
-      {/* Stats — count-up animation on scroll */}
+      {/* D4: Stats — hero first stat + visual hierarchy */}
       <motion.div
         ref={statsRef}
         className="clay-card-static bg-white p-5 mb-4"
@@ -241,27 +269,65 @@ export default function LandingHero() {
           {t.landing.sections.whyValidate}
         </h2>
         <div className="grid grid-cols-4 gap-3 max-md:grid-cols-2">
-          {STAT_META.map((stat, i) => {
-            const s = t.landing.stats[i];
+          {/* Hero stat — spans 2 cols on desktop */}
+          {(() => {
+            const stat = STAT_META[0];
+            const s = t.landing.stats[0];
             const suffix = locale === 'en' ? stat.suffixEN : stat.suffixVI;
             return (
-              <div key={s.label} className={`text-center p-3 rounded-xl ${stat.bg} border-2 border-white shadow-sm`}>
-                <span className={`text-[22px] font-bold font-[family-name:var(--font-heading)] ${stat.color} block max-md:text-[18px]`}>
+              <div className={`col-span-2 max-md:col-span-1 text-center p-4 rounded-xl ${stat.bg} border-2 border-white shadow-sm flex flex-col items-center justify-center`}>
+                <span className={`text-[32px] font-bold font-[family-name:var(--font-heading)] ${stat.color} block max-md:text-[22px]`}>
                   {statsInView ? (
                     <AnimatedCounter value={stat.value} suffix={suffix} decimals={stat.decimals} />
-                  ) : (
-                    <>0{suffix}</>
-                  )}
+                  ) : <>0{suffix}</>}
                 </span>
-                <span className="text-[11px] text-text font-semibold block leading-tight mt-0.5">{s.label}</span>
-                <span className="text-[10px] text-text-muted">{s.sub}</span>
+                <span className="text-[12px] text-text font-semibold block leading-tight mt-0.5">{s.label}</span>
+                <span className="text-[11px] text-text-muted">{s.sub}</span>
               </div>
             );
-          })}
+          })()}
+          {/* Remaining 3 stats in nested sub-grid */}
+          <div className="col-span-2 max-md:col-span-1 grid grid-cols-3 max-md:grid-cols-1 gap-3">
+            {STAT_META.slice(1).map((stat, i) => {
+              const idx = i + 1;
+              const s = t.landing.stats[idx];
+              const suffix = locale === 'en' ? stat.suffixEN : stat.suffixVI;
+              return (
+                <div key={s.label} className={`text-center p-3 rounded-xl ${stat.bg} border-2 border-white shadow-sm`}>
+                  <span className={`text-[22px] font-bold font-[family-name:var(--font-heading)] ${stat.color} block max-md:text-[18px]`}>
+                    {statsInView ? (
+                      <AnimatedCounter value={stat.value} suffix={suffix} decimals={stat.decimals} />
+                    ) : <>0{suffix}</>}
+                  </span>
+                  <span className="text-[11px] text-text font-semibold block leading-tight mt-0.5">{s.label}</span>
+                  <span className="text-[10px] text-text-muted">{s.sub}</span>
+                </div>
+              );
+            })}
+          </div>
         </div>
       </motion.div>
 
-      {/* Vertical Selector — staggered on scroll */}
+      {/* D6: Mid-page CTA Band */}
+      <motion.div
+        className="cta-band mb-4 p-5 text-center"
+        initial={{ opacity: 0, y: 16 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, margin: '-40px' }}
+        transition={{ duration: 0.5 }}
+      >
+        <p className="text-[13px] text-text font-semibold font-[family-name:var(--font-heading)] mb-3">
+          {t.landing.about.cta}
+        </p>
+        <Link
+          href={localePath('/fnb', locale)}
+          className="clay-btn clay-btn-primary text-[14px] px-6 py-2.5 inline-flex items-center gap-2"
+        >
+          {t.landing.midCta.label}
+        </Link>
+      </motion.div>
+
+      {/* D5: Vertical Selector — staggered on scroll */}
       <StaggeredSection className="mb-4" delay={0.1}>
         <motion.h2
           className="text-[12px] font-bold font-[family-name:var(--font-heading)] uppercase tracking-wider text-text-muted mb-3 text-center"
@@ -290,17 +356,48 @@ export default function LandingHero() {
                 key={v.id}
                 variants={cardItem}
                 transition={spring}
-                className={`clay-card-static ${v.bg} p-5 text-center flex flex-col items-center opacity-60`}
+                className={`clay-card-static ${v.bg} p-5 text-center flex flex-col items-center relative overflow-hidden`}
               >
+                {/* Coming soon ribbon */}
+                <span className="coming-soon-ribbon" aria-hidden="true">
+                  {vt.cta}
+                </span>
                 <Icon name={v.icon} size={48} className="mb-2" />
                 <h3 className="text-[15px] font-bold font-[family-name:var(--font-heading)] text-text mb-1">{vt.name}</h3>
                 <p className="text-[12px] text-text-muted leading-relaxed mb-2 flex-1">{vt.desc}</p>
-                <span className="text-[10px] text-text-light font-semibold mb-2">{vt.stats}</span>
-                <span className="clay-pill bg-surface3 text-text-light !text-[11px]">{vt.cta}</span>
+                <span className="text-[10px] text-text-muted font-semibold mb-2">{vt.stats}</span>
+                <span className="clay-pill bg-pastel-gold text-text-muted !text-[11px] !border-border-light">{vt.cta}</span>
               </motion.div>
             );
           })}
         </div>
+      </StaggeredSection>
+
+      {/* D7: Closing section before footer */}
+      <StaggeredSection className="clay-card-static bg-pastel-cream p-6 mb-4 text-center" delay={0.05}>
+        <motion.h2
+          className="text-[16px] font-bold font-[family-name:var(--font-heading)] text-text mb-2"
+          variants={{ hidden: { opacity: 0, y: 10 }, show: { opacity: 1, y: 0 } }}
+        >
+          {t.landing.closing.heading}
+        </motion.h2>
+        <motion.p
+          className="text-[12px] text-text-muted mb-4"
+          variants={{ hidden: { opacity: 0 }, show: { opacity: 1 } }}
+        >
+          {t.landing.closing.desc}
+        </motion.p>
+        <motion.div
+          variants={{ hidden: { opacity: 0, scale: 0.95 }, show: { opacity: 1, scale: 1 } }}
+          transition={spring}
+        >
+          <Link
+            href={localePath('/fnb', locale)}
+            className="clay-btn clay-btn-primary text-[15px] px-8 py-3"
+          >
+            {t.landing.closing.cta}
+          </Link>
+        </motion.div>
       </StaggeredSection>
 
       <Footer />

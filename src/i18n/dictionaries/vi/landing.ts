@@ -51,7 +51,7 @@ const landing = {
     { title: 'Phân tích tài chính', desc: 'P&L 12 tháng, break-even, payback period, scoring tự động' },
     { title: 'AI Advisor', desc: 'Chat trực tiếp với AI về chiến lược, chi phí, vận hành' },
     { title: 'Thư viện kiến thức', desc: 'Bài viết chuyên sâu, báo cáo thị trường, kinh nghiệm thực tiễn cho từng ngành' },
-    { title: 'Checklist', desc: '80+ mục cần chuẩn bị trước khi mở — từ pháp lý đến vận hành' },
+    { title: 'Checklist', desc: '80+ mục cần chuẩn bị trước khi khởi nghiệp — từ pháp lý đến vận hành' },
   ],
   about: {
     heading: 'Validator.vn là gì?',
@@ -62,7 +62,7 @@ const landing = {
     ],
     howItWorks: 'Hoạt động thế nào?',
     steps: [
-      { step: '1', title: 'Nhập dữ liệu', desc: 'Chọn mô hình, nhập chi phí đầu tư, doanh thu & chi phí vận hành dự kiến' },
+      { step: '1', title: 'Nhập dữ liệu', desc: 'Chọn ngành & mô hình, nhập chi phí đầu tư, doanh thu & chi phí vận hành dự kiến' },
       { step: '2', title: 'Phân tích tự động', desc: 'AI tính P&L 12 tháng, break-even, health score và đánh giá rủi ro' },
       { step: '3', title: 'Nhận kết quả', desc: 'Báo cáo chi tiết, AI advisor tư vấn chiến lược, checklist chuẩn bị kinh doanh' },
     ],
@@ -71,6 +71,14 @@ const landing = {
   sections: {
     whyValidate: 'Tại sao cần Validate?',
     chooseVertical: 'Chọn lĩnh vực kinh doanh',
+  },
+  midCta: {
+    label: 'Thẩm định ngay',
+  },
+  closing: {
+    heading: 'Sẵn sàng kiểm chứng ý tưởng?',
+    desc: 'Miễn phí · Không cần đăng ký · Song ngữ Việt-Anh',
+    cta: 'Bắt đầu thẩm định',
   },
   footer: {
     builtForCommunity: 'Built with {heart} for community by',
