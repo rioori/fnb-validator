@@ -53,7 +53,7 @@ function BreadcrumbJsonLd({ locale }: { locale: string }) {
       {
         '@type': 'ListItem',
         position: 2,
-        name: isEn ? 'F&B Knowledge' : 'Kiến thức F&B',
+        name: isEn ? 'Knowledge Library' : 'Thư viện kiến thức',
         item: isEn ? `${BASE_URL}/en/kien-thuc` : `${BASE_URL}/kien-thuc`,
       },
     ],
@@ -81,18 +81,9 @@ export default async function KienThucPage({ params }: PageProps) {
     <>
       <BreadcrumbJsonLd locale={locale} />
 
-      <div className="max-w-3xl mx-auto px-4 py-8 max-md:px-3 max-md:py-6">
-        {/* Breadcrumb */}
-        <nav className="text-[13px] text-text-muted mb-6">
-          <Link href={localePath('/', locale as Locale)} className="hover:text-cta transition-colors">
-            {dict.knowledge.breadcrumb.home}
-          </Link>
-          <span className="mx-2">/</span>
-          <span className="text-text font-semibold">{dict.knowledge.breadcrumb.knowledge}</span>
-        </nav>
-
+      <div className="py-2 max-md:py-0">
         {/* Header */}
-        <div className="clay-card-static bg-pastel-mint p-6 mb-6 text-center">
+        <div className="clay-card-static bg-pastel-mint p-6 mb-4 text-center">
           <Icon name="book" size={48} className="mx-auto mb-2" />
           <h1 className="text-xl font-bold text-text font-[family-name:var(--font-heading)]">
             {dict.knowledge.index.heading}
@@ -109,6 +100,8 @@ export default async function KienThucPage({ params }: PageProps) {
           filterAllLabel={dict.knowledge.section.filterAll}
           locale={locale}
           localePrefixedPaths={localePrefixedPaths}
+          featuredBadge={dict.knowledge.featured.badge}
+          featuredReadNow={dict.knowledge.featured.readNow}
         />
 
         {/* CTA */}

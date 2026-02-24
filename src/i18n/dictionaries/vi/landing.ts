@@ -10,7 +10,7 @@ const landing = {
     desc: 'Công cụ miễn phí giúp bạn phân tích tài chính, đánh giá rủi ro — dù bạn đang chuẩn bị khởi nghiệp hay muốn tối ưu mô hình đang vận hành.',
   },
   quotes: [
-    '90% startup thất bại vì không validate trước khi bỏ vốn.',
+    'Thất bại không bắt đầu từ ý tưởng tệ — mà từ việc không kiểm chứng trước khi bỏ vốn.',
     'Biết rõ con số — dù bạn mới bắt đầu hay đang vận hành.',
     'Giấc mơ kinh doanh của bạn xứng đáng có một nền tảng vững chắc.',
     'Bạn không cần hoàn hảo để bắt đầu. Bạn chỉ cần bắt đầu đúng cách.',
@@ -25,7 +25,7 @@ const landing = {
     {
       name: 'F&B',
       desc: 'Cà phê, quán ăn, trà sữa, nhà hàng, bakery, bar, kiosk, cloud kitchen',
-      stats: '8 mô hình · 11 bài kiến thức · AI advisor',
+      stats: '8 mô hình · Thư viện kiến thức · AI advisor',
       cta: 'Bắt đầu →',
     },
     {
@@ -41,16 +41,16 @@ const landing = {
       cta: 'Sắp ra mắt',
     },
     {
-      name: 'Spa & Làm đẹp',
-      desc: 'Spa, salon tóc, nail, thẩm mỹ viện, massage',
-      stats: 'Chi phí tương tự F&B · Biên lợi nhuận cao',
+      name: 'Dịch vụ',
+      desc: 'Spa, salon tóc, gym, giặt ủi, sửa chữa, studio',
+      stats: 'Mô hình đa dạng · Biên lợi nhuận cao',
       cta: 'Sắp ra mắt',
     },
   ],
   features: [
     { title: 'Phân tích tài chính', desc: 'P&L 12 tháng, break-even, payback period, scoring tự động' },
     { title: 'AI Advisor', desc: 'Chat trực tiếp với AI về chiến lược, chi phí, vận hành' },
-    { title: 'Knowledge Base', desc: 'Kiến thức nền tảng, pháp lý, thuế, marketing cho từng ngành' },
+    { title: 'Thư viện kiến thức', desc: 'Bài viết chuyên sâu, báo cáo thị trường, kinh nghiệm thực tiễn cho từng ngành' },
     { title: 'Checklist', desc: '80+ mục cần chuẩn bị trước khi mở — từ pháp lý đến vận hành' },
   ],
   about: {
@@ -64,7 +64,7 @@ const landing = {
     steps: [
       { step: '1', title: 'Nhập dữ liệu', desc: 'Chọn mô hình, nhập chi phí đầu tư, doanh thu & chi phí vận hành dự kiến' },
       { step: '2', title: 'Phân tích tự động', desc: 'AI tính P&L 12 tháng, break-even, health score và đánh giá rủi ro' },
-      { step: '3', title: 'Nhận kết quả', desc: 'Báo cáo chi tiết, AI advisor tư vấn chiến lược, checklist mở quán' },
+      { step: '3', title: 'Nhận kết quả', desc: 'Báo cáo chi tiết, AI advisor tư vấn chiến lược, checklist chuẩn bị kinh doanh' },
     ],
     cta: 'Miễn phí · Không cần đăng ký · Song ngữ Việt-Anh',
   },

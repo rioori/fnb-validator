@@ -9,7 +9,7 @@ const features = {
     { name: 'F&B', desc: 'Coffee shops, restaurants, milk tea, bakery, bar', icon: 'coffee', active: true },
     { name: 'Retail', desc: 'Fashion, grocery, convenience stores', icon: 'retail', active: false },
     { name: 'Education', desc: 'Training centers, tutoring, online courses', icon: 'education', active: false },
-    { name: 'Spa & Beauty', desc: 'Spa, hair salon, nail, beauty clinic', icon: 'spa', active: false },
+    { name: 'Services', desc: 'Spa, salon, gym, laundry, repair, studio', icon: 'services', active: false },
   ],
   financialAnalysis: {
     meta: {
@@ -41,22 +41,22 @@ const features = {
     highlights: [
       { icon: 'chat', title: 'Personalized advice', desc: 'AI analyzes based on your model data — not generic advice' },
       { icon: 'bolt', title: 'Instant answers', desc: 'Ask about costs, pricing, marketing, staffing, legal — get detailed answers immediately' },
-      { icon: 'book', title: 'Deep expertise', desc: 'Trained on Vietnam F&B data — understands local market context' },
+      { icon: 'book', title: 'Deep expertise', desc: 'Trained on Vietnam market data — understands local business context' },
     ],
     verticalAction: 'ai-chat',
   },
   knowledgeBase: {
     meta: {
-      title: 'Knowledge Base — Validator.vn',
-      description: 'In-depth articles library on costs, operations, strategy and legal for Vietnamese business owners.',
+      title: 'Knowledge Library — Validator.vn',
+      description: 'In-depth articles, market reports and real-world insights on costs, operations, strategy and legal for Vietnamese business owners.',
     },
     slug: 'kien-thuc',
-    heading: 'Knowledge Base',
-    desc: 'In-depth articles library to help you understand cost structures, operations management, legal requirements and marketing strategies.',
+    heading: 'Knowledge Library',
+    desc: 'In-depth articles, market reports and real-world insights — covering cost structures, operations, legal requirements and marketing strategies.',
     icon: 'book',
     color: 'bg-pastel-cream',
     highlights: [
-      { icon: 'book', title: '14 in-depth articles', desc: 'From food cost, staffing, marketing to business registration — all the knowledge you need' },
+      { icon: 'book', title: 'In-depth articles', desc: 'From cost structures, staffing, marketing to business registration — all the knowledge you need' },
       { icon: 'chart', title: '4 categories', desc: 'Cost · Operations · Strategy · Legal — easy to find, read, and apply' },
       { icon: 'trending', title: 'Continuously updated', desc: 'New articles added regularly — bilingual Vietnamese-English for your reference' },
     ],
@@ -65,11 +65,11 @@ const features = {
   },
   checklist: {
     meta: {
-      title: 'Opening Checklist — Validator.vn',
-      description: '80+ items to prepare before opening — from legal, construction, equipment to operations. Track progress in your browser.',
+      title: 'Business Checklist — Validator.vn',
+      description: '80+ items to prepare before launching — from legal, construction, equipment to operations. Track progress in your browser.',
     },
     slug: 'checklist',
-    heading: 'Opening Checklist',
+    heading: 'Business Checklist',
     desc: '80+ items to prepare from legal, construction, equipment to operations. Track your progress — data saved in your browser.',
     icon: 'checklist',
     color: 'bg-pastel-gold',

@@ -46,18 +46,8 @@ const fnbHome = {
     },
     {
       title: 'F&B Knowledge',
-      desc: 'Cost structures, benchmarks, shop lifecycle before you begin.',
+      desc: 'Costs, benchmarks, real stories, and 2025-2026 trends.',
       cta: 'Read more →',
-    },
-    {
-      title: 'F&B Stories',
-      desc: 'Success and failure lessons from real F&B owners.',
-      cta: 'Read now →',
-    },
-    {
-      title: 'F&B Trends',
-      desc: '2025-2026 trends, new models, market insights from real data.',
-      cta: 'Explore →',
     },
     {
       title: 'Opening Checklist',

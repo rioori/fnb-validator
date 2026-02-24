@@ -46,18 +46,8 @@ const fnbHome = {
     },
     {
       title: 'Kiến thức F&B',
-      desc: 'Cấu trúc chi phí, benchmark, vòng đời quán trước khi bắt đầu.',
+      desc: 'Chi phí, benchmark, câu chuyện thực tế, xu hướng 2025-2026.',
       cta: 'Đọc thêm →',
-    },
-    {
-      title: 'Câu chuyện F&B',
-      desc: 'Những bài học thành công và thất bại từ người trong cuộc.',
-      cta: 'Đọc ngay →',
-    },
-    {
-      title: 'Xu hướng F&B',
-      desc: 'Xu hướng 2025-2026, mô hình mới, insight thị trường từ dữ liệu thực.',
-      cta: 'Khám phá →',
     },
     {
       title: 'Checklist mở quán',

@@ -1,9 +1,18 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import Footer from '@/components/home/Footer';
+import KBLayoutShell from '@/components/knowledge/KBLayoutShell';
+import KBSidebar from '@/components/knowledge/KBSidebar';
 import { getDictionary } from '@/i18n/get-dictionary';
 import type { Locale } from '@/i18n/config';
 import { localePath } from '@/i18n/link';
+import type { KBTopic } from '@/types';
+import KNOWLEDGE_BASE_VI from '@/i18n/data/vi/knowledge';
+import KNOWLEDGE_BASE_EN from '@/i18n/data/en/knowledge';
+
+function getKB(locale: string): KBTopic[] {
+  return locale === 'en' ? KNOWLEDGE_BASE_EN : KNOWLEDGE_BASE_VI;
+}
 
 type LayoutProps = {
   children: React.ReactNode;
@@ -13,6 +22,28 @@ type LayoutProps = {
 export default async function KienThucLayout({ children, params }: LayoutProps) {
   const { locale } = await params;
   const dict = await getDictionary(locale as Locale);
+  const kb = getKB(locale);
+
+  // Pre-compute locale-prefixed paths for client sidebar
+  const localePrefixedPaths: Record<string, string> = {};
+  for (const topic of kb) {
+    localePrefixedPaths[topic.slug] = localePath(`/kien-thuc/${topic.slug}`, locale as Locale);
+  }
+
+  const homeHref = localePath('/fnb', locale as Locale);
+
+  const sidebar = (
+    <KBSidebar
+      topics={kb}
+      categoryLabels={dict.knowledge.categories}
+      localePrefixedPaths={localePrefixedPaths}
+      exploreLabels={{
+        stories: dict.knowledge.explore.stories,
+        trends: dict.knowledge.explore.trends,
+      }}
+      homeHref={homeHref}
+    />
+  );
 
   return (
     <div className="min-h-screen flex flex-col">
@@ -35,8 +66,12 @@ export default async function KienThucLayout({ children, params }: LayoutProps) 
         </Link>
       </header>
 
-      {/* Content */}
-      <main className="flex-1">{children}</main>
+      {/* Content with sidebar */}
+      <div className="flex-1 py-6 max-md:py-4">
+        <KBLayoutShell sidebar={sidebar} menuLabel={dict.knowledge.layout.menuLabel}>
+          {children}
+        </KBLayoutShell>
+      </div>
 
       {/* Footer */}
       <div className="mt-8">

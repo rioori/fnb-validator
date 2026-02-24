@@ -8,6 +8,7 @@ import Icon from '@/components/ui/Icon';
 import { useTranslation, useLocale } from '@/i18n/LocaleProvider';
 import { localePath } from '@/i18n/link';
 import type { KBCategory, KBTopic } from '@/types';
+import type { HomeView } from './HomePage';
 import KNOWLEDGE_BASE_VI from '@/i18n/data/vi/knowledge';
 import KNOWLEDGE_BASE_EN from '@/i18n/data/en/knowledge';
 
@@ -17,7 +18,11 @@ function getKB(locale: string): KBTopic[] {
 
 type FilterType = 'all' | KBCategory;
 
-export default function KnowledgeSection() {
+interface KnowledgeSectionProps {
+  onNavigate?: (view: HomeView) => void;
+}
+
+export default function KnowledgeSection({ onNavigate }: KnowledgeSectionProps) {
   const { t } = useTranslation();
   const locale = useLocale();
   const kb = getKB(locale);
@@ -134,6 +139,37 @@ export default function KnowledgeSection() {
         <div className="text-center py-8 text-text-muted text-[13px]">
           {t.knowledge.section.emptyState}
         </div>
+      )}
+
+      {/* Explore more: Stories & Trends */}
+      {onNavigate && (
+        <motion.div
+          className="grid grid-cols-2 gap-3 mt-5"
+          initial={{ opacity: 0, y: 12 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.3, duration: 0.4 }}
+        >
+          <button
+            onClick={() => onNavigate('stories')}
+            className="clay-sm bg-pastel-gold p-4 text-center cursor-pointer hover:shadow-md transition-shadow"
+          >
+            <Icon name="stories" size={32} className="mx-auto mb-1.5" />
+            <h4 className="text-[13px] font-bold font-[family-name:var(--font-heading)] text-text">
+              {t.knowledge.explore.stories}
+            </h4>
+            <p className="text-[11px] text-text-muted mt-0.5">{t.knowledge.explore.storiesDesc}</p>
+          </button>
+          <button
+            onClick={() => onNavigate('trends')}
+            className="clay-sm bg-pastel-blue p-4 text-center cursor-pointer hover:shadow-md transition-shadow"
+          >
+            <Icon name="trendingup" size={32} className="mx-auto mb-1.5" />
+            <h4 className="text-[13px] font-bold font-[family-name:var(--font-heading)] text-text">
+              {t.knowledge.explore.trends}
+            </h4>
+            <p className="text-[11px] text-text-muted mt-0.5">{t.knowledge.explore.trendsDesc}</p>
+          </button>
+        </motion.div>
       )}
 
       {/* Footer note */}

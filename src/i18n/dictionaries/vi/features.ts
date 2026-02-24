@@ -9,7 +9,7 @@ const features = {
     { name: 'F&B', desc: 'Cà phê, quán ăn, trà sữa, nhà hàng, bakery, bar', icon: 'coffee', active: true },
     { name: 'Bán lẻ', desc: 'Thời trang, tạp hóa, cửa hàng tiện lợi', icon: 'retail', active: false },
     { name: 'Giáo dục', desc: 'Trung tâm, tutoring, courses online', icon: 'education', active: false },
-    { name: 'Spa & Làm đẹp', desc: 'Spa, salon tóc, nail, thẩm mỹ', icon: 'spa', active: false },
+    { name: 'Dịch vụ', desc: 'Spa, salon, gym, giặt ủi, sửa chữa', icon: 'services', active: false },
   ],
   financialAnalysis: {
     meta: {
@@ -41,22 +41,22 @@ const features = {
     highlights: [
       { icon: 'chat', title: 'Tư vấn cá nhân hóa', desc: 'AI phân tích dựa trên dữ liệu mô hình bạn nhập — không phải lời khuyên chung chung' },
       { icon: 'bolt', title: 'Trả lời tức thì', desc: 'Hỏi về chi phí, pricing, marketing, nhân sự, pháp lý — nhận câu trả lời chi tiết ngay' },
-      { icon: 'book', title: 'Kiến thức chuyên sâu', desc: 'Được train trên dữ liệu F&B Việt Nam — hiểu context thị trường địa phương' },
+      { icon: 'book', title: 'Kiến thức chuyên sâu', desc: 'Được train trên dữ liệu thị trường Việt Nam — hiểu context kinh doanh địa phương' },
     ],
     verticalAction: 'ai-chat',
   },
   knowledgeBase: {
     meta: {
-      title: 'Kiến thức nền tảng — Validator.vn',
-      description: 'Thư viện bài viết chuyên sâu về chi phí, vận hành, chiến lược và pháp lý cho người kinh doanh Việt Nam.',
+      title: 'Thư viện kiến thức — Validator.vn',
+      description: 'Bài viết chuyên sâu, báo cáo thị trường, kinh nghiệm thực tiễn về chi phí, vận hành, chiến lược và pháp lý cho người kinh doanh Việt Nam.',
     },
     slug: 'kien-thuc',
-    heading: 'Kiến thức nền tảng',
-    desc: 'Thư viện bài viết chuyên sâu giúp bạn hiểu rõ từ cấu trúc chi phí, quản lý vận hành đến pháp lý và chiến lược marketing.',
+    heading: 'Thư viện kiến thức',
+    desc: 'Bài viết chuyên sâu, báo cáo thị trường, kinh nghiệm thực tiễn — giúp bạn hiểu rõ chi phí, vận hành, pháp lý và chiến lược.',
     icon: 'book',
     color: 'bg-pastel-cream',
     highlights: [
-      { icon: 'book', title: '14 bài viết chuyên sâu', desc: 'Từ food cost, nhân sự, marketing đến đăng ký kinh doanh — tất cả kiến thức cần thiết' },
+      { icon: 'book', title: 'Bài viết chuyên sâu', desc: 'Từ cấu trúc chi phí, nhân sự, marketing đến đăng ký kinh doanh — tất cả kiến thức cần thiết' },
       { icon: 'chart', title: '4 chuyên mục', desc: 'Chi phí · Vận hành · Chiến lược · Pháp lý — dễ tìm, dễ đọc, dễ áp dụng' },
       { icon: 'trending', title: 'Cập nhật liên tục', desc: 'Thêm bài viết mới thường xuyên — song ngữ Việt-Anh để bạn tham khảo' },
     ],
@@ -65,11 +65,11 @@ const features = {
   },
   checklist: {
     meta: {
-      title: 'Checklist mở quán — Validator.vn',
-      description: '80+ mục cần chuẩn bị trước khi mở quán — từ pháp lý, thi công, thiết bị đến vận hành. Đánh dấu tiến độ trên trình duyệt.',
+      title: 'Checklist kinh doanh — Validator.vn',
+      description: '80+ mục cần chuẩn bị trước khi kinh doanh — từ pháp lý, thi công, thiết bị đến vận hành. Đánh dấu tiến độ trên trình duyệt.',
     },
     slug: 'checklist',
-    heading: 'Checklist mở quán',
+    heading: 'Checklist kinh doanh',
     desc: '80+ mục cần chuẩn bị từ pháp lý, thi công, thiết bị đến vận hành. Đánh dấu tiến độ — dữ liệu lưu trên trình duyệt.',
     icon: 'checklist',
     color: 'bg-pastel-gold',

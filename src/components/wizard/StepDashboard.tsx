@@ -24,7 +24,7 @@ import Icon from '@/components/ui/Icon';
 import FeedbackForm from '@/components/dashboard/FeedbackForm';
 
 export default function StepDashboard() {
-  const { t } = useTranslation();
+  const { t, locale } = useTranslation();
   const store = useWizardStore();
 
   const results = useMemo(() => {
@@ -58,9 +58,9 @@ export default function StepDashboard() {
     store.getStaffTotal, store.getDynTotal, store.getTotalInvestment,
   ]);
 
-  const handleExportExcel = () => {
+  const handleExportExcel = async () => {
     track('export_excel', { model: store.selectedModel || 'unknown' });
-    exportToExcel({
+    await exportToExcel({
       model: store.selectedModel,
       city: store.city,
       area: store.area,
@@ -90,6 +90,7 @@ export default function StepDashboard() {
       fixedOther: store.fixedOther,
       varOther: store.varOther,
       results,
+      locale,
     });
   };
 

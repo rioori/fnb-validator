@@ -21,8 +21,8 @@ export async function GET(request: NextRequest) {
       en: 'Validate your\nF&B business idea',
     },
     knowledge: {
-      vi: 'Kiến thức F&B\ncho người mới bắt đầu',
-      en: 'F&B Knowledge Base\nfor beginners',
+      vi: 'Thư viện kiến thức\ncho người kinh doanh',
+      en: 'Knowledge Library\nfor business owners',
     },
     feature: {
       vi: customTitle || 'Tính năng',
@@ -44,16 +44,16 @@ export async function GET(request: NextRequest) {
       en: '8 models · 12-month P&L · Break-even · AI Advisor',
     },
     knowledge: {
-      vi: '11 bài học · Pháp lý · Thuế · Marketing · Vận hành',
-      en: '11 articles · Legal · Tax · Marketing · Operations',
+      vi: 'Bài viết · Báo cáo · Pháp lý · Chiến lược · Vận hành',
+      en: 'Articles · Reports · Legal · Strategy · Operations',
     },
     feature: {
       vi: customSubtitle || 'Validator.vn',
       en: customSubtitle || 'Validator.vn',
     },
     article: {
-      vi: customSubtitle || 'Validator.vn · Kiến thức F&B',
-      en: customSubtitle || 'Validator.vn · F&B Knowledge',
+      vi: customSubtitle || 'Validator.vn · Kiến thức kinh doanh',
+      en: customSubtitle || 'Validator.vn · Business Knowledge',
     },
   };
 

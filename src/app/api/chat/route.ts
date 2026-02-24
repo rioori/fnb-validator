@@ -2,18 +2,18 @@ const DEEPSEEK_API_KEY = process.env.DEEPSEEK_API_KEY;
 const DEEPSEEK_URL = 'https://api.deepseek.com/chat/completions';
 const MAX_MESSAGES = 20;
 
-const BASE_SYSTEM_PROMPT = `Bạn là chuyên gia tư vấn F&B Việt Nam với 15+ năm kinh nghiệm. Bạn giúp người dùng về:
-- Phân tích mô hình kinh doanh F&B (quán cà phê, nhà hàng, trà sữa, cloud kitchen...)
+const BASE_SYSTEM_PROMPT = `Bạn là chuyên gia tư vấn kinh doanh Việt Nam với 15+ năm kinh nghiệm đa ngành. Chuyên môn sâu về F&B, bán lẻ, dịch vụ và các mô hình SME. Bạn giúp người dùng về:
+- Phân tích mô hình kinh doanh (F&B, bán lẻ, dịch vụ, giáo dục...)
 - Cấu trúc chi phí, break-even, dòng tiền
 - Chiến lược vị trí, marketing, vận hành
-- Xu hướng thị trường F&B Việt Nam
+- Xu hướng thị trường Việt Nam, pháp lý kinh doanh
 
 Quy tắc:
 1. Trả lời bằng tiếng Việt, ngắn gọn, thực tế
 2. Đưa ra con số cụ thể khi có thể (VD: chi phí thuê mặt bằng Q1 HCM ~50-80tr/tháng)
-3. Nếu câu hỏi KHÔNG liên quan đến F&B, lịch sự từ chối: "Mình chuyên về lĩnh vực F&B thôi nhé! Bạn có câu hỏi gì về kinh doanh ẩm thực không?"
+3. Nếu câu hỏi KHÔNG liên quan đến kinh doanh, lịch sự từ chối: "Mình chuyên về tư vấn kinh doanh thôi nhé! Bạn có câu hỏi gì về kinh doanh không?"
 4. Không đưa ra lời khuyên tài chính/đầu tư cụ thể, chỉ phân tích và gợi ý
-5. Khi người dùng đã cung cấp thông tin dự án F&B (bên dưới), hãy sử dụng context đó để trả lời chính xác hơn — KHÔNG hỏi lại những thông tin đã có`;
+5. Khi người dùng đã cung cấp thông tin dự án (bên dưới), hãy sử dụng context đó để trả lời chính xác hơn — KHÔNG hỏi lại những thông tin đã có`;
 
 interface ChatMsg {
   role: 'system' | 'user' | 'assistant';
@@ -39,7 +39,7 @@ export async function POST(request: Request) {
 
   let systemPrompt = BASE_SYSTEM_PROMPT;
   if (body.businessContext) {
-    systemPrompt += `\n\n--- THÔNG TIN DỰ ÁN F&B CỦA NGƯỜI DÙNG ---\n${body.businessContext}`;
+    systemPrompt += `\n\n--- THÔNG TIN DỰ ÁN KINH DOANH CỦA NGƯỜI DÙNG ---\n${body.businessContext}`;
   }
 
   const messages: ChatMsg[] = [

@@ -315,6 +315,15 @@ select:focus {
   animation: marquee 25s linear infinite;
 }
 
+/* Sidebar drawer slide-in */
+@keyframes slideInLeft {
+  from { transform: translateX(-100%); }
+  to { transform: translateX(0); }
+}
+.animate-slide-in-left {
+  animation: slideInLeft 0.2s ease-out;
+}
+
 /* Hero ambient gradient — slow moving background glow */
 @keyframes ambientGradient {
   0%, 100% { background-position: 0% 50%; }
@@ -339,5 +348,6 @@ select:focus {
   .animate-fade-in-up,
   .animate-fade-in,
   .animate-bounce-in,
-  .animate-marquee { animation: none; }
+  .animate-marquee,
+  .animate-slide-in-left { animation: none; }
 }

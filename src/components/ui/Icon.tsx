@@ -146,6 +146,20 @@ const PATHS: Record<string, string> = {
   rocket:
     'M4.5 16.5c-1.5 1.3-2 5-2 5s3.7-.5 5-2c.7-.8.7-2-.1-2.8-.8-.8-2-.9-2.9-.2z M12 15l-3-3 M22 2L13.8 10.2 M16.5 11.5L22 2l-9.5 5.5v3h3z',
 
+  // — Knowledge Content Icons —
+  location:
+    'M12 21c-4-4-8-8-8-12a8 8 0 1 1 16 0c0 4-4 8-8 12z M12 11a2 2 0 1 0 0-4 2 2 0 0 0 0 4z',
+  people:
+    'M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2 M9 11a4 4 0 1 0 0-8 4 4 0 0 0 0 8z M23 21v-2a4 4 0 0 0-3-3.87 M16 3.13a4 4 0 0 1 0 7.75',
+
+  // — UI Actions —
+  close:
+    'M18 6L6 18 M6 6l12 12',
+  calculator:
+    'M4 2h16a2 2 0 0 1 2 2v16a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2z M8 10h0 M12 10h0 M16 10h0 M8 14h0 M12 14h0 M16 14h0 M8 18h0 M12 18h0 M16 18h0 M8 6h8',
+  shield:
+    'M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z',
+
   // — Export & Actions —
   download:
     'M12 3v12 M8 11l4 4 4-4 M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2',

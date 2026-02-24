@@ -74,6 +74,15 @@ function getRelatedTopics(slug: string, category: string, locale: string): KBTop
   return kb.filter((t) => t.category === category && t.slug !== slug).slice(0, 3);
 }
 
+function getPrevNext(slug: string, locale: string): { prev: KBTopic | null; next: KBTopic | null } {
+  const kb = getKB(locale);
+  const idx = kb.findIndex((t) => t.slug === slug);
+  return {
+    prev: idx > 0 ? kb[idx - 1] : null,
+    next: idx < kb.length - 1 ? kb[idx + 1] : null,
+  };
+}
+
 // ── JSON-LD Structured Data ──
 function ArticleJsonLd({ topic, categoryLabel, locale }: { topic: KBTopic; categoryLabel: string; locale: string }) {
   const prefix = locale === defaultLocale ? '' : '/en';
@@ -123,6 +132,7 @@ export default async function KienThucTopicPage({ params }: PageProps) {
   if (!topic) notFound();
 
   const related = getRelatedTopics(slug, topic.category, locale);
+  const { prev, next } = getPrevNext(slug, locale);
   const categoryLabel = dict.knowledge.categories[topic.category as keyof typeof dict.knowledge.categories];
 
   return (
@@ -131,7 +141,7 @@ export default async function KienThucTopicPage({ params }: PageProps) {
       <ArticleJsonLd topic={topic} categoryLabel={categoryLabel} locale={locale} />
       <BreadcrumbJsonLd topic={topic} locale={locale} dict={dict} />
 
-      <article className="max-w-3xl mx-auto px-4 py-8 max-md:px-3 max-md:py-6">
+      <article className="py-2 max-md:py-0">
         {/* Breadcrumbs */}
         <nav className="text-[13px] text-text-muted mb-6">
           <Link href={localePath('/', locale as Locale)} className="hover:text-cta transition-colors">{dict.knowledge.breadcrumb.home}</Link>
@@ -176,9 +186,33 @@ export default async function KienThucTopicPage({ params }: PageProps) {
           ))}
         </div>
 
+        {/* Prev / Next navigation */}
+        {(prev || next) && (
+          <div className="flex gap-3 mt-6 mb-6">
+            {prev ? (
+              <Link
+                href={localePath(`/kien-thuc/${prev.slug}`, locale as Locale)}
+                className="clay-card-static flex-1 p-4 hover:shadow-[3px_3px_0_var(--color-text)] transition-shadow bg-surface3/30"
+              >
+                <span className="text-[11px] text-text-muted block">{dict.knowledge.article.prevArticle}</span>
+                <span className="text-[13px] font-semibold font-[family-name:var(--font-heading)] text-text">{prev.title}</span>
+              </Link>
+            ) : <div className="flex-1" />}
+            {next ? (
+              <Link
+                href={localePath(`/kien-thuc/${next.slug}`, locale as Locale)}
+                className="clay-card-static flex-1 p-4 hover:shadow-[3px_3px_0_var(--color-text)] transition-shadow bg-surface3/30 text-right"
+              >
+                <span className="text-[11px] text-text-muted block">{dict.knowledge.article.nextArticle}</span>
+                <span className="text-[13px] font-semibold font-[family-name:var(--font-heading)] text-text">{next.title}</span>
+              </Link>
+            ) : <div className="flex-1" />}
+          </div>
+        )}
+
         {/* Related articles in same category */}
         {related.length > 0 && (
-          <div className="mt-8">
+          <div className="mt-6">
             <h2 className="text-[13px] font-bold font-[family-name:var(--font-heading)] uppercase tracking-wider text-text-muted mb-3">
               {dict.knowledge.article.relatedInCategory} {categoryLabel}
             </h2>
@@ -203,16 +237,6 @@ export default async function KienThucTopicPage({ params }: PageProps) {
             </div>
           </div>
         )}
-
-        {/* Back to all articles */}
-        <div className="mt-4">
-          <Link
-            href={localePath('/kien-thuc', locale as Locale)}
-            className="text-[13px] text-cta hover:underline"
-          >
-            {dict.knowledge.article.allArticles}
-          </Link>
-        </div>
 
         {/* CTA */}
         <div className="text-center mt-8">
