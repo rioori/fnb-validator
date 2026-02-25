@@ -98,7 +98,7 @@ const knowledge = {
           logo: 'logo-nus.webp',
         },
         {
-          period: '2010 – 2013',
+          period: '2011 – 2012',
           company: 'AA Corporation (Nha Xinh)',
           role: 'Retail Management',
           industry: 'Retail',
@@ -133,7 +133,7 @@ const knowledge = {
           period: '2020 – 2021',
           company: 'Kamereo',
           role: 'Head of Business Development',
-          industry: 'Supply Chain',
+          industry: 'Food Tech',
           desc: 'Led B2B business development in F&B supply chain — built partner networks, sales processes and market expansion strategies from the ground up.',
           logo: 'logo-kamereo.webp',
         },
@@ -172,17 +172,17 @@ const knowledge = {
         {
           icon: 'chart',
           title: 'Business Strategy',
-          desc: 'Financial analysis, business planning, go-to-market strategy.',
+          desc: 'Business management, People management, Sales, Service.',
         },
         {
           icon: 'bolt',
           title: 'Technology',
-          desc: 'AI/ML, SaaS, e-commerce, fintech, product management.',
+          desc: 'eCommerce, Foodtech, Fintech, AI.',
         },
         {
           icon: 'checklist',
           title: 'Operations',
-          desc: 'F&B management, supply chain, hospitality, process optimization.',
+          desc: 'F&B management, Retail operations, Customer service, Customer care, Team operations.',
         },
         {
           icon: 'chat',

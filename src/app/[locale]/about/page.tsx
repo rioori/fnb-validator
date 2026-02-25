@@ -3,6 +3,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import Icon from '@/components/ui/Icon';
 import { SocialIcon } from '@/components/ui/Icon';
+import ShareBlock from '@/components/ui/ShareBlock';
 import Footer from '@/components/home/Footer';
 import DonateButton from '@/components/about/DonateButton';
 import { getDictionary } from '@/i18n/get-dictionary';
@@ -77,8 +78,7 @@ const INDUSTRY_COLORS: Record<string, string> = {
   'F&B': 'bg-pastel-cream',
   'Hospitality': 'bg-pastel-blush',
   'E-commerce': 'bg-pastel-blue',
-  'Chuỗi cung ứng': 'bg-pastel-mint',
-  'Supply Chain': 'bg-pastel-mint',
+  'Food Tech': 'bg-pastel-mint',
   'Fintech': 'bg-pastel-gold',
   'AI': 'bg-pastel-blush',
   'Cộng đồng': 'bg-pastel-cream',
@@ -264,6 +264,11 @@ export default async function AboutPage({ params }: PageProps) {
           {about.coffee.desc}
         </p>
         <DonateButton />
+      </div>
+
+      {/* Share */}
+      <div className="mb-6">
+        <ShareBlock {...dict.common.share} />
       </div>
 
       {/* CTA */}

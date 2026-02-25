@@ -98,7 +98,7 @@ const knowledge = {
           logo: 'logo-nus.webp',
         },
         {
-          period: '2010 – 2013',
+          period: '2011 – 2012',
           company: 'AA Corporation (Nhà Xinh)',
           role: 'Retail Management',
           industry: 'Bán lẻ',
@@ -133,7 +133,7 @@ const knowledge = {
           period: '2020 – 2021',
           company: 'Kamereo',
           role: 'Head of Business Development',
-          industry: 'Chuỗi cung ứng',
+          industry: 'Food Tech',
           desc: 'Dẫn dắt phát triển kinh doanh B2B trong chuỗi cung ứng F&B — xây dựng hệ thống đối tác, quy trình bán hàng và chiến lược mở rộng thị trường.',
           logo: 'logo-kamereo.webp',
         },
@@ -172,17 +172,17 @@ const knowledge = {
         {
           icon: 'chart',
           title: 'Chiến lược kinh doanh',
-          desc: 'Phân tích tài chính, lập kế hoạch kinh doanh, go-to-market strategy.',
+          desc: 'Quản trị kinh doanh, Quản trị con người, Bán hàng, Dịch vụ.',
         },
         {
           icon: 'bolt',
           title: 'Công nghệ',
-          desc: 'AI/ML, SaaS, thương mại điện tử, fintech, product management.',
+          desc: 'eCommerce, Foodtech, Fintech, AI.',
         },
         {
           icon: 'checklist',
           title: 'Vận hành',
-          desc: 'Quản lý F&B, chuỗi cung ứng, hospitality, quy trình tối ưu.',
+          desc: 'Quản lý F&B, Vận hành bán lẻ, Dịch vụ khách hàng, Chăm sóc khách hàng, Vận hành đội ngũ.',
         },
         {
           icon: 'chat',
