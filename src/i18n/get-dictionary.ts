@@ -10,7 +10,8 @@ const dictionaries = {
       import('./dictionaries/vi/fnb-home'),
       import('./dictionaries/vi/knowledge'),
       import('./dictionaries/vi/features'),
-    ]).then(([common, wizard, dashboard, landing, fnbHome, knowledge, features]) => ({
+      import('./dictionaries/vi/experts'),
+    ]).then(([common, wizard, dashboard, landing, fnbHome, knowledge, features, experts]) => ({
       common: common.default,
       wizard: wizard.default,
       dashboard: dashboard.default,
@@ -18,6 +19,7 @@ const dictionaries = {
       fnbHome: fnbHome.default,
       knowledge: knowledge.default,
       features: features.default,
+      experts: experts.default,
     })),
 
   en: () =>
@@ -29,7 +31,8 @@ const dictionaries = {
       import('./dictionaries/en/fnb-home'),
       import('./dictionaries/en/knowledge'),
       import('./dictionaries/en/features'),
-    ]).then(([common, wizard, dashboard, landing, fnbHome, knowledge, features]) => ({
+      import('./dictionaries/en/experts'),
+    ]).then(([common, wizard, dashboard, landing, fnbHome, knowledge, features, experts]) => ({
       common: common.default,
       wizard: wizard.default,
       dashboard: dashboard.default,
@@ -37,6 +40,7 @@ const dictionaries = {
       fnbHome: fnbHome.default,
       knowledge: knowledge.default,
       features: features.default,
+      experts: experts.default,
     })),
 };
 

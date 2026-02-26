@@ -17,6 +17,7 @@ const common = {
       { label: 'Home', href: '/' },
       { label: 'Validation Tools', href: '/fnb' },
       { label: 'Knowledge Library', href: '/kien-thuc' },
+      { label: 'Expert Perspectives', href: '/goc-nhin-chuyen-gia' },
       { label: 'About', href: '/about' },
     ],
     connectTitle: 'Connect',
@@ -87,6 +88,14 @@ const common = {
     months: 'months',
     year: 'year',
     percent: '%',
+  },
+  share: {
+    heading: 'Found this useful? Share with friends!',
+    desc: 'Help more F&B owners discover this free tool.',
+    shareFacebook: 'Share on Facebook',
+    shareLinkedin: 'Share on LinkedIn',
+    followUs: 'Follow Validator.vn',
+    shareText: "I just tried this free F&B validation tool — pretty useful! Enter your numbers and instantly see profitability, break-even, and more. Share with anyone planning to open or running an F&B business 👉",
   },
 };
 export default common;

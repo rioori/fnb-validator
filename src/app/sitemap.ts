@@ -1,5 +1,5 @@
 import type { MetadataRoute } from 'next';
-import { KNOWLEDGE_BASE } from '@/lib/constants';
+import { KNOWLEDGE_BASE, EXPERTS_DATA } from '@/lib/constants';
 
 const BASE_URL = 'https://www.validator.vn';
 
@@ -34,11 +34,17 @@ export default function sitemap(): MetadataRoute.Sitemap {
     '/tinh-nang/checklist',
   ].map((path) => entry(path, 'monthly', 0.85));
 
+  const expertPages = EXPERTS_DATA.map((expert) =>
+    entry(`/goc-nhin-chuyen-gia/${expert.slug}`, 'monthly', 0.8),
+  );
+
   return [
     entry('', 'weekly', 1),
     entry('/fnb', 'weekly', 0.95),
     entry('/kien-thuc', 'monthly', 0.9),
+    entry('/goc-nhin-chuyen-gia', 'monthly', 0.9),
     ...featurePages,
     ...knowledgePages,
+    ...expertPages,
   ];
 }

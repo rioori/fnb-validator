@@ -1,7 +1,9 @@
-import type { FnBModel, ModelKey, ChecklistCategory, KBTopic } from '@/types';
+import type { FnBModel, ModelKey, ChecklistCategory, KBTopic, Expert } from '@/types';
 import KNOWLEDGE_BASE from '@/i18n/data/vi/knowledge';
+import EXPERTS_VI from '@/i18n/data/vi/experts';
 
 export { KNOWLEDGE_BASE };
+export const EXPERTS_DATA: Expert[] = EXPERTS_VI;
 
 export const MODELS: Record<ModelKey, FnBModel> = {
   coffee: {
@@ -163,6 +165,34 @@ export function getKBTopicBySlug(slug: string): KBTopic | undefined {
 export function getAllKBSlugs(): string[] {
   return KNOWLEDGE_BASE.map((t) => t.slug);
 }
+
+// ===== Expert Helpers =====
+
+/** Find an expert by their URL slug */
+export function getExpertBySlug(slug: string): Expert | undefined {
+  return EXPERTS_DATA.find((e) => e.slug === slug);
+}
+
+/** Get all expert slugs (for generateStaticParams) */
+export function getAllExpertSlugs(): string[] {
+  return EXPERTS_DATA.map((e) => e.slug);
+}
+
+// ===== Existing Business Benchmarks =====
+// [low, high] healthy ranges per model type — used for diagnosis mode
+
+import type { ExistingBenchmarks } from '@/types';
+
+export const EXISTING_BENCHMARKS: Record<ModelKey, ExistingBenchmarks> = {
+  coffee:       { cogsPct: [20, 30], rentPct: [10, 20], laborPct: [15, 22], primeCostPct: [40, 55], netMarginPct: [10, 20], deliveryCommPct: [15, 25], wastePct: [2, 4], revenuePerSeat: [50000, 120000] },
+  eatery:       { cogsPct: [28, 38], rentPct: [10, 20], laborPct: [15, 25], primeCostPct: [45, 60], netMarginPct: [8, 15], deliveryCommPct: [15, 25], wastePct: [3, 5], revenuePerSeat: [40000, 100000] },
+  bubbletea:    { cogsPct: [15, 25], rentPct: [10, 20], laborPct: [12, 20], primeCostPct: [30, 45], netMarginPct: [12, 25], deliveryCommPct: [15, 25], wastePct: [2, 4], revenuePerSeat: [80000, 200000] },
+  restaurant:   { cogsPct: [28, 38], rentPct: [8, 18],  laborPct: [18, 28], primeCostPct: [50, 65], netMarginPct: [8, 15], deliveryCommPct: [15, 25], wastePct: [3, 6], revenuePerSeat: [80000, 200000] },
+  cloudkitchen: { cogsPct: [28, 38], rentPct: [5, 15],  laborPct: [15, 22], primeCostPct: [45, 58], netMarginPct: [5, 12], deliveryCommPct: [20, 30], wastePct: [2, 5], revenuePerSeat: [0, 0] },
+  bakery:       { cogsPct: [25, 35], rentPct: [10, 20], laborPct: [15, 22], primeCostPct: [45, 58], netMarginPct: [10, 18], deliveryCommPct: [15, 25], wastePct: [3, 6], revenuePerSeat: [60000, 150000] },
+  bar:          { cogsPct: [15, 25], rentPct: [10, 18], laborPct: [15, 25], primeCostPct: [35, 50], netMarginPct: [12, 25], deliveryCommPct: [15, 25], wastePct: [2, 5], revenuePerSeat: [100000, 300000] },
+  kiosk:        { cogsPct: [25, 35], rentPct: [12, 22], laborPct: [12, 20], primeCostPct: [40, 55], netMarginPct: [8, 15], deliveryCommPct: [15, 25], wastePct: [2, 4], revenuePerSeat: [60000, 180000] },
+};
 
 export const SEASONAL = [1, 0.85, 0.75, 1, 1.05, 1, 0.95, 0.95, 1, 1, 1.05, 1.1, 1.15];
 

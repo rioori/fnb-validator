@@ -2,7 +2,7 @@ const common = {
   nav: {
     home: 'Trang chủ',
     knowledge: 'Kiến thức',
-    about: 'Tác giả & Tác phẩm',
+    about: 'Giới thiệu',
     backToValidator: '← Validator.vn',
   },
   footer: {
@@ -17,7 +17,8 @@ const common = {
       { label: 'Trang chủ', href: '/' },
       { label: 'Công cụ thẩm định', href: '/fnb' },
       { label: 'Thư viện kiến thức', href: '/kien-thuc' },
-      { label: 'Tác giả & Tác phẩm', href: '/about' },
+      { label: 'Góc nhìn chuyên gia', href: '/goc-nhin-chuyen-gia' },
+      { label: 'Giới thiệu', href: '/about' },
     ],
     connectTitle: 'Kết nối',
     connectDesc: 'Theo dõi để nhận tips & cập nhật kinh doanh mới nhất.',
@@ -87,6 +88,14 @@ const common = {
     months: 'tháng',
     year: 'năm',
     percent: '%',
+  },
+  share: {
+    heading: 'Thấy hữu ích? Chia sẻ cho bạn bè!',
+    desc: 'Giúp nhiều chủ quán F&B biết đến công cụ miễn phí này.',
+    shareFacebook: 'Chia sẻ Facebook',
+    shareLinkedin: 'Chia sẻ LinkedIn',
+    followUs: 'Theo dõi Validator.vn',
+    shareText: 'Mình vừa thử công cụ thẩm định F&B miễn phí — khá hay! Nhập số liệu vào là biết ngay quán có lãi không, bao lâu hòa vốn. Chia sẻ cho ai đang tính mở quán hoặc đang kinh doanh F&B nhé 👉',
   },
 };
 export default common;
