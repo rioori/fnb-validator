@@ -522,6 +522,181 @@ const EXPERTS: Expert[] = [
       { platform: 'website', url: 'https://pizzahome.vn' },
     ],
   },
+  {
+    id: 'yosuke-masuko',
+    slug: 'yosuke-masuko',
+    name: 'Yosuke Masuko',
+    descriptor: 'Tự học làm phô mai từ YouTube, biến tiệc pizza sân sau thành chuỗi 40+ nhà hàng tại 5 quốc gia',
+    photo: '/experts/yosuke-masuko.webp',
+    category: 'inspiration',
+    tags: ['Farm-to-table', 'Pizza', 'Chuỗi quốc tế', 'Bền vững'],
+    shortBio: 'Đồng sáng lập & CEO Pizza 4P\'s. Từ 5 chiếc bàn nhỏ ở Quận 1 (2011) đến 40+ nhà hàng tại Việt Nam, Campuchia, Nhật Bản, Ấn Độ, Indonesia. Tự tay làm mozzarella, xưởng phô mai riêng tại Đà Lạt.',
+    fullBio: 'Yosuke Masuko (sinh tại Nhật Bản) từng làm việc tại CyberAgent Ventures. Năm 2008, chuyển đến Hà Nội để mở văn phòng đầu tư. Trong thời gian sống tại Việt Nam, vợ chồng anh — Masuko và Sanae Takasugi — bắt đầu tổ chức tiệc pizza sân sau mỗi cuối tuần. Tiệc đông đến mức bạn bè khuyên mở nhà hàng.\n\nThách thức lớn nhất: phô mai mozzarella tươi gần như không có ở Việt Nam. Masuko tự học làm phô mai từ YouTube, thử sữa từ hơn 25 nguồn khác nhau. Năm 2011, với $100.000 tiền tiết kiệm, cặp đôi mở Pizza 4P\'s đầu tiên tại Lê Thánh Tôn, Quận 1 — chỉ 4-5 bàn nhỏ.\n\nSau 14 năm: 40+ nhà hàng tại 5 quốc gia, xưởng phô mai riêng tại Đơn Dương (Đà Lạt) sản xuất 1.500-2.000 viên burrata và 2.000-3.000 viên mozzarella mỗi ngày. Năm 2023, lợi nhuận sau thuế đạt 115 tỷ VNĐ. Năm 2025, mở rộng sang New York (Mỹ).',
+    highlights: [
+      'Từ 5 bàn nhỏ ($100K, 2011) → 40+ nhà hàng tại 5 quốc gia',
+      'Tự học làm mozzarella từ YouTube — biến hạn chế thành lợi thế cạnh tranh',
+      'Xưởng phô mai Đà Lạt: 2.000+ viên burrata/ngày, xuất khẩu',
+      'Lợi nhuận sau thuế 115 tỷ VNĐ (2023), tăng trưởng 38%',
+    ],
+    quotes: [
+      {
+        text: 'Đừng lên thuyền nếu chưa biết đi đâu. Nếu đích đến không rõ ràng, chúng tôi sẽ không rời bến.',
+        source: 'Vietcetera',
+        sourceUrl: 'https://vietcetera.com/en/pizza-4ps-yosuke-masuko-on-the-question-what-is-happiness',
+      },
+      {
+        text: 'Nếu pizza có thể giúp tôi thực hiện sứ mệnh cá nhân — "Làm thế giới mỉm cười vì hòa bình" — tôi sẽ dồn toàn bộ năng lượng vào đó.',
+        source: 'Vietcetera',
+        sourceUrl: 'https://vietcetera.com/en/pizza-4ps-yosuke-masuko-on-the-question-what-is-happiness',
+      },
+      {
+        text: 'Tôi không thể nhấn mạnh đủ việc hiểu chính mình quan trọng đến thế nào. Hãy đào sâu vào bản thân — bạn là ai, bạn đam mê điều gì.',
+        source: 'Vietcetera',
+        sourceUrl: 'https://vietcetera.com/en/who-am-i-finding-your-true-north-with-yosuke-masuko-and-sanae-takasugi',
+      },
+    ],
+    advice: [
+      {
+        title: 'Bắt đầu từ đam mê, không phải kế hoạch kinh doanh',
+        desc: 'Pizza 4P\'s bắt đầu từ những buổi tiệc sân sau — tình yêu thật sự với sản phẩm, không phải phân tích thị trường.',
+      },
+      {
+        title: 'Biến hạn chế thành lợi thế cạnh tranh',
+        desc: 'Không có mozzarella tươi? Tự học làm. Hạn chế đó trở thành điều không đối thủ nào bắt chước được.',
+      },
+      {
+        title: 'Bền vững là chiến lược kinh doanh, không phải chi phí',
+        desc: 'Nhà hàng zero-waste, phô mai tự sản xuất, farm-to-table — vừa giảm chi phí, vừa tạo khác biệt, vừa xây lòng trung thành.',
+      },
+    ],
+    links: [
+      { label: 'Pizza 4P\'s: Từ tiệc sân sau đến đế chế pizza (Backscoop)', url: 'https://www.backscoop.com/newsletter-posts/pizza-4ps-the-couple-who-turned-backyard-pizza-parties-into-a-pizza-empire', type: 'article' },
+      { label: 'Hạnh phúc là gì? (Vietcetera)', url: 'https://vietcetera.com/en/pizza-4ps-yosuke-masuko-on-the-question-what-is-happiness', type: 'article' },
+      { label: 'Pizza 4P\'s vươn ra thế giới (VIR)', url: 'https://vir.com.vn/from-vietnam-to-the-world-pizza-4ps-global-journey-145300.html', type: 'article' },
+    ],
+    socials: [
+      { platform: 'linkedin', url: 'https://in.linkedin.com/in/masuko-y-331aa98' },
+      { platform: 'instagram', url: 'https://www.instagram.com/masuko_yoo/' },
+      { platform: 'website', url: 'https://pizza4ps.com' },
+    ],
+  },
+
+  {
+    id: 'taku-tanaka',
+    slug: 'taku-tanaka',
+    name: 'Taku Tanaka',
+    descriptor: 'Cựu COO Pizza 4P\'s, xây nền tảng mua nguyên liệu B2B đầu tiên cho nhà hàng Việt Nam',
+    photo: '/experts/taku-tanaka.webp',
+    category: 'inspiration',
+    tags: ['Supply Chain', 'Startup', 'B2B', 'Forbes Asia'],
+    shortBio: 'Cựu COO Pizza 4P\'s → sáng lập KAMEREO (2018) — nền tảng mua nguyên liệu B2B đầu tiên tại VN. Phục vụ 3.000+ nhà hàng, huy động $15M+. Forbes Asia 100 to Watch 2025.',
+    fullBio: 'Taku Tanaka (sinh 1989, Nhật Bản) tốt nghiệp Đại học Keio, từng làm chuyên viên phân tích cổ phiếu tại Credit Suisse Tokyo. Năm 2015, anh gia nhập Pizza 4P\'s với vai trò COO — trong 3 năm, chuỗi mở rộng từ 1 lên 10 cửa hàng.\n\nChính tại Pizza 4P\'s, anh chứng kiến sự hỗn loạn của khâu mua nguyên liệu: mỗi nhân viên mua hàng dùng công cụ khác nhau, không có hệ thống, giá cả không minh bạch. Năm 2018, anh đồng sáng lập KAMEREO — nền tảng B2B đầu tiên kết nối nhà hàng với nông dân và nhà cung cấp.\n\nSau khi pivot từ mô hình SaaS (thất bại) sang mô hình thương mại điện tử B2B trọn gói, KAMEREO tăng trưởng 15%/tháng liên tục 12 tháng. Hiện phục vụ 3.000+ doanh nghiệp F&B, hợp tác 100+ nông dân, 16.000+ SKU. Forbes Asia 100 to Watch 2025.',
+    highlights: [
+      'Cựu COO Pizza 4P\'s — mở rộng từ 1 lên 10 cửa hàng trong 3 năm',
+      'Sáng lập KAMEREO (2018) — nền tảng B2B food sourcing đầu tiên tại VN',
+      'Huy động tổng $15M+, phục vụ 3.000+ nhà hàng, 100+ nông dân',
+      'Forbes Asia 100 to Watch 2025',
+    ],
+    quotes: [
+      {
+        text: 'Bộ phận mua hàng không hoạt động hiệu quả vì quy trình mua hàng quá hỗn loạn. Mỗi người mua dùng một công cụ khác nhau để liên lạc nhà cung cấp.',
+        source: 'Vietcetera',
+        sourceUrl: 'https://vietcetera.com/en/tech-solutions-for-restaurants-with-kamereos-taku-tanaka-vni-ep20-recap',
+      },
+      {
+        text: 'Ở thị trường nhạy cảm về giá như Việt Nam, chỉ cạnh tranh bằng giá là thua cuộc.',
+        source: 'Genesia Ventures',
+        sourceUrl: 'https://www.genesiaventures.com/en/orbit-workshop-02/',
+      },
+      {
+        text: 'Bạn không thể kiểm soát người khác, nhưng bạn có thể cố gắng kiểm soát chính mình.',
+        source: 'Vietcetera',
+        sourceUrl: 'https://vietcetera.com/en/how-i-manage-kamereos-ceo-taku-tanaka',
+      },
+    ],
+    advice: [
+      {
+        title: 'Đừng mua nguyên liệu kiểu "chợ búa"',
+        desc: 'Mỗi ngày chạy ra chợ, gọi 5-6 nhà cung cấp, không so giá — tốn thời gian, sai sót, và mất quyền thương lượng.',
+      },
+      {
+        title: 'Biên lợi nhuận lành mạnh quan trọng hơn doanh thu',
+        desc: 'Dòng tiền ổn định, biên lợi nhuận khỏe, tuân thủ kỷ luật tài chính — đó mới là nền tảng bền vững.',
+      },
+      {
+        title: 'Mô hình đầu tiên thất bại? Pivot nhanh',
+        desc: 'KAMEREO ban đầu là SaaS — chỉ kết nối mà không tạo giá trị. Pivot sang mô hình trọn gói mới thành công.',
+      },
+    ],
+    links: [
+      { label: 'KAMEREO huy động $7.8M Series B (TNGlobal)', url: 'https://technode.global/2024/12/09/vietnams-kamereo-secures-7-8m-series-b-funding-to-accelerate-growth/', type: 'article' },
+      { label: 'Giải pháp công nghệ cho nhà hàng (Vietcetera)', url: 'https://vietcetera.com/en/tech-solutions-for-restaurants-with-kamereos-taku-tanaka-vni-ep20-recap', type: 'article' },
+      { label: 'How I Manage — Taku Tanaka (Vietcetera)', url: 'https://vietcetera.com/en/how-i-manage-kamereos-ceo-taku-tanaka', type: 'article' },
+    ],
+    socials: [
+      { platform: 'linkedin', url: 'https://www.linkedin.com/in/taku-tanaka-98876033/' },
+      { platform: 'website', url: 'https://kamereo.vn' },
+    ],
+  },
+
+  {
+    id: 'summer-le',
+    slug: 'summer-le',
+    name: 'Summer Lê',
+    descriptor: 'Đầu bếp đạt Sao xanh Michelin đầu tiên tại Việt Nam, tiên phong ẩm thực bền vững với 99% nguyên liệu địa phương',
+    photo: '/experts/summer-le.webp',
+    category: 'inspiration',
+    tags: ['Michelin', 'Bền vững', 'Đà Nẵng', 'Farm-to-table'],
+    shortBio: 'Sáng lập & Bếp trưởng nhà hàng Nén — Sao xanh Michelin đầu tiên và duy nhất tại Việt Nam. Từ food blogger → đầu bếp, 99% nguyên liệu địa phương. Mở Nén Tokyo (2025).',
+    fullBio: 'Lê Hạ Uyên (Summer Lê) lớn lên tại Đà Nẵng, du học Nhật Bản (Đại học Ritsumeikan APU) và Úc (ANU). Năm cuối đại học, cô lập blog ẩm thực "Danang Cuisine" bằng tiếng Anh — muốn có một giọng nói Việt Nam kể về ẩm thực quê hương.\n\nTừ blog → food tour → nhà hàng. Năm 2017, cô cùng chồng sáng lập Nén Đà Nẵng với concept "Sto:ry Menu" — thực đơn tasting kể câu chuyện văn hóa Việt qua từng món. 99% nguyên liệu hyper-local, 30% đến từ Nén Farm ngay đối diện nhà hàng.\n\nNăm 2022, mở Nén Light Sài Gòn. Tháng 6/2024, Nén Đà Nẵng nhận Sao xanh Michelin đầu tiên và duy nhất tại Việt Nam — vinh danh cam kết bền vững. Tháng 9/2025, mở Nén Tokyo tại Daikanyama — nhà hàng fine dining Việt đầu tiên tại Nhật.',
+    highlights: [
+      'Sao xanh Michelin đầu tiên và duy nhất tại Việt Nam (2024, giữ 2025)',
+      'Từ food blogger → đầu bếp Michelin, không qua đào tạo bếp chính quy',
+      '99% nguyên liệu hyper-local, Nén Farm cung cấp 30% nguyên liệu',
+      'Mở rộng: Nén Đà Nẵng (2017), Nén Light Sài Gòn (2022), Nén Tokyo (2025)',
+    ],
+    quotes: [
+      {
+        text: 'Ẩm thực muốn có sức mạnh nội tại thì phải dùng nguyên liệu của chính vùng đất đó. Chúng ta phải tin rằng ẩm thực của mình là "top-notch" — khi đó mới đầu tư phát triển nó.',
+        source: 'Tuổi Trẻ News',
+        sourceUrl: 'https://tuoitrenews.vn/news/features/20241020/introducing-chef-summer-le-and-the-strength-found-within-vietnamese-cuisine/82475.html',
+      },
+      {
+        text: 'Ẩm thực có khả năng chạm đến những cảm xúc sâu thẳm nhất của một con người.',
+        source: 'Robb Report Vietnam',
+        sourceUrl: 'https://dev.robbreport.com.vn/ca-phe-sang-summer-le-am-thuc-co-kha-nang-cham-den-nhung-cam-xuc-sau-tham-nhat-cua-mot-con-nguoi/',
+      },
+      {
+        text: 'Sống bền vững là trong máu người Việt Nam. Ông bà tôi, như bao thế hệ trước, luôn sống tiết kiệm, hài hòa với thiên nhiên.',
+        source: 'Michelin Guide',
+        sourceUrl: 'https://guide.michelin.com/en/da-nang-region/da-nang_2984390/restaurant/nen-danang',
+      },
+    ],
+    advice: [
+      {
+        title: 'Bền vững không đắt — đó là di sản Việt Nam',
+        desc: 'Ông bà ta luôn sống bền vững mà không cần gọi tên. Dùng nguyên liệu địa phương, tôn trọng mùa vụ, hạn chế lãng phí — vừa giảm chi phí vừa tạo khác biệt.',
+      },
+      {
+        title: 'Hãy kể câu chuyện, đừng chỉ phục vụ đồ ăn',
+        desc: 'Sto:ry Menu biến bữa ăn thành trải nghiệm văn hóa, cho phép định giá premium và tạo ấn tượng khó quên.',
+      },
+      {
+        title: 'Tin vào sức mạnh ẩm thực Việt',
+        desc: 'Đừng bắt chước nước ngoài. Đầu tư hiểu sâu nguyên liệu và kỹ thuật bản địa — đó mới là lợi thế cạnh tranh thật sự.',
+      },
+    ],
+    links: [
+      { label: 'Sức mạnh ẩm thực Việt Nam (Tuổi Trẻ)', url: 'https://tuoitrenews.vn/news/features/20241020/introducing-chef-summer-le-and-the-strength-found-within-vietnamese-cuisine/82475.html', type: 'article' },
+      { label: 'Nén Đà Nẵng — Michelin Green Star (Michelin Guide)', url: 'https://guide.michelin.com/en/da-nang-region/da-nang_2984390/restaurant/nen-danang', type: 'article' },
+      { label: 'Nén: Nơi câu chuyện gặp đĩa ăn (Vietnam News)', url: 'https://vietnamnews.vn/sunday/restaurant-review/1660855/nen-where-storytelling-meets-the-plate.html', type: 'article' },
+    ],
+    socials: [
+      { platform: 'instagram', url: 'https://www.instagram.com/summer.nen/' },
+      { platform: 'linkedin', url: 'https://www.linkedin.com/in/summer-le-83979568/' },
+      { platform: 'website', url: 'https://restaurantnen.com' },
+    ],
+  },
 ];
 
 export default EXPERTS;
