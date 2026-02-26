@@ -126,7 +126,7 @@ const EXPERTS: Expert[] = [
     slug: 'tran-trung-hieu',
     name: 'Trần Trung Hiếu',
     descriptor: '"F&B Coach" — chuyên gia tư vấn quán cà phê & nhà hàng cho chủ quán nhỏ',
-    photo: '',
+    photo: '/experts/tran-trung-hieu.webp',
     category: 'consultant',
     tags: ['Tư vấn quán', 'Cà phê', 'Nhà hàng', 'SME'],
     shortBio: 'F&B Coach chuyên tư vấn cho chủ quán nhỏ. Thường xuyên được VnExpress, ZNews trích dẫn. Sáng lập FnB Academy (fnb.edu.vn).',
