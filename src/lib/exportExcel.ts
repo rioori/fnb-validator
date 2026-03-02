@@ -1,4 +1,4 @@
-import type { CalcResults, DynItem, StaffRow } from '@/types';
+import type { CalcResults, DynItem, StaffRow, DiagnosisResults, MenuItemAnalysis, ChannelPnL, CostDiagnosisItem, BenchmarkComparison, QuickWin } from '@/types';
 import { MODELS } from './constants';
 import type { ModelKey } from '@/types';
 import type { Alignment, Border, Fill, Font, Style } from 'exceljs';
@@ -1395,6 +1395,603 @@ export async function exportToExcel(data: ExportData) {
   const safeModel = modelName.replace(/[^a-zA-Z0-9\u00C0-\u024F\u1E00-\u1EFF ]/g, '').trim().replace(/\s+/g, '_');
   const dateStr = new Date().toISOString().slice(0, 10).replace(/-/g, '');
   const filename = `FnB_Validator_${safeModel}_${dateStr}.xlsx`;
+
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url;
+  a.download = filename;
+  document.body.appendChild(a);
+  a.click();
+  document.body.removeChild(a);
+  URL.revokeObjectURL(url);
+}
+
+// ════════════════════════════════════════════════════════════════════════
+// EXISTING MODE EXPORT
+// ════════════════════════════════════════════════════════════════════════
+
+export interface ExistingExportData {
+  model: ModelKey | null;
+  projectName: string;
+  city: string;
+  area: string;
+  sqm: number;
+  seats: number;
+  daysPerWeek: number;
+  channels: [number, number, number]; // dinein, takeaway, delivery %
+  rent: number;
+  staff: StaffRow[];
+  staffTotal: number;
+  bhxhOn: boolean;
+  cogsPct: number;
+  wastePct: number;
+  actualRevenue: number;
+  monthsOperating: number;
+  results: DiagnosisResults;
+  locale?: string;
+}
+
+interface ExLabels {
+  reportTitle: string;
+  subtitle: string;
+  dateLabel: string;
+  projectLabel: string;
+  modelInfo: string;
+  model: string;
+  city: string;
+  area: string;
+  sqm: string;
+  seats: string;
+  operating: string;
+  daysWeek: string;
+  salesChannels: string;
+  actualRevenue: string;
+  monthsOperating: string;
+  healthScore: string;
+  score: string;
+  assessment: string;
+  healthy: string;
+  needsWork: string;
+  issues: string;
+  kpis: string;
+  netProfit: string;
+  netMargin: string;
+  rentRatio: string;
+  laborRatio: string;
+  primeCost: string;
+  cashReserve: string;
+  monthsUnit: string;
+  revPerSeat: string;
+
+  // Sheet 2
+  costDiagTitle: string;
+  category: string;
+  amount: string;
+  pctRevenue: string;
+  benchmarkRange: string;
+  status: string;
+  potentialSaving: string;
+
+  // Sheet 3
+  channelTitle: string;
+  channel: string;
+  revenue: string;
+  cogs: string;
+  commission: string;
+  packaging: string;
+  marketing: string;
+  contribution: string;
+  margin: string;
+
+  // Sheet 4
+  menuTitle: string;
+  itemName: string;
+  price: string;
+  costPerItem: string;
+  profitPerItem: string;
+  marginPct: string;
+  soldMonth: string;
+  monthlyProfit: string;
+  classification: string;
+  star: string;
+  plowhorse: string;
+  puzzle: string;
+  dog: string;
+
+  // Sheet 5
+  quickWinsTitle: string;
+  suggestion: string;
+  current: string;
+  target: string;
+  impact: string;
+  effort: string;
+  effortEasy: string;
+  effortMedium: string;
+  effortHard: string;
+
+  cityNames: Record<string, string>;
+  areaNames: Record<string, string>;
+  statusGood: string;
+  statusWarn: string;
+  statusBad: string;
+}
+
+const EX_VI: ExLabels = {
+  reportTitle: 'BÁO CÁO CHẨN ĐOÁN SỨC KHỎE KINH DOANH F&B',
+  subtitle: 'F&B Validator — validator.vn',
+  dateLabel: 'Ngày xuất',
+  projectLabel: 'Dự án',
+  modelInfo: 'THÔNG TIN MÔ HÌNH',
+  model: 'Mô hình',
+  city: 'Thành phố',
+  area: 'Khu vực',
+  sqm: 'Diện tích',
+  seats: 'Số ghế',
+  operating: 'Hoạt động',
+  daysWeek: 'ngày/tuần',
+  salesChannels: 'Kênh bán',
+  actualRevenue: 'Doanh thu thực tế/tháng',
+  monthsOperating: 'Đã kinh doanh',
+  healthScore: 'ĐIỂM SỨC KHỎE',
+  score: 'Điểm',
+  assessment: 'Đánh giá',
+  healthy: 'Sức khỏe tốt',
+  needsWork: 'Cần cải thiện',
+  issues: 'Đang gặp vấn đề',
+  kpis: 'CHỈ SỐ CHÍNH',
+  netProfit: 'Lợi nhuận ròng/tháng',
+  netMargin: 'Biên lợi nhuận ròng',
+  rentRatio: 'Tỷ lệ thuê mặt bằng',
+  laborRatio: 'Tỷ lệ nhân sự',
+  primeCost: 'Prime Cost (NVL+NS)',
+  cashReserve: 'Vốn dự phòng',
+  monthsUnit: 'tháng',
+  revPerSeat: 'Doanh thu/ghế/ngày',
+
+  costDiagTitle: 'CHẨN ĐOÁN CHI PHÍ',
+  category: 'Hạng mục',
+  amount: 'Số tiền (VNĐ)',
+  pctRevenue: '% Doanh thu',
+  benchmarkRange: 'Chuẩn ngành',
+  status: 'Trạng thái',
+  potentialSaving: 'Có thể tiết kiệm',
+
+  channelTitle: 'LÃI LỖ THEO KÊNH BÁN',
+  channel: 'Kênh',
+  revenue: 'Doanh thu',
+  cogs: 'Nguyên liệu',
+  commission: 'Hoa hồng app',
+  packaging: 'Đóng gói',
+  marketing: 'Quảng cáo',
+  contribution: 'Lãi gộp kênh',
+  margin: 'Biên lãi',
+
+  menuTitle: 'PHÂN TÍCH THỰC ĐƠN',
+  itemName: 'Tên món',
+  price: 'Giá bán',
+  costPerItem: 'Giá vốn',
+  profitPerItem: 'Lãi/món',
+  marginPct: '% Lãi',
+  soldMonth: 'Bán/tháng',
+  monthlyProfit: 'Lãi/tháng',
+  classification: 'Phân loại',
+  star: 'Ngôi sao',
+  plowhorse: 'Bán chạy',
+  puzzle: 'Tiềm năng',
+  dog: 'Cần xem lại',
+
+  quickWinsTitle: 'CẢI THIỆN CÓ THỂ LÀM NGAY',
+  suggestion: 'Gợi ý',
+  current: 'Hiện tại',
+  target: 'Mục tiêu',
+  impact: 'Tiết kiệm/tháng',
+  effort: 'Độ khó',
+  effortEasy: 'Dễ làm',
+  effortMedium: 'Trung bình',
+  effortHard: 'Cần thời gian',
+
+  cityNames: { hcm: 'TP. Hồ Chí Minh', hanoi: 'Hà Nội', danang: 'Đà Nẵng', other: 'Khác' },
+  areaNames: { center: 'Trung tâm', suburb: 'Ngoại ô', residential: 'Khu dân cư', mall: 'TTTM' },
+  statusGood: 'Tốt',
+  statusWarn: 'Lưu ý',
+  statusBad: 'Cần giảm',
+};
+
+const EX_EN: ExLabels = {
+  reportTitle: 'F&B BUSINESS HEALTH DIAGNOSIS REPORT',
+  subtitle: 'F&B Validator — validator.vn',
+  dateLabel: 'Export date',
+  projectLabel: 'Project',
+  modelInfo: 'MODEL INFORMATION',
+  model: 'Model',
+  city: 'City',
+  area: 'Area',
+  sqm: 'Area (sqm)',
+  seats: 'Seats',
+  operating: 'Operating',
+  daysWeek: 'days/week',
+  salesChannels: 'Sales channels',
+  actualRevenue: 'Actual monthly revenue',
+  monthsOperating: 'Months operating',
+  healthScore: 'HEALTH SCORE',
+  score: 'Score',
+  assessment: 'Assessment',
+  healthy: 'Healthy',
+  needsWork: 'Needs improvement',
+  issues: 'Issues detected',
+  kpis: 'KEY METRICS',
+  netProfit: 'Net profit/month',
+  netMargin: 'Net profit margin',
+  rentRatio: 'Rent ratio',
+  laborRatio: 'Labor ratio',
+  primeCost: 'Prime Cost (COGS+Labor)',
+  cashReserve: 'Cash reserve',
+  monthsUnit: 'months',
+  revPerSeat: 'Revenue/seat/day',
+
+  costDiagTitle: 'COST DIAGNOSIS',
+  category: 'Category',
+  amount: 'Amount (VND)',
+  pctRevenue: '% Revenue',
+  benchmarkRange: 'Benchmark',
+  status: 'Status',
+  potentialSaving: 'Potential saving',
+
+  channelTitle: 'CHANNEL PROFITABILITY',
+  channel: 'Channel',
+  revenue: 'Revenue',
+  cogs: 'Ingredients',
+  commission: 'App commission',
+  packaging: 'Packaging',
+  marketing: 'Marketing',
+  contribution: 'Channel profit',
+  margin: 'Margin',
+
+  menuTitle: 'MENU ANALYSIS',
+  itemName: 'Item',
+  price: 'Price',
+  costPerItem: 'Cost',
+  profitPerItem: 'Profit/item',
+  marginPct: 'Margin %',
+  soldMonth: 'Sold/month',
+  monthlyProfit: 'Profit/month',
+  classification: 'Category',
+  star: 'Star',
+  plowhorse: 'Workhorse',
+  puzzle: 'Hidden gem',
+  dog: 'Needs review',
+
+  quickWinsTitle: 'QUICK IMPROVEMENTS',
+  suggestion: 'Suggestion',
+  current: 'Current',
+  target: 'Target',
+  impact: 'Savings/month',
+  effort: 'Effort',
+  effortEasy: 'Easy',
+  effortMedium: 'Medium',
+  effortHard: 'Takes time',
+
+  cityNames: { hcm: 'Ho Chi Minh City', hanoi: 'Hanoi', danang: 'Da Nang', other: 'Other' },
+  areaNames: { center: 'Central', suburb: 'Suburban', residential: 'Residential', mall: 'Mall' },
+  statusGood: 'Good',
+  statusWarn: 'Watch',
+  statusBad: 'Reduce',
+};
+
+export async function exportExistingExcel(data: ExistingExportData) {
+  const ExcelJS = (await import('exceljs')).default;
+  const workbook = new ExcelJS.Workbook();
+  workbook.creator = 'F&B Validator — validator.vn';
+  workbook.created = new Date();
+
+  const L = data.locale === 'en' ? EX_EN : EX_VI;
+  const modelName = data.model ? MODELS[data.model].name : 'N/A';
+  const today = new Date().toLocaleDateString(data.locale === 'en' ? 'en-US' : 'vi-VN');
+  const res = data.results;
+
+  const catMap: Record<string, string> = {
+    star: L.star, plowhorse: L.plowhorse, puzzle: L.puzzle, dog: L.dog,
+  };
+  const statusMap: Record<string, string> = {
+    good: L.statusGood, warn: L.statusWarn, bad: L.statusBad,
+  };
+  const effortMap: Record<string, string> = {
+    easy: L.effortEasy, medium: L.effortMedium, hard: L.effortHard,
+  };
+  const channelNameMap: Record<string, string> = data.locale === 'en'
+    ? { dinein: 'Dine-in', takeaway: 'Takeaway', delivery: 'Delivery app' }
+    : { dinein: 'Tại quán', takeaway: 'Mang về', delivery: 'Giao hàng app' };
+
+  // ═══════════════════════════════════════════════════════════════════
+  // SHEET 1: TỔNG QUAN
+  // ═══════════════════════════════════════════════════════════════════
+  const ws1 = workbook.addWorksheet(data.locale === 'en' ? 'Overview' : 'Tổng quan');
+  ws1.columns = [{ width: 30 }, { width: 22 }, { width: 28 }, { width: 22 }];
+
+  // Title
+  ws1.mergeCells('A1:D1');
+  ws1.getCell('A1').value = L.reportTitle;
+  ws1.getCell('A1').font = FONT_TITLE;
+  ws1.getCell('A1').fill = FILL_DARK;
+  ws1.getCell('A1').alignment = { horizontal: 'center', vertical: 'middle' };
+  ws1.getRow(1).height = 36;
+  for (let c = 2; c <= 4; c++) ws1.getCell(1, c).fill = FILL_DARK;
+
+  // Subtitle + Date
+  ws1.mergeCells('A2:D2');
+  ws1.getCell('A2').value = `${L.subtitle}  |  ${L.dateLabel}: ${today}`;
+  ws1.getCell('A2').font = FONT_SUBTITLE;
+  ws1.getCell('A2').fill = FILL_DARK;
+  ws1.getCell('A2').alignment = { horizontal: 'center', vertical: 'middle' };
+  for (let c = 2; c <= 4; c++) ws1.getCell(2, c).fill = FILL_DARK;
+
+  let r = 4;
+
+  // Project name
+  if (data.projectName) {
+    ws1.mergeCells(`A${r}:D${r}`);
+    ws1.getCell(`A${r}`).value = `${L.projectLabel}: ${data.projectName}`;
+    ws1.getCell(`A${r}`).font = { ...FONT_SECTION, size: 12 };
+    ws1.getCell(`A${r}`).border = { bottom: BORDER_THIN };
+    r++;
+    r++;
+  }
+
+  // Model Info section
+  ws1.mergeCells(`A${r}:D${r}`);
+  ws1.getCell(`A${r}`).value = L.modelInfo;
+  ws1.getCell(`A${r}`).font = FONT_SECTION;
+  ws1.getCell(`A${r}`).border = { left: { style: 'medium', color: { argb: GREEN } }, bottom: BORDER_THIN };
+  r++;
+
+  const modelRows: [string, string | number, string, string | number][] = [
+    [L.model, modelName, L.city, L.cityNames[data.city] || data.city],
+    [L.sqm, `${data.sqm} m²`, L.area, L.areaNames[data.area] || data.area],
+    [L.seats, data.seats, L.operating, `${data.daysPerWeek} ${L.daysWeek}`],
+    [L.actualRevenue, n(data.actualRevenue), L.monthsOperating, `${data.monthsOperating} ${L.monthsUnit}`],
+    [L.salesChannels, `Dine-in ${data.channels[0]}% | Takeaway ${data.channels[1]}% | Delivery ${data.channels[2]}%`, '', ''],
+  ];
+
+  modelRows.forEach((row, i) => {
+    ws1.getRow(r).values = row;
+    ws1.getCell(r, 1).font = FONT_LABEL;
+    ws1.getCell(r, 2).font = FONT_BOLD;
+    ws1.getCell(r, 3).font = FONT_LABEL;
+    ws1.getCell(r, 4).font = FONT_BOLD;
+    if (i === 3) { ws1.getCell(r, 2).numFmt = VND_FMT; }
+    for (let c = 1; c <= 4; c++) {
+      ws1.getCell(r, c).border = BORDERS_ALL;
+      ws1.getCell(r, c).fill = i % 2 === 0 ? FILL_WHITE : FILL_SURFACE;
+    }
+    r++;
+  });
+  r++;
+
+  // Health Score section
+  ws1.mergeCells(`A${r}:D${r}`);
+  ws1.getCell(`A${r}`).value = L.healthScore;
+  ws1.getCell(`A${r}`).font = FONT_SECTION;
+  ws1.getCell(`A${r}`).border = { left: { style: 'medium', color: { argb: GREEN } }, bottom: BORDER_THIN };
+  r++;
+
+  const hs = res.healthScore;
+  const hsText = hs >= 70 ? L.healthy : hs >= 45 ? L.needsWork : L.issues;
+  const hsFill = hs >= 70 ? FILL_GREEN : hs >= 45 ? FILL_YELLOW : FILL_RED;
+  ws1.getRow(r).values = [L.score, `${hs}/100`, L.assessment, hsText];
+  ws1.getCell(r, 1).font = FONT_LABEL;
+  ws1.getCell(r, 2).font = { ...FONT_BOLD, size: 14 };
+  ws1.getCell(r, 3).font = FONT_LABEL;
+  ws1.getCell(r, 4).font = FONT_BOLD;
+  for (let c = 1; c <= 4; c++) {
+    ws1.getCell(r, c).border = BORDERS_ALL;
+    ws1.getCell(r, c).fill = hsFill;
+  }
+  r += 2;
+
+  // KPIs section
+  ws1.mergeCells(`A${r}:D${r}`);
+  ws1.getCell(`A${r}`).value = L.kpis;
+  ws1.getCell(`A${r}`).font = FONT_SECTION;
+  ws1.getCell(`A${r}`).border = { left: { style: 'medium', color: { argb: GREEN } }, bottom: BORDER_THIN };
+  r++;
+
+  const kpiRows: [string, number | string, string, number | string][] = [
+    [L.netProfit, n(res.netProfit), L.netMargin, res.netMargin / 100],
+    [L.rentRatio, res.rentRatio / 100, L.laborRatio, res.laborRatio / 100],
+    [L.primeCost, res.primeCost / 100, L.cashReserve, `${res.workingCapMonths.toFixed(1)} ${L.monthsUnit}`],
+    [L.revPerSeat, n(res.revenuePerSeat), '', ''],
+  ];
+
+  kpiRows.forEach((row, i) => {
+    ws1.getRow(r).values = row;
+    ws1.getCell(r, 1).font = FONT_LABEL;
+    ws1.getCell(r, 2).font = FONT_GREEN;
+    ws1.getCell(r, 3).font = FONT_LABEL;
+    ws1.getCell(r, 4).font = FONT_GREEN;
+    // Number formatting
+    if (i === 0) { ws1.getCell(r, 2).numFmt = VND_FMT; ws1.getCell(r, 4).numFmt = PCT_FMT; }
+    if (i === 1 || i === 2) { ws1.getCell(r, 2).numFmt = PCT_FMT; if (i === 1) ws1.getCell(r, 4).numFmt = PCT_FMT; }
+    if (i === 2) { ws1.getCell(r, 2).numFmt = PCT_FMT; }
+    if (i === 3) { ws1.getCell(r, 2).numFmt = VND_FMT; }
+    for (let c = 1; c <= 4; c++) {
+      ws1.getCell(r, c).border = BORDERS_ALL;
+      ws1.getCell(r, c).fill = i % 2 === 0 ? FILL_WHITE : FILL_SURFACE;
+    }
+    r++;
+  });
+
+  // ═══════════════════════════════════════════════════════════════════
+  // SHEET 2: CHẨN ĐOÁN CHI PHÍ
+  // ═══════════════════════════════════════════════════════════════════
+  const ws2 = workbook.addWorksheet(data.locale === 'en' ? 'Cost Diagnosis' : 'Chẩn đoán chi phí');
+  ws2.columns = [{ width: 24 }, { width: 20 }, { width: 14 }, { width: 18 }, { width: 12 }, { width: 20 }];
+
+  ws2.mergeCells('A1:F1');
+  ws2.getCell('A1').value = L.costDiagTitle;
+  ws2.getCell('A1').font = FONT_TITLE;
+  ws2.getCell('A1').fill = FILL_DARK;
+  ws2.getCell('A1').alignment = { horizontal: 'center', vertical: 'middle' };
+  ws2.getRow(1).height = 36;
+  for (let c = 2; c <= 6; c++) ws2.getCell(1, c).fill = FILL_DARK;
+
+  r = 3;
+  ws2.getRow(r).values = [L.category, L.amount, L.pctRevenue, L.benchmarkRange, L.status, L.potentialSaving];
+  applyTableHeader(ws2, r, 6);
+  r++;
+
+  res.costDiagnosis.forEach((item: CostDiagnosisItem, i: number) => {
+    ws2.getRow(r).values = [
+      item.category,
+      n(item.amount),
+      item.pctOfRevenue / 100,
+      `${item.benchmarkRange[0]}-${item.benchmarkRange[1]}%`,
+      statusMap[item.status] || item.status,
+      item.potentialSaving > 0 ? n(item.potentialSaving) : '-',
+    ];
+    applyDataRow(ws2, r, 6, i % 2 !== 0);
+    ws2.getCell(r, 2).numFmt = VND_FMT;
+    ws2.getCell(r, 3).numFmt = PCT_FMT;
+    if (typeof ws2.getCell(r, 6).value === 'number') ws2.getCell(r, 6).numFmt = VND_FMT;
+    // Color status cell
+    const stFill = item.status === 'good' ? FILL_GREEN : item.status === 'warn' ? FILL_YELLOW : FILL_RED;
+    ws2.getCell(r, 5).fill = stFill;
+    ws2.getCell(r, 5).alignment = ALIGN_CENTER;
+    r++;
+  });
+
+  // ═══════════════════════════════════════════════════════════════════
+  // SHEET 3: KÊNH BÁN
+  // ═══════════════════════════════════════════════════════════════════
+  const ws3 = workbook.addWorksheet(data.locale === 'en' ? 'Channel P&L' : 'Kênh bán');
+  ws3.columns = [{ width: 18 }, { width: 18 }, { width: 18 }, { width: 16 }, { width: 16 }, { width: 16 }, { width: 18 }, { width: 14 }];
+
+  ws3.mergeCells('A1:H1');
+  ws3.getCell('A1').value = L.channelTitle;
+  ws3.getCell('A1').font = FONT_TITLE;
+  ws3.getCell('A1').fill = FILL_DARK;
+  ws3.getCell('A1').alignment = { horizontal: 'center', vertical: 'middle' };
+  ws3.getRow(1).height = 36;
+  for (let c = 2; c <= 8; c++) ws3.getCell(1, c).fill = FILL_DARK;
+
+  r = 3;
+  ws3.getRow(r).values = [L.channel, L.revenue, L.cogs, L.commission, L.packaging, L.marketing, L.contribution, L.margin];
+  applyTableHeader(ws3, r, 8);
+  r++;
+
+  res.channelPnL.forEach((ch: ChannelPnL, i: number) => {
+    ws3.getRow(r).values = [
+      channelNameMap[ch.channel] || ch.channel,
+      n(ch.revenue),
+      n(ch.cogs),
+      n(ch.commission),
+      n(ch.packaging),
+      n(ch.marketing),
+      n(ch.contribution),
+      ch.contributionMargin / 100,
+    ];
+    applyDataRow(ws3, r, 8, i % 2 !== 0);
+    for (let c = 2; c <= 7; c++) ws3.getCell(r, c).numFmt = VND_FMT;
+    ws3.getCell(r, 8).numFmt = PCT_FMT;
+    // Color contribution
+    const profitFill = ch.contribution >= 0 ? FILL_GREEN : FILL_RED;
+    ws3.getCell(r, 7).fill = profitFill;
+    ws3.getCell(r, 8).fill = profitFill;
+    r++;
+  });
+
+  // ═══════════════════════════════════════════════════════════════════
+  // SHEET 4: THỰC ĐƠN
+  // ═══════════════════════════════════════════════════════════════════
+  const ws4 = workbook.addWorksheet(data.locale === 'en' ? 'Menu Analysis' : 'Phân tích thực đơn');
+  ws4.columns = [{ width: 22 }, { width: 16 }, { width: 16 }, { width: 16 }, { width: 12 }, { width: 14 }, { width: 18 }, { width: 16 }];
+
+  ws4.mergeCells('A1:H1');
+  ws4.getCell('A1').value = L.menuTitle;
+  ws4.getCell('A1').font = FONT_TITLE;
+  ws4.getCell('A1').fill = FILL_DARK;
+  ws4.getCell('A1').alignment = { horizontal: 'center', vertical: 'middle' };
+  ws4.getRow(1).height = 36;
+  for (let c = 2; c <= 8; c++) ws4.getCell(1, c).fill = FILL_DARK;
+
+  r = 3;
+  ws4.getRow(r).values = [L.itemName, L.price, L.costPerItem, L.profitPerItem, L.marginPct, L.soldMonth, L.monthlyProfit, L.classification];
+  applyTableHeader(ws4, r, 8);
+  r++;
+
+  // Category fill colors for menu items
+  const catFills: Record<string, typeof FILL_GREEN> = {
+    star: FILL_GREEN, plowhorse: FILL_YELLOW, puzzle: { type: 'pattern', pattern: 'solid', fgColor: { argb: 'FFE0F2FE' } } as Fill, dog: FILL_RED,
+  };
+
+  res.menuAnalysis.forEach((item: MenuItemAnalysis, i: number) => {
+    ws4.getRow(r).values = [
+      item.name,
+      n(item.price),
+      n(item.costPerItem),
+      n(item.margin),
+      item.marginPct / 100,
+      item.monthlySold,
+      n(item.monthlyProfit),
+      catMap[item.category] || item.category,
+    ];
+    applyDataRow(ws4, r, 8, i % 2 !== 0);
+    ws4.getCell(r, 2).numFmt = VND_FMT;
+    ws4.getCell(r, 3).numFmt = VND_FMT;
+    ws4.getCell(r, 4).numFmt = VND_FMT;
+    ws4.getCell(r, 5).numFmt = PCT_FMT;
+    ws4.getCell(r, 6).numFmt = '#,##0';
+    ws4.getCell(r, 7).numFmt = VND_FMT;
+    // Color classification
+    ws4.getCell(r, 8).fill = catFills[item.category] || FILL_WHITE;
+    ws4.getCell(r, 8).alignment = ALIGN_CENTER;
+    ws4.getCell(r, 8).font = FONT_BOLD;
+    r++;
+  });
+
+  // ═══════════════════════════════════════════════════════════════════
+  // SHEET 5: CẢI THIỆN
+  // ═══════════════════════════════════════════════════════════════════
+  const ws5 = workbook.addWorksheet(data.locale === 'en' ? 'Quick Wins' : 'Cải thiện');
+  ws5.columns = [{ width: 36 }, { width: 16 }, { width: 16 }, { width: 20 }, { width: 14 }];
+
+  ws5.mergeCells('A1:E1');
+  ws5.getCell('A1').value = L.quickWinsTitle;
+  ws5.getCell('A1').font = FONT_TITLE;
+  ws5.getCell('A1').fill = FILL_DARK;
+  ws5.getCell('A1').alignment = { horizontal: 'center', vertical: 'middle' };
+  ws5.getRow(1).height = 36;
+  for (let c = 2; c <= 5; c++) ws5.getCell(1, c).fill = FILL_DARK;
+
+  r = 3;
+  ws5.getRow(r).values = [L.suggestion, L.current, L.target, L.impact, L.effort];
+  applyTableHeader(ws5, r, 5);
+  r++;
+
+  res.quickWins.forEach((win: QuickWin, i: number) => {
+    ws5.getRow(r).values = [
+      win.titleKey, // We use titleKey as plain text since we can't resolve i18n in Excel
+      win.currentValue,
+      win.targetValue,
+      win.monthlyImpact > 0 ? n(win.monthlyImpact) : '-',
+      effortMap[win.effort] || win.effort,
+    ];
+    applyDataRow(ws5, r, 5, i % 2 !== 0);
+    if (typeof ws5.getCell(r, 4).value === 'number') ws5.getCell(r, 4).numFmt = VND_FMT;
+    ws5.getCell(r, 5).alignment = ALIGN_CENTER;
+    r++;
+  });
+
+  // ═══════════════════════════════════════════════════════════════════
+  // Generate and download
+  // ═══════════════════════════════════════════════════════════════════
+  const buffer = await workbook.xlsx.writeBuffer();
+  const blob = new Blob([buffer], {
+    type: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet',
+  });
+
+  const safeProject = (data.projectName || modelName).replace(/[^a-zA-Z0-9\u00C0-\u024F\u1E00-\u1EFF ]/g, '').trim().replace(/\s+/g, '_');
+  const dateStr = new Date().toISOString().slice(0, 10).replace(/-/g, '');
+  const filename = `FnB_Diagnosis_${safeProject}_${dateStr}.xlsx`;
 
   const url = URL.createObjectURL(blob);
   const a = document.createElement('a');

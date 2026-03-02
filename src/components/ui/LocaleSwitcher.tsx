@@ -3,15 +3,18 @@
 import { usePathname } from 'next/navigation';
 import Link from 'next/link';
 import { useLocale } from '@/i18n/LocaleProvider';
-import { defaultLocale } from '@/i18n/config';
+import { localePath } from '@/i18n/link';
 
 function getTargetPath(pathname: string, targetLocale: 'vi' | 'en') {
+  // Strip any existing locale prefix to get the bare Vietnamese path
+  const bare = pathname.replace(/^\/(vi|en)(\/|$)/, '/').replace(/\/+$/, '') || '/';
+
   if (targetLocale === 'en') {
-    // Add /en prefix (from vi which has no prefix)
-    return `/en${pathname}`;
+    // localePath translates Vietnamese slugs → English slugs
+    return localePath(bare, 'en');
   }
-  // Remove /en prefix (going back to vi)
-  return pathname.replace(/^\/en/, '') || '/';
+  // vi = default locale, no prefix
+  return bare;
 }
 
 export default function LocaleSwitcher() {

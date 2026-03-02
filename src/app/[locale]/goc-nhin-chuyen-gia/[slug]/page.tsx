@@ -132,7 +132,7 @@ function ExpertAvatar({ expert, size, gradientIndex }: { expert: Expert; size: n
           alt={expert.name}
           width={size}
           height={size}
-          className="object-cover w-full h-full"
+          className="object-cover object-top w-full h-full"
           priority
         />
       ) : (

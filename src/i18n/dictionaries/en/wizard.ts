@@ -11,12 +11,19 @@ const wizard = {
   // ─── ProgressBar ──────────────────────────────────────────
   progress: {
     steps: ['Concept', 'Location', 'Investment', 'Revenue', 'Costs', 'Results'],
+    stepsExisting: ['Concept', 'Location', 'Capital', 'Menu', 'Costs', 'Diagnosis'],
   },
 
   // ─── StepModel ────────────────────────────────────────────
   stepModel: {
+    modeNew: 'New project',
+    modeExisting: 'Existing business',
+    modeNewDesc: 'Validate your F&B business idea before investing',
+    modeExistingDesc: 'Analyze & optimize your current business operations',
     title: 'What type of business do you want to open?',
+    titleExisting: 'What type of business do you run?',
     desc: 'Pick a business model and enter your budget. We\'ll suggest the rest.',
+    descExisting: 'Select your business model and enter actual figures for analysis.',
     alertNoModel: 'Please select a business model first!',
     sectionBudget: 'Budget & Rent',
     labelBudget: 'Total planned investment budget',
@@ -29,6 +36,21 @@ const wizard = {
     rentHint: '{model} typical rent: {min} - {max}/month',
     rentHintNoModel: 'Select a model to see suggestions',
     backLabel: 'Home',
+
+    // Existing mode extra fields
+    labelActualRevenue: 'Actual monthly revenue',
+    tooltipActualRevenue: 'Your current average monthly revenue across all channels combined.',
+    placeholderActualRevenue: 'e.g. 150,000,000',
+    labelMonthsOperating: 'How long have you been operating?',
+    monthsOption: '{n} months',
+    monthsOperatingHint: 'Helps us provide more accurate analysis based on your business stage.',
+
+    // Project name
+    labelProjectName: 'Project name',
+    placeholderProjectName: 'e.g. Coffee Shop ABC',
+    projectNameHint: 'Name your project to easily identify saved scenarios.',
+    defaultProjectNew: '{model} - New project',
+    defaultProjectExisting: '{model} - Diagnosis',
   },
 
   // ─── StepLocation ─────────────────────────────────────────
@@ -45,6 +67,8 @@ const wizard = {
       danang: 'Da Nang',
       other: 'Other province/city',
     },
+    labelDistrict: 'District',
+    selectDistrict: '— Select district —',
     labelArea: 'District type',
     areas: {
       center: 'City center',
@@ -69,6 +93,11 @@ const wizard = {
     alertTooSpacious:
       '\u26A0 Too spacious ({ratio} m\u00B2/seat) \u2014 wasted space, high rent cost. Keep it under 3 m\u00B2/seat.',
 
+    // Rent benchmark
+    rentBenchmarkGood: '\u2713 Rent is reasonable for this area ({userRent}k/m\u00B2 \u2014 average: {min}-{max}k/m\u00B2)',
+    rentBenchmarkWarn: '\u26A0 Slightly above average for this area ({userRent}k/m\u00B2 \u2014 average: {min}-{max}k/m\u00B2)',
+    rentBenchmarkHigh: '\u26A0 Well above area average! ({userRent}k/m\u00B2 \u2014 average: {min}-{max}k/m\u00B2)',
+
     // Channels section
     sectionChannels: 'Sales channels',
     tooltipChannels:
@@ -83,7 +112,12 @@ const wizard = {
   // ─── StepInvestment ───────────────────────────────────────
   stepInvestment: {
     title: 'Initial investment',
+    titleExisting: 'Capital invested',
     desc: 'Total capital required before opening. You can add, edit, or remove items freely.',
+    descExisting: 'Enter the total capital already invested and current working capital.',
+    sunkCostLabel: 'Total capital invested',
+    sunkCostHint: 'Including initial rent, construction, equipment, etc. already spent.',
+    existingTotalLabel: 'TOTAL CAPITAL INVESTED',
 
     // Premises section
     sectionPremises: 'Premises',
@@ -128,7 +162,24 @@ const wizard = {
   // ─── StepRevenue ──────────────────────────────────────────
   stepRevenue: {
     title: 'Projected revenue',
+    titleExisting: 'Actual revenue',
     desc: 'Estimate customer traffic and average spending.',
+    descExisting: 'Enter your actual current revenue figures.',
+    existingRampNote: 'You are analyzing actual revenue — no ramp-up period needed.',
+
+    // Menu engineering (existing mode)
+    sectionMenu: 'Menu breakdown',
+    menuDesc: 'Enter your current menu items to analyze: which are profitable, which need improvement.',
+    menuItemName: 'Item name',
+    menuItemNamePlaceholder: 'e.g. Iced Latte',
+    menuItemPrice: 'Selling price',
+    menuItemCost: 'Ingredient cost',
+    menuItemCostTooltip: 'Cost of ingredients to make one serving. Don\'t include rent, wages.',
+    menuItemSold: 'Units sold/month',
+    menuItemMargin: 'Profit/item',
+    menuAddItem: '+ Add item',
+    menuSummary: '{count} items — Total revenue: {revenue}/month',
+    menuEmpty: 'Add at least 3-5 main items for accurate analysis.',
 
     // Ticket section
     sectionTicket: 'Average ticket size',
@@ -199,6 +250,18 @@ const wizard = {
     subtotalFixedOther: 'Other fixed',
     subtotalFixedTotal: 'Total fixed costs',
 
+    // Channel costs (existing mode)
+    sectionChannelCosts: 'Costs by sales channel',
+    channelCostsDesc: 'Enter channel-specific costs to see which channels are truly profitable.',
+    labelPackagingPerOrder: 'Packaging cost per takeaway & delivery order',
+    placeholderPackaging: 'e.g. 5,000',
+    labelGrabComm: 'GrabFood commission (%)',
+    labelShopeeComm: 'ShopeeFood commission (%)',
+    labelOwnDelivery: '% of delivery orders self-fulfilled',
+    ownDeliveryHint: 'Delivery orders not through apps (own delivery, own website)',
+    labelMarketingDinein: 'In-store marketing spend / month',
+    labelMarketingDelivery: 'Online marketing spend (app ads) / month',
+
     // Variable costs section
     sectionVariable: 'Variable costs',
     tooltipVariable: 'Costs that scale with revenue: ingredients, packaging, app fees...',
@@ -247,10 +310,36 @@ const wizard = {
     sectionAnalysis: 'Detailed analysis report',
     sectionHealth: 'Cost health & Sensitivity',
 
+    // Existing mode dashboard sections
+    titleExisting: 'Business health diagnosis',
+    descExisting: 'Based on your actual numbers, here is your current business picture.',
+    sectionCostDiagnosis: 'Where is your money going?',
+    sectionChannelProfit: 'Which channels are truly profitable?',
+    sectionMenuMatrix: 'Menu analysis',
+    sectionBenchmark: 'Industry comparison',
+    sectionQuickWins: 'Quick improvements',
+    sectionSensitivity: 'What if things change?',
+    sectionImpact: 'Projected impact after optimization',
+
+    // Existing mode KPIs
+    kpiHealthScore: 'Health',
+    kpiNetProfit: 'Net profit/month',
+    kpiNetMargin: 'Net margin',
+    kpiRentRatio: 'Rent/Revenue',
+
+    // Collapsible sections (cont.)
+    sectionOptimization: 'Optimization suggestions',
+    sectionAIChat: 'Ask AI expert',
+
+    // Baseline comparison
+    saveBaseline: 'Save as baseline',
+    clearBaseline: 'Clear baseline',
+
     // Buttons
     btnEdit: '\u2190 Edit inputs',
     btnExportExcel: 'Export Excel',
-    btnPrint: 'Print / Export PDF',
+    btnExportPDF: 'Export PDF',
+    btnPrint: 'Print',
   },
 
   // ─── QuickCalc ────────────────────────────────────────────
@@ -293,6 +382,32 @@ const wizard = {
     commentPlaceholder: 'Additional feedback (optional)...',
     submit: 'Submit',
     thanks: 'Thank you for your feedback! 🙏',
+  },
+
+  // ─── Share / Spread the word ────────────────────────────
+  share: {
+    heading: 'Found this useful? Share with friends!',
+    desc: 'Help more F&B owners discover this free tool.',
+    shareFacebook: 'Facebook',
+    shareLinkedin: 'LinkedIn',
+    copyLink: 'Copy link',
+    copied: 'Copied!',
+    downloadImage: 'Download result image',
+    followUs: 'Follow Validator.vn',
+    shareText: "I just tried this free F&B validation tool — pretty useful! Enter your numbers and instantly see profitability, break-even, and more. Share with anyone planning to open or running an F&B business 👉",
+  },
+
+  // ─── Onboarding ─────────────────────────────────────────
+  onboarding: {
+    welcomeHeading: 'Welcome to Validator.vn!',
+    welcomeDesc: 'Free financial analysis tool to validate your F&B business idea before investing.',
+    optionPlanning: "I'm planning to open a business",
+    optionPlanningDesc: 'Analyze costs, revenue, break-even',
+    optionExisting: 'I already have a business',
+    optionExistingDesc: 'Check your current financial health',
+    skip: 'Skip',
+    quickStart: 'Quick Start',
+    quickStartDesc: 'Choose the template closest to your idea',
   },
 
   // ─── Shared / Common ─────────────────────────────────────

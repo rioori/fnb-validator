@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800&family=Roboto:wght@400;500&display=swap');
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    width: 820px;
+    height: 312px;
+    overflow: hidden;
+    font-family: 'Roboto', sans-serif;
+  }
+
+  .banner {
+    width: 820px;
+    height: 312px;
+    background: linear-gradient(180deg,
+      #FFFEF8 0%,
+      #F0F7EE 30%,
+      #E5F4F8 60%,
+      #FAF3E3 100%
+    );
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+    padding: 10px 32px 14px;
+  }
+
+  /* Floating decorative shapes — claymorphism */
+  .deco {
+    position: absolute;
+    border: 2px solid #2D3748;
+    opacity: 0.07;
+  }
+  .deco-1 { width: 46px; height: 46px; top: 8px; left: 28px; background: #FDEEC4; border-radius: 12px; transform: rotate(8deg); }
+  .deco-2 { width: 30px; height: 30px; top: 55px; right: 36px; background: #FDBCB4; border-radius: 50%; }
+  .deco-3 { width: 24px; height: 24px; bottom: 38px; left: 70px; background: #ADD8E6; border-radius: 8px; transform: rotate(-10deg); }
+  .deco-4 { width: 18px; height: 18px; bottom: 55px; right: 110px; background: #D2ECD0; border-radius: 50%; }
+  .deco-5 { width: 34px; height: 34px; top: 30px; left: 50%; background: #E5F4F8; border-radius: 10px; transform: rotate(18deg); }
+
+  /* Illustration — big, centered, top */
+  .illustration {
+    z-index: 1;
+    margin-bottom: 8px;
+  }
+
+  .shops-img {
+    height: 160px;
+    object-fit: contain;
+  }
+
+  /* CTA pills row — even sizing */
+  .cta-row {
+    display: flex;
+    gap: 8px;
+    z-index: 1;
+    margin-bottom: 10px;
+  }
+
+  .cta-pill {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 10px;
+    font-weight: 700;
+    padding: 5px 16px;
+    border-radius: 999px;
+    border: 1.5px solid #2D3748;
+    color: #2D3748;
+    white-space: nowrap;
+    background: white;
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    min-width: 140px;
+    justify-content: center;
+  }
+
+  .cta-pill.active {
+    background: #22C55E;
+    color: white;
+    border-color: #2D3748;
+    box-shadow: 2px 2px 0 #16A34A;
+  }
+
+  .cta-note {
+    font-family: 'Roboto', sans-serif;
+    font-size: 8px;
+    font-weight: 400;
+    opacity: 0.65;
+  }
+
+  .cta-pill.active .cta-note {
+    opacity: 0.85;
+  }
+
+  /* Bottom: Logo + tagline + features */
+  .bottom {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    z-index: 1;
+  }
+
+  .logo-card {
+    width: 48px;
+    height: 48px;
+    background: white;
+    border: 2px solid #2D3748;
+    border-radius: 12px;
+    box-shadow: 2px 2px 0 #2D3748;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+
+  .logo-img {
+    width: 34px;
+    height: 34px;
+    object-fit: contain;
+  }
+
+  .bottom-text {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .brand-text {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 800;
+    font-size: 16px;
+    color: #2D3748;
+    letter-spacing: -0.3px;
+  }
+
+  .tagline {
+    font-family: 'Roboto', sans-serif;
+    font-size: 11.5px;
+    color: #64748B;
+    font-weight: 400;
+    line-height: 1.3;
+  }
+
+  /* Feature pills */
+  .feat-row {
+    display: flex;
+    gap: 5px;
+    margin-top: 4px;
+  }
+
+  .feat-pill {
+    font-family: 'Roboto', sans-serif;
+    font-size: 9px;
+    font-weight: 500;
+    padding: 2px 8px;
+    border-radius: 999px;
+    border: 1px solid #CBD5E1;
+    background: white;
+    color: #475569;
+    white-space: nowrap;
+  }
+
+  /* URL badge — clay CTA */
+  .url {
+    position: absolute;
+    bottom: 10px;
+    right: 28px;
+    z-index: 2;
+  }
+
+  .url-pill {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 10px;
+    font-weight: 700;
+    color: white;
+    background: #22C55E;
+    border: 1.5px solid #2D3748;
+    border-radius: 999px;
+    padding: 4px 14px;
+    box-shadow: 1.5px 1.5px 0 #16A34A;
+  }
+</style>
+</head>
+<body>
+  <div class="banner">
+    <div class="deco deco-1"></div>
+    <div class="deco deco-2"></div>
+    <div class="deco deco-3"></div>
+    <div class="deco deco-4"></div>
+    <div class="deco deco-5"></div>
+
+    <!-- Illustration — transparent PNG -->
+    <div class="illustration">
+      <img src="facebook_image.png" class="shops-img" alt="Các ngành kinh doanh">
+    </div>
+
+    <!-- CTA pills — even sizing -->
+    <div class="cta-row">
+      <span class="cta-pill active">F&B <span class="cta-note">· Bắt đầu</span></span>
+      <span class="cta-pill">Bán lẻ <span class="cta-note">· Sắp ra mắt</span></span>
+      <span class="cta-pill">Giáo dục <span class="cta-note">· Sắp ra mắt</span></span>
+      <span class="cta-pill">Dịch vụ <span class="cta-note">· Sắp ra mắt</span></span>
+    </div>
+
+    <!-- Bottom: Logo + tagline -->
+    <div class="bottom">
+      <div class="logo-card">
+        <img src="../logo.png" class="logo-img" alt="Validator">
+      </div>
+      <div class="bottom-text">
+        <div class="brand-text">Thẩm định & tối ưu kinh doanh</div>
+        <div class="tagline">Công cụ miễn phí giúp bạn phân tích tài chính, đánh giá rủi ro trước khi đầu tư.</div>
+        <div class="feat-row">
+          <span class="feat-pill">Phân tích tài chính</span>
+          <span class="feat-pill">AI Tư vấn</span>
+          <span class="feat-pill">Kiến thức</span>
+          <span class="feat-pill">Checklist</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="url"><span class="url-pill">www.validator.vn</span></div>
+  </div>
+</body>
+</html>

@@ -4,7 +4,7 @@ import { create } from 'zustand';
 import { supabase } from '@/lib/supabase';
 import type { ChatMessage, ChatSession } from '@/types';
 
-const DAILY_QUOTA = 20;
+const DAILY_QUOTA = 5;
 
 interface ChatState {
   sessions: ChatSession[];
@@ -19,7 +19,7 @@ interface ChatState {
   setActiveSession: (sessionId: string | null) => void;
   createSession: (userId: string) => Promise<string | null>;
   deleteSession: (sessionId: string) => Promise<void>;
-  sendMessage: (content: string, userId: string, businessContext?: string) => Promise<void>;
+  sendMessage: (content: string, userId: string, businessContext?: string, locale?: string) => Promise<void>;
   checkQuota: (userId: string) => Promise<number>;
   stopStreaming: () => void;
   clearError: () => void;
@@ -106,7 +106,7 @@ export const useChat = create<ChatState>((set, get) => ({
     return used;
   },
 
-  sendMessage: async (content, userId, businessContext) => {
+  sendMessage: async (content, userId, businessContext, locale) => {
     // Check daily quota
     const used = await get().checkQuota(userId);
     if (used >= DAILY_QUOTA) {
@@ -160,7 +160,7 @@ export const useChat = create<ChatState>((set, get) => ({
       const res = await fetch('/api/chat', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ messages: apiMessages, businessContext }),
+        body: JSON.stringify({ messages: apiMessages, businessContext, locale: locale || 'vi' }),
       });
 
       if (!res.ok) {

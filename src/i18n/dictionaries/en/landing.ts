@@ -16,11 +16,16 @@ const landing = {
     'You don\'t need to be perfect to start. You just need to start right.',
   ],
   stats: [
-    { value: '198K', label: 'businesses close/year', sub: 'in Vietnam' },
-    { value: '50%', label: 'survive after 5 years', sub: 'average across industries' },
-    { value: '5.2M', label: 'household businesses', sub: '98% of total enterprises' },
-    { value: '157K', label: 'new registrations/year', sub: '92.5% capital <10B VND' },
+    { value: '198K', label: 'Businesses close every year', sub: 'Over 500 businesses disappear every day in Vietnam' },
+    { value: '50%', label: 'Don\'t survive past 5 years', sub: 'Average across industries — F&B is even tougher' },
+    { value: '5.2M', label: 'Household businesses active', sub: '98% of all enterprises in the country' },
+    { value: '157K', label: 'New businesses every year', sub: '92.5% start with under 10B VND — the entrepreneurial spirit is alive' },
   ],
+  statsNarrative: {
+    reality: 'The harsh reality',
+    opportunity: 'But the opportunity is huge',
+    punchline: 'The difference is preparation — not the idea.',
+  },
   verticals: [
     {
       name: 'F&B',
@@ -74,6 +79,41 @@ const landing = {
   },
   midCta: {
     label: 'Validate now',
+  },
+  expertsPreview: {
+    heading: 'Expert Perspectives',
+    desc: 'Learn from those who paved the way in Vietnam\'s F&B industry',
+    viewAll: 'View all experts →',
+  },
+  trendsPreview: {
+    heading: 'F&B Trends 2026',
+    desc: 'Latest data & insights on Vietnam\'s food & beverage market',
+    viewAll: 'View all trends →',
+  },
+  testimonials: {
+    heading: 'What users say',
+    items: [
+      {
+        name: 'Minh Tu',
+        role: 'Cafe owner, District 3 HCMC',
+        text: 'I was about to sign a 35M VND/month lease. After running the numbers on Validator, I realized I\'d need at least 180 customers/day to break even — so I found a cheaper location instead.',
+      },
+      {
+        name: 'Hoang Nam',
+        role: 'Preparing to open a restaurant, Hanoi',
+        text: 'The tool calculates everything in detail, from ingredients to employee insurance — costs I hadn\'t even thought of. Now I feel much more confident with my numbers before investing.',
+      },
+      {
+        name: 'Thu Hang',
+        role: 'Bakery owner, Da Nang',
+        text: 'I\'ve been running my business without ever doing the math properly. After inputting real numbers into Validator, I discovered my net margin was only 8% — much lower than I assumed.',
+      },
+      {
+        name: 'Quoc Bao',
+        role: 'Bubble tea chain founder, HCMC',
+        text: 'Used it to compare 3 scenarios for a new branch. The comparison feature and AI advisor were super handy — saved us several analysis meetings.',
+      },
+    ],
   },
   closing: {
     heading: 'Ready to validate your idea?',

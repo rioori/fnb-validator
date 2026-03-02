@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import Icon from '@/components/ui/Icon';
+import ShareBlock from '@/components/ui/ShareBlock';
 import Footer from '@/components/home/Footer';
 import PageTracker from '@/components/ui/PageTracker';
 import { localePath } from '@/i18n/link';
@@ -8,37 +9,50 @@ import { defaultLocale, type Locale } from '@/i18n/config';
 const BASE_URL = 'https://www.validator.vn';
 
 interface Highlight {
-  icon: string;
   title: string;
   desc: string;
 }
 
-interface Vertical {
-  name: string;
+interface Persona {
+  label: string;
   desc: string;
-  icon: string;
-  active: boolean;
 }
 
 interface FeatureData {
   heading: string;
+  tagline: string;
   desc: string;
   icon: string;
   color: string;
+  accentDot: string;
+  slug: string;
   highlights: Highlight[];
+  personas: Persona[];
   verticalAction: string | null;
   knowledgeLink?: string;
 }
 
-interface FeaturePageProps {
-  feature: FeatureData;
-  breadcrumb: { home: string; features: string };
-  verticalCta: { heading: string; comingSoon: string; start: string };
-  verticals: Vertical[];
-  locale: string;
+interface ShareLabels {
+  heading: string;
+  desc: string;
+  shareFacebook: string;
+  shareLinkedin: string;
+  followUs: string;
+  shareText: string;
 }
 
-export default function FeaturePage({ feature, breadcrumb, verticalCta, verticals, locale }: FeaturePageProps) {
+interface FeaturePageProps {
+  feature: FeatureData;
+  breadcrumb: { home: string };
+  locale: string;
+  share?: ShareLabels;
+  ctaLabel: string;
+  freeLabel: string;
+  whatYouGet: string;
+  whoIsFor: string;
+}
+
+export default function FeaturePage({ feature, breadcrumb, locale, share, ctaLabel, freeLabel, whatYouGet, whoIsFor }: FeaturePageProps) {
   const prefix = locale === defaultLocale ? '' : '/en';
   const breadcrumbJsonLd = {
     '@context': 'https://schema.org',
@@ -49,89 +63,101 @@ export default function FeaturePage({ feature, breadcrumb, verticalCta, vertical
     ],
   };
 
+  const ctaHref = feature.knowledgeLink
+    ? localePath(feature.knowledgeLink, locale as Locale)
+    : feature.verticalAction
+      ? `${localePath('/fnb', locale as Locale)}?view=${feature.verticalAction}`
+      : localePath('/fnb', locale as Locale);
+
   return (
     <div className="max-w-3xl mx-auto px-4 py-8 max-md:px-3 max-md:py-6">
       <PageTracker event="feature_page_view" data={{ feature: feature.heading }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }} />
+
       {/* Breadcrumb */}
-      <nav className="text-[13px] text-text-muted mb-6">
+      <nav className="text-[13px] text-text-muted mb-5">
         <Link href={localePath('/', locale as Locale)} className="hover:text-cta transition-colors">
           {breadcrumb.home}
         </Link>
-        <span className="mx-2">/</span>
+        <span className="mx-2 opacity-40">/</span>
         <span className="text-text font-semibold">{feature.heading}</span>
       </nav>
 
-      {/* Hero */}
-      <div className={`clay-card-static ${feature.color} p-6 mb-6 text-center`}>
-        <Icon name={feature.icon} size={56} className="mx-auto mb-3" />
-        <h1 className="text-xl font-bold text-text font-[family-name:var(--font-heading)] mb-2">
+      {/* Hero — clean, bold */}
+      <div className={`clay-card-static ${feature.color} p-8 mb-6 max-md:p-5`}>
+        <p className="text-[11px] font-bold uppercase tracking-widest text-text-muted mb-3 max-md:text-[10px]">
+          {feature.tagline}
+        </p>
+        <h1 className="text-2xl font-bold text-text font-[family-name:var(--font-heading)] mb-3 leading-tight max-md:text-xl">
           {feature.heading}
         </h1>
-        <p className="text-[14px] text-text-muted max-w-[520px] mx-auto leading-relaxed">
+        <p className="text-[14px] text-text-muted leading-relaxed mb-5 max-w-[540px] max-md:text-[13px]">
           {feature.desc}
         </p>
-      </div>
-
-      {/* Highlights */}
-      <div className="grid grid-cols-3 gap-3 mb-6 max-md:grid-cols-1">
-        {feature.highlights.map((h) => (
-          <div key={h.title} className="clay-card-static bg-white p-4 text-center">
-            <Icon name={h.icon} size={36} className="mx-auto mb-2" />
-            <h3 className="text-[13px] font-bold font-[family-name:var(--font-heading)] text-text mb-1">
-              {h.title}
-            </h3>
-            <p className="text-[11px] text-text-muted leading-relaxed">{h.desc}</p>
-          </div>
-        ))}
-      </div>
-
-      {/* Vertical CTA */}
-      <div className="clay-card-static bg-white p-5 mb-6">
-        <h2 className="text-[15px] font-bold font-[family-name:var(--font-heading)] text-text mb-4 text-center">
-          {verticalCta.heading}
-        </h2>
-        <div className="grid grid-cols-2 gap-3 max-[480px]:grid-cols-1">
-          {verticals.map((v) => {
-            if (v.active) {
-              const href = feature.knowledgeLink
-                ? localePath(feature.knowledgeLink, locale as Locale)
-                : `${localePath('/fnb', locale as Locale)}?view=${feature.verticalAction}`;
-              return (
-                <Link
-                  key={v.name}
-                  href={href}
-                  className="clay-card bg-pastel-cream p-4 text-center flex flex-col items-center h-full"
-                >
-                  <Icon name={v.icon} size={40} className="mb-2" />
-                  <h3 className="text-[14px] font-bold font-[family-name:var(--font-heading)] text-text mb-1">
-                    {v.name}
-                  </h3>
-                  <p className="text-[11px] text-text-muted leading-relaxed mb-2 flex-1">{v.desc}</p>
-                  <span className="clay-pill bg-cta text-white !text-[11px] !border-cta">
-                    {verticalCta.start}
-                  </span>
-                </Link>
-              );
-            }
-            return (
-              <div
-                key={v.name}
-                className="clay-card-static bg-white p-4 text-center flex flex-col items-center opacity-50"
-              >
-                <Icon name={v.icon} size={40} className="mb-2" />
-                <h3 className="text-[14px] font-bold font-[family-name:var(--font-heading)] text-text mb-1">
-                  {v.name}
-                </h3>
-                <p className="text-[11px] text-text-muted leading-relaxed mb-2 flex-1">{v.desc}</p>
-                <span className="clay-pill bg-surface3 text-text-light !text-[11px]">
-                  {verticalCta.comingSoon}
-                </span>
-              </div>
-            );
-          })}
+        <div className="flex items-center gap-3 flex-wrap">
+          <Link
+            href={ctaHref}
+            className="clay-pill bg-cta text-white !border-cta !text-[13px] !px-6 !py-2.5 cursor-pointer inline-block font-semibold hover:brightness-110 transition-all"
+          >
+            {ctaLabel}
+          </Link>
+          <span className="text-[11px] text-text-muted">{freeLabel}</span>
         </div>
       </div>
+
+      {/* What you get — left-aligned list */}
+      <div className="clay-card-static bg-white p-6 mb-4 max-md:p-4">
+        <h2 className="text-[13px] font-bold uppercase tracking-wider text-text-muted mb-4 max-md:text-[12px]">
+          {whatYouGet}
+        </h2>
+        <div className="space-y-4">
+          {feature.highlights.map((h) => (
+            <div key={h.title} className="flex gap-3 items-start">
+              <span className={`w-2 h-2 rounded-full ${feature.accentDot} mt-1.5 flex-shrink-0`} />
+              <div>
+                <p className="text-[13px] font-semibold text-text leading-tight mb-0.5">{h.title}</p>
+                <p className="text-[12px] text-text-muted leading-relaxed">{h.desc}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      {/* Who is this for */}
+      <div className="clay-card-static bg-white p-6 mb-6 max-md:p-4">
+        <h2 className="text-[13px] font-bold uppercase tracking-wider text-text-muted mb-4 max-md:text-[12px]">
+          {whoIsFor}
+        </h2>
+        <div className="grid grid-cols-2 gap-3 max-md:grid-cols-1">
+          {feature.personas.map((p) => (
+            <div key={p.label} className={`rounded-xl ${feature.color} p-4 max-md:p-3`}>
+              <p className="text-[13px] font-bold text-text mb-1">{p.label}</p>
+              <p className="text-[11px] text-text-muted leading-relaxed">{p.desc}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      {/* Bottom CTA band */}
+      <div className="clay-card-static bg-cta/5 border-cta/20 p-6 mb-6 text-center max-md:p-4">
+        <p className="text-[15px] font-bold text-text font-[family-name:var(--font-heading)] mb-3 max-md:text-[14px]">
+          {feature.heading}
+        </p>
+        <Link
+          href={ctaHref}
+          className="clay-pill bg-cta text-white !border-cta !text-[13px] !px-8 !py-2.5 cursor-pointer inline-block font-semibold hover:brightness-110 transition-all"
+        >
+          {ctaLabel}
+        </Link>
+        <p className="text-[10px] text-text-muted mt-2">{freeLabel}</p>
+      </div>
+
+      {/* Share */}
+      {share && (
+        <div className="mb-6">
+          <ShareBlock {...share} />
+        </div>
+      )}
 
       <Footer />
     </div>

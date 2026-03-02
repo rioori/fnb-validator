@@ -1,8 +1,13 @@
+export const maxDuration = 60;
+
+import { searchKB, formatRAGContext } from '@/lib/rag';
+
 const DEEPSEEK_API_KEY = process.env.DEEPSEEK_API_KEY;
 const DEEPSEEK_URL = 'https://api.deepseek.com/chat/completions';
 const MAX_MESSAGES = 20;
 
-const BASE_SYSTEM_PROMPT = `Bạn là chuyên gia tư vấn kinh doanh Việt Nam với 15+ năm kinh nghiệm đa ngành. Chuyên môn sâu về F&B, bán lẻ, dịch vụ và các mô hình SME. Bạn giúp người dùng về:
+const SYSTEM_PROMPTS: Record<string, string> = {
+  vi: `Bạn là chuyên gia tư vấn kinh doanh Việt Nam với 15+ năm kinh nghiệm đa ngành. Chuyên môn sâu về F&B, bán lẻ, dịch vụ và các mô hình SME. Bạn giúp người dùng về:
 - Phân tích mô hình kinh doanh (F&B, bán lẻ, dịch vụ, giáo dục...)
 - Cấu trúc chi phí, break-even, dòng tiền
 - Chiến lược vị trí, marketing, vận hành
@@ -13,7 +18,21 @@ Quy tắc:
 2. Đưa ra con số cụ thể khi có thể (VD: chi phí thuê mặt bằng Q1 HCM ~50-80tr/tháng)
 3. Nếu câu hỏi KHÔNG liên quan đến kinh doanh, lịch sự từ chối: "Mình chuyên về tư vấn kinh doanh thôi nhé! Bạn có câu hỏi gì về kinh doanh không?"
 4. Không đưa ra lời khuyên tài chính/đầu tư cụ thể, chỉ phân tích và gợi ý
-5. Khi người dùng đã cung cấp thông tin dự án (bên dưới), hãy sử dụng context đó để trả lời chính xác hơn — KHÔNG hỏi lại những thông tin đã có`;
+5. Khi người dùng đã cung cấp thông tin dự án (bên dưới), hãy sử dụng context đó để trả lời chính xác hơn — KHÔNG hỏi lại những thông tin đã có`,
+
+  en: `You are a Vietnam business consultant with 15+ years of multi-industry experience. Deep expertise in F&B, retail, services, and SME business models. You help users with:
+- Business model analysis (F&B, retail, services, education...)
+- Cost structure, break-even, cash flow
+- Location strategy, marketing, operations
+- Vietnam market trends, business regulations
+
+Rules:
+1. Answer in English, concise and practical
+2. Provide specific numbers when possible (e.g., rent in District 1 HCMC ~50-80M VND/month)
+3. If the question is NOT business-related, politely decline: "I specialize in business consulting! Do you have any business-related questions?"
+4. Don't give specific financial/investment advice, only analysis and suggestions
+5. When user project info is provided below, use that context for more accurate answers — do NOT ask for info already provided`,
+};
 
 interface ChatMsg {
   role: 'system' | 'user' | 'assistant';
@@ -25,21 +44,41 @@ export async function POST(request: Request) {
     return Response.json({ error: 'DeepSeek API key chưa được cấu hình.' }, { status: 500 });
   }
 
-  let body: { messages?: ChatMsg[]; businessContext?: string };
+  let body: { messages?: ChatMsg[]; businessContext?: string; locale?: string };
   try {
     body = await request.json();
   } catch {
     return Response.json({ error: 'Invalid request body.' }, { status: 400 });
   }
 
+  const locale = (body.locale === 'en' ? 'en' : 'vi') as 'vi' | 'en';
   const userMessages = (body.messages || []).slice(-MAX_MESSAGES);
   if (userMessages.length === 0) {
     return Response.json({ error: 'No messages provided.' }, { status: 400 });
   }
 
-  let systemPrompt = BASE_SYSTEM_PROMPT;
+  // --- RAG: search knowledge base ---
+  const lastUserMsg = [...userMessages].reverse().find(m => m.role === 'user')?.content || '';
+  let ragContext = '';
+  try {
+    const ragResults = await searchKB(lastUserMsg, locale, 5, 0.3);
+    ragContext = formatRAGContext(ragResults, locale);
+  } catch (err) {
+    console.error('RAG search failed, proceeding without context:', err);
+  }
+
+  // --- Build system prompt ---
+  let systemPrompt = SYSTEM_PROMPTS[locale] || SYSTEM_PROMPTS.vi;
+
+  if (ragContext) {
+    systemPrompt += '\n\n' + ragContext;
+  }
+
   if (body.businessContext) {
-    systemPrompt += `\n\n--- THÔNG TIN DỰ ÁN KINH DOANH CỦA NGƯỜI DÙNG ---\n${body.businessContext}`;
+    const header = locale === 'vi'
+      ? '--- THÔNG TIN DỰ ÁN KINH DOANH CỦA NGƯỜI DÙNG ---'
+      : '--- USER BUSINESS PROJECT INFO ---';
+    systemPrompt += `\n\n${header}\n${body.businessContext}`;
   }
 
   const messages: ChatMsg[] = [
@@ -58,7 +97,7 @@ export async function POST(request: Request) {
       messages,
       stream: true,
       temperature: 0.7,
-      max_tokens: 2048,
+      max_tokens: 4096,
     }),
   });
 

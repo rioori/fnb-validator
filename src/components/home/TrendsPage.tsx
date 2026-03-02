@@ -373,11 +373,12 @@ export default function TrendsPage() {
       <div className="text-center mb-5">
         <Icon name="trending" size={48} className="mx-auto mb-2" />
         <h2 className="text-lg font-bold text-text font-[family-name:var(--font-heading)]">
-          Xu hướng F&B 2025-2026
+          Thị trường F&B 2025-2026
         </h2>
         <p className="text-[13px] text-text-muted mt-1 max-w-[520px] mx-auto">
           Dữ liệu, xu hướng và insight từ thị trường F&B Việt Nam — giúp bạn đưa ra quyết định kinh doanh sáng suốt hơn.
         </p>
+        <p className="text-[11px] text-text-light mt-1.5">Cập nhật: 15/02/2026</p>
       </div>
 
       {/* Market stats banner */}
@@ -518,7 +519,7 @@ export default function TrendsPage() {
       <p className="text-center text-[12px] text-text-muted italic mt-5">
         Dữ liệu tổng hợp từ iPOS.vn, Báo Chính phủ, CafeF, IMARC, Cornell University, Vietnam Briefing, Mordor Intelligence và 84+ nguồn khác.
         <br />
-        Cập nhật: Tháng 2/2026. Xu hướng thay đổi liên tục — hãy luôn kiểm chứng trước khi ra quyết định.
+        Xu hướng thay đổi liên tục — hãy luôn kiểm chứng trước khi ra quyết định.
       </p>
     </div>
   );

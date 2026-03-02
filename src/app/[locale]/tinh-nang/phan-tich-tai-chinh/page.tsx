@@ -44,9 +44,12 @@ export default async function Page({ params }: PageProps) {
     <FeaturePage
       feature={dict.features.financialAnalysis}
       breadcrumb={dict.features.breadcrumb}
-      verticalCta={dict.features.verticalCta}
-      verticals={dict.features.verticals}
       locale={locale}
+      share={dict.common.share}
+      ctaLabel={dict.features.ctaLabel}
+      freeLabel={dict.features.freeLabel}
+      whatYouGet={dict.features.whatYouGet}
+      whoIsFor={dict.features.whoIsFor}
     />
   );
 }

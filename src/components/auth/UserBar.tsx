@@ -1,11 +1,12 @@
 'use client';
 
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { useAuth } from '@/hooks/useAuth';
 import { useScenarios } from '@/hooks/useScenarios';
 import { useWizardStore } from '@/hooks/useWizardStore';
 import { useTranslation } from '@/i18n/LocaleProvider';
 import { useModels } from '@/hooks/useModels';
+import ScenarioCompare from '@/components/dashboard/ScenarioCompare';
 
 export default function UserBar() {
   const { t } = useTranslation();
@@ -13,6 +14,7 @@ export default function UserBar() {
   const { user, displayName, logout } = useAuth();
   const { scenarios, selectedId, setSelectedId, loadList, save, load, remove } = useScenarios();
   const store = useWizardStore();
+  const [showCompare, setShowCompare] = useState(false);
 
   useEffect(() => {
     if (user) loadList(user.id);
@@ -43,28 +45,43 @@ export default function UserBar() {
     if (user) await loadList(user.id);
   };
 
+  const handleCompare = () => {
+    if (scenarios.length < 2) {
+      alert(t.common.userBar.needTwoScenarios);
+      return;
+    }
+    setShowCompare(true);
+  };
+
   if (!user) return null;
 
   return (
-    <div className="flex items-center gap-2 px-3 py-2 clay-sm mb-4 text-[12px] no-print flex-wrap">
-      <span className="text-text-muted shrink-0">
-        {t.common.userBar.greeting} <span className="font-bold text-text font-[family-name:var(--font-heading)]">{displayName}</span>
-      </span>
-      <select
-        value={selectedId}
-        onChange={(e) => { setSelectedId(e.target.value); handleLoad(e.target.value); }}
-        className="flex-1 min-w-0 text-[12px] font-[family-name:var(--font-body)] clay-input !py-1.5 !px-2"
-      >
-        <option value="">{t.common.userBar.newScenario}</option>
-        {scenarios.map(s => (
-          <option key={s.id} value={s.id}>{s.name}</option>
-        ))}
-      </select>
-      <div className="flex gap-1.5 shrink-0">
-        <button onClick={handleSave} className="clay-btn clay-btn-primary text-[11px] !py-1 !px-2.5">{t.common.buttons.save}</button>
-        <button onClick={handleDelete} className="clay-btn clay-btn-secondary text-[11px] !py-1 !px-2">{t.common.userBar.delete}</button>
-        <button onClick={logout} className="clay-btn clay-btn-secondary text-[11px] !py-1 !px-2">{t.common.auth.logout}</button>
+    <>
+      <div className="flex items-center gap-2 px-3 py-2 clay-sm mb-4 text-[12px] no-print flex-wrap">
+        <span className="text-text-muted shrink-0">
+          {t.common.userBar.greeting} <span className="font-bold text-text font-[family-name:var(--font-heading)]">{displayName}</span>
+        </span>
+        <select
+          value={selectedId}
+          onChange={(e) => { setSelectedId(e.target.value); handleLoad(e.target.value); }}
+          className="flex-1 min-w-0 text-[12px] font-[family-name:var(--font-body)] clay-input !py-1.5 !px-2"
+        >
+          <option value="">{t.common.userBar.newScenario}</option>
+          {scenarios.map(s => (
+            <option key={s.id} value={s.id}>{s.name}</option>
+          ))}
+        </select>
+        <div className="flex gap-1.5 shrink-0">
+          <button onClick={handleSave} className="clay-btn clay-btn-primary text-[11px] !py-1 !px-2.5">{t.common.buttons.save}</button>
+          {scenarios.length >= 2 && (
+            <button onClick={handleCompare} className="clay-btn clay-btn-secondary text-[11px] !py-1 !px-2.5">{t.common.userBar.compare}</button>
+          )}
+          <button onClick={handleDelete} className="clay-btn clay-btn-secondary text-[11px] !py-1 !px-2">{t.common.userBar.delete}</button>
+          <button onClick={logout} className="clay-btn clay-btn-secondary text-[11px] !py-1 !px-2">{t.common.auth.logout}</button>
+        </div>
       </div>
-    </div>
+
+      {showCompare && <ScenarioCompare onClose={() => setShowCompare(false)} />}
+    </>
   );
 }

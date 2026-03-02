@@ -15,6 +15,7 @@ import { useTranslation, tpl } from '@/i18n/LocaleProvider';
 export default function StepCosts() {
   const { t } = useTranslation();
   const store = useWizardStore();
+  const isExisting = store.businessMode === 'existing';
   const model = store.selectedModel ? MODELS[store.selectedModel] : null;
 
   const staffTotal = store.getStaffTotal();
@@ -217,6 +218,40 @@ export default function StepCosts() {
           </div>
         </div>
       </SectionCard>
+
+      {/* Channel Costs — existing mode only */}
+      {isExisting && (
+        <SectionCard title={t.wizard.stepCosts.sectionChannelCosts}>
+          <p className="text-xs text-text-muted mb-3">{t.wizard.stepCosts.channelCostsDesc}</p>
+          <div className="grid grid-cols-2 gap-3.5 max-md:grid-cols-1">
+            <div>
+              <label className="block font-medium text-[13px] mb-1.5 text-text">{t.wizard.stepCosts.labelPackagingPerOrder}</label>
+              <VNDInput value={store.channelCosts.packagingPerOrder} onChange={(v) => store.setChannelCost('packagingPerOrder', v)} placeholder={t.wizard.stepCosts.placeholderPackaging} />
+            </div>
+            <div>
+              <label className="block font-medium text-[13px] mb-1.5 text-text">{t.wizard.stepCosts.labelGrabComm}</label>
+              <SliderField label="" value={store.channelCosts.grabCommPct} min={0} max={40} onChange={(v) => store.setChannelCost('grabCommPct', v)} />
+            </div>
+            <div>
+              <label className="block font-medium text-[13px] mb-1.5 text-text">{t.wizard.stepCosts.labelShopeeComm}</label>
+              <SliderField label="" value={store.channelCosts.shopeeCommPct} min={0} max={40} onChange={(v) => store.setChannelCost('shopeeCommPct', v)} />
+            </div>
+            <div>
+              <label className="block font-medium text-[13px] mb-1.5 text-text">{t.wizard.stepCosts.labelOwnDelivery}</label>
+              <SliderField label="" value={store.channelCosts.ownDeliveryPct} min={0} max={100} onChange={(v) => store.setChannelCost('ownDeliveryPct', v)} />
+              <div className="text-xs text-text-muted mt-0.5">{t.wizard.stepCosts.ownDeliveryHint}</div>
+            </div>
+            <div>
+              <label className="block font-medium text-[13px] mb-1.5 text-text">{t.wizard.stepCosts.labelMarketingDinein}</label>
+              <VNDInput value={store.channelCosts.marketingDinein} onChange={(v) => store.setChannelCost('marketingDinein', v)} />
+            </div>
+            <div>
+              <label className="block font-medium text-[13px] mb-1.5 text-text">{t.wizard.stepCosts.labelMarketingDelivery}</label>
+              <VNDInput value={store.channelCosts.marketingDelivery} onChange={(v) => store.setChannelCost('marketingDelivery', v)} />
+            </div>
+          </div>
+        </SectionCard>
+      )}
 
       {/* Monthly Total */}
       <div className="rounded-2xl bg-cta py-4 px-5 text-center text-white mt-3 border-2 border-text">

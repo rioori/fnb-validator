@@ -17,6 +17,8 @@ const FEATURE_META = [
   { icon: 'chat', action: 'ai-chat' as const, bg: 'bg-pastel-blue', illust: 'feat-aichat' },
   { icon: 'book', action: 'knowledge' as const, bg: 'bg-pastel-cream', illust: 'feat-knowledge' },
   { icon: 'checklist', action: 'checklist' as const, bg: 'bg-pastel-blue', illust: 'feat-checklist' },
+  { icon: 'star', action: 'experts' as const, bg: 'bg-pastel-gold', illust: 'feat-experts' },
+  { icon: 'trending', action: 'trends' as const, bg: 'bg-pastel-mint', illust: 'feat-trends' },
 ];
 
 interface FeatureCardsProps {
@@ -36,6 +38,8 @@ export default function FeatureCards({ onNavigate }: FeatureCardsProps) {
       setStep(1);
     } else if (action === 'knowledge') {
       router.push(localePath('/kien-thuc', locale as Locale));
+    } else if (action === 'experts') {
+      router.push(localePath('/goc-nhin-chuyen-gia', locale as Locale));
     } else {
       onNavigate(action as HomeView);
     }
@@ -43,7 +47,7 @@ export default function FeatureCards({ onNavigate }: FeatureCardsProps) {
 
   return (
     <motion.div
-      className="grid grid-cols-3 gap-3 mb-4 max-md:grid-cols-2"
+      className="grid grid-cols-4 gap-3 mb-4 max-lg:grid-cols-3 max-md:grid-cols-2"
       initial="hidden"
       whileInView="show"
       viewport={{ once: true, amount: 0.05 }}

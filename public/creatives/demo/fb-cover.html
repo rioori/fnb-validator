@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Facebook Cover — Validator.vn</title>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;800;900&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { width: 820px; height: 312px; overflow: hidden; font-family: 'Roboto', system-ui, sans-serif; position: relative; }
+
+  .bg {
+    position: absolute; inset: 0;
+    background:
+      radial-gradient(ellipse 500px 400px at 0% 0%, rgba(210,236,208,0.5) 0%, transparent 70%),
+      radial-gradient(ellipse 400px 350px at 100% 100%, rgba(229,244,248,0.5) 0%, transparent 70%),
+      radial-gradient(ellipse 300px 250px at 80% 5%, rgba(253,238,196,0.35) 0%, transparent 70%),
+      #F8FAFC;
+  }
+  .bg::before {
+    content: ''; position: absolute; inset: 0;
+    background-image: radial-gradient(circle, rgba(15,23,42,0.03) 1px, transparent 1px);
+    background-size: 20px 20px;
+  }
+
+  .deco { position: absolute; border-radius: 50%; opacity: 0.05; }
+  .deco-1 { width: 220px; height: 220px; background: #22C55E; top: -90px; right: 80px; }
+  .deco-2 { width: 100px; height: 100px; background: #0F172A; bottom: -30px; left: 40px; }
+
+  .content {
+    position: relative; z-index: 1;
+    width: 100%; height: 100%;
+    display: flex; align-items: center;
+    padding: 24px 44px;
+    gap: 28px;
+  }
+
+  /* LEFT SIDE */
+  .left {
+    flex: 1; display: flex; flex-direction: column; gap: 8px; min-width: 0;
+  }
+
+  /* Brand row */
+  .brand-row { display: flex; align-items: center; gap: 10px; }
+  .brand-row img { width: 36px; height: 36px; }
+  .brand-row .name {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 800; font-size: 22px; color: #0F172A;
+    letter-spacing: -0.5px;
+  }
+
+  /* Tagline */
+  .tagline {
+    font-size: 12.5px; color: #475569; line-height: 1.5;
+    max-width: 420px;
+  }
+
+  /* 4 sector pills */
+  .sectors { display: flex; gap: 6px; flex-wrap: wrap; }
+  .sector {
+    display: inline-flex; align-items: center;
+    background: #FFFFFF; border: 1.5px solid rgba(15,23,42,0.08);
+    border-radius: 16px; padding: 3px 12px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700; font-size: 11px; color: #0F172A;
+    box-shadow: 2px 2px 0 rgba(15,23,42,0.04);
+  }
+  .sector.active {
+    background: #16A34A; color: white; border-color: #16A34A;
+    box-shadow: 2px 2px 0 rgba(22,163,74,0.3);
+  }
+  .sector.coming { color: #94A3B8; border-color: rgba(15,23,42,0.05); }
+
+  /* Feature mini-tags */
+  .features { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 1px; }
+  .ftag {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600; font-size: 10.5px; color: #64748B;
+    display: flex; align-items: center; gap: 4px;
+  }
+  .ftag .em { font-size: 12px; }
+
+  /* CTA */
+  .cta-row { display: flex; align-items: center; gap: 12px; margin-top: 2px; }
+  .url-badge {
+    display: inline-flex; align-items: center; gap: 6px;
+    background: #22C55E; color: white;
+    border-radius: 20px; padding: 6px 18px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700; font-size: 12.5px;
+    box-shadow: 3px 3px 0 #16A34A;
+  }
+  .url-badge::after { content: '→'; font-size: 13px; }
+  .free-tag {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600; font-size: 11px; color: #16A34A;
+  }
+
+  /* RIGHT — phone fan */
+  .right {
+    flex-shrink: 0;
+    position: relative;
+    width: 300px; height: 270px;
+  }
+  .mini-phone {
+    position: absolute;
+    background: linear-gradient(145deg, #2c2c2c, #1a1a1a);
+    border-radius: 14px; padding: 3px;
+    box-shadow:
+      0 0 0 0.5px rgba(120,120,120,0.35),
+      0 15px 35px rgba(0,0,0,0.18),
+      0 5px 12px rgba(0,0,0,0.08);
+  }
+  .mini-phone-screen {
+    width: 100%; height: 100%;
+    border-radius: 11px; overflow: hidden;
+    background: #000;
+  }
+  .mini-phone-screen img {
+    width: 100%; height: 100%;
+    object-fit: cover; object-position: top;
+    display: block;
+  }
+  .phone-1 {
+    width: 115px; height: 232px;
+    left: 90px; top: 18px;
+    z-index: 3;
+  }
+  .phone-2 {
+    width: 105px; height: 212px;
+    left: 0px; top: 30px;
+    z-index: 2;
+    transform: perspective(600px) rotateY(12deg);
+  }
+  .phone-3 {
+    width: 105px; height: 212px;
+    right: 0px; top: 30px;
+    z-index: 2;
+    transform: perspective(600px) rotateY(-12deg);
+  }
+</style>
+</head>
+<body>
+  <div class="bg"></div>
+  <div class="deco deco-1"></div>
+  <div class="deco deco-2"></div>
+
+  <div class="content">
+    <div class="left">
+      <div class="brand-row">
+        <img src="../../../logo.png" alt="Validator.vn" />
+        <div class="name">Validator.vn</div>
+      </div>
+
+      <div class="tagline">
+        Công cụ miễn phí giúp bạn phân tích tài chính, đánh giá rủi ro — dù bạn đang chuẩn bị khởi nghiệp hay muốn tối ưu mô hình đang vận hành.
+      </div>
+
+      <div class="sectors">
+        <div class="sector active">F&B</div>
+        <div class="sector coming">Bán lẻ · Sắp ra mắt</div>
+        <div class="sector coming">Giáo dục · Sắp ra mắt</div>
+        <div class="sector coming">Dịch vụ · Sắp ra mắt</div>
+      </div>
+
+      <div class="features">
+        <div class="ftag"><span class="em">📊</span> Phân tích tài chính</div>
+        <div class="ftag"><span class="em">🤖</span> AI Advisor</div>
+        <div class="ftag"><span class="em">📚</span> Thư viện kiến thức</div>
+        <div class="ftag"><span class="em">📋</span> Checklist</div>
+        <div class="ftag"><span class="em">🎓</span> Góc nhìn chuyên gia</div>
+        <div class="ftag"><span class="em">📈</span> Xu hướng ngành</div>
+      </div>
+
+      <div class="cta-row">
+        <div class="url-badge">www.validator.vn</div>
+        <div class="free-tag">Miễn phí · Song ngữ Việt–Anh</div>
+      </div>
+    </div>
+
+    <div class="right">
+      <div class="mini-phone phone-2">
+        <div class="mini-phone-screen">
+          <img src="m08-ai-chat.png" alt="AI Chat" />
+        </div>
+      </div>
+      <div class="mini-phone phone-1">
+        <div class="mini-phone-screen">
+          <img src="m02-dashboard.png" alt="Dashboard" />
+        </div>
+      </div>
+      <div class="mini-phone phone-3">
+        <div class="mini-phone-screen">
+          <img src="m03-health.png" alt="Health" />
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

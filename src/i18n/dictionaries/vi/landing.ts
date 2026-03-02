@@ -16,11 +16,16 @@ const landing = {
     'Bạn không cần hoàn hảo để bắt đầu. Bạn chỉ cần bắt đầu đúng cách.',
   ],
   stats: [
-    { value: '198K', label: 'DN đóng cửa/năm', sub: 'tại Việt Nam' },
-    { value: '50%', label: 'sống sót sau 5 năm', sub: 'trung bình các ngành' },
-    { value: '5.2 triệu', label: 'hộ kinh doanh', sub: 'chiếm 98% tổng DN' },
-    { value: '157K', label: 'DN mới đăng ký/năm', sub: '92.5% vốn <10 tỷ' },
+    { value: '198K', label: 'Doanh nghiệp đóng cửa mỗi năm', sub: 'Hơn 500 doanh nghiệp biến mất mỗi ngày tại Việt Nam' },
+    { value: '50%', label: 'Không trụ được sau 5 năm', sub: 'Trung bình các ngành — F&B còn khắc nghiệt hơn' },
+    { value: '5.2 triệu', label: 'Hộ kinh doanh đang hoạt động', sub: 'Chiếm 98% tổng số doanh nghiệp cả nước' },
+    { value: '157K', label: 'Doanh nghiệp mới mỗi năm', sub: '92,5% có vốn dưới 10 tỷ — người Việt không ngừng khởi nghiệp' },
   ],
+  statsNarrative: {
+    reality: 'Thực tế khắc nghiệt',
+    opportunity: 'Nhưng cơ hội vẫn rất lớn',
+    punchline: 'Khác biệt nằm ở việc chuẩn bị — không phải ý tưởng.',
+  },
   verticals: [
     {
       name: 'F&B',
@@ -74,6 +79,41 @@ const landing = {
   },
   midCta: {
     label: 'Thẩm định ngay',
+  },
+  expertsPreview: {
+    heading: 'Góc nhìn chuyên gia',
+    desc: 'Học hỏi từ những người đã đi trước trong ngành F&B Việt Nam',
+    viewAll: 'Xem tất cả chuyên gia →',
+  },
+  trendsPreview: {
+    heading: 'Xu hướng F&B 2026',
+    desc: 'Dữ liệu & insight mới nhất về thị trường ẩm thực Việt Nam',
+    viewAll: 'Xem tất cả xu hướng →',
+  },
+  testimonials: {
+    heading: 'Người dùng nói gì?',
+    items: [
+      {
+        name: 'Minh Tú',
+        role: 'Chủ quán cafe, Quận 3 TP.HCM',
+        text: 'Mình suýt ký hợp đồng thuê mặt bằng 35 triệu/tháng. Chạy số trên Validator xong mới thấy cần ít nhất 180 khách/ngày mới hòa vốn — nên quyết định tìm mặt bằng rẻ hơn.',
+      },
+      {
+        name: 'Hoàng Nam',
+        role: 'Chuẩn bị mở quán ăn, Hà Nội',
+        text: 'Tool tính rất chi tiết, từ nguyên liệu đến BHXH nhân viên — những khoản mình không nghĩ tới. Giờ mình tự tin hơn với con số trước khi bỏ vốn.',
+      },
+      {
+        name: 'Thu Hằng',
+        role: 'Chủ tiệm bánh, Đà Nẵng',
+        text: 'Đang kinh doanh mà chưa bao giờ ngồi tính kỹ. Nhập số liệu thực tế vào Validator mới biết biên lợi nhuận chỉ 8% — thấp hơn mình tưởng rất nhiều.',
+      },
+      {
+        name: 'Quốc Bảo',
+        role: 'Founder chuỗi trà sữa, TP.HCM',
+        text: 'Dùng để so sánh 3 kịch bản mở chi nhánh mới. Feature so sánh và AI advisor rất tiện — tiết kiệm mấy buổi họp phân tích.',
+      },
+    ],
   },
   closing: {
     heading: 'Sẵn sàng kiểm chứng ý tưởng?',

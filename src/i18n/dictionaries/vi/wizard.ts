@@ -11,12 +11,19 @@ const wizard = {
   // ─── ProgressBar ──────────────────────────────────────────
   progress: {
     steps: ['Mô hình', 'Vị trí', 'Vốn đầu tư', 'Doanh thu', 'Chi phí', 'Kết quả'],
+    stepsExisting: ['Mô hình', 'Vị trí', 'Vốn đã đầu tư', 'Thực đơn', 'Chi phí', 'Chẩn đoán'],
   },
 
   // ─── StepModel ────────────────────────────────────────────
   stepModel: {
+    modeNew: 'Dự án mới',
+    modeExisting: 'Đang kinh doanh',
+    modeNewDesc: 'Thẩm định ý tưởng kinh doanh F&B trước khi đầu tư',
+    modeExistingDesc: 'Phân tích & tối ưu hoạt động kinh doanh hiện tại',
     title: 'Bạn muốn mở loại hình nào?',
+    titleExisting: 'Bạn đang kinh doanh loại hình nào?',
     desc: 'Chọn mô hình, nhập ngân sách dự kiến. Chúng tôi gợi ý phần còn lại.',
+    descExisting: 'Chọn mô hình phù hợp, nhập số liệu thực tế để phân tích.',
     alertNoModel: 'Chọn mô hình trước!',
     sectionBudget: 'Ngân sách & Chi phí thuê',
     labelBudget: 'Tổng ngân sách đầu tư dự kiến',
@@ -29,6 +36,21 @@ const wizard = {
     rentHint: '{model} thường thuê: {min} - {max}/tháng',
     rentHintNoModel: 'Chọn mô hình để xem gợi ý',
     backLabel: 'Trang chủ',
+
+    // Existing mode extra fields
+    labelActualRevenue: 'Doanh thu thực tế / tháng',
+    tooltipActualRevenue: 'Tổng doanh thu trung bình mỗi tháng hiện tại của bạn (tất cả kênh cộng lại).',
+    placeholderActualRevenue: 'VD: 150.000.000',
+    labelMonthsOperating: 'Đã kinh doanh được bao lâu?',
+    monthsOption: '{n} tháng',
+    monthsOperatingHint: 'Giúp chúng tôi đánh giá chính xác hơn theo thời gian hoạt động.',
+
+    // Project name
+    labelProjectName: 'Tên dự án',
+    placeholderProjectName: 'VD: Quán cà phê ABC',
+    projectNameHint: 'Đặt tên để dễ phân biệt khi lưu nhiều kịch bản.',
+    defaultProjectNew: '{model} - Dự án mới',
+    defaultProjectExisting: '{model} - Chẩn đoán',
   },
 
   // ─── StepLocation ─────────────────────────────────────────
@@ -45,6 +67,8 @@ const wizard = {
       danang: 'Đà Nẵng',
       other: 'Tỉnh/thành khác',
     },
+    labelDistrict: 'Quận / Huyện',
+    selectDistrict: '— Chọn quận/huyện —',
     labelArea: 'Khu vực',
     areas: {
       center: 'Quận trung tâm',
@@ -69,6 +93,11 @@ const wizard = {
     alertTooSpacious:
       '⚠ Quá rộng ({ratio}m²/chỗ) — lãng phí diện tích, chi phí thuê cao. Nên <3m²/chỗ.',
 
+    // Rent benchmark
+    rentBenchmarkGood: '✓ Giá thuê hợp lý cho khu vực ({userRent}k/m² — trung bình: {min}-{max}k/m²)',
+    rentBenchmarkWarn: '⚠ Hơi cao so với khu vực ({userRent}k/m² — trung bình: {min}-{max}k/m²)',
+    rentBenchmarkHigh: '⚠ Cao hơn nhiều so với trung bình khu vực! ({userRent}k/m² — trung bình: {min}-{max}k/m²)',
+
     // Channels section
     sectionChannels: 'Kênh bán hàng',
     tooltipChannels:
@@ -83,7 +112,12 @@ const wizard = {
   // ─── StepInvestment ───────────────────────────────────────
   stepInvestment: {
     title: 'Vốn đầu tư ban đầu',
+    titleExisting: 'Vốn đã đầu tư',
     desc: 'Tổng tiền cần bỏ ra trước khi mở cửa. Bạn có thể thêm/sửa/xóa các mục tùy ý.',
+    descExisting: 'Nhập tổng số vốn đã bỏ ra và vốn lưu động hiện tại.',
+    sunkCostLabel: 'Tổng vốn đã đầu tư',
+    sunkCostHint: 'Bao gồm tiền thuê ban đầu, xây dựng, thiết bị, v.v. đã chi.',
+    existingTotalLabel: 'TỔNG VỐN ĐÃ ĐẦU TƯ',
 
     // Premises section
     sectionPremises: 'Mặt bằng',
@@ -128,7 +162,24 @@ const wizard = {
   // ─── StepRevenue ──────────────────────────────────────────
   stepRevenue: {
     title: 'Doanh thu dự kiến',
+    titleExisting: 'Doanh thu thực tế',
     desc: 'Ước tính lượng khách và mức chi tiêu trung bình.',
+    descExisting: 'Nhập số liệu doanh thu thực tế hiện tại của bạn.',
+    existingRampNote: 'Bạn đang phân tích doanh thu thực tế — không cần giai đoạn khởi động.',
+
+    // Menu engineering (existing mode)
+    sectionMenu: 'Thực đơn chi tiết',
+    menuDesc: 'Nhập các món đang bán để phân tích: món nào đang lãi, món nào cần cải thiện.',
+    menuItemName: 'Tên món',
+    menuItemNamePlaceholder: 'VD: Cà phê sữa đá',
+    menuItemPrice: 'Giá bán',
+    menuItemCost: 'Giá vốn',
+    menuItemCostTooltip: 'Chi phí nguyên liệu để làm 1 phần/ly. Không tính tiền thuê, lương.',
+    menuItemSold: 'Số lượng bán/tháng',
+    menuItemMargin: 'Lãi/món',
+    menuAddItem: '+ Thêm món',
+    menuSummary: '{count} món — Tổng doanh thu: {revenue}/tháng',
+    menuEmpty: 'Thêm ít nhất 3-5 món chính để phân tích chính xác.',
 
     // Ticket section
     sectionTicket: 'Giá bill trung bình',
@@ -199,6 +250,18 @@ const wizard = {
     subtotalFixedOther: 'Cố định khác',
     subtotalFixedTotal: 'Tổng chi phí cố định',
 
+    // Channel costs (existing mode)
+    sectionChannelCosts: 'Chi phí theo kênh bán',
+    channelCostsDesc: 'Nhập chi phí riêng cho từng kênh để biết kênh nào thực sự có lãi.',
+    labelPackagingPerOrder: 'Phí đóng gói / đơn mang về & giao hàng',
+    placeholderPackaging: 'VD: 5.000',
+    labelGrabComm: 'Hoa hồng GrabFood (%)',
+    labelShopeeComm: 'Hoa hồng ShopeeFood (%)',
+    labelOwnDelivery: '% đơn giao tự vận chuyển',
+    ownDeliveryHint: 'Đơn giao hàng không qua app (tự ship, web riêng)',
+    labelMarketingDinein: 'Chi phí marketing tại quán / tháng',
+    labelMarketingDelivery: 'Chi phí marketing online (quảng cáo app) / tháng',
+
     // Variable costs section
     sectionVariable: 'Chi phí biến đổi',
     tooltipVariable: 'Tăng/giảm theo doanh thu: nguyên liệu, bao bì, phí app...',
@@ -247,10 +310,36 @@ const wizard = {
     sectionAnalysis: 'Báo cáo phân tích chi tiết',
     sectionHealth: 'Sức khỏe chi phí & Sensitivity',
 
+    // Existing mode dashboard sections
+    titleExisting: 'Chẩn đoán sức khỏe kinh doanh',
+    descExisting: 'Dựa trên số liệu thực tế, đây là bức tranh kinh doanh hiện tại của bạn.',
+    sectionCostDiagnosis: 'Chi phí đang ở đâu?',
+    sectionChannelProfit: 'Kênh nào đang thực sự có lãi?',
+    sectionMenuMatrix: 'Phân tích thực đơn',
+    sectionBenchmark: 'So với ngành',
+    sectionQuickWins: 'Cải thiện ngay',
+    sectionSensitivity: 'Nếu thay đổi thì sao?',
+    sectionImpact: 'Cải thiện — bức tranh sau khi tối ưu',
+
+    // Existing mode KPIs
+    kpiHealthScore: 'Sức khỏe',
+    kpiNetProfit: 'Lãi ròng/tháng',
+    kpiNetMargin: 'Biên lãi ròng',
+    kpiRentRatio: 'Thuê/DT',
+
+    // Collapsible sections (cont.)
+    sectionOptimization: 'Gợi ý tối ưu',
+    sectionAIChat: 'Hỏi AI chuyên gia',
+
+    // Baseline comparison
+    saveBaseline: 'Lưu làm kịch bản gốc',
+    clearBaseline: 'Xóa kịch bản gốc',
+
     // Buttons
     btnEdit: '← Chỉnh sửa lại',
     btnExportExcel: 'Xuất Excel',
-    btnPrint: 'In / Xuất PDF',
+    btnExportPDF: 'Xuất PDF',
+    btnPrint: 'In',
   },
 
   // ─── QuickCalc ────────────────────────────────────────────
@@ -293,6 +382,32 @@ const wizard = {
     commentPlaceholder: 'Góp ý thêm (tuỳ chọn)...',
     submit: 'Gửi đánh giá',
     thanks: 'Cảm ơn bạn đã đánh giá! 🙏',
+  },
+
+  // ─── Share / Spread the word ────────────────────────────
+  share: {
+    heading: 'Thấy hữu ích? Chia sẻ cho bạn bè!',
+    desc: 'Giúp nhiều chủ quán F&B biết đến công cụ miễn phí này.',
+    shareFacebook: 'Facebook',
+    shareLinkedin: 'LinkedIn',
+    copyLink: 'Copy link',
+    copied: 'Đã copy!',
+    downloadImage: 'Tải hình kết quả',
+    followUs: 'Theo dõi Validator.vn',
+    shareText: 'Mình vừa thử công cụ thẩm định F&B miễn phí — khá hay! Nhập số liệu vào là biết ngay quán có lãi không, bao lâu hòa vốn. Chia sẻ cho ai đang tính mở quán hoặc đang kinh doanh F&B nhé 👉',
+  },
+
+  // ─── Onboarding ─────────────────────────────────────────
+  onboarding: {
+    welcomeHeading: 'Chào mừng đến Validator.vn!',
+    welcomeDesc: 'Công cụ phân tích tài chính miễn phí giúp bạn thẩm định ý tưởng kinh doanh F&B trước khi bỏ vốn.',
+    optionPlanning: 'Tôi đang lên kế hoạch mở quán',
+    optionPlanningDesc: 'Phân tích chi phí, doanh thu, hòa vốn',
+    optionExisting: 'Tôi đã có quán, muốn chẩn đoán',
+    optionExistingDesc: 'Kiểm tra sức khỏe tài chính hiện tại',
+    skip: 'Bỏ qua',
+    quickStart: 'Điền nhanh',
+    quickStartDesc: 'Chọn mẫu gần nhất với ý tưởng của bạn',
   },
 
   // ─── Shared / Common ─────────────────────────────────────

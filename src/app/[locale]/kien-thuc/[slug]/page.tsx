@@ -9,6 +9,7 @@ import { defaultLocale, type Locale } from '@/i18n/config';
 import { localePath } from '@/i18n/link';
 import type { KBTopic } from '@/types';
 import PageTracker from '@/components/ui/PageTracker';
+import ShareBlock from '@/components/ui/ShareBlock';
 import KNOWLEDGE_BASE_VI from '@/i18n/data/vi/knowledge';
 import KNOWLEDGE_BASE_EN from '@/i18n/data/en/knowledge';
 
@@ -91,6 +92,7 @@ function ArticleJsonLd({ topic, categoryLabel, locale }: { topic: KBTopic; categ
     '@type': 'Article',
     headline: topic.title,
     description: topic.subtitle,
+    ...(topic.publishDate && { datePublished: topic.publishDate }),
     author: { '@type': 'Person', name: 'Khang Pham', url: 'https://linkedin.com/in/phamdinhkhang' },
     publisher: { '@type': 'Organization', name: 'Validator.vn', url: BASE_URL },
     mainEntityOfPage: {
@@ -112,7 +114,7 @@ function BreadcrumbJsonLd({ topic, locale, dict }: { topic: KBTopic; locale: str
     '@context': 'https://schema.org',
     '@type': 'BreadcrumbList',
     itemListElement: [
-      { '@type': 'ListItem', position: 1, name: dict.knowledge.breadcrumb.home, item: `${BASE_URL}${prefix}` || BASE_URL },
+      { '@type': 'ListItem', position: 1, name: dict.knowledge.breadcrumb.home, item: `${BASE_URL}${prefix}/fnb` },
       { '@type': 'ListItem', position: 2, name: dict.knowledge.breadcrumb.knowledge, item: `${BASE_URL}${prefix}/kien-thuc` },
       { '@type': 'ListItem', position: 3, name: topic.title, item: `${BASE_URL}${prefix}/kien-thuc/${topic.slug}` },
     ],
@@ -144,7 +146,7 @@ export default async function KienThucTopicPage({ params }: PageProps) {
       <article className="py-2 max-md:py-0">
         {/* Breadcrumbs */}
         <nav className="text-[13px] text-text-muted mb-6">
-          <Link href={localePath('/', locale as Locale)} className="hover:text-cta transition-colors">{dict.knowledge.breadcrumb.home}</Link>
+          <Link href={localePath('/fnb', locale as Locale)} className="hover:text-cta transition-colors">{dict.knowledge.breadcrumb.home}</Link>
           <span className="mx-2">/</span>
           <Link href={localePath('/kien-thuc', locale as Locale)} className="hover:text-cta transition-colors">{dict.knowledge.breadcrumb.knowledge}</Link>
           <span className="mx-2">/</span>
@@ -156,9 +158,16 @@ export default async function KienThucTopicPage({ params }: PageProps) {
           <div className="flex items-center gap-4 max-md:flex-col max-md:text-center">
             <Icon name={topic.icon} size={48} className="shrink-0" />
             <div>
-              <span className="clay-pill bg-white/80 !text-[10px] !py-0.5 mb-1.5 inline-flex">
-                {categoryLabel}
-              </span>
+              <div className="flex items-center gap-2 mb-1.5 flex-wrap">
+                <span className="clay-pill bg-white/80 !text-[10px] !py-0.5 inline-flex">
+                  {categoryLabel}
+                </span>
+                {topic.publishDate && (
+                  <span className="text-[11px] text-text-light">
+                    {new Date(topic.publishDate + 'T00:00:00').toLocaleDateString(locale === 'vi' ? 'vi-VN' : 'en-US', { day: '2-digit', month: '2-digit', year: 'numeric' })}
+                  </span>
+                )}
+              </div>
               <h1 className="text-xl font-bold font-[family-name:var(--font-heading)] text-text">
                 {topic.title}
               </h1>
@@ -237,6 +246,11 @@ export default async function KienThucTopicPage({ params }: PageProps) {
             </div>
           </div>
         )}
+
+        {/* Share */}
+        <div className="mt-6">
+          <ShareBlock {...dict.common.share} />
+        </div>
 
         {/* CTA */}
         <div className="text-center mt-8">

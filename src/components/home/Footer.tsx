@@ -4,6 +4,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import Icon from '@/components/ui/Icon';
 import { SocialIcon } from '@/components/ui/Icon';
+import NewsletterSignup from './NewsletterSignup';
 import { useTranslation } from '@/i18n/LocaleProvider';
 import { localePath } from '@/i18n/link';
 import type { Locale } from '@/i18n/config';
@@ -27,6 +28,11 @@ export default function Footer() {
       </div>
 
       <div className="px-6 py-5 max-md:px-4">
+        {/* Newsletter signup */}
+        <div className="mb-5">
+          <NewsletterSignup />
+        </div>
+
         {/* Three columns */}
         <div className="grid grid-cols-3 gap-6 max-md:grid-cols-1 max-md:gap-4">
           {/* Column 1: About */}

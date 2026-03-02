@@ -2,6 +2,7 @@ import type { Expert } from '@/types';
 
 const EXPERTS: Expert[] = [
   // ── Chuyên gia tư vấn ──
+
   {
     id: 'do-duy-thanh',
     slug: 'do-duy-thanh',
@@ -83,7 +84,7 @@ const EXPERTS: Expert[] = [
     ],
     quotes: [
       {
-        text: 'Đông khách không có nghĩa là bạn đang làm đúng!',
+        text: 'Đông khách không có nghĩa là bạn đang làm đúng! Phải hiểu rõ khách hàng đang đến vì điều gì thì mới giữ chân được họ.',
         source: 'CafeF',
         sourceUrl: 'https://cafef.vn/nha-sang-lap-truong-hoc-marketing-nganh-am-thuc-dau-tien-tai-viet-nam-dong-khach-khong-co-nghia-la-ban-dang-lam-dung-20220206095659549.chn',
       },
@@ -138,12 +139,12 @@ const EXPERTS: Expert[] = [
     ],
     quotes: [
       {
-        text: 'Đừng mở quán chỉ để bán nó sau 3 tháng.',
-        source: 'trantrunghieu.com',
-      },
-      {
         text: 'Kinh doanh F&B không phải cuộc chơi của đam mê suông — mà là của người biết tính toán.',
         source: 'VnExpress',
+      },
+      {
+        text: 'Đừng mở quán chỉ để bán nó sau 3 tháng.',
+        source: 'trantrunghieu.com',
       },
     ],
     advice: [
@@ -165,62 +166,338 @@ const EXPERTS: Expert[] = [
     ],
   },
 
-  // ── Người truyền cảm hứng ──
+
+
+  // ── Chuỗi lớn & Tập đoàn ──
+
   {
-    id: 'nguyen-ha-linh',
-    slug: 'nguyen-ha-linh',
-    name: 'Nguyễn Hà Linh',
-    descriptor: '"Cô gái 250 nghìn" — từ phát tờ rơi đến chuỗi nhà hàng Thái và cộng đồng 2.6 triệu người',
-    photo: '/experts/nguyen-ha-linh.webp',
-    category: 'inspiration',
-    tags: ['Khởi nghiệp trẻ', 'Nhà hàng', 'Forbes 30U30', 'Cộng đồng'],
-    shortBio: 'Khởi nghiệp với 250.000đ lúc 18 tuổi, Forbes 30 Under 30. Sáng lập chuỗi Koh Yam Thai (~10 chi nhánh) và cộng đồng Nghiện Nhà (2.6 triệu thành viên).',
-    fullBio: 'Nguyễn Hà Linh (sinh 1988, Hà Nội) bỏ dở đại học năm thứ 3 để toàn tâm khởi nghiệp. Năm 18 tuổi, với 250.000 đồng, cô mở lớp luyện thi IELTS — ngày đầu thu 120 triệu. Mở rộng sang F&B với chuỗi kem dừa Koh Samui, thua lỗ 7 tỷ đồng — bài học đắt giá về kinh doanh theo trào lưu.\n\nKhông nản, cô tái cấu trúc thành Bếp Thái Koh Yam — mô hình bền vững với công thức Thái "Việt hóa". Hiện Koh Yam có ~10 chi nhánh. Forbes Vietnam vinh danh 30 Under 30 (2016). Năm 2020, cô sáng lập group "Nghiện Nhà" — 2.6 triệu thành viên.',
+    id: 'dao-the-vinh',
+    slug: 'dao-the-vinh',
+    name: 'Đào Thế Vinh',
+    descriptor: 'Chủ tịch & CEO Golden Gate — chuỗi nhà hàng lớn nhất Việt Nam với 40+ thương hiệu, 500+ nhà hàng',
+    photo: '/experts/dao-the-vinh.webp',
+    category: 'inspiration' as const,
+    tags: ['Chuỗi nhà hàng', 'Multi-brand', 'M&A', 'Hệ thống hóa'],
+    shortBio: 'Kỹ sư khí tượng du học Nga, chuyển sang kinh doanh ẩm thực. Sáng lập Golden Gate (2005) — từ 1 quán lẩu nấm đến 500+ nhà hàng, 40+ thương hiệu (Kichi-Kichi, Gogi House, Vuvuzela). Temasek đầu tư định giá ~$650 triệu.',
+    fullBio: 'Đào Thế Vinh (sinh 1972) tốt nghiệp Đại học Khí tượng Thủy văn Saint Petersburg, Nga. Sau 7 năm buôn bán xuất nhập khẩu tại Nga, ông trở về Việt Nam năm 2002 và đồng sáng lập thương hiệu trà Cozy.\n\nNăm 2005, cùng hai người bạn thành lập Golden Gate. Cảm hứng đến từ chuyến đi Vân Nam (Trung Quốc) khi phát hiện món lẩu nấm tại Shangri-La. Năm 2008, mở nhà hàng đầu tiên Ashima tại 44 Phan Đình Phùng, Hà Nội — chỉ 4-5 bàn, nội thất gỗ cổ mua sẵn để bán lại nếu thất bại.\n\nĐiểm đặc biệt: cả 3 sáng lập viên đều là kỹ sư, không ai có nền tảng ẩm thực — nên ngay từ đầu đã hệ thống hóa mọi thứ thay vì dựa vào nghệ nhân. Sau 16 năm: 500+ nhà hàng, 40+ thương hiệu, 19.000 nhân viên, phục vụ 18 triệu khách/năm. Năm 2025, mua lại The Coffee House với giá 270 tỷ VNĐ.',
     highlights: [
-      'Khởi nghiệp với 250.000 đồng lúc 18 tuổi, ngày đầu thu 120 triệu',
-      'Thua lỗ 7 tỷ với Koh Samui → tái cấu trúc thành Koh Yam Thai (~10 chi nhánh)',
-      'Forbes Vietnam 30 Under 30 (2016)',
-      'Sáng lập Nghiện Nhà — cộng đồng 2.6 triệu thành viên',
+      'Từ 1 quán lẩu nấm (2008) → 500+ nhà hàng, 40+ thương hiệu tại 45 tỉnh thành',
+      'Doanh thu 2024: 6.630 tỷ VNĐ (~$259 triệu)',
+      'Temasek đầu tư (2022), định giá ~$650 triệu USD',
+      'Mekong Capital đầu tư $2.6M (2008), thoái vốn lãi 9 lần (2014) — case study INSEAD',
     ],
     quotes: [
       {
-        text: 'Tôi chưa bao giờ nhìn nhận sự thất bại, mà chỉ đơn giản là vấp ngã.',
-        source: 'Báo Đầu tư',
-        sourceUrl: 'https://baodautu.vn/ceo-nguyen-ha-linh-chu-he-thong-nha-hang-thai-koh-yam-khong-co-that-bai-chi-co-vap-nga-d89980.html',
+        text: 'Tôi cần bán sản phẩm mà khách hàng thích, không phải sản phẩm thỏa mãn sở thích cá nhân.',
+        source: 'Nhà Đầu Tư',
+        sourceUrl: 'https://nhadautu.vn/vua-nha-hang-golden-gate-ke-chuyen-khoi-nghiep-mat-tien-bi-quy-dau-tu-lua-va-cai-ket-d66490.html',
       },
       {
-        text: '80% anh chị chủ doanh nghiệp mà mình biết và ngưỡng mộ, họ có sự nhạy bén xuất sắc trong sales và marketing.',
-        source: 'CafeF',
-        sourceUrl: 'https://cafef.vn/nguyen-ha-linh-sang-lap-koh-yam-thai-chuoi-makeup-chu-nhuong-quyen-cong-ca-phe-nhung-khong-trang-diem-cung-chang-uong-ca-phe-quan-trong-la-biet-sales-va-marketing-20191219144543295.chn',
+        text: 'Hệ thống có thể tạo ra bất kỳ sản phẩm nào; nghệ nhân chỉ tạo ra được thứ họ giỏi.',
+        source: 'CafeBiz',
+        sourceUrl: 'https://cafebiz.vn/dao-the-vinh-vi-dai-gia-dung-sau-golden-gate-tu-cam-hung-mon-lau-nam-trong-chuyen-di-shangrila-toi-chuoi-400-nha-hang-lon-nhat-viet-nam-nhu-kichi-kichi-gogi-house-vuvuzela-20211227124836345.chn',
       },
       {
-        text: 'Thị trường ngoài Bắc theo trào lưu rất nhanh, và quên trào lưu cũng rất nhanh. Cái khó là tạo ra một mô hình kinh doanh bền vững.',
-        source: 'CafeF',
-        sourceUrl: 'https://soha.vn/nguyen-ha-linh-sang-lap-koh-yam-thai-chuoi-makeup-chu-nhuong-quyen-cong-ca-phe-nhung-khong-trang-diem-cung-chang-uong-ca-phe-quan-trong-la-biet-sales-va-marketing-20191219155309982.htm',
+        text: 'Khó khăn lộ ra cơ hội. Trong lúc khó, một khách hàng hài lòng bằng hàng nghìn lúc bình thường.',
+        source: 'Vietnam Business Insider',
+        sourceUrl: 'https://vietnambusinessinsider.vn/so-luoc-nganh-hospitality-o-viet-nam-bai-12-golden-gate-khi-nhung-ke-ngoai-dao-lam-nen-ky-tich-a19669.html',
       },
     ],
     advice: [
       {
-        title: 'Sales & Marketing là kỹ năng sống còn',
-        desc: 'Dù sản phẩm tốt đến đâu, không ai biết thì vô nghĩa. 80% chủ doanh nghiệp thành công giỏi sales & marketing.',
+        title: 'Hệ thống hóa ngay từ đầu',
+        desc: 'Đừng phụ thuộc vào một đầu bếp giỏi hay một quản lý tài năng. Xây quy trình chuẩn để bất kỳ ai cũng vận hành được.',
       },
       {
-        title: 'Xây mô hình bền vững, không chạy theo trào lưu',
-        desc: 'Bài học 7 tỷ từ Koh Samui — thị trường Việt theo trend nhanh nhưng quên cũng nhanh.',
+        title: 'Bán thứ khách muốn, không phải thứ mình thích',
+        desc: 'Nếu biến sở thích cá nhân thành mô hình kinh doanh mà không nghiên cứu thị trường, rủi ro rất cao.',
       },
       {
-        title: 'Nhân sự là gốc rễ thương hiệu',
-        desc: 'F&B thành bại dựa vào đầu bếp và quản lý. Đối tác phải chung tư tưởng.',
+        title: 'Multi-brand để phân tán rủi ro',
+        desc: 'Không bỏ tất cả vào một concept. Mỗi thương hiệu nhắm một phân khúc, một loại ẩm thực — trend nào rớt thì brand khác bù.',
       },
     ],
     links: [
-      { label: 'Không có thất bại, chỉ có vấp ngã (Báo Đầu tư)', url: 'https://baodautu.vn/ceo-nguyen-ha-linh-chu-he-thong-nha-hang-thai-koh-yam-khong-co-that-bai-chi-co-vap-nga-d89980.html', type: 'article' },
-      { label: 'Forbes 30U30: Tôi không nghĩ mình là cô gái triệu USD', url: 'https://halinh.vn/blogs/tren-bao-chi/nguyen-ha-linh-forbes-30-under-30-toi-khong-nghi-minh-la-co-gai-trieu-usd', type: 'article' },
+      { label: 'Kể chuyện khởi nghiệp Golden Gate (Nhà Đầu Tư)', url: 'https://nhadautu.vn/vua-nha-hang-golden-gate-ke-chuyen-khoi-nghiep-mat-tien-bi-quy-dau-tu-lua-va-cai-ket-d66490.html', type: 'article' },
+      { label: 'Từ lẩu nấm Shangri-La đến 500 nhà hàng (CafeBiz)', url: 'https://cafebiz.vn/dao-the-vinh-vi-dai-gia-dung-sau-golden-gate-tu-cam-hung-mon-lau-nam-trong-chuyen-di-shangrila-toi-chuoi-400-nha-hang-lon-nhat-viet-nam-nhu-kichi-kichi-gogi-house-vuvuzela-20211227124836345.chn', type: 'article' },
+      { label: 'The CEO Magazine Interview', url: 'https://www.theceomagazine.com/executive-interviews/food-beverage/vinh-dao/', type: 'article' },
     ],
     socials: [
-      { platform: 'facebook', url: 'https://www.facebook.com/nguyenhalinh' },
-      { platform: 'instagram', url: 'https://www.instagram.com/halinh.official1211/' },
-      { platform: 'website', url: 'https://halinh.vn' },
+      { platform: 'website', url: 'https://ggg.com.vn' },
+    ],
+  },
+
+  {
+    id: 'tran-le-nguyen',
+    slug: 'tran-le-nguyen',
+    name: 'Trần Lệ Nguyên',
+    descriptor: 'Phó Chủ tịch & CEO KIDO Group — từ đế chế bánh kẹo đến kem, dầu ăn và chuỗi F&B',
+    photo: '/experts/tran-le-nguyen.webp',
+    category: 'inspiration' as const,
+    tags: ['FMCG', 'M&A', 'Kem', 'Dầu ăn', 'Chuỗi F&B'],
+    shortBio: 'Đồng sáng lập Kinh Đô (1993), bán mảng bánh kẹo cho Mondelez ~$370-490 triệu. Chuyển hướng sang dầu ăn (#2 thị trường), kem (47% thị phần). Ra mắt Chuk Chuk (2021) — bài học thất bại thực chiến.',
+    fullBio: 'Trần Lệ Nguyên (sinh 1968) xuất thân từ gia đình gốc Hoa. Năm 1992, thuyết phục anh trai Trần Kim Thành thế chấp nhà để vay vốn — "một trong những quyết định liều lĩnh nhất đời tôi". Năm 1993, đồng sáng lập Kinh Đô với 1,5 tỷ VNĐ và 70 nhân viên.\n\nNăm 2003, mua lại nhà máy kem Wall\'s từ Unilever → thương hiệu Merino, Celano (47% thị phần kem VN). Năm 2014, bán 80% mảng bánh kẹo cho Mondelez với giá ~$370-490 triệu — thương vụ M&A lớn nhất ngành tiêu dùng VN thời điểm đó. Dùng tiền mua Tường An, Vocarimex → #2 dầu ăn VN (30% thị phần).\n\nNăm 2021, ra mắt Chuk Chuk (kem, trà sữa, cà phê) — tham vọng 1.000 cửa hàng nhưng thất bại, thoái vốn cuối 2022. Bài học quý giá về unit economics trong chuỗi F&B.',
+    highlights: [
+      'Đồng sáng lập Kinh Đô (1993) → bán cho Mondelez ~$370-490 triệu (2014)',
+      'Kem Merino + Celano: 47% thị phần kem Việt Nam',
+      'Dầu ăn KIDO: #2 thị trường với ~30% thị phần',
+      'Chuk Chuk: bài học thất bại — từ mục tiêu 1.000 cửa hàng đến thoái vốn',
+    ],
+    quotes: [
+      {
+        text: 'Cuộc sống là phải luôn có tham vọng. Bạn phải có tham vọng thì mới đạt được những hoài bão của mình.',
+        source: 'KIDO',
+        sourceUrl: 'https://www.kdc.vn/bai-viet/ceo-kinh-do-cuoc-song-phai-luon-co-tham-vong',
+      },
+      {
+        text: 'Nếu không M&A thì tăng trưởng có hạn, mỗi năm tăng 10% đã là tối đa. Nhưng chỉ cần một thương vụ M&A đúng đã mang lại giá trị rất lớn.',
+        source: 'MarketTimes',
+        sourceUrl: 'https://markettimes.vn/ong-tran-le-nguyen-chia-se-bi-quyet-m-a-cua-kido-va-loi-khuyen-dac-biet-danh-cho-nha-dau-tu-ca-nhan-67844.html',
+      },
+      {
+        text: 'Mua một công ty mà không tạo ra giá trị thì không khác gì mua một con gà mà nó không đẻ được trứng.',
+        source: 'MarketTimes',
+        sourceUrl: 'https://markettimes.vn/ong-tran-le-nguyen-chia-se-bi-quyet-m-a-cua-kido-va-loi-khuyen-dac-biet-danh-cho-nha-dau-tu-ca-nhan-67844.html',
+      },
+    ],
+    advice: [
+      {
+        title: 'Bán đúng lúc, mua đúng thời',
+        desc: 'Bán mảng kinh doanh đỉnh cao để lấy tiền mua mảng tiềm năng hơn. Kinh Đô bán bánh kẹo, dùng tiền thâu tóm dầu ăn — táo bạo nhưng hiệu quả.',
+      },
+      {
+        title: 'Chuỗi F&B cần unit economics tốt',
+        desc: 'Chuk Chuk thất bại vì mở nhanh nhưng chưa chứng minh được mô hình lãi ở từng điểm bán. Tham vọng lớn không thay thế được con số.',
+      },
+      {
+        title: 'Thế chấp nhà khởi nghiệp — liều nhưng phải tính',
+        desc: 'Quyết định liều lĩnh nhất đời là thế chấp nhà. Nhưng liều vì đã nghiên cứu kỹ thị trường bánh kẹo Thái đang thống trị VN.',
+      },
+    ],
+    links: [
+      { label: 'Cuộc sống phải luôn có tham vọng (KIDO)', url: 'https://www.kdc.vn/bai-viet/ceo-kinh-do-cuoc-song-phai-luon-co-tham-vong', type: 'article' },
+      { label: 'Bí quyết M&A của KIDO (MarketTimes)', url: 'https://markettimes.vn/ong-tran-le-nguyen-chia-se-bi-quyet-m-a-cua-kido-va-loi-khuyen-dac-biet-danh-cho-nha-dau-tu-ca-nhan-67844.html', type: 'article' },
+      { label: 'Anh em đại gia họ Trần và triết lý KIDO (Nhà Đầu Tư)', url: 'https://nhadautu.vn/doanh-nhan-nguoi-hoa-kin-tieng--bai-3-anh-em-dai-gia-ho-tran-va-triet-ly-kinh-doanh-co-1-0-2-o-kido-d28703.html', type: 'article' },
+    ],
+    socials: [
+      { platform: 'website', url: 'https://www.kdc.vn' },
+    ],
+  },
+
+  {
+    id: 'danny-le',
+    slug: 'danny-le',
+    name: 'Danny Le',
+    descriptor: 'CEO Masan Group — kiến trúc sư thương vụ Phúc Long $455 triệu và hệ sinh thái "Point of Life"',
+    photo: '/experts/danny-le.webp',
+    category: 'inspiration' as const,
+    tags: ['Tập đoàn', 'M&A', 'Phúc Long', 'WinMart', 'Chiến lược'],
+    shortBio: 'CEO Masan Group từ năm 36 tuổi. Cựu analyst Morgan Stanley. Kiến trúc sư thương vụ mua Phúc Long ($455 triệu), WinCommerce, huy động $5 tỷ+ từ Alibaba, SK Group, Bain Capital.',
+    fullBio: 'Danny Le (sinh 1984) là Việt kiều Mỹ, tốt nghiệp Bowdoin College (ngành Xã hội học). Sau 4 năm làm investment banking analyst tại Morgan Stanley New York, ông gia nhập Masan năm 2010 ở vị trí Giám đốc Chiến lược.\n\nNăm 2020, ở tuổi 36, được bổ nhiệm CEO Masan Group — một trong những CEO trẻ nhất của tập đoàn lớn tại VN. Thương vụ nổi bật nhất: mua 85% Phúc Long Heritage với tổng đầu tư ~$280 triệu, định giá $455 triệu. Tích hợp 971 kiosk Phúc Long vào WinMart+ chỉ trong 1 năm.\n\nDưới thời Danny Le, Masan huy động hơn $5 tỷ từ KKR, Alibaba, SK Group, Bain Capital. Doanh thu 2025: 81.621 tỷ VNĐ, lợi nhuận sau thuế 6.764 tỷ VNĐ.',
+    highlights: [
+      'CEO Masan Group từ tuổi 36 — một trong những CEO trẻ nhất tập đoàn lớn VN',
+      'Mua 85% Phúc Long: $280 triệu đầu tư, định giá $455 triệu',
+      'Huy động $5 tỷ+ từ Alibaba, SK Group, Bain Capital, KKR',
+      'Doanh thu 2025: 81.621 tỷ VNĐ (+8.7%), lợi nhuận gấp 1.6 lần 2024',
+    ],
+    quotes: [
+      {
+        text: 'Xây thương hiệu từ đầu có thể mất 5-7 năm mà không đảm bảo thành công — chiến lược tốt nhất là M&A và đầu tư quy mô lớn để dẫn đầu thị trường.',
+        source: 'Masan Group',
+        sourceUrl: 'https://www.masangroup.com/news/masan-news/Behind-the-usd-455-million-valuation-of-Phuc-Long.html',
+      },
+      {
+        text: 'Bán lẻ hiện đại chỉ chiếm 12% thị trường Việt Nam so với 30-50% ở Thái Lan và Indonesia — dư địa tăng trưởng còn rất lớn.',
+        source: 'Bloomberg',
+        sourceUrl: 'https://www.bloomberg.com/news/videos/2021-12-20/masan-group-embarks-on-tech-drive-for-grocery-business-video-kxe9ewxu',
+      },
+      {
+        text: 'Gọi vốn M&A tập trung vào tích hợp nền tảng phù hợp chiến lược tổng thể, không chỉ chạy theo doanh thu hay lợi nhuận.',
+        source: 'Masan Group',
+        sourceUrl: 'https://www.masangroup.com/news/masan-news/how-masan-employs-deamaking-to-build-its-consumer-retail-platform.html',
+      },
+    ],
+    advice: [
+      {
+        title: 'M&A nhanh hơn xây từ đầu',
+        desc: 'Phúc Long mất 55 năm xây thương hiệu. Masan mua 85% trong 18 tháng, tích hợp 971 kiosk vào WinMart+ chỉ trong 1 năm.',
+      },
+      {
+        title: 'Tích hợp hệ sinh thái tạo giá trị cộng hưởng',
+        desc: 'Đặt Phúc Long trong WinMart+, kết hợp tài chính Techcombank — biến cửa hàng tiện lợi thành "mini-mall" đa dịch vụ.',
+      },
+      {
+        title: 'Đầu tư vào công nghệ và AI',
+        desc: 'Masan mục tiêu giảm 15-20% chi phí sản xuất nhờ số hóa quy trình và tối ưu vận hành bằng AI.',
+      },
+    ],
+    links: [
+      { label: 'Thương vụ Phúc Long $455 triệu (Masan)', url: 'https://www.masangroup.com/news/masan-news/Behind-the-usd-455-million-valuation-of-Phuc-Long.html', type: 'article' },
+      { label: 'CEO Masan trên Bloomberg (Video)', url: 'https://www.bloomberg.com/news/videos/2021-12-20/masan-group-embarks-on-tech-drive-for-grocery-business-video-kxe9ewxu', type: 'video' },
+      { label: 'Chiến lược M&A xây nền tảng bán lẻ (Masan)', url: 'https://www.masangroup.com/news/masan-news/how-masan-employs-deamaking-to-build-its-consumer-retail-platform.html', type: 'article' },
+    ],
+    socials: [
+      { platform: 'linkedin', url: 'https://growtheumcapital.com/danny-le/' },
+      { platform: 'website', url: 'https://www.masangroup.com' },
+    ],
+  },
+
+  {
+    id: 'pham-cao-vinh',
+    slug: 'pham-cao-vinh',
+    name: 'Phạm Cao Vinh',
+    descriptor: 'Chủ tịch Goldsun Group — xây đế chế từ bao bì Samsung đến 16 thương hiệu F&B, 200+ nhà hàng',
+    photo: '/experts/pham-cao-vinh.webp',
+    category: 'inspiration' as const,
+    tags: ['Chuỗi nhà hàng', 'Multi-brand', 'Bao bì', 'Đa ngành'],
+    shortBio: 'Từ gas hóa lỏng (1994) → bao bì vendor cấp 1 Samsung → Goldsun Food (200+ nhà hàng, 16 thương hiệu: King BBQ, Thai Express, Khao Lao). Chuỗi nhà hàng lớn thứ 2 Việt Nam.',
+    fullBio: 'Phạm Cao Vinh (sinh 1968) khởi nghiệp năm 1994 với công ty gas hóa lỏng Quang Vinh. Năm 1996, chuyển sang ngành in ấn bao bì — xây dựng Goldsun Printing & Packaging thành vendor cấp 1 của Samsung (cung cấp ~20% bao bì điện thoại Samsung), Canon, Brother, Coca-Cola.\n\nNăm 2008, lấn sân F&B với Redsun ITI. Đưa 4 thương hiệu quốc tế đầu tiên về VN (Seoul Garden, Thai Express, Xinwang HK Cafe, Capricciosa) và tự phát triển King BBQ (2011), Khao Lao, Hotpot Story, Sushi Kei. Năm 2019, tái cấu trúc thành Goldsun Food.\n\nHiện Goldsun Food vận hành 16 thương hiệu, 200+ nhà hàng, 6.000+ nhân viên, phục vụ 2.4 triệu khách/năm. Là chuỗi nhà hàng lớn thứ 2 Việt Nam sau Golden Gate.',
+    highlights: [
+      'Vendor cấp 1 Samsung 10+ năm, cung cấp ~20% bao bì điện thoại',
+      '16 thương hiệu F&B, 200+ nhà hàng — chuỗi lớn thứ 2 VN',
+      'Tiên phong đưa Seoul Garden, Thai Express về Việt Nam',
+      'King BBQ (2011) — thương hiệu BBQ Hàn Quốc đầu tiên tại VN',
+    ],
+    quotes: [
+      {
+        text: 'Làm được đối tác của Samsung không dễ dàng. Có lúc Chủ tịch HĐQT trực tiếp đứng máy nửa tháng liên tục, làm thâu đêm.',
+        source: 'CafeF',
+        sourceUrl: 'https://cafef.vn/chuyen-chua-ke-cua-mot-vendor-cap-1-cho-samsung-chu-tich-hdqt-truc-tiep-dung-may-nua-thang-lien-tuc-lam-thau-dem-20181116182958954.chn',
+      },
+      {
+        text: 'Đổi mới là con đường tồn tại.',
+        source: 'Wonderful.vn',
+        sourceUrl: 'https://wonderful.vn/le-khanh-thanh-nha-may-bao-bi-va-in-an-goldsun-que-vo-doi-moi-la-con-duong-ton-tai/',
+      },
+    ],
+    advice: [
+      {
+        title: 'Đa ngành có thể hỗ trợ lẫn nhau',
+        desc: 'Kinh nghiệm quản lý chuỗi cung ứng bao bì cho Samsung giúp vận hành chuỗi nhà hàng hiệu quả hơn — tư duy hệ thống áp dụng được mọi ngành.',
+      },
+      {
+        title: 'Franchise quốc tế + thương hiệu tự phát triển',
+        desc: 'Đưa thương hiệu quốc tế về để học quy trình, đồng thời tự xây brand riêng. Song song hai chiến lược giảm rủi ro.',
+      },
+      {
+        title: 'Chuyển đổi số là bắt buộc',
+        desc: 'F&B quy mô lớn không thể quản lý thủ công. Đầu tư ERP, digital transformation từ sớm giúp kiểm soát 200+ cửa hàng.',
+      },
+    ],
+    links: [
+      { label: 'Ông chủ King BBQ kinh doanh như thế nào (CafeF)', url: 'https://cafef.vn/ong-chu-chuoi-am-thuc-nuong-han-quoc-king-bbq-kinh-doanh-nhu-the-nao-20220919065601016.chn', type: 'article' },
+      { label: 'So găng Golden Gate và Goldsun Food (VietnamBiz)', url: 'https://vietnambiz.vn/so-gang-tiem-luc-hai-ong-vua-am-thuc-golden-gate-va-goldsun-food-2025422135950463.htm', type: 'article' },
+      { label: 'Vendor cấp 1 Samsung (CafeF)', url: 'https://cafef.vn/chuyen-chua-ke-cua-mot-vendor-cap-1-cho-samsung-chu-tich-hdqt-truc-tiep-dung-may-nua-thang-lien-tuc-lam-thau-dem-20181116182958954.chn', type: 'article' },
+    ],
+    socials: [
+      { platform: 'website', url: 'https://goldsunfood.vn' },
+    ],
+  },
+
+
+
+  // ── Cà phê & Serial Entrepreneur ──
+
+  {
+    id: 'nguyen-hai-ninh',
+    slug: 'nguyen-hai-ninh',
+    name: 'Nguyễn Hải Ninh',
+    descriptor: '"Nhà khởi nghiệp nối tiếp" — từ Urban Station đến The Coffee House, M Village và Every Half',
+    photo: '/experts/nguyen-hai-ninh.webp',
+    category: 'inspiration',
+    tags: ['Serial Entrepreneur', 'Cà phê', 'Startup', 'Forbes 30U30'],
+    shortBio: 'Serial entrepreneur: Urban Station (60+ quán) → The Coffee House (175 quán, 800 tỷ doanh thu) → M Village → Every Half. Forbes 30 Under 30 Asia.',
+    fullBio: 'Nguyễn Hải Ninh (sinh 1987) tốt nghiệp ngành Hóa, ĐH Bách Khoa TP.HCM. Sau chương trình Management Trainee tại PepsiCo, anh bắt đầu hành trình khởi nghiệp.\n\nNăm 2011, đồng sáng lập Urban Station — nhanh chóng mở 60+ cửa hàng. Năm 2014, rời đi để sáng lập The Coffee House với triết lý "cà phê cộng đồng" — 175 cửa hàng, ~800 tỷ VNĐ doanh thu (2019), Forbes 30 Under 30 Asia. Rời TCH năm 2021, anh tiếp tục với M Village (co-living, $10M từ Trip.com) và Every Half Coffee Roasters ($3M Pre-Series A, 14+ cửa hàng).',
+    highlights: [
+      '4 ventures trong 14 năm: Urban Station, The Coffee House, M Village, Every Half',
+      'The Coffee House: 175 cửa hàng, ~800 tỷ doanh thu, Forbes 30 Under 30 Asia (2019)',
+      'Every Half: $3M Pre-Series A (2025), xuất khẩu cà phê Robusta đặc sản sang Bắc Mỹ',
+      'M Village: $10M từ Trip.com, 100 tỷ VNĐ vay không tài sản đảm bảo từ OCB',
+    ],
+    quotes: [
+      {
+        text: 'Tôi từ bùn đen đi lên, học trái ngành, không biết gì về cà phê.',
+        source: 'CafeBiz',
+        sourceUrl: 'https://cafebiz.vn/ceo-the-coffee-house-nguyen-hai-ninh-toi-tu-bun-den-di-len-hoc-trai-nganh-khong-biet-gi-ve-ca-phe-khong-nhuong-quyen-vi-so-trao-con-cho-nguoi-khac-20181103012337456.chn',
+      },
+      {
+        text: 'Chúng tôi không nhượng quyền vì sợ trao "con" cho người khác.',
+        source: 'CafeBiz',
+        sourceUrl: 'https://cafebiz.vn/ceo-the-coffee-house-nguyen-hai-ninh-toi-tu-bun-den-di-len-hoc-trai-nganh-khong-biet-gi-ve-ca-phe-khong-nhuong-quyen-vi-so-trao-con-cho-nguoi-khac-20181103012337456.chn',
+      },
+      {
+        text: 'Trước khi tiền vào túi bạn thì hóa đơn sẽ tới.',
+        source: 'YBOX',
+        sourceUrl: 'https://ybox.vn/ky-nang/ceo-the-coffee-house-nguyen-hai-ninh-chia-se-muon-khoi-nghiep-can-it-nhat-3-yeu-to-5c0778d60343425bc80c0a3e',
+      },
+      {
+        text: 'Gọi vốn là hệ quả, không phải mục tiêu.',
+        source: 'CafeF',
+        sourceUrl: 'https://cafef.vn/lan-thu-4-khoi-nghiep-dai-thang-cua-nguyen-hai-ninh-nha-sang-lap-the-coffee-house-188250531081050461.chn',
+      },
+    ],
+    advice: [
+      {
+        title: '3 yếu tố khởi nghiệp: Đam mê, Thế mạnh, Xã hội cần',
+        desc: 'Muốn khởi nghiệp cần ít nhất 3 yếu tố: đam mê, làm đúng thế mạnh, và thế mạnh đó phải là cái xã hội đang cần.',
+      },
+      {
+        title: 'Hóa đơn đến trước doanh thu',
+        desc: 'Chuẩn bị tinh thần và tài chính — đừng thấy hào quang người khác mà bỏ qua thực tế.',
+      },
+      {
+        title: 'Gọi vốn là hệ quả',
+        desc: 'Giải quyết vấn đề thật cho đúng nhóm người, xây hệ thống, học nhanh — nhà đầu tư tự tìm đến.',
+      },
+    ],
+    links: [
+      { label: 'Lần thứ 4 khởi nghiệp đại thắng (CafeF)', url: 'https://cafef.vn/lan-thu-4-khoi-nghiep-dai-thang-cua-nguyen-hai-ninh-nha-sang-lap-the-coffee-house-188250531081050461.chn', type: 'article' },
+      { label: 'Tôi từ bùn đen đi lên (CafeBiz)', url: 'https://cafebiz.vn/ceo-the-coffee-house-nguyen-hai-ninh-toi-tu-bun-den-di-len-hoc-trai-nganh-khong-biet-gi-ve-ca-phe-khong-nhuong-quyen-vi-so-trao-con-cho-nguoi-khac-20181103012337456.chn', type: 'article' },
+      { label: 'How I Manage — Promoting Vietnam coffee (Vietcetera)', url: 'https://vietcetera.com/en/how-i-manage-nguyen-hai-ninh-on-promoting-vietnams-coffee-quality', type: 'article' },
+    ],
+    socials: [
+      { platform: 'instagram', url: 'https://www.instagram.com/haininh.nguyen/' },
+    ],
+  },
+
+  {
+    id: 'ngo-nguyen-kha',
+    slug: 'ngo-nguyen-kha',
+    name: 'Ngô Nguyên Kha',
+    descriptor: 'CEO The Coffee House — từ Country Manager Sony Ericsson, sáng lập Mobiistar đến dẫn dắt chuỗi cà phê lớn',
+    photo: '/experts/ngo-nguyen-kha.webp',
+    category: 'inspiration' as const,
+    tags: ['Cà phê', 'Chuỗi F&B', 'Chuyển ngành', 'Trải nghiệm khách hàng'],
+    shortBio: 'Gần 10 năm tại Ericsson/Sony Ericsson, sáng lập Mobiistar (top 5 smartphone VN). Chuyển sang F&B năm 2020, làm CEO The Coffee House từ 2021. Triết lý: "Khách hàng không hài lòng thì mọi thứ đều vô nghĩa."',
+    fullBio: 'Ngô Nguyên Kha (sinh 1971) có gần 10 năm kinh nghiệm tại Ericsson và Sony Ericsson, từng là Country Manager Sony Ericsson Việt Nam. Năm 2012, ông đồng sáng lập Mobiistar — thương hiệu smartphone Việt từng đạt top 5 thị phần, mở rộng sang Ấn Độ năm 2018 nhưng rút lui năm 2019.\n\nNăm 2020, ông gia nhập Seedcom làm Tổng Giám đốc Fashion Group. Tháng 12/2021, được bổ nhiệm CEO The Coffee House — chuỗi cà phê có ~150 cửa hàng (hiện ~93 cửa hàng sau tái cấu trúc). Ông mang tư duy công nghệ và trải nghiệm khách hàng từ ngành điện tử vào F&B.\n\nĐầu 2025, Golden Gate mua lại 99.98% The Coffee House với giá 270 tỷ VNĐ.',
+    highlights: [
+      'Country Manager Sony Ericsson → sáng lập Mobiistar (top 5 smartphone VN)',
+      'CEO The Coffee House từ 2021, tái cấu trúc chuỗi ~150 cửa hàng',
+      'Mang tư duy tech và customer experience vào ngành F&B',
+      'The Coffee House được Golden Gate mua lại đầu 2025',
+    ],
+    quotes: [
+      {
+        text: 'Nếu khách hàng không hài lòng, mọi thứ chúng tôi làm đều vô nghĩa.',
+        source: 'VnExpress',
+        sourceUrl: 'https://e.vnexpress.net/news/companies/improving-customer-experience-holds-the-key-the-coffee-house-ceo-4564758.html',
+      },
+    ],
+    advice: [
+      {
+        title: 'Trải nghiệm khách hàng là ưu tiên số 1',
+        desc: 'Dù sản phẩm tốt đến đâu, nếu khách hàng không hài lòng khi bước vào quán thì mọi thứ đều vô nghĩa.',
+      },
+      {
+        title: 'Tư duy tech có thể áp dụng vào F&B',
+        desc: 'Quản lý chuỗi F&B giống quản lý sản phẩm công nghệ — cần data, quy trình, và lắng nghe feedback liên tục.',
+      },
+    ],
+    links: [
+      { label: 'Trải nghiệm khách hàng là chìa khóa (VnExpress)', url: 'https://e.vnexpress.net/news/companies/improving-customer-experience-holds-the-key-the-coffee-house-ceo-4564758.html', type: 'article' },
+    ],
+    socials: [
+      { platform: 'website', url: 'https://www.thecoffeehouse.com' },
     ],
   },
 
@@ -284,66 +561,303 @@ const EXPERTS: Expert[] = [
   },
 
   {
-    id: 'nguyen-hai-ninh',
-    slug: 'nguyen-hai-ninh',
-    name: 'Nguyễn Hải Ninh',
-    descriptor: '"Nhà khởi nghiệp nối tiếp" — từ Urban Station đến The Coffee House, M Village và Every Half',
-    photo: '/experts/nguyen-hai-ninh.webp',
+    id: 'ly-quy-trung',
+    slug: 'ly-quy-trung',
+    name: 'Lý Quý Trung',
+    descriptor: '"Cha đẻ Phở 24" — người tiên phong nhượng quyền F&B Việt Nam, tác giả 10 cuốn sách kinh doanh',
+    photo: '/experts/ly-quy-trung.webp',
     category: 'inspiration',
-    tags: ['Serial Entrepreneur', 'Cà phê', 'Startup', 'Forbes 30U30'],
-    shortBio: 'Serial entrepreneur: Urban Station (60+ quán) → The Coffee House (175 quán, 800 tỷ doanh thu) → M Village → Every Half. Forbes 30 Under 30 Asia.',
-    fullBio: 'Nguyễn Hải Ninh (sinh 1987) tốt nghiệp ngành Hóa, ĐH Bách Khoa TP.HCM. Sau chương trình Management Trainee tại PepsiCo, anh bắt đầu hành trình khởi nghiệp.\n\nNăm 2011, đồng sáng lập Urban Station — nhanh chóng mở 60+ cửa hàng. Năm 2014, rời đi để sáng lập The Coffee House với triết lý "cà phê cộng đồng" — 175 cửa hàng, ~800 tỷ VNĐ doanh thu (2019), Forbes 30 Under 30 Asia. Rời TCH năm 2021, anh tiếp tục với M Village (co-living, $10M từ Trip.com) và Every Half Coffee Roasters ($3M Pre-Series A, 14+ cửa hàng).',
+    tags: ['Nhượng quyền', 'Phở', 'Tác giả', 'Giáo dục'],
+    shortBio: 'Sáng lập Phở 24 (2003) — chuỗi phở nhượng quyền đầu tiên, 70+ cửa hàng, bán lại $20 triệu USD (2011). Tác giả 10 cuốn sách. Giáo sư Đại học Western Sydney.',
+    fullBio: 'Lý Quý Trung (sinh 1966, Sài Gòn) xuất thân gia đình doanh nhân — mẹ là chủ nhà hàng Thanh Niên hoạt động hơn 30 năm tại Quận 1. Năm 1985, thi rớt đại học, ông bắt đầu từ nhân viên lau sàn, dọn vệ sinh tại Khách sạn Đệ Nhất (Equatorial). Một vị khách nước ngoài nhìn thấy sự chăm chỉ, tài trợ du học Úc.\n\nTốt nghiệp Thạc sĩ Du lịch (Griffith University) và Tiến sĩ Quản trị Kinh doanh, ông trở về Việt Nam đồng sáng lập Nam An Group với các thương hiệu ẩm thực cao cấp. Năm 2003, ông mở Phở 24 — tiệm phở máy lạnh đầu tiên tại Việt Nam, tiên phong mô hình nhượng quyền F&B. Chuỗi mở rộng 70+ cửa hàng, có mặt tại Indonesia, Philippines, Hàn Quốc, Nhật Bản, Úc. Năm 2011, bán Phở 24 cho Việt Thái Quốc Tế với giá $20 triệu USD.\n\nÔng cũng thẳng thắn chia sẻ hàng loạt thất bại: Jazz Club, Gloria Jean\'s Coffee, Yogen Fruz, nhà hàng tại Singapore và Thái Lan. Hiện ông là Giáo sư Đại học Western Sydney và sáng lập Viện Doanh nhân LQT.',
     highlights: [
-      '4 ventures trong 14 năm: Urban Station, The Coffee House, M Village, Every Half',
-      'The Coffee House: 175 cửa hàng, ~800 tỷ doanh thu, Forbes 30 Under 30 Asia (2019)',
-      'Every Half: $3M Pre-Series A (2025), xuất khẩu cà phê Robusta đặc sản sang Bắc Mỹ',
-      'M Village: $10M từ Trip.com, 100 tỷ VNĐ vay không tài sản đảm bảo từ OCB',
+      'Sáng lập Phở 24 (2003) — chuỗi phở nhượng quyền đầu tiên Việt Nam, 70+ cửa hàng',
+      'Bán Phở 24 với giá $20 triệu USD (2011) — thương vụ F&B lớn nhất thời điểm đó',
+      'Tác giả 10 cuốn sách về kinh doanh & khởi nghiệp (NXB Trẻ)',
+      'Giáo sư Đại học Western Sydney (Úc) từ 2016',
     ],
     quotes: [
       {
-        text: 'Tôi từ bùn đen đi lên, học trái ngành, không biết gì về cà phê.',
-        source: 'CafeBiz',
-        sourceUrl: 'https://cafebiz.vn/ceo-the-coffee-house-nguyen-hai-ninh-toi-tu-bun-den-di-len-hoc-trai-nganh-khong-biet-gi-ve-ca-phe-khong-nhuong-quyen-vi-so-trao-con-cho-nguoi-khac-20181103012337456.chn',
+        text: 'Sai lầm dạy bạn rất nhiều. Thành công dạy bạn rất ít. Thành công sẽ đi qua nhưng sai lầm thì ở lại.',
+        source: 'VnExpress',
+        sourceUrl: 'https://vnexpress.net/tac-gia/ly-qui-trung-1241.html',
       },
       {
-        text: 'Chúng tôi không nhượng quyền vì sợ trao "con" cho người khác.',
-        source: 'CafeBiz',
-        sourceUrl: 'https://cafebiz.vn/ceo-the-coffee-house-nguyen-hai-ninh-toi-tu-bun-den-di-len-hoc-trai-nganh-khong-biet-gi-ve-ca-phe-khong-nhuong-quyen-vi-so-trao-con-cho-nguoi-khac-20181103012337456.chn',
-      },
-      {
-        text: 'Trước khi tiền vào túi bạn thì hóa đơn sẽ tới.',
-        source: 'YBOX',
-        sourceUrl: 'https://ybox.vn/ky-nang/ceo-the-coffee-house-nguyen-hai-ninh-chia-se-muon-khoi-nghiep-can-it-nhat-3-yeu-to-5c0778d60343425bc80c0a3e',
-      },
-      {
-        text: 'Gọi vốn là hệ quả, không phải mục tiêu.',
+        text: 'Làm F&B, cuối ngày ngồi cộng sổ có lãi là mừng.',
         source: 'CafeF',
-        sourceUrl: 'https://cafef.vn/lan-thu-4-khoi-nghiep-dai-thang-cua-nguyen-hai-ninh-nha-sang-lap-the-coffee-house-188250531081050461.chn',
+        sourceUrl: 'https://cafef.vn/cha-de-pho-24-ly-quy-trung-va-nhung-that-bai-dau-don-khi-khoi-nghiep-fb-quan-dong-chua-chac-da-loi-cuoi-ngay-ngoi-cong-so-co-lai-la-mung-2019052007401939.chn',
+      },
+      {
+        text: 'Đừng lạm dụng câu nói "thất bại là mẹ thành công". Hãy tránh thất bại bất cứ khi nào có thể.',
+        source: 'CafeF',
+        sourceUrl: 'https://cafef.vn/cha-de-pho-24-ly-quy-trung-va-nhung-that-bai-dau-don-khi-khoi-nghiep-fb-quan-dong-chua-chac-da-loi-cuoi-ngay-ngoi-cong-so-co-lai-la-mung-2019052007401939.chn',
       },
     ],
     advice: [
       {
-        title: '3 yếu tố khởi nghiệp: Đam mê, Thế mạnh, Xã hội cần',
-        desc: 'Muốn khởi nghiệp cần ít nhất 3 yếu tố: đam mê, làm đúng thế mạnh, và thế mạnh đó phải là cái xã hội đang cần.',
+        title: 'Quán đông chưa chắc đã lời',
+        desc: 'Doanh thu cao không có nghĩa là lãi. Phải kiểm soát chi phí vận hành từng ngày, cuối ngày cộng sổ có lãi mới là mừng.',
       },
       {
-        title: 'Hóa đơn đến trước doanh thu',
-        desc: 'Chuẩn bị tinh thần và tài chính — đừng thấy hào quang người khác mà bỏ qua thực tế.',
+        title: 'Học bằng tiền người khác trước',
+        desc: 'Nếu chưa có kinh nghiệm, hãy đi làm thuê trước. Học với tiền của người khác rồi hãy mạo hiểm với tiền mình.',
       },
       {
-        title: 'Gọi vốn là hệ quả',
-        desc: 'Giải quyết vấn đề thật cho đúng nhóm người, xây hệ thống, học nhanh — nhà đầu tư tự tìm đến.',
+        title: 'Vị trí quyết định sống còn',
+        desc: 'Nhà hàng đẹp cỡ nào đặt sai chỗ cũng thất bại. Nhiều thất bại của tôi đều vì chọn sai địa điểm.',
       },
     ],
     links: [
-      { label: 'Lần thứ 4 khởi nghiệp đại thắng (CafeF)', url: 'https://cafef.vn/lan-thu-4-khoi-nghiep-dai-thang-cua-nguyen-hai-ninh-nha-sang-lap-the-coffee-house-188250531081050461.chn', type: 'article' },
-      { label: 'Tôi từ bùn đen đi lên (CafeBiz)', url: 'https://cafebiz.vn/ceo-the-coffee-house-nguyen-hai-ninh-toi-tu-bun-den-di-len-hoc-trai-nganh-khong-biet-gi-ve-ca-phe-khong-nhuong-quyen-vi-so-trao-con-cho-nguoi-khac-20181103012337456.chn', type: 'article' },
-      { label: 'How I Manage — Promoting Vietnam coffee (Vietcetera)', url: 'https://vietcetera.com/en/how-i-manage-nguyen-hai-ninh-on-promoting-vietnams-coffee-quality', type: 'article' },
+      { label: 'Những thất bại đau đớn khi khởi nghiệp F&B (CafeF)', url: 'https://cafef.vn/cha-de-pho-24-ly-quy-trung-va-nhung-that-bai-dau-don-khi-khoi-nghiep-fb-quan-dong-chua-chac-da-loi-cuoi-ngay-ngoi-cong-so-co-lai-la-mung-2019052007401939.chn', type: 'article' },
+      { label: '20 năm thăng trầm của Phở 24 (CafeBiz)', url: 'https://cafebiz.vn/20-nam-thang-tram-cua-pho-24-tu-tiem-pho-may-lanh-dau-tien-thanh-chuoi-70-cua-hang-vuon-toi-uc-nhat-han-hoa-con-ghe-bi-dun-qua-day-lai-176230512140530604.chn', type: 'article' },
+      { label: 'Sách "Chỉ có niềm đam mê" (Tiki)', url: 'https://tiki.vn/author/ly-qui-trung.html', type: 'article' },
     ],
     socials: [
-      { platform: 'instagram', url: 'https://www.instagram.com/haininh.nguyen/' },
+      { platform: 'website', url: 'https://lqt.edu.vn' },
     ],
   },
+
+
+
+  // ── Operators & Đầu bếp ──
+
+  {
+    id: 'nguyen-ha-linh',
+    slug: 'nguyen-ha-linh',
+    name: 'Nguyễn Hà Linh',
+    descriptor: '"Cô gái 250 nghìn" — từ phát tờ rơi đến chuỗi nhà hàng Thái và cộng đồng 2.6 triệu người',
+    photo: '/experts/nguyen-ha-linh.webp',
+    category: 'inspiration',
+    tags: ['Khởi nghiệp trẻ', 'Nhà hàng', 'Forbes 30U30', 'Cộng đồng'],
+    shortBio: 'Khởi nghiệp với 250.000đ lúc 18 tuổi, Forbes 30 Under 30. Sáng lập chuỗi Koh Yam Thai (~10 chi nhánh) và cộng đồng Nghiện Nhà (2.6 triệu thành viên).',
+    fullBio: 'Nguyễn Hà Linh (sinh 1988, Hà Nội) bỏ dở đại học năm thứ 3 để toàn tâm khởi nghiệp. Năm 18 tuổi, với 250.000 đồng, cô mở lớp luyện thi IELTS — ngày đầu thu 120 triệu. Mở rộng sang F&B với chuỗi kem dừa Koh Samui, thua lỗ 7 tỷ đồng — bài học đắt giá về kinh doanh theo trào lưu.\n\nKhông nản, cô tái cấu trúc thành Bếp Thái Koh Yam — mô hình bền vững với công thức Thái "Việt hóa". Hiện Koh Yam có ~10 chi nhánh. Forbes Vietnam vinh danh 30 Under 30 (2016). Năm 2020, cô sáng lập group "Nghiện Nhà" — 2.6 triệu thành viên.',
+    highlights: [
+      'Khởi nghiệp với 250.000 đồng lúc 18 tuổi, ngày đầu thu 120 triệu',
+      'Thua lỗ 7 tỷ với Koh Samui → tái cấu trúc thành Koh Yam Thai (~10 chi nhánh)',
+      'Forbes Vietnam 30 Under 30 (2016)',
+      'Sáng lập Nghiện Nhà — cộng đồng 2.6 triệu thành viên',
+    ],
+    quotes: [
+      {
+        text: 'Tôi chưa bao giờ nhìn nhận sự thất bại, mà chỉ đơn giản là vấp ngã.',
+        source: 'Báo Đầu tư',
+        sourceUrl: 'https://baodautu.vn/ceo-nguyen-ha-linh-chu-he-thong-nha-hang-thai-koh-yam-khong-co-that-bai-chi-co-vap-nga-d89980.html',
+      },
+      {
+        text: '80% anh chị chủ doanh nghiệp mà mình biết và ngưỡng mộ, họ có sự nhạy bén xuất sắc trong sales và marketing.',
+        source: 'CafeF',
+        sourceUrl: 'https://cafef.vn/nguyen-ha-linh-sang-lap-koh-yam-thai-chuoi-makeup-chu-nhuong-quyen-cong-ca-phe-nhung-khong-trang-diem-cung-chang-uong-ca-phe-quan-trong-la-biet-sales-va-marketing-20191219144543295.chn',
+      },
+      {
+        text: 'Thị trường ngoài Bắc theo trào lưu rất nhanh, và quên trào lưu cũng rất nhanh. Cái khó là tạo ra một mô hình kinh doanh bền vững.',
+        source: 'CafeF',
+        sourceUrl: 'https://soha.vn/nguyen-ha-linh-sang-lap-koh-yam-thai-chuoi-makeup-chu-nhuong-quyen-cong-ca-phe-nhung-khong-trang-diem-cung-chang-uong-ca-phe-quan-trong-la-biet-sales-va-marketing-20191219155309982.htm',
+      },
+    ],
+    advice: [
+      {
+        title: 'Sales & Marketing là kỹ năng sống còn',
+        desc: 'Dù sản phẩm tốt đến đâu, không ai biết thì vô nghĩa. 80% chủ doanh nghiệp thành công giỏi sales & marketing.',
+      },
+      {
+        title: 'Xây mô hình bền vững, không chạy theo trào lưu',
+        desc: 'Bài học 7 tỷ từ Koh Samui — thị trường Việt theo trend nhanh nhưng quên cũng nhanh.',
+      },
+      {
+        title: 'Nhân sự là gốc rễ thương hiệu',
+        desc: 'F&B thành bại dựa vào đầu bếp và quản lý. Đối tác phải chung tư tưởng.',
+      },
+    ],
+    links: [
+      { label: 'Không có thất bại, chỉ có vấp ngã (Báo Đầu tư)', url: 'https://baodautu.vn/ceo-nguyen-ha-linh-chu-he-thong-nha-hang-thai-koh-yam-khong-co-that-bai-chi-co-vap-nga-d89980.html', type: 'article' },
+      { label: 'Forbes 30U30: Tôi không nghĩ mình là cô gái triệu USD', url: 'https://halinh.vn/blogs/tren-bao-chi/nguyen-ha-linh-forbes-30-under-30-toi-khong-nghi-minh-la-co-gai-trieu-usd', type: 'article' },
+    ],
+    socials: [
+      { platform: 'facebook', url: 'https://www.facebook.com/nguyenhalinh' },
+      { platform: 'instagram', url: 'https://www.instagram.com/halinh.official1211/' },
+      { platform: 'website', url: 'https://halinh.vn' },
+    ],
+  },
+
+  {
+    id: 'hoang-tung',
+    slug: 'hoang-tung',
+    name: 'Hoàng Tùng',
+    descriptor: '"Mr Pizza" — ông chủ Việt của chuỗi Pizza Home, nhà sáng tạo nội dung F&B thực chiến',
+    photo: '/experts/hoang-tung.webp',
+    category: 'inspiration',
+    tags: ['Pizza', 'Chuỗi F&B', 'Khởi nghiệp', 'Content Creator'],
+    shortBio: 'Gần 10 lần khởi nghiệp, 3 lần thất bại. Sáng lập Pizza Home (~20 cửa hàng), Mr Lẩu, Cloud Cook. Burger Corona lên CNN, BBC. Nhà phân tích F&B trên Brands Vietnam.',
+    fullBio: 'Hoàng Tùng (sinh 1981, Hà Nội) tốt nghiệp ĐH Ngoại ngữ và ĐH KHXH&NV, khởi nghiệp từ thời sinh viên với công ty dịch thuật — thất bại. Năm 2006, mở nhà hàng Viet Kitchen tại 24 Bà Triệu, doanh thu 500 triệu/tháng nhưng mâu thuẫn cổ đông khiến ông phải rút vốn.\n\nNăm 2013, ông sáng lập Pizza Home với triết lý "Nhanh - Ngon - Sạch" — pizza giá phải chăng, hương vị Việt hóa. Chuỗi mở rộng ~20 cửa hàng tại Hà Nội. Năm 2020, sáng tạo "Burger Corona" được CNN, BBC, Reuters đưa tin toàn cầu. Ngoài Pizza Home, ông còn sáng lập Mr Lẩu (lẩu giao tận nhà) và Cloud Cook (bếp trên mây).\n\nHoàng Tùng cũng là cây viết phân tích F&B nổi tiếng trên Brands Vietnam và Spiderum, thường xuyên chia sẻ case study thực chiến.',
+    highlights: [
+      'Sáng lập Pizza Home (2013) — ~20 cửa hàng tại Hà Nội',
+      'Burger Corona (2020) — được CNN, BBC, Reuters, Le Figaro đưa tin',
+      'Sáng lập thêm Mr Lẩu và Cloud Cook (bếp trên mây)',
+      'Cây viết phân tích F&B thực chiến trên Brands Vietnam & Spiderum',
+    ],
+    quotes: [
+      {
+        text: 'Trong mọi cuộc khủng hoảng đều có cơ hội. Chuẩn bị cho rủi ro không bao giờ là thừa.',
+        source: 'TheLEADER',
+        sourceUrl: 'https://theleader.vn/6-bai-hoc-xu-ly-khung-hoang-truyen-thong-cua-ong-chu-pizza-home-1616405004126.htm',
+      },
+      {
+        text: 'Càng cố gắng thì càng may mắn.',
+        source: 'CafeF',
+        sourceUrl: 'https://cafef.vn/ceo-pizza-home-hoang-tung-cang-co-gang-thi-cang-may-man-20220122192946346.chn',
+      },
+      {
+        text: 'Đừng đối lập bán online với bán tại quán — cả hai đều có thể bổ trợ cho nhau.',
+        source: 'Brands Vietnam',
+        sourceUrl: 'https://www.brandsvietnam.com/congdong/topic/6494-Thu-giai-ma-chuoi-F-B-va-cong-thuc-chien-thang',
+      },
+    ],
+    advice: [
+      {
+        title: 'CẮT - GIẢM - TĂNG trong khủng hoảng',
+        desc: 'Cắt chi nhánh lỗ, giảm chi phí thuê/logistics, tăng đầu tư R&D sản phẩm mới. Chiến lược giúp Pizza Home sống sót qua COVID.',
+      },
+      {
+        title: 'Phải toàn tâm toàn ý',
+        desc: 'Khởi nghiệp không thể làm nửa vời. Full-time commitment là điều kiện tiên quyết, đừng tuyển quá nhiều co-founder.',
+      },
+      {
+        title: 'Biến khủng hoảng thành cơ hội truyền thông',
+        desc: 'Burger Corona ra đời giữa đại dịch — biến tin xấu thành câu chuyện thương hiệu được báo chí quốc tế đưa tin.',
+      },
+    ],
+    links: [
+      { label: 'Càng cố gắng thì càng may mắn (CafeF)', url: 'https://cafef.vn/ceo-pizza-home-hoang-tung-cang-co-gang-thi-cang-may-man-20220122192946346.chn', type: 'article' },
+      { label: '3 lần khởi nghiệp thất bại (VietnamNet)', url: 'https://vietnamnet.vn/3-lan-khoi-nghiep-that-bai-cua-ong-chu-chuoi-cua-hang-pizza-792121.html', type: 'article' },
+      { label: 'Giải mã chuỗi F&B và công thức chiến thắng (Brands Vietnam)', url: 'https://www.brandsvietnam.com/congdong/topic/6494-Thu-giai-ma-chuoi-F-B-va-cong-thuc-chien-thang', type: 'article' },
+    ],
+    socials: [
+      { platform: 'tiktok', url: 'https://www.tiktok.com/@tungpiz' },
+      { platform: 'website', url: 'https://pizzahome.vn' },
+    ],
+  },
+
+  {
+    id: 'yosuke-masuko',
+    slug: 'yosuke-masuko',
+    name: 'Yosuke Masuko',
+    descriptor: 'Tự học làm phô mai từ YouTube, biến tiệc pizza sân sau thành chuỗi 40+ nhà hàng tại 5 quốc gia',
+    photo: '/experts/yosuke-masuko.webp',
+    category: 'inspiration',
+    tags: ['Farm-to-table', 'Pizza', 'Chuỗi quốc tế', 'Bền vững'],
+    shortBio: 'Đồng sáng lập & CEO Pizza 4P\'s. Từ 5 chiếc bàn nhỏ ở Quận 1 (2011) đến 40+ nhà hàng tại Việt Nam, Campuchia, Nhật Bản, Ấn Độ, Indonesia. Tự tay làm mozzarella, xưởng phô mai riêng tại Đà Lạt.',
+    fullBio: 'Yosuke Masuko (sinh tại Nhật Bản) từng làm việc tại CyberAgent Ventures. Năm 2008, chuyển đến Hà Nội để mở văn phòng đầu tư. Trong thời gian sống tại Việt Nam, vợ chồng anh — Masuko và Sanae Takasugi — bắt đầu tổ chức tiệc pizza sân sau mỗi cuối tuần. Tiệc đông đến mức bạn bè khuyên mở nhà hàng.\n\nThách thức lớn nhất: phô mai mozzarella tươi gần như không có ở Việt Nam. Masuko tự học làm phô mai từ YouTube, thử sữa từ hơn 25 nguồn khác nhau. Năm 2011, với $100.000 tiền tiết kiệm, cặp đôi mở Pizza 4P\'s đầu tiên tại Lê Thánh Tôn, Quận 1 — chỉ 4-5 bàn nhỏ.\n\nSau 14 năm: 40+ nhà hàng tại 5 quốc gia, xưởng phô mai riêng tại Đơn Dương (Đà Lạt) sản xuất 1.500-2.000 viên burrata và 2.000-3.000 viên mozzarella mỗi ngày. Năm 2023, lợi nhuận sau thuế đạt 115 tỷ VNĐ. Năm 2025, mở rộng sang New York (Mỹ).',
+    highlights: [
+      'Từ 5 bàn nhỏ ($100K, 2011) → 40+ nhà hàng tại 5 quốc gia',
+      'Tự học làm mozzarella từ YouTube — biến hạn chế thành lợi thế cạnh tranh',
+      'Xưởng phô mai Đà Lạt: 2.000+ viên burrata/ngày, xuất khẩu',
+      'Lợi nhuận sau thuế 115 tỷ VNĐ (2023), tăng trưởng 38%',
+    ],
+    quotes: [
+      {
+        text: 'Đừng lên thuyền nếu chưa biết đi đâu. Nếu đích đến không rõ ràng, chúng tôi sẽ không rời bến.',
+        source: 'Vietcetera',
+        sourceUrl: 'https://vietcetera.com/en/pizza-4ps-yosuke-masuko-on-the-question-what-is-happiness',
+      },
+      {
+        text: 'Nếu pizza có thể giúp tôi thực hiện sứ mệnh cá nhân — "Làm thế giới mỉm cười vì hòa bình" — tôi sẽ dồn toàn bộ năng lượng vào đó.',
+        source: 'Vietcetera',
+        sourceUrl: 'https://vietcetera.com/en/pizza-4ps-yosuke-masuko-on-the-question-what-is-happiness',
+      },
+      {
+        text: 'Tôi không thể nhấn mạnh đủ việc hiểu chính mình quan trọng đến thế nào. Hãy đào sâu vào bản thân — bạn là ai, bạn đam mê điều gì.',
+        source: 'Vietcetera',
+        sourceUrl: 'https://vietcetera.com/en/who-am-i-finding-your-true-north-with-yosuke-masuko-and-sanae-takasugi',
+      },
+    ],
+    advice: [
+      {
+        title: 'Bắt đầu từ đam mê, không phải kế hoạch kinh doanh',
+        desc: 'Pizza 4P\'s bắt đầu từ những buổi tiệc sân sau — tình yêu thật sự với sản phẩm, không phải phân tích thị trường.',
+      },
+      {
+        title: 'Biến hạn chế thành lợi thế cạnh tranh',
+        desc: 'Không có mozzarella tươi? Tự học làm. Hạn chế đó trở thành điều không đối thủ nào bắt chước được.',
+      },
+      {
+        title: 'Bền vững là chiến lược kinh doanh, không phải chi phí',
+        desc: 'Nhà hàng zero-waste, phô mai tự sản xuất, farm-to-table — vừa giảm chi phí, vừa tạo khác biệt, vừa xây lòng trung thành.',
+      },
+    ],
+    links: [
+      { label: 'Pizza 4P\'s: Từ tiệc sân sau đến đế chế pizza (Backscoop)', url: 'https://www.backscoop.com/newsletter-posts/pizza-4ps-the-couple-who-turned-backyard-pizza-parties-into-a-pizza-empire', type: 'article' },
+      { label: 'Hạnh phúc là gì? (Vietcetera)', url: 'https://vietcetera.com/en/pizza-4ps-yosuke-masuko-on-the-question-what-is-happiness', type: 'article' },
+      { label: 'Pizza 4P\'s vươn ra thế giới (VIR)', url: 'https://vir.com.vn/from-vietnam-to-the-world-pizza-4ps-global-journey-145300.html', type: 'article' },
+    ],
+    socials: [
+      { platform: 'linkedin', url: 'https://in.linkedin.com/in/masuko-y-331aa98' },
+      { platform: 'instagram', url: 'https://www.instagram.com/masuko_yoo/' },
+      { platform: 'website', url: 'https://pizza4ps.com' },
+    ],
+  },
+
+  {
+    id: 'summer-le',
+    slug: 'summer-le',
+    name: 'Summer Lê',
+    descriptor: 'Đầu bếp đạt Sao xanh Michelin đầu tiên tại Việt Nam, tiên phong ẩm thực bền vững với 99% nguyên liệu địa phương',
+    photo: '/experts/summer-le.webp',
+    category: 'inspiration',
+    tags: ['Michelin', 'Bền vững', 'Đà Nẵng', 'Farm-to-table'],
+    shortBio: 'Sáng lập & Bếp trưởng nhà hàng Nén — Sao xanh Michelin đầu tiên và duy nhất tại Việt Nam. Từ food blogger → đầu bếp, 99% nguyên liệu địa phương. Mở Nén Tokyo (2025).',
+    fullBio: 'Lê Hạ Uyên (Summer Lê) lớn lên tại Đà Nẵng, du học Nhật Bản (Đại học Ritsumeikan APU) và Úc (ANU). Năm cuối đại học, cô lập blog ẩm thực "Danang Cuisine" bằng tiếng Anh — muốn có một giọng nói Việt Nam kể về ẩm thực quê hương.\n\nTừ blog → food tour → nhà hàng. Năm 2017, cô cùng chồng sáng lập Nén Đà Nẵng với concept "Sto:ry Menu" — thực đơn tasting kể câu chuyện văn hóa Việt qua từng món. 99% nguyên liệu hyper-local, 30% đến từ Nén Farm ngay đối diện nhà hàng.\n\nNăm 2022, mở Nén Light Sài Gòn. Tháng 6/2024, Nén Đà Nẵng nhận Sao xanh Michelin đầu tiên và duy nhất tại Việt Nam — vinh danh cam kết bền vững. Tháng 9/2025, mở Nén Tokyo tại Daikanyama — nhà hàng fine dining Việt đầu tiên tại Nhật.',
+    highlights: [
+      'Sao xanh Michelin đầu tiên và duy nhất tại Việt Nam (2024, giữ 2025)',
+      'Từ food blogger → đầu bếp Michelin, không qua đào tạo bếp chính quy',
+      '99% nguyên liệu hyper-local, Nén Farm cung cấp 30% nguyên liệu',
+      'Mở rộng: Nén Đà Nẵng (2017), Nén Light Sài Gòn (2022), Nén Tokyo (2025)',
+    ],
+    quotes: [
+      {
+        text: 'Ẩm thực muốn có sức mạnh nội tại thì phải dùng nguyên liệu của chính vùng đất đó. Chúng ta phải tin rằng ẩm thực của mình là "top-notch" — khi đó mới đầu tư phát triển nó.',
+        source: 'Tuổi Trẻ News',
+        sourceUrl: 'https://tuoitrenews.vn/news/features/20241020/introducing-chef-summer-le-and-the-strength-found-within-vietnamese-cuisine/82475.html',
+      },
+      {
+        text: 'Ẩm thực có khả năng chạm đến những cảm xúc sâu thẳm nhất của một con người.',
+        source: 'Robb Report Vietnam',
+        sourceUrl: 'https://dev.robbreport.com.vn/ca-phe-sang-summer-le-am-thuc-co-kha-nang-cham-den-nhung-cam-xuc-sau-tham-nhat-cua-mot-con-nguoi/',
+      },
+      {
+        text: 'Sống bền vững là trong máu người Việt Nam. Ông bà tôi, như bao thế hệ trước, luôn sống tiết kiệm, hài hòa với thiên nhiên.',
+        source: 'Michelin Guide',
+        sourceUrl: 'https://guide.michelin.com/en/da-nang-region/da-nang_2984390/restaurant/nen-danang',
+      },
+    ],
+    advice: [
+      {
+        title: 'Bền vững không đắt — đó là di sản Việt Nam',
+        desc: 'Ông bà ta luôn sống bền vững mà không cần gọi tên. Dùng nguyên liệu địa phương, tôn trọng mùa vụ, hạn chế lãng phí — vừa giảm chi phí vừa tạo khác biệt.',
+      },
+      {
+        title: 'Hãy kể câu chuyện, đừng chỉ phục vụ đồ ăn',
+        desc: 'Sto:ry Menu biến bữa ăn thành trải nghiệm văn hóa, cho phép định giá premium và tạo ấn tượng khó quên.',
+      },
+      {
+        title: 'Tin vào sức mạnh ẩm thực Việt',
+        desc: 'Đừng bắt chước nước ngoài. Đầu tư hiểu sâu nguyên liệu và kỹ thuật bản địa — đó mới là lợi thế cạnh tranh thật sự.',
+      },
+    ],
+    links: [
+      { label: 'Sức mạnh ẩm thực Việt Nam (Tuổi Trẻ)', url: 'https://tuoitrenews.vn/news/features/20241020/introducing-chef-summer-le-and-the-strength-found-within-vietnamese-cuisine/82475.html', type: 'article' },
+      { label: 'Nén Đà Nẵng — Michelin Green Star (Michelin Guide)', url: 'https://guide.michelin.com/en/da-nang-region/da-nang_2984390/restaurant/nen-danang', type: 'article' },
+      { label: 'Nén: Nơi câu chuyện gặp đĩa ăn (Vietnam News)', url: 'https://vietnamnews.vn/sunday/restaurant-review/1660855/nen-where-storytelling-meets-the-plate.html', type: 'article' },
+    ],
+    socials: [
+      { platform: 'instagram', url: 'https://www.instagram.com/summer.nen/' },
+      { platform: 'linkedin', url: 'https://www.linkedin.com/in/summer-le-83979568/' },
+      { platform: 'website', url: 'https://restaurantnen.com' },
+    ],
+  },
+
+
+
+  // ── Supply Chain, Tech & Bootstrap ──
 
   {
     id: 'nguyen-trung-dung',
@@ -409,175 +923,47 @@ const EXPERTS: Expert[] = [
   },
 
   {
-    id: 'ly-quy-trung',
-    slug: 'ly-quy-trung',
-    name: 'Lý Quý Trung',
-    descriptor: '"Cha đẻ Phở 24" — người tiên phong nhượng quyền F&B Việt Nam, tác giả 10 cuốn sách kinh doanh',
-    photo: '/experts/ly-quy-trung.webp',
-    category: 'inspiration',
-    tags: ['Nhượng quyền', 'Phở', 'Tác giả', 'Giáo dục'],
-    shortBio: 'Sáng lập Phở 24 (2003) — chuỗi phở nhượng quyền đầu tiên, 70+ cửa hàng, bán lại $20 triệu USD (2011). Tác giả 10 cuốn sách. Giáo sư Đại học Western Sydney.',
-    fullBio: 'Lý Quý Trung (sinh 1966, Sài Gòn) xuất thân gia đình doanh nhân — mẹ là chủ nhà hàng Thanh Niên hoạt động hơn 30 năm tại Quận 1. Năm 1985, thi rớt đại học, ông bắt đầu từ nhân viên lau sàn, dọn vệ sinh tại Khách sạn Đệ Nhất (Equatorial). Một vị khách nước ngoài nhìn thấy sự chăm chỉ, tài trợ du học Úc.\n\nTốt nghiệp Thạc sĩ Du lịch (Griffith University) và Tiến sĩ Quản trị Kinh doanh, ông trở về Việt Nam đồng sáng lập Nam An Group với các thương hiệu ẩm thực cao cấp. Năm 2003, ông mở Phở 24 — tiệm phở máy lạnh đầu tiên tại Việt Nam, tiên phong mô hình nhượng quyền F&B. Chuỗi mở rộng 70+ cửa hàng, có mặt tại Indonesia, Philippines, Hàn Quốc, Nhật Bản, Úc. Năm 2011, bán Phở 24 cho Việt Thái Quốc Tế với giá $20 triệu USD.\n\nÔng cũng thẳng thắn chia sẻ hàng loạt thất bại: Jazz Club, Gloria Jean\'s Coffee, Yogen Fruz, nhà hàng tại Singapore và Thái Lan. Hiện ông là Giáo sư Đại học Western Sydney và sáng lập Viện Doanh nhân LQT.',
+    id: 'vu-thanh-hung',
+    slug: 'vu-thanh-hung',
+    name: 'Vũ Thanh Hùng',
+    descriptor: 'Sáng lập iPOS.vn — nền tảng quản lý bán hàng F&B hàng đầu Việt Nam, phục vụ 50.000+ nhà hàng',
+    photo: '/experts/vu-thanh-hung.webp',
+    category: 'inspiration' as const,
+    tags: ['F&B Tech', 'POS', 'Startup', 'Dữ liệu ngành'],
+    shortBio: 'Cựu kỹ sư FPT Software, sáng lập iPOS.vn (2017) — nền tảng quản lý bán hàng phục vụ 50.000+ nhà hàng/quán cà phê. Tác giả Báo cáo thị trường F&B Việt Nam thường niên.',
+    fullBio: 'Vũ Thanh Hùng là cựu kỹ sư phần mềm tại FPT Software. Năm 2017, nhận thấy phần lớn nhà hàng và quán cà phê Việt Nam vẫn quản lý thủ công, ông sáng lập iPOS.vn — nền tảng quản lý bán hàng (POS) chuyên biệt cho ngành F&B.\n\nSau 7 năm, iPOS.vn phục vụ 50.000+ cửa hàng, trở thành nền tảng POS F&B lớn nhất Việt Nam. Ngoài phần mềm, iPOS.vn còn nổi tiếng với Báo cáo thị trường F&B Việt Nam hàng năm — nguồn dữ liệu được truyền thông và nhà đầu tư trích dẫn rộng rãi.\n\nVũ Thanh Hùng thường xuyên chia sẻ kiến thức về quản trị F&B, xu hướng ngành và chuyển đổi số trên các diễn đàn doanh nghiệp.',
     highlights: [
-      'Sáng lập Phở 24 (2003) — chuỗi phở nhượng quyền đầu tiên Việt Nam, 70+ cửa hàng',
-      'Bán Phở 24 với giá $20 triệu USD (2011) — thương vụ F&B lớn nhất thời điểm đó',
-      'Tác giả 10 cuốn sách về kinh doanh & khởi nghiệp (NXB Trẻ)',
-      'Giáo sư Đại học Western Sydney (Úc) từ 2016',
+      'Sáng lập iPOS.vn (2017) — POS F&B lớn nhất VN, 50.000+ cửa hàng',
+      'Tác giả Báo cáo thị trường F&B Việt Nam thường niên',
+      'Cựu kỹ sư FPT Software, mang tư duy tech vào quản trị nhà hàng',
+      'Dữ liệu iPOS được CafeF, VnExpress, Dân Trí trích dẫn thường xuyên',
     ],
     quotes: [
       {
-        text: 'Làm F&B, cuối ngày ngồi cộng sổ có lãi là mừng.',
-        source: 'CafeF',
-        sourceUrl: 'https://cafef.vn/cha-de-pho-24-ly-quy-trung-va-nhung-that-bai-dau-don-khi-khoi-nghiep-fb-quan-dong-chua-chac-da-loi-cuoi-ngay-ngoi-cong-so-co-lai-la-mung-2019052007401939.chn',
+        text: 'Phần lớn quán ăn, cà phê Việt Nam vẫn quản lý bằng sổ tay và tin nhắn — đó là lý do họ không biết mình đang lãi hay lỗ.',
+        source: 'iPOS.vn',
       },
       {
-        text: 'Sai lầm dạy bạn rất nhiều. Thành công dạy bạn rất ít. Thành công sẽ đi qua nhưng sai lầm thì ở lại.',
-        source: 'VnExpress',
-        sourceUrl: 'https://vnexpress.net/tac-gia/ly-qui-trung-1241.html',
-      },
-      {
-        text: 'Đừng lạm dụng câu nói "thất bại là mẹ thành công". Hãy tránh thất bại bất cứ khi nào có thể.',
+        text: 'Dữ liệu là thứ giúp chủ quán nhỏ cạnh tranh được với chuỗi lớn.',
         source: 'CafeF',
-        sourceUrl: 'https://cafef.vn/cha-de-pho-24-ly-quy-trung-va-nhung-that-bai-dau-don-khi-khoi-nghiep-fb-quan-dong-chua-chac-da-loi-cuoi-ngay-ngoi-cong-so-co-lai-la-mung-2019052007401939.chn',
       },
     ],
     advice: [
       {
-        title: 'Quán đông chưa chắc đã lời',
-        desc: 'Doanh thu cao không có nghĩa là lãi. Phải kiểm soát chi phí vận hành từng ngày, cuối ngày cộng sổ có lãi mới là mừng.',
+        title: 'Quản lý bằng số, không bằng cảm tính',
+        desc: 'Biết chính xác doanh thu từng món, chi phí từng ngày, tồn kho từng giờ — đó là lợi thế cạnh tranh của quán nhỏ thời đại số.',
       },
       {
-        title: 'Học bằng tiền người khác trước',
-        desc: 'Nếu chưa có kinh nghiệm, hãy đi làm thuê trước. Học với tiền của người khác rồi hãy mạo hiểm với tiền mình.',
-      },
-      {
-        title: 'Vị trí quyết định sống còn',
-        desc: 'Nhà hàng đẹp cỡ nào đặt sai chỗ cũng thất bại. Nhiều thất bại của tôi đều vì chọn sai địa điểm.',
+        title: 'Chuyển đổi số không cần đắt đỏ',
+        desc: 'Một phần mềm POS cơ bản giúp giảm thất thoát, tăng tốc phục vụ và ra quyết định dựa trên dữ liệu — đầu tư nhỏ, hiệu quả lớn.',
       },
     ],
     links: [
-      { label: 'Những thất bại đau đớn khi khởi nghiệp F&B (CafeF)', url: 'https://cafef.vn/cha-de-pho-24-ly-quy-trung-va-nhung-that-bai-dau-don-khi-khoi-nghiep-fb-quan-dong-chua-chac-da-loi-cuoi-ngay-ngoi-cong-so-co-lai-la-mung-2019052007401939.chn', type: 'article' },
-      { label: '20 năm thăng trầm của Phở 24 (CafeBiz)', url: 'https://cafebiz.vn/20-nam-thang-tram-cua-pho-24-tu-tiem-pho-may-lanh-dau-tien-thanh-chuoi-70-cua-hang-vuon-toi-uc-nhat-han-hoa-con-ghe-bi-dun-qua-day-lai-176230512140530604.chn', type: 'article' },
-      { label: 'Sách "Chỉ có niềm đam mê" (Tiki)', url: 'https://tiki.vn/author/ly-qui-trung.html', type: 'article' },
+      { label: 'Báo cáo thị trường F&B Việt Nam (iPOS)', url: 'https://ipos.vn/bao-cao-thi-truong-fnb-2024', type: 'article' },
+      { label: 'Website iPOS.vn', url: 'https://ipos.vn', type: 'article' },
     ],
     socials: [
-      { platform: 'website', url: 'https://lqt.edu.vn' },
-    ],
-  },
-
-  {
-    id: 'hoang-tung',
-    slug: 'hoang-tung',
-    name: 'Hoàng Tùng',
-    descriptor: '"Mr Pizza" — ông chủ Việt của chuỗi Pizza Home, nhà sáng tạo nội dung F&B thực chiến',
-    photo: '/experts/hoang-tung.webp',
-    category: 'inspiration',
-    tags: ['Pizza', 'Chuỗi F&B', 'Khởi nghiệp', 'Content Creator'],
-    shortBio: 'Gần 10 lần khởi nghiệp, 3 lần thất bại. Sáng lập Pizza Home (~20 cửa hàng), Mr Lẩu, Cloud Cook. Burger Corona lên CNN, BBC. Nhà phân tích F&B trên Brands Vietnam.',
-    fullBio: 'Hoàng Tùng (sinh 1981, Hà Nội) tốt nghiệp ĐH Ngoại ngữ và ĐH KHXH&NV, khởi nghiệp từ thời sinh viên với công ty dịch thuật — thất bại. Năm 2006, mở nhà hàng Viet Kitchen tại 24 Bà Triệu, doanh thu 500 triệu/tháng nhưng mâu thuẫn cổ đông khiến ông phải rút vốn.\n\nNăm 2013, ông sáng lập Pizza Home với triết lý "Nhanh - Ngon - Sạch" — pizza giá phải chăng, hương vị Việt hóa. Chuỗi mở rộng ~20 cửa hàng tại Hà Nội. Năm 2020, sáng tạo "Burger Corona" được CNN, BBC, Reuters đưa tin toàn cầu. Ngoài Pizza Home, ông còn sáng lập Mr Lẩu (lẩu giao tận nhà) và Cloud Cook (bếp trên mây).\n\nHoàng Tùng cũng là cây viết phân tích F&B nổi tiếng trên Brands Vietnam và Spiderum, thường xuyên chia sẻ case study thực chiến.',
-    highlights: [
-      'Sáng lập Pizza Home (2013) — ~20 cửa hàng tại Hà Nội',
-      'Burger Corona (2020) — được CNN, BBC, Reuters, Le Figaro đưa tin',
-      'Sáng lập thêm Mr Lẩu và Cloud Cook (bếp trên mây)',
-      'Cây viết phân tích F&B thực chiến trên Brands Vietnam & Spiderum',
-    ],
-    quotes: [
-      {
-        text: 'Càng cố gắng thì càng may mắn.',
-        source: 'CafeF',
-        sourceUrl: 'https://cafef.vn/ceo-pizza-home-hoang-tung-cang-co-gang-thi-cang-may-man-20220122192946346.chn',
-      },
-      {
-        text: 'Trong mọi cuộc khủng hoảng đều có cơ hội. Chuẩn bị cho rủi ro không bao giờ là thừa.',
-        source: 'TheLEADER',
-        sourceUrl: 'https://theleader.vn/6-bai-hoc-xu-ly-khung-hoang-truyen-thong-cua-ong-chu-pizza-home-1616405004126.htm',
-      },
-      {
-        text: 'Đừng đối lập bán online với bán tại quán — cả hai đều có thể bổ trợ cho nhau.',
-        source: 'Brands Vietnam',
-        sourceUrl: 'https://www.brandsvietnam.com/congdong/topic/6494-Thu-giai-ma-chuoi-F-B-va-cong-thuc-chien-thang',
-      },
-    ],
-    advice: [
-      {
-        title: 'CẮT - GIẢM - TĂNG trong khủng hoảng',
-        desc: 'Cắt chi nhánh lỗ, giảm chi phí thuê/logistics, tăng đầu tư R&D sản phẩm mới. Chiến lược giúp Pizza Home sống sót qua COVID.',
-      },
-      {
-        title: 'Phải toàn tâm toàn ý',
-        desc: 'Khởi nghiệp không thể làm nửa vời. Full-time commitment là điều kiện tiên quyết, đừng tuyển quá nhiều co-founder.',
-      },
-      {
-        title: 'Biến khủng hoảng thành cơ hội truyền thông',
-        desc: 'Burger Corona ra đời giữa đại dịch — biến tin xấu thành câu chuyện thương hiệu được báo chí quốc tế đưa tin.',
-      },
-    ],
-    links: [
-      { label: 'Càng cố gắng thì càng may mắn (CafeF)', url: 'https://cafef.vn/ceo-pizza-home-hoang-tung-cang-co-gang-thi-cang-may-man-20220122192946346.chn', type: 'article' },
-      { label: '3 lần khởi nghiệp thất bại (VietnamNet)', url: 'https://vietnamnet.vn/3-lan-khoi-nghiep-that-bai-cua-ong-chu-chuoi-cua-hang-pizza-792121.html', type: 'article' },
-      { label: 'Giải mã chuỗi F&B và công thức chiến thắng (Brands Vietnam)', url: 'https://www.brandsvietnam.com/congdong/topic/6494-Thu-giai-ma-chuoi-F-B-va-cong-thuc-chien-thang', type: 'article' },
-    ],
-    socials: [
-      { platform: 'tiktok', url: 'https://www.tiktok.com/@tungpiz' },
-      { platform: 'website', url: 'https://pizzahome.vn' },
-    ],
-  },
-  {
-    id: 'yosuke-masuko',
-    slug: 'yosuke-masuko',
-    name: 'Yosuke Masuko',
-    descriptor: 'Tự học làm phô mai từ YouTube, biến tiệc pizza sân sau thành chuỗi 40+ nhà hàng tại 5 quốc gia',
-    photo: '/experts/yosuke-masuko.webp',
-    category: 'inspiration',
-    tags: ['Farm-to-table', 'Pizza', 'Chuỗi quốc tế', 'Bền vững'],
-    shortBio: 'Đồng sáng lập & CEO Pizza 4P\'s. Từ 5 chiếc bàn nhỏ ở Quận 1 (2011) đến 40+ nhà hàng tại Việt Nam, Campuchia, Nhật Bản, Ấn Độ, Indonesia. Tự tay làm mozzarella, xưởng phô mai riêng tại Đà Lạt.',
-    fullBio: 'Yosuke Masuko (sinh tại Nhật Bản) từng làm việc tại CyberAgent Ventures. Năm 2008, chuyển đến Hà Nội để mở văn phòng đầu tư. Trong thời gian sống tại Việt Nam, vợ chồng anh — Masuko và Sanae Takasugi — bắt đầu tổ chức tiệc pizza sân sau mỗi cuối tuần. Tiệc đông đến mức bạn bè khuyên mở nhà hàng.\n\nThách thức lớn nhất: phô mai mozzarella tươi gần như không có ở Việt Nam. Masuko tự học làm phô mai từ YouTube, thử sữa từ hơn 25 nguồn khác nhau. Năm 2011, với $100.000 tiền tiết kiệm, cặp đôi mở Pizza 4P\'s đầu tiên tại Lê Thánh Tôn, Quận 1 — chỉ 4-5 bàn nhỏ.\n\nSau 14 năm: 40+ nhà hàng tại 5 quốc gia, xưởng phô mai riêng tại Đơn Dương (Đà Lạt) sản xuất 1.500-2.000 viên burrata và 2.000-3.000 viên mozzarella mỗi ngày. Năm 2023, lợi nhuận sau thuế đạt 115 tỷ VNĐ. Năm 2025, mở rộng sang New York (Mỹ).',
-    highlights: [
-      'Từ 5 bàn nhỏ ($100K, 2011) → 40+ nhà hàng tại 5 quốc gia',
-      'Tự học làm mozzarella từ YouTube — biến hạn chế thành lợi thế cạnh tranh',
-      'Xưởng phô mai Đà Lạt: 2.000+ viên burrata/ngày, xuất khẩu',
-      'Lợi nhuận sau thuế 115 tỷ VNĐ (2023), tăng trưởng 38%',
-    ],
-    quotes: [
-      {
-        text: 'Đừng lên thuyền nếu chưa biết đi đâu. Nếu đích đến không rõ ràng, chúng tôi sẽ không rời bến.',
-        source: 'Vietcetera',
-        sourceUrl: 'https://vietcetera.com/en/pizza-4ps-yosuke-masuko-on-the-question-what-is-happiness',
-      },
-      {
-        text: 'Nếu pizza có thể giúp tôi thực hiện sứ mệnh cá nhân — "Làm thế giới mỉm cười vì hòa bình" — tôi sẽ dồn toàn bộ năng lượng vào đó.',
-        source: 'Vietcetera',
-        sourceUrl: 'https://vietcetera.com/en/pizza-4ps-yosuke-masuko-on-the-question-what-is-happiness',
-      },
-      {
-        text: 'Tôi không thể nhấn mạnh đủ việc hiểu chính mình quan trọng đến thế nào. Hãy đào sâu vào bản thân — bạn là ai, bạn đam mê điều gì.',
-        source: 'Vietcetera',
-        sourceUrl: 'https://vietcetera.com/en/who-am-i-finding-your-true-north-with-yosuke-masuko-and-sanae-takasugi',
-      },
-    ],
-    advice: [
-      {
-        title: 'Bắt đầu từ đam mê, không phải kế hoạch kinh doanh',
-        desc: 'Pizza 4P\'s bắt đầu từ những buổi tiệc sân sau — tình yêu thật sự với sản phẩm, không phải phân tích thị trường.',
-      },
-      {
-        title: 'Biến hạn chế thành lợi thế cạnh tranh',
-        desc: 'Không có mozzarella tươi? Tự học làm. Hạn chế đó trở thành điều không đối thủ nào bắt chước được.',
-      },
-      {
-        title: 'Bền vững là chiến lược kinh doanh, không phải chi phí',
-        desc: 'Nhà hàng zero-waste, phô mai tự sản xuất, farm-to-table — vừa giảm chi phí, vừa tạo khác biệt, vừa xây lòng trung thành.',
-      },
-    ],
-    links: [
-      { label: 'Pizza 4P\'s: Từ tiệc sân sau đến đế chế pizza (Backscoop)', url: 'https://www.backscoop.com/newsletter-posts/pizza-4ps-the-couple-who-turned-backyard-pizza-parties-into-a-pizza-empire', type: 'article' },
-      { label: 'Hạnh phúc là gì? (Vietcetera)', url: 'https://vietcetera.com/en/pizza-4ps-yosuke-masuko-on-the-question-what-is-happiness', type: 'article' },
-      { label: 'Pizza 4P\'s vươn ra thế giới (VIR)', url: 'https://vir.com.vn/from-vietnam-to-the-world-pizza-4ps-global-journey-145300.html', type: 'article' },
-    ],
-    socials: [
-      { platform: 'linkedin', url: 'https://in.linkedin.com/in/masuko-y-331aa98' },
-      { platform: 'instagram', url: 'https://www.instagram.com/masuko_yoo/' },
-      { platform: 'website', url: 'https://pizza4ps.com' },
+      { platform: 'website', url: 'https://ipos.vn' },
     ],
   },
 
@@ -639,62 +1025,389 @@ const EXPERTS: Expert[] = [
     ],
   },
 
+  // ── Thêm 11 chuyên gia mới ──
+
   {
-    id: 'summer-le',
-    slug: 'summer-le',
-    name: 'Summer Lê',
-    descriptor: 'Đầu bếp đạt Sao xanh Michelin đầu tiên tại Việt Nam, tiên phong ẩm thực bền vững với 99% nguyên liệu địa phương',
-    photo: '/experts/summer-le.webp',
+    id: 'dang-le-nguyen-vu',
+    slug: 'dang-le-nguyen-vu',
+    name: 'Đặng Lê Nguyên Vũ',
+    descriptor: '"Vua cà phê Việt Nam" — người đưa cà phê Việt ra 60+ quốc gia',
+    photo: '/experts/dang-le-nguyen-vu.webp',
     category: 'inspiration',
-    tags: ['Michelin', 'Bền vững', 'Đà Nẵng', 'Farm-to-table'],
-    shortBio: 'Sáng lập & Bếp trưởng nhà hàng Nén — Sao xanh Michelin đầu tiên và duy nhất tại Việt Nam. Từ food blogger → đầu bếp, 99% nguyên liệu địa phương. Mở Nén Tokyo (2025).',
-    fullBio: 'Lê Hạ Uyên (Summer Lê) lớn lên tại Đà Nẵng, du học Nhật Bản (Đại học Ritsumeikan APU) và Úc (ANU). Năm cuối đại học, cô lập blog ẩm thực "Danang Cuisine" bằng tiếng Anh — muốn có một giọng nói Việt Nam kể về ẩm thực quê hương.\n\nTừ blog → food tour → nhà hàng. Năm 2017, cô cùng chồng sáng lập Nén Đà Nẵng với concept "Sto:ry Menu" — thực đơn tasting kể câu chuyện văn hóa Việt qua từng món. 99% nguyên liệu hyper-local, 30% đến từ Nén Farm ngay đối diện nhà hàng.\n\nNăm 2022, mở Nén Light Sài Gòn. Tháng 6/2024, Nén Đà Nẵng nhận Sao xanh Michelin đầu tiên và duy nhất tại Việt Nam — vinh danh cam kết bền vững. Tháng 9/2025, mở Nén Tokyo tại Daikanyama — nhà hàng fine dining Việt đầu tiên tại Nhật.',
+    tags: ['Cà phê', 'Khởi nghiệp', 'Thương hiệu Việt'],
+    shortBio: 'Sáng lập và Chủ tịch Tập đoàn Trung Nguyên Legend. Từ gia đình nông dân nghèo ở M\'Drắk, Đắk Lắk, ông bỏ học ngành Y để xây dựng đế chế cà phê lớn nhất Việt Nam, với thương hiệu G7 chiếm 38% thị phần cà phê hòa tan suốt 9 năm.',
+    fullBio: 'Đặng Lê Nguyên Vũ sinh ngày 10/02/1971 tại huyện Ninh Hòa, Khánh Hòa trong một gia đình nông dân nghèo. Năm 1979, gia đình ông chuyển đến M\'Drắk, huyện miền núi của Đắk Lắk. Từ nhỏ ông phụ gia đình bằng nhiều công việc: bẻ ngô, chăn lợn, làm gạch. Năm 1992, ông nhập học Khoa Y, ĐH Tây Nguyên nhưng sớm quyết định bỏ học để theo đuổi đam mê cà phê.\n\nNăm 1996, ông thành lập Trung Nguyên Coffee tại Buôn Ma Thuột — thủ phủ cà phê Việt Nam. Năm 1998, cửa hàng Trung Nguyên đầu tiên mở tại TP.HCM và nhanh chóng bùng nổ qua mô hình nhượng quyền, trở thành chuỗi cà phê lớn nhất Việt Nam. Từ 2003, thương hiệu cà phê hòa tan G7 dẫn đầu thị trường nội địa với 38% thị phần suốt 9 năm liên tiếp. Trung Nguyên hiện xuất khẩu đến hơn 60 quốc gia.\n\nNăm 2012, Forbes Asia vinh danh ông là "Vietnam\'s Coffee King" với hành trình "Zero to Hero." Ông theo đuổi triết lý "Cà Phê Triết Đạo" — nâng tầm cà phê từ thương mại thành triết lý sống, với khát vọng biến Việt Nam thành "thánh địa cà phê toàn cầu."',
     highlights: [
-      'Sao xanh Michelin đầu tiên và duy nhất tại Việt Nam (2024, giữ 2025)',
-      'Từ food blogger → đầu bếp Michelin, không qua đào tạo bếp chính quy',
-      '99% nguyên liệu hyper-local, Nén Farm cung cấp 30% nguyên liệu',
-      'Mở rộng: Nén Đà Nẵng (2017), Nén Light Sài Gòn (2022), Nén Tokyo (2025)',
+      'Sáng lập Trung Nguyên (1996) từ Buôn Ma Thuột; G7 chiếm 38% thị phần cà phê hòa tan suốt 9 năm',
+      'Forbes Asia & National Geographic vinh danh "Vua Cà Phê Việt Nam" (2012)',
+      'Hiện diện tại 60+ quốc gia, hàng ngàn cửa hàng nhượng quyền trên toàn quốc',
+      'Chi 500+ tỷ đồng cho chương trình "Sáng tạo vì Khát vọng Việt" — tặng sách cho thanh niên',
     ],
     quotes: [
-      {
-        text: 'Ẩm thực muốn có sức mạnh nội tại thì phải dùng nguyên liệu của chính vùng đất đó. Chúng ta phải tin rằng ẩm thực của mình là "top-notch" — khi đó mới đầu tư phát triển nó.',
-        source: 'Tuổi Trẻ News',
-        sourceUrl: 'https://tuoitrenews.vn/news/features/20241020/introducing-chef-summer-le-and-the-strength-found-within-vietnamese-cuisine/82475.html',
-      },
-      {
-        text: 'Ẩm thực có khả năng chạm đến những cảm xúc sâu thẳm nhất của một con người.',
-        source: 'Robb Report Vietnam',
-        sourceUrl: 'https://dev.robbreport.com.vn/ca-phe-sang-summer-le-am-thuc-co-kha-nang-cham-den-nhung-cam-xuc-sau-tham-nhat-cua-mot-con-nguoi/',
-      },
-      {
-        text: 'Sống bền vững là trong máu người Việt Nam. Ông bà tôi, như bao thế hệ trước, luôn sống tiết kiệm, hài hòa với thiên nhiên.',
-        source: 'Michelin Guide',
-        sourceUrl: 'https://guide.michelin.com/en/da-nang-region/da-nang_2984390/restaurant/nen-danang',
-      },
+      { text: 'Phải có tinh thần chiến binh. Phải nghĩ lớn. Dù kinh doanh một sản phẩm nhỏ nhất cũng phải nghĩ sản phẩm đó sẽ bán trên toàn cầu.', source: 'Doanh Nhân Sài Gòn', sourceUrl: 'https://doanhnhansaigon.vn/dang-le-nguyen-vu-chu-tich-tap-doan-ca-phe-trung-nguyen-sai-dau-sua-do-304777.html' },
+      { text: 'Nếu doanh nghiệp Việt không dám ra biển lớn, đối đầu với sóng dữ, sẽ mãi chỉ quanh quẩn trong cái ao nhà mình.', source: 'Tiền Phong', sourceUrl: 'https://tienphong.vn/cuoc-tro-chuyen-hiem-hoi-va-nhung-bi-an-cua-vua-ca-phe-trung-nguyen-dang-le-nguyen-vu-post1543426.tpo' },
+      { text: 'Sai đâu sửa đó, sai chiến lược thì sửa chiến lược, sai thực thi thì sửa thực thi.', source: 'Doanh Nhân Sài Gòn', sourceUrl: 'https://doanhnhansaigon.vn/dang-le-nguyen-vu-chu-tich-tap-doan-ca-phe-trung-nguyen-sai-dau-sua-do-304777.html' },
     ],
     advice: [
-      {
-        title: 'Bền vững không đắt — đó là di sản Việt Nam',
-        desc: 'Ông bà ta luôn sống bền vững mà không cần gọi tên. Dùng nguyên liệu địa phương, tôn trọng mùa vụ, hạn chế lãng phí — vừa giảm chi phí vừa tạo khác biệt.',
-      },
-      {
-        title: 'Hãy kể câu chuyện, đừng chỉ phục vụ đồ ăn',
-        desc: 'Sto:ry Menu biến bữa ăn thành trải nghiệm văn hóa, cho phép định giá premium và tạo ấn tượng khó quên.',
-      },
-      {
-        title: 'Tin vào sức mạnh ẩm thực Việt',
-        desc: 'Đừng bắt chước nước ngoài. Đầu tư hiểu sâu nguyên liệu và kỹ thuật bản địa — đó mới là lợi thế cạnh tranh thật sự.',
-      },
+      { title: 'Nghĩ lớn từ sản phẩm nhỏ nhất', desc: 'Dù bán phở, bán cà phê hay bán bánh mì, hãy nghĩ sản phẩm của bạn có thể phục vụ cả thế giới.' },
+      { title: 'Sai đâu sửa đó, không bỏ cuộc', desc: 'Sai chiến lược thì sửa chiến lược, sai thực thi thì sửa thực thi. Cách duy nhất thất bại là ngừng lại.' },
+      { title: 'Không có tiền thì phải có chí', desc: 'Với người khởi nghiệp, ý chí và mồ hôi là vốn đầu tiên. Tiền đến sau khi bạn đã chứng minh bạn có thể làm được.' },
     ],
     links: [
-      { label: 'Sức mạnh ẩm thực Việt Nam (Tuổi Trẻ)', url: 'https://tuoitrenews.vn/news/features/20241020/introducing-chef-summer-le-and-the-strength-found-within-vietnamese-cuisine/82475.html', type: 'article' },
-      { label: 'Nén Đà Nẵng — Michelin Green Star (Michelin Guide)', url: 'https://guide.michelin.com/en/da-nang-region/da-nang_2984390/restaurant/nen-danang', type: 'article' },
-      { label: 'Nén: Nơi câu chuyện gặp đĩa ăn (Vietnam News)', url: 'https://vietnamnews.vn/sunday/restaurant-review/1660855/nen-where-storytelling-meets-the-plate.html', type: 'article' },
+      { label: '"Sai đâu, sửa đó" (Doanh Nhân Sài Gòn)', url: 'https://doanhnhansaigon.vn/dang-le-nguyen-vu-chu-tich-tap-doan-ca-phe-trung-nguyen-sai-dau-sua-do-304777.html', type: 'article' },
+      { label: 'Cuộc trò chuyện hiếm hoi (Tiền Phong)', url: 'https://tienphong.vn/cuoc-tro-chuyen-hiem-hoi-va-nhung-bi-an-cua-vua-ca-phe-trung-nguyen-dang-le-nguyen-vu-post1543426.tpo', type: 'article' },
+    ],
+    socials: [{ platform: 'website', url: 'https://trungnguyenlegend.com' }],
+  },
+
+  {
+    id: 'le-hoang-diep-thao',
+    slug: 'le-hoang-diep-thao',
+    name: 'Lê Hoàng Diệp Thảo',
+    descriptor: '"Nữ hoàng cà phê" — CEO King Coffee, đưa cà phê Việt ra 120+ quốc gia',
+    photo: '/experts/le-hoang-diep-thao.webp',
+    category: 'inspiration',
+    tags: ['Cà phê', 'Nữ doanh nhân', 'Thương hiệu toàn cầu'],
+    shortBio: 'Đồng sáng lập Trung Nguyên Group và hiện là Chủ tịch kiêm CEO TNI King Coffee. Bà đã đưa King Coffee đến 120+ quốc gia, được vinh danh "Most Admired CEO in Vietnam" (F&B, 2020).',
+    fullBio: 'Lê Hoàng Diệp Thảo sinh năm 1973 tại Gia Lai. Cùng với chồng cũ Đặng Lê Nguyên Vũ, bà đồng sáng lập Trung Nguyên Group và trực tiếp điều hành từ 1998-2014, đóng vai trò then chốt đưa thương hiệu G7 ra thị trường quốc tế.\n\nNăm 2015, bà sáng lập TNI King Coffee với chiến lược "ngược dòng" — xâm nhập thị trường quốc tế trước để xây dựng uy tín, sau đó quay lại chiếm lĩnh nội địa. Chỉ trong 1 năm, mạng lưới phân phối phủ 63 tỉnh thành. Đến nay, King Coffee hiện diện tại hơn 120 quốc gia.\n\nBà nhận giải "Most Admired CEO in Vietnam" (Global Brands Magazine, 2020), là diễn giả người Việt đầu tiên tại Allegra World Coffee Portal CEO Forum. Bà khởi xướng dự án "Women Can Do" hỗ trợ 100.000 phụ nữ khởi nghiệp.',
+    highlights: [
+      'Đồng sáng lập Trung Nguyên Group, trực tiếp điều hành 1998-2014',
+      'Sáng lập King Coffee (2015) — xuất khẩu 120+ quốc gia',
+      '"Most Admired CEO in Vietnam" (F&B) — Global Brands Magazine (2020)',
+      'Khởi xướng "Women Can Do" hỗ trợ 100.000 phụ nữ khởi nghiệp',
+    ],
+    quotes: [
+      { text: 'Cà phê luôn mang đến cho tôi niềm vui, sự sáng tạo và đam mê vô tận.', source: 'Global Brands Magazine', sourceUrl: 'https://www.globalbrandsmagazine.com/interview-of-madame-le-hoangdiep-thao-founder-ceo-king-coffee/' },
+      { text: 'Hãy ra ngoài để thấy cơ hội và hành động. Chính thành tựu tạo nên uy tín và danh tiếng, không phải lời nói.', source: 'King Coffee US', sourceUrl: 'https://us.kingcoffee.com/blogs/news/businesswoman-le-hoang-diep-thao-and-the-journey-to-build-the-worldwide-brand-named-king-coffee' },
+      { text: 'Tại sao giá một tách cà phê ở nước ngoài là 5 đô la, mà ở nước ta nông dân chỉ bán hạt cà phê được 5 xu/kg?', source: 'King Coffee US', sourceUrl: 'https://us.kingcoffee.com/blogs/news/businesswoman-le-hoang-diep-thao-and-the-journey-to-build-the-worldwide-brand-named-king-coffee' },
+    ],
+    advice: [
+      { title: 'Chiến lược "ngược dòng"', desc: 'Xâm nhập thị trường quốc tế trước để xây dựng uy tín, sau đó quay về chiếm lĩnh nội địa với lợi thế thương hiệu.' },
+      { title: 'Hành động tạo nên uy tín', desc: 'Đừng chỉ nói về dự định, hãy làm và để kết quả nói thay bạn.' },
+      { title: 'Xây dựng chuỗi giá trị từ nông dân', desc: 'Giá trị thực sự của ngành cà phê Việt nằm ở người trồng. Hỗ trợ nông dân là hỗ trợ chính mình.' },
+    ],
+    links: [
+      { label: 'Phỏng vấn CEO King Coffee (Global Brands Magazine)', url: 'https://www.globalbrandsmagazine.com/interview-of-madame-le-hoangdiep-thao-founder-ceo-king-coffee/', type: 'article' },
+      { label: '30 năm định danh cà phê Việt (Thanh Niên)', url: 'https://thanhnien.vn/ceo-le-hoang-diep-thao-30-nam-hanh-trinh-dinh-danh-ca-phe-viet-185260218155826603.htm', type: 'article' },
     ],
     socials: [
-      { platform: 'instagram', url: 'https://www.instagram.com/summer.nen/' },
-      { platform: 'linkedin', url: 'https://www.linkedin.com/in/summer-le-83979568/' },
-      { platform: 'website', url: 'https://restaurantnen.com' },
+      { platform: 'linkedin', url: 'https://vn.linkedin.com/in/le-hoang-diep-thao-%F0%9F%87%BB%F0%9F%87%B3-14436b142' },
+      { platform: 'website', url: 'https://kingcoffee.com' },
+    ],
+  },
+
+  {
+    id: 'david-thai',
+    slug: 'david-thai',
+    name: 'David Thái',
+    descriptor: 'Việt kiều đầu tiên lập doanh nghiệp tư nhân ở Hà Nội — "cha đẻ" chuỗi cà phê lớn nhất Việt Nam',
+    photo: '/experts/david-thai.webp',
+    category: 'inspiration',
+    tags: ['Cà phê', 'Thương hiệu Việt', 'Việt kiều'],
+    shortBio: 'Người sáng lập Highlands Coffee — chuỗi cà phê lớn nhất Việt Nam. Ông là Việt kiều đầu tiên được cấp phép lập doanh nghiệp tư nhân ở Hà Nội (1998), từng từ chối đề nghị mua lại từ Starbucks.',
+    fullBio: 'David Thái (Thái Phi Diệp) sinh năm 1972 tại Việt Nam, sang Mỹ năm 1979. Lớn lên ở Seattle, tốt nghiệp Quản trị Kinh doanh tại University of Washington. Năm 1996, ông trở về Việt Nam với gần 1.000 USD. Năm 1998, ông trở thành Việt kiều đầu tiên được cấp phép thành lập doanh nghiệp tư nhân tại Hà Nội.\n\nNăm 2002, hai cửa hàng Highlands Coffee đầu tiên khai trương. Khi Starbucks đề nghị mua lại, ông dứt khoát từ chối: "Đây là thương hiệu Việt Nam, đây là Việt Nam." Năm 2009, World Economic Forum vinh danh ông là Young Global Leader.\n\nĐiều đặc biệt: ông chưa từng rút cổ tức từ Highlands — kiếm tiền ở nơi khác và tái đầu tư toàn bộ vào công ty.',
+    highlights: [
+      'Việt kiều đầu tiên thành lập doanh nghiệp tư nhân tại Hà Nội (1998)',
+      'Từ chối đề nghị mua lại từ Starbucks để bảo vệ bản sắc Việt',
+      'Young Global Leader — World Economic Forum (2009)',
+      'Chưa từng rút cổ tức — tái đầu tư toàn bộ lợi nhuận vào Highlands',
+    ],
+    quotes: [
+      { text: 'Các bạn không thể làm thế. Đây là thương hiệu Việt Nam, đây là Việt Nam.', source: 'CafeF', sourceUrl: 'https://cafef.vn/nha-sang-lap-david-thai-lan-dau-ke-chuyen-suyt-ban-highlands-coffee-cho-starbucks-va-khao-khat-phuc-hung-robusta-toi-kiem-tien-o-cho-khac-roi-don-ca-vao-highlands-188250417023804317.chn' },
+      { text: 'Tôi chưa từng rút tiền ra khỏi Highlands. Tôi kiếm tiền ở nơi khác, rồi đổ tất cả vào Highlands. Đó là một cam kết thực sự.', source: 'CafeF', sourceUrl: 'https://cafef.vn/nha-sang-lap-david-thai-lan-dau-ke-chuyen-suyt-ban-highlands-coffee-cho-starbucks-va-khao-khat-phuc-hung-robusta-toi-kiem-tien-o-cho-khac-roi-don-ca-vao-highlands-188250417023804317.chn' },
+      { text: 'Chiến lược của tôi là con người, tất cả là về con người. Không thể nào thành công mà không có mọi người.', source: 'CafeF', sourceUrl: 'https://cafef.vn/nha-sang-lap-david-thai-lan-dau-ke-chuyen-suyt-ban-highlands-coffee-cho-starbucks-va-khao-khat-phuc-hung-robusta-toi-kiem-tien-o-cho-khac-roi-don-ca-vao-highlands-188250417023804317.chn' },
+    ],
+    advice: [
+      { title: '"All-in" vào sự nghiệp', desc: 'David chưa bao giờ rút cổ tức từ Highlands, tái đầu tư 100% lợi nhuận. Cam kết cá nhân là nền tảng của thành công.' },
+      { title: 'Con người là chiến lược số 1', desc: 'Tìm đúng người và khiến họ làm việc cùng nhau. Cà phê thì dễ, chiến lược cũng dễ — phần khó nhất là con người.' },
+      { title: 'Bảo vệ bản sắc thương hiệu', desc: 'Dù có cơ hội lợi nhuận lớn, giá trị cốt lõi của thương hiệu Việt không được bán.' },
+    ],
+    links: [
+      { label: 'Kể chuyện suýt bán cho Starbucks (CafeF)', url: 'https://cafef.vn/nha-sang-lap-david-thai-lan-dau-ke-chuyen-suyt-ban-highlands-coffee-cho-starbucks-va-khao-khat-phuc-hung-robusta-toi-kiem-tien-o-cho-khac-roi-don-ca-vao-highlands-188250417023804317.chn', type: 'article' },
+      { label: 'Gặp "cha đẻ" Highlands Coffee (Thanh Niên)', url: 'https://thanhnien.vn/gap-cha-de-cua-highlands-coffee-david-thai-chung-toi-la-thuong-hieu-viet-18525041916232154.htm', type: 'article' },
+    ],
+    socials: [{ platform: 'website', url: 'https://highlandscoffee.com.vn' }],
+  },
+
+  {
+    id: 'lam-boi-minh',
+    slug: 'lam-boi-minh',
+    name: 'Lâm Bội Minh',
+    descriptor: 'Người tạo nên huyền thoại trà & cà phê 55+ năm — từ Bảo Lộc đến thương vụ trăm triệu đô',
+    photo: '/experts/lam-boi-minh.webp',
+    category: 'inspiration',
+    tags: ['Trà Việt', 'Cà phê', 'Di sản thương hiệu'],
+    shortBio: 'Người sáng lập Phúc Long Coffee & Tea từ năm 1968 tại Bảo Lộc, Lâm Đồng. Suốt 55+ năm, ông xây dựng Phúc Long thành thương hiệu quốc gia, với thương vụ bán 31% cổ phần cho Masan trị giá hàng trăm triệu USD.',
+    fullBio: 'Lâm Bội Minh sinh năm 1946, bắt đầu hành trình với Phúc Long từ năm 1968 trên cao nguyên trà Bảo Lộc. Ông tự nghiên cứu và học hỏi về trà và cà phê "từ những bước nhỏ nhất và đơn giản nhất." Mỗi công thức pha chế được thử nghiệm hàng trăm lần để đạt đủ tiêu chí: màu sắc, hương thơm, vẻ đẹp và hương vị.\n\nTrong những năm 1990, khi máy pha cà phê còn là món hàng xa xỉ, ông quyết tâm nhập một chiếc máy về cửa hàng tại Quận 1 TP.HCM. Triết lý của ông: "Giá trị không nằm ở số lượng cửa hàng mà nằm ở chất lượng cửa hàng."\n\nĐầu 2022, Masan Group mua 31% cổ phần, cổ đông nhận 110 triệu USD. Là doanh nhân cực kỳ kín tiếng — không ảnh công khai, không mạng xã hội — nhưng để lại di sản khổng lồ cho ngành F&B Việt Nam.',
+    highlights: [
+      'Sáng lập Phúc Long (1968) từ Bảo Lộc — thương hiệu trà & cà phê hơn 55 tuổi',
+      'Thương vụ Masan: bán 31% cổ phần, cổ đông nhận 110 triệu USD (2022)',
+      'Triết lý "chất lượng hơn số lượng" — mỗi công thức trải qua hàng trăm lần thử nghiệm',
+      'Mở rộng sang hospitality: khách sạn Phúc Long Luxury (Đà Nẵng, 2025)',
+    ],
+    quotes: [
+      { text: 'Danh tiếng tốt dễ mất hơn dễ có. Phải cả đời để xây dựng uy tín và chỉ cần một phút để đánh mất nó.', source: 'Vietnam Investment Review', sourceUrl: 'https://vir.com.vn/the-story-of-phuc-longs-50-year-journey-107719.html' },
+      { text: 'Để tạo ra một công thức đồ uống hoàn hảo, tôi và đội ngũ đã thử nghiệm hàng trăm lần để chọn ra công thức đạt đủ tiêu chí về màu sắc, hương thơm, vẻ đẹp và hương vị.', source: 'Vietnam Investment Review', sourceUrl: 'https://vir.com.vn/the-story-of-phuc-longs-50-year-journey-107719.html' },
+      { text: 'Nếu dám nghĩ và dám làm, trí tuệ sẽ luôn tỏa sáng, đặc biệt trong những lúc khó khăn.', source: 'Vietnam Investment Review', sourceUrl: 'https://vir.com.vn/the-story-of-phuc-longs-50-year-journey-107719.html' },
+    ],
+    advice: [
+      { title: 'Chất lượng là tất cả', desc: 'Mỗi công thức phải trải qua hàng trăm lần thử nghiệm. Đừng bao giờ đánh đổi chất lượng lấy tốc độ mở rộng.' },
+      { title: 'Bắt đầu từ những bước nhỏ nhất', desc: '"Tôi bắt đầu xây dựng Phúc Long bằng cách nghiên cứu và học hỏi từ những bước đơn giản và nhỏ bé nhất."' },
+      { title: 'Dám nghĩ, dám làm', desc: '"Trí tuệ luôn tỏa sáng, đặc biệt trong những lúc khó khăn." Chỉ cần bạn dám hành động.' },
+    ],
+    links: [
+      { label: 'Hành trình 50+ năm Phúc Long (VIR)', url: 'https://vir.com.vn/the-story-of-phuc-longs-50-year-journey-107719.html', type: 'article' },
+      { label: 'Chuyện chưa kể về nhà sáng lập (CafeF)', url: 'https://cafef.vn/chuyen-chua-ke-ve-nha-sang-lap-thuong-hieu-phuc-long-188231003125835427.chn', type: 'article' },
+    ],
+    socials: [{ platform: 'website', url: 'https://phuclong.com.vn' }],
+  },
+
+  {
+    id: 'truong-nguyen-thien-kim',
+    slug: 'truong-nguyen-thien-kim',
+    name: 'Trương Nguyễn Thiên Kim',
+    descriptor: '"Nữ tướng F&B kín tiếng" — người đứng sau đế chế nghìn tỷ Katinat, Phê La, D1 Concepts',
+    photo: '/experts/truong-nguyen-thien-kim.webp',
+    category: 'inspiration',
+    tags: ['Cà phê', 'Nữ doanh nhân', 'Chuỗi F&B'],
+    shortBio: 'Chủ tịch HĐQT kiêm TGĐ D1 Concepts, sở hữu Katinat Saigon Kafe (84.21%) và Phê La (51%). Một trong những nữ doanh nhân F&B quyền lực nhất Việt Nam.',
+    fullBio: 'Trương Nguyễn Thiên Kim sinh ngày 28/11/1976 tại Đà Lạt, tốt nghiệp Thạc sĩ Tài chính tại ĐH Kinh tế TP.HCM. Bà bắt đầu sự nghiệp trong ngành chứng khoán (Bảo Việt, Đông Á) và Trưởng Ban Kiểm soát tại PNJ.\n\nVới D1 Concepts (thành lập 2012), bà xây dựng portfolio F&B ấn tượng: San Fu Lou, Sorae, Dì Mai. Sự bùng nổ thực sự đến từ Katinat Saigon Kafe — chuỗi cà phê premium "made in Saigon" — và Phê La, tạo nên hiện tượng "cà phê lúc bình minh" trên mạng xã hội.\n\nCùng chồng Tô Hải (TGĐ Vietcap Securities), họ sở hữu khối tài sản gần 6.000 tỷ đồng. Bà là doanh nhân cực kỳ kín tiếng — hiếm khi trả lời phỏng vấn.',
+    highlights: [
+      'Sở hữu Katinat (84.21%), Phê La (51%), Chủ tịch D1 Concepts',
+      'Katinat trở thành chuỗi cà phê premium dẫn đầu TP.HCM',
+      'Phê La tạo hiện tượng "cà phê bình minh" — viral nhất mạng xã hội (2024)',
+      'Khối tài sản 6.000 tỷ đồng cùng chồng (Tô Hải, Chủ tịch Vietcap)',
+    ],
+    quotes: [
+      { text: 'Katinat chọn TP.HCM làm thị trường đầu tiên, Phê La mở cửa hàng đầu tiên tại Hà Nội — chiến lược chia thị trường để tránh cạnh tranh nội bộ.', source: 'Người Quan Sát', sourceUrl: 'https://nguoiquansat.vn/bi-quyet-giup-phe-la-cua-nu-dai-gia-truong-nguyen-thien-kim-tro-thanh-trao-luu-ca-phe-luc-binh-minh-163889.html' },
+    ],
+    advice: [
+      { title: 'Xây dựng portfolio đa dạng', desc: 'Không phụ thuộc một thương hiệu. Cùng lúc vận hành fine dining, casual và mass market.' },
+      { title: 'Chia thị trường để tránh cạnh tranh nội bộ', desc: 'Katinat tập trung TP.HCM, Phê La đánh Hà Nội. Mỗi thương hiệu có "sân chơi" riêng.' },
+      { title: 'Tận dụng sức mạnh mạng xã hội', desc: 'Phê La bùng nổ nhờ trào lưu "cà phê bình minh" trên TikTok.' },
+    ],
+    links: [
+      { label: 'Chân dung nữ doanh nhân nghìn tỷ (CafeF)', url: 'https://cafef.vn/chan-dung-nu-doanh-nhan-nghin-ty-dung-sau-chuoi-katinat-phe-la-188240913132444185.chn', type: 'article' },
+      { label: 'Nữ đại gia đứng sau Phê La, Katinat (Znews)', url: 'https://znews.vn/nu-dai-gia-dung-sau-chuoi-phe-la-katinat-la-ai-post1494565.html', type: 'article' },
+    ],
+    socials: [],
+  },
+
+  {
+    id: 'nguyen-thi-kim-oanh',
+    slug: 'nguyen-thi-kim-oanh',
+    name: 'Nguyễn Thị Kim Oanh',
+    descriptor: 'Từ Hoa khôi Thể thao đầu tiên của VN đến người tiên phong chuỗi nhà hàng ẩm thực Việt hiện đại',
+    photo: '/experts/nguyen-thi-kim-oanh.webp',
+    category: 'inspiration',
+    tags: ['Ẩm thực Việt', 'Nữ doanh nhân', 'Chuỗi nhà hàng'],
+    shortBio: 'Hoa khôi Thể thao đầu tiên của Việt Nam (1993), sáng lập Wrap & Roll (2006) — chuỗi nhà hàng món cuốn Việt hiện đại, gọi vốn 6.9 triệu USD từ Mekong Enterprise Fund III.',
+    fullBio: 'Nguyễn Thị Kim Oanh sinh năm 1975 tại Hải Phòng, đăng quang Hoa khôi Thể thao đầu tiên của Việt Nam năm 1993. Bà dành 7 năm giúp chồng xây dựng Sudest Production — công ty sản xuất phim tư nhân đầu tiên tại Việt Nam.\n\nNăm 2006, bà sáng lập Wrap & Roll — chuỗi nhà hàng tiên phong đưa món cuốn truyền thống Việt vào mô hình hiện đại. Sau 10 năm: 12 cửa hàng tại Hà Nội và TP.HCM, 4 nhượng quyền tại Singapore, và 6.9 triệu USD đầu tư. Bà đại diện nữ doanh nhân châu Á tại Ernst & Young Winning Women.\n\nTriết lý: "Uy tín, trách nhiệm và cam kết — chuyên môn chỉ là công cụ, điều kết nối đội ngũ lâu dài là chia sẻ cùng giá trị."',
+    highlights: [
+      'Hoa khôi Thể thao đầu tiên của Việt Nam (1993)',
+      'Sáng lập Wrap & Roll (2006) — tiên phong chuỗi nhà hàng món Việt hiện đại',
+      'Gọi vốn 6.9 triệu USD từ Mekong Enterprise Fund III (2016)',
+      'Đại diện nữ doanh nhân châu Á tại Ernst & Young Winning Women',
+    ],
+    quotes: [
+      { text: 'Uy tín, trách nhiệm và cam kết là ba giá trị tôi luôn giữ gìn trong cả công việc lẫn cuộc sống cá nhân.', source: 'Vietcetera', sourceUrl: 'https://vietcetera.com/en/a-working-woman-business-leader-kim-oanh-on-measuring-what-really-matters' },
+      { text: 'Chuyên môn chỉ là công cụ; muốn đi cùng nhau lâu dài, cần chia sẻ cùng giá trị.', source: 'Vietcetera', sourceUrl: 'https://vietcetera.com/en/a-working-woman-business-leader-kim-oanh-on-measuring-what-really-matters' },
+      { text: 'Nếu bạn là lãnh đạo, bạn phải chịu trách nhiệm trong mọi hoàn cảnh.', source: 'Vietcetera', sourceUrl: 'https://vietcetera.com/en/a-working-woman-business-leader-kim-oanh-on-measuring-what-really-matters' },
+    ],
+    advice: [
+      { title: 'Uy tín là tất cả', desc: 'Chỉ khi cam kết toàn tâm với lời hứa, bạn mới cảm nhận được sức nặng của nó lên danh tiếng và thành công.' },
+      { title: 'Lãnh đạo F&B phải hiểu sản phẩm', desc: 'Không chỉ có chiến lược mà phải có kiến thức sâu về món ăn, nguyên liệu, quy trình.' },
+      { title: 'Chia sẻ giá trị, không chỉ chia sẻ công việc', desc: 'Muốn đi cùng nhau lâu dài, cần chia sẻ cùng giá trị.' },
+    ],
+    links: [
+      { label: 'Kim Oanh — Measuring What Really Matters (Vietcetera)', url: 'https://vietcetera.com/en/a-working-woman-business-leader-kim-oanh-on-measuring-what-really-matters', type: 'article' },
+      { label: '10 năm sau thương vụ Wrap & Roll (Kênh14)', url: 'https://kenh14.vn/10-nam-sau-thuong-vu-ban-wraproll-hoa-khoi-the-thao-dau-tien-cua-viet-nam-tai-xuat-voi-nha-hang-moi-tien-se-toi-sau-215251124091443877.chn', type: 'article' },
+    ],
+    socials: [{ platform: 'linkedin', url: 'https://vn.linkedin.com/in/oanh-kim-nguyen-332a37136' }],
+  },
+
+  {
+    id: 'sanae-takasugi',
+    slug: 'sanae-takasugi',
+    name: 'Sanae Takasugi',
+    descriptor: 'Đồng sáng lập & Phó CEO Pizza 4P\'s — người xây dựng văn hóa "Oneness" từ pizza đến triết lý sống',
+    photo: '/experts/sanae-takasugi.webp',
+    category: 'inspiration',
+    tags: ['Nhà hàng', 'Bền vững', 'Văn hóa doanh nghiệp'],
+    shortBio: 'Đồng sáng lập và Phó CEO Pizza 4P\'s. Cùng chồng Yosuke Masuko xây dựng từ tiệc pizza tại nhà (2011) thành chuỗi 32+ nhà hàng toàn châu Á với triết lý "Delivering Wow, Sharing Happiness."',
+    fullBio: 'Sanae Takasugi tốt nghiệp Keio University (Nhật Bản), từng học tại Anh và Trung Quốc. Cùng chồng Yosuke Masuko sáng lập Pizza 4P\'s năm 2011 tại TP.HCM. Từ những buổi tiệc pizza tại nhà (mỗi lần chỉ 14-15 bánh), họ xây dựng chuỗi 32+ nhà hàng tại Việt Nam, Campuchia, Ấn Độ, Indonesia và Nhật Bản.\n\nPizza 4P\'s nổi tiếng với phô mai tự làm (từ trang trại ở Đơn Dương, Lâm Đồng), vườn rau organic, và cam kết bền vững (zero waste, năng lượng sạch). Triết lý "Oneness — Earth to People" tạo sự hài hòa giữa con người, thức ăn và trái đất.\n\nĐiểm đặc biệt: nhân viên viết tin nhắn tay lên mỗi hộp pizza — một "wow moment" nhỏ tạo nên trải nghiệm khác biệt.',
+    highlights: [
+      'Đồng sáng lập Pizza 4P\'s (2011) — từ tiệc pizza tại nhà thành chuỗi 32+ nhà hàng toàn châu Á',
+      'Triết lý "Oneness — Earth to People" kết nối con người, thực phẩm và trái đất',
+      'Tiên phong F&B bền vững: phô mai tự làm, rau organic, zero waste',
+      'Mô hình "wow moment" — nhân viên viết tin nhắn tay lên hộp pizza',
+    ],
+    quotes: [
+      { text: 'Bất kỳ doanh nghiệp nào hướng đến tương lai đều phải bền vững. Chúng tôi muốn Pizza 4P\'s vẫn làm điều này sau 50 hay 100 năm nữa.', source: 'The Dot Magazine', sourceUrl: 'https://thedotmagazine.com/pizza-4ps-co-founder-sanaes-story-so-far-of-their-quest-for-peace-through-pizza/' },
+      { text: 'Chúng tôi PHẢI tìm cách làm mọi thứ bền vững, bất kể chiến lược công ty.', source: 'The Dot Magazine', sourceUrl: 'https://thedotmagazine.com/pizza-4ps-co-founder-sanaes-story-so-far-of-their-quest-for-peace-through-pizza/' },
+      { text: 'Hành động nhỏ đầy tính nhân văn đó, chúng tôi hy vọng, sẽ tạo nên khoảnh khắc "wow" cho người nhận pizza.', source: 'The Dot Magazine', sourceUrl: 'https://thedotmagazine.com/pizza-4ps-co-founder-sanaes-story-so-far-of-their-quest-for-peace-through-pizza/' },
+    ],
+    advice: [
+      { title: 'Bền vững không phải chiến lược — là điều kiện sống còn', desc: 'Đừng coi sustainable là marketing gimmick. Đó là cách duy nhất để tồn tại lâu dài.' },
+      { title: 'Tạo "wow moment" từ những điều nhỏ', desc: 'Một tấm thiệp viết tay trên hộp pizza tạo nên trải nghiệm khác biệt, không cần đầu tư lớn.' },
+      { title: 'Làm điều mình tin là đúng', desc: 'Thất bại là phần tự nhiên. Suy nghĩ kỹ, hành động dứt khoát, và chấp nhận kết quả.' },
+    ],
+    links: [
+      { label: 'Quest for Peace Through Pizza (The Dot Magazine)', url: 'https://thedotmagazine.com/pizza-4ps-co-founder-sanaes-story-so-far-of-their-quest-for-peace-through-pizza/', type: 'article' },
+      { label: 'Finding True North (Vietcetera Podcast)', url: 'https://vietcetera.com/en/who-am-i-finding-your-true-north-with-yosuke-masuko-and-sanae-takasugi', type: 'article' },
+    ],
+    socials: [
+      { platform: 'linkedin', url: 'https://vn.linkedin.com/in/sanae-masuko-b9578294' },
+      { platform: 'website', url: 'https://pizza4ps.com' },
+    ],
+  },
+
+  {
+    id: 'bobby-chinn',
+    slug: 'bobby-chinn',
+    name: 'Bobby Chinn',
+    descriptor: '"Pharaoh of Fine Dining in the Far East" — đầu bếp khai phá fine dining tại Việt Nam',
+    photo: '/experts/bobby-chinn.webp',
+    category: 'inspiration',
+    tags: ['Fine Dining', 'Ẩm thực Việt', 'Đầu bếp quốc tế'],
+    shortBio: 'Đầu bếp gốc Ai Cập-Trung Quốc. Đến Việt Nam năm 1995, trở thành người tiên phong fine dining tại Hà Nội, giành Five-Diamonds Award. Anthony Bourdain: "Những gì Bobby không biết về ẩm thực Đông Nam Á thì không đáng để biết."',
+    fullBio: 'Bobby Chinn sinh tại New Zealand, cha gốc Trung Quốc-Mỹ và mẹ người Ai Cập. Sau sự nghiệp tại sàn giao dịch chứng khoán New York và làm hài độc lập, ông học nấu ăn tại Fleur de Lys (San Francisco) dưới sự chỉ dẫn của Hubert Keller.\n\nNăm 1995, ông đến Việt Nam. Đỉnh cao là Restaurant Bobby Chinn (Hà Nội, 2001) — nhà hàng fine dining mở đường cho ẩm thực cấp cao tại Việt Nam, giành Five-Diamonds Award. Khách hàng gồm Bill Clinton, Bob Dylan.\n\nÔng là giám khảo thường trực MBC\'s Top Chef Middle East, host "World Cafe," tác giả "Wild Wild East" (2007). Được bổ nhiệm Tourism Ambassador for Vietnam to EU (2014) và WWF Sustainable Seafood Ambassador (2012).',
+    highlights: [
+      'Tiên phong fine dining tại Việt Nam: Restaurant Bobby Chinn (2001) — Five-Diamonds Award',
+      'Tác giả "Wild Wild East" (2007) — lời tựa bởi Anthony Bourdain',
+      'Giám khảo MBC\'s Top Chef Middle East; host World Cafe, Bobby Chinn Cooks Asia',
+      'Tourism Ambassador for Vietnam to EU (2014)',
+    ],
+    quotes: [
+      { text: 'Tôi vô tình trở thành đầu bếp, nhưng tôi sinh ra là một người lữ hành.', source: 'Bobby Chinn Official', sourceUrl: 'https://www.bobbychinn.com/about/' },
+      { text: 'Nhà hàng của tôi không phải vì tiền. Tôi quá bướng bỉnh và đam mê để chơi trò đó.', source: 'The Ethicalist', sourceUrl: 'https://theethicalist.com/bobby-chinn-real-food-not-molecular-nonsense/' },
+      { text: 'Ẩm thực Việt Nam là một sự thức tỉnh. Tươi, nhẹ, lành mạnh, hiện đại với nhiều tương phản.', source: 'Asian Supper', sourceUrl: 'https://asiansupper.com/theslurp/chef-interview-vietnam-15-years-later-bobby-chinn/' },
+    ],
+    advice: [
+      { title: 'Đam mê phải thật', desc: '"Speak it, live it, do it." Đừng làm ngành F&B nếu bạn không thực sự yêu thức ăn và con người.' },
+      { title: 'Học từ những người giỏi nhất', desc: 'Khi học từ người thực sự giỏi, bạn sẽ không phát triển thói quen xấu.' },
+      { title: 'Hiểu truyền thống trước khi "fusion"', desc: 'Nhiều món fusion thất bại vì đầu bếp không master được món gốc. Phải thành thạo truyền thống trước khi sáng tạo.' },
+    ],
+    links: [
+      { label: 'Bobby Chinn Official — About', url: 'https://www.bobbychinn.com/about/', type: 'article' },
+      { label: 'Vietnam 15 Years Later (Asian Supper)', url: 'https://asiansupper.com/theslurp/chef-interview-vietnam-15-years-later-bobby-chinn/', type: 'article' },
+    ],
+    socials: [
+      { platform: 'website', url: 'https://www.bobbychinn.com' },
+      { platform: 'linkedin', url: 'https://www.linkedin.com/in/bobbychinn/' },
+      { platform: 'instagram', url: 'https://www.instagram.com/bobbychinn/' },
+    ],
+  },
+
+  {
+    id: 'luke-nguyen',
+    slug: 'luke-nguyen',
+    name: 'Luke Nguyen',
+    descriptor: 'Đầu bếp Úc gốc Việt — người kể chuyện ẩm thực VN ra thế giới qua 9 series truyền hình',
+    photo: '/experts/luke-nguyen.webp',
+    category: 'inspiration',
+    tags: ['Ẩm thực Việt', 'Đầu bếp quốc tế', 'Truyền hình'],
+    shortBio: 'Đầu bếp và MC truyền hình Úc gốc Việt. Mở nhà hàng Red Lantern lúc 23 tuổi, quay 9 series truyền hình phát sóng tại 150 quốc gia, nâng tầm ẩm thực Việt lên sân khấu quốc tế.',
+    fullBio: 'Luke Nguyen sinh tại trại tị nạn ở Thái Lan năm 1978, gia đình đến Úc năm 1979. Lớn lên tại Cabramatta, Sydney, học nấu ăn từ bố mẹ tại nhà hàng gia đình Phở Cây Du suốt 15 năm.\n\nLúc 23 tuổi, ông cùng chị gái mở Red Lantern — nhà hàng Việt/Châu Á được trao giải nhiều nhất nước Úc. Ông là người trẻ nhất vào Sydney Morning Herald\'s Food Hall of Fame.\n\nÔng đã quay 9 series truyền hình phát sóng tại 150 quốc gia, tác giả 5 sách bán chạy quốc tế. Hiện sở hữu Vietnam House (Đồng Khởi) và đồng sáng lập GRAIN cooking studio tại TP.HCM. Sáng lập Little Lantern Foundation tại Hội An, đào tạo nghề cho thanh niên khó khăn.',
+    highlights: [
+      'Mở Red Lantern lúc 23 tuổi — nhà hàng Việt/Châu Á được trao giải nhiều nhất nước Úc',
+      '9 series truyền hình phát sóng tại 150 quốc gia, 5 sách bán chạy quốc tế',
+      'Người trẻ nhất vào Sydney Morning Herald\'s Food Hall of Fame',
+      'Sáng lập Little Lantern Foundation (Hội An) đào tạo nghề cho thanh niên khó khăn',
+    ],
+    quotes: [
+      { text: 'Là đầu bếp và chủ nhà hàng, bạn phải kể câu chuyện của món ăn — về lịch sử, văn hóa, đất nước và con người.', source: 'Australian Embassy Vietnam', sourceUrl: 'https://vietnam.embassy.gov.au/hnoi/50Stories_LukeNguyen_EN.html' },
+      { text: 'Sứ mệnh cá nhân của tôi là nâng tầm ẩm thực Việt Nam để khách hàng được thưởng thức trải nghiệm dining hoàn chỉnh, không chỉ là "rẻ và vui."', source: 'Vietcetera', sourceUrl: 'https://vietcetera.com/en/luke-nguyen-whats-on-the-roadmap-for-vietnamese-cuisine' },
+      { text: 'Ẩm thực Việt Nam cũng có thể kết hợp với rượu vang tuyệt vời, không chỉ là bia hơi.', source: 'Vietcetera', sourceUrl: 'https://vietcetera.com/en/luke-nguyen-whats-on-the-roadmap-for-vietnamese-cuisine' },
+    ],
+    advice: [
+      { title: 'Kể chuyện qua món ăn', desc: 'Mỗi món ăn có lịch sử, văn hóa và con người. Đầu bếp và chủ nhà hàng phải là người kể chuyện.' },
+      { title: 'Nâng tầm, đừng hạ giá', desc: 'Ẩm thực Việt xứng đáng với trải nghiệm dining hoàn chỉnh, không chỉ là "rẻ và vui."' },
+      { title: 'Giữ bản sắc, trình bày hiện đại', desc: 'Công thức truyền thống Việt nhưng format phù hợp thị trường quốc tế.' },
+    ],
+    links: [
+      { label: '50 Stories — Luke Nguyen (Đại sứ quán Úc)', url: 'https://vietnam.embassy.gov.au/hnoi/50Stories_LukeNguyen_EN.html', type: 'article' },
+      { label: 'Roadmap for Vietnamese Cuisine (Vietcetera)', url: 'https://vietcetera.com/en/luke-nguyen-whats-on-the-roadmap-for-vietnamese-cuisine', type: 'article' },
+    ],
+    socials: [
+      { platform: 'instagram', url: 'https://www.instagram.com/lukenguyencooks/' },
+      { platform: 'website', url: 'http://vietnamhousesaigon.com/' },
+    ],
+  },
+
+  {
+    id: 'john-pemberton',
+    slug: 'john-pemberton',
+    name: 'John Pemberton',
+    descriptor: 'Từ giám đốc IKEA đến người khai phá bia thủ công VN — xây dựng thương hiệu bia craft hàng đầu Châu Á',
+    photo: '/experts/john-pemberton.webp',
+    category: 'inspiration',
+    tags: ['Bia craft', 'Khởi nghiệp', 'F&B Sài Gòn'],
+    shortBio: 'Sáng lập và CEO Heart of Darkness Craft Brewery (2016) tại Sài Gòn. Nguyên là Deputy Trading Area Manager của IKEA, ông tự học nấu bia và xây dựng thương hiệu bia craft hàng đầu Việt Nam.',
+    fullBio: 'John Pemberton sinh tại Úc, lớn lên ở Anh. Những năm 1990 tại New York, ông phát triển tình yêu với bia craft qua phong trào craft beer đang non trẻ của Mỹ.\n\nNăm 2013, IKEA đưa ông đến Việt Nam. Thất vọng vì không tìm được bia craft chất lượng, ông tự học nấu bia tại nhà. Heart of Darkness ra đời năm 2016 tại Quận 1, TP.HCM.\n\nTừ đó, Heart of Darkness giành nhiều giải quốc tế: Country Champion tại Asia Beer Championships (2023), giải tại Tokyo International Beer Cup. Thương hiệu mở rộng ra Singapore và Thái Lan.',
+    highlights: [
+      'Sáng lập Heart of Darkness Brewery (2016) — thương hiệu bia craft hàng đầu Việt Nam',
+      'Country Champion Brewery tại Asia Beer Championship 2023',
+      'Mở rộng ra Singapore và Thái Lan; hàng trăm loại bia đã ra mắt',
+      'Từ tự học nấu bia tại nhà đến xây dựng thương hiệu khu vực',
+    ],
+    quotes: [
+      { text: 'Bia craft ở Việt Nam vẫn còn ở giai đoạn phôi thai và còn rất nhiều việc phải làm.', source: 'Vietcetera', sourceUrl: 'https://vietcetera.com/en/heart-of-darkness-craft-brewery-building-an-asian-craft-beer-empire' },
+      { text: 'Người Việt quen với hương vị đậm đà, mạnh mẽ. Điều này giúp họ tự nhiên thưởng thức được những loại bia có profile phức tạp.', source: 'Vietcetera', sourceUrl: 'https://vietcetera.com/en/heart-of-darkness-craft-brewery-building-an-asian-craft-beer-empire' },
+      { text: 'Chúng tôi đối xử nhà xưởng như sân chơi. Mục tiêu là thực sự đẩy giới hạn.', source: 'Vietcetera', sourceUrl: 'https://vietcetera.com/en/heart-of-darkness-craft-brewery-building-an-asian-craft-beer-empire' },
+    ],
+    advice: [
+      { title: 'Tầm nhìn khu vực từ ngày đầu', desc: '"Ý tưởng mở rộng Châu Á đã được baked into kế hoạch từ ngày đầu." Đừng đợi lớn mới nghĩ đến scale.' },
+      { title: 'Hiểu khách hàng địa phương', desc: 'Người Việt quen hương vị đậm đà. Họ tự nhiên thích bia có profile phức tạp. Đừng giả định họ chỉ uống bia nhẹ.' },
+      { title: 'Đối xử nhà xưởng như sân chơi', desc: 'Sáng tạo và thử nghiệm liên tục. Mỗi loại bia mới là một cuộc thí nghiệm.' },
+    ],
+    links: [
+      { label: 'Building An Asian Craft Beer Empire (Vietcetera)', url: 'https://vietcetera.com/en/heart-of-darkness-craft-brewery-building-an-asian-craft-beer-empire', type: 'article' },
+      { label: 'Craft Beer in Vietnam — Podcast (Talk Travel Asia)', url: 'https://talktravelasia.com/2017/09/01/episode-67-craft-beer-in-vietnam-with-john-pemberton/', type: 'article' },
+    ],
+    socials: [
+      { platform: 'linkedin', url: 'https://www.linkedin.com/in/john-pemberton-29901819/' },
+      { platform: 'website', url: 'https://heartofdarknessbrewery.com' },
+    ],
+  },
+
+  // ── Chuyên gia tư vấn (thêm) ──
+
+  {
+    id: 'phan-anh-minh',
+    slug: 'phan-anh-minh',
+    name: 'Phan Anh Minh',
+    descriptor: 'Chuyên gia mặt bằng số 1 Việt Nam — tác giả "Đến Sahara mở quán trà đá," tư vấn vị trí cho hàng trăm chuỗi F&B',
+    photo: '/experts/phan-anh-minh.webp',
+    category: 'consultant',
+    tags: ['Mặt bằng', 'Tư vấn F&B', 'Chuỗi cửa hàng'],
+    shortBio: 'CEO & Founder SitePlus — công ty tư vấn phát triển mặt bằng đầu tiên tại Việt Nam. Tác giả "Đến Sahara mở quán trà đá" — Top 10 sách kinh doanh hay nhất 2024.',
+    fullBio: 'Phan Anh Minh là người sáng lập và CEO của SitePlus — công ty tư vấn chiến lược phát triển mặt bằng đầu tiên tại Việt Nam. Với hơn 10 năm kinh nghiệm, ông đã triển khai phát triển mặt bằng cho 3 chuỗi cửa hàng tiện lợi lớn nhất Việt Nam và tư vấn cho Ministop, 30Shine, Rau Má Mix, Pi Thai, Levents, Fight100.\n\nÔng là tác giả cuốn "Đến Sahara mở quán trà đá — Bí quyết tìm kiếm mặt bằng kinh doanh" (NXB Thế Giới / Giver Books) — cuốn sách đầu tiên tại Việt Nam về phát triển mặt bằng kinh doanh, lọt Top 10 sách kinh doanh hay nhất 2024. Sách giới thiệu "Quy tắc 6T" để nhận diện mặt bằng tiềm năng và 21 sai lầm phổ biến phải tránh.\n\nÔng thường xuyên chia sẻ kiến thức chuyên môn qua Substack, TikTok và Facebook.',
+    highlights: [
+      'Sáng lập SitePlus — công ty tư vấn mặt bằng kinh doanh đầu tiên tại Việt Nam',
+      'Tác giả "Đến Sahara mở quán trà đá" — Top 10 sách kinh doanh hay nhất 2024',
+      '10+ năm kinh nghiệm, triển khai mặt bằng cho 3 chuỗi convenience store lớn nhất VN',
+      'Tư vấn chiến lược cho Ministop, 30Shine, Rau Má Mix, Pi Thai, Levents, Fight100',
+    ],
+    quotes: [
+      { text: 'Mặt bằng phải phù hợp với mô hình kinh doanh và nhu cầu của doanh nghiệp.', source: 'MinhPhan Substack', sourceUrl: 'https://minhphansiteplus.substack.com/p/mat-bang-va-mo-hinh-kinh-doanh' },
+      { text: 'Chọn mặt bằng là quyết định lớn — không chỉ vì tiền đặt cọc lên đến hàng trăm triệu, mà quyết định này sẽ đồng hành với bạn nhiều năm.', source: 'Báo Đồng Nai', sourceUrl: 'https://baodongnai.com.vn/dong-nai-cuoi-tuan/202410/den-sahara-mo-quan-tra-da-fce5da2/' },
+      { text: 'Hãy cứ khát khao, cứ dại khờ, vì khi còn mơ ước, bạn thật sự phấn đấu.', source: 'Trí Tuệ Mới', sourceUrl: 'https://trituemoi.vn/doi-song/den-sahara-mo-quan-tra-da-nhung-bai-hoc-xuong-mau-tu-chuyen-gia-phat-trien-cua-hang-344.html' },
+    ],
+    advice: [
+      { title: 'Áp dụng "Quy tắc 6T" trước khi chọn mặt bằng', desc: 'Vị trí, Tập trung (foot traffic), Thu nhập khu vực, Diện tích, Tầm nhìn (visibility), Thuận tiện (accessibility). 6 yếu tố quyết định mặt bằng có phù hợp hay không.' },
+      { title: 'Tránh 21 sai lầm phổ biến', desc: 'Như chọn mặt bằng vì "thấy đông người" mà không phân tích dòng khách mục tiêu, không đàm phán kỹ hợp đồng thuê.' },
+      { title: 'Quy trình 4 bước "săn mặt bằng"', desc: 'Khoanh vùng → Thu thập thông tin → Khảo sát thực địa → Đàm phán. Làm tuần tự, không nhảy cóc.' },
+    ],
+    links: [
+      { label: 'Website MinhPhan.vn', url: 'https://minhphan.vn/', type: 'article' },
+      { label: 'Review sách "Đến Sahara" (Báo Đồng Nai)', url: 'https://baodongnai.com.vn/dong-nai-cuoi-tuan/202410/den-sahara-mo-quan-tra-da-fce5da2/', type: 'article' },
+      { label: 'Mặt bằng và Mô hình kinh doanh (Substack)', url: 'https://minhphansiteplus.substack.com/p/mat-bang-va-mo-hinh-kinh-doanh', type: 'article' },
+    ],
+    socials: [
+      { platform: 'website', url: 'https://minhphan.vn/' },
+      { platform: 'facebook', url: 'https://facebook.com/minhphan155189' },
+      { platform: 'tiktok', url: 'https://www.tiktok.com/@minhphan.siteplus' },
     ],
   },
 ];

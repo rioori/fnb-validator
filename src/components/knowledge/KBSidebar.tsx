@@ -5,18 +5,19 @@ import Link from 'next/link';
 import Icon from '@/components/ui/Icon';
 import type { KBCategory, KBTopic } from '@/types';
 
-const CATEGORY_KEYS: KBCategory[] = ['cost', 'operations', 'strategy', 'legal'];
+const CATEGORY_KEYS: KBCategory[] = ['trends', 'cost', 'operations', 'strategy', 'legal', 'technology'];
 
 const CATEGORY_ICONS: Record<KBCategory, string> = {
   cost: 'calculator',
   operations: 'checklist',
   strategy: 'bolt',
   legal: 'shield',
+  technology: 'gear',
+  trends: 'trendingup',
 };
 
 interface ExploreLabels {
   stories: string;
-  trends: string;
 }
 
 interface KBSidebarProps {
@@ -72,13 +73,16 @@ export default function KBSidebar({
                   <Link
                     href={localePrefixedPaths[topic.slug] || `/kien-thuc/${topic.slug}`}
                     onClick={onNavigate}
-                    className={`block text-[13px] leading-snug px-3 py-2 rounded-xl transition-all ${
+                    className={`block px-3 py-2 rounded-xl transition-all ${
                       isActive
                         ? 'bg-mint-light/60 text-cta font-semibold border-l-3 border-cta'
                         : 'text-text-muted hover:text-text hover:bg-surface3/50'
                     }`}
                   >
-                    {topic.title}
+                    <span className="text-[13px] leading-snug block">{topic.title}</span>
+                    {topic.publishDate && (
+                      <span className="text-[10px] text-text-light block">{topic.publishDate}</span>
+                    )}
                   </Link>
                 </li>
               );
@@ -87,7 +91,7 @@ export default function KBSidebar({
         </div>
       ))}
 
-      {/* Explore: Stories & Trends */}
+      {/* Explore: Stories */}
       <div className="border-t border-border-light pt-3 mt-3 space-y-1">
         <Link
           href={`${homeHref}?view=stories`}
@@ -96,14 +100,6 @@ export default function KBSidebar({
         >
           <Icon name="stories" size={14} className="!border-0 !shadow-none !bg-transparent opacity-60" />
           {exploreLabels.stories}
-        </Link>
-        <Link
-          href={`${homeHref}?view=trends`}
-          onClick={onNavigate}
-          className="flex items-center gap-2 px-3 py-2 rounded-xl text-[13px] text-text-muted hover:text-text hover:bg-pastel-blue/40 transition-all"
-        >
-          <Icon name="trendingup" size={14} className="!border-0 !shadow-none !bg-transparent opacity-60" />
-          {exploreLabels.trends}
         </Link>
       </div>
     </nav>

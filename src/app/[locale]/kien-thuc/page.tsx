@@ -49,7 +49,7 @@ function BreadcrumbJsonLd({ locale }: { locale: string }) {
     '@context': 'https://schema.org',
     '@type': 'BreadcrumbList',
     itemListElement: [
-      { '@type': 'ListItem', position: 1, name: isEn ? 'Home' : 'Trang chủ', item: isEn ? `${BASE_URL}/en` : BASE_URL },
+      { '@type': 'ListItem', position: 1, name: isEn ? 'Home' : 'Trang chủ', item: isEn ? `${BASE_URL}/en/fnb` : `${BASE_URL}/fnb` },
       {
         '@type': 'ListItem',
         position: 2,

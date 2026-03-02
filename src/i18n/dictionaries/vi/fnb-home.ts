@@ -46,7 +46,7 @@ const fnbHome = {
     },
     {
       title: 'Kiến thức F&B',
-      desc: 'Chi phí, benchmark, câu chuyện thực tế, xu hướng 2025-2026.',
+      desc: 'Chi phí, vận hành, pháp lý, chiến lược — kiến thức nền tảng cho người mở quán.',
       cta: 'Đọc thêm →',
     },
     {
@@ -54,9 +54,29 @@ const fnbHome = {
       desc: '80+ mục cần chuẩn bị từ pháp lý, thi công đến vận hành.',
       cta: 'Xem ngay →',
     },
+    {
+      title: 'Góc nhìn chuyên gia',
+      desc: 'Nhận định & bài học thực chiến từ các chuyên gia F&B hàng đầu.',
+      cta: 'Xem ngay →',
+    },
+    {
+      title: 'Thị trường F&B',
+      desc: 'Số liệu ngành, xu hướng tiêu dùng & dự báo 2025-2026.',
+      cta: 'Khám phá →',
+    },
   ],
   models: {
     sectionTitle: 'Các mô hình F&B',
+  },
+  expertsPreview: {
+    heading: 'Góc nhìn chuyên gia',
+    desc: 'Học hỏi từ những người đã đi trước trong ngành F&B Việt Nam',
+    viewAll: 'Xem tất cả chuyên gia →',
+  },
+  trendsPreview: {
+    heading: 'Thị trường F&B 2026',
+    desc: 'Dữ liệu & insight mới nhất về thị trường ẩm thực Việt Nam',
+    viewAll: 'Xem toàn bộ thị trường →',
   },
 };
 export default fnbHome;

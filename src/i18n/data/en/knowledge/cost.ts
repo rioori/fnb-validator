@@ -1,9 +1,10 @@
-import type { KBTopic, KBTableRow, KBStat, KBWarningItem } from '@/types';
+import type { KBTopic, KBTableRow, KBStat, KBTimelineStep, KBWarningItem } from '@/types';
 
 const COST_ARTICLES: KBTopic[] = [
   {
     id: 'cost_structure',
     slug: 'cau-truc-chi-phi-fnb',
+    publishDate: '2026-02-15',
     icon: 'money',
     title: 'F&B Cost Structure',
     subtitle: 'Know where your money goes before you start',
@@ -49,6 +50,7 @@ const COST_ARTICLES: KBTopic[] = [
   {
     id: 'key_metrics',
     slug: 'cac-chi-so-song-con',
+    publishDate: '2026-02-15',
     icon: 'chart',
     title: 'Critical Metrics',
     subtitle: '4 numbers that determine survival',
@@ -101,6 +103,7 @@ const COST_ARTICLES: KBTopic[] = [
   {
     id: 'financial_management',
     slug: 'quan-ly-tai-chinh',
+    publishDate: '2026-02-15',
     icon: 'chart',
     title: 'Financial Management',
     subtitle: 'Money in, money out — every dong must be tracked',
@@ -148,6 +151,7 @@ const COST_ARTICLES: KBTopic[] = [
   {
     id: 'food_cost_detail',
     slug: 'food-cost-chi-tiet',
+    publishDate: '2026-02-15',
     icon: 'meat',
     title: 'Food Cost Deep Dive',
     subtitle: 'Calculate COGS, control ingredients, and optimize profit margins',
@@ -214,6 +218,7 @@ const COST_ARTICLES: KBTopic[] = [
   {
     id: 'rent_analysis',
     slug: 'chi-phi-thue-mat-bang',
+    publishDate: '2026-02-15',
     icon: 'location',
     title: 'Rental Cost Analysis',
     subtitle: 'Location rent benchmarks by area & lease negotiation tips',
@@ -269,6 +274,283 @@ const COST_ARTICLES: KBTopic[] = [
       {
         type: 'text',
         content: 'Rent is the largest fixed cost and the hardest to change once committed. Use F&B Validator to calculate what percentage of projected revenue your rent represents, and whether there\'s enough margin left for profit.',
+      },
+    ],
+  },
+  {
+    id: 'delivery_costs',
+    slug: 'chi-phi-delivery-va-app',
+    publishDate: '2026-02-15',
+    icon: 'phone',
+    title: 'Delivery App Costs: Grab, Shopee & Self-Delivery',
+    subtitle: 'How 20-30% commission fees eat into your profit margins',
+    color: 'primary-light',
+    category: 'cost',
+    highlights: [
+      { label: 'GrabFood Commission', value: '25-30%', note: 'of selling price' },
+      { label: 'ShopeeFood Commission', value: '22-27%', note: 'of selling price' },
+      { label: 'Packaging Cost', value: '3-8K/order', note: 'containers, bags, extras' },
+      { label: 'Real Net Margin', value: '5-12%', note: 'actual delivery profit' },
+    ],
+    sections: [
+      {
+        type: 'table',
+        heading: 'Commission Rates by Platform (2025-2026)',
+        content: [
+          { label: 'GrabFood', range: '25-30%', note: 'Largest platform, highest traffic. Rates vary by tier: basic 25%, priority listing 28-30%.' },
+          { label: 'ShopeeFood', range: '22-27%', note: 'Slightly lower fees than Grab. Runs heavy promotions, but average order value tends to be lower.' },
+          { label: 'GoFood (Gojek)', range: '20-25%', note: 'Lowest commission among the big 3. However, order volume is significantly smaller.' },
+          { label: 'Baemin (exited)', range: '—', note: 'Shut down in 2023. Lesson learned: never depend 100% on a single platform.' },
+          { label: 'Self-delivery (own riders)', range: '5-10K/order', note: 'Lowest cost option but requires managing riders. Limited delivery radius of 3-5km.' },
+        ] as KBTableRow[],
+      },
+      {
+        type: 'stat-grid',
+        heading: 'True Delivery Profitability — Hidden Costs Add Up',
+        content: [
+          { icon: 'money', label: 'App Commission', value: '22-30%', desc: 'Platform fee charged on the selling price (excludes shipping fee paid by customer). This is the single biggest cost.' },
+          { icon: 'meat', label: 'Food Cost', value: '30-40%', desc: 'Same as dine-in. But delivery portions are often larger — customers expect "value for the delivery fee" they paid.' },
+          { icon: 'wallet', label: 'Packaging', value: '3-8K/order', desc: 'Containers + bags + sauce cups + napkins + utensils. Noodle and soup dishes cost more (multiple compartments, leak-proof packaging).' },
+          { icon: 'chart', label: 'Actual Net Margin', value: '5-12%', desc: 'Example: VND 50K order → app takes 13K, ingredients 18K, packaging 5K → VND 14K left (28%). After labor and utilities = ~5-12%.' },
+        ] as KBStat[],
+      },
+      {
+        type: 'table',
+        heading: 'Worked Example: A VND 60K Rice Order on GrabFood',
+        content: [
+          { label: 'Selling price on app', range: '60,000đ', note: 'Many shops mark up 10-15% on app vs. dine-in price.' },
+          { label: 'Grab commission (27%)', range: '-16,200đ', note: 'App takes 27% × 60K. Shop receives 43,800đ.' },
+          { label: 'Ingredient cost', range: '-20,000đ', note: 'Food cost at 33%. Target: keep ≤35% for delivery orders.' },
+          { label: 'Packaging', range: '-5,000đ', note: 'Rice box + bag + sauce cup + chopsticks + napkin.' },
+          { label: 'Packing labor', range: '-3,000đ', note: '5-8 minutes per order to assemble. Need a dedicated packer when volume exceeds 30 orders/day.' },
+          { label: 'Net profit', range: '15,600đ', note: '= 26% of selling price. After utilities and depreciation → realistic margin around 12-18%.' },
+        ] as KBTableRow[],
+      },
+      {
+        type: 'warning-list',
+        heading: 'Delivery Traps — Common Costly Mistakes',
+        content: [
+          { icon: 'warning', title: 'Selling at dine-in prices on apps = guaranteed loss', desc: 'With 25-30% commission and the same price, you\'re handing over your entire margin. Solution: mark up 10-15% on apps, reduce delivery portions slightly, or create a separate delivery-only menu.', severity: 'critical' },
+          { icon: 'warning', title: 'Running app promotions without doing the math', desc: '30% discount + free shipping + 27% app commission = you\'re losing money on every single order. Before running any deal, calculate: (discounted price - commission - COGS - packaging) — is it still positive?', severity: 'critical' },
+          { icon: 'warning', title: 'Over-dependence on delivery platforms', desc: 'If the app changes fees (even a 3-5% increase), tweaks the algorithm to hide your shop, or shuts down — your revenue can drop 50-70% overnight. Keep delivery at ≤40% of total revenue.', severity: 'warning' },
+          { icon: 'warning', title: 'Forgetting to cost packaging', desc: 'Packaging at 3-8K/order × 50 orders/day = 150-400K/day = VND 4.5-12M/month. Many shops ignore this cost entirely, so their "food cost" looks fine on paper but they\'re actually losing money.', severity: 'warning' },
+        ] as KBWarningItem[],
+      },
+      {
+        type: 'list',
+        heading: 'Smart Delivery Strategies',
+        content: [
+          'Create a delivery-specific menu: Keep only 10-15 items (not your full 30-50 item menu). Choose dishes that travel well (won\'t get soggy, spill, or lose heat), have high margins, and are easy to pack.',
+          'Mark up app prices by 10-15%: Most customers accept this for the convenience. Most platforms allow different pricing from dine-in — use this feature.',
+          'Build delivery combos: Bundle 2-3 items with a small drink. Push average order value from VND 45K to 80K. Commission percentage stays the same, but absolute profit per order increases significantly.',
+          'Switch to self-delivery when volume justifies it: At 30-50+ orders/day within a 3km radius, hiring a dedicated rider (VND 6-8M/month) is much cheaper than app commissions. Take direct orders via Zalo or a hotline.',
+          'Know when to pause delivery: If net margin drops below 5% after all costs, or delivery volume is hurting dine-in quality (kitchen overwhelmed) — pause the apps and focus on in-store customers.',
+        ],
+      },
+      {
+        type: 'text',
+        content: 'Delivery is a powerful revenue channel — but only when you price it correctly. Many shops are "busy" with 50-100 delivery orders a day yet still losing money, because each order only nets VND 2-5K after all fees. Plug your delivery numbers into F&B Validator to see whether this channel is truly profitable for you.',
+      },
+    ],
+  },
+  {
+    id: 'cashflow_early_stage',
+    slug: 'quan-ly-dong-tien-thang-dau',
+    publishDate: '2026-02-15',
+    icon: 'wallet',
+    title: 'Early-Stage Cash Flow: Surviving the Hardest Months',
+    subtitle: 'Why shops with customers still die from running out of cash',
+    color: 'primary-light',
+    category: 'cost',
+    highlights: [
+      { label: 'Cash Reserves Needed', value: '3-6 months', note: 'of operating costs' },
+      { label: 'Average Break-even', value: '4-8 months', note: 'varies by model' },
+      { label: 'Biggest Burn Month', value: 'Months 2-3', note: 'after opening' },
+      { label: 'Burn Rate Changes', value: 'Weekly', note: 'must track closely' },
+    ],
+    sections: [
+      {
+        type: 'text',
+        content: 'Cash flow is the #1 reason F&B businesses shut down — not because they run out of customers, but because they run out of cash. You can be "profitable on paper" and still go bankrupt if payments are due before revenue arrives. Understanding your cash flow for the first 6 months doubles your chances of survival.',
+      },
+      {
+        type: 'timeline',
+        heading: 'The 6-Month Cash Flow "Valley of Death"',
+        content: [
+          { month: 'Month 0', title: 'Initial Investment Outflow', desc: 'Lease deposit (3-6 months upfront), renovation, equipment, first ingredient order, permits and licenses. Cash hits rock bottom. This is the single largest one-time outflow.', status: 'decline' },
+          { month: 'Month 1', title: 'Spending > Revenue — losses are normal', desc: 'Revenue reaches only 30-50% of capacity. But operating costs are already at 100%: rent, payroll, ingredients, utilities. A net loss of VND 20-40M is typical at this stage.', status: 'decline' },
+          { month: 'Month 2-3', title: 'The bottom of the "valley of death"', desc: 'Cash reserves are draining fast. Revenue hits 50-70% but costs keep climbing (ingredient waste, unexpected repairs, marketing spend). THIS is when most shops give up.', status: 'decline' },
+          { month: 'Month 4-5', title: 'Approaching operational break-even', desc: 'With good management, revenue reaches 80-100% capacity. Costs are optimized through experience. You start breaking even on monthly operations (not yet recouping initial investment).', status: 'ramp' },
+          { month: 'Month 6+', title: 'Building toward investment payback', desc: 'Monthly profit turns positive. At VND 10-20M profit per month, it takes another 12-18 months to fully recover the initial investment.', status: 'stable' },
+        ] as KBTimelineStep[],
+      },
+      {
+        type: 'table',
+        heading: 'Weekly Cash Tracking Template',
+        content: [
+          { label: 'Cash at start of week', range: 'Record actual figure', note: 'Cash on hand + bank balance. This is the "blood pressure" of your business.' },
+          { label: '(+) Cash collected from customers', range: 'Record daily', note: 'Dine-in: collected immediately. Delivery apps: paid out 7-14 days later.' },
+          { label: '(-) Ingredient purchases', range: '2-3 times/week', note: 'Some suppliers offer 7-30 day credit; others (meat, seafood) require payment on delivery.' },
+          { label: '(-) Staff payroll', range: 'End of month / bi-monthly', note: 'Largest fixed cost. Some shops split into 2 pay periods (15th and 30th) to ease cash pressure.' },
+          { label: '(-) Rent', range: 'Start of month', note: 'Fixed cost. Must be paid on time — no room for negotiation once the lease is signed.' },
+          { label: '(-) Utilities (electricity, water, gas, internet)', range: 'End of month', note: 'Varies seasonally. Summer electricity bills can jump 30-50% (AC, refrigeration).' },
+          { label: 'Cash at end of week', range: 'Auto-calculated', note: '= Start + Inflows - Outflows. If declining for 3 consecutive weeks = ALARM.' },
+        ] as KBTableRow[],
+      },
+      {
+        type: 'warning-list',
+        heading: 'Cash Crisis Red Flags',
+        content: [
+          { icon: 'warning', title: 'Cash reserves below 1 month of operating costs', desc: 'This is CODE RED. Act NOW: cut all non-essential spending, negotiate extended payment terms with suppliers, pause paid marketing, consider selling unused equipment for immediate cash.', severity: 'critical' },
+          { icon: 'warning', title: 'Supplier invoices overdue by 30+ days', desc: 'Suppliers will stop delivering → no ingredients → no revenue → death spiral. Prioritize paying suppliers above everything else (except staff wages).', severity: 'critical' },
+          { icon: 'warning', title: 'Borrowing at high interest to cover payroll', desc: 'If you\'re taking short-term loans at 3-5%/month just to pay wages, the business is in critical condition. Decision time: inject more capital with a hard deadline, or close early — don\'t keep bleeding.', severity: 'critical' },
+          { icon: 'warning', title: 'Delivery app payouts delayed 7-14 days', desc: '50 orders/day × VND 50K = VND 2.5M/day, but Grab/Shopee pay out after 7-14 days. During that gap, you still need to pay for ingredients and labor. Don\'t count app receivables as "cash in hand."', severity: 'warning' },
+        ] as KBWarningItem[],
+      },
+      {
+        type: 'list',
+        heading: '"Panic Buttons" — Emergency Actions When Cash Runs Low',
+        content: [
+          'Cut variable costs IMMEDIATELY: Stop all paid marketing, trim the menu to your top 10-15 sellers (reduces inventory waste), pause delivery if margins are below 5%.',
+          'Negotiate with suppliers BEFORE you\'re overdue: Call them proactively. Propose: pay 50% now + 50% next week. Most suppliers will agree if you\'re honest and have a clear plan.',
+          'Switch payroll to bi-monthly: Pay 50% on the 15th + 50% on the 30th. This smooths out end-of-month cash pressure. Communicate transparently with your team.',
+          'Run a flash sale to clear inventory: Sell near-expiry ingredients at cost, bundle slow-moving items into combo deals. Getting cash in the door now matters more than margins when survival is at stake.',
+          'Inject personal capital — with a hard limit: If you decide to put more money in, set a firm cap: "I\'m investing a maximum of X more. If things don\'t improve in 2 months, I close." Never pour in money with no exit plan.',
+          'Closing early beats closing late: If losses persist for 4-5 months straight, reserves are depleted, and there\'s no sign of improvement — shutting down now preserves 20-30% of your capital. Waiting another 3 months often means losing everything.',
+        ],
+      },
+      {
+        type: 'text',
+        content: 'Golden rule: Always know exactly how many WEEKS of cash you have left — not months, WEEKS. Check every Monday morning. If that number drops below 4 weeks, activate emergency mode. F&B Validator helps you project cash flow for 12 months ahead — run the worst-case scenario so you\'re never caught off guard.',
+      },
+    ],
+  },
+  {
+    id: 'staff_cost_optimization',
+    slug: 'toi-uu-chi-phi-nhan-su',
+    publishDate: '2026-02-15',
+    icon: 'team',
+    title: 'Optimizing Staff Costs',
+    subtitle: 'Labor is 20-30% of revenue — how to save without losing good people',
+    color: 'secondary-light',
+    category: 'cost',
+    highlights: [
+      { label: 'Revenue Share', value: '20-30%' },
+      { label: 'Hidden Costs', value: '+25-30%', note: 'on top of gross salary' },
+      { label: 'Avg. Turnover', value: '60-80%/year' },
+    ],
+    sections: [
+      {
+        type: 'table',
+        heading: 'True Cost of One Employee',
+        content: [
+          { label: 'Base salary (gross)', range: 'VND 5 - 8M (~$200-320)', note: 'Typical for service staff and baristas. Head chefs: VND 8-15M (~$320-600).' },
+          { label: 'Social Insurance — employer share (21.5%)', range: 'VND 1 - 1.7M', note: 'Mandatory by law: Social Insurance (BHXH) 17.5% + Health Insurance (BHYT) 3% + Unemployment Insurance (BHTN) 1% on base salary.' },
+          { label: 'Shift meals & allowances', range: 'VND 700K - 1.2M', note: 'Meal allowance VND 25-35K/day × 26 days. Some shops cook staff meals in-house — saves 30-40%.' },
+          { label: 'Uniform', range: 'VND 200 - 500K/year', note: '2 sets/person/year. Apron + branded T-shirt. Amortized to ~VND 30-40K/month.' },
+          { label: 'Training cost', range: 'VND 2 - 5M (~$80-200)', note: '1-2 weeks of training time, ingredient waste from practice, low productivity in the first month.' },
+          { label: 'Replacement cost when someone quits', range: 'VND 5 - 10M (~$200-400)', note: 'Job posting + interviews + retraining + lost productivity while short-staffed. This is the biggest hidden cost.' },
+        ] as KBTableRow[],
+      },
+      {
+        type: 'table',
+        heading: 'Staffing Model Comparison',
+        content: [
+          { label: 'Full-time — Cost', range: 'VND 6 - 10M/month', note: 'Includes salary + Social Insurance + allowances. Stable but high fixed cost.' },
+          { label: 'Full-time — Pros', range: 'Committed, stable', note: 'Train once, consistent quality, long-term loyalty, reliable shift coverage.' },
+          { label: 'Full-time — Cons', range: 'Inflexible', note: 'Still paying wages on slow days. Hard to scale down quickly when revenue drops.' },
+          { label: 'Part-time — Cost', range: 'VND 22 - 35K/hour', note: 'No Social Insurance required if contract is under 1 month. You only pay for hours actually worked.' },
+          { label: 'Part-time — Pros', range: 'Flexible, cheaper', note: 'Add staff when busy, reduce when slow. Ideal for peak hours (11am-2pm, 5pm-9pm).' },
+          { label: 'Part-time — Cons', range: 'Less committed', note: 'Prone to last-minute absences, requires continuous training, inconsistent service quality.' },
+          { label: 'Seasonal — Cost', range: 'VND 250 - 400K/day', note: 'Hired per day or per event. Common during Lunar New Year, grand openings, special events.' },
+          { label: 'Seasonal — Pros', range: 'No long-term obligation', note: 'Only hire when needed. No ongoing fixed costs.' },
+          { label: 'Seasonal — Cons', range: 'Unfamiliar with SOPs', note: 'Needs training each time. Service quality is typically lower. Hard to find skilled workers.' },
+        ] as KBTableRow[],
+      },
+      {
+        type: 'list',
+        heading: '8 Effective Ways to Optimize Staff Costs',
+        content: [
+          'Cross-train employees: Every person should know at least 2 positions — a barista who can handle the register, a server who can do basic drink prep. When someone calls in sick, you don\'t need to call in extra help. Bonus VND 500K (~$20) for each additional role learned.',
+          'Schedule based on actual demand: Review POS data by hour — staff 60-70% of your team during peak hours. Weekdays need 1-2 fewer people than weekends. This alone saves 15-20% on labor costs monthly.',
+          'Leverage POS and automation: POS auto-prints orders to the kitchen, QR code payments reduce cashier time, online ingredient ordering. Each saves 10-15 minutes per shift — potentially eliminating the need for one staff member.',
+          'Simplify the menu: 15-20 items instead of 40-50 — kitchen needs fewer hands, training is faster, fewer mistakes. Many shops have cut one kitchen helper just by trimming the menu.',
+          'Blend full-time and part-time: Keep 60-70% full-time (your core team) + 30-40% part-time for peak hours. Flexible scaling while maintaining a baseline of quality.',
+          'Retention bonuses over across-the-board raises: A 6-month loyalty bonus (VND 1-2M / ~$40-80) and annual bonus (1 month salary) cost less than raising everyone\'s salary by VND 500K/month — but are more effective at keeping people.',
+          'Owner works one shift early on: In the first months, the owner should cover one shift (morning or evening) — saves one salary + gives firsthand operational insight. Only hire more staff once revenue stabilizes.',
+          'Outsource non-core tasks: Accounting (VND 2-3M/month / ~$80-120), cleaning (hourly), marketing (freelancer). Cheaper than hiring full-time employees for each function.',
+        ],
+      },
+      {
+        type: 'warning-list',
+        heading: 'Common Mistakes',
+        content: [
+          { icon: 'warning', title: 'Cutting wages to save money', desc: 'Reducing VND 500K/person → your best people leave first, leaving only those with no other options. Service quality drops → customers leave → revenue drops more than you saved.', severity: 'critical' },
+          { icon: 'warning', title: 'Ignoring replacement costs', desc: 'Recruiting + training + low first-month productivity = VND 5-10M per person (~$200-400). With 80% annual turnover across 5 employees = VND 25-50M/year lost. Investing in retention is far cheaper.', severity: 'critical' },
+          { icon: 'warning', title: 'Over-hiring full-time at launch', desc: 'Months 1-3 revenue is only 30-50% of capacity but you\'ve hired a full team for 100%. Salaries must still be paid in full → burning cash. Start lean at 60% of projected needs, then add staff as demand grows.', severity: 'warning' },
+          { icon: 'warning', title: 'Not including Social Insurance in labor cost budgets', desc: 'Many owners only count gross salary as labor cost. In reality, add Social Insurance (21.5%) + meals + uniforms + training = an extra 25-30%. Always budget for the FULL labor cost.', severity: 'warning' },
+        ] as KBWarningItem[],
+      },
+    ],
+  },
+  {
+    id: 'breakeven_advanced',
+    slug: 'phan-tich-hoa-von-nang-cao',
+    publishDate: '2026-02-15',
+    icon: 'chart',
+    title: 'Advanced Break-Even Analysis',
+    subtitle: 'Not just "when will I break even" but "how will I get there"',
+    color: 'primary-light',
+    category: 'cost',
+    highlights: [
+      { label: 'Average BEP', value: '6-12 months' },
+      { label: 'Failed shops', value: '>18 months', note: 'never break even' },
+      { label: 'Factor #1', value: 'Daily revenue' },
+    ],
+    sections: [
+      {
+        type: 'stat-grid',
+        heading: '4 Critical Break-Even Metrics',
+        content: [
+          { icon: 'money', label: 'Monthly BEP Revenue', value: 'Fixed Costs / Gross Margin %', desc: 'Example: VND 60M (~$2,400) fixed costs, 60% gross margin → need VND 100M/month (~$4,000) in revenue to cover operating costs.' },
+          { icon: 'chart', label: 'Daily Orders to Break Even', value: 'BEP Revenue / (30 × Avg. Ticket)', desc: 'Example: need VND 100M/month, average ticket VND 50K → need 67 orders/day. Can your location realistically support 67 orders daily?' },
+          { icon: 'meat', label: 'Contribution Margin per Order', value: 'Selling Price – Variable Cost', desc: 'Example: a VND 45K coffee, ingredients VND 12K, packaging VND 2K → contribution margin = VND 31K/cup. The higher this number, the faster you break even.' },
+          { icon: 'clock', label: 'Investment Payback Period', value: 'Total Investment / Monthly Net Profit', desc: 'Example: VND 500M (~$20,000) invested, VND 30M/month net profit → payback in 17 months. Over 24 months = very high risk.' },
+        ] as KBStat[],
+      },
+      {
+        type: 'table',
+        heading: 'Break-Even by Business Model',
+        content: [
+          { label: 'Coffee Shop (takeaway/small)', range: 'VND 150 - 500M', note: 'BEP revenue: VND 50-80M/month. Payback: 6-12 months. High gross margin (70-80%) keeps the BEP low.' },
+          { label: 'Budget Eatery', range: 'VND 100 - 400M', note: 'BEP revenue: VND 80-120M/month. Payback: 4-10 months. Lower margins but high volume compensates.' },
+          { label: 'Bubble Tea', range: 'VND 300M - 1.5B', note: 'BEP revenue: VND 80-150M/month. Payback: 8-14 months. Expensive setup (equipment + branding).' },
+          { label: 'Restaurant', range: 'VND 1 - 5B', note: 'BEP revenue: VND 200-500M/month. Payback: 12-24 months. Large capital, very high fixed costs.' },
+          { label: 'Cloud Kitchen', range: 'VND 100 - 300M', note: 'BEP revenue: VND 60-100M/month. Payback: 4-8 months. No rent but 25-30% delivery app fees.' },
+        ] as KBTableRow[],
+      },
+      {
+        type: 'list',
+        heading: 'Sensitivity Analysis — The 3 Most Important Variables',
+        content: [
+          'Rent: Accounts for 10-20% of revenue. If rent rises 10% (e.g., from VND 30M to 33M / ~$1,200 to $1,320) → BEP revenue increases 5-8%, and payback period can extend by 1-2 months. Rent is a fixed cost with zero flexibility once committed.',
+          'Food cost: Accounts for 25-35% of revenue. If food cost rises 10% (e.g., from 30% to 33%) → gross margin drops significantly, BEP revenue increases 12-15%. Every 1% increase in food cost = ~10% of net profit lost. This is the variable you can control the most.',
+          'Daily revenue: The most direct variable. If revenue falls 10% below plan → payback period can increase 20-30% because fixed costs don\'t decrease with revenue. A difference of just 5 orders/day can mean the difference between profit and loss.',
+        ],
+      },
+      {
+        type: 'text',
+        content: 'Most owners calculate their break-even point once and then forget about it. But the BEP changes constantly — rent increases, ingredient prices climb, and low-season revenue drops. More important than any single BEP number is understanding: "If variable X changes by 10-20%, what happens to my BEP?" That\'s what truly useful break-even analysis looks like. Run multiple scenarios (best / average / worst case) on F&B Validator to see your real margin of safety.',
+      },
+      {
+        type: 'warning-list',
+        heading: 'Common Break-Even Mistakes',
+        content: [
+          { icon: 'warning', title: 'Calculating BEP once and never revisiting', desc: 'Ingredient prices rise 10%, rent goes up 5%/year, staff get raises → your actual BEP has shifted but you\'re still looking at the old number. Recalculate your BEP every quarter.', severity: 'critical' },
+          { icon: 'warning', title: 'Ignoring the ramp-up period', desc: 'Months 1-3 revenue is only 30-60% of capacity, but operating costs are already at 100%. If your BEP assumes full-capacity revenue → actual payback will be 3-5 months later than planned.', severity: 'critical' },
+          { icon: 'warning', title: 'Not accounting for seasonality', desc: 'Lunar New Year revenue jumps 50%, but February-March post-holiday drops 20-30%. If you calculate BEP using annual averages → you\'ll be caught off guard when low-season revenue can\'t cover fixed costs.', severity: 'warning' },
+          { icon: 'warning', title: 'Only calculating operational break-even, forgetting investment payback', desc: 'Operational break-even (revenue = monthly costs) is NOT the same as recovering your initial investment. A shop "making" VND 15M/month profit with VND 500M invested still needs 33 months to truly break even.', severity: 'warning' },
+        ] as KBWarningItem[],
       },
     ],
   },

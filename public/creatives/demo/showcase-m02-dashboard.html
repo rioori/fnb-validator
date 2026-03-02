@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Validator.vn — Dashboard Showcase</title>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700;800&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    width: 1080px;
+    height: 1350px;
+    overflow: hidden;
+    font-family: 'Roboto', system-ui, sans-serif;
+    background: #F8FAFC;
+    position: relative;
+  }
+
+  /* === Pastel gradient background === */
+  .bg-canvas {
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse 700px 600px at 0% 0%, rgba(210,236,208,0.5) 0%, transparent 70%),
+      radial-gradient(ellipse 600px 500px at 100% 100%, rgba(229,244,248,0.6) 0%, transparent 70%),
+      radial-gradient(ellipse 450px 400px at 85% 8%, rgba(253,238,196,0.4) 0%, transparent 70%),
+      radial-gradient(ellipse 400px 350px at 8% 85%, rgba(253,232,228,0.4) 0%, transparent 70%),
+      #F8FAFC;
+  }
+
+  .bg-canvas::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: radial-gradient(circle, rgba(15,23,42,0.035) 1px, transparent 1px);
+    background-size: 24px 24px;
+  }
+
+  /* === Content layer === */
+  .content {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    padding: 48px 60px 44px;
+  }
+
+  /* === Brand header — centered logo + tagline === */
+  .brand-header {
+    text-align: center;
+    margin-bottom: 24px;
+    flex-shrink: 0;
+  }
+
+  .brand-header img {
+    width: 72px;
+    height: 72px;
+    margin-bottom: 8px;
+  }
+
+  .brand-header .brand-name {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 800;
+    font-size: 28px;
+    color: #0F172A;
+    letter-spacing: -0.5px;
+    margin-bottom: 4px;
+  }
+
+  .brand-header .brand-tagline {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 17px;
+    color: #475569;
+    letter-spacing: 0.2px;
+  }
+
+  /* === Divider + feature subtitle === */
+  .feature-headline {
+    text-align: center;
+    margin-bottom: 28px;
+    flex-shrink: 0;
+    position: relative;
+  }
+
+  .feature-headline::before {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 3px;
+    background: #22C55E;
+    border-radius: 2px;
+    margin: 0 auto 20px;
+  }
+
+  .feature-headline h2 {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 800;
+    font-size: 36px;
+    color: #0F172A;
+    line-height: 1.2;
+    letter-spacing: -0.5px;
+  }
+
+  .feature-headline h2 span { color: #16A34A; }
+
+  .feature-headline p {
+    font-size: 16px;
+    color: #64748B;
+    margin-top: 8px;
+  }
+
+  /* === Main area === */
+  .main-area {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    gap: 48px;
+    min-height: 0;
+    position: relative;
+  }
+
+  /* === Phone mockup === */
+  .phone-container {
+    flex-shrink: 0;
+    position: relative;
+    align-self: center;
+  }
+
+  .phone-container::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 360px;
+    height: 760px;
+    background: radial-gradient(ellipse, rgba(34,197,94,0.07) 0%, transparent 70%);
+    border-radius: 44px;
+    z-index: -1;
+  }
+
+  .phone-frame {
+    position: relative;
+    width: 340px;
+    height: 716px;
+    background: linear-gradient(145deg, #2c2c2c, #1a1a1a);
+    border-radius: 30px;
+    padding: 6px;
+    box-shadow:
+      0 0 0 1px rgba(120,120,120,0.4),
+      0 0 0 2px #1a1a1a,
+      0 30px 70px rgba(0,0,0,0.25),
+      0 12px 24px rgba(0,0,0,0.12),
+      inset 0 0 0 0.5px rgba(80,80,80,0.5);
+  }
+
+  .phone-frame::before {
+    content: '';
+    position: absolute;
+    right: -2.5px; top: 175px;
+    width: 2.5px; height: 48px;
+    background: linear-gradient(180deg, #444, #2a2a2a, #444);
+    border-radius: 0 1.5px 1.5px 0;
+  }
+
+  .phone-frame::after {
+    content: '';
+    position: absolute;
+    left: -2.5px; top: 145px;
+    width: 2.5px; height: 38px;
+    background: linear-gradient(180deg, #444, #2a2a2a, #444);
+    border-radius: 1.5px 0 0 1.5px;
+    box-shadow: 0 56px 0 0 #333;
+  }
+
+  .phone-screen {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    border-radius: 24px;
+    overflow: hidden;
+    background: #000;
+  }
+
+  .camera-hole {
+    position: absolute;
+    top: 9px; left: 50%;
+    transform: translateX(-50%);
+    width: 12px; height: 12px;
+    background: #000;
+    border-radius: 50%;
+    z-index: 10;
+    box-shadow: 0 0 0 2px rgba(30,30,30,0.8), 0 0 4px rgba(0,0,0,0.5);
+  }
+
+  .camera-hole::after {
+    content: '';
+    position: absolute;
+    top: 2px; left: 3px;
+    width: 4px; height: 4px;
+    background: radial-gradient(circle, rgba(60,80,120,0.4), transparent);
+    border-radius: 50%;
+  }
+
+  .phone-screen img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top;
+    display: block;
+  }
+
+  /* === Right side: features + CTA === */
+  .right-side {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-width: 0;
+  }
+
+  .features-side {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+  }
+
+  .feature-card {
+    background: #FFFFFF;
+    border: 1.5px solid rgba(15,23,42,0.07);
+    border-radius: 18px;
+    padding: 22px 26px;
+    box-shadow: 5px 5px 0 rgba(15,23,42,0.05), 0 1px 3px rgba(0,0,0,0.03);
+    display: flex;
+    align-items: center;
+    gap: 18px;
+  }
+
+  .feature-icon {
+    width: 50px; height: 50px;
+    border-radius: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    font-size: 22px;
+  }
+
+  .feature-icon.mint { background: #D2ECD0; }
+  .feature-icon.blue { background: #E5F4F8; }
+  .feature-icon.gold { background: #FDEEC4; }
+  .feature-icon.blush { background: #FDE8E4; }
+
+  .feature-text { flex: 1; min-width: 0; }
+
+  .feature-text h3 {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 17px;
+    color: #0F172A;
+    margin-bottom: 4px;
+  }
+
+  .feature-text p {
+    font-size: 14px;
+    color: #64748B;
+    line-height: 1.45;
+  }
+
+  .feature-value {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 800;
+    font-size: 26px;
+    color: #16A34A;
+    flex-shrink: 0;
+    white-space: nowrap;
+  }
+
+  /* === Bottom CTA === */
+  .bottom-cta {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 24px;
+    padding-top: 20px;
+    border-top: 1.5px solid rgba(15,23,42,0.06);
+    flex-shrink: 0;
+  }
+
+  .url {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    font-size: 16px;
+    color: #94A3B8;
+    letter-spacing: 0.5px;
+  }
+
+  .cta-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: #22C55E;
+    color: white;
+    border-radius: 26px;
+    padding: 12px 28px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 16px;
+    box-shadow: 4px 4px 0 #16A34A;
+  }
+
+  .cta-pill::after {
+    content: '→';
+    font-size: 18px;
+  }
+
+  /* Decorative */
+  .deco {
+    position: absolute;
+    border-radius: 50%;
+    opacity: 0.06;
+    z-index: 0;
+  }
+  .deco-1 { width: 180px; height: 180px; background: #22C55E; top: -40px; right: 120px; }
+  .deco-2 { width: 110px; height: 110px; background: #0F172A; bottom: 50px; left: -25px; }
+  .deco-3 { width: 80px; height: 80px; background: #FBBF24; top: 280px; right: -20px; }
+</style>
+</head>
+<body>
+  <div class="bg-canvas"></div>
+  <div class="deco deco-1"></div>
+  <div class="deco deco-2"></div>
+  <div class="deco deco-3"></div>
+
+  <div class="content">
+    <!-- Brand header -->
+    <div class="brand-header">
+      <img src="../../../logo.png" alt="Validator.vn" />
+      <div class="brand-name">Validator.vn</div>
+      <div class="brand-tagline">Thẩm định & tối ưu kinh doanh</div>
+    </div>
+
+    <!-- Feature subtitle -->
+    <div class="feature-headline">
+      <h2>Biết ngay mô hình có <span>khả thi</span> không</h2>
+      <p>Điểm khả thi, P&L 12 tháng, break-even — tất cả trong vài phút</p>
+    </div>
+
+    <!-- Main: Phone + Right side -->
+    <div class="main-area">
+      <div class="phone-container">
+        <div class="phone-frame">
+          <div class="phone-screen">
+            <div class="camera-hole"></div>
+            <img src="m02-dashboard.png" alt="Dashboard" />
+          </div>
+        </div>
+      </div>
+
+      <div class="right-side">
+        <div class="features-side">
+          <div class="feature-card">
+            <div class="feature-icon mint">📊</div>
+            <div class="feature-text">
+              <h3>Điểm khả thi</h3>
+              <p>Scoring tự động dựa trên 6 chỉ số tài chính</p>
+            </div>
+            <div class="feature-value">80/100</div>
+          </div>
+
+          <div class="feature-card">
+            <div class="feature-icon blue">💰</div>
+            <div class="feature-text">
+              <h3>Lợi nhuận dự kiến</h3>
+              <p>Tính tự động từ doanh thu, chi phí NVL, nhân sự, mặt bằng</p>
+            </div>
+            <div class="feature-value">233tr/th</div>
+          </div>
+
+          <div class="feature-card">
+            <div class="feature-icon gold">⏱️</div>
+            <div class="feature-text">
+              <h3>Thời gian hoàn vốn</h3>
+              <p>Break-even point — biết bao lâu thu hồi vốn đầu tư</p>
+            </div>
+            <div class="feature-value">5 tháng</div>
+          </div>
+
+          <div class="feature-card">
+            <div class="feature-icon blush">📈</div>
+            <div class="feature-text">
+              <h3>Biên lợi nhuận</h3>
+              <p>So sánh với trung bình ngành — benchmark tự động</p>
+            </div>
+            <div class="feature-value">51.9%</div>
+          </div>
+        </div>
+
+        <div class="bottom-cta">
+          <span class="url">www.validator.vn</span>
+          <div class="cta-pill">Thẩm định ngay</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

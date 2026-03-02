@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useRef } from 'react';
 
 interface CollapsibleSectionProps {
   title: string;
@@ -11,6 +11,9 @@ interface CollapsibleSectionProps {
 
 export default function CollapsibleSection({ title, defaultOpen = true, badge, children }: CollapsibleSectionProps) {
   const [open, setOpen] = useState(defaultOpen);
+  const hasOpened = useRef(defaultOpen);
+
+  if (open) hasOpened.current = true;
 
   return (
     <div className="clay-card-static p-4 mb-3">
@@ -29,7 +32,7 @@ export default function CollapsibleSection({ title, defaultOpen = true, badge, c
       <div
         className={`overflow-hidden transition-all duration-350 ${open ? 'mt-3 max-h-[5000px]' : 'max-h-0'}`}
       >
-        {children}
+        {hasOpened.current ? children : null}
       </div>
     </div>
   );

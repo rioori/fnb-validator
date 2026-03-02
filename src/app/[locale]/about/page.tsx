@@ -199,24 +199,6 @@ export default async function AboutPage({ params }: PageProps) {
         </div>
       </div>
 
-      {/* ===== Expertise ===== */}
-      <div className="clay-card-static bg-white p-5 mb-6">
-        <h2 className="text-[15px] font-bold text-text font-[family-name:var(--font-heading)] mb-3 text-center">
-          {about.expertise.heading}
-        </h2>
-        <div className="grid grid-cols-2 gap-3 max-md:grid-cols-1">
-          {about.expertise.areas.map((area, i) => (
-            <div key={i} className="clay-sm bg-pastel-cream p-4 text-center">
-              <Icon name={area.icon} size={32} className="mx-auto mb-2 !border-0 !shadow-none !bg-transparent" />
-              <h3 className="text-[13px] font-bold font-[family-name:var(--font-heading)] text-text mb-1">
-                {area.title}
-              </h3>
-              <p className="text-[11px] text-text-muted leading-relaxed">{area.desc}</p>
-            </div>
-          ))}
-        </div>
-      </div>
-
       {/* ===== Vision ===== */}
       <div className="clay-card-static bg-white p-5 mb-6">
         <h2 className="text-[15px] font-bold text-text font-[family-name:var(--font-heading)] mb-3 text-center">

@@ -38,6 +38,8 @@ export default function KnowledgeSection({ onNavigate }: KnowledgeSectionProps) 
     operations: { label: t.knowledge.categories.operations },
     strategy: { label: t.knowledge.categories.strategy },
     legal: { label: t.knowledge.categories.legal },
+    technology: { label: t.knowledge.categories.technology },
+    trends: { label: t.knowledge.categories.trends },
   };
 
   const filterOptions = Object.entries(CATEGORY_CONFIG) as [FilterType, { label: string }][];

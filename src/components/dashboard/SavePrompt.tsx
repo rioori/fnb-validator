@@ -6,13 +6,13 @@ import { useScenarios } from '@/hooks/useScenarios';
 import { useWizardStore } from '@/hooks/useWizardStore';
 import { useModels } from '@/hooks/useModels';
 import Icon from '@/components/ui/Icon';
-import { useTranslation } from '@/i18n/LocaleProvider';
+import { useTranslation, tpl } from '@/i18n/LocaleProvider';
 
 export default function SavePrompt() {
   const { t } = useTranslation();
   const models = useModels();
   const { user, login, signup } = useAuth();
-  const { save } = useScenarios();
+  const { save, canSave, scenarioCount } = useScenarios();
   const store = useWizardStore();
 
   const [id, setId] = useState('');
@@ -25,9 +25,10 @@ export default function SavePrompt() {
   // Already logged in — show simple save button
   if (user) {
     const handleSave = async () => {
-      const modelName = store.selectedModel ? models[store.selectedModel].name : t.dashboard.save.defaultScenarioName;
+      const fallback = store.selectedModel ? models[store.selectedModel].name : t.dashboard.save.defaultScenarioName;
+      const scenarioName = store.projectName.trim() || fallback;
       setLoading(true);
-      await save(user.id, modelName, store.selectedModel, store.collectAll());
+      await save(user.id, scenarioName, store.selectedModel, store.collectAll());
       setLoading(false);
       setSaved(true);
     };
@@ -42,16 +43,26 @@ export default function SavePrompt() {
       );
     }
 
+    const count = scenarioCount();
+    const atLimit = !canSave();
+
     return (
       <div className="clay-card-static bg-secondary-light p-4 mb-3 flex items-center justify-between max-md:flex-col max-md:gap-3">
         <div>
           <p className="text-[13px] font-bold text-text font-[family-name:var(--font-heading)]"><Icon name="save" size={18} className="inline-flex !border-0 !shadow-none !bg-transparent align-text-bottom" /> {t.dashboard.save.saveQuestion}</p>
           <p className="text-[12px] text-text-muted">{t.dashboard.save.saveHint}</p>
+          {count >= 8 && (
+            <p className={`text-[11px] mt-1 font-semibold ${atLimit ? 'text-danger' : 'text-warning'}`}>
+              {atLimit
+                ? t.dashboard.save.scenarioLimitMax
+                : tpl(t.dashboard.save.scenarioLimitWarn, { count: String(count) })}
+            </p>
+          )}
         </div>
         <button
           onClick={handleSave}
-          disabled={loading}
-          className="clay-btn clay-btn-primary text-[13px] shrink-0"
+          disabled={loading || atLimit}
+          className="clay-btn clay-btn-primary text-[13px] shrink-0 disabled:opacity-50"
         >
           {loading ? t.dashboard.save.saving : t.dashboard.save.saveScenario}
         </button>
@@ -93,8 +104,9 @@ export default function SavePrompt() {
       }
 
       // Auto-save after auth
-      const modelName = store.selectedModel ? models[store.selectedModel].name : t.dashboard.save.defaultScenarioName;
-      await save(authUser.id, modelName, store.selectedModel, store.collectAll());
+      const fallback = store.selectedModel ? models[store.selectedModel].name : t.dashboard.save.defaultScenarioName;
+      const scenarioName = store.projectName.trim() || fallback;
+      await save(authUser.id, scenarioName, store.selectedModel, store.collectAll());
       setSaved(true);
     } catch {
       setError(t.dashboard.save.genericError);

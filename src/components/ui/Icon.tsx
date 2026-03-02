@@ -57,6 +57,8 @@ const PATHS: Record<string, string> = {
     'M5 3h14l-2 18H7L5 3z M9 3v4h6V3 M12 10v5',
   check:
     'M5 12l5 5L19 7',
+  link:
+    'M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71 M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71',
 
   // — Business Registration —
   building:
@@ -157,6 +159,18 @@ const PATHS: Record<string, string> = {
     'M12 5v14 M5 12h14 M4 4h16v16H4z',
   existing:
     'M4 4h16v16H4z M8 16V12 M12 16V8 M16 16V10',
+
+  // — Blog —
+  blog:
+    'M4 4h16a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2z M7 8h10 M7 12h6 M7 16h8',
+  growth:
+    'M4 18l4-4 4 4 8-8 M16 10h4v4',
+  delivery:
+    'M5 18a2 2 0 1 0 4 0 2 2 0 0 0-4 0z M15 18a2 2 0 1 0 4 0 2 2 0 0 0-4 0z M5 18H3V8h12v10m-6 0h6 M15 8h4l3 5v5h-3',
+  robot:
+    'M4 8h16v12H4z M9 8V6a3 3 0 0 1 6 0v2 M9 14h.01 M15 14h.01 M10 17h4 M2 12h2 M20 12h2',
+  tip:
+    'M12 3a6 6 0 0 0-4 10.5V16h8v-2.5A6 6 0 0 0 12 3z M10 20h4 M10 18h4',
 
   // — UI Actions —
   close:

@@ -1,9 +1,10 @@
-import type { KBTopic, KBTableRow, KBStat, KBWarningItem } from '@/types';
+import type { KBTopic, KBTableRow, KBStat, KBTimelineStep, KBWarningItem } from '@/types';
 
 const COST_ARTICLES: KBTopic[] = [
   {
     id: 'cost_structure',
     slug: 'cau-truc-chi-phi-fnb',
+    publishDate: '2026-02-15',
     icon: 'money',
     title: 'Cấu trúc chi phí F&B',
     subtitle: 'Hiểu tiền đi đâu trước khi bắt đầu',
@@ -49,6 +50,7 @@ const COST_ARTICLES: KBTopic[] = [
   {
     id: 'key_metrics',
     slug: 'cac-chi-so-song-con',
+    publishDate: '2026-02-15',
     icon: 'chart',
     title: 'Các chỉ số sống còn',
     subtitle: '4 con số quyết định quán sống hay chết',
@@ -101,6 +103,7 @@ const COST_ARTICLES: KBTopic[] = [
   {
     id: 'financial_management',
     slug: 'quan-ly-tai-chinh',
+    publishDate: '2026-02-15',
     icon: 'chart',
     title: 'Quản lý tài chính',
     subtitle: 'Tiền vào, tiền ra — phải rõ từng đồng',
@@ -148,6 +151,7 @@ const COST_ARTICLES: KBTopic[] = [
   {
     id: 'food_cost_detail',
     slug: 'food-cost-chi-tiet',
+    publishDate: '2026-02-15',
     icon: 'meat',
     title: 'Food Cost chi tiết',
     subtitle: 'Tính giá vốn, kiểm soát NVL, và tối ưu lợi nhuận',
@@ -214,6 +218,7 @@ const COST_ARTICLES: KBTopic[] = [
   {
     id: 'rent_analysis',
     slug: 'chi-phi-thue-mat-bang',
+    publishDate: '2026-02-15',
     icon: 'location',
     title: 'Chi phí thuê mặt bằng',
     subtitle: 'Phân tích giá thuê theo khu vực & cách đàm phán hợp đồng',
@@ -269,6 +274,283 @@ const COST_ARTICLES: KBTopic[] = [
       {
         type: 'text',
         content: 'Mặt bằng là chi phí cố định lớn nhất và cũng là yếu tố khó thay đổi nhất sau khi bắt đầu. Hãy dùng F&B Validator để tính xem mức thuê dự kiến chiếm bao nhiêu % doanh thu, và liệu bạn còn đủ room cho lợi nhuận không.',
+      },
+    ],
+  },
+  {
+    id: 'delivery_costs',
+    slug: 'chi-phi-delivery-va-app',
+    publishDate: '2026-02-15',
+    icon: 'phone',
+    title: 'Chi phí app delivery: Grab, Shopee & tự giao',
+    subtitle: 'Phí hoa hồng 20-30% ăn vào lợi nhuận như thế nào',
+    color: 'primary-light',
+    category: 'cost',
+    highlights: [
+      { label: 'GrabFood hoa hồng', value: '25-30%', note: 'trên giá bán' },
+      { label: 'ShopeeFood hoa hồng', value: '22-27%', note: 'trên giá bán' },
+      { label: 'Chi phí đóng gói', value: '3-8K/đơn', note: 'hộp, túi, nước chấm' },
+      { label: 'Biên thực sau phí', value: '5-12%', note: 'lợi nhuận ròng delivery' },
+    ],
+    sections: [
+      {
+        type: 'table',
+        heading: 'Phí hoa hồng theo từng app (2025-2026)',
+        content: [
+          { label: 'GrabFood', range: '25-30%', note: 'Phổ biến nhất, traffic cao. Phí tùy gói: cơ bản 25%, ưu tiên hiển thị 28-30%.' },
+          { label: 'ShopeeFood', range: '22-27%', note: 'Phí thấp hơn Grab một chút. Chạy nhiều khuyến mãi, giá trị đơn TB thấp hơn.' },
+          { label: 'GoFood (Gojek)', range: '20-25%', note: 'Phí thấp nhất trong 3 app lớn. Nhưng lượng đơn ít hơn đáng kể.' },
+          { label: 'Baemin (đã rút)', range: '—', note: 'Ngừng hoạt động 2023. Bài học: đừng phụ thuộc 100% vào 1 app.' },
+          { label: 'Tự giao (shipper riêng)', range: '5-10K/đơn', note: 'Chi phí thấp nhất nhưng cần quản lý shipper, bán kính giao hạn chế 3-5km.' },
+        ] as KBTableRow[],
+      },
+      {
+        type: 'stat-grid',
+        heading: 'Tính đúng lợi nhuận delivery — nhiều chi phí ẩn',
+        content: [
+          { icon: 'money', label: 'Hoa hồng app', value: '22-30%', desc: 'Phí nền tảng tính trên giá bán (chưa bao gồm phí ship khách trả). Đây là khoản lớn nhất.' },
+          { icon: 'meat', label: 'Food cost', value: '30-40%', desc: 'Giống dine-in. Nhưng khẩu phần delivery thường nhiều hơn (khách kỳ vọng "đáng tiền ship").' },
+          { icon: 'wallet', label: 'Bao bì đóng gói', value: '3-8K/đơn', desc: 'Hộp giấy/nhựa + túi + nước chấm riêng + khăn + đũa. Quán bún/phở bao bì tốn hơn (nhiều ngăn).' },
+          { icon: 'chart', label: 'Lợi nhuận ròng thực tế', value: '5-12%', desc: 'Giá bán 50K → app lấy 13K, NVL 18K, bao bì 5K → còn 14K (28%). Trừ nhân sự, điện = ~5-12%.' },
+        ] as KBStat[],
+      },
+      {
+        type: 'table',
+        heading: 'Ví dụ tính toán: 1 đơn cơm 60K trên GrabFood',
+        content: [
+          { label: 'Giá bán trên app', range: '60.000đ', note: 'Nhiều quán tăng giá 10-15% trên app so với ăn tại quán.' },
+          { label: 'Hoa hồng Grab (27%)', range: '-16.200đ', note: 'App thu 27% × 60K. Quán nhận 43.800đ.' },
+          { label: 'Chi phí NVL', range: '-20.000đ', note: 'Food cost 33%. Cần giữ ≤35% cho delivery.' },
+          { label: 'Bao bì + đóng gói', range: '-5.000đ', note: 'Hộp cơm + túi + nước chấm + đũa + khăn giấy.' },
+          { label: 'Nhân sự đóng gói', range: '-3.000đ', note: 'Thời gian đóng gói 5-8 phút/đơn. Ca delivery cần 1 người riêng khi >30 đơn/ngày.' },
+          { label: 'Lợi nhuận ròng', range: '15.600đ', note: '= 26% giá bán. Nhưng trừ thêm điện, nước, khấu hao → còn ~12-18%.' },
+        ] as KBTableRow[],
+      },
+      {
+        type: 'warning-list',
+        heading: 'Bẫy delivery — sai lầm phổ biến',
+        content: [
+          { icon: 'warning', title: 'Bán giá dine-in trên app = lỗ chắc', desc: 'Phí app 25-30% mà giữ nguyên giá = tự cắt hết lợi nhuận. Giải pháp: tăng giá trên app 10-15%, hoặc giảm khẩu phần delivery, hoặc có menu riêng cho delivery.', severity: 'critical' },
+          { icon: 'warning', title: 'Chạy khuyến mãi app không tính toán', desc: 'Giảm 30% + free ship + hoa hồng app 27% = bạn đang bán lỗ mỗi đơn. Trước khi chạy deal, tính: (giá sau giảm - hoa hồng - NVL - bao bì) có dương không?', severity: 'critical' },
+          { icon: 'warning', title: 'Phụ thuộc 100% vào delivery', desc: 'Nếu app thay đổi phí (tăng 3-5%), thuật toán ẩn quán, hoặc ngừng hoạt động → doanh thu mất 50-70% ngay. Delivery nên chiếm ≤40% tổng doanh thu.', severity: 'warning' },
+          { icon: 'warning', title: 'Không tính bao bì vào giá vốn', desc: 'Bao bì 3-8K/đơn × 50 đơn/ngày = 150-400K/ngày = 4.5-12 triệu/tháng. Nhiều quán quên tính khoản này, food cost "trên sổ" đẹp nhưng thực tế lỗ.', severity: 'warning' },
+        ] as KBWarningItem[],
+      },
+      {
+        type: 'list',
+        heading: 'Chiến lược delivery thông minh',
+        content: [
+          'Menu riêng cho delivery: Chỉ giữ 10-15 món (thay vì 30-50 món tại quán). Chọn món vận chuyển tốt (không bị nhũn, đổ, mất nhiệt), biên lợi nhuận cao, và đóng gói dễ.',
+          'Tăng giá trên app 10-15%: Hầu hết khách chấp nhận vì tiện lợi. Một số app cho phép đặt giá khác với tại quán — tận dụng tính năng này.',
+          'Combo delivery: Gộp 2-3 món, tặng đồ uống nhỏ. Tăng giá trị đơn từ 45K lên 80K → phí app cùng %, nhưng lợi nhuận tuyệt đối cao hơn.',
+          'Tự giao khi đủ đơn: Nếu có 30-50+ đơn/ngày trong bán kính 3km, thuê 1 shipper riêng (6-8 triệu/tháng) rẻ hơn nhiều so với phí app. Dùng Zalo/hotline nhận đơn trực tiếp.',
+          'Khi nào tạm dừng delivery: Nếu lợi nhuận ròng <5% sau khi tính đủ phí, hoặc đơn delivery ảnh hưởng chất lượng dine-in (bếp quá tải) → tạm ngưng app, tập trung khách tại quán.',
+        ],
+      },
+      {
+        type: 'text',
+        content: 'Delivery là kênh bán hàng tiềm năng — nhưng chỉ khi bạn tính đúng chi phí. Nhiều quán "bận rộn" với 50-100 đơn delivery/ngày mà vẫn lỗ, vì lợi nhuận mỗi đơn chỉ 2-5K sau khi trừ hết phí. Hãy nhập số liệu delivery vào F&B Validator để xem kênh này thực sự mang lại bao nhiêu.',
+      },
+    ],
+  },
+  {
+    id: 'cashflow_early_stage',
+    slug: 'quan-ly-dong-tien-thang-dau',
+    publishDate: '2026-02-15',
+    icon: 'wallet',
+    title: 'Dòng tiền tháng đầu: Sống sót qua giai đoạn khó nhất',
+    subtitle: 'Tại sao quán có khách vẫn chết vì hết tiền',
+    color: 'primary-light',
+    category: 'cost',
+    highlights: [
+      { label: 'Tiền dự trữ cần', value: '3-6 tháng', note: 'chi phí vận hành' },
+      { label: 'Hòa vốn trung bình', value: '4-8 tháng', note: 'tùy mô hình' },
+      { label: 'Tháng "đốt tiền" nhất', value: 'Tháng 2-3', note: 'sau khi mở' },
+      { label: 'Burn rate thay đổi', value: 'Theo tuần', note: 'phải theo dõi sát' },
+    ],
+    sections: [
+      {
+        type: 'text',
+        content: 'Dòng tiền (cash flow) là lý do số 1 quán F&B đóng cửa — không phải vì hết khách, mà vì hết tiền mặt. Bạn có thể "có lãi trên sổ" nhưng vẫn phá sản nếu tiền chưa về mà đã phải trả lương, trả NCC, trả thuê. Hiểu dòng tiền 6 tháng đầu = tăng gấp đôi cơ hội sống sót.',
+      },
+      {
+        type: 'timeline',
+        heading: 'Dòng tiền 6 tháng đầu — "thung lũng tử thần"',
+        content: [
+          { month: 'Tháng 0', title: 'Chi đầu tư ban đầu', desc: 'Đặt cọc mặt bằng (3-6 tháng), thi công, mua thiết bị, nhập NVL lần đầu, giấy phép. Tiền mặt xuống đáy. Đây là khoản chi 1 lần lớn nhất.', status: 'decline' },
+          { month: 'Tháng 1', title: 'Chi > Thu, lỗ là bình thường', desc: 'Doanh thu chỉ đạt 30-50% công suất. Nhưng chi phí vận hành đã 100%: lương, thuê, NVL, điện nước. Lỗ ròng 20-40 triệu là phổ biến.', status: 'decline' },
+          { month: 'Tháng 2-3', title: 'Đáy "thung lũng tử thần"', desc: 'Tiền dự trữ cạn dần. Doanh thu 50-70% nhưng chi phí tăng (hao hụt NVL, sửa chữa, marketing). ĐÂY là lúc nhiều quán bỏ cuộc nhất.', status: 'decline' },
+          { month: 'Tháng 4-5', title: 'Bắt đầu hòa vốn vận hành', desc: 'Nếu quản lý tốt, doanh thu đạt 80-100%. Chi phí được tối ưu. Bắt đầu hòa vốn hàng tháng (chưa tính hoàn vốn đầu tư ban đầu).', status: 'ramp' },
+          { month: 'Tháng 6+', title: 'Tích lũy để trả vốn đầu tư', desc: 'Lợi nhuận hàng tháng bắt đầu dương. Mỗi tháng lãi 10-20 triệu → cần 12-18 tháng nữa để hoàn vốn đầu tư ban đầu.', status: 'stable' },
+        ] as KBTimelineStep[],
+      },
+      {
+        type: 'table',
+        heading: 'Bảng theo dõi tiền mặt hàng tuần (mẫu)',
+        content: [
+          { label: 'Tiền đầu tuần', range: 'Ghi số thực tế', note: 'Tiền mặt + tài khoản ngân hàng. Đây là "huyết áp" của quán.' },
+          { label: '(+) Thu tiền mặt từ khách', range: 'Ghi hàng ngày', note: 'Dine-in thu ngay. Delivery: app trả sau 7-14 ngày.' },
+          { label: '(-) Nhập NVL', range: '2-3 lần/tuần', note: 'Trả NCC: một số cho nợ 7-30 ngày, một số phải trả ngay (thịt, hải sản).' },
+          { label: '(-) Lương nhân viên', range: 'Cuối tháng / 2 kỳ', note: 'Chi phí cố định lớn nhất. Một số quán trả 2 kỳ (15 và 30) để giảm áp lực.' },
+          { label: '(-) Thuê mặt bằng', range: 'Đầu tháng', note: 'Chi phí cố định. Phải trả đúng hạn, không đàm phán được khi đã ký.' },
+          { label: '(-) Điện, nước, gas, internet', range: 'Cuối tháng', note: 'Biến động theo mùa. Mùa hè điện tăng 30-50% (điều hòa, tủ lạnh).' },
+          { label: 'Tiền cuối tuần', range: 'Tính tự động', note: '= Đầu tuần + Thu - Chi. Nếu giảm liên tục 3 tuần = BÁO ĐỘNG.' },
+        ] as KBTableRow[],
+      },
+      {
+        type: 'warning-list',
+        heading: 'Dấu hiệu khủng hoảng tiền mặt',
+        content: [
+          { icon: 'warning', title: 'Tiền mặt còn lại < 1 tháng chi phí vận hành', desc: 'Đây là mức BÁO ĐỘNG ĐỎ. Phải hành động NGAY: cắt chi phí không thiết yếu, đàm phán giãn nợ NCC, tạm dừng marketing trả phí, xem xét bán bớt thiết bị không dùng.', severity: 'critical' },
+          { icon: 'warning', title: 'Nợ NCC quá 30 ngày không trả được', desc: 'NCC sẽ ngừng giao hàng → không có NVL → không có doanh thu → vòng xoáy chết. Ưu tiên trả NCC trước các khoản khác (trừ lương nhân viên).', severity: 'critical' },
+          { icon: 'warning', title: 'Phải vay nóng để trả lương', desc: 'Nếu đến mức vay nóng (lãi 3-5%/tháng) để trả lương, quán đang ở giai đoạn nguy kịch. Cần quyết định: bơm thêm vốn hoặc đóng cửa sớm — đừng kéo dài thêm thua lỗ.', severity: 'critical' },
+          { icon: 'warning', title: 'Doanh thu app delivery chậm về 7-14 ngày', desc: 'Bán 50 đơn/ngày × 50K = 2.5 triệu/ngày, nhưng Grab/Shopee trả sau 7-14 ngày. Trong 2 tuần đó bạn vẫn phải trả NVL, lương. Đừng tính tiền app là "tiền trong tay".', severity: 'warning' },
+        ] as KBWarningItem[],
+      },
+      {
+        type: 'list',
+        heading: '"Nút bấm khẩn cấp" khi tiền sắp hết',
+        content: [
+          'Cắt chi phí biến đổi NGAY: Dừng marketing trả phí, giảm menu còn 10-15 món bán chạy nhất (giảm tồn kho + hao hụt), tạm dừng delivery nếu biên lợi nhuận <5%.',
+          'Đàm phán giãn nợ NCC: Gọi điện TRƯỚC khi quá hạn. Đề xuất: trả 50% ngay + 50% tuần sau. Hầu hết NCC chấp nhận nếu bạn thành thật và có kế hoạch rõ ràng.',
+          'Chuyển lương nhân viên sang 2 kỳ/tháng: Trả 50% ngày 15 + 50% ngày 30. Giảm áp lực tiền mặt cuối tháng. Trao đổi rõ ràng với nhân viên.',
+          'Flash sale dọn kho: Bán giá vốn các NVL sắp hết hạn, set combo giải phóng tồn kho. Thu tiền mặt ngay dù lợi nhuận thấp — tiền mặt quan trọng hơn margin lúc này.',
+          'Bơm vốn cá nhân (có kế hoạch): Nếu quyết định bơm thêm tiền, đặt giới hạn rõ ràng: "Tôi bơm thêm tối đa X triệu, nếu sau 2 tháng không cải thiện → đóng cửa." Đừng bơm tiền không giới hạn.',
+          'Đóng cửa sớm tốt hơn chậm: Nếu lỗ liên tục 4-5 tháng, tiền dự trữ cạn, không thấy dấu hiệu cải thiện → đóng cửa sớm giữ được 20-30% vốn, tốt hơn kéo dài thêm 3 tháng và mất sạch.',
+        ],
+      },
+      {
+        type: 'text',
+        content: 'Quy tắc vàng: Luôn biết chính xác "còn bao nhiêu tuần tiền trong két" — không phải bao nhiêu tháng, mà bao nhiêu TUẦN. Kiểm tra mỗi thứ Hai đầu tuần. Nếu con số này giảm xuống dưới 4 tuần, hãy bật chế độ khẩn cấp. F&B Validator giúp bạn dự phóng dòng tiền 12 tháng — hãy chạy kịch bản xấu nhất để không bao giờ bị bất ngờ.',
+      },
+    ],
+  },
+  {
+    id: 'staff_cost_optimization',
+    slug: 'toi-uu-chi-phi-nhan-su',
+    publishDate: '2026-02-15',
+    icon: 'team',
+    title: 'Tối ưu chi phí nhân sự',
+    subtitle: 'Nhân sự chiếm 20-30% doanh thu — làm sao tiết kiệm mà không mất người?',
+    color: 'secondary-light',
+    category: 'cost',
+    highlights: [
+      { label: 'Tỷ trọng DT', value: '20-30%' },
+      { label: 'Chi phí ẩn', value: '+25-30%', note: 'trên lương gross' },
+      { label: 'Turnover TB', value: '60-80%/năm' },
+    ],
+    sections: [
+      {
+        type: 'table',
+        heading: 'Chi phí thực tế cho 1 nhân viên',
+        content: [
+          { label: 'Lương cơ bản (gross)', range: '5 - 8 triệu', note: 'Mức phổ biến cho phục vụ, pha chế. Bếp chính 8-15 triệu.' },
+          { label: 'BHXH phần chủ (21.5%)', range: '1 - 1.7 triệu', note: 'Bắt buộc theo luật: BHXH 17.5% + BHYT 3% + BHTN 1% trên lương cơ bản.' },
+          { label: 'Ăn ca / phụ cấp', range: '700K - 1.2 triệu', note: 'Ăn ca 25-35K/ngày × 26 ngày. Một số quán nấu luôn → tiết kiệm 30-40%.' },
+          { label: 'Uniform / đồng phục', range: '200 - 500K/năm', note: '2 bộ/người/năm. Tạp dề + áo thun in logo. Phân bổ ~30-40K/tháng.' },
+          { label: 'Chi phí training', range: '2 - 5 triệu', note: 'Thời gian training 1-2 tuần, NVL hao hụt khi tập, năng suất thấp tháng đầu.' },
+          { label: 'Chi phí thay thế khi nghỉ', range: '5 - 10 triệu', note: 'Đăng tuyển + phỏng vấn + training lại + năng suất giảm khi thiếu người. Con số ẩn lớn nhất.' },
+        ] as KBTableRow[],
+      },
+      {
+        type: 'table',
+        heading: 'So sánh mô hình nhân sự',
+        content: [
+          { label: 'Full-time — Chi phí', range: '6 - 10 triệu/tháng', note: 'Bao gồm lương + BHXH + phụ cấp. Ổn định nhưng chi phí cố định cao.' },
+          { label: 'Full-time — Ưu điểm', range: 'Cam kết, ổn định', note: 'Đào tạo 1 lần, chất lượng đồng nhất, gắn bó lâu dài, chạy ca kín.' },
+          { label: 'Full-time — Nhược điểm', range: 'Cứng, khó co giãn', note: 'Vẫn phải trả lương ngày vắng khách. Khó cắt giảm nhanh khi doanh thu giảm.' },
+          { label: 'Part-time — Chi phí', range: '22 - 35K/giờ', note: 'Không BHXH nếu <1 tháng. Chỉ trả giờ làm thực tế.' },
+          { label: 'Part-time — Ưu điểm', range: 'Linh hoạt, rẻ', note: 'Gọi thêm khi đông, giảm khi vắng. Lý tưởng cho peak hours (11h-14h, 17h-21h).' },
+          { label: 'Part-time — Nhược điểm', range: 'Thiếu cam kết', note: 'Hay xin nghỉ đột xuất, cần training liên tục, chất lượng không đồng đều.' },
+          { label: 'Thời vụ — Chi phí', range: '250 - 400K/ngày', note: 'Thuê theo ngày/event. Phổ biến dịp lễ Tết, opening, event lớn.' },
+          { label: 'Thời vụ — Ưu điểm', range: 'Không cam kết dài', note: 'Chỉ thuê khi cần. Không phát sinh chi phí cố định.' },
+          { label: 'Thời vụ — Nhược điểm', range: 'Không quen SOP', note: 'Cần training mỗi lần. Chất lượng phục vụ thường kém hơn. Khó tìm người giỏi.' },
+        ] as KBTableRow[],
+      },
+      {
+        type: 'list',
+        heading: '8 cách tối ưu chi phí nhân sự hiệu quả',
+        content: [
+          'Cross-training (đào tạo chéo): Mỗi người biết ít nhất 2 vị trí — barista biết thu ngân, phục vụ biết pha chế cơ bản. Khi 1 người nghỉ, không cần gọi thêm. Thưởng 500K cho mỗi vị trí học thêm.',
+          'Xếp lịch theo nhu cầu thực tế: Xem data POS theo giờ → bố trí 60-70% nhân sự vào peak hours. Ngày thường giảm 1-2 người so với cuối tuần. Tiết kiệm 15-20% labor cost mỗi tháng.',
+          'Tận dụng POS & automation: Máy POS tự in order ra bếp, thanh toán QR code giảm thời gian thu ngân, đặt hàng NVL online. Mỗi thứ tiết kiệm 10-15 phút/ca → giảm cần 1 nhân sự.',
+          'Đơn giản hóa menu: Menu 15-20 món thay vì 40-50 món → bếp cần ít người hơn, training nhanh hơn, ít sai sót hơn. Nhiều quán giảm được 1 bếp phụ chỉ bằng cách cắt menu.',
+          'Kết hợp full-time + part-time: Giữ 60-70% full-time (đội core) + 30-40% part-time cho peak hours. Linh hoạt co giãn mà vẫn đảm bảo chất lượng nền.',
+          'Thưởng giữ chân thay vì tăng lương cào: Thưởng ở lại 6 tháng (1-2 triệu), thưởng năm (1 tháng lương). Chi phí thấp hơn tăng lương cào 500K/người/tháng nhưng hiệu quả giữ người cao hơn.',
+          'Chủ quán kiêm 1 ca đầu: Tháng đầu, chủ quán trực 1 ca (sáng hoặc tối) → tiết kiệm 1 lương nhân viên + nắm được vận hành thực tế. Chỉ thuê thêm khi doanh thu ổn định.',
+          'Outsource việc không core: Kế toán thuê ngoài (2-3 triệu/tháng), dọn vệ sinh thuê theo giờ, marketing freelancer. Rẻ hơn thuê nhân viên full-time cho từng mảng.',
+        ],
+      },
+      {
+        type: 'warning-list',
+        heading: 'Sai lầm phổ biến',
+        content: [
+          { icon: 'warning', title: 'Cắt lương để tiết kiệm', desc: 'Giảm 500K/người → nhân viên giỏi nhất nghỉ trước, chỉ còn người không có lựa chọn. Chất lượng phục vụ giảm → mất khách → doanh thu giảm nhiều hơn tiết kiệm được.', severity: 'critical' },
+          { icon: 'warning', title: 'Không tính chi phí thay thế nhân viên', desc: 'Tuyển mới + đào tạo + năng suất thấp tháng đầu = 5-10 triệu/người. Nếu turnover 80%/năm với 5 nhân viên = mất 25-50 triệu/năm. Đầu tư giữ chân rẻ hơn nhiều.', severity: 'critical' },
+          { icon: 'warning', title: 'Quá nhiều full-time khi mới mở', desc: 'Tháng 1-3 doanh thu chỉ 30-50% công suất nhưng tuyển đủ team cho 100%. Lương vẫn phải trả đủ → đốt tiền. Nên bắt đầu lean: 60% nhu cầu, tuyển thêm khi cần.', severity: 'warning' },
+          { icon: 'warning', title: 'Không tính BHXH vào chi phí nhân sự', desc: 'Nhiều chủ quán chỉ tính lương gross = labor cost. Thực tế cộng BHXH (21.5%) + ăn ca + uniform + training = thêm 25-30% nữa. Budget labor cost phải tính ĐỦ.', severity: 'warning' },
+        ] as KBWarningItem[],
+      },
+    ],
+  },
+  {
+    id: 'breakeven_advanced',
+    slug: 'phan-tich-hoa-von-nang-cao',
+    publishDate: '2026-02-15',
+    icon: 'chart',
+    title: 'Phân tích hòa vốn nâng cao',
+    subtitle: 'Không chỉ "bao giờ hoàn vốn" mà còn "hoàn vốn thế nào"',
+    color: 'primary-light',
+    category: 'cost',
+    highlights: [
+      { label: 'BEP trung bình', value: '6-12 tháng' },
+      { label: 'Quán thất bại', value: '>18 tháng', note: 'không hòa vốn' },
+      { label: 'Yếu tố #1', value: 'Doanh thu/ngày' },
+    ],
+    sections: [
+      {
+        type: 'stat-grid',
+        heading: '4 chỉ số hòa vốn quan trọng',
+        content: [
+          { icon: 'money', label: 'Doanh thu hòa vốn/tháng', value: 'Chi phí CĐ / Biên gộp %', desc: 'VD: chi phí cố định 60 triệu, biên gộp 60% → cần DT 100 triệu/tháng để hòa vốn vận hành.' },
+          { icon: 'chart', label: 'Số đơn hòa vốn/ngày', value: 'DT hòa vốn / (30 × giá TB)', desc: 'VD: cần 100 triệu/tháng, giá đơn TB 50K → cần 67 đơn/ngày. Khu vực bạn có thể bán 67 đơn/ngày không?' },
+          { icon: 'meat', label: 'Biên đóng góp/đơn', value: 'Giá bán – Biến phí', desc: 'VD: ly cà phê 45K, NVL 12K, bao bì 2K → biên đóng góp = 31K/ly. Con số này càng cao, hòa vốn càng nhanh.' },
+          { icon: 'clock', label: 'Thời gian hoàn vốn đầu tư', value: 'Vốn ĐT / Lợi nhuận ròng tháng', desc: 'VD: đầu tư 500 triệu, lãi ròng 30 triệu/tháng → hoàn vốn 17 tháng. Trên 24 tháng = rủi ro rất cao.' },
+        ] as KBStat[],
+      },
+      {
+        type: 'table',
+        heading: 'Break-even theo mô hình',
+        content: [
+          { label: 'Cà phê (take-away/nhỏ)', range: '150 - 500 triệu', note: 'DT hòa vốn: 50-80 triệu/tháng. Hoàn vốn: 6-12 tháng. Biên gộp cao (70-80%) nên BEP thấp.' },
+          { label: 'Quán ăn bình dân', range: '100 - 400 triệu', note: 'DT hòa vốn: 80-120 triệu/tháng. Hoàn vốn: 4-10 tháng. Biên thấp nhưng volume cao.' },
+          { label: 'Trà sữa', range: '300 triệu - 1.5 tỷ', note: 'DT hòa vốn: 80-150 triệu/tháng. Hoàn vốn: 8-14 tháng. Setup đắt (máy móc + brand).' },
+          { label: 'Nhà hàng', range: '1 - 5 tỷ', note: 'DT hòa vốn: 200-500 triệu/tháng. Hoàn vốn: 12-24 tháng. Vốn lớn, chi phí cố định rất cao.' },
+          { label: 'Cloud Kitchen', range: '100 - 300 triệu', note: 'DT hòa vốn: 60-100 triệu/tháng. Hoàn vốn: 4-8 tháng. Không thuê mặt bằng nhưng phí app 25-30%.' },
+        ] as KBTableRow[],
+      },
+      {
+        type: 'list',
+        heading: 'Phân tích sensitivity — 3 biến quan trọng nhất',
+        content: [
+          'Tiền thuê mặt bằng: Chiếm 10-20% doanh thu. Nếu thuê tăng 10% (VD: từ 30 triệu lên 33 triệu) → BEP revenue tăng 5-8%, thời gian hoàn vốn có thể kéo dài thêm 1-2 tháng. Đây là chi phí cứng, không co giãn được.',
+          'Food cost: Chiếm 25-35% doanh thu. Nếu food cost tăng 10% (VD: từ 30% lên 33%) → biên gộp giảm mạnh, BEP revenue tăng 12-15%. Mỗi 1% food cost tăng = ~10% lợi nhuận ròng mất. Đây là biến kiểm soát được nhiều nhất.',
+          'Doanh thu hàng ngày: Biến ảnh hưởng trực tiếp nhất. Nếu doanh thu giảm 10% so với kế hoạch → thời gian hoàn vốn có thể tăng 20-30% vì chi phí cố định không giảm theo. Chênh lệch 5 đơn/ngày có thể là sự khác biệt giữa lãi và lỗ.',
+        ],
+      },
+      {
+        type: 'text',
+        content: 'Đa số chủ quán chỉ tính BEP 1 lần rồi quên. Nhưng BEP thay đổi liên tục — giá thuê tăng, NVL tăng, doanh thu mùa thấp giảm. Quan trọng hơn một con số BEP cụ thể là hiểu: "Nếu biến X thay đổi 10-20%, thì BEP sẽ ra sao?" Đó mới là phân tích hòa vốn thực sự hữu ích. Hãy chạy nhiều kịch bản (tốt / trung bình / xấu) trên F&B Validator để thấy rõ biên an toàn của bạn.',
+      },
+      {
+        type: 'warning-list',
+        heading: 'Sai lầm thường gặp khi tính hòa vốn',
+        content: [
+          { icon: 'warning', title: 'Tính BEP 1 lần rồi không xem lại', desc: 'Giá NVL tăng 10%, thuê tăng 5%/năm, nhân sự tăng lương → BEP thực tế đã thay đổi mà bạn vẫn nhìn con số cũ. Nên tính lại BEP mỗi quý.', severity: 'critical' },
+          { icon: 'warning', title: 'Không tính giai đoạn ramp-up', desc: 'Tháng 1-3 doanh thu chỉ 30-60% công suất nhưng chi phí vận hành đã 100%. Nếu BEP tính trên doanh thu 100% → thực tế hoàn vốn chậm hơn 3-5 tháng so với kế hoạch.', severity: 'critical' },
+          { icon: 'warning', title: 'Bỏ qua tính mùa vụ (seasonality)', desc: 'Tháng Tết doanh thu tăng 50%, tháng 2-3 sau Tết giảm 20-30%. Nếu tính BEP bằng trung bình cả năm → bạn sẽ bất ngờ khi tháng thấp điểm không đủ trả chi phí cố định.', severity: 'warning' },
+          { icon: 'warning', title: 'Chỉ tính hòa vốn vận hành, quên hoàn vốn đầu tư', desc: 'Hòa vốn vận hành (DT = chi phí tháng) ≠ hoàn vốn đầu tư ban đầu. Quán "có lãi" 15 triệu/tháng nhưng đã bỏ 500 triệu đầu tư → cần 33 tháng mới thực sự hoàn vốn.', severity: 'warning' },
+        ] as KBWarningItem[],
       },
     ],
   },

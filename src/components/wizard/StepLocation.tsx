@@ -5,13 +5,20 @@ import SectionCard from '@/components/ui/SectionCard';
 import Tooltip from '@/components/ui/Tooltip';
 import NavButtons from '@/components/ui/NavButtons';
 import { useTranslation, tpl } from '@/i18n/LocaleProvider';
+import { cityHasDistricts, getDistrictsForCity, compareRentToBenchmark } from '@/lib/rent-benchmarks';
 
 export default function StepLocation() {
-  const { t } = useTranslation();
+  const { t, locale } = useTranslation();
   const store = useWizardStore();
 
   const seatRatio = store.sqm > 0 && store.seats > 0 ? store.sqm / store.seats : 0;
   const channelSum = Number(store.chDinein) + Number(store.chTakeaway) + Number(store.chDelivery);
+
+  const hasDistricts = cityHasDistricts(store.city);
+  const districts = hasDistricts ? getDistrictsForCity(store.city) : [];
+  const rentBenchmark = store.rent > 0 && store.sqm > 0
+    ? compareRentToBenchmark(store.rent, store.sqm, store.city, store.district, store.area)
+    : null;
 
   return (
     <div>
@@ -43,6 +50,35 @@ export default function StepLocation() {
             </select>
           </div>
         </div>
+        {hasDistricts && (
+          <div className="mt-3">
+            <label className="block font-medium text-[13px] mb-1.5 text-text">{t.wizard.stepLocation.labelDistrict}</label>
+            <select value={store.district} onChange={(e) => store.setDistrict(e.target.value)} className="w-full clay-input font-[family-name:var(--font-body)] text-text">
+              <option value="">{t.wizard.stepLocation.selectDistrict}</option>
+              {districts.map((d) => (
+                <option key={d.slug} value={d.slug}>{locale === 'vi' ? d.nameVi : d.nameEn}</option>
+              ))}
+            </select>
+          </div>
+        )}
+        {rentBenchmark && (
+          <div className={`mt-2 px-4 py-2.5 rounded-2xl text-[13px] font-medium ${
+            rentBenchmark.status === 'good'
+              ? 'bg-mint-light text-text border-2 border-border'
+              : rentBenchmark.status === 'warn'
+                ? 'bg-primary-light text-text border-2 border-border'
+                : 'bg-danger/10 text-danger border-2 border-danger/30'
+          }`}>
+            {tpl(
+              rentBenchmark.status === 'good'
+                ? t.wizard.stepLocation.rentBenchmarkGood
+                : rentBenchmark.status === 'warn'
+                  ? t.wizard.stepLocation.rentBenchmarkWarn
+                  : t.wizard.stepLocation.rentBenchmarkHigh,
+              { userRent: rentBenchmark.userRentPerSqm, min: rentBenchmark.min, max: rentBenchmark.max }
+            )}
+          </div>
+        )}
       </SectionCard>
 
       <SectionCard title={t.wizard.stepLocation.sectionScale}>

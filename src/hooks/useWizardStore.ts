@@ -1,7 +1,7 @@
 'use client';
 
 import { create } from 'zustand';
-import type { ModelKey, StaffRow, DynItem, CustMatrix, TicketItem } from '@/types';
+import type { ModelKey, StaffRow, DynItem, CustMatrix, TicketItem, BusinessMode, CalcResults, MenuItemData, ChannelCosts } from '@/types';
 import { MODELS, RAMP_DEFAULT } from '@/lib/constants';
 
 let nextId = 1;
@@ -22,18 +22,39 @@ interface WizardState {
   nextStep: () => void;
   prevStep: () => void;
 
+  // Business mode
+  businessMode: BusinessMode;
+  setBusinessMode: (mode: BusinessMode) => void;
+
   // Model
   selectedModel: ModelKey | null;
   selectModel: (key: ModelKey) => void;
 
+  // Project name
+  projectName: string;
+  setProjectName: (v: string) => void;
+
   // Step 1
   budget: number;
   rent: number;
+  sunkCost: number;
+  actualMonthlyRevenue: number;
+  monthsOperating: number;
   setBudget: (v: number) => void;
   setRent: (v: number) => void;
+  setSunkCost: (v: number) => void;
+  setActualMonthlyRevenue: (v: number) => void;
+  setMonthsOperating: (v: number) => void;
+
+  // Baseline (scenario comparison)
+  baselineResults: CalcResults | null;
+  baselineLabel: string;
+  setBaseline: (results: CalcResults, label: string) => void;
+  clearBaseline: () => void;
 
   // Step 2
   city: string;
+  district: string;
   area: string;
   sqm: number;
   seats: number;
@@ -42,6 +63,7 @@ interface WizardState {
   chTakeaway: number;
   chDelivery: number;
   setCity: (v: string) => void;
+  setDistrict: (v: string) => void;
   setArea: (v: string) => void;
   setSqm: (v: number) => void;
   setSeats: (v: number) => void;
@@ -68,11 +90,15 @@ interface WizardState {
   ticketItems: TicketItem[];
   custMatrix: CustMatrix;
   rampFactors: number[];
+  menuItems: MenuItemData[];
   addTicketItem: (name?: string, price?: number) => void;
   removeTicketItem: (id: string) => void;
   updateTicketItem: (id: string, field: 'name' | 'price', value: string | number) => void;
   setCustMatrix: (mat: CustMatrix) => void;
   setRampFactor: (index: number, value: number) => void;
+  addMenuItem: (name?: string, price?: number, costPerItem?: number, monthlySold?: number) => void;
+  removeMenuItem: (id: string) => void;
+  updateMenuItem: (id: string, field: keyof MenuItemData, value: string | number) => void;
 
   // Step 5
   staff: StaffRow[];
@@ -90,6 +116,8 @@ interface WizardState {
   setCogsPct: (v: number) => void;
   setWastePct: (v: number) => void;
   setDeliveryCommPct: (v: number) => void;
+  channelCosts: ChannelCosts;
+  setChannelCost: (field: keyof ChannelCosts, value: number) => void;
   addFixedOtherItem: (name?: string, amount?: number) => void;
   removeFixedOtherItem: (id: string) => void;
   updateFixedOtherItem: (id: string, field: 'name' | 'amount', value: string | number) => void;
@@ -125,11 +153,19 @@ export const useWizardStore = create<WizardState>((set, get) => ({
     if (currentStep > 0) set({ currentStep: currentStep - 1 });
   },
 
+  // Business mode
+  businessMode: 'new',
+  setBusinessMode: (mode) => set({
+    businessMode: mode,
+    rampFactors: mode === 'existing' ? [1, 1, 1, 1, 1, 1] : [...RAMP_DEFAULT],
+  }),
+
   // Model
   selectedModel: null,
   selectModel: (key) => {
     const m = MODELS[key];
     const d = m.defaults;
+    const isExisting = get().businessMode === 'existing';
     set({
       selectedModel: key,
       budget: d.budget,
@@ -146,7 +182,7 @@ export const useWizardStore = create<WizardState>((set, get) => ({
       workingCap: d.working_cap,
       ticketItems: toTicketItems(d.ticket_items),
       custMatrix: { wd: d.cust_matrix.wd as [number, number, number, number], we: d.cust_matrix.we as [number, number, number, number] },
-      rampFactors: [...RAMP_DEFAULT],
+      rampFactors: isExisting ? [1, 1, 1, 1, 1, 1] : [...RAMP_DEFAULT],
       staff: d.staff.map(s => ({ ...s })),
       fixedOther: toDynItems(d.fixed_other),
       varOther: toDynItems(d.var_other),
@@ -155,14 +191,31 @@ export const useWizardStore = create<WizardState>((set, get) => ({
     });
   },
 
+  // Project name
+  projectName: '',
+  setProjectName: (v) => set({ projectName: v.slice(0, 50) }),
+
   // Step 1
   budget: 0,
   rent: 0,
+  sunkCost: 0,
+  actualMonthlyRevenue: 0,
+  monthsOperating: 6,
   setBudget: (v) => set({ budget: v }),
   setRent: (v) => set((s) => ({ rent: v, deposit: v * s.depositMonths })),
+  setSunkCost: (v) => set({ sunkCost: v }),
+  setActualMonthlyRevenue: (v) => set({ actualMonthlyRevenue: v }),
+  setMonthsOperating: (v) => set({ monthsOperating: v }),
+
+  // Baseline (scenario comparison)
+  baselineResults: null,
+  baselineLabel: '',
+  setBaseline: (results, label) => set({ baselineResults: results, baselineLabel: label }),
+  clearBaseline: () => set({ baselineResults: null, baselineLabel: '' }),
 
   // Step 2
   city: 'hcm',
+  district: '',
   area: 'center',
   sqm: 40,
   seats: 25,
@@ -170,7 +223,8 @@ export const useWizardStore = create<WizardState>((set, get) => ({
   chDinein: 60,
   chTakeaway: 20,
   chDelivery: 20,
-  setCity: (v) => set({ city: v }),
+  setCity: (v) => set({ city: v, district: '' }),
+  setDistrict: (v) => set({ district: v }),
   setArea: (v) => set({ area: v }),
   setSqm: (v) => set({ sqm: v }),
   setSeats: (v) => set({ seats: v }),
@@ -208,6 +262,7 @@ export const useWizardStore = create<WizardState>((set, get) => ({
   ticketItems: [],
   custMatrix: { wd: [20, 30, 10, 20], we: [30, 40, 20, 30] },
   rampFactors: [...RAMP_DEFAULT],
+  menuItems: [],
   addTicketItem: (name = '', price = 0) => set((s) => ({ ticketItems: [...s.ticketItems, { id: uid(), name, price }] })),
   removeTicketItem: (id) => set((s) => ({ ticketItems: s.ticketItems.filter(i => i.id !== id) })),
   updateTicketItem: (id, field, value) => set((s) => ({
@@ -221,6 +276,17 @@ export const useWizardStore = create<WizardState>((set, get) => ({
     f[index] = value;
     return { rampFactors: f };
   }),
+  addMenuItem: (name = '', price = 0, costPerItem = 0, monthlySold = 0) =>
+    set((s) => ({ menuItems: [...s.menuItems, { id: uid(), name, price, costPerItem, monthlySold }] })),
+  removeMenuItem: (id) => set((s) => ({ menuItems: s.menuItems.filter(i => i.id !== id) })),
+  updateMenuItem: (id, field, value) => set((s) => ({
+    menuItems: s.menuItems.map(i => {
+      if (i.id !== id) return i;
+      if (field === 'name') return { ...i, name: String(value) };
+      const num = typeof value === 'number' ? value : parseInt(String(value).replace(/\./g, '')) || 0;
+      return { ...i, [field]: num };
+    }),
+  })),
 
   // Step 5
   staff: [],
@@ -244,6 +310,8 @@ export const useWizardStore = create<WizardState>((set, get) => ({
   setCogsPct: (v) => set({ cogsPct: v }),
   setWastePct: (v) => set({ wastePct: v }),
   setDeliveryCommPct: (v) => set({ deliveryCommPct: v }),
+  channelCosts: { packagingPerOrder: 5000, grabCommPct: 25, shopeeCommPct: 20, ownDeliveryPct: 0, marketingDinein: 0, marketingDelivery: 0 },
+  setChannelCost: (field, value) => set((s) => ({ channelCosts: { ...s.channelCosts, [field]: value } })),
   addFixedOtherItem: (name = '', amount = 0) => set((s) => ({ fixedOther: [...s.fixedOther, { id: uid(), name, amount }] })),
   removeFixedOtherItem: (id) => set((s) => ({ fixedOther: s.fixedOther.filter(i => i.id !== id) })),
   updateFixedOtherItem: (id, field, value) => set((s) => ({
@@ -263,6 +331,7 @@ export const useWizardStore = create<WizardState>((set, get) => ({
   getDeposit: () => get().deposit,
   getTotalInvestment: () => {
     const s = get();
+    if (s.businessMode === 'existing') return s.sunkCost + s.workingCap;
     const dynTotal = (items: DynItem[]) => items.reduce((sum, i) => sum + i.amount, 0);
     return s.deposit + dynTotal(s.invMatbang) + dynTotal(s.invXaydung) + dynTotal(s.invThietbi) + dynTotal(s.invKhac) + s.workingCap;
   },
@@ -286,10 +355,14 @@ export const useWizardStore = create<WizardState>((set, get) => ({
   collectAll: () => {
     const s = get();
     return {
+      projectName: s.projectName,
+      businessMode: s.businessMode,
       model: s.selectedModel,
       budget: s.budget,
       rent: s.rent,
+      sunkCost: s.sunkCost,
       city: s.city,
+      district: s.district,
       area: s.area,
       sqm: s.sqm,
       seats: s.seats,
@@ -315,15 +388,24 @@ export const useWizardStore = create<WizardState>((set, get) => ({
       fixed_other: s.fixedOther.map(i => [i.name, i.amount]),
       var_other: s.varOther.map(i => [i.name, i.amount]),
       currentStep: s.currentStep,
+      // Existing business mode fields
+      actualMonthlyRevenue: s.actualMonthlyRevenue,
+      monthsOperating: s.monthsOperating,
+      menuItems: s.menuItems,
+      channelCosts: s.channelCosts,
     };
   },
 
   restoreAll: (d) => {
     const patch: Partial<WizardState> = {};
+    if (typeof d.projectName === 'string') patch.projectName = (d.projectName as string).slice(0, 50);
+    if (d.businessMode === 'new' || d.businessMode === 'existing') patch.businessMode = d.businessMode;
+    if (typeof d.sunkCost === 'number') patch.sunkCost = d.sunkCost;
     if (d.model && typeof d.model === 'string') patch.selectedModel = d.model as ModelKey;
     if (typeof d.budget === 'number') patch.budget = d.budget;
     if (typeof d.rent === 'number') patch.rent = d.rent;
     if (typeof d.city === 'string') patch.city = d.city;
+    if (typeof d.district === 'string') patch.district = d.district;
     if (typeof d.area === 'string') patch.area = d.area;
     if (typeof d.sqm === 'number') patch.sqm = d.sqm;
     if (typeof d.seats === 'number') patch.seats = d.seats;
@@ -357,6 +439,12 @@ export const useWizardStore = create<WizardState>((set, get) => ({
     // Fixed / var other
     if (Array.isArray(d.fixed_other)) patch.fixedOther = toDynItems(d.fixed_other as [string, number][]);
     if (Array.isArray(d.var_other)) patch.varOther = toDynItems(d.var_other as [string, number][]);
+
+    // Existing business mode fields
+    if (typeof d.actualMonthlyRevenue === 'number') patch.actualMonthlyRevenue = d.actualMonthlyRevenue;
+    if (typeof d.monthsOperating === 'number') patch.monthsOperating = d.monthsOperating;
+    if (Array.isArray(d.menuItems)) patch.menuItems = (d.menuItems as MenuItemData[]).map(m => ({ ...m }));
+    if (d.channelCosts && typeof d.channelCosts === 'object') patch.channelCosts = { ...(d.channelCosts as ChannelCosts) };
 
     set(patch);
   },

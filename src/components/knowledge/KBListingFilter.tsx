@@ -9,7 +9,7 @@ import type { KBCategory, KBTopic } from '@/types';
 
 type FilterType = 'all' | KBCategory;
 
-const CATEGORY_KEYS: KBCategory[] = ['cost', 'operations', 'strategy', 'legal'];
+const CATEGORY_KEYS: KBCategory[] = ['trends', 'cost', 'operations', 'strategy', 'legal', 'technology'];
 
 const colorMap: Record<string, string> = {
   'primary-light': 'bg-primary-light',
@@ -58,13 +58,13 @@ export default function KBListingFilter({ topics, categoryLabels, filterAllLabel
           href={localePrefixedPaths[featuredTopic.slug] || `/kien-thuc/${featuredTopic.slug}`}
           className="clay-card-static block mb-6 overflow-hidden hover:shadow-[3px_3px_0_var(--color-text)] transition-shadow bg-pastel-gold"
         >
-          <div className="h-[100px] max-md:h-[70px] overflow-hidden flex items-center justify-center bg-pastel-cream/50">
+          <div className="overflow-hidden bg-pastel-cream/50">
             <Image
               src="/illustrations/kb-featured-banner.webp"
               alt=""
-              width={600}
-              height={200}
-              className="object-contain opacity-80"
+              width={1584}
+              height={672}
+              className="w-full h-auto"
               loading="lazy"
             />
           </div>
@@ -123,34 +123,41 @@ export default function KBListingFilter({ topics, categoryLabels, filterAllLabel
               <h2 className="text-[14px] font-bold font-[family-name:var(--font-heading)] uppercase tracking-wider text-text-muted mb-3">
                 {label}
               </h2>
-              <div className="space-y-3">
+              <div className="grid grid-cols-2 gap-3 max-md:grid-cols-1">
                 {items.map((topic) => (
                   <Link
                     key={topic.id}
                     href={localePrefixedPaths[topic.slug] || `/kien-thuc/${topic.slug}`}
-                    className={`clay-card-static block p-4 hover:shadow-[3px_3px_0_var(--color-text)] transition-shadow ${colorMap[topic.color] || ''}`}
+                    className="clay-card-static block overflow-hidden hover:shadow-[3px_3px_0_var(--color-text)] transition-shadow"
                   >
-                    <div className="flex items-center gap-3">
-                      <Icon name={topic.icon} size={36} />
-                      <div className="min-w-0">
-                        <h3 className="text-[15px] font-bold font-[family-name:var(--font-heading)] text-text">
-                          {topic.title}
-                        </h3>
-                        <p className="text-[12px] text-text-muted">{topic.subtitle}</p>
-                      </div>
+                    {/* Thumbnail area */}
+                    <div className={`${colorMap[topic.color] || 'bg-surface'} flex items-center justify-center py-5`}>
+                      <Icon name={topic.icon} size={48} />
                     </div>
-                    {topic.highlights && (
-                      <div className="flex flex-wrap gap-1.5 mt-2 ml-[48px]">
-                        {topic.highlights.slice(0, 3).map((h, i) => (
-                          <span
-                            key={i}
-                            className="clay-pill bg-white/80 !py-0.5 !px-2 !text-[10px]"
-                          >
-                            <strong className="text-cta">{h.value}</strong> {h.label}
-                          </span>
-                        ))}
-                      </div>
-                    )}
+                    {/* Content */}
+                    <div className="p-3.5">
+                      <h3 className="text-[14px] font-bold font-[family-name:var(--font-heading)] text-text leading-tight mb-1">
+                        {topic.title}
+                      </h3>
+                      <p className="text-[11px] text-text-muted leading-relaxed line-clamp-2">{topic.subtitle}</p>
+                      {topic.publishDate && (
+                        <span className="text-[10px] text-text-light mt-1.5 block">
+                          {new Date(topic.publishDate + 'T00:00:00').toLocaleDateString('vi-VN', { day: '2-digit', month: '2-digit', year: 'numeric' })}
+                        </span>
+                      )}
+                      {topic.highlights && (
+                        <div className="flex flex-wrap gap-1 mt-2">
+                          {topic.highlights.slice(0, 2).map((h, i) => (
+                            <span
+                              key={i}
+                              className="clay-pill bg-surface !py-0.5 !px-2 !text-[10px]"
+                            >
+                              <strong className="text-cta">{h.value}</strong> {h.label}
+                            </span>
+                          ))}
+                        </div>
+                      )}
+                    </div>
                   </Link>
                 ))}
               </div>

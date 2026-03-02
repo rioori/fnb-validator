@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Carousel — CTA</title>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;800;900&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { width: 1080px; height: 1080px; overflow: hidden; font-family: 'Roboto', system-ui, sans-serif; background: #F8FAFC; position: relative; }
+  .bg-canvas { position: absolute; inset: 0; background: radial-gradient(ellipse 700px 600px at 0% 0%, rgba(210,236,208,0.5) 0%, transparent 70%), radial-gradient(ellipse 600px 500px at 100% 100%, rgba(229,244,248,0.6) 0%, transparent 70%), radial-gradient(ellipse 450px 400px at 85% 8%, rgba(253,238,196,0.4) 0%, transparent 70%), radial-gradient(ellipse 400px 350px at 8% 85%, rgba(253,232,228,0.4) 0%, transparent 70%), #F8FAFC; }
+  .bg-canvas::before { content: ''; position: absolute; inset: 0; background-image: radial-gradient(circle, rgba(15,23,42,0.035) 1px, transparent 1px); background-size: 24px 24px; }
+
+  .deco { position: absolute; border-radius: 50%; opacity: 0.06; z-index: 0; }
+  .deco-1 { width: 280px; height: 280px; background: #22C55E; top: -80px; right: -40px; }
+  .deco-2 { width: 180px; height: 180px; background: #0F172A; bottom: -40px; left: 60px; }
+  .deco-3 { width: 120px; height: 120px; background: #FBBF24; bottom: 200px; right: 100px; }
+
+  .content {
+    position: relative; z-index: 1;
+    width: 100%; height: 100%;
+    display: flex; flex-direction: column;
+    align-items: center; justify-content: center;
+    padding: 60px 80px;
+    text-align: center;
+  }
+
+  .logo-row {
+    display: flex; align-items: center; gap: 16px;
+    margin-bottom: 16px;
+  }
+  .logo-row img { width: 72px; height: 72px; }
+
+  .headline {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 900; font-size: 52px;
+    color: #0F172A;
+    line-height: 1.2;
+    letter-spacing: -1px;
+    margin-bottom: 12px;
+  }
+  .headline span { color: #16A34A; }
+
+  .sub {
+    font-size: 24px; color: #475569;
+    margin-bottom: 44px;
+  }
+
+  .cta-btn {
+    display: inline-flex; align-items: center; gap: 12px;
+    background: #22C55E; color: white;
+    border-radius: 36px;
+    padding: 18px 48px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 800; font-size: 24px;
+    box-shadow: 6px 6px 0 #16A34A;
+    margin-bottom: 28px;
+  }
+  .cta-btn::after { content: '→'; font-size: 26px; }
+
+  .url {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 800; font-size: 32px;
+    color: #16A34A;
+    margin-bottom: 32px;
+    letter-spacing: -0.5px;
+  }
+
+  .info-line {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600; font-size: 18px;
+    color: #94A3B8;
+  }
+
+  .sectors {
+    display: flex; gap: 12px;
+    margin-top: 32px;
+  }
+  .sector {
+    display: inline-flex; align-items: center;
+    background: #FFFFFF;
+    border: 1.5px solid rgba(15,23,42,0.07);
+    border-radius: 24px;
+    padding: 8px 20px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700; font-size: 15px;
+    color: #0F172A;
+    box-shadow: 3px 3px 0 rgba(15,23,42,0.04);
+  }
+  .sector.active {
+    background: #16A34A; color: white;
+    border-color: #16A34A;
+    box-shadow: 3px 3px 0 rgba(22,163,74,0.3);
+  }
+  .sector.coming { color: #94A3B8; border-color: rgba(15,23,42,0.05); }
+</style>
+</head>
+<body>
+  <div class="bg-canvas"></div>
+  <div class="deco deco-1"></div>
+  <div class="deco deco-2"></div>
+  <div class="deco deco-3"></div>
+  <div class="content">
+    <div class="logo-row">
+      <img src="../../../logo.png" alt="Validator.vn" />
+    </div>
+    <div class="headline">Validate your<br><span>business idea</span></div>
+    <div class="sub">Before you invest.</div>
+    <div class="cta-btn">Try it free</div>
+    <div class="url">www.validator.vn</div>
+    <div class="info-line">Free · No signup required · Bilingual VI–EN</div>
+    <div class="sectors">
+      <div class="sector active">F&B</div>
+      <div class="sector coming">Retail · Coming soon</div>
+      <div class="sector coming">Education · Coming soon</div>
+      <div class="sector coming">Services · Coming soon</div>
+    </div>
+  </div>
+</body>
+</html>

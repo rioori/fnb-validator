@@ -4,13 +4,14 @@ import { useWizardStore } from '@/hooks/useWizardStore';
 import { MODELS } from '@/lib/constants';
 import { useModels } from '@/hooks/useModels';
 import { formatVND } from '@/lib/format';
-import type { ModelKey } from '@/types';
+import type { ModelKey, BusinessMode } from '@/types';
 import SectionCard from '@/components/ui/SectionCard';
 import VNDInput from '@/components/ui/VNDInput';
 import Tooltip from '@/components/ui/Tooltip';
 import NavButtons from '@/components/ui/NavButtons';
 import Icon from '@/components/ui/Icon';
 import QuickSelect from '@/components/ui/QuickSelect';
+import PresetCards from '@/components/onboarding/PresetCards';
 import { useTranslation, tpl } from '@/i18n/LocaleProvider';
 
 const CARD_COLORS: Record<string, string> = {
@@ -27,7 +28,8 @@ const CARD_COLORS: Record<string, string> = {
 export default function StepModel() {
   const { t } = useTranslation();
   const models = useModels();
-  const { selectedModel, selectModel, budget, setBudget, rent, setRent, nextStep } = useWizardStore();
+  const { selectedModel, selectModel, budget, setBudget, rent, setRent, nextStep, businessMode, setBusinessMode, actualMonthlyRevenue, setActualMonthlyRevenue, monthsOperating, setMonthsOperating, projectName, setProjectName } = useWizardStore();
+  const isExisting = businessMode === 'existing';
 
   const handleNext = () => {
     if (!selectedModel) { alert(t.wizard.stepModel.alertNoModel); return; }
@@ -54,11 +56,36 @@ export default function StepModel() {
 
   return (
     <div>
+      {/* Business Mode Toggle */}
+      <div className="flex gap-2 mb-4">
+        {(['new', 'existing'] as BusinessMode[]).map((mode) => {
+          const active = businessMode === mode;
+          const label = mode === 'new' ? t.wizard.stepModel.modeNew : t.wizard.stepModel.modeExisting;
+          const desc = mode === 'new' ? t.wizard.stepModel.modeNewDesc : t.wizard.stepModel.modeExistingDesc;
+          return (
+            <button
+              key={mode}
+              onClick={() => setBusinessMode(mode)}
+              className={`flex-1 rounded-xl px-4 py-3 text-left transition-all border-2 cursor-pointer ${
+                active
+                  ? 'border-cta bg-white shadow-[3px_3px_0_var(--color-cta)]'
+                  : 'border-border-light bg-surface hover:border-text'
+              }`}
+            >
+              <span className={`text-sm font-bold font-[family-name:var(--font-heading)] flex items-center gap-1.5 ${active ? 'text-cta' : 'text-text'}`}>
+                <Icon name={mode === 'new' ? 'newproject' : 'existing'} size={22} className={active ? '!border-cta !shadow-[1px_1px_0_var(--color-cta)]' : ''} /> {label}
+              </span>
+              <span className="text-[11px] text-text-muted block mt-0.5">{desc}</span>
+            </button>
+          );
+        })}
+      </div>
+
       <h2 className="text-lg font-bold mb-1 text-text font-[family-name:var(--font-heading)]">
-        {t.wizard.stepModel.title}
+        {isExisting ? t.wizard.stepModel.titleExisting : t.wizard.stepModel.title}
       </h2>
       <p className="text-text-muted text-[13px] mb-3">
-        {t.wizard.stepModel.desc}
+        {isExisting ? t.wizard.stepModel.descExisting : t.wizard.stepModel.desc}
       </p>
 
       {/* Model Grid */}
@@ -90,11 +117,35 @@ export default function StepModel() {
         })}
       </div>
 
+      {/* Quick-Start Presets — only for new business, when no model selected yet */}
+      {!isExisting && !selectedModel && <PresetCards />}
+
       {/* Model Info */}
       {model && (
         <div className="clay-sm bg-mint-light px-5 py-4 mb-4 text-sm text-text leading-relaxed animate-bounce-in">
           <strong className="font-[family-name:var(--font-heading)] inline-flex items-center gap-1.5"><Icon name={model.icon} size={22} /> {model.name}</strong><br />
           <span className="text-text-muted">{model.desc}</span>
+        </div>
+      )}
+
+      {/* Project Name */}
+      {selectedModel && (
+        <div className="clay-sm bg-white p-4 mb-4">
+          <label className="block font-semibold text-[13px] mb-1.5 text-text font-[family-name:var(--font-heading)]">
+            {t.wizard.stepModel.labelProjectName}
+          </label>
+          <input
+            type="text"
+            value={projectName}
+            onChange={(e) => setProjectName(e.target.value)}
+            placeholder={t.wizard.stepModel.placeholderProjectName}
+            maxLength={50}
+            className="w-full clay-input text-[13px] font-[family-name:var(--font-body)]"
+          />
+          <div className="flex items-center justify-between mt-1">
+            <span className="text-[11px] text-text-muted">{t.wizard.stepModel.projectNameHint}</span>
+            <span className="text-[10px] text-text-light">{projectName.length}/50</span>
+          </div>
         </div>
       )}
 
@@ -130,6 +181,52 @@ export default function StepModel() {
           </div>
         </div>
       </SectionCard>
+
+      {/* Existing mode: Actual Revenue & Months Operating */}
+      {isExisting && (
+        <SectionCard title={t.wizard.stepModel.labelActualRevenue}>
+          <div className="grid grid-cols-2 gap-3.5 max-md:grid-cols-1">
+            <div>
+              <label className="block font-semibold text-[13px] mb-1.5 text-text font-[family-name:var(--font-heading)]">
+                {t.wizard.stepModel.labelActualRevenue}
+                <Tooltip text={t.wizard.stepModel.tooltipActualRevenue} />
+              </label>
+              <VNDInput value={actualMonthlyRevenue} onChange={setActualMonthlyRevenue} placeholder={t.wizard.stepModel.placeholderActualRevenue} />
+              <QuickSelect
+                values={model ? [
+                  Math.round(model.defaults.budget * 0.3 / 10_000_000) * 10_000_000,
+                  Math.round(model.defaults.budget * 0.5 / 10_000_000) * 10_000_000,
+                  Math.round(model.defaults.budget * 0.8 / 10_000_000) * 10_000_000,
+                ].filter((v, i, a) => v > 0 && a.indexOf(v) === i) : [80_000_000, 150_000_000, 300_000_000, 500_000_000]}
+                onSelect={setActualMonthlyRevenue}
+                current={actualMonthlyRevenue}
+              />
+            </div>
+            <div>
+              <label className="block font-semibold text-[13px] mb-1.5 text-text font-[family-name:var(--font-heading)]">
+                {t.wizard.stepModel.labelMonthsOperating}
+              </label>
+              <div className="flex flex-wrap gap-1.5 mt-1">
+                {[3, 6, 12, 24, 36, 60].map((m) => (
+                  <button
+                    key={m}
+                    type="button"
+                    onClick={() => setMonthsOperating(m)}
+                    className={`text-[12px] px-3 py-1.5 rounded-full border transition-colors cursor-pointer font-medium ${
+                      monthsOperating === m
+                        ? 'bg-cta/10 border-cta text-cta'
+                        : 'bg-surface3/60 border-border-light text-text-muted hover:border-text hover:text-text'
+                    }`}
+                  >
+                    {tpl(t.wizard.stepModel.monthsOption, { n: String(m) })}
+                  </button>
+                ))}
+              </div>
+              <div className="text-xs text-text-muted mt-1.5">{t.wizard.stepModel.monthsOperatingHint}</div>
+            </div>
+          </div>
+        </SectionCard>
+      )}
 
       <NavButtons onBack={() => useWizardStore.getState().setStep(0)} backLabel={t.wizard.stepModel.backLabel} onNext={handleNext} />
     </div>

@@ -69,7 +69,7 @@ function ExpertAvatar({ expert, size, index }: { expert: Expert; size: number; i
           alt={expert.name}
           width={size}
           height={size}
-          className="object-cover w-full h-full"
+          className="object-cover object-top w-full h-full"
           loading="lazy"
         />
       ) : (
@@ -114,7 +114,7 @@ function ExpertQuoteCard({ expert, href, index }: { expert: Expert; href: string
 
       {/* Avatar + Name */}
       <div className="flex items-center gap-3 mt-auto">
-        <ExpertAvatar expert={expert} size={48} index={index} />
+        <ExpertAvatar expert={expert} size={56} index={index} />
         <div className="min-w-0 flex-1">
           <h3 className="text-[14px] font-bold font-[family-name:var(--font-heading)] text-text leading-tight">
             {expert.name}

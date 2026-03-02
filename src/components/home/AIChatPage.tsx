@@ -8,9 +8,11 @@ import { useAuth } from '@/hooks/useAuth';
 import { useTranslation } from '@/i18n/LocaleProvider';
 import { useChat } from '@/hooks/useChat';
 import { useWizardStore } from '@/hooks/useWizardStore';
+import { useScenarios } from '@/hooks/useScenarios';
 import { MODELS } from '@/lib/constants';
 import { useModels } from '@/hooks/useModels';
 import { formatVND } from '@/lib/format';
+import { tpl } from '@/i18n/LocaleProvider';
 
 const GENERIC_PROMPTS = [
   'Mở quán cà phê nhỏ cần bao nhiêu vốn?',
@@ -40,31 +42,48 @@ function buildBusinessContext(): string | undefined {
 
   const totalInv = s.getTotalInvestment();
   const staffTotal = s.getStaffTotal();
-  const avgTicket = s.getAvgTicket();
-  const custWD = s.getCustWeekday();
-  const custWE = s.getCustWeekend();
 
-  const lines = [
+  const lines: (string | null)[] = [
+    s.projectName ? `Tên dự án: ${s.projectName}` : null,
+    `Chế độ: ${s.businessMode === 'existing' ? 'Đang kinh doanh' : 'Dự án mới'}`,
     `Mô hình: ${model.name}`,
-    `Ngân sách: ${formatVND(s.budget)}`,
     `Thành phố: ${cityMap[s.city] || s.city}, Khu vực: ${areaMap[s.area] || s.area}`,
     `Diện tích: ${s.sqm}m², Số chỗ ngồi: ${s.seats}`,
     `Hoạt động: ${s.daysPerWeek} ngày/tuần`,
     `Kênh bán: Dine-in ${s.chDinein}%, Takeaway ${s.chTakeaway}%, Delivery ${s.chDelivery}%`,
-    `Tổng vốn đầu tư: ${formatVND(totalInv)} (bao gồm đặt cọc ${s.depositMonths} tháng: ${formatVND(s.deposit)}, vốn lưu động: ${formatVND(s.workingCap)})`,
     `Tiền thuê: ${formatVND(s.rent)}/tháng`,
-    `Ticket trung bình: ${formatVND(avgTicket)}`,
-    `Khách/ngày: Ngày thường ~${custWD}, Cuối tuần ~${custWE}`,
     `Nhân sự: ${s.staff.map(r => `${r.pos} x${r.count} (${formatVND(r.salary)})`).join(', ')} — Tổng: ${formatVND(staffTotal)}/tháng`,
     `COGS: ${s.cogsPct}%, Hao hụt: ${s.wastePct}%, Hoa hồng delivery: ${s.deliveryCommPct}%`,
     `BHXH: ${s.bhxhOn ? 'Có' : 'Không'}`,
   ];
 
-  return lines.join('\n');
+  if (s.businessMode === 'existing') {
+    lines.push(
+      `Doanh thu thực tế/tháng: ${formatVND(s.actualMonthlyRevenue)}`,
+      `Đã kinh doanh: ${s.monthsOperating} tháng`,
+    );
+    if (s.menuItems.length > 0) {
+      lines.push(`Thực đơn: ${s.menuItems.map(m => `${m.name} (giá ${formatVND(m.price)}, vốn ${formatVND(m.costPerItem)}, bán ${m.monthlySold}/tháng)`).join('; ')}`);
+    }
+    const cc = s.channelCosts;
+    lines.push(`Chi phí kênh: Đóng gói ${formatVND(cc.packagingPerOrder)}/đơn, Grab ${cc.grabCommPct}%, Shopee ${cc.shopeeCommPct}%, Tự giao ${cc.ownDeliveryPct}%`);
+  } else {
+    const avgTicket = s.getAvgTicket();
+    const custWD = s.getCustWeekday();
+    const custWE = s.getCustWeekend();
+    lines.push(
+      `Ngân sách: ${formatVND(s.budget)}`,
+      `Tổng vốn đầu tư: ${formatVND(totalInv)}`,
+      `Ticket trung bình: ${formatVND(avgTicket)}`,
+      `Khách/ngày: Ngày thường ~${custWD}, Cuối tuần ~${custWE}`,
+    );
+  }
+
+  return lines.filter(Boolean).join('\n');
 }
 
 export default function AIChatPage() {
-  const { t } = useTranslation();
+  const { t, locale } = useTranslation();
   const { user } = useAuth();
   const {
     sessions,
@@ -85,21 +104,46 @@ export default function AIChatPage() {
 
   const models = useModels();
   const selectedModel = useWizardStore((s) => s.selectedModel);
+  const projectName = useWizardStore((s) => s.projectName);
   const hasContext = !!selectedModel;
   const suggestedPrompts = hasContext ? CONTEXTUAL_PROMPTS : GENERIC_PROMPTS;
 
+  const { scenarios, loadList: loadScenarios, load: loadScenarioData } = useScenarios();
   const [input, setInput] = useState('');
   const [showSidebar, setShowSidebar] = useState(false);
+  const [loadingScenario, setLoadingScenario] = useState(false);
+  const [loadedScenarioName, setLoadedScenarioName] = useState('');
   const messagesEndRef = useRef<HTMLDivElement>(null);
   const textareaRef = useRef<HTMLTextAreaElement>(null);
 
-  // Load sessions and quota on mount
+  // Load sessions, quota, and saved scenarios on mount
   useEffect(() => {
     if (user?.id) {
       loadSessions(user.id);
       checkQuota(user.id);
+      loadScenarios(user.id);
     }
-  }, [user?.id, loadSessions, checkQuota]);
+  }, [user?.id, loadSessions, checkQuota, loadScenarios]);
+
+  // Handle scenario selection
+  const handleScenarioPick = async (scenarioId: string) => {
+    if (!scenarioId) {
+      // Clear context — reset model selection
+      useWizardStore.setState({ selectedModel: null });
+      setLoadedScenarioName('');
+      return;
+    }
+    setLoadingScenario(true);
+    const data = await loadScenarioData(scenarioId);
+    if (data) {
+      const scenarioData = data as Record<string, unknown>;
+      if (scenarioData.data) {
+        useWizardStore.getState().restoreAll(scenarioData.data as Record<string, unknown>);
+      }
+      setLoadedScenarioName(String(scenarioData.name || ''));
+    }
+    setLoadingScenario(false);
+  };
 
   // Auto-scroll to bottom
   useEffect(() => {
@@ -118,7 +162,7 @@ export default function AIChatPage() {
     const trimmed = input.trim();
     if (!trimmed || isStreaming || !user?.id) return;
     setInput('');
-    sendMessage(trimmed, user.id, buildBusinessContext());
+    sendMessage(trimmed, user.id, buildBusinessContext(), locale);
     track('ai_chat_send', { has_context: !!buildBusinessContext() });
   };
 
@@ -172,6 +216,33 @@ export default function AIChatPage() {
           </button>
         </div>
       </div>
+
+      {/* Scenario Picker */}
+      {scenarios.length > 0 && (
+        <div className="clay-card-static bg-pastel-cream p-3 mb-3">
+          <label className="block text-[12px] font-semibold text-text mb-1.5 font-[family-name:var(--font-heading)]">
+            {t.dashboard.chatScenario.pickLabel}
+          </label>
+          <select
+            onChange={(e) => handleScenarioPick(e.target.value)}
+            className="w-full clay-input text-[13px] !py-2 cursor-pointer"
+            disabled={loadingScenario}
+          >
+            <option value="">{t.dashboard.chatScenario.pickPlaceholder}</option>
+            {scenarios.map((sc) => (
+              <option key={sc.id} value={sc.id}>{sc.name}</option>
+            ))}
+          </select>
+          {loadingScenario && (
+            <p className="text-[11px] text-text-muted mt-1 animate-pulse">{t.dashboard.chatScenario.loadingScenario}</p>
+          )}
+          {loadedScenarioName && !loadingScenario && (
+            <p className="text-[11px] text-success font-semibold mt-1">
+              {tpl(t.dashboard.chatScenario.contextLoaded, { name: loadedScenarioName })}
+            </p>
+          )}
+        </div>
+      )}
 
       <div className="flex gap-3 max-md:flex-col relative">
         {/* Sidebar - session list */}
@@ -241,11 +312,14 @@ export default function AIChatPage() {
                   <p className="text-text-muted text-sm mb-1 font-semibold">Hỏi bất kỳ điều gì về F&B!</p>
                   {hasContext ? (
                     <p className="text-success text-xs mb-5 font-semibold">
-                      ✓ AI đã nắm thông tin dự án {models[selectedModel].name} của bạn
+                      ✓ AI đã nắm thông tin dự án {projectName || models[selectedModel]?.name || 'của bạn'}
                     </p>
                   ) : (
                     <p className="text-text-light text-xs mb-5">
-                      Chuyên gia AI sẵn sàng tư vấn cho bạn. Nhập thông tin ở Thẩm định mô hình để AI hiểu context.
+                      {scenarios.length > 0
+                        ? 'Chọn kịch bản phía trên để AI hiểu context dự án, hoặc chat chung.'
+                        : 'Chuyên gia AI sẵn sàng tư vấn cho bạn. Nhập thông tin ở Thẩm định mô hình để AI hiểu context.'
+                      }
                     </p>
                   )}
                   <div className="grid grid-cols-2 gap-2 max-w-md max-md:grid-cols-1">
@@ -342,8 +416,8 @@ export default function AIChatPage() {
             <p className="text-[10px] text-text-light">
               Powered by DeepSeek · AI có thể sai, hãy kiểm chứng thông tin quan trọng
             </p>
-            <p className={`text-[10px] font-semibold ${todayUsed >= 20 ? 'text-danger' : todayUsed >= 15 ? 'text-warning' : 'text-text-light'}`}>
-              {todayUsed}/20 câu hỏi hôm nay
+            <p className={`text-[10px] font-semibold ${todayUsed >= 5 ? 'text-danger' : todayUsed >= 4 ? 'text-warning' : 'text-text-light'}`}>
+              {todayUsed}/5 câu hỏi hôm nay
             </p>
           </div>
         </div>

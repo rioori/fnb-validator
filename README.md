@@ -29,6 +29,31 @@ To learn more about Next.js, take a look at the following resources:
 
 You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
 
+## End-to-End Testing
+
+This project uses [Cypress](https://www.cypress.io) for e2e tests. Build the app first, then run:
+
+```bash
+# Build for production
+npm run build
+
+# Terminal 1: Start the production server
+npm run start  # defaults to http://localhost:3000
+
+# Terminal 2: Run Cypress headless (assumes server on localhost:3000)
+npm run e2e:run
+
+# Or with custom server URL:
+APP_URL=http://192.168.1.63:3002 npm run e2e:run
+
+# Or open interactive runner:
+APP_URL=http://192.168.1.63:3002 npm run e2e
+```
+
+**Note**: If the production server conflicts with port 3000, use `PORT=3002 npm run start` and set `APP_URL` accordingly.
+
+Test files live under `cypress/e2e` and use TypeScript. Configure additional commands in `cypress/support`.
+
 ## Deploy on Vercel
 
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.

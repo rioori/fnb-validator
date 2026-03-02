@@ -5,9 +5,10 @@ import { useTranslation } from '@/i18n/LocaleProvider';
 
 export default function ProgressBar() {
   const { t } = useTranslation();
-  const { currentStep, setStep, selectedModel } = useWizardStore();
+  const { currentStep, setStep, selectedModel, businessMode } = useWizardStore();
 
-  const STEPS = t.wizard.progress.steps.map((label, i) => ({ num: i + 1, label }));
+  const stepLabels = businessMode === 'existing' ? t.wizard.progress.stepsExisting : t.wizard.progress.steps;
+  const STEPS = stepLabels.map((label, i) => ({ num: i + 1, label }));
 
   const handleClick = (step: number) => {
     if (step === 1 || selectedModel) setStep(step);

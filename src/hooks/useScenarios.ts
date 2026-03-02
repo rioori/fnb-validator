@@ -10,6 +10,8 @@ interface Scenario {
   updated_at: string;
 }
 
+const MAX_SCENARIOS = 10;
+
 interface ScenarioState {
   scenarios: Scenario[];
   selectedId: string;
@@ -18,6 +20,8 @@ interface ScenarioState {
   save: (userId: string, name: string, modelKey: string | null, data: Record<string, unknown>) => Promise<void>;
   load: (id: string) => Promise<Record<string, unknown> | null>;
   remove: (id: string) => Promise<void>;
+  canSave: () => boolean;
+  scenarioCount: () => number;
 }
 
 export const useScenarios = create<ScenarioState>((set, get) => ({
@@ -34,8 +38,19 @@ export const useScenarios = create<ScenarioState>((set, get) => ({
     set({ scenarios: data || [] });
   },
 
+  canSave: () => {
+    const s = get();
+    // Allow if updating existing, or under limit
+    return !!s.selectedId || s.scenarios.length < MAX_SCENARIOS;
+  },
+  scenarioCount: () => get().scenarios.length,
+
   save: async (userId, name, modelKey, scenarioData) => {
     const selId = get().selectedId;
+    // Block new saves beyond limit
+    if (!selId && get().scenarios.length >= MAX_SCENARIOS) {
+      throw new Error('MAX_SCENARIOS');
+    }
     if (selId) {
       const { error } = await supabase.from('scenarios').update({
         name,

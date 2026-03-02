@@ -19,20 +19,26 @@ import StepDashboard from './StepDashboard';
 import HomePage from '@/components/home/HomePage';
 import AuthOverlay from '@/components/auth/AuthOverlay';
 import UserBar from '@/components/auth/UserBar';
+import WelcomeModal from '@/components/onboarding/WelcomeModal';
+import { useOnboarding } from '@/hooks/useOnboarding';
 
 export default function WizardShell() {
   const { t, locale } = useTranslation();
   const currentStep = useWizardStore((s) => s.currentStep);
   const setStep = useWizardStore((s) => s.setStep);
   const checkSession = useAuth((s) => s.checkSession);
+  const { showWelcome, dismissWelcome } = useOnboarding();
 
   useEffect(() => {
     checkSession();
     restoreDraft();
+    const params = new URLSearchParams(window.location.search);
     // Deep-link: if ?view= param exists, force step=0 so HomePage handles it
-    const viewParam = new URLSearchParams(window.location.search).get('view');
+    const viewParam = params.get('view');
     if (viewParam) setStep(0);
-  }, [checkSession, setStep]);
+    // Direct entry: ?start=1 jumps to step 1 (model selection)
+    else if (params.get('start') === '1' && currentStep === 0) setStep(1);
+  }, [checkSession, setStep]); // eslint-disable-line react-hooks/exhaustive-deps
 
   const stepNames = ['home', 'model', 'location', 'investment', 'revenue', 'costs', 'dashboard'];
   const stepEnteredAt = useRef<number>(Date.now());
@@ -52,16 +58,28 @@ export default function WizardShell() {
 
   return (
     <>
-      <AuthOverlay active={currentStep >= 1} />
+      {/* Welcome modal — first visit only */}
+      {showWelcome && currentStep === 0 && <WelcomeModal onDismiss={dismissWelcome} />}
+
+      {/* Auth moved to StepDashboard — only prompt when saving/exporting */}
       <div className="max-w-[1200px] mx-auto px-8 pt-4 pb-[80px] max-lg:px-5 max-md:px-3 max-md:pt-4 max-md:pb-[100px]">
-        {/* Back to master homepage */}
+        {/* Back navigation — contextual */}
         <nav className="flex items-center justify-between mb-2">
-          <Link
-            href={localePath('/', locale)}
-            className="text-[12px] text-text-muted hover:text-cta transition-colors font-[family-name:var(--font-heading)] font-medium inline-flex items-center gap-1"
-          >
-            {t.wizard.shell.backLink}
-          </Link>
+          {currentStep === 0 ? (
+            <Link
+              href={localePath('/', locale)}
+              className="text-[12px] text-text-muted hover:text-cta transition-colors font-[family-name:var(--font-heading)] font-medium inline-flex items-center gap-1"
+            >
+              {t.wizard.shell.backLink}
+            </Link>
+          ) : (
+            <button
+              onClick={() => setStep(0)}
+              className="text-[12px] text-text-muted hover:text-cta transition-colors font-[family-name:var(--font-heading)] font-medium inline-flex items-center gap-1 cursor-pointer"
+            >
+              {t.wizard.shell.backLink}
+            </button>
+          )}
           <UserBar />
         </nav>
 

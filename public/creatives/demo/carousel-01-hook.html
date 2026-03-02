@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Carousel — Hook</title>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;800;900&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { width: 1080px; height: 1080px; overflow: hidden; font-family: 'Roboto', system-ui, sans-serif; background: #F8FAFC; position: relative; }
+  .bg-canvas { position: absolute; inset: 0; background: radial-gradient(ellipse 700px 600px at 0% 0%, rgba(210,236,208,0.5) 0%, transparent 70%), radial-gradient(ellipse 600px 500px at 100% 100%, rgba(229,244,248,0.6) 0%, transparent 70%), radial-gradient(ellipse 450px 400px at 85% 8%, rgba(253,238,196,0.4) 0%, transparent 70%), radial-gradient(ellipse 400px 350px at 8% 85%, rgba(253,232,228,0.4) 0%, transparent 70%), #F8FAFC; }
+  .bg-canvas::before { content: ''; position: absolute; inset: 0; background-image: radial-gradient(circle, rgba(15,23,42,0.035) 1px, transparent 1px); background-size: 24px 24px; }
+
+  .deco { position: absolute; border-radius: 50%; opacity: 0.06; z-index: 0; }
+  .deco-1 { width: 220px; height: 220px; background: #22C55E; top: -60px; right: 80px; }
+  .deco-2 { width: 140px; height: 140px; background: #0F172A; bottom: 40px; left: -30px; }
+  .deco-3 { width: 100px; height: 100px; background: #FBBF24; top: 220px; right: -30px; }
+
+  .content {
+    position: relative; z-index: 1;
+    width: 100%; height: 100%;
+    display: flex; flex-direction: column;
+    align-items: center; justify-content: center;
+    padding: 60px 80px;
+    text-align: center;
+  }
+
+  .stat {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 900; font-size: 120px;
+    color: #16A34A;
+    letter-spacing: -3px;
+    line-height: 1;
+    margin-bottom: 16px;
+  }
+
+  .stat-label {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 800; font-size: 38px;
+    color: #0F172A;
+    line-height: 1.3;
+    margin-bottom: 40px;
+  }
+
+  .divider {
+    width: 60px; height: 3px;
+    background: #22C55E; border-radius: 2px;
+    margin-bottom: 40px;
+  }
+
+  .subtext {
+    font-family: 'Roboto', sans-serif;
+    font-size: 24px; color: #64748B;
+    line-height: 1.5;
+    max-width: 700px;
+  }
+
+  .swipe-hint {
+    position: absolute;
+    bottom: 36px; right: 48px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600; font-size: 16px;
+    color: #94A3B8;
+  }
+
+  .brand-watermark {
+    position: absolute;
+    bottom: 36px; left: 48px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700; font-size: 16px;
+    color: #CBD5E1;
+    letter-spacing: 0.5px;
+  }
+</style>
+</head>
+<body>
+  <div class="bg-canvas"></div>
+  <div class="deco deco-1"></div>
+  <div class="deco deco-2"></div>
+  <div class="deco deco-3"></div>
+  <div class="content">
+    <div class="stat">200,000</div>
+    <div class="stat-label">businesses close every year<br>in Vietnam</div>
+    <div class="divider"></div>
+    <div class="subtext">Most didn't fail because of bad products.</div>
+  </div>
+  <div class="brand-watermark">validator.vn</div>
+  <div class="swipe-hint">Swipe →</div>
+</body>
+</html>

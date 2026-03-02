@@ -17,10 +17,10 @@ export default async function ExpertsLayout({ children, params }: LayoutProps) {
   return (
     <div className="min-h-screen flex flex-col">
       {/* Header */}
-      <header className="clay-card-static bg-pastel-cream py-2.5 px-6 text-center relative max-md:px-4">
+      <header className="clay-card-static bg-pastel-cream py-2.5 px-6 text-center relative max-md:px-4 pl-14 pr-16">
         <Link
           href={localePath('/fnb', locale as Locale)}
-          className="absolute left-4 top-1/2 -translate-y-1/2 text-[12px] text-text-muted hover:text-cta transition-colors"
+          className="absolute left-14 top-1/2 -translate-y-1/2 text-[12px] text-text-muted hover:text-cta transition-colors"
         >
           {dict.experts.layout.backHome}
         </Link>
@@ -29,7 +29,7 @@ export default async function ExpertsLayout({ children, params }: LayoutProps) {
         </Link>
         <Link
           href={localePath('/goc-nhin-chuyen-gia', locale as Locale)}
-          className="absolute right-4 top-1/2 -translate-y-1/2 text-[12px] text-text-muted hover:text-cta transition-colors"
+          className="absolute right-16 top-1/2 -translate-y-1/2 text-[12px] text-text-muted hover:text-cta transition-colors"
         >
           {dict.experts.layout.expertsLink}
         </Link>

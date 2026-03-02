@@ -25,8 +25,10 @@ export function runCalculations(input: CalcInput): CalcResults {
   let cumProfit = -totalInvestment;
   let payback: number | null = null;
 
+  const isExisting = input.businessMode === 'existing';
+
   for (let m = 1; m <= 12; m++) {
-    const ramp = m <= 6 ? (rampFactors[m - 1] ?? RAMP_DEFAULT[m - 1]) : 1;
+    const ramp = isExisting ? 1 : (m <= 6 ? (rampFactors[m - 1] ?? RAMP_DEFAULT[m - 1]) : 1);
     const seas = SEASONAL[m] ?? 1;
     const gRev = (custWeekday * ticket * wdM + custWeekend * ticket * weM) * ramp * seas;
     const delC = gRev * delPct * delComm;

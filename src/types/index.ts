@@ -321,7 +321,7 @@ export interface KBSection {
   content: string | string[] | KBTableRow[] | KBStat[] | KBTimelineStep[] | KBWarningItem[];
 }
 
-export type KBCategory = 'cost' | 'operations' | 'strategy' | 'legal';
+export type KBCategory = 'cost' | 'operations' | 'strategy' | 'legal' | 'technology' | 'trends';
 
 export interface KBTopic {
   id: string;
@@ -331,7 +331,20 @@ export interface KBTopic {
   subtitle: string;
   color: 'primary-light' | 'secondary-light' | 'mint-light';
   category: KBCategory;
+  publishDate?: string;
   highlights?: KBHighlight[];
+  sections: KBSection[];
+}
+
+// ===== Blog Types =====
+
+export interface BlogPost {
+  slug: string;
+  title: string;
+  excerpt: string;
+  date: string; // ISO date string
+  author: string;
+  tags: string[];
   sections: KBSection[];
 }
 
@@ -403,6 +416,7 @@ export interface ScenarioData {
   budget: number;
   rent: number;
   city: string;
+  district: string;
   area: string;
   sqm: number;
   seats: number;

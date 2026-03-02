@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Carousel — Introducing</title>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;800;900&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { width: 1080px; height: 1080px; overflow: hidden; font-family: 'Roboto', system-ui, sans-serif; background: #F8FAFC; position: relative; }
+  .bg-canvas { position: absolute; inset: 0; background: radial-gradient(ellipse 700px 600px at 0% 0%, rgba(210,236,208,0.5) 0%, transparent 70%), radial-gradient(ellipse 600px 500px at 100% 100%, rgba(229,244,248,0.6) 0%, transparent 70%), radial-gradient(ellipse 450px 400px at 85% 8%, rgba(253,238,196,0.4) 0%, transparent 70%), radial-gradient(ellipse 400px 350px at 8% 85%, rgba(253,232,228,0.4) 0%, transparent 70%), #F8FAFC; }
+  .bg-canvas::before { content: ''; position: absolute; inset: 0; background-image: radial-gradient(circle, rgba(15,23,42,0.035) 1px, transparent 1px); background-size: 24px 24px; }
+
+  .deco { position: absolute; border-radius: 50%; opacity: 0.06; z-index: 0; }
+  .deco-1 { width: 240px; height: 240px; background: #22C55E; top: -80px; left: 100px; }
+  .deco-2 { width: 130px; height: 130px; background: #0F172A; bottom: 30px; right: -30px; }
+  .deco-3 { width: 100px; height: 100px; background: #FBBF24; top: 300px; right: 60px; }
+
+  .content {
+    position: relative; z-index: 1;
+    width: 100%; height: 100%;
+    display: flex; flex-direction: column;
+    align-items: center; justify-content: center;
+    padding: 60px 70px;
+    text-align: center;
+  }
+
+  .logo-row {
+    display: flex; align-items: center; gap: 16px;
+    margin-bottom: 8px;
+  }
+  .logo-row img { width: 64px; height: 64px; }
+
+  .intro-label {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700; font-size: 16px;
+    color: #16A34A;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 16px;
+  }
+
+  .brand-name {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 900; font-size: 64px;
+    color: #0F172A;
+    letter-spacing: -2px;
+    margin-bottom: 16px;
+  }
+
+  .tagline {
+    font-size: 22px; color: #475569;
+    line-height: 1.5;
+    max-width: 700px;
+    margin-bottom: 40px;
+  }
+
+  .pills {
+    display: flex; flex-wrap: wrap;
+    gap: 12px; justify-content: center;
+    margin-bottom: 16px;
+  }
+  .pill {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: #FFFFFF;
+    border: 1.5px solid rgba(15,23,42,0.07);
+    border-radius: 28px;
+    padding: 10px 22px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700; font-size: 15px;
+    color: #0F172A;
+    box-shadow: 3px 3px 0 rgba(15,23,42,0.04);
+  }
+  .pill .emoji { font-size: 18px; }
+
+  .bottom-info {
+    margin-top: 28px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600; font-size: 17px;
+    color: #64748B;
+  }
+  .bottom-info span { color: #16A34A; font-weight: 700; }
+
+  .brand-watermark {
+    position: absolute;
+    bottom: 36px; left: 48px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700; font-size: 16px;
+    color: #CBD5E1;
+  }
+</style>
+</head>
+<body>
+  <div class="bg-canvas"></div>
+  <div class="deco deco-1"></div>
+  <div class="deco deco-2"></div>
+  <div class="deco deco-3"></div>
+  <div class="content">
+    <div class="intro-label">Introducing</div>
+    <div class="logo-row">
+      <img src="../../../logo.png" alt="Validator.vn" />
+    </div>
+    <div class="brand-name">Validator.vn</div>
+    <div class="tagline">Free financial analysis tool that helps you validate your F&B business idea — before you invest.</div>
+    <div class="pills">
+      <div class="pill"><span class="emoji">📊</span> P&L Analysis</div>
+      <div class="pill"><span class="emoji">💯</span> Health Scoring</div>
+      <div class="pill"><span class="emoji">⏱️</span> Break-even</div>
+      <div class="pill"><span class="emoji">🤖</span> AI Advisor</div>
+    </div>
+    <div class="pills">
+      <div class="pill"><span class="emoji">🎚️</span> Sensitivity</div>
+      <div class="pill"><span class="emoji">📚</span> Knowledge</div>
+      <div class="pill"><span class="emoji">📋</span> Checklist</div>
+      <div class="pill"><span class="emoji">🎓</span> Expert Insights</div>
+    </div>
+    <div class="bottom-info"><span>8</span> F&B business models · Free · Bilingual VI–EN</div>
+  </div>
+  <div class="brand-watermark">validator.vn</div>
+</body>
+</html>

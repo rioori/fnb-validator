@@ -46,7 +46,7 @@ const fnbHome = {
     },
     {
       title: 'F&B Knowledge',
-      desc: 'Costs, benchmarks, real stories, and 2025-2026 trends.',
+      desc: 'Costs, operations, legal, strategy — foundational knowledge for F&B owners.',
       cta: 'Read more →',
     },
     {
@@ -54,9 +54,29 @@ const fnbHome = {
       desc: '80+ items to prepare — from legal to construction to operations.',
       cta: 'View now →',
     },
+    {
+      title: 'Expert Perspectives',
+      desc: 'Insights & real-world lessons from top F&B industry experts.',
+      cta: 'View now →',
+    },
+    {
+      title: 'F&B Market',
+      desc: 'Industry data, consumer trends & forecasts for 2025-2026.',
+      cta: 'Explore →',
+    },
   ],
   models: {
     sectionTitle: 'F&B Business Models',
+  },
+  expertsPreview: {
+    heading: 'Expert Perspectives',
+    desc: 'Learn from those who paved the way in Vietnam\'s F&B industry',
+    viewAll: 'View all experts →',
+  },
+  trendsPreview: {
+    heading: 'F&B Market 2026',
+    desc: 'Latest data & insights on Vietnam\'s food & beverage market',
+    viewAll: 'View full market overview →',
   },
 };
 export default fnbHome;

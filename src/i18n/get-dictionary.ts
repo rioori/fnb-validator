@@ -11,7 +11,10 @@ const dictionaries = {
       import('./dictionaries/vi/knowledge'),
       import('./dictionaries/vi/features'),
       import('./dictionaries/vi/experts'),
-    ]).then(([common, wizard, dashboard, landing, fnbHome, knowledge, features, experts]) => ({
+      import('./dictionaries/vi/blog'),
+      import('./dictionaries/vi/seo'),
+      import('./dictionaries/vi/legal'),
+    ]).then(([common, wizard, dashboard, landing, fnbHome, knowledge, features, experts, blog, seo, legal]) => ({
       common: common.default,
       wizard: wizard.default,
       dashboard: dashboard.default,
@@ -20,6 +23,9 @@ const dictionaries = {
       knowledge: knowledge.default,
       features: features.default,
       experts: experts.default,
+      blog: blog.default,
+      seo: seo.default,
+      legal: legal.default,
     })),
 
   en: () =>
@@ -32,7 +38,10 @@ const dictionaries = {
       import('./dictionaries/en/knowledge'),
       import('./dictionaries/en/features'),
       import('./dictionaries/en/experts'),
-    ]).then(([common, wizard, dashboard, landing, fnbHome, knowledge, features, experts]) => ({
+      import('./dictionaries/en/blog'),
+      import('./dictionaries/en/seo'),
+      import('./dictionaries/en/legal'),
+    ]).then(([common, wizard, dashboard, landing, fnbHome, knowledge, features, experts, blog, seo, legal]) => ({
       common: common.default,
       wizard: wizard.default,
       dashboard: dashboard.default,
@@ -41,6 +50,9 @@ const dictionaries = {
       knowledge: knowledge.default,
       features: features.default,
       experts: experts.default,
+      blog: blog.default,
+      seo: seo.default,
+      legal: legal.default,
     })),
 };
 

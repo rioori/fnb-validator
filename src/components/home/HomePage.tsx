@@ -17,6 +17,8 @@ import ChecklistPage from './ChecklistPage';
 import TrendsPage from './TrendsPage';
 import WhyFnBPage from './WhyFnBPage';
 import AIChatPage from './AIChatPage';
+import ExpertPreview from './ExpertPreview';
+import TrendPreview from './TrendPreview';
 import Footer from './Footer';
 
 export type HomeView = 'main' | 'quick-calc' | 'knowledge' | 'about' | 'stories' | 'checklist' | 'trends' | 'why-fnb' | 'ai-chat';
@@ -29,7 +31,7 @@ const VALID_VIEWS = new Set<string>([
 export default function HomePage() {
   const searchParams = useSearchParams();
   const router = useRouter();
-  const { locale } = useTranslation();
+  const { t, locale } = useTranslation();
   const viewParam = searchParams.get('view');
   const [view, setView] = useState<HomeView>(
     viewParam && VALID_VIEWS.has(viewParam) ? (viewParam as HomeView) : 'main',
@@ -44,13 +46,13 @@ export default function HomePage() {
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [viewParam]);
 
-  // Clean URL after consuming the ?view= param
+  // Keep ?view= in URL so sub-pages are shareable/bookmarkable
   useEffect(() => {
-    if (viewParam && VALID_VIEWS.has(viewParam) && viewParam !== 'knowledge') {
-      window.history.replaceState({}, '', window.location.pathname);
-    }
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+    const url = view === 'main'
+      ? window.location.pathname
+      : `${window.location.pathname}?view=${view}`;
+    window.history.replaceState({}, '', url);
+  }, [view]);
 
   useEffect(() => {
     track('page_view', { page: view });
@@ -87,6 +89,17 @@ export default function HomePage() {
     <div>
       <HeroSection onNavigate={setView} />
       <FeatureCards onNavigate={setView} />
+      <ExpertPreview
+        heading={t.fnbHome.expertsPreview.heading}
+        desc={t.fnbHome.expertsPreview.desc}
+        viewAllLabel={t.fnbHome.expertsPreview.viewAll}
+      />
+      <TrendPreview
+        heading={t.fnbHome.trendsPreview.heading}
+        desc={t.fnbHome.trendsPreview.desc}
+        viewAllLabel={t.fnbHome.trendsPreview.viewAll}
+        viewAllHref="?view=trends"
+      />
       <Footer />
     </div>
   );
