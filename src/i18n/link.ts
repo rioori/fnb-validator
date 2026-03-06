@@ -6,6 +6,7 @@ import { defaultLocale, type Locale } from './config';
  * Order matters: longer prefixes first to avoid partial matches.
  */
 const PATH_EN: [string, string][] = [
+  // Translated slugs (longer prefixes first to avoid partial matches)
   ['/goc-nhin-chuyen-gia', '/experts'],
   ['/kien-thuc', '/knowledge'],
   ['/chi-phi-mo', '/opening-costs'],

@@ -22,7 +22,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const dict = await getDictionary(locale as Locale);
   const canonical = locale === defaultLocale
     ? `${BASE_URL}/goc-nhin-chuyen-gia`
-    : `${BASE_URL}/en/goc-nhin-chuyen-gia`;
+    : `${BASE_URL}${localePath('/goc-nhin-chuyen-gia', 'en')}`;
 
   return {
     title: dict.experts.meta.title,
@@ -42,7 +42,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
       canonical,
       languages: {
         vi: `${BASE_URL}/goc-nhin-chuyen-gia`,
-        en: `${BASE_URL}/en/goc-nhin-chuyen-gia`,
+        en: `${BASE_URL}${localePath('/goc-nhin-chuyen-gia', 'en')}`,
       },
     },
   };

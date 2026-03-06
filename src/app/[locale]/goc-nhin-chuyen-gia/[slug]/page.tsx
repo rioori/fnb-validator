@@ -46,7 +46,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const title = `${expert.name} — ${dict.experts.breadcrumb.experts} | Validator.vn`;
   const description = expert.shortBio;
   const viUrl = `${BASE_URL}/goc-nhin-chuyen-gia/${expert.slug}`;
-  const enUrl = `${BASE_URL}/en/goc-nhin-chuyen-gia/${expert.slug}`;
+  const enUrl = `${BASE_URL}${localePath(`/goc-nhin-chuyen-gia/${expert.slug}`, 'en')}`;
   const canonical = locale === defaultLocale ? viUrl : enUrl;
 
   const ogImage = `/api/og?locale=${locale}&page=expert&title=${encodeURIComponent(expert.name)}&subtitle=${encodeURIComponent(expert.descriptor)}`;

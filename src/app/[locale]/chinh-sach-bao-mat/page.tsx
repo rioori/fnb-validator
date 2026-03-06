@@ -13,7 +13,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const { locale } = await params;
   const dict = await getDictionary(locale as Locale);
   const p = dict.legal.privacy;
-  const canonical = locale === defaultLocale ? `${BASE_URL}/chinh-sach-bao-mat` : `${BASE_URL}/en/chinh-sach-bao-mat`;
+  const canonical = locale === defaultLocale ? `${BASE_URL}/chinh-sach-bao-mat` : `${BASE_URL}${localePath('/chinh-sach-bao-mat', 'en')}`;
 
   return {
     title: p.meta.title,
@@ -21,7 +21,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     robots: { index: false, follow: true },
     alternates: {
       canonical,
-      languages: { vi: `${BASE_URL}/chinh-sach-bao-mat`, en: `${BASE_URL}/en/chinh-sach-bao-mat` },
+      languages: { vi: `${BASE_URL}/chinh-sach-bao-mat`, en: `${BASE_URL}${localePath('/chinh-sach-bao-mat', 'en')}` },
     },
   };
 }

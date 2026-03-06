@@ -75,7 +75,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const description = t(seo.descTemplate, { model: modelName, city: cityName });
 
   const viUrl = `${BASE_URL}/chi-phi-mo/${model}/tai/${city}`;
-  const enUrl = `${BASE_URL}/en/chi-phi-mo/${model}/tai/${city}`;
+  const enUrl = `${BASE_URL}${localePath(`/chi-phi-mo/${model}/tai/${city}`, 'en')}`;
   const canonical = locale === defaultLocale ? viUrl : enUrl;
 
   return {

@@ -13,7 +13,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const { locale } = await params;
   const dict = await getDictionary(locale as Locale);
   const t = dict.legal.terms;
-  const canonical = locale === defaultLocale ? `${BASE_URL}/dieu-khoan` : `${BASE_URL}/en/dieu-khoan`;
+  const canonical = locale === defaultLocale ? `${BASE_URL}/dieu-khoan` : `${BASE_URL}${localePath('/dieu-khoan', 'en')}`;
 
   return {
     title: t.meta.title,
@@ -21,7 +21,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     robots: { index: false, follow: true },
     alternates: {
       canonical,
-      languages: { vi: `${BASE_URL}/dieu-khoan`, en: `${BASE_URL}/en/dieu-khoan` },
+      languages: { vi: `${BASE_URL}/dieu-khoan`, en: `${BASE_URL}${localePath('/dieu-khoan', 'en')}` },
     },
   };
 }

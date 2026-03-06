@@ -20,7 +20,7 @@ type PageProps = { params: Promise<{ locale: string }> };
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const { locale } = await params;
   const dict = await getDictionary(locale as Locale);
-  const canonical = locale === defaultLocale ? `${BASE_URL}/kien-thuc` : `${BASE_URL}/en/kien-thuc`;
+  const canonical = locale === defaultLocale ? `${BASE_URL}/kien-thuc` : `${BASE_URL}${localePath('/kien-thuc', 'en')}`;
 
   return {
     title: dict.knowledge.meta.title,
@@ -38,7 +38,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     },
     alternates: {
       canonical,
-      languages: { vi: `${BASE_URL}/kien-thuc`, en: `${BASE_URL}/en/kien-thuc` },
+      languages: { vi: `${BASE_URL}/kien-thuc`, en: `${BASE_URL}${localePath('/kien-thuc', 'en')}` },
     },
   };
 }

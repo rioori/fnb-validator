@@ -37,7 +37,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const title = `${topic.title} ${dict.knowledge.article.metaTitleSuffix}`;
   const description = `${topic.subtitle}${dict.knowledge.article.metaDescSuffix}`;
   const viUrl = `${BASE_URL}/kien-thuc/${topic.slug}`;
-  const enUrl = `${BASE_URL}/en/kien-thuc/${topic.slug}`;
+  const enUrl = `${BASE_URL}${localePath(`/kien-thuc/${topic.slug}`, 'en')}`;
   const canonical = locale === defaultLocale ? viUrl : enUrl;
 
   const ogImage = `/api/og?locale=${locale}&page=article&title=${encodeURIComponent(topic.title)}&subtitle=${encodeURIComponent(topic.subtitle)}`;
