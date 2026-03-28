@@ -109,6 +109,11 @@ export default function StepModel() {
                   </svg>
                 </span>
               )}
+              {key === 'coffee' && (
+                <span className="absolute -top-2 left-1/2 -translate-x-1/2 text-[9px] font-bold font-[family-name:var(--font-heading)] bg-cta text-white px-2 py-0.5 rounded-full whitespace-nowrap shadow-sm border border-white">
+                  {t.wizard.stepModel.badgePopular}
+                </span>
+              )}
               <Icon name={m.icon} size={44} className={`mx-auto mb-2 max-[480px]:!w-9 max-[480px]:!h-9 ${isSelected ? '!border-cta !shadow-[1px_1px_0_var(--color-cta)]' : ''}`} />
               <span className={`text-[13px] font-bold font-[family-name:var(--font-heading)] block ${isSelected ? 'text-cta' : 'text-text'}`}>{m.name}</span>
               <span className="text-[11px] text-text-muted mt-1 block font-medium">{m.investRange}</span>

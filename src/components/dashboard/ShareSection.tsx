@@ -31,8 +31,13 @@ export default function ShareSection({ resultData }: ShareSectionProps) {
 
   const [copied, setCopied] = useState(false);
 
-  const fbShareUrl = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(SITE_URL)}&quote=${encodeURIComponent(shareText)}`;
-  const liShareUrl = `https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(SITE_URL)}`;
+  // Build share URL with result params for dynamic OG preview
+  const shareUrl = resultData
+    ? `${SITE_URL}/fnb?score=${resultData.score}&model=${encodeURIComponent(resultData.modelName)}&payback=${resultData.paybackMonth || ''}&margin=${resultData.netMargin.toFixed(1)}`
+    : SITE_URL;
+
+  const fbShareUrl = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(shareUrl)}&quote=${encodeURIComponent(shareText)}`;
+  const liShareUrl = `https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(shareUrl)}`;
 
   const handleShare = (platform: string) => {
     track('social_share', { platform, hasResult: !!resultData });
@@ -40,7 +45,7 @@ export default function ShareSection({ resultData }: ShareSectionProps) {
 
   const handleCopyLink = useCallback(async () => {
     try {
-      await navigator.clipboard.writeText(`${shareText} ${SITE_URL}`);
+      await navigator.clipboard.writeText(`${shareText} ${shareUrl}`);
       setCopied(true);
       handleShare('copy_link');
     } catch {

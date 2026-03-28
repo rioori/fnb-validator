@@ -11,6 +11,98 @@ export async function GET(request: NextRequest) {
   const customTitle = searchParams.get('title');
   const customSubtitle = searchParams.get('subtitle');
 
+  // Dynamic result card for shared wizard results
+  const score = searchParams.get('score');
+  const model = searchParams.get('model');
+  const payback = searchParams.get('payback');
+  const margin = searchParams.get('margin');
+
+  if (score && model && page === 'result') {
+    const s = parseInt(score, 10);
+    const scoreColor = s >= 70 ? '#16A34A' : s >= 45 ? '#EAB308' : '#EF4444';
+    const scoreBg = s >= 70 ? '#DCFCE7' : s >= 45 ? '#FEF9C3' : '#FEE2E2';
+    const scoreLabel = s >= 70
+      ? (locale === 'vi' ? 'Khả thi' : 'Feasible')
+      : s >= 45
+        ? (locale === 'vi' ? 'Cần cải thiện' : 'Needs work')
+        : (locale === 'vi' ? 'Rủi ro cao' : 'High risk');
+    const paybackText = payback
+      ? `${payback} ${locale === 'vi' ? 'tháng' : 'months'}`
+      : (locale === 'vi' ? '>24 tháng' : '>24 months');
+    const marginText = margin ? `${margin}%` : '-';
+
+    return new ImageResponse(
+      (
+        <div style={{
+          width: '100%', height: '100%', display: 'flex', flexDirection: 'column',
+          justifyContent: 'center', alignItems: 'center',
+          background: '#F8FAFC', fontFamily: 'sans-serif', padding: '40px 60px',
+          position: 'relative',
+        }}>
+          <div style={{ position: 'absolute', top: 0, left: 0, right: 0, height: '6px', background: scoreColor }} />
+          <div style={{
+            display: 'flex', flexDirection: 'column', alignItems: 'center',
+            background: 'white', borderRadius: '24px', border: '2px solid #E2E8F0',
+            boxShadow: '0 4px 24px rgba(15,23,42,0.08)', padding: '36px 48px',
+            width: '100%', height: '100%',
+          }}>
+            <div style={{ fontSize: '16px', color: '#94A3B8', fontWeight: 600, letterSpacing: '2px', textTransform: 'uppercase' }}>
+              VALIDATOR.VN
+            </div>
+            <div style={{ fontSize: '18px', color: '#64748B', marginTop: '4px' }}>
+              {locale === 'vi' ? 'Kết quả thẩm định' : 'Validation Results'}
+            </div>
+            <div style={{ fontSize: '36px', color: '#0F172A', fontWeight: 800, marginTop: '8px', textTransform: 'uppercase' }}>
+              {decodeURIComponent(model)}
+            </div>
+            {/* Score circle */}
+            <div style={{
+              width: '140px', height: '140px', borderRadius: '50%', marginTop: '24px',
+              background: `conic-gradient(${scoreColor} ${s * 3.6}deg, #E4E4E7 0)`,
+              display: 'flex', alignItems: 'center', justifyContent: 'center',
+              border: '3px solid #0F172A',
+            }}>
+              <div style={{
+                width: '108px', height: '108px', borderRadius: '50%', background: '#FFF',
+                display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center',
+              }}>
+                <div style={{ fontSize: '44px', fontWeight: 800, color: scoreColor }}>{s}</div>
+                <div style={{ fontSize: '14px', color: '#94A3B8' }}>/100</div>
+              </div>
+            </div>
+            <div style={{
+              display: 'flex', padding: '4px 20px', borderRadius: '20px', marginTop: '12px',
+              background: scoreBg, color: scoreColor, fontSize: '18px', fontWeight: 700,
+            }}>
+              {scoreLabel}
+            </div>
+            {/* KPIs row */}
+            <div style={{ display: 'flex', gap: '24px', marginTop: '28px' }}>
+              <div style={{ background: '#F8FAFC', borderRadius: '14px', padding: '16px 28px', textAlign: 'center', border: '1px solid #E2E8F0' }}>
+                <div style={{ fontSize: '14px', color: '#64748B' }}>{locale === 'vi' ? 'Hòa vốn' : 'Break-even'}</div>
+                <div style={{ fontSize: '24px', fontWeight: 700, color: '#0F172A', marginTop: '4px' }}>{paybackText}</div>
+              </div>
+              <div style={{ background: '#F8FAFC', borderRadius: '14px', padding: '16px 28px', textAlign: 'center', border: '1px solid #E2E8F0' }}>
+                <div style={{ fontSize: '14px', color: '#64748B' }}>{locale === 'vi' ? 'Biên lợi nhuận' : 'Net margin'}</div>
+                <div style={{ fontSize: '24px', fontWeight: 700, color: '#0F172A', marginTop: '4px' }}>{marginText}</div>
+              </div>
+            </div>
+            {/* CTA */}
+            <div style={{
+              display: 'flex', alignItems: 'center', gap: '8px', marginTop: '24px',
+              fontSize: '16px', color: '#94A3B8', padding: '8px 20px', borderRadius: '999px', background: '#F1F5F9',
+            }}>
+              <span style={{ color: '#16A34A', fontWeight: 700 }}>FREE</span>
+              <span>·</span>
+              <span>{locale === 'vi' ? 'Thử miễn phí tại validator.vn' : 'Try free at validator.vn'}</span>
+            </div>
+          </div>
+        </div>
+      ),
+      { width: 1200, height: 630 },
+    );
+  }
+
   const titles: Record<string, Record<string, string>> = {
     landing: {
       vi: 'Thẩm định & tối ưu\nkinh doanh',

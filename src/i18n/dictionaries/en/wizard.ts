@@ -16,6 +16,7 @@ const wizard = {
 
   // ─── StepModel ────────────────────────────────────────────
   stepModel: {
+    badgePopular: 'Most popular',
     modeNew: 'New project',
     modeExisting: 'Existing business',
     modeNewDesc: 'Validate your F&B business idea before investing',

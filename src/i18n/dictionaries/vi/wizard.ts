@@ -16,6 +16,7 @@ const wizard = {
 
   // ─── StepModel ────────────────────────────────────────────
   stepModel: {
+    badgePopular: 'Phổ biến nhất',
     modeNew: 'Dự án mới',
     modeExisting: 'Đang kinh doanh',
     modeNewDesc: 'Thẩm định ý tưởng kinh doanh F&B trước khi đầu tư',

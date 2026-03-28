@@ -11,7 +11,7 @@ import { useModels } from '@/hooks/useModels';
 import { formatVND } from '@/lib/format';
 import { useTranslation } from '@/i18n/LocaleProvider';
 
-const SUGGESTED = {
+const SUGGESTED_BASE = {
   new: [
     'Dự án này có khả thi không?',
     'Làm sao giảm chi phí để tăng lợi nhuận?',
@@ -23,6 +23,38 @@ const SUGGESTED = {
     'Kênh bán nào đang hiệu quả nhất?',
   ],
 };
+
+/** Generate context-aware suggested prompts based on wizard results */
+function getSmartSuggestions(mode: 'new' | 'existing'): string[] {
+  const s = useWizardStore.getState();
+  const model = s.selectedModel ? MODELS[s.selectedModel] : null;
+  const hints: string[] = [];
+
+  if (mode === 'existing') {
+    // Existing mode: diagnostic-focused
+    if (s.cogsPct > 35) hints.push(`Chi phí nguyên liệu ${s.cogsPct}% — làm sao giảm xuống?`);
+    if (s.rent > 0 && s.actualMonthlyRevenue > 0) {
+      const rentPct = (s.rent / s.actualMonthlyRevenue) * 100;
+      if (rentPct > 20) hints.push(`Tiền thuê chiếm ${rentPct.toFixed(0)}% doanh thu — có quá cao không?`);
+    }
+    if (s.chDelivery > 30) hints.push(`Delivery chiếm ${s.chDelivery}% — tối ưu phí hoa hồng thế nào?`);
+    return hints.length >= 2 ? hints.slice(0, 3) : [...hints, ...SUGGESTED_BASE.existing].slice(0, 3);
+  }
+
+  // New mode: planning-focused
+  if (model) {
+    const benchCogs = model.benchmarks?.food_cost;
+    if (benchCogs && s.cogsPct > benchCogs[1]) {
+      hints.push(`Chi phí NVL ${s.cogsPct}% cao hơn chuẩn ${model.name} — giảm bằng cách nào?`);
+    }
+  }
+  if (s.chDelivery > 40) hints.push(`Delivery ${s.chDelivery}% doanh thu — phí hoa hồng có ăn mòn lợi nhuận?`);
+  const staffTotal = s.getStaffTotal();
+  if (staffTotal > 0 && s.rent > 0 && staffTotal > s.rent * 1.5) {
+    hints.push('Chi phí nhân sự đang cao — có nên tối ưu ca làm việc?');
+  }
+  return hints.length >= 2 ? hints.slice(0, 3) : [...hints, ...SUGGESTED_BASE.new].slice(0, 3);
+}
 
 function buildBusinessContext(): string | undefined {
   const s = useWizardStore.getState();
@@ -136,7 +168,7 @@ export default function InlineChat() {
     );
   }
 
-  const prompts = SUGGESTED[businessMode] || SUGGESTED.new;
+  const prompts = getSmartSuggestions(businessMode);
 
   return (
     <div>
