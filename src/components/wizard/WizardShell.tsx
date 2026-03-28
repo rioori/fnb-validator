@@ -66,12 +66,7 @@ export default function WizardShell() {
         {/* Back navigation — contextual */}
         <nav className="flex items-center justify-between mb-2">
           {currentStep === 0 ? (
-            <Link
-              href={localePath('/', locale)}
-              className="text-[12px] text-text-muted hover:text-cta transition-colors font-[family-name:var(--font-heading)] font-medium inline-flex items-center gap-1"
-            >
-              {t.wizard.shell.backLink}
-            </Link>
+            <span />
           ) : (
             <button
               onClick={() => setStep(0)}
