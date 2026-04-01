@@ -59,7 +59,7 @@ export async function generateMetadata({ params }: LayoutProps): Promise<Metadat
       description: dict.landing.meta.description,
       url: canonical,
       siteName: 'Validator.vn',
-      images: [{ url: `/api/og?locale=${locale}&page=landing`, width: 1200, height: 630 }],
+      images: [{ url: '/og-image.png', width: 1376, height: 768 }],
       locale: locale === 'vi' ? 'vi_VN' : 'en_US',
       type: 'website',
     },
@@ -67,7 +67,7 @@ export async function generateMetadata({ params }: LayoutProps): Promise<Metadat
       card: 'summary_large_image',
       title: dict.landing.meta.title,
       description: dict.landing.meta.description,
-      images: [`/api/og?locale=${locale}&page=landing`],
+      images: ['/og-image.png'],
     },
     alternates: {
       canonical,
