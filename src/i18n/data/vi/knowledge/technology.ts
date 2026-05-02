@@ -256,6 +256,98 @@ const TECHNOLOGY_ARTICLES: KBTopic[] = [
       },
     ],
   },
+  {
+    id: 'digital_marketing',
+    slug: 'marketing-online-quan-fnb',
+    publishDate: '2026-05-02',
+    icon: 'globe',
+    title: 'Marketing online cho quán F&B nhỏ',
+    subtitle: '70% khách tìm quán qua Google Maps và mạng xã hội',
+    color: 'secondary-light',
+    category: 'technology',
+    highlights: [
+      { label: 'Khách tìm qua online', value: '70%+', note: 'Google Maps, TikTok, Facebook' },
+      { label: 'Chi phí quảng cáo', value: '3-10 triệu/tháng', note: 'cho quán nhỏ' },
+      { label: 'Tăng đơn hàng', value: '30-50%', note: 'sau 3 tháng làm đều' },
+      { label: 'Chi phí bắt đầu', value: '0 đồng', note: 'nhiều kênh miễn phí' },
+    ],
+    sections: [
+      {
+        type: 'text',
+        content: 'Thời đại 2026, quán F&B không có hiện diện online gần như "không tồn tại" với phần lớn khách hàng. Theo khảo sát ngành, hơn 70% người tiêu dùng tìm quán ăn/uống qua Google Maps, TikTok hoặc Facebook trước khi đến. Tin tốt: bạn không cần ngân sách lớn — nhiều kênh hoàn toàn miễn phí, chỉ cần bỏ ra 30-60 phút mỗi ngày làm đúng cách.',
+      },
+      {
+        type: 'stat-grid',
+        heading: 'Hành vi khách hàng F&B 2026 — hiểu để bán đúng',
+        content: [
+          { icon: 'users', label: 'Ghé quán 3-4 lần/tuần', value: '32.8%', desc: 'Khách F&B Việt Nam ghé quán thường xuyên nhưng chi tiêu nhỏ mỗi lần. Tập trung giữ khách cũ quay lại — rẻ hơn 5x so với tìm khách mới.' },
+          { icon: 'money', label: 'Chi dưới 35K/lần', value: '52.3%', desc: '"Hiệu ứng son môi" — khách tiết kiệm nhưng vẫn muốn trải nghiệm. Combo giá tốt, món nhỏ ngon sẽ thắng.' },
+          { icon: 'trending', label: 'Quan tâm sức khỏe', value: '29.6%', desc: 'Gần 1/3 khách ưu tiên quán có nguyên liệu rõ nguồn gốc, ít dầu mỡ, clean label. Highlight điều này trong content marketing.' },
+          { icon: 'phone', label: 'Xem review trước khi đến', value: '85%+', desc: 'Google Maps rating, review Facebook, video TikTok — khách đọc kỹ trước khi đi. 1 review xấu không trả lời = mất 5-10 khách.' },
+        ] as KBStat[],
+      },
+      {
+        type: 'table',
+        heading: 'So sánh các kênh marketing online cho quán F&B',
+        content: [
+          { label: 'Google Maps (Google Business)', range: 'Miễn phí', note: 'QUAN TRỌNG NHẤT. Khách tìm "quán cà phê gần đây" → quán bạn hiện lên. Cần: ảnh đẹp, giờ mở cửa, số điện thoại, trả lời review. Miễn phí 100%.' },
+          { label: 'Facebook Page + Reels', range: '0 - 3 triệu/tháng', note: 'Đăng bài 3-5 lần/tuần. Reels (video ngắn) reach cao gấp 3-5x so với ảnh. Quảng cáo từ 50-100K/ngày, target khu vực 3-5km quanh quán.' },
+          { label: 'TikTok', range: 'Miễn phí', note: 'Video hậu trường bếp, review món ăn, "ngày làm việc ở quán" rất viral. Không cần quay đẹp — chân thực, vui, có câu chuyện là đủ. Reach organic cực tốt.' },
+          { label: 'Zalo OA (Official Account)', range: 'Miễn phí - 500K/tháng', note: 'Kênh giữ chân khách cũ hiệu quả nhất. Gửi khuyến mãi, menu mới trực tiếp. 90% người Việt dùng Zalo hàng ngày — open rate 60-80%, cao gấp 4x email.' },
+          { label: 'KOL/Food Reviewer', range: '500K - 5 triệu/bài', note: 'Mời food blogger/TikToker đến quán. Micro-KOL (5K-50K followers) hiệu quả hơn KOL lớn cho quán nhỏ — chi phí thấp, tương tác cao, khách gần khu vực.' },
+          { label: 'Google Ads', range: '2 - 10 triệu/tháng', note: 'Quảng cáo khi khách tìm "bún bò Huế quận 1", "quán nhậu Thủ Đức". Chỉ trả tiền khi khách click. Hiệu quả nhưng cần biết setup hoặc thuê agency.' },
+        ] as KBTableRow[],
+      },
+      {
+        type: 'list',
+        heading: 'Google Maps — kênh miễn phí mạnh nhất mà nhiều quán bỏ quên',
+        content: [
+          'Đăng ký Google Business Profile ngay hôm nay (miễn phí): Vào business.google.com → điền tên quán, địa chỉ, số điện thoại, giờ mở cửa, loại hình (nhà hàng/cà phê/quán ăn). Google sẽ gửi mã xác minh qua thư hoặc điện thoại.',
+          'Upload ít nhất 10 ảnh chất lượng: 3 ảnh mặt tiền (khách dễ tìm), 5 ảnh món ăn best-seller, 2 ảnh không gian bên trong. Ảnh chụp bằng điện thoại với ánh sáng tự nhiên là đủ — không cần thuê thợ.',
+          'Trả lời 100% review — kể cả review xấu: Review 5 sao → "Cảm ơn anh/chị, hẹn gặp lại!". Review xấu → xin lỗi chân thành, đề xuất khắc phục, mời quay lại. KHÔNG tranh cãi, KHÔNG xóa review.',
+          'Đăng Google Posts 2-3 lần/tuần: Ít người biết Google Maps có tính năng đăng bài. Đăng: món mới, khuyến mãi, sự kiện. Giúp quán hiện lên cao hơn khi khách tìm kiếm.',
+          'Khuyến khích khách review: Sau khi phục vụ, nhẹ nhàng nhờ: "Anh/chị review trên Google Maps giúp em nha." Quán trên 4.5 sao + 50 review = Google tự động đẩy lên top kết quả.',
+        ],
+      },
+      {
+        type: 'list',
+        heading: 'Content marketing — đăng gì mỗi tuần?',
+        content: [
+          'Thứ Hai — "Món của tuần": Giới thiệu 1 món đặc biệt hoặc món mới. Ảnh/video ngắn + giá + lý do nên thử. Format: Reels 15-30 giây hoặc ảnh carousel.',
+          'Thứ Ba/Tư — "Hậu trường": Video bếp chuẩn bị buổi sáng, pha chế, nhập hàng tươi. Khách thích thấy quy trình thật — tạo niềm tin về vệ sinh và chất lượng.',
+          'Thứ Năm — "Review khách hàng": Repost review tốt, ảnh khách check-in (xin phép trước), hoặc video khách nói cảm nhận. Social proof mạnh hơn bất kỳ quảng cáo nào.',
+          'Thứ Sáu — "Khuyến mãi cuối tuần": Deal đặc biệt chỉ T6-CN. Tạo urgency: "Chỉ 50 suất", "Hết là hết". Kết hợp chia sẻ vào nhóm Zalo khu vực.',
+          'Cuối tuần — "Story/Reels tự do": Nội dung nhẹ nhàng: nhân viên vui vẻ, khách đông, behind-the-scenes. Không cần chỉn chu — chân thực và tự nhiên tạo kết nối tốt hơn.',
+          'Mẹo vàng: Quay video ngang (landscape) cho YouTube, quay dọc (portrait) cho TikTok/Reels/Stories. 1 buổi quay 30 phút có thể cắt thành 5-7 clips dùng cả tuần.',
+        ],
+      },
+      {
+        type: 'table',
+        heading: 'Ngân sách marketing theo quy mô quán',
+        content: [
+          { label: 'Quán mới mở (tháng 1-3)', range: '0 - 2 triệu/tháng', note: 'Tập trung kênh miễn phí: Google Maps, Facebook organic, TikTok. Mời 2-3 micro-KOL dùng thử miễn phí đổi review. Chưa cần chạy ads.' },
+          { label: 'Đang ổn định (tháng 4-12)', range: '3 - 5 triệu/tháng', note: 'Bắt đầu chạy Facebook Ads 100-150K/ngày. Target bán kính 3-5km. Boost bài viết có tương tác cao. Đăng đều 5 bài/tuần.' },
+          { label: 'Muốn tăng trưởng mạnh', range: '5 - 10 triệu/tháng', note: 'Facebook Ads + Google Ads. Hợp tác 1-2 KOL mỗi tháng. Chạy chương trình loyalty (tích điểm trên Zalo OA). A/B test các loại nội dung.' },
+          { label: 'Chuỗi / nhiều chi nhánh', range: '15 - 30 triệu/tháng', note: 'Thuê agency hoặc nhân viên marketing riêng. Chạy đa kênh: Facebook + Google + TikTok Ads. Influencer campaign theo mùa.' },
+        ] as KBTableRow[],
+      },
+      {
+        type: 'warning-list',
+        heading: 'Sai lầm marketing phổ biến — đốt tiền mà không biết',
+        content: [
+          { icon: 'warning', title: 'Chạy quảng cáo Facebook mà không biết đo lường', desc: 'Bỏ 3-5 triệu/tháng chạy ads nhưng không biết bao nhiêu khách đến từ ads, bao nhiêu đến tự nhiên. Cách đo đơn giản: dùng mã giảm giá riêng cho ads (VD: "nhắn FACEBOOK để giảm 10%") → đếm được chính xác bao nhiêu khách từ quảng cáo.', severity: 'critical' },
+          { icon: 'warning', title: 'Đăng bài không đều — 3 tuần liên tục rồi bỏ 2 tháng', desc: 'Thuật toán Facebook/TikTok phạt tài khoản không đăng đều. Quán biến mất khỏi feed khách. Tốt hơn đăng 3 bài/tuần ĐỀU ĐẶN trong 6 tháng hơn là đăng mỗi ngày trong 1 tháng rồi dừng.', severity: 'critical' },
+          { icon: 'warning', title: 'Bỏ qua Google Maps — chỉ làm Facebook', desc: 'Facebook reach giảm liên tục (organic reach chỉ 2-5% followers). Trong khi Google Maps reach TĂNG vì khách chủ động tìm kiếm. Quán không có Google Maps = bỏ mất 30-40% khách tiềm năng.', severity: 'warning' },
+          { icon: 'warning', title: 'Mua followers/likes ảo', desc: 'Page 10K followers nhưng bài đăng chỉ 3 likes. Thuật toán Facebook phát hiện → giảm reach thật. Khách nhìn vào cũng biết giả. Tốt hơn có 500 followers thật tương tác thường xuyên.', severity: 'warning' },
+          { icon: 'warning', title: 'Content chỉ có khuyến mãi — không có giá trị', desc: 'Đăng toàn "giảm 20%", "mua 1 tặng 1" → khách chỉ đến khi có deal, không có brand loyalty. Tỷ lệ vàng: 70% content giá trị (món ngon, câu chuyện, kiến thức) + 30% khuyến mãi.', severity: 'tip' },
+        ] as KBWarningItem[],
+      },
+      {
+        type: 'text',
+        content: 'Marketing online cho quán F&B nhỏ không phức tạp và không cần nhiều tiền. Bắt đầu với 3 việc miễn phí: (1) đăng ký Google Maps và upload ảnh đẹp, (2) lập fanpage Facebook và đăng 3 bài/tuần, (3) quay 1-2 video TikTok mỗi tuần. Chỉ cần 30 phút mỗi ngày, sau 3 tháng bạn sẽ thấy rõ sự khác biệt. Dùng F&B Validator để tính ngân sách marketing phù hợp với quy mô quán của bạn.',
+      },
+    ],
+  },
 ];
 
 export default TECHNOLOGY_ARTICLES;

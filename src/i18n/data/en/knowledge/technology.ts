@@ -256,6 +256,98 @@ const TECHNOLOGY_ARTICLES: KBTopic[] = [
       },
     ],
   },
+  {
+    id: 'digital_marketing',
+    slug: 'digital-marketing-small-fnb',
+    publishDate: '2026-05-02',
+    icon: 'globe',
+    title: 'Digital Marketing for Small F&B Businesses',
+    subtitle: '70% of customers find restaurants through Google Maps and social media',
+    color: 'secondary-light',
+    category: 'technology',
+    highlights: [
+      { label: 'Customers finding via online', value: '70%+', note: 'Google Maps, TikTok, Facebook' },
+      { label: 'Marketing budget', value: 'VND 3-10M/month', note: 'for small shops (~$120-400)' },
+      { label: 'Order increase', value: '30-50%', note: 'after 3 months of consistency' },
+      { label: 'Starting cost', value: '$0', note: 'many channels are free' },
+    ],
+    sections: [
+      {
+        type: 'text',
+        content: 'In 2026, an F&B business without an online presence is virtually invisible to most customers. Research shows over 70% of consumers search for restaurants on Google Maps, TikTok, or Facebook before visiting. The good news: you don\'t need a big budget — many channels are completely free, requiring just 30-60 minutes of consistent daily effort.',
+      },
+      {
+        type: 'stat-grid',
+        heading: 'Vietnam F&B Consumer Behavior 2026 — Know Your Customer',
+        content: [
+          { icon: 'users', label: 'Visit F&B 3-4 times/week', value: '32.8%', desc: 'Vietnamese F&B consumers visit frequently but spend modestly each time. Focus on retention — bringing back existing customers costs 5x less than acquiring new ones.' },
+          { icon: 'money', label: 'Spend under VND 35K/visit', value: '52.3%', desc: 'The "Lipstick Effect" — customers are budget-conscious but still crave experiences. Value combos and affordable signature items win over deep discounting.' },
+          { icon: 'trending', label: 'Health-conscious priority', value: '29.6%', desc: 'Nearly 1 in 3 customers prioritize transparent sourcing, clean labels, and healthier options. Highlighting these in your content marketing builds trust and differentiation.' },
+          { icon: 'phone', label: 'Read reviews before visiting', value: '85%+', desc: 'Google Maps ratings, Facebook reviews, TikTok food videos — customers research thoroughly. One unanswered negative review can cost you 5-10 potential visitors.' },
+        ] as KBStat[],
+      },
+      {
+        type: 'table',
+        heading: 'Online Marketing Channels for F&B Compared',
+        content: [
+          { label: 'Google Maps (Google Business)', range: 'Free', note: 'THE MOST IMPORTANT channel. When customers search "coffee shop near me," you appear. Requires: quality photos, hours, phone number, review responses. 100% free.' },
+          { label: 'Facebook Page + Reels', range: '$0 - $120/month', note: 'Post 3-5 times/week. Reels (short video) get 3-5x more reach than static images. Run ads from $2-4/day targeting a 3-5km radius around your shop.' },
+          { label: 'TikTok', range: 'Free', note: 'Behind-the-scenes kitchen videos, food reviews, "a day at the shop" content goes viral. No need for polished production — authentic, fun, story-driven works best. Excellent organic reach.' },
+          { label: 'Zalo Official Account', range: 'Free - $20/month', note: 'Best channel for retaining existing customers in Vietnam. Send promotions and new menu updates directly. 90% of Vietnamese use Zalo daily — 60-80% open rate, 4x higher than email.' },
+          { label: 'KOL / Food Reviewers', range: '$20 - $200/post', note: 'Invite food bloggers or TikTokers to your shop. Micro-KOLs (5K-50K followers) are more effective for small shops — lower cost, higher engagement, local audience.' },
+          { label: 'Google Ads', range: '$80 - $400/month', note: 'Ads triggered when people search "pho restaurant District 1" or "best coffee Thu Duc." You only pay per click. Effective but requires setup knowledge or hiring an agency.' },
+        ] as KBTableRow[],
+      },
+      {
+        type: 'list',
+        heading: 'Google Maps — The Most Powerful Free Channel Most Shops Ignore',
+        content: [
+          'Register Google Business Profile today (free): Go to business.google.com → enter shop name, address, phone number, opening hours, business type (restaurant/cafe/eatery). Google sends a verification code via mail or phone.',
+          'Upload at least 10 quality photos: 3 exterior shots (help customers find you), 5 photos of your bestselling dishes, 2 interior ambiance shots. Phone photos with natural lighting work perfectly — no professional photographer needed.',
+          'Respond to 100% of reviews — including negative ones: 5-star review → "Thank you! See you again soon." Negative review → sincere apology, propose a solution, invite them back. NEVER argue, NEVER delete reviews.',
+          'Post Google Updates 2-3 times/week: Few people know Google Maps has a posting feature. Share: new dishes, promotions, events. Helps your shop rank higher in search results.',
+          'Encourage customers to leave reviews: After good service, gently ask: "Would you mind leaving us a review on Google Maps?" Shops above 4.5 stars with 50+ reviews get automatically boosted to the top of search results.',
+        ],
+      },
+      {
+        type: 'list',
+        heading: 'Weekly Content Calendar — What to Post Each Day',
+        content: [
+          'Monday — "Dish of the Week": Feature one special or new item. Photo/short video + price + why they should try it. Format: 15-30 second Reels or image carousel.',
+          'Tuesday/Wednesday — "Behind the Scenes": Video of morning kitchen prep, drink-making, fresh ingredient delivery. Customers love seeing the real process — builds trust in hygiene and quality.',
+          'Thursday — "Customer Spotlight": Repost positive reviews, customer check-in photos (with permission), or video testimonials. Social proof is more powerful than any paid ad.',
+          'Friday — "Weekend Special": Exclusive weekend-only deal. Create urgency: "Only 50 servings," "While supplies last." Share in local Zalo community groups for extra reach.',
+          'Weekend — "Free-form Stories/Reels": Lighthearted content: happy staff, busy house, casual behind-the-scenes. No need for polish — authentic and natural content builds stronger connections.',
+          'Pro tip: Shoot landscape video for YouTube, portrait for TikTok/Reels/Stories. One 30-minute filming session can produce 5-7 clips for the whole week.',
+        ],
+      },
+      {
+        type: 'table',
+        heading: 'Marketing Budget by Shop Size',
+        content: [
+          { label: 'Newly opened (months 1-3)', range: '$0 - $80/month', note: 'Focus on free channels: Google Maps, organic Facebook, TikTok. Invite 2-3 micro-KOLs for free tastings in exchange for reviews. No paid ads needed yet.' },
+          { label: 'Stabilizing (months 4-12)', range: '$120 - $200/month', note: 'Start Facebook Ads at $4-6/day. Target 3-5km radius. Boost high-engagement posts. Maintain 5 posts/week cadence.' },
+          { label: 'Growth-focused', range: '$200 - $400/month', note: 'Facebook Ads + Google Ads. Partner with 1-2 KOLs per month. Launch a loyalty program (points via Zalo OA). A/B test different content types.' },
+          { label: 'Chain / multi-location', range: '$600 - $1,200/month', note: 'Hire an agency or dedicated marketing staff. Run multi-channel: Facebook + Google + TikTok Ads. Seasonal influencer campaigns.' },
+        ] as KBTableRow[],
+      },
+      {
+        type: 'warning-list',
+        heading: 'Common Marketing Mistakes — Burning Money Without Knowing It',
+        content: [
+          { icon: 'warning', title: 'Running Facebook Ads without tracking ROI', desc: 'Spending $120-200/month on ads but can\'t tell how many customers actually came from them vs. walked in organically. Simple fix: use a unique discount code for ads (e.g., "mention FACEBOOK for 10% off") — now you can count exactly how many customers the ad brought.', severity: 'critical' },
+          { icon: 'warning', title: 'Posting inconsistently — 3 weeks on, 2 months off', desc: 'Facebook and TikTok algorithms penalize accounts that go dormant. Your shop disappears from customer feeds. Posting 3 times/week CONSISTENTLY for 6 months beats daily posting for 1 month then stopping.', severity: 'critical' },
+          { icon: 'warning', title: 'Ignoring Google Maps — only doing Facebook', desc: 'Facebook organic reach keeps declining (only 2-5% of followers see your posts). Google Maps reach is GROWING because customers actively search. No Google Maps listing = missing 30-40% of potential customers.', severity: 'warning' },
+          { icon: 'warning', title: 'Buying fake followers or likes', desc: 'A page with 10K followers but only 3 likes per post. Facebook\'s algorithm detects this and reduces your real reach. Customers can tell too. Better to have 500 genuine followers with active engagement.', severity: 'warning' },
+          { icon: 'warning', title: 'Only posting promotions — no value content', desc: 'If every post is "20% off!" or "buy 1 get 1," customers only visit for deals and have zero brand loyalty. Golden ratio: 70% value content (great dishes, stories, knowledge) + 30% promotions.', severity: 'tip' },
+        ] as KBWarningItem[],
+      },
+      {
+        type: 'text',
+        content: 'Digital marketing for a small F&B business isn\'t complicated and doesn\'t require a big budget. Start with 3 free actions: (1) register on Google Maps and upload quality photos, (2) create a Facebook page and post 3 times/week, (3) shoot 1-2 TikTok videos per week. Just 30 minutes daily, and after 3 months you\'ll see a clear difference. Use F&B Validator to calculate the right marketing budget for your shop\'s size and revenue.',
+      },
+    ],
+  },
 ];
 
 export default TECHNOLOGY_ARTICLES;

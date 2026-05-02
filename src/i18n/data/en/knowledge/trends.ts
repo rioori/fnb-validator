@@ -182,6 +182,162 @@ const TRENDS_ARTICLES: KBTopic[] = [
       },
     ],
   },
+  {
+    id: 'cloud_kitchen_2026',
+    slug: 'cloud-kitchen-vietnam-2026-guide',
+    icon: 'trending',
+    publishDate: '2026-05-01',
+    title: 'Cloud Kitchens in Vietnam 2026: The Fastest-Growing F&B Segment',
+    subtitle: 'Low capital, high growth — but platform fees and digital skills are the real barriers',
+    color: 'secondary-light',
+    category: 'trends',
+    highlights: [
+      { label: 'Segment CAGR', value: '18.7%', note: '2026–2031, fastest in Vietnam F&B' },
+      { label: 'Startup cost', value: '$30K–50K', note: 'vs. $100K+ for traditional restaurants' },
+      { label: 'Delivery market', value: '$2B', note: 'Vietnam 2026, growing 12.9% annually' },
+      { label: 'Independent outlets', value: '77.4%', note: 'Most of Vietnam F&B is small operators' },
+    ],
+    sections: [
+      {
+        type: 'text',
+        content:
+          "Vietnam's cloud kitchen segment — delivery-only kitchens with no dine-in space — is projected to grow at 18.73% CAGR from 2026 to 2031, making it the fastest-growing category in the country's $29 billion foodservice market. The model is straightforward: lease a small kitchen in a low-rent area, cook food, and sell exclusively through delivery platforms like GrabFood and ShopeeFood. No storefront, no dining room furniture, no front-of-house staff. With startup costs of $30,000–$50,000 (roughly 60–70% less than a traditional restaurant), cloud kitchens have become the most accessible entry point into Vietnam's F&B industry.",
+      },
+      {
+        type: 'stat-grid',
+        heading: 'Key numbers',
+        content: [
+          {
+            icon: 'growth',
+            label: 'Cloud kitchen CAGR',
+            value: '18.7%',
+            desc: 'Fastest-growing F&B segment in Vietnam (2026–2031). Traditional dine-in restaurants grow at 8–10% by comparison.',
+          },
+          {
+            icon: 'money',
+            label: 'Startup investment',
+            value: '$30K–50K',
+            desc: '60–70% less than a traditional restaurant. No storefront lease, no dining furniture, no decoration costs.',
+          },
+          {
+            icon: 'chart',
+            label: 'Delivery market size',
+            value: '$2 billion',
+            desc: 'Vietnam online food delivery market in 2026. Expected to reach $3.5B by 2031, driven by smartphone penetration and urban convenience demand.',
+          },
+          {
+            icon: 'users',
+            label: 'Total F&B market',
+            value: 'VND 760T',
+            desc: '333,600 outlets nationwide. Growth at 9.6% annually, but entering a consolidation phase where operational efficiency matters more than expansion speed.',
+          },
+        ] as KBStat[],
+      },
+      {
+        type: 'text',
+        content:
+          "Three structural factors are driving cloud kitchen adoption in Vietnam. First, commercial rent in Ho Chi Minh City and Hanoi has become prohibitive for new operators — street-facing locations cost VND 30–80 million/month ($1,200–$3,200), while a kitchen in a back alley runs VND 5–15 million ($200–$600). Second, online food delivery is growing at 12.9% annually, with GrabFood and ShopeeFood now embedded in daily routines for urban professionals. Third, the post-COVID lesson that delivery can represent 40–60% of a restaurant's revenue has convinced many operators that paying premium rent for walk-in traffic is no longer the only viable model.",
+      },
+      {
+        type: 'table',
+        heading: 'Cloud kitchen vs. traditional restaurant',
+        content: [
+          {
+            label: 'Initial investment',
+            range: '$30K–50K vs. $100K–200K',
+            note: 'Cloud kitchens save 60–70% on startup costs',
+          },
+          {
+            label: 'Monthly rent',
+            range: '$200–600 vs. $1,200–3,200',
+            note: 'Back-alley/industrial kitchen vs. street-facing location',
+          },
+          {
+            label: 'Minimum staff',
+            range: '2–4 vs. 6–12',
+            note: 'No waitstaff, cashier, or security needed',
+          },
+          {
+            label: 'Time to breakeven',
+            range: '6–12 months vs. 18–36 months',
+            note: 'Lower fixed costs = faster payback period',
+          },
+          {
+            label: 'Downside risk',
+            range: 'Low vs. Very high',
+            note: 'Cloud kitchens are easy to close/pivot; no long-term storefront lease',
+          },
+          {
+            label: 'Scalability',
+            range: 'Fast vs. Slow',
+            note: 'New kitchen operational in 2–4 weeks, no need to find premium location',
+          },
+        ] as KBTableRow[],
+      },
+      {
+        type: 'list',
+        heading: 'Who should consider a cloud kitchen?',
+        content: [
+          'First-time F&B entrepreneurs with under $50K budget: Cloud kitchens let you test a concept with minimal financial exposure. If the food sells, scaling is fast and cheap.',
+          'Existing restaurant owners expanding via "virtual branches": You already have recipes, suppliers, and processes — just rent an additional kitchen in a new delivery zone without investing in a full second location.',
+          'Skilled chefs who want to focus on cooking, not property management: The cloud model eliminates front-of-house complexity (décor, ambiance, table service). You focus on food quality and packaging.',
+          'Operators running multiple brands from one kitchen: A single cloud kitchen can operate 2–3 different brands on delivery apps simultaneously (e.g., rice bowls + pho + healthy salads) — maximizing kitchen utilization.',
+        ],
+      },
+      {
+        type: 'warning-list',
+        heading: 'Critical risks and opportunities',
+        content: [
+          {
+            icon: 'warning',
+            title: 'Platform commissions consume 20–30% of revenue',
+            desc: 'GrabFood and ShopeeFood charge 20–30% commission per order. On a VND 50,000 ($2) order, you receive only VND 35,000–40,000. Price your menu to absorb platform fees — do not set prices and then discover the commission gap.',
+            severity: 'critical',
+          },
+          {
+            icon: 'warning',
+            title: 'No storefront means zero walk-in traffic',
+            desc: '100% of customers come from apps and online marketing. If you lack digital marketing skills — optimizing app listings, managing reviews, running promotions — order volume will be critically low. Cloud kitchens require digital competence as a core skill.',
+            severity: 'critical',
+          },
+          {
+            icon: 'warning',
+            title: 'Not all foods survive delivery',
+            desc: 'Fried items get soggy, hot soups cool down, salads wilt. Design your menu specifically for delivery: choose dishes that maintain quality after 20–30 minutes of transport. Packaging innovation matters as much as cooking skill.',
+            severity: 'warning',
+          },
+          {
+            icon: 'warning',
+            title: 'Food safety licensing still required under Decree 46/2026',
+            desc: "Vietnam's new food safety regulation (Decree 46/2026), effective April 2026, applies to cloud kitchens. You still need a food safety certificate, business registration, and hygiene compliance — there is no exemption for delivery-only operations.",
+            severity: 'warning',
+          },
+          {
+            icon: 'warning',
+            title: 'Opportunity: virtual brands multiply revenue per kitchen',
+            desc: 'The biggest advantage cloud kitchens have over traditional restaurants is the ability to run multiple brands from one location. Same kitchen, same staff, 2–3 different brand identities on delivery apps — each targeting a different customer segment.',
+            severity: 'tip',
+          },
+        ] as KBWarningItem[],
+      },
+      {
+        type: 'list',
+        heading: '5 steps to launch a cloud kitchen under $40K',
+        content: [
+          'Pick one hero dish category for delivery: Do not launch with 30 menu items. Start with 5–8 dishes around a single concept (chicken rice, beef pho, poke bowls). Every item must hold quality after 30 minutes in a delivery bag.',
+          'Lease a kitchen in a high-delivery-density area: Districts 1, 3, Binh Thanh, Tan Binh (HCMC) or Cau Giay, Dong Da, Thanh Xuan (Hanoi). Use GrabFood merchant analytics to identify zones with highest order density.',
+          'Complete all licensing before your first sale: Business registration + Food Safety Certificate. Decree 46/2026 introduced a risk-based inspection framework — cloud kitchens are within scope regardless of size.',
+          'Optimize your delivery app listing from day one: Professional food photography, clear descriptions, competitive pricing, profitable combo meals. 70% of customers decide based on photos and reviews — invest in photography before marketing.',
+          'Track daily metrics, adjust weekly: Cancellation rate, prep time, customer ratings, food cost per dish. Use Validator.vn to model your financials before committing to a kitchen lease — validate the numbers first, then invest.',
+        ],
+      },
+      {
+        type: 'text',
+        content:
+          "Cloud kitchens are not a shortcut to easy profits — but they are the lowest-risk entry point into Vietnam's F&B industry in 2026. With the online delivery market at $2 billion and growing nearly 13% annually, demand-side conditions are strong. The question is whether you can execute: manage platform economics, build a digital-first brand, and deliver food that customers want to reorder. Use Validator.vn to stress-test your cloud kitchen business model — run the numbers on rent, staffing, food costs, and platform fees before signing any lease.",
+      },
+    ],
+  },
 ];
 
 export default TRENDS_ARTICLES;

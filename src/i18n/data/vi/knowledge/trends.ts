@@ -198,6 +198,162 @@ const TRENDS_ARTICLES: KBTopic[] = [
       },
     ],
   },
+  {
+    id: 'cloud_kitchen_2026',
+    slug: 'bep-tren-may-cloud-kitchen-2026',
+    icon: 'trending',
+    publishDate: '2026-05-01',
+    title: 'Bếp trên mây (Cloud Kitchen) 2026: Mở quán ăn không cần mặt bằng?',
+    subtitle: 'Mô hình tăng trưởng nhanh nhất ngành F&B — vốn ít, rủi ro thấp, nhưng không dễ ăn',
+    color: 'secondary-light',
+    category: 'trends',
+    highlights: [
+      { label: 'Tốc độ tăng trưởng', value: '18.7%/năm', note: 'CAGR 2026–2031, nhanh nhất ngành' },
+      { label: 'Vốn khởi nghiệp', value: '750tr – 1.2 tỷ', note: 'So với 2.5–5 tỷ cho quán truyền thống' },
+      { label: 'Thị trường delivery VN', value: '$2 tỷ', note: 'Quy mô 2026, tăng 12.9%/năm' },
+      { label: 'Tỷ lệ quán độc lập', value: '77.4%', note: 'Phần lớn F&B VN là quán nhỏ lẻ' },
+    ],
+    sections: [
+      {
+        type: 'text',
+        content:
+          'Nếu bạn đang muốn mở quán ăn nhưng ngại mặt tiền đắt đỏ, đừng bỏ qua mô hình "bếp trên mây" (cloud kitchen). Đây là loại bếp chỉ phục vụ đơn hàng giao đi — không có chỗ ngồi cho khách, không cần mặt bằng đẹp, không tốn tiền trang trí. Bạn thuê một bếp nhỏ trong hẻm hoặc khu công nghiệp, nấu đồ ăn, rồi bán qua GrabFood, ShopeeFood, hoặc website riêng. Nghe đơn giản, nhưng mô hình này đang là phân khúc tăng trưởng nhanh nhất ngành F&B Việt Nam năm 2026 — với tốc độ gần 19%/năm, gấp đôi tốc độ tăng trưởng chung của ngành.',
+      },
+      {
+        type: 'stat-grid',
+        heading: 'Những con số đáng chú ý',
+        content: [
+          {
+            icon: 'growth',
+            label: 'Tăng trưởng cloud kitchen',
+            value: '18.7%',
+            desc: 'CAGR 2026–2031, nhanh nhất trong tất cả phân khúc F&B. Quán truyền thống chỉ tăng 8–10%.',
+          },
+          {
+            icon: 'money',
+            label: 'Vốn đầu tư ban đầu',
+            value: '750tr – 1.2 tỷ',
+            desc: 'Tiết kiệm 60–70% so với quán có mặt bằng. Không tốn tiền thuê mặt tiền, trang trí, bàn ghế.',
+          },
+          {
+            icon: 'chart',
+            label: 'Thị trường giao đồ ăn',
+            value: '$2 tỷ',
+            desc: 'Quy mô thị trường delivery Việt Nam 2026. Dự kiến đạt $3.5 tỷ vào 2031 — nền tảng cho cloud kitchen phát triển.',
+          },
+          {
+            icon: 'users',
+            label: 'Quy mô ngành F&B VN',
+            value: '760 nghìn tỷ',
+            desc: '333.600 cửa hàng trên cả nước. Ngành tăng 9.6%/năm nhưng đang vào giai đoạn sàng lọc, cần hiệu quả hơn.',
+          },
+        ] as KBStat[],
+      },
+      {
+        type: 'text',
+        content:
+          'Tại sao cloud kitchen lại bùng nổ ở Việt Nam? Có 3 lý do chính: (1) Mặt bằng ở TP.HCM và Hà Nội quá đắt — thuê mặt tiền 30–80 triệu/tháng, trong khi bếp trong hẻm chỉ 5–15 triệu. (2) Người Việt đặt đồ ăn online ngày càng nhiều — thị trường delivery tăng gần 13%/năm. (3) Sau COVID, nhiều chủ quán nhận ra rằng doanh thu delivery có thể chiếm 40–60% tổng thu — vậy tại sao phải trả tiền mặt bằng đẹp khi phần lớn khách không đến quán?',
+      },
+      {
+        type: 'table',
+        heading: 'So sánh: Cloud kitchen vs. Quán truyền thống',
+        content: [
+          {
+            label: 'Vốn đầu tư ban đầu',
+            range: '750tr – 1.2 tỷ vs. 2.5 – 5 tỷ',
+            note: 'Cloud kitchen tiết kiệm 60–70% chi phí khởi nghiệp',
+          },
+          {
+            label: 'Tiền thuê mặt bằng/tháng',
+            range: '5 – 15 triệu vs. 30 – 80 triệu',
+            note: 'Bếp hẻm/khu CN so với mặt tiền đường lớn',
+          },
+          {
+            label: 'Nhân viên tối thiểu',
+            range: '2 – 4 người vs. 6 – 12 người',
+            note: 'Không cần phục vụ bàn, thu ngân, bảo vệ',
+          },
+          {
+            label: 'Thời gian hòa vốn',
+            range: '6 – 12 tháng vs. 18 – 36 tháng',
+            note: 'Chi phí cố định thấp hơn = hòa vốn nhanh hơn',
+          },
+          {
+            label: 'Rủi ro nếu thất bại',
+            range: 'Thấp vs. Rất cao',
+            note: 'Cloud kitchen dễ đóng/chuyển đổi, không bị kẹt hợp đồng thuê dài hạn',
+          },
+          {
+            label: 'Khả năng mở rộng',
+            range: 'Nhanh vs. Chậm',
+            note: 'Mở thêm bếp mới trong 2–4 tuần, không cần tìm mặt bằng đẹp',
+          },
+        ] as KBTableRow[],
+      },
+      {
+        type: 'list',
+        heading: 'Ai nên thử cloud kitchen?',
+        content: [
+          'Người mới muốn khởi nghiệp F&B nhưng vốn dưới 1.5 tỷ: Cloud kitchen cho phép bạn test ý tưởng với rủi ro tài chính thấp nhất. Nếu món ăn bán được, mở rộng rất nhanh.',
+          'Chủ quán truyền thống muốn mở thêm "chi nhánh ảo": Bạn đã có công thức, nhà cung cấp, quy trình — chỉ cần thuê thêm bếp ở khu vực mới để phủ delivery, không cần đầu tư quán mới.',
+          'Đầu bếp giỏi nhưng không rành kinh doanh mặt bằng: Cloud kitchen giảm bớt gánh nặng quản lý mặt bằng, nhân viên phục vụ — bạn chỉ cần tập trung vào nấu ăn và đóng gói.',
+          'Người muốn chạy nhiều thương hiệu cùng lúc: Một bếp có thể vận hành 2–3 thương hiệu khác nhau trên app delivery (ví dụ: cơm trưa văn phòng + bún bò + salad healthy) — tối đa hóa công suất bếp.',
+        ],
+      },
+      {
+        type: 'warning-list',
+        heading: 'Những bẫy cần tránh',
+        content: [
+          {
+            icon: 'warning',
+            title: 'Phí hoa hồng app delivery "ăn" hết lãi',
+            desc: 'GrabFood, ShopeeFood thu 20–30% hoa hồng trên mỗi đơn. Nếu giá bán 50.000đ, bạn chỉ nhận 35.000–40.000đ. Phải tính giá bán đã bao gồm phí nền tảng, không phải tính giá rồi mới trừ.',
+            severity: 'critical',
+          },
+          {
+            icon: 'warning',
+            title: 'Không có mặt tiền = không có khách vãng lai',
+            desc: '100% khách đến từ app và marketing online. Nếu bạn không biết chạy quảng cáo, tối ưu listing trên app, đánh giá sao — sẽ rất khó có đơn hàng ban đầu. Cloud kitchen đòi hỏi kỹ năng digital marketing.',
+            severity: 'critical',
+          },
+          {
+            icon: 'warning',
+            title: 'Chất lượng đồ ăn giảm khi giao đi',
+            desc: 'Món chiên bị ỉu, nước lèo bị nguội, salad bị héo — không phải món nào cũng phù hợp delivery. Hãy thiết kế menu chuyên cho giao đi: chọn món giữ được chất lượng sau 20–30 phút vận chuyển.',
+            severity: 'warning',
+          },
+          {
+            icon: 'warning',
+            title: 'Giấy phép kinh doanh và an toàn thực phẩm vẫn bắt buộc',
+            desc: 'Nghị định 46/2026 về an toàn thực phẩm đã có hiệu lực từ tháng 4/2026, áp dụng cho cả bếp cloud kitchen. Bạn vẫn cần giấy phép ATTP, đăng ký kinh doanh, và đáp ứng tiêu chuẩn vệ sinh — không có ngoại lệ vì "không có khách ngồi tại chỗ".',
+            severity: 'warning',
+          },
+          {
+            icon: 'warning',
+            title: 'Cơ hội: "virtual brand" — chạy nhiều thương hiệu từ 1 bếp',
+            desc: 'Đây là lợi thế lớn nhất của cloud kitchen mà quán truyền thống không có. Cùng một bếp, cùng nhân viên, bạn có thể tạo 2–3 thương hiệu khác nhau trên GrabFood — mỗi thương hiệu nhắm đến phân khúc khách khác nhau.',
+            severity: 'tip',
+          },
+        ] as KBWarningItem[],
+      },
+      {
+        type: 'list',
+        heading: '5 bước bắt đầu cloud kitchen với vốn dưới 1 tỷ',
+        content: [
+          'Chọn 1 món "hero" dễ delivery: Không cần menu 30 món. Bắt đầu với 5–8 món xoay quanh 1 concept (ví dụ: cơm gà, bún bò, poke bowl). Món phải giữ được chất lượng sau 30 phút giao hàng.',
+          'Thuê bếp ở khu vực có mật độ đơn delivery cao: Quận 1, 3, Bình Thạnh, Tân Bình (TP.HCM) hoặc Cầu Giấy, Đống Đa, Thanh Xuân (Hà Nội). Dùng dữ liệu từ GrabFood merchant để xem khu nào nhiều đơn.',
+          'Đăng ký đầy đủ giấy phép trước khi bán: Giấy phép kinh doanh + Giấy chứng nhận ATTP. Nghị định 46/2026 mới áp dụng hệ thống thanh tra dựa trên rủi ro — bếp cloud kitchen cũng nằm trong phạm vi.',
+          'Tối ưu listing trên app delivery ngay từ ngày đầu: Ảnh đẹp, mô tả rõ ràng, giá hợp lý, combo có lãi. 70% khách quyết định đặt món dựa trên ảnh và đánh giá — đầu tư chụp ảnh chuyên nghiệp ngay từ đầu.',
+          'Theo dõi số liệu hàng ngày, điều chỉnh hàng tuần: Tỷ lệ hủy đơn, thời gian chuẩn bị, đánh giá khách hàng, food cost per dish. Dùng Validator.vn để mô phỏng tài chính trước khi cam kết thuê bếp dài hạn.',
+        ],
+      },
+      {
+        type: 'text',
+        content:
+          'Cloud kitchen không phải "cách làm giàu nhanh" — nhưng đó là cách thông minh nhất để bắt đầu kinh doanh F&B trong năm 2026 với rủi ro tài chính thấp. Với thị trường delivery Việt Nam đạt $2 tỷ và tăng gần 13% mỗi năm, nhu cầu từ phía khách hàng rõ ràng đang có. Câu hỏi là: bạn có biết tận dụng không? Dùng Validator.vn để tính toán xem mô hình cloud kitchen có phù hợp với ngân sách và kế hoạch kinh doanh của bạn — trước khi bỏ tiền thuê bếp.',
+      },
+    ],
+  },
 ];
 
 export default TRENDS_ARTICLES;
