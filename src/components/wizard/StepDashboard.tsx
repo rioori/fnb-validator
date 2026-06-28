@@ -26,6 +26,7 @@ import OptimizationPanel from '@/components/dashboard/OptimizationPanel';
 import ExistingDashboard from '@/components/dashboard/ExistingDashboard';
 import InlineChat from '@/components/dashboard/InlineChat';
 import SavePrompt from '@/components/dashboard/SavePrompt';
+import EmailCaptureModal from '@/components/dashboard/EmailCaptureModal';
 import CollapsibleSection from '@/components/ui/CollapsibleSection';
 import NavButtons from '@/components/ui/NavButtons';
 import Icon from '@/components/ui/Icon';
@@ -216,6 +217,8 @@ export default function StepDashboard() {
 
   return (
     <div>
+      {/* Email capture modal — first owned distribution asset. Shows after 15s delay, once per browser. */}
+      <EmailCaptureModal />
       <div id="dashboard-content">
       <h2 className="text-lg font-bold mb-1 text-text font-[family-name:var(--font-heading)]">
         {isExisting ? t.wizard.stepDashboard.titleExisting : t.wizard.stepDashboard.title}

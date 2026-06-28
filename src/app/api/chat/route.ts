@@ -6,6 +6,36 @@ const DEEPSEEK_API_KEY = process.env.DEEPSEEK_API_KEY;
 const DEEPSEEK_URL = 'https://api.deepseek.com/chat/completions';
 const MAX_MESSAGES = 20;
 
+// Rate limiting: 10 requests / minute / IP (in-memory, resets on cold start)
+// For higher scale, swap to Vercel KV / Redis
+const RATE_LIMIT_MAX = 10;
+const RATE_LIMIT_WINDOW_MS = 60_000;
+const rateLimitStore = new Map<string, { count: number; resetAt: number }>();
+
+function checkRateLimit(ip: string): { allowed: boolean; retryAfter?: number } {
+  const now = Date.now();
+  const entry = rateLimitStore.get(ip);
+
+  // Cleanup expired entries every ~100 requests (memory hygiene)
+  if (rateLimitStore.size > 100 && Math.random() < 0.01) {
+    for (const [k, v] of rateLimitStore.entries()) {
+      if (v.resetAt < now) rateLimitStore.delete(k);
+    }
+  }
+
+  if (!entry || entry.resetAt < now) {
+    rateLimitStore.set(ip, { count: 1, resetAt: now + RATE_LIMIT_WINDOW_MS });
+    return { allowed: true };
+  }
+
+  if (entry.count >= RATE_LIMIT_MAX) {
+    return { allowed: false, retryAfter: Math.ceil((entry.resetAt - now) / 1000) };
+  }
+
+  entry.count++;
+  return { allowed: true };
+}
+
 const SYSTEM_PROMPTS: Record<string, string> = {
   vi: `Bạn là chuyên gia tư vấn kinh doanh Việt Nam với 15+ năm kinh nghiệm đa ngành. Chuyên môn sâu về F&B, bán lẻ, dịch vụ và các mô hình SME. Bạn giúp người dùng về:
 - Phân tích mô hình kinh doanh (F&B, bán lẻ, dịch vụ, giáo dục...)
@@ -42,6 +72,18 @@ interface ChatMsg {
 export async function POST(request: Request) {
   if (!DEEPSEEK_API_KEY || DEEPSEEK_API_KEY === 'your_deepseek_api_key_here') {
     return Response.json({ error: 'DeepSeek API key chưa được cấu hình.' }, { status: 500 });
+  }
+
+  // Rate limit by IP — prevents abuse + cost explosion
+  const ip = request.headers.get('x-forwarded-for')?.split(',')[0]?.trim()
+    || request.headers.get('x-real-ip')
+    || 'unknown';
+  const rl = checkRateLimit(ip);
+  if (!rl.allowed) {
+    return Response.json(
+      { error: `Bạn đã gửi quá nhiều câu hỏi. Vui lòng thử lại sau ${rl.retryAfter} giây.` },
+      { status: 429, headers: { 'Retry-After': String(rl.retryAfter) } }
+    );
   }
 
   let body: { messages?: ChatMsg[]; businessContext?: string; locale?: string };

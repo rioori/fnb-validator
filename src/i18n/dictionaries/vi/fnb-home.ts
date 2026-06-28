@@ -1,13 +1,13 @@
 const fnbHome = {
   meta: {
-    title: 'F&B Validator — Thẩm định ý tưởng kinh doanh F&B',
+    title: 'Validator.vn — Quán bạn sẽ sống 5 năm? Biết ngay trong 6 bước (miễn phí)',
     description:
-      'Công cụ miễn phí cho cộng đồng khởi nghiệp F&B tại Việt Nam. Phân tích tài chính, tính nhanh lợi nhuận, hỏi đáp AI.',
+      '50% quán F&B đóng cửa trong 2 năm đầu. Validator giúp bạn không phải là 1 trong 50% đó — tính lãi/lỗ, vốn cần, thời gian hoàn vốn theo data thực tế VN. Miễn phí, không spam.',
   },
   hero: {
     logoAlt: 'F&B Validator',
-    tagline: 'Công cụ miễn phí cho cộng đồng khởi nghiệp F&B tại Việt Nam',
-    heading: 'Thẩm định ý tưởng kinh doanh F&B của bạn',
+    tagline: 'Miễn phí · Không spam · Cho ai muốn mở quán thực',
+    heading: 'Quán bạn sẽ sống 5 năm? Biết ngay trong 6 bước',
   },
   quotes: [
     'F&B là ngành mà ai cũng nghĩ mình làm được, cho đến khi thực sự làm.',
@@ -19,9 +19,9 @@ const fnbHome = {
     'F&B thành công không phải vì ý tưởng hay, mà vì người chủ yêu từng chi tiết nhỏ mỗi ngày.',
   ],
   cta: [
-    { label: 'Thẩm định', desc: 'Phân tích chi tiết 6 bước' },
-    { label: 'Tính nhanh', desc: 'Ước tính lợi nhuận 30 giây' },
-    { label: 'Chat với AI', desc: 'Hỏi đáp chiến lược F&B' },
+    { label: 'Tính ngay (1 phút)', desc: 'Biết lãi/lỗ tháng đầu, vốn cần thật, hoàn vốn mấy tháng' },
+    { label: 'Tính siêu nhanh', desc: '6 ô input, ra kết quả trong 30 giây' },
+    { label: 'Hỏi AI chuyên gia', desc: 'Trả lời 24/7, không cần đăng ký, dựa data thị trường VN' },
   ],
   features: [
     {
