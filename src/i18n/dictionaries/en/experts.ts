@@ -34,6 +34,7 @@ const experts = {
     highlights: 'Key Highlights',
     quotes: 'Notable Quotes',
     advice: 'Advice',
+    faq: 'Frequently Asked Questions',
     links: 'Articles & Resources',
     socials: 'Connect',
     source: 'Source:',

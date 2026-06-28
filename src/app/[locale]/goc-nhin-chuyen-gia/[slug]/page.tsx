@@ -108,6 +108,28 @@ function BreadcrumbJsonLd({ expert, locale, dict }: { expert: Expert; locale: st
   );
 }
 
+function FAQPageJsonLd({ expert, locale }: { expert: Expert; locale: string }) {
+  if (!expert.faq || expert.faq.length === 0) return null;
+
+  const prefix = locale === defaultLocale ? '' : '/en';
+  const jsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: expert.faq.map((item) => ({
+      '@type': 'Question',
+      name: item.question,
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: item.answer,
+      },
+    })),
+  };
+
+  return (
+    <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
+  );
+}
+
 // ── Link type icon mapping ──
 const linkTypeIcons: Record<string, string> = {
   article: 'book',
@@ -129,7 +151,7 @@ function ExpertAvatar({ expert, size, gradientIndex }: { expert: Expert; size: n
       {expert.photo ? (
         <Image
           src={expert.photo}
-          alt={expert.name}
+          alt={`${expert.name} — ${expert.descriptor}`}
           width={size}
           height={size}
           className="object-cover object-top w-full h-full"
@@ -178,6 +200,7 @@ export default async function ExpertDetailPage({ params }: PageProps) {
       <PageTracker event="expert_view" data={{ slug: expert.slug, category: expert.category }} />
       <PersonJsonLd expert={expert} locale={locale} />
       <BreadcrumbJsonLd expert={expert} locale={locale} dict={dict} />
+      <FAQPageJsonLd expert={expert} locale={locale} />
 
       <article className="py-2 max-md:py-0 max-w-[720px] mx-auto">
         {/* Breadcrumbs */}
@@ -333,6 +356,27 @@ export default async function ExpertDetailPage({ params }: PageProps) {
                 ))}
               </div>
             )}
+          </>
+        )}
+
+        {/* ── FAQ ── */}
+        {expert.faq && expert.faq.length > 0 && (
+          <>
+            <SectionDivider title={dict.experts.detail.faq || 'Câu hỏi thường gặp'} />
+            <div className="space-y-3">
+              {expert.faq.map((item, i) => (
+                <details
+                  key={i}
+                  className="clay-card-static p-4 group cursor-pointer"
+                >
+                  <summary className="text-[14px] font-bold font-[family-name:var(--font-heading)] text-text flex items-center gap-2 list-none">
+                    <span className="text-cta text-[16px] group-open:rotate-90 transition-transform inline-block">›</span>
+                    {item.question}
+                  </summary>
+                  <p className="text-[13px] text-text-muted leading-relaxed mt-3 pl-6">{item.answer}</p>
+                </details>
+              ))}
+            </div>
           </>
         )}
 

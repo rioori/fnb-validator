@@ -374,6 +374,11 @@ export interface ExpertSocial {
   url: string;
 }
 
+export interface ExpertFAQ {
+  question: string;
+  answer: string;
+}
+
 export interface Expert {
   id: string;
   slug: string;
@@ -390,6 +395,7 @@ export interface Expert {
   links: ExpertLink[];
   socials: ExpertSocial[];
   featured?: boolean;
+  faq?: ExpertFAQ[];
 }
 
 // ===== Chat Types =====

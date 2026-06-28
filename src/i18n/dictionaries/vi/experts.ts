@@ -34,6 +34,7 @@ const experts = {
     highlights: 'Điểm nổi bật',
     quotes: 'Trích dẫn nổi bật',
     advice: 'Lời khuyên',
+    faq: 'Câu hỏi thường gặp',
     links: 'Bài viết & Tài liệu',
     socials: 'Kết nối',
     source: 'Nguồn:',

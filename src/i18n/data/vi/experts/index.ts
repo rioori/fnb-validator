@@ -64,6 +64,28 @@ const EXPERTS: Expert[] = [
       { platform: 'website', url: 'https://fnbdirector.com' },
     ],
     featured: true,
+    faq: [
+      {
+        question: 'Đỗ Duy Thanh là ai?',
+        answer: 'Đỗ Duy Thanh là chuyên gia tư vấn chiến lược kinh doanh ẩm thực với hơn 20 năm kinh nghiệm. Ông sáng lập FnB Director vào năm 2012 và đã tư vấn cho hơn 100 dự án F&B tại Việt Nam, từ các thương hiệu lớn như Vingroup, Saigon Tourist đến các chuỗi quán nhỏ.',
+      },
+      {
+        question: 'Đỗ Duy Thanh đã tư vấn cho những công ty nào?',
+        answer: 'Ông đã đồng hành cùng hàng trăm dự án, bao gồm: Vingroup, Saigon Tourist, Nova FnB, Milano Coffee, Gojek, Baemin và nhiều thương hiệu F&B khác tại Việt Nam.',
+      },
+      {
+        question: 'Mô hình 9Ps Quản trị Nhà hàng của Đỗ Duy Thanh là gì?',
+        answer: 'Mô hình 9Ps là chiến lược quản trị toàn diện cho nhà hàng, bao gồm 9 yếu tố cốt lõi. Ông phát triển mô hình này từ kinh nghiệm thực tiễn sau 20+ năm làm việc trong ngành F&B.',
+      },
+      {
+        question: 'Ông có tham gia hoạt động đào tạo không?',
+        answer: 'Có, ông sáng lập Horeca Business School vào năm 2025 — nền tảng đào tạo chuyên sâu cho ngành Dịch vụ & Công nghệ nhà hàng, với mục đích nâng cao kỹ năng quản lý cho các chuyên gia F&B.',
+      },
+      {
+        question: 'Đỗ Duy Thanh có làm việc tại các nhà hàng nổi tiếng không?',
+        answer: 'Có, ông từng giữ vị trí Business Director tại D1 Concepts (San Fu Lou, Sorae, Dì Mai) và Oriental Saigon — hai chuỗi nhà hàng xuất hiện trong danh sách Top 101 Best Restaurants in Asia.',
+      },
+    ],
   },
 
   {
@@ -120,6 +142,28 @@ const EXPERTS: Expert[] = [
       { platform: 'website', url: 'https://www.cooked.vn' },
       { platform: 'spotify', url: 'https://open.spotify.com/show/3aGjrokDnUZc2bomJ1wD7w' },
     ],
+    faq: [
+      {
+        question: 'Hà Chu sinh năm bao nhiêu?',
+        answer: 'Hà Chu (Chu Hồng Hà) sinh năm 1992, hiện đang là CEO của COOKED và là một trong những chuyên gia marketing F&B hàng đầu Việt Nam.',
+      },
+      {
+        question: 'COOKED là gì?',
+        answer: 'COOKED là trường đào tạo Marketing & Kinh doanh chuyên ngành F&B đầu tiên và duy nhất tại Việt Nam. Được thành lập vào 2018, COOKED đã đào tạo gần 100.000 học viên về marketing và kinh doanh ẩm thực.',
+      },
+      {
+        question: 'Hà Chu tư vấn cho những thương hiệu nào?',
+        answer: 'Hà Chu đã tư vấn marketing cho hơn 20 thương hiệu F&B, bao gồm các nhà hàng Michelin như Gia, các chuỗi cà phê nổi tiếng như The KAfe, cũng như các thương hiệu khác như Manwah và Yu Tang.',
+      },
+      {
+        question: '"Ha Chu works" là podcast gì?',
+        answer: '"Ha Chu works" là podcast do Hà Chu trực tiếp host, với hơn 97 tập. Nó được đánh giá 4.9 sao trên Spotify, chia sẻ những bài học thực tiễn về marketing và kinh doanh F&B.',
+      },
+      {
+        question: 'Hà Chu từng làm việc ở đâu trước khi thành lập COOKED?',
+        answer: 'Hà Chu bắt đầu viết báo từ năm lớp 10, sau đó trở thành Marketing Manager tại The KAfe vào năm 24 tuổi. Kinh nghiệm này đã giúp cô hiểu sâu về thị trường F&B và sau đó sáng lập COOKED.',
+      },
+    ],
   },
 
   {
@@ -163,6 +207,28 @@ const EXPERTS: Expert[] = [
     ],
     socials: [
       { platform: 'website', url: 'https://www.trantrunghieu.com/' },
+    ],
+    faq: [
+      {
+        question: 'Trần Trung Hiếu là ai?',
+        answer: 'Trần Trung Hiếu là chuyên gia tư vấn F&B được biết đến với phong cách thẳng thắn "nói thẳng, nói thật" về tình hình kinh doanh quán ăn và cà phê tại Việt Nam. Ông thường xuyên được các tờ báo lớn như VnExpress, ZNews, Dân Trí trích dẫn khi có những vấn đề nóng trong ngành F&B.',
+      },
+      {
+        question: 'FnB Academy là gì?',
+        answer: 'FnB Academy (fnb.edu.vn) là nền tảng đào tạo trực tuyến do Trần Trung Hiếu sáng lập, giúp các chủ quán nhỏ nắm vững kiến thức về quản lý, vận hành và marketing ẩm thực. Nó tập trung vào việc đào tạo cho SME F&B.',
+      },
+      {
+        question: 'Trần Trung Hiếu tư vấn cho những loại hình quán nào?',
+        answer: 'Ông chuyên tư vấn cho các quán cà phê và nhà hàng nhỏ. Triết lý của ông là cung cấp những lời khuyên thực tiễn dựa trên kinh nghiệm thực tế, giúp chủ quán hiểu rõ chi phí vận hành và lợi nhuận kỳ vọng.',
+      },
+      {
+        question: 'Ông có chia sẻ nội dung ở đâu?',
+        answer: 'Trần Trung Hiếu chia sẻ kiến thức thông qua blog trantrunghieu.com và các bài viết trên các tờ báo lớn. Ông cũng thường xuyên xuất hiện để nhận xét về các vấn đề tiêu cực trong ngành F&B.',
+      },
+      {
+        question: 'Cách tư duy kinh doanh của Trần Trung Hiếu là gì?',
+        answer: 'Ông tin rằng kinh doanh F&B không phải là cuộc chơi của đam mê suông, mà là của những người biết cách tính toán chi phí, xác định break-even point và đầu tư dựa trên dữ liệu thực tế chứ không phải trend.',
+      },
     ],
   },
 
@@ -225,6 +291,28 @@ const EXPERTS: Expert[] = [
     socials: [
       { platform: 'website', url: 'https://ggg.com.vn' },
     ],
+    faq: [
+      {
+        question: 'Đào Thế Vinh sinh năm bao nhiêu?',
+        answer: 'Đào Thế Vinh sinh năm 1972. Ông học kỹ sư khí tượng ở đại học Saint Petersburg, Nga, trước khi chuyển sang kinh doanh ẩm thực.',
+      },
+      {
+        question: 'Golden Gate là gì?',
+        answer: 'Golden Gate là tập đoàn nhà hàng lớn nhất Việt Nam, được thành lập vào năm 2008 từ một quán lẩu nấm nhỏ. Hiện nay nó sở hữu 500+ nhà hàng, 40+ thương hiệu, tại 45 tỉnh thành và có doanh thu hơn 6.630 tỷ VNĐ năm 2024.',
+      },
+      {
+        question: 'Đào Thế Vinh bắt đầu kinh doanh thế nào?',
+        answer: 'Ông bắt đầu bằng cách nhập khẩu các mặt hàng từ Nga trong 7 năm, sau đó trở lại Việt Nam và đồng sáng lập thương hiệu trà Cozy. Năm 2008, ông và hai người bạn thành lập Golden Gate từ một quán lẩu nấm lấy cảm hứng từ chuyến đi Vân Nam, Trung Quốc.',
+      },
+      {
+        question: 'Golden Gate có những thương hiệu nào?',
+        answer: 'Golden Gate sở hữu 40+ thương hiệu F&B bao gồm Kichi Kichi, Gogi House, Vuvuzela, Ashima, Royaltea và nhiều thương hiệu khác trong các lĩnh vực khác nhau: lẩu, nướng, cà phê, trà sữa, kem...',
+      },
+      {
+        question: 'Tại sao Đào Thế Vinh hệ thống hóa mọi thứ?',
+        answer: 'Vì cả ba sáng lập viên của Golden Gate đều là kỹ sư, không ai có nền tảng ẩm thực, nên từ đầu họ đã hệ thống hóa mọi quy trình thay vì phụ thuộc vào các đầu bếp hay quản lý tài năng. Điều này giúp họ mở rộng quy mô nhanh chóng.',
+      },
+    ],
   },
 
   {
@@ -281,6 +369,28 @@ const EXPERTS: Expert[] = [
     ],
     socials: [
       { platform: 'website', url: 'https://www.kdc.vn' },
+    ],
+    faq: [
+      {
+        question: 'Trần Lệ Nguyên sinh năm bao nhiêu?',
+        answer: 'Trần Lệ Nguyên sinh năm 1968. Ông xuất thân từ gia đình gốc Hoa và là Phó Chủ tịch & CEO KIDO Group.',
+      },
+      {
+        question: 'Kinh Đô là gì?',
+        answer: 'Kinh Đô là công ty tiêu dùng được thành lập vào năm 1993 bởi Trần Lệ Nguyên và anh trai Trần Kim Thành. Năm 2014, Kinh Đô bán mảng bánh kẹo cho Mondelez với giá khoảng $370-490 triệu, đây là thương vụ M&A lớn nhất ngành tiêu dùng Việt Nam thời điểm đó.',
+      },
+      {
+        question: 'KIDO Group sở hữu những thương hiệu nào?',
+        answer: 'KIDO Group sở hữu các thương hiệu kem nổi tiếng như Merino, Celano (47% thị phần kem Việt Nam), dầu ăn KIDO (#2 thị trường với ~30% thị phần), và các sản phẩm khác. Ông cũng từng đầu tư vào chuỗi F&B Chuk Chuk.',
+      },
+      {
+        question: 'Chuk Chuk là gì và tại sao nó thất bại?',
+        answer: 'Chuk Chuk là chuỗi F&B (kem, trà sữa, cà phê) được ra mắt năm 2021 với mục tiêu tham vọng 1.000 cửa hàng. Tuy nhiên, nó thất bại và Trần Lệ Nguyên thoái vốn vào cuối 2022 vì mở rộng quá nhanh mà chưa chứng minh được unit economics tốt ở từng cửa hàng.',
+      },
+      {
+        question: 'Quyết định liều lĩnh nhất của Trần Lệ Nguyên là gì?',
+        answer: 'Năm 1992, ông thuyết phục anh trai Trần Kim Thành thế chấp nhà để vay vốn khởi nghiệp. Đây được ông gọi là "một trong những quyết định liều lĩnh nhất đời tôi", nhưng quyết định đó đã dẫn đến thành công của Kinh Đô và KIDO Group sau này.',
+      },
     ],
   },
 
@@ -340,6 +450,28 @@ const EXPERTS: Expert[] = [
       { platform: 'linkedin', url: 'https://growtheumcapital.com/danny-le/' },
       { platform: 'website', url: 'https://www.masangroup.com' },
     ],
+    faq: [
+      {
+        question: 'Danny Le sinh năm bao nhiêu?',
+        answer: 'Danny Le sinh năm 1984. Ông là Việt kiều Mỹ, tốt nghiệp Bowdoin College ngành Xã hội học, và làm việc tại Morgan Stanley New York như một investment banking analyst trước khi gia nhập Masan.',
+      },
+      {
+        question: 'Danny Le là CEO của công ty nào?',
+        answer: 'Danny Le là CEO của Masan Group từ năm 2020, khi ông mới 36 tuổi. Ông là một trong những CEO trẻ nhất của các tập đoàn lớn tại Việt Nam.',
+      },
+      {
+        question: 'Phúc Long được mua với giá bao nhiêu?',
+        answer: 'Masan mua 85% Phúc Long Heritage với tổng đầu tư khoảng $280 triệu, với định giá toàn bộ là $455 triệu. Đây là một thương vụ M&A quan trọng để mở rộng chuỗi bán lẻ của Masan.',
+      },
+      {
+        question: 'Masan Group huy động được bao nhiêu vốn từ nước ngoài?',
+        answer: 'Dưới thời Danny Le, Masan Group huy động hơn $5 tỷ từ các quỹ đầu tư lớn như KKR, Alibaba, SK Group, và Bain Capital. Số tiền này giúp Masan mở rộng các hoạt động M&A và chiến lược tăng trưởng.',
+      },
+      {
+        question: 'Doanh thu của Masan Group năm 2025 là bao nhiêu?',
+        answer: 'Doanh thu của Masan Group năm 2025 là 81.621 tỷ VNĐ, tăng 8.7% so với năm trước. Lợi nhuận sau thuế đạt 6.764 tỷ VNĐ, gấp 1.6 lần so với năm 2024.',
+      },
+    ],
   },
 
   {
@@ -391,6 +523,28 @@ const EXPERTS: Expert[] = [
     ],
     socials: [
       { platform: 'website', url: 'https://goldsunfood.vn' },
+    ],
+    faq: [
+      {
+        question: 'Phạm Cao Vinh sinh năm bao nhiêu?',
+        answer: 'Phạm Cao Vinh sinh năm 1968. Ông khởi nghiệp từ năm 1994 bắt đầu với công ty gas hóa lỏng, sau đó chuyển sang ngành bao bì và hiện là Chủ tịch Goldsun Group.',
+      },
+      {
+        question: 'Phạm Cao Vinh bắt đầu kinh doanh từ ngành nào?',
+        answer: 'Phạm Cao Vinh khởi nghiệp năm 1994 với công ty gas hóa lỏng Quang Vinh. Năm 1996, ông chuyển sang ngành in ấn bao bì, xây dựng Goldsun Printing & Packaging thành vendor cấp 1 của Samsung, cung cấp khoảng 20% bao bì điện thoại Samsung.',
+      },
+      {
+        question: 'Khi nào Phạm Cao Vinh chuyển sang F&B?',
+        answer: 'Năm 2008, Phạm Cao Vinh bắt đầu lấn sân vào ngành F&B với Redsun ITI. Ông đưa bốn thương hiệu quốc tế đầu tiên về Việt Nam như Seoul Garden, Thai Express, Xinwang HK Cafe, Capricciosa.',
+      },
+      {
+        question: 'Goldsun Food sở hữu những thương hiệu nào?',
+        answer: 'Goldsun Food vận hành 16 thương hiệu F&B, bao gồm: Seoul Garden, Thai Express, King BBQ (được phát triển bởi Goldsun từ 2011), Khao Lao, Hotpot Story, Sushi Kei, và nhiều thương hiệu khác. Tổng cộng có 200+ nhà hàng.',
+      },
+      {
+        question: 'Goldsun Food phục vụ bao nhiêu khách hàng?',
+        answer: 'Goldsun Food vận hành 200+ nhà hàng với 6.000+ nhân viên, phục vụ khoảng 2.4 triệu khách hàng mỗi năm. Đây là chuỗi nhà hàng lớn thứ 2 Việt Nam, sau Golden Gate.',
+      },
     ],
   },
 
@@ -458,6 +612,28 @@ const EXPERTS: Expert[] = [
     socials: [
       { platform: 'instagram', url: 'https://www.instagram.com/haininh.nguyen/' },
     ],
+    faq: [
+      {
+        question: 'Nguyễn Hải Ninh sinh năm bao nhiêu?',
+        answer: 'Nguyễn Hải Ninh sinh năm 1987. Ông tốt nghiệp ngành Hóa từ Đại học Bách Khoa TP.HCM và từng làm quản lý đào tạo tại PepsiCo trước khi bắt đầu hành trình khởi nghiệp.',
+      },
+      {
+        question: 'Nguyễn Hải Ninh thành lập những doanh nghiệp nào?',
+        answer: 'Nguyễn Hải Ninh là "nhà khởi nghiệp nối tiếp" với 4 ventures trong 14 năm: (1) Urban Station (60+ quán), (2) The Coffee House (175 quán, 800 tỷ doanh thu), (3) M Village (co-living, $10M từ Trip.com), (4) Every Half Coffee Roasters (cà phê specialty).',
+      },
+      {
+        question: 'The Coffee House đạt được những gì?',
+        answer: 'The Coffee House được Nguyễn Hải Ninh sáng lập với triết lý "cà phê cộng đồng". Chuỗi này nhanh chóng mở rộng đến 175 cửa hàng, đạt ~800 tỷ VNĐ doanh thu năm 2019, và Nguyễn Hải Ninh được vinh danh Forbes 30 Under 30 Asia.',
+      },
+      {
+        question: 'Every Half Coffee Roasters là gì?',
+        answer: 'Every Half là start-up cà phê specialty của Nguyễn Hải Ninh, được thành lập để xuất khẩu cà phê Robusta đặc sản Việt Nam sang các thị trường quốc tế như Bắc Mỹ. Công ty đã huy động $3M Pre-Series A vào năm 2025.',
+      },
+      {
+        question: 'Triết lý khởi nghiệp của Nguyễn Hải Ninh là gì?',
+        answer: 'Nguyễn Hải Ninh tin rằng khởi nghiệp cần 3 yếu tố: đam mê, thế mạnh cá nhân, và thế mạnh đó phải là cái mà xã hội đang cần. Ông cũng nhấn mạnh rằng "gọi vốn là hệ quả, không phải mục tiêu" — tức là phải tập trung giải quyết vấn đề đúng thì nhà đầu tư sẽ tự tìm đến.',
+      },
+    ],
   },
 
   {
@@ -498,6 +674,28 @@ const EXPERTS: Expert[] = [
     ],
     socials: [
       { platform: 'website', url: 'https://www.thecoffeehouse.com' },
+    ],
+    faq: [
+      {
+        question: 'Ngô Nguyên Kha sinh năm bao nhiêu?',
+        answer: 'Ngô Nguyên Kha sinh năm 1971. Ông có gần 10 năm kinh nghiệm tại Ericsson và Sony Ericsson trước khi chuyển sang kinh doanh.',
+      },
+      {
+        question: 'Ngô Nguyên Kha làm việc tại những công ty nào?',
+        answer: 'Ngô Nguyên Kha từng là Country Manager Sony Ericsson Việt Nam. Sau đó, ông đồng sáng lập Mobiistar — thương hiệu smartphone Việt từng đạt top 5 thị phần. Ông cũng làm Tổng Giám đốc Fashion Group tại Seedcom trước khi trở thành CEO The Coffee House.',
+      },
+      {
+        question: 'Mobiistar là gì?',
+        answer: 'Mobiistar là thương hiệu smartphone Việt Nam do Ngô Nguyên Kha đồng sáng lập năm 2012. Thương hiệu này từng đạt top 5 thị phần smartphone tại Việt Nam và mở rộng sang Ấn Độ năm 2018, nhưng rút lui năm 2019.',
+      },
+      {
+        question: 'Ngô Nguyên Kha làm gì tại The Coffee House?',
+        answer: 'Ngô Nguyên Kha được bổ nhiệm CEO The Coffee House vào tháng 12/2021. Ông tái cấu trúc chuỗi từ ~150 cửa hàng xuống ~93 cửa hàng, mang tư duy công nghệ và trải nghiệm khách hàng từ ngành điện tử vào F&B.',
+      },
+      {
+        question: 'The Coffee House được mua lại bởi ai?',
+        answer: 'Vào đầu năm 2025, Golden Gate mua lại 99.98% The Coffee House với giá 270 tỷ VNĐ. Thương vụ này giúp Golden Gate mở rộng danh mục thương hiệu của mình.',
+      },
     ],
   },
 
