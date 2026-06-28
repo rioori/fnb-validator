@@ -35,8 +35,10 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   if (!comparison) return {};
 
   const dict = await getDictionary(locale as Locale);
-  const title = `${comparison.title} | Validator.vn`;
-  const description = comparison.subtitle;
+  const title = comparison.seoTitle
+    ? `${comparison.seoTitle} | Validator.vn`
+    : `${comparison.title} | Validator.vn`;
+  const description = comparison.seoDescription || comparison.subtitle;
   const viUrl = `${BASE_URL}/so-sanh/${comparison.slug}`;
   const enUrl = `${BASE_URL}${localePath(`/so-sanh/${comparison.slug}`, 'en')}`;
   const canonical = locale === defaultLocale ? viUrl : enUrl;
