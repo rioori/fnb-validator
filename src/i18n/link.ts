@@ -7,6 +7,7 @@ import { defaultLocale, type Locale } from './config';
  */
 const PATH_EN: [string, string][] = [
   // Translated slugs (longer prefixes first to avoid partial matches)
+  ['/so-sanh', '/comparison'],
   ['/goc-nhin-chuyen-gia', '/experts'],
   ['/kien-thuc', '/knowledge'],
   ['/chi-phi-mo', '/opening-costs'],
