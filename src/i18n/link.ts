@@ -16,6 +16,7 @@ const PATH_EN: [string, string][] = [
   ['/tinh-nang/kien-thuc', '/features/knowledge'],
   ['/tinh-nang/checklist', '/features/checklist'],
   ['/tinh-nang', '/features'],
+  ['/doi-tac', '/partners'],
   ['/chinh-sach-bao-mat', '/privacy'],
   ['/dieu-khoan', '/terms'],
 ];

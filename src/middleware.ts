@@ -5,10 +5,11 @@ import { PATH_VI_FROM_EN } from '@/i18n/link';
 export function middleware(request: NextRequest) {
   const { pathname } = request.nextUrl;
 
-  // Skip static files, API routes, _next
+  // Skip static files, API routes, _next, embed widgets (no locale)
   if (
     pathname.startsWith('/_next') ||
     pathname.startsWith('/api') ||
+    pathname.startsWith('/embed') ||
     pathname.includes('.')
   ) {
     return NextResponse.next();

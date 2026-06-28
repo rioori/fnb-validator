@@ -774,6 +774,8 @@ const EXPERTS: Expert[] = [
     id: 'ly-quy-trung',
     slug: 'ly-quy-trung',
     name: 'Lý Quý Trung',
+    seoTitle: 'Lý Quý Trung (1966) — Cha đẻ Phở 24, bán $20M cho Highlands (2011), CEO Nhà Xinh',
+    seoDescription: 'Lý Quý Trung — sáng lập Phở 24 (2003), 70+ cửa hàng 5 quốc gia, bán $20M cho Highlands Coffee Group (2011). Hiện CEO Nhà Xinh + Giáo sư Western Sydney. 10 cuốn sách.',
     descriptor: '"Cha đẻ Phở 24" — người tiên phong nhượng quyền F&B Việt Nam, tác giả 10 cuốn sách kinh doanh',
     photo: '/experts/ly-quy-trung.webp',
     category: 'inspiration',
@@ -824,6 +826,28 @@ const EXPERTS: Expert[] = [
     ],
     socials: [
       { platform: 'website', url: 'https://lqt.edu.vn' },
+    ],
+    faq: [
+      {
+        question: 'Lý Quý Trung sinh năm bao nhiêu?',
+        answer: 'Lý Quý Trung sinh năm 1966 tại Sài Gòn. Ông xuất thân từ gia đình doanh nhân — mẹ là chủ nhà hàng Thanh Niên hoạt động hơn 30 năm tại Quận 1, TP.HCM.',
+      },
+      {
+        question: 'Phở 24 bán cho ai và với giá bao nhiêu?',
+        answer: 'Năm 2011, Lý Quý Trung bán Phở 24 cho Việt Thái Quốc Tế (công ty mẹ Highlands Coffee, thuộc Jollibee Foods sau này) với giá $20 triệu USD. Đây là một trong những thương vụ F&B Việt Nam lớn nhất thời điểm đó.',
+      },
+      {
+        question: 'Phở 24 hiện có bao nhiêu cửa hàng?',
+        answer: 'Vào thời đỉnh cao (2011), Phở 24 có 70+ cửa hàng tại Việt Nam và 5 quốc gia khác (Indonesia, Philippines, Hàn Quốc, Nhật Bản, Úc). Sau khi bán, chuỗi co lại và hiện chỉ còn ~30+ cửa hàng chủ yếu tại Việt Nam.',
+      },
+      {
+        question: 'Lý Quý Trung làm gì sau khi bán Phở 24?',
+        answer: 'Sau 5 năm sabbatical tại Sydney, ông trở về Việt Nam năm 2016 làm CEO công ty nội thất cao cấp Nhà Xinh (thuộc AKA Furniture Group). Đồng thời là Giáo sư Đại học Western Sydney + sáng lập Viện Doanh nhân LQT đào tạo khởi nghiệp.',
+      },
+      {
+        question: 'Ông đã viết những cuốn sách nào?',
+        answer: 'Lý Quý Trung là tác giả 10+ cuốn sách kinh doanh được NXB Trẻ xuất bản, trong đó nổi tiếng nhất: "Bầu Trời Không Chỉ Có Màu Xanh", "Chỉ Có Niềm Đam Mê", "Xây Dựng Thương Hiệu Cho Doanh Nghiệp Việt". Các sách đều dựa trên kinh nghiệm thực chiến + bài học thất bại.',
+      },
     ],
   },
 
@@ -895,12 +919,14 @@ const EXPERTS: Expert[] = [
     id: 'hoang-tung',
     slug: 'hoang-tung',
     name: 'Hoàng Tùng',
+    seoTitle: 'Hoàng Tùng "Mr Pizza" (1980) — Founder Pizza Home, Cloud Cook, Burger Corona 2020',
+    seoDescription: 'Hoàng Tùng — sáng lập Pizza Home (~20 quán Hà Nội), Cloud Cook (bếp đám mây), nổi tiếng với Burger Corona 2020 (CNN, BBC). Shark Tank S4 gọi vốn 6 tỷ. 50+ ghost brand.',
     descriptor: '"Mr Pizza" — ông chủ Việt của chuỗi Pizza Home, nhà sáng tạo nội dung F&B thực chiến',
     photo: '/experts/hoang-tung.webp',
     category: 'inspiration',
     tags: ['Pizza', 'Chuỗi F&B', 'Khởi nghiệp', 'Content Creator'],
-    shortBio: 'Hoàng Tùng (sinh 1981) — gần 10 lần khởi nghiệp, 3 lần thất bại. Pizza Home ~20 quán, Mr Lẩu, Cloud Cook. Burger Corona (2020) lên CNN, BBC, Reuters toàn cầu. Chiến lược "CẮT-GIẢM-TĂNG" giữa COVID: cắt lỗ, giảm chi phí, tăng R&D → sống sót. Công thức: "Càng cố gắng thì càng may mắn." Phân tích F&B trên Brands Vietnam.',
-    fullBio: 'Hoàng Tùng (sinh 1981, Hà Nội) tốt nghiệp ĐH Ngoại ngữ và ĐH KHXH&NV, khởi nghiệp từ thời sinh viên với công ty dịch thuật — thất bại. Năm 2006, mở nhà hàng Viet Kitchen tại 24 Bà Triệu, doanh thu 500 triệu/tháng nhưng mâu thuẫn cổ đông khiến ông phải rút vốn.\n\nNăm 2013, ông sáng lập Pizza Home với triết lý "Nhanh - Ngon - Sạch" — pizza giá phải chăng, hương vị Việt hóa. Chuỗi mở rộng ~20 cửa hàng tại Hà Nội. Năm 2020, sáng tạo "Burger Corona" được CNN, BBC, Reuters đưa tin toàn cầu. Ngoài Pizza Home, ông còn sáng lập Mr Lẩu (lẩu giao tận nhà) và Cloud Cook (bếp trên mây).\n\nHoàng Tùng cũng là cây viết phân tích F&B nổi tiếng trên Brands Vietnam và Spiderum, thường xuyên chia sẻ case study thực chiến.',
+    shortBio: 'Hoàng Tùng (sinh 8/2/1980) — gần 10 lần khởi nghiệp, 3 lần thất bại. Pizza Home (2013) ~20 quán, pivot sang Cloud Cook (2021) bếp trung tâm vận hành 50+ ghost brand. Burger Corona (2020) lên CNN, BBC, Reuters. Shark Tank S4 gọi 6 tỷ cho 40% Cloud Cook. Công thức: "Càng cố gắng thì càng may mắn."',
+    fullBio: 'Hoàng Tùng (sinh 8/2/1980, Hà Nội) tốt nghiệp ĐH Ngoại ngữ và ĐH KHXH&NV, khởi nghiệp từ thời sinh viên với công ty dịch thuật — thất bại. Năm 2006, mở nhà hàng Viet Kitchen tại 24 Bà Triệu, doanh thu 500 triệu/tháng nhưng mâu thuẫn cổ đông khiến ông phải rút vốn.\n\nNăm 2013, ông sáng lập Pizza Home với triết lý "Nhanh - Ngon - Sạch" — pizza giá phải chăng, hương vị Việt hóa. Chuỗi mở rộng ~20 cửa hàng tại Hà Nội. Năm 2020, sáng tạo "Burger Corona" (hình virus corona) được CNN, BBC, Reuters, Le Figaro đưa tin toàn cầu giữa đại dịch.\n\nNăm 2021, ông pivot sang mô hình Cloud Cook — bếp trung tâm vận hành nhiều ghost brand cùng lúc (50+ thương hiệu ảo). Trên Shark Tank Việt Nam mùa 4, ông gọi vốn thành công 6 tỷ VNĐ cho 40% Cloud Cook. Hoàng Tùng cũng là cây viết phân tích F&B nổi tiếng trên Brands Vietnam và Spiderum, thường xuyên chia sẻ case study thực chiến.',
     highlights: [
       'Sáng lập Pizza Home (2013) — ~20 cửa hàng tại Hà Nội',
       'Burger Corona (2020) — được CNN, BBC, Reuters, Le Figaro đưa tin',
@@ -947,12 +973,36 @@ const EXPERTS: Expert[] = [
       { platform: 'tiktok', url: 'https://www.tiktok.com/@tungpiz' },
       { platform: 'website', url: 'https://pizzahome.vn' },
     ],
+    faq: [
+      {
+        question: 'Hoàng Tùng "Mr Pizza" sinh năm bao nhiêu?',
+        answer: 'Hoàng Tùng sinh ngày 8/2/1980 tại Hà Nội. Ông tốt nghiệp Đại học Ngoại ngữ và Đại học KHXH&NV, khởi nghiệp từ thời sinh viên với gần 10 lần startup (3 lần thất bại lớn).',
+      },
+      {
+        question: 'Pizza Home có bao nhiêu cửa hàng?',
+        answer: 'Pizza Home tại đỉnh cao có ~20 cửa hàng tại Hà Nội với triết lý "Nhanh - Ngon - Sạch". Năm 2021, Hoàng Tùng pivot sang mô hình Cloud Cook — bếp trung tâm vận hành 50+ ghost brand thay vì mở rộng cửa hàng vật lý.',
+      },
+      {
+        question: 'Burger Corona là gì?',
+        answer: 'Năm 2020, giữa đại dịch COVID-19, Hoàng Tùng tạo ra "Burger Corona" — chiếc burger hình virus corona với vỏ bánh đen + topping mô phỏng gai virus. Sản phẩm viral toàn cầu, được CNN, BBC, Reuters, Le Figaro đưa tin. Đây là case study nổi tiếng về crisis-to-opportunity trong F&B.',
+      },
+      {
+        question: 'Cloud Cook là gì?',
+        answer: 'Cloud Cook là mô hình bếp trung tâm (cloud kitchen) do Hoàng Tùng sáng lập 2021. Một bếp vận hành 50+ thương hiệu ảo (ghost brand) cùng lúc — chỉ bán qua app delivery, không có cửa hàng vật lý. Năm 2022, ông gọi vốn thành công 6 tỷ VNĐ cho 40% trên Shark Tank Vietnam mùa 4.',
+      },
+      {
+        question: 'Hoàng Tùng viết về F&B ở đâu?',
+        answer: 'Ông là cây viết phân tích F&B nổi tiếng trên Brands Vietnam, Spiderum, CafeBiz. Các bài viết thường chia sẻ case study thực chiến từ kinh nghiệm tự kinh doanh + phân tích chiến lược chuỗi F&B Việt Nam và quốc tế.',
+      },
+    ],
   },
 
   {
     id: 'yosuke-masuko',
     slug: 'yosuke-masuko',
     name: 'Yosuke Masuko',
+    seoTitle: 'Yosuke Masuko — Founder Pizza 4P\'s, từ $100K đến chuỗi 40+ nhà hàng 5 quốc gia',
+    seoDescription: 'Yosuke Masuko — người Nhật, sáng lập Pizza 4P\'s 2011 từ $100K. 40+ nhà hàng 5 quốc gia, xưởng burrata Đà Lạt 2.000 viên/ngày, lợi nhuận 115 tỷ (2023). Mở New York 2025.',
     descriptor: 'Tự học làm phô mai từ YouTube, biến tiệc pizza sân sau thành chuỗi 40+ nhà hàng tại 5 quốc gia',
     photo: '/experts/yosuke-masuko.webp',
     category: 'inspiration',
@@ -1005,6 +1055,28 @@ const EXPERTS: Expert[] = [
       { platform: 'linkedin', url: 'https://in.linkedin.com/in/masuko-y-331aa98' },
       { platform: 'instagram', url: 'https://www.instagram.com/masuko_yoo/' },
       { platform: 'website', url: 'https://pizza4ps.com' },
+    ],
+    faq: [
+      {
+        question: 'Pizza 4P\'s là của ai?',
+        answer: 'Pizza 4P\'s là chuỗi nhà hàng Ý-Nhật do Yosuke Masuko (CEO) và vợ Sanae Takasugi đồng sáng lập năm 2011 tại Quận 1, TP.HCM. Cả hai đều là người Nhật, chuyển đến Việt Nam năm 2008.',
+      },
+      {
+        question: 'Pizza 4P\'s có bao nhiêu nhà hàng?',
+        answer: 'Tính đến 2025, Pizza 4P\'s có 40+ nhà hàng trải dài tại 5 quốc gia (Việt Nam, Nhật Bản, Ấn Độ, Indonesia, Campuchia). Tháng 6/2025 mở rộng sang New York, Mỹ.',
+      },
+      {
+        question: 'Vì sao tên "4P\'s"?',
+        answer: '4P viết tắt từ "Platform of Personal Pizza for Peace" — triết lý hòa bình thông qua bữa ăn. Sứ mệnh: "Make the World Smile for Peace" (Làm thế giới mỉm cười vì hòa bình).',
+      },
+      {
+        question: 'Pizza 4P\'s sản xuất phô mai ở đâu?',
+        answer: 'Pizza 4P\'s có xưởng phô mai riêng tại Đơn Dương (Lâm Đồng, Đà Lạt), sản xuất 1.500-2.000 viên burrata + 2.000-3.000 viên mozzarella tươi mỗi ngày. Đây là một trong số ít xưởng phô mai chất lượng Ý tại Đông Nam Á — CNN đã có bài viết riêng về xưởng này.',
+      },
+      {
+        question: 'Pizza 4P\'s có doanh thu bao nhiêu?',
+        answer: 'Năm 2023, Pizza 4P\'s đạt lợi nhuận sau thuế 115 tỷ VNĐ (~$4.5M), tăng 38% so với năm trước. Chuỗi vẫn private — không công bố doanh thu chính thức nhưng được estimate hàng nghìn tỷ VNĐ/năm.',
+      },
     ],
   },
 
@@ -1405,6 +1477,8 @@ const EXPERTS: Expert[] = [
     id: 'truong-nguyen-thien-kim',
     slug: 'truong-nguyen-thien-kim',
     name: 'Trương Nguyễn Thiên Kim',
+    seoTitle: 'Trương Nguyễn Thiên Kim (1976) — Bà chủ Katinat, Phê La, tài sản 3.500 tỷ',
+    seoDescription: 'Trương Nguyễn Thiên Kim — sáng lập Katinat (2016, 70+ cửa hàng), sở hữu 84.21% + Phê La (51%). Khối tài sản 3.500 tỷ. Chủ tịch D1 Concepts. Vợ ông Tô Hải (Vietcap).',
     descriptor: '"Nữ tướng F&B kín tiếng" — người đứng sau đế chế nghìn tỷ Katinat, Phê La, D1 Concepts',
     photo: '/experts/truong-nguyen-thien-kim.webp',
     category: 'inspiration',
@@ -1430,6 +1504,28 @@ const EXPERTS: Expert[] = [
       { label: 'Nữ đại gia đứng sau Phê La, Katinat (Znews)', url: 'https://znews.vn/nu-dai-gia-dung-sau-chuoi-phe-la-katinat-la-ai-post1494565.html', type: 'article' },
     ],
     socials: [],
+    faq: [
+      {
+        question: 'Trương Nguyễn Thiên Kim sinh năm bao nhiêu?',
+        answer: 'Trương Nguyễn Thiên Kim sinh ngày 28/11/1976 tại Đà Lạt. Bà tốt nghiệp Thạc sĩ Tài chính tại Đại học Kinh tế TP.HCM, từng làm chứng khoán (Bảo Việt, Đông Á) và Trưởng Ban Kiểm soát PNJ trước khi chuyển hẳn sang F&B.',
+      },
+      {
+        question: 'Katinat của ai?',
+        answer: 'Katinat Saigon Kafe là chuỗi cà phê premium do Trương Nguyễn Thiên Kim sáng lập năm 2016 và hiện sở hữu 84.21% cổ phần. Chuỗi mở rộng lên 70+ cửa hàng tại 10 tỉnh thành (2025), tập trung phân khúc cao cấp tại TP.HCM.',
+      },
+      {
+        question: 'Phê La của ai?',
+        answer: 'Phê La là chuỗi cà phê do D1 Concepts (công ty của bà Trương Nguyễn Thiên Kim) sở hữu 51%. Phê La tạo hiện tượng "cà phê lúc bình minh" viral TikTok 2024, nhanh chóng trở thành chuỗi cà phê hot tại Hà Nội.',
+      },
+      {
+        question: 'Khối tài sản của bà Thiên Kim bao nhiêu?',
+        answer: 'Cùng chồng Tô Hải (Tổng Giám đốc Vietcap Securities), khối tài sản gia đình ước tính ~3.500 tỷ VNĐ (~$140M USD). Phần lớn từ cổ phần F&B (Katinat, Phê La, D1 Concepts) + cổ phần Vietcap Securities.',
+      },
+      {
+        question: 'D1 Concepts là gì?',
+        answer: 'D1 Concepts là công ty F&B do bà Trương Nguyễn Thiên Kim làm Chủ tịch, thành lập 2012. Portfolio bao gồm: San Fu Lou (dim sum), Sorae (Nhật cao cấp), Dì Mai (Việt mass), Katinat (cà phê premium), Phê La. Hai lần được vinh danh Top 101 Best Restaurants in Asia.',
+      },
+    ],
   },
 
   {

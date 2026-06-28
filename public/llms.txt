@@ -47,7 +47,17 @@
 
 - [F&B Business Validator](https://www.validator.vn/fnb): Interactive wizard to validate F&B business viability — estimate startup costs, project break-even, analyze location profitability
 - [Opening Cost Calculator](https://www.validator.vn/en/opening-costs/coffee/tai/ho-chi-minh): City-specific capital requirements for coffee, restaurant, bar, bubble tea, and other F&B concepts in Vietnam
+- [Embeddable Break-Even Calculator](https://www.validator.vn/embed/break-even): Free embeddable widget — any blog can iframe to give readers instant break-even analysis
 
-## About
+## Industry Data & Benchmarks
+
+- [Vietnam F&B Industry Data 2026](https://www.validator.vn/en/knowledge/so-lieu-nganh-fnb-viet-nam-2026): Market size (726.5T VND), profit margins by segment, delivery share, labor costs, consumer behavior — verified data with inline sources
+- [F&B Staff Salary Benchmark Vietnam 2026](https://www.validator.vn/en/knowledge/luong-nhan-vien-fnb-2026): Wages by role (server, barista, cook, manager, head chef), 2026 minimum wage by zone, 21.5% employer insurance
+- [Cost to Open a Bakery in Vietnam 2026](https://www.validator.vn/en/knowledge/chi-phi-mo-tiem-banh-ngot-2026): Investment, operating costs, payback time for 3 sizes
+- [Cost to Open a Coffee Shop in Vietnam 2026](https://www.validator.vn/en/knowledge/mo-quan-cafe-nho-can-bao-nhieu-tien-2026): 3-size investment breakdown with real Validator data
+- [F&B Location Mistakes Vietnam](https://www.validator.vn/en/knowledge/sai-lam-khi-chon-mat-bang-fnb): Top 8 location pitfalls + 12-step pre-signing checklist
+
+## About & Partnership
 
 - [About Validator.vn](https://www.validator.vn/en/about): Our mission, methodology, and team background
+- [Partner with Validator](https://www.validator.vn/en/partners): Embed our tools, contribute data, guest posts, expert interviews
