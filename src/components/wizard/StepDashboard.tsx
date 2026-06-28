@@ -27,6 +27,7 @@ import ExistingDashboard from '@/components/dashboard/ExistingDashboard';
 import InlineChat from '@/components/dashboard/InlineChat';
 import SavePrompt from '@/components/dashboard/SavePrompt';
 import EmailCaptureModal from '@/components/dashboard/EmailCaptureModal';
+import ShareResultCTA from '@/components/dashboard/ShareResultCTA';
 import CollapsibleSection from '@/components/ui/CollapsibleSection';
 import NavButtons from '@/components/ui/NavButtons';
 import Icon from '@/components/ui/Icon';
@@ -262,6 +263,17 @@ export default function StepDashboard() {
             <ScoreRing score={results.score} />
             <KPIGrid kpis={overviewKPIs} />
             <OverviewAlerts results={results} />
+            {/* Share CTA at peak interest moment — user just saw score */}
+            <ShareResultCTA resultData={{
+              modelName: store.selectedModel || 'F&B',
+              score: results.score,
+              netProfit: results.stableMonth.netProfit,
+              netMargin: results.stableMonth.netMargin,
+              paybackMonth: results.paybackMonth,
+              totalInvestment: results.totalInvestment,
+              bepCustomersDay: results.bepCustomersDay,
+              locale,
+            }} />
           </div>
 
           {/* P&L + Cash Flow */}

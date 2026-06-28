@@ -208,19 +208,28 @@ export default async function KienThucTopicPage({ params }: PageProps) {
         {/* AI Chat CTA at top — captures research-mode visitors before they bounce */}
         <AIChatCTA locale={locale} topic={topic.slug} />
 
-        {/* Sections — fully expanded for SEO. Inline CTA injected after section 3 for long articles. */}
+        {/* Sections — fully expanded for SEO. CTAs strategically placed:
+            - InlineToolCTA after section 2 (early decision-mode capture)
+            - AIChatCTA after section ~60% (question intent mid-read)
+            - InlineToolCTA final after all sections (definite decision)
+        */}
         <div className="clay-card-static p-5 mb-6 max-md:p-4">
           {(() => {
             const inferredModel = inferModelFromSlug(topic.slug);
             const sections = topic.sections;
-            // Inject inline CTA after section 3 only for articles with ≥6 sections
-            const inlineCtaAfter = sections.length >= 6 ? 2 : -1;
+            const total = sections.length;
+            // Strategic placement based on article length
+            const inlineCtaAfter = total >= 6 ? 2 : -1;            // early decision capture
+            const midAiCtaAfter = total >= 8 ? Math.floor(total * 0.6) : -1;  // ~60% through for long articles
 
             return sections.map((section, i) => (
               <div key={i}>
                 <KBSectionRenderer section={section} />
                 {inlineCtaAfter === i && (
                   <InlineToolCTA locale={locale} model={inferredModel} variant="inline" />
+                )}
+                {midAiCtaAfter === i && (
+                  <AIChatCTA locale={locale} topic={`${topic.slug}-mid`} />
                 )}
               </div>
             ));
