@@ -565,6 +565,127 @@ const OPERATIONS_ARTICLES: KBTopic[] = [
       },
     ],
   },
+  {
+    id: 'fnb_salary_2026',
+    slug: 'luong-nhan-vien-fnb-2026',
+    publishDate: '2026-06-28',
+    icon: 'people',
+    title: 'Lương nhân viên F&B 2026: Bảng giá theo vị trí + chi phí ẩn',
+    subtitle: 'Phục vụ 5-13tr, barista 6-12tr, bếp trưởng 25-100tr — bảng tham chiếu chuẩn + chi phí thực tế',
+    seoTitle: 'Lương nhân viên F&B 2026: Bảng giá đầy đủ (phục vụ, barista, đầu bếp, quản lý)',
+    seoDescription: 'Lương F&B Việt Nam 2026: phục vụ 5-13tr, barista 6-12tr, đầu bếp 7-20tr, bếp trưởng 25-100tr. Bảng chi tiết + BHXH 21.5% + lương tối thiểu vùng + chi phí thực.',
+    color: 'mint-light',
+    category: 'operations',
+    highlights: [
+      { label: 'Lương tối thiểu Vùng I', value: '5.31tr', note: 'TP.HCM, HN từ 1/2026 (+7.2%)' },
+      { label: 'Phục vụ + barista', value: '5-13tr/tháng', note: 'tùy kinh nghiệm + thành phố' },
+      { label: 'Bếp trưởng 5-sao', value: '50-100tr+', note: 'top tier' },
+      { label: 'Chi phí ẩn (BHXH)', value: '+21.5%', note: 'employer contribution' },
+    ],
+    sections: [
+      {
+        type: 'tldr',
+        content: [
+          'Lương F&B 2026: phục vụ 5.3-13tr, barista 6-12tr, đầu bếp 7-20tr, quản lý nhà hàng 12-50tr, bếp trưởng 5-sao 50-100tr+',
+          'Chi phí ẩn quan trọng: chủ phải đóng BHXH/BHYT/BHTN/tai nạn = 21.5% trên lương → 7tr lương = 8.5tr chi phí thực',
+          'Lương tối thiểu vùng 2026 tăng 7.2%: Vùng I 5.31tr (TP.HCM, HN), Vùng IV 3.7tr (tỉnh vùng sâu)',
+          'Lương cao hơn thị trường 10-15% rẻ hơn turnover liên tục — replacement cost = 2-3 tháng lương + 1-2 tháng training',
+        ],
+      },
+      {
+        type: 'text',
+        content: 'Lương nhân viên là khoản chi phí biến đổi lớn thứ 2 (sau NVL) trong F&B — chiếm 20-30% doanh thu. Nhưng nhiều chủ quán chỉ tính "lương cứng" mà quên BHXH 21.5% chủ phải đóng, thưởng Tết, overtime, training, replacement cost. Tổng chi phí thực = lương × 1.4-1.5. Bài này tổng hợp bảng lương chuẩn 2026 + những con số ẩn cần biết trước khi mở quán.',
+      },
+      {
+        type: 'table',
+        heading: 'Lương tối thiểu vùng 2026 (Nghị định 293/2025/NĐ-CP, hiệu lực 1/1/2026)',
+        content: [
+          { label: 'Vùng I', range: '5.31 triệu/tháng', note: 'TP.HCM, Hà Nội, các quận trung tâm. Lương theo giờ: 25.500đ.' },
+          { label: 'Vùng II', range: '4.73 triệu/tháng', note: 'Đà Nẵng, Quảng Ninh, ngoại thành các thành phố lớn. Lương giờ: 22.700đ.' },
+          { label: 'Vùng III', range: '4.14 triệu/tháng', note: 'Tỉnh và huyện trung bình. Lương giờ: 20.000đ.' },
+          { label: 'Vùng IV', range: '3.70 triệu/tháng', note: 'Tỉnh vùng sâu vùng xa. Lương giờ: 17.800đ.' },
+        ] as KBTableRow[],
+      },
+      {
+        type: 'table',
+        heading: 'Bảng lương F&B theo vị trí — TP.HCM/Hà Nội 2026',
+        content: [
+          { label: 'Phục vụ (waiter)', range: '5.3-13tr', note: 'Entry 5.3-8tr, có kinh nghiệm 1-2 năm 7-10tr + tip, senior 3+ năm 10-13tr + tip.' },
+          { label: 'Barista / pha chế', range: '6-20tr', note: 'Entry 6-8tr, junior 8-10tr, senior 10-12tr. Specialty coffee shop hoặc có cert: 12-20tr.' },
+          { label: 'Phụ bếp / tạp vụ', range: '4.5-10tr', note: 'Entry 4.5-6tr, có kinh nghiệm 6-8tr, senior 7-10tr. Mức tăng nhanh khi chuyển lên line cook.' },
+          { label: 'Đầu bếp (line cook / chef de partie)', range: '7-20tr', note: 'Entry 7-10tr, mid 10-15tr, senior 12-20tr. Hot kitchen (wok, grill) lương cao hơn cold.' },
+          { label: 'Bếp trưởng / sous chef', range: '12-40tr', note: 'Entry 12-18tr, mid 20-30tr, senior 25-40tr. Nhà hàng chains lớn vào range cao.' },
+          { label: 'Bếp trưởng chính (head/exec chef)', range: '25-100tr+', note: 'Nhà hàng thường 25-50tr, khách sạn 5-sao + nhà hàng award 50-100tr+. Top chefs (TV, sao Michelin) 150tr+.' },
+          { label: 'Trưởng ca / shift supervisor', range: '7-18tr', note: 'Entry 7-12tr, có kinh nghiệm 10-15tr, senior 12-18tr. Thường cộng thêm 1-2tr/tháng so với phục vụ giỏi.' },
+          { label: 'Quản lý nhà hàng', range: '12-50tr', note: 'Quán nhỏ 12-18tr, chuỗi nhà hàng 18-30tr, fine dining hoặc chain lớn 25-50tr.' },
+          { label: 'Quản lý khu vực (area/multi-unit)', range: '30-80tr', note: 'Quản 3-10 cửa hàng. Thường cộng % bonus theo P&L của khu vực.' },
+          { label: 'Thợ làm bánh (baker)', range: '4-15tr', note: 'Entry 4-5tr, có kinh nghiệm 6-8tr, senior 8-12tr. Specialty bakery (croissant, sourdough): 9-15tr.' },
+        ] as KBTableRow[],
+      },
+      {
+        type: 'text',
+        content: 'Lương vùng II thấp hơn TP.HCM/HN khoảng 15-20%. Vùng III/IV thấp hơn 25-35%. Khi mở quán ở tỉnh, đừng copy lương TP.HCM — tham khảo mặt bằng địa phương để không trả thừa, cũng không quá thấp khiến nhân viên giỏi nghỉ.',
+      },
+      {
+        type: 'stat-grid',
+        heading: 'Chi phí ẩn — lương cứng KHÔNG phải là tất cả',
+        content: [
+          { icon: 'money', label: 'BHXH (chủ đóng)', value: '14%', desc: 'Bảo hiểm xã hội bắt buộc — quỹ hưu trí. Tính trên lương cứng. Không đóng = phạt + truy thu.' },
+          { icon: 'money', label: 'BHYT (chủ đóng)', value: '3%', desc: 'Bảo hiểm y tế. Nhân viên cũng đóng 1.5%. Tổng 4.5% sang quỹ y tế.' },
+          { icon: 'money', label: 'BHTN + tai nạn', value: '1.5%', desc: 'Bảo hiểm thất nghiệp 1% + tai nạn lao động 0.5%. Bắt buộc.' },
+          { icon: 'money', label: 'Tổng chủ đóng', value: '21.5%', desc: '14% + 3% + 1.5% + thuế khác 3% = 21.5% trên lương cứng. Lương 7tr → chi phí thực 8.5tr.' },
+          { icon: 'money', label: 'Thưởng Tết', value: '+1 tháng', desc: 'Lương tháng 13 — bắt buộc theo hợp đồng. Một số chủ trả 2-3 tháng để giữ nhân viên giỏi.' },
+          { icon: 'money', label: 'Overtime', value: '+50-300%', desc: 'Ngày thường +50%, cuối tuần +100%, lễ +200%. Ca đêm (22h-6h) +30%.' },
+          { icon: 'money', label: 'Replacement cost', value: '2-3 tháng', desc: 'Tìm + đào tạo nhân viên mới = mất 2-3 tháng lương. Pay below market = turnover cycle 6 tháng.' },
+        ] as KBStat[],
+      },
+      {
+        type: 'text',
+        content: 'Ví dụ: Phục vụ lương 7tr/tháng → BHXH 0.98tr + BHYT 0.21tr + BHTN/TN 0.105tr = TỔNG 8.295tr/tháng. Cộng thưởng Tết 1 tháng = ~110tr/năm. Cộng thêm risk turnover 20% = ~132tr/năm chi phí thực cho 1 vị trí lương 7tr. Đừng nói "tôi chỉ chi 84tr/năm cho 1 phục vụ" — đó là sai con số.',
+      },
+      {
+        type: 'table',
+        heading: 'Cơ cấu nhân sự mẫu — theo loại quán (TP.HCM, 2026)',
+        content: [
+          { label: 'Cafe nhỏ 40m² (5 FTE)', range: '~38tr/tháng', note: '3 barista (6.5tr) + 1 cashier (8tr) + 1 part-time (3.5tr). + BHXH 21.5% = ~46tr. Doanh thu 100tr → labor ratio 46%.' },
+          { label: 'Nhà hàng 80m² (11 FTE)', range: '~117tr/tháng', note: '4 phục vụ + 2 phụ + 2 bếp + 1 bếp trưởng + 1 QL + 1 cashier. + BHXH = ~142tr. Doanh thu 300tr → labor 47%.' },
+          { label: 'Bakery 60m² (6 FTE)', range: '~50tr/tháng', note: '2 thợ bánh (8tr) + 3 bán (5.5tr) + 1 QL (10tr). + BHXH = ~61tr. Doanh thu 120tr → labor 51%.' },
+          { label: 'Bar/pub 100m² (10 FTE)', range: '~95tr/tháng', note: '3 bartender + 4 phục vụ + 1 QL + 1 cashier + 1 bouncer. + BHXH = ~115tr. Doanh thu 250tr → labor 46%.' },
+        ] as KBTableRow[],
+      },
+      {
+        type: 'warning-list',
+        heading: 'Sai lầm phổ biến về chi phí nhân sự',
+        content: [
+          { icon: 'warning', title: 'Tuyển full-staff ngay ngày khai trương', desc: 'Tháng 1-3 doanh thu chỉ 30-50% công suất nhưng staff 100% = labor ratio 50-60% → đốt cash. Tuyển lean, tăng theo nhu cầu thực tế. Dùng part-timer ca peak.', severity: 'critical' },
+          { icon: 'warning', title: 'Trả lương dưới thị trường 10-15% để tiết kiệm', desc: 'Nhân viên giỏi nghỉ sau 3-6 tháng. Replacement cost 2-3 tháng lương + training 1-2 tháng = tổng 4-5 tháng lương MẤT. Trả đúng market = giữ chân + năng suất cao hơn.', severity: 'critical' },
+          { icon: 'warning', title: 'Quên BHXH 21.5% khi tính budget', desc: 'Tính lương 100tr/tháng nhưng thực tế chi 121.5tr — vượt budget 21%. Phải tính cost = lương × 1.215 ngay từ đầu.', severity: 'critical' },
+          { icon: 'warning', title: 'Service charge không rõ ràng cho nhân viên', desc: 'Chủ thu 5% service charge nhưng không chia cho staff → nhân viên bất mãn, theft tăng. Hoặc chia mà không công khai cách tính → kiện cáo. Phải có policy rõ ngay từ đầu.', severity: 'warning' },
+          { icon: 'warning', title: 'Không có job description rõ ràng', desc: 'Role overlap: phục vụ kiêm cashier kiêm bartender = stress + sai sót + đổ lỗi nhau. JD rõ + training rõ = năng suất tăng 10-15%.', severity: 'warning' },
+          { icon: 'warning', title: 'Cho overtime không kiểm soát', desc: 'Mùa Tết hoặc cuối tuần overtime +200-300% = chi phí lương tăng 50-80% tháng đó. Cap overtime ≤20h/người/tháng. Hoặc tuyển part-timer thay.', severity: 'warning' },
+          { icon: 'warning', title: 'Lương cứng giống nhau cho cùng vị trí', desc: 'Phục vụ giỏi 3 năm và phục vụ mới 1 tháng cùng lương 6tr → người giỏi nghỉ. Phải có salary band theo level + performance review hàng quý.', severity: 'tip' },
+        ] as KBWarningItem[],
+      },
+      {
+        type: 'list',
+        heading: 'Best practices quản lý chi phí lương',
+        content: [
+          'Target labor ratio: cafe 20-25%, nhà hàng 25-30%, bakery 22-28%. >30% = báo động đỏ.',
+          'Tuyển 70% full-time + 30% part-time để flex theo nhu cầu — peak hours dùng part, ngày thấp điểm cut.',
+          'Training chuẩn hóa (SOP + recipe card) → giảm dependency vào 1 nhân viên giỏi.',
+          'Performance review hàng quý — tăng lương theo KPI cụ thể (sales, customer rating, attendance).',
+          'Service charge 5% chia minh bạch: 70% staff frontline, 20% back, 10% reserve. Công khai monthly.',
+          'Tip pool nếu có — Vietnam chưa có luật rõ, nên tự setup policy minh bạch và publish.',
+          'Healthcare benefit thêm (ngoài BHYT) — 200-500K/tháng tăng retention đáng kể với chi phí thấp.',
+          'Dùng F&B Validator để model labor cost theo quy mô + xem ratio có healthy không.',
+        ],
+      },
+      {
+        type: 'text',
+        content: 'Lương là chi phí lớn nhưng cũng là đầu tư — trả đúng + đối xử tốt = nhân viên gắn bó + năng suất cao + chất lượng đều. Trả thấp = turnover liên tục, chất lượng không đều, khách hàng cảm nhận được. Tính chi phí thực (lương × 1.4-1.5 sau BHXH + thưởng + replacement risk) trước khi quyết định mở quán.',
+      },
+    ],
+  },
 ];
 
 export default OPERATIONS_ARTICLES;

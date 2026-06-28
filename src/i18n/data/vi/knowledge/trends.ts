@@ -372,6 +372,150 @@ const TRENDS_ARTICLES: KBTopic[] = [
       },
     ],
   },
+  {
+    id: 'fnb_industry_benchmark_2026',
+    slug: 'so-lieu-nganh-fnb-viet-nam-2026',
+    publishDate: '2026-06-28',
+    icon: 'chart',
+    title: 'Số liệu ngành F&B Việt Nam 2026: Benchmark tham chiếu',
+    subtitle: 'Quy mô thị trường 726 nghìn tỷ, doanh thu trung bình, biên lợi nhuận, tỷ lệ thất bại',
+    seoTitle: 'Số liệu F&B Việt Nam 2026: 726 nghìn tỷ thị trường + benchmark theo segment',
+    seoDescription: 'Báo cáo benchmark ngành F&B Việt Nam 2026: 726 nghìn tỷ thị trường, 329K cửa hàng, biên lợi nhuận theo segment, top 3 lý do thất bại, dữ liệu delivery & consumer behavior.',
+    color: 'secondary-light',
+    category: 'strategy',
+    highlights: [
+      { label: 'Quy mô thị trường', value: '726.5 nghìn tỷ', note: '~$27.3B USD (2025)' },
+      { label: 'Số cửa hàng F&B', value: '329,500', note: '300K-329K (2025)' },
+      { label: 'Đóng cửa H1 2025', value: '50.000+', note: 'cảnh báo đỏ' },
+      { label: 'Tăng trưởng YoY', value: '+9.6%', note: '2024→2025' },
+    ],
+    sections: [
+      {
+        type: 'tldr',
+        content: [
+          'Thị trường F&B Việt Nam 2025: 726.5 nghìn tỷ VNĐ (~$27.3B), tăng 9.6% YoY — nhưng H1 2025 có 50.000+ cửa hàng đóng cửa',
+          'Trên 60% doanh nghiệp F&B Việt báo cáo doanh thu giảm trong 2024 — competition khốc liệt + giá thuê tăng 25-40%',
+          'Biên lợi nhuận trung bình: gross 38.2% (Việt Nam), net 2-10% tùy segment — coffee 5-15%, bakery 8-12%, bubble tea 15%+',
+          'Delivery market: $2.1B (2025), tăng 19% YoY, ShopeeFood + GrabFood chiếm 90% (mỗi app 48%)',
+        ],
+      },
+      {
+        type: 'text',
+        content: 'Trang này tổng hợp số liệu benchmark chính thức ngành F&B Việt Nam — từ quy mô thị trường, biên lợi nhuận theo segment, đến hành vi người tiêu dùng. Mọi số đều có nguồn (Decision Lab, Statista, VietData, Vietnam Briefing, Ken Research...). Dùng làm tham chiếu khi lên kế hoạch kinh doanh, so sánh hiệu quả vận hành, hoặc trích dẫn trong báo cáo.',
+      },
+      {
+        type: 'table',
+        heading: '1. Quy mô thị trường & tăng trưởng',
+        content: [
+          { label: 'Tổng doanh thu F&B Việt Nam 2025', range: '726.5 nghìn tỷ VNĐ', note: '~$27.3-30.5B USD. Nguồn: HCMC FOODEX 2024 forecast.' },
+          { label: 'Doanh thu 2024', range: '688.8 nghìn tỷ VNĐ', note: '~$27.3B USD. Tăng 16.6% so với 2023. Nguồn: Vietnam.vn.' },
+          { label: 'Tăng trưởng YoY 2024→2025', range: '+9.6%', note: 'Chậm hơn 2023→2024 (+16.6%) — dấu hiệu thị trường bão hòa. Nguồn: Vietnam.vn.' },
+          { label: 'Số cửa hàng F&B đăng ký', range: '329,500', note: 'Cuối 2024: 323,010. H1 2025 còn ~300,000 (giảm 7.1%). Nguồn: HCMC FOODEX, B-Company.' },
+          { label: '% doanh thu từ nhà hàng', range: '68%+', note: 'Phần còn lại: cafe, quán nước, bar, fast food. Nguồn: Vietnam Foodexpo.' },
+        ] as KBTableRow[],
+      },
+      {
+        type: 'table',
+        heading: '2. Tỷ lệ đóng cửa & lý do thất bại',
+        content: [
+          { label: 'Đóng cửa H1 2024', range: '~30,000 cửa hàng', note: 'Nguồn: Investor.vn (số liệu chính thức từ khảo sát F&B).' },
+          { label: 'Đóng cửa H1 2025', range: '~50,000+ cửa hàng', note: 'Tăng 67% so với cùng kỳ — xu hướng đáng báo động. Nguồn: B-Company, Vietstock.' },
+          { label: 'Tỷ lệ sống sót 5 năm (US benchmark)', range: '~51%', note: 'Việt Nam chưa có số chính thức, tham khảo US: 51% sống qua 5 năm. Nguồn: Toast, Escoffier.' },
+          { label: 'Tỷ lệ sống sót 10 năm (US)', range: '~34.6%', note: 'Tham khảo US — Việt Nam có thể tương tự hoặc thấp hơn do thị trường biến động hơn. Nguồn: Toast.' },
+          { label: '% DN báo cáo doanh thu giảm 2024', range: '60%+', note: '4,000+ DN khảo sát. Nguồn: Vietnam News.' },
+          { label: 'Top 3 lý do thất bại', range: 'Chi phí + cạnh tranh + marketing yếu', note: '45% DN bị tăng thuê 25-40% H1 2024. Marketing yếu (chỉ FB) + "open-close nhanh" mô hình. Nguồn: VIR, Investor.vn.' },
+        ] as KBTableRow[],
+      },
+      {
+        type: 'table',
+        heading: '3. Biên lợi nhuận theo segment (gross / net %)',
+        content: [
+          { label: 'Toàn ngành F&B Việt (avg)', range: 'Gross 38.2% / Net 2-10%', note: 'Số liệu Việt Nam chính thức. Net thấp do chi phí thuê + cạnh tranh. Nguồn: VietData.' },
+          { label: 'Coffee shop', range: 'Gross 60-65% / Net 5-15%', note: 'Espresso 65-75% gross, drip 85-90%. Food/pastry cafe 40-65%. Nguồn: Pool Six, Financial Models Lab.' },
+          { label: 'Restaurant casual dining', range: 'Gross 60-65% / Net 3-5%', note: 'Food cost 28-35%. Nguồn: CLFI, Restaurant 365.' },
+          { label: 'Bakery', range: 'Gross 55-70% / Net 8-12%', note: 'Food cost 25-30%. Lợi nhuận cao hơn cafe vì AOV cao hơn (bánh kem). Nguồn: SoccaSH.' },
+          { label: 'Bubble tea / trà sữa', range: 'Gross 60-75% / Net 15%+', note: 'Phúc Long Heritage 2024 net profit tăng 4x YoY. Nguồn: Vietnam.vn.' },
+          { label: 'Cloud kitchen', range: 'Gross 60-65% / Net 3-8%', note: 'Tiết kiệm rent nhưng phí app 25-30% ăn vào. Nguồn: Ken Research.' },
+          { label: 'Fast food / QSR', range: 'Gross 55-65% / Net 2-6%', note: 'Volume nhưng margin mỏng. Nguồn: Toast.' },
+        ] as KBTableRow[],
+      },
+      {
+        type: 'text',
+        content: 'Lưu ý quan trọng: Việt Nam đặc biệt khắc nghiệt về chi phí — 44.8% doanh nghiệp F&B Việt báo cáo NVL chiếm 30%+ giá bán, 6.2% vượt 50% (so với benchmark thế giới 28-35%). Chỉ 24.8% giữ được NVL dưới 20%. Đây là nguyên nhân chính khiến net margin Việt Nam thấp hơn benchmark thế giới.',
+      },
+      {
+        type: 'table',
+        heading: '4. Cơ cấu chi phí (% doanh thu — benchmark)',
+        content: [
+          { label: 'Food cost (NVL)', range: '28-35% (target)', note: 'Việt Nam thực tế: 44.8% DN ở mức 30%+. Nguồn: NetSuite, VietData.' },
+          { label: 'Labor cost (nhân sự)', range: '20-30%', note: 'Coffee 20-25%, restaurant 25-30%. Cộng BHXH 21.5% chủ đóng. Nguồn: Taxfyle, Texas Coffee.' },
+          { label: 'Rent / mặt bằng', range: '8-12% (target)', note: 'H1 2024 HCM tăng 25-40% YoY → nhiều quán vượt ngưỡng. Prime D1 HCM: $150+/m². Nguồn: Vietnam Briefing.' },
+          { label: 'Marketing', range: '3-5%', note: 'Nhiều quán Việt under-invest marketing → khó scale. Nguồn: Toast.' },
+          { label: 'Utilities + ops', range: '3-6%', note: 'Điện/nước/internet/bảo trì. Cafe + bakery cao hơn (đốt điện cho máy pha + lò).' },
+          { label: 'Prime cost (Food + Labor)', range: '50-55%', note: 'Industry standard. >60% = báo động. Nguồn: Texas Coffee School.' },
+        ] as KBTableRow[],
+      },
+      {
+        type: 'table',
+        heading: '5. Doanh thu / khách / m²',
+        content: [
+          { label: 'AOV trung bình bữa trưa', range: '31-50K VNĐ', note: '47.7% người tiêu dùng (2023) chi mức này. Nguồn: Statista.' },
+          { label: 'Combo fast food trung bình', range: '$5.15 (~125K VNĐ)', note: 'Mỗi lần ghé. Nguồn: Insight Asia 2024.' },
+          { label: 'Chi tiêu hospitality bình quân/người', range: '$288.68/năm', note: 'Forecast 2025. Nguồn: Statista.' },
+          { label: 'Rent mặt bằng Q1 HCMC prime', range: '$150+/m²/tháng', note: 'Nguồn: Vietnam Briefing.' },
+          { label: 'Doanh thu/m²/tháng (cafe)', range: '2-5tr/m²', note: 'Tính từ data Validator: cafe 40m² doanh thu 100-200tr/tháng.' },
+        ] as KBTableRow[],
+      },
+      {
+        type: 'table',
+        heading: '6. Delivery & cloud kitchen',
+        content: [
+          { label: 'Tổng GMV delivery 2025', range: '$2.1 tỷ USD', note: 'Tăng 19% YoY. Nguồn: VIR.com.vn.' },
+          { label: 'CAGR 2024-2029', range: '~30% (recent)', note: 'Nguồn: IMARC Group.' },
+          { label: 'ShopeeFood + GrabFood market share', range: '90% (48% mỗi app)', note: 'beFood 4%. Nguồn: VnExpress, B-Company.' },
+          { label: 'Số người dùng app food', range: '~17.8 triệu', note: '2025. Nguồn: B-Company.' },
+          { label: 'Hoa hồng delivery app', range: '20-30%', note: 'Xu hướng tăng — vendors mới phải 25-30%+. Nguồn: Vietnam News.' },
+          { label: 'Cloud kitchen market', range: '$1.1B (2024)', note: 'CAGR 19% 2024-2029. 52.3% ở miền Nam. Nguồn: Ken Research.' },
+        ] as KBTableRow[],
+      },
+      {
+        type: 'table',
+        heading: '7. Lao động & lương F&B',
+        content: [
+          { label: 'Lực lượng lao động Việt Nam', range: '51.6 triệu', note: '58% dưới 35 tuổi. Nguồn: Talentnet.' },
+          { label: 'Lương trung bình Q1 2025', range: '8.3 triệu VNĐ (~$321)', note: 'Tăng 9.5% YoY. Nguồn: Talentnet.' },
+          { label: 'Lương tối thiểu vùng 2026 (Vùng I)', range: '5.31 triệu/tháng', note: 'Tăng 7.2% từ 1/1/2026. Vùng IV: 3.7tr. Nguồn: Nghị định 293/2025/NĐ-CP.' },
+          { label: 'BHXH chủ đóng', range: '21.5% lương', note: 'BHXH 14% + BHYT 3% + BHTN/TN 1.5% + thuế khác 3%. Nguồn: Vietnam Briefing.' },
+        ] as KBTableRow[],
+      },
+      {
+        type: 'table',
+        heading: '8. Hành vi người tiêu dùng',
+        content: [
+          { label: '% ăn ngoài 3-4 lần/tuần', range: '29% (2023)', note: 'Tăng từ 17.9% (2022). Nguồn: Statista.' },
+          { label: '% đặt budget ăn ngoài', range: '84%', note: 'Người tiêu dùng có ý thức tiết kiệm. Gen Z: 49% strict adherence. Nguồn: Decision Lab.' },
+          { label: 'Top venues ăn ngoài', range: 'Cafe 57%, street food 48%, restaurant 43%', note: '2024. Nguồn: Decision Lab.' },
+          { label: '% combo trong fast food', range: '68% đơn / 72% doanh thu', note: 'Combo hiệu quả hơn order lẻ. Nguồn: Insight Asia.' },
+          { label: 'Demographic core', range: 'Nam, 15-35 tuổi, 7.5-30tr/tháng', note: 'Profile khách chính ngành F&B. Nguồn: Decision Lab.' },
+        ] as KBTableRow[],
+      },
+      {
+        type: 'warning-list',
+        heading: 'Insights cho người mở quán F&B 2026',
+        content: [
+          { icon: 'warning', title: 'Thị trường tăng 9.6% nhưng cửa hàng giảm 7%', desc: 'Consolidation: ít cửa hàng hơn nhưng doanh thu/cửa hàng tăng. Người mở mới phải cạnh tranh với chains đã optimized vận hành. Khó hơn 2-3 năm trước.', severity: 'critical' },
+          { icon: 'warning', title: 'Net margin Việt Nam (2-10%) thấp hơn benchmark thế giới (5-15%)', desc: 'Vì NVL + rent Việt Nam đắt tương đối so với giá bán. Phải optimize cả 2 ngay từ đầu — không để food cost vượt 30% hoặc rent vượt 20%.', severity: 'critical' },
+          { icon: 'warning', title: 'Delivery 90% chỉ 2 app (Shopee + Grab)', desc: 'Phụ thuộc 1 app = rủi ro lớn (thuật toán đổi, phí tăng). Phải có ít nhất 2 kênh + tự giao bán kính 3km nếu volume đủ.', severity: 'warning' },
+          { icon: 'warning', title: 'Lương tối thiểu tăng 7.2% mỗi năm', desc: 'Labor cost sẽ tăng đều đặn. Phải có cơ chế tăng giá menu 5-7%/năm tương ứng, hoặc tăng productivity (training + tự động hóa).', severity: 'warning' },
+          { icon: 'warning', title: 'Cloud kitchen + delivery = entry point thấp rủi ro', desc: 'CAGR 19%, market $1.1B, miền Nam dominant. Vốn thấp (30-80tr) so với 300-700tr cho cafe truyền thống. Test concept trước khi đầu tư brick-and-mortar.', severity: 'tip' },
+        ] as KBWarningItem[],
+      },
+      {
+        type: 'text',
+        content: 'Số liệu trên là benchmark — không phải target tuyệt đối. Mỗi quán có context riêng (vị trí, concept, customer base). Dùng các con số này để CHECK xem mô hình của bạn có khả thi không, và đặt expectation đúng. Một quán mới nên kỳ vọng net margin 5-8% năm đầu, 10-15% sau 2-3 năm. Nếu kỳ vọng >20% net từ ngày đầu = thiếu thực tế. Để model số liệu cụ thể của bạn, dùng F&B Validator — nhập vốn, doanh thu, chi phí thực tế → biết breakeven trong bao lâu.',
+      },
+    ],
+  },
 ];
 
 export default TRENDS_ARTICLES;

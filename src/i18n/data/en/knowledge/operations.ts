@@ -528,6 +528,127 @@ const OPERATIONS_ARTICLES: KBTopic[] = [
       },
     ],
   },
+  {
+    id: 'fnb_salary_2026',
+    slug: 'luong-nhan-vien-fnb-2026',
+    publishDate: '2026-06-28',
+    icon: 'people',
+    title: 'F&B Staff Salary in Vietnam 2026: Wage Table + Hidden Costs',
+    subtitle: 'Server VND 5-13M, barista VND 6-12M, head chef VND 25-100M — full reference + real total cost',
+    seoTitle: 'F&B Staff Salary Vietnam 2026: Full Table (Server, Barista, Cook, Manager)',
+    seoDescription: 'F&B salaries Vietnam 2026: server VND 5-13M, barista VND 6-12M, cook VND 7-20M, head chef VND 25-100M. Full table + 21.5% employer insurance + regional minimum wage + real cost.',
+    color: 'mint-light',
+    category: 'operations',
+    highlights: [
+      { label: 'Min wage Zone I', value: 'VND 5.31M', note: 'HCMC, Hanoi from 1/2026 (+7.2%)' },
+      { label: 'Server + barista', value: 'VND 5-13M', note: 'by experience + city' },
+      { label: '5-star head chef', value: 'VND 50-100M+', note: 'top tier' },
+      { label: 'Hidden cost (insurance)', value: '+21.5%', note: 'employer contribution' },
+    ],
+    sections: [
+      {
+        type: 'tldr',
+        content: [
+          'F&B wages 2026: server VND 5.3-13M, barista VND 6-12M, cook VND 7-20M, restaurant manager VND 12-50M, 5-star head chef VND 50-100M+',
+          'Critical hidden cost: employer must pay social/health/unemployment insurance = 21.5% on top of salary → VND 7M salary = VND 8.5M real cost',
+          '2026 minimum wage up 7.2%: Zone I VND 5.31M (HCMC, Hanoi), Zone IV VND 3.7M (remote provinces)',
+          'Paying 10-15% above market is cheaper than constant turnover — replacement cost = 2-3 months salary + 1-2 months training',
+        ],
+      },
+      {
+        type: 'text',
+        content: 'Staff salary is the second-largest variable cost (after ingredients) in F&B — typically 20-30% of revenue. But many owners only count "base salary" and forget employer-paid insurance 21.5%, Tết bonus, overtime, training, replacement cost. Real total cost = salary × 1.4-1.5. This article compiles the 2026 wage benchmark + the hidden numbers you need to know before opening.',
+      },
+      {
+        type: 'table',
+        heading: '2026 Regional Minimum Wage (Decree 293/2025/NĐ-CP, effective 1/1/2026)',
+        content: [
+          { label: 'Zone I', range: 'VND 5.31M/month', note: 'HCMC, Hanoi, central districts. Hourly: VND 25,500.' },
+          { label: 'Zone II', range: 'VND 4.73M/month', note: 'Da Nang, Quang Ninh, suburbs of major cities. Hourly: VND 22,700.' },
+          { label: 'Zone III', range: 'VND 4.14M/month', note: 'Mid-tier provinces and districts. Hourly: VND 20,000.' },
+          { label: 'Zone IV', range: 'VND 3.7M/month', note: 'Remote provinces. Hourly: VND 17,800.' },
+        ] as KBTableRow[],
+      },
+      {
+        type: 'table',
+        heading: 'F&B salary table by role — HCMC/Hanoi 2026',
+        content: [
+          { label: 'Server (waiter)', range: 'VND 5.3-13M', note: 'Entry 5.3-8M, 1-2 yrs experience 7-10M + tips, senior 3+ yrs 10-13M + tips.' },
+          { label: 'Barista', range: 'VND 6-20M', note: 'Entry 6-8M, junior 8-10M, senior 10-12M. Specialty coffee shops or certified: 12-20M.' },
+          { label: 'Kitchen helper / dishwasher', range: 'VND 4.5-10M', note: 'Entry 4.5-6M, experienced 6-8M, senior 7-10M. Fast salary growth when promoted to line cook.' },
+          { label: 'Cook (line cook / chef de partie)', range: 'VND 7-20M', note: 'Entry 7-10M, mid 10-15M, senior 12-20M. Hot kitchen (wok, grill) pays more than cold.' },
+          { label: 'Chef / sous chef', range: 'VND 12-40M', note: 'Entry 12-18M, mid 20-30M, senior 25-40M. Large chains hit the upper range.' },
+          { label: 'Head chef / executive chef', range: 'VND 25-100M+', note: 'Regular restaurants 25-50M, 5-star hotels + award-winning restaurants 50-100M+. Top chefs (TV, Michelin) 150M+.' },
+          { label: 'Shift supervisor', range: 'VND 7-18M', note: 'Entry 7-12M, experienced 10-15M, senior 12-18M. Usually +VND 1-2M/month over top servers.' },
+          { label: 'Restaurant manager', range: 'VND 12-50M', note: 'Small shops 12-18M, restaurant chains 18-30M, fine dining or large chain 25-50M.' },
+          { label: 'Area / multi-unit manager', range: 'VND 30-80M', note: 'Manages 3-10 stores. Often includes P&L bonus on top.' },
+          { label: 'Baker', range: 'VND 4-15M', note: 'Entry 4-5M, experienced 6-8M, senior 8-12M. Specialty bakery (croissant, sourdough): 9-15M.' },
+        ] as KBTableRow[],
+      },
+      {
+        type: 'text',
+        content: 'Zone II salaries are typically 15-20% lower than HCMC/Hanoi. Zone III/IV are 25-35% lower. When opening in a province, don\'t copy HCMC wages — reference local market rates to avoid overpaying or underpaying.',
+      },
+      {
+        type: 'stat-grid',
+        heading: 'Hidden costs — base salary is NOT the full cost',
+        content: [
+          { icon: 'money', label: 'BHXH (employer pays)', value: '14%', desc: 'Mandatory social insurance — retirement fund. Calculated on base salary. Skip = penalty + back-payment.' },
+          { icon: 'money', label: 'BHYT (employer pays)', value: '3%', desc: 'Health insurance. Employee also pays 1.5%. Total 4.5% to health fund.' },
+          { icon: 'money', label: 'BHTN + accident', value: '1.5%', desc: 'Unemployment insurance 1% + workplace accident 0.5%. Mandatory.' },
+          { icon: 'money', label: 'Total employer contribution', value: '21.5%', desc: '14% + 3% + 1.5% + other taxes 3% = 21.5% on base salary. VND 7M salary → VND 8.5M real cost.' },
+          { icon: 'money', label: 'Tết bonus', value: '+1 month', desc: '13th month salary — contractually mandatory. Some owners pay 2-3 months to retain top staff.' },
+          { icon: 'money', label: 'Overtime', value: '+50-300%', desc: 'Weekdays +50%, weekends +100%, holidays +200%. Night shift (10pm-6am) +30%.' },
+          { icon: 'money', label: 'Replacement cost', value: '2-3 months', desc: 'Recruiting + training new staff = 2-3 months salary lost. Below-market pay = 6-month turnover cycle.' },
+        ] as KBStat[],
+      },
+      {
+        type: 'text',
+        content: 'Example: Server with VND 7M/month salary → BHXH 0.98M + BHYT 0.21M + BHTN/accident 0.105M = TOTAL VND 8.295M/month. Plus 1 month Tết bonus = ~VND 110M/year. Plus 20% turnover risk = ~VND 132M/year real cost for one VND 7M position. Don\'t say "I only spend VND 84M/year on a server" — that\'s the wrong number.',
+      },
+      {
+        type: 'table',
+        heading: 'Sample staffing structure — by shop type (HCMC, 2026)',
+        content: [
+          { label: 'Small cafe 40m² (5 FTE)', range: '~VND 38M/mo', note: '3 baristas (6.5M) + 1 cashier (8M) + 1 part-time (3.5M). + 21.5% insurance = ~46M. Revenue 100M → labor ratio 46%.' },
+          { label: 'Mid restaurant 80m² (11 FTE)', range: '~VND 117M/mo', note: '4 servers + 2 bussers + 2 cooks + 1 head chef + 1 manager + 1 cashier. + insurance = ~142M. Revenue 300M → labor 47%.' },
+          { label: 'Bakery 60m² (6 FTE)', range: '~VND 50M/mo', note: '2 bakers (8M) + 3 front (5.5M) + 1 manager (10M). + insurance = ~61M. Revenue 120M → labor 51%.' },
+          { label: 'Bar/pub 100m² (10 FTE)', range: '~VND 95M/mo', note: '3 bartenders + 4 servers + 1 manager + 1 cashier + 1 bouncer. + insurance = ~115M. Revenue 250M → labor 46%.' },
+        ] as KBTableRow[],
+      },
+      {
+        type: 'warning-list',
+        heading: 'Common labor cost mistakes',
+        content: [
+          { icon: 'warning', title: 'Hiring full staff on opening day', desc: 'Month 1-3 revenue is only 30-50% of capacity but staff is 100% = labor ratio 50-60% → cash burn. Hire lean, scale by demand. Use part-timers for peak shifts.', severity: 'critical' },
+          { icon: 'warning', title: 'Paying 10-15% below market to "save"', desc: 'Top staff quit after 3-6 months. Replacement cost 2-3 months salary + training 1-2 months = total 4-5 months salary LOST. Paying market rate = retention + higher productivity.', severity: 'critical' },
+          { icon: 'warning', title: 'Forgetting 21.5% insurance when budgeting', desc: 'Budget VND 100M/month payroll but real spend VND 121.5M — over budget 21%. Always calculate cost = salary × 1.215 from day one.', severity: 'critical' },
+          { icon: 'warning', title: 'Unclear service charge policy', desc: 'Owner collects 5% service charge but doesn\'t share with staff → resentment + theft. Or shares without transparent formula → disputes. Set clear policy from the start.', severity: 'warning' },
+          { icon: 'warning', title: 'No clear job descriptions', desc: 'Role overlap: server doubles as cashier and bartender = stress + mistakes + blame games. Clear JDs + training = 10-15% productivity lift.', severity: 'warning' },
+          { icon: 'warning', title: 'Uncapped overtime', desc: 'Tết season or weekend overtime +200-300% = payroll spikes 50-80% that month. Cap overtime ≤20h/person/month. Or hire part-timers instead.', severity: 'warning' },
+          { icon: 'warning', title: 'Same flat salary for same role', desc: '3-year veteran server and 1-month newbie both at VND 6M → veteran quits. Need salary bands by level + quarterly performance review.', severity: 'tip' },
+        ] as KBWarningItem[],
+      },
+      {
+        type: 'list',
+        heading: 'Best practices for managing labor cost',
+        content: [
+          'Target labor ratio: cafe 20-25%, restaurant 25-30%, bakery 22-28%. >30% = red alert.',
+          'Hire 70% full-time + 30% part-time to flex demand — peak hours use parts, low days cut.',
+          'Standardize training (SOP + recipe cards) → reduce dependency on one star employee.',
+          'Quarterly performance reviews — raise salary tied to specific KPIs (sales, customer rating, attendance).',
+          'Service charge 5% split transparently: 70% frontline staff, 20% back, 10% reserve. Publish monthly.',
+          'Tip pool if applicable — Vietnam has no clear law, so set transparent internal policy and publish.',
+          'Additional healthcare benefit (beyond mandatory BHYT) — VND 200-500K/month significantly boosts retention at low cost.',
+          'Use F&B Validator to model labor cost by size + check if ratio is healthy.',
+        ],
+      },
+      {
+        type: 'text',
+        content: 'Salary is a major cost but also an investment — paying right + treating well = retention + high productivity + consistent quality. Paying low = constant turnover, inconsistent quality, customers notice. Calculate real cost (salary × 1.4-1.5 including BHXH + bonus + replacement risk) before deciding to open.',
+      },
+    ],
+  },
 ];
 
 export default OPERATIONS_ARTICLES;

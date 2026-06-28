@@ -338,6 +338,150 @@ const TRENDS_ARTICLES: KBTopic[] = [
       },
     ],
   },
+  {
+    id: 'fnb_industry_benchmark_2026',
+    slug: 'so-lieu-nganh-fnb-viet-nam-2026',
+    publishDate: '2026-06-28',
+    icon: 'chart',
+    title: 'Vietnam F&B Industry Benchmark 2026: Reference Data',
+    subtitle: 'Market size 726T VND, average revenue, profit margins, failure rates by segment',
+    seoTitle: 'Vietnam F&B Industry Data 2026: 726T VND market + segment benchmarks',
+    seoDescription: 'Vietnam F&B 2026 benchmark report: 726T VND market, 329K outlets, profit margins by segment, top 3 failure reasons, delivery & consumer behavior data.',
+    color: 'secondary-light',
+    category: 'strategy',
+    highlights: [
+      { label: 'Market size', value: '726.5T VND', note: '~$27.3B USD (2025)' },
+      { label: 'F&B outlets', value: '329,500', note: '300K-329K (2025)' },
+      { label: 'Closures H1 2025', value: '50,000+', note: 'red alert' },
+      { label: 'YoY growth', value: '+9.6%', note: '2024→2025' },
+    ],
+    sections: [
+      {
+        type: 'tldr',
+        content: [
+          'Vietnam F&B market 2025: 726.5 trillion VND (~$27.3B), +9.6% YoY — but H1 2025 saw 50,000+ outlet closures',
+          'Over 60% of Vietnamese F&B businesses reported revenue decline in 2024 — fierce competition + 25-40% rent hikes',
+          'Average profit margins: gross 38.2% (Vietnam), net 2-10% by segment — coffee 5-15%, bakery 8-12%, bubble tea 15%+',
+          'Delivery market: $2.1B (2025), +19% YoY, ShopeeFood + GrabFood hold 90% (48% each)',
+        ],
+      },
+      {
+        type: 'text',
+        content: 'This page consolidates official Vietnam F&B industry benchmark data — market size, segment-by-segment profit margins, consumer behavior. Every number has a source (Decision Lab, Statista, VietData, Vietnam Briefing, Ken Research...). Use as reference when planning, comparing operational efficiency, or citing in reports.',
+      },
+      {
+        type: 'table',
+        heading: '1. Market size & growth',
+        content: [
+          { label: 'Total Vietnam F&B revenue 2025', range: '726.5T VND', note: '~$27.3-30.5B USD. Source: HCMC FOODEX 2024 forecast.' },
+          { label: '2024 revenue', range: '688.8T VND', note: '~$27.3B USD. Up 16.6% from 2023. Source: Vietnam.vn.' },
+          { label: 'YoY growth 2024→2025', range: '+9.6%', note: 'Slower than 2023→2024 (+16.6%) — market saturation signal. Source: Vietnam.vn.' },
+          { label: 'Registered F&B outlets', range: '329,500', note: 'End 2024: 323,010. H1 2025 ~300,000 (down 7.1%). Source: HCMC FOODEX, B-Company.' },
+          { label: '% revenue from restaurants', range: '68%+', note: 'Rest: cafes, beverages, bars, fast food. Source: Vietnam Foodexpo.' },
+        ] as KBTableRow[],
+      },
+      {
+        type: 'table',
+        heading: '2. Closure rate & failure reasons',
+        content: [
+          { label: 'H1 2024 closures', range: '~30,000 outlets', note: 'Source: Investor.vn (official F&B survey).' },
+          { label: 'H1 2025 closures', range: '~50,000+ outlets', note: 'Up 67% YoY — alarming trend. Source: B-Company, Vietstock.' },
+          { label: '5-year survival rate (US benchmark)', range: '~51%', note: 'Vietnam has no official rate; reference US. Source: Toast, Escoffier.' },
+          { label: '10-year survival (US)', range: '~34.6%', note: 'Source: Toast.' },
+          { label: '% businesses reporting revenue decline 2024', range: '60%+', note: '4,000+ businesses surveyed. Source: Vietnam News.' },
+          { label: 'Top 3 failure reasons', range: 'Cost + competition + weak marketing', note: '45% businesses hit by 25-40% rent hikes H1 2024. Weak marketing + "quick open-quick close" model. Source: VIR, Investor.vn.' },
+        ] as KBTableRow[],
+      },
+      {
+        type: 'table',
+        heading: '3. Profit margins by segment',
+        content: [
+          { label: 'Vietnam F&B average', range: 'Gross 38.2% / Net 2-10%', note: 'Official Vietnam data. Low net due to rent + competition. Source: VietData.' },
+          { label: 'Coffee shop', range: 'Gross 60-65% / Net 5-15%', note: 'Espresso 65-75% gross, drip 85-90%. Source: Pool Six, Financial Models Lab.' },
+          { label: 'Restaurant (casual dining)', range: 'Gross 60-65% / Net 3-5%', note: 'Food cost 28-35%. Source: CLFI, Restaurant 365.' },
+          { label: 'Bakery', range: 'Gross 55-70% / Net 8-12%', note: 'Food cost 25-30%. Source: SoccaSH.' },
+          { label: 'Bubble tea', range: 'Gross 60-75% / Net 15%+', note: 'Phúc Long Heritage 2024 net profit +4x YoY. Source: Vietnam.vn.' },
+          { label: 'Cloud kitchen', range: 'Gross 60-65% / Net 3-8%', note: 'Saves rent but app fees 25-30%. Source: Ken Research.' },
+          { label: 'Fast food / QSR', range: 'Gross 55-65% / Net 2-6%', note: 'Volume play, thin margins. Source: Toast.' },
+        ] as KBTableRow[],
+      },
+      {
+        type: 'text',
+        content: 'Critical note: Vietnam is harsh on costs — 44.8% of Vietnamese F&B businesses report ingredients account for 30%+ of selling price, 6.2% exceed 50% (vs. global benchmark 28-35%). Only 24.8% keep ingredients below 20%. Main reason Vietnam net margins lag global benchmarks.',
+      },
+      {
+        type: 'table',
+        heading: '4. Cost structure (% of revenue)',
+        content: [
+          { label: 'Food cost (COGS)', range: '28-35% (target)', note: 'Vietnam reality: 44.8% at 30%+. Source: NetSuite, VietData.' },
+          { label: 'Labor cost', range: '20-30%', note: 'Plus 21.5% employer insurance. Source: Taxfyle, Texas Coffee.' },
+          { label: 'Rent', range: '8-12% (target)', note: 'H1 2024 HCMC +25-40% YoY. Prime D1: $150+/m². Source: Vietnam Briefing.' },
+          { label: 'Marketing', range: '3-5%', note: 'Many Vietnamese shops under-invest. Source: Toast.' },
+          { label: 'Utilities + ops', range: '3-6%', note: 'Cafe + bakery higher.' },
+          { label: 'Prime cost (Food + Labor)', range: '50-55%', note: '>60% = red alert. Source: Texas Coffee School.' },
+        ] as KBTableRow[],
+      },
+      {
+        type: 'table',
+        heading: '5. Revenue per customer / per m²',
+        content: [
+          { label: 'Avg lunch ticket', range: 'VND 31-50K', note: '47.7% of consumers (2023). Source: Statista.' },
+          { label: 'Avg fast food combo', range: '$5.15 (~VND 125K)', note: 'Source: Insight Asia 2024.' },
+          { label: 'Hospitality spend per capita', range: '$288.68/year', note: 'Forecast 2025. Source: Statista.' },
+          { label: 'D1 HCMC prime rent', range: '$150+/m²/mo', note: 'Source: Vietnam Briefing.' },
+          { label: 'Revenue/m²/mo (cafe)', range: 'VND 2-5M/m²', note: 'From Validator data.' },
+        ] as KBTableRow[],
+      },
+      {
+        type: 'table',
+        heading: '6. Delivery & cloud kitchen',
+        content: [
+          { label: 'Delivery GMV 2025', range: '$2.1B USD', note: '+19% YoY. Source: VIR.com.vn.' },
+          { label: 'CAGR 2024-2029', range: '~30%', note: 'Source: IMARC Group.' },
+          { label: 'ShopeeFood + GrabFood share', range: '90% (48% each)', note: 'beFood 4%. Source: VnExpress, B-Company.' },
+          { label: 'Food app users', range: '~17.8M', note: '2025. Source: B-Company.' },
+          { label: 'Delivery commission', range: '20-30%', note: 'New vendors 25-30%+. Source: Vietnam News.' },
+          { label: 'Cloud kitchen market', range: '$1.1B (2024)', note: 'CAGR 19% 2024-2029. 52.3% South VN. Source: Ken Research.' },
+        ] as KBTableRow[],
+      },
+      {
+        type: 'table',
+        heading: '7. Labor & wages',
+        content: [
+          { label: 'Vietnam labor force', range: '51.6M', note: '58% under 35. Source: Talentnet.' },
+          { label: 'Q1 2025 avg salary', range: 'VND 8.3M (~$321)', note: '+9.5% YoY. Source: Talentnet.' },
+          { label: '2026 min wage Zone I', range: 'VND 5.31M/mo', note: '+7.2% from 1/1/2026. Source: Decree 293/2025/NĐ-CP.' },
+          { label: 'Employer insurance', range: '21.5% of salary', note: 'BHXH 14% + BHYT 3% + BHTN/accident 1.5% + other 3%. Source: Vietnam Briefing.' },
+        ] as KBTableRow[],
+      },
+      {
+        type: 'table',
+        heading: '8. Consumer behavior',
+        content: [
+          { label: '% eating out 3-4x/week', range: '29% (2023)', note: 'Up from 17.9% (2022). Source: Statista.' },
+          { label: '% setting eating-out budget', range: '84%', note: 'Gen Z: 49% strict. Source: Decision Lab.' },
+          { label: 'Top eating venues', range: 'Cafe 57%, street 48%, restaurant 43%', note: '2024. Source: Decision Lab.' },
+          { label: '% combo in fast food', range: '68% orders / 72% revenue', note: 'Source: Insight Asia.' },
+          { label: 'Core demographic', range: 'Male, 15-35, VND 7.5-30M/mo', note: 'Primary customer profile. Source: Decision Lab.' },
+        ] as KBTableRow[],
+      },
+      {
+        type: 'warning-list',
+        heading: 'Insights for F&B founders 2026',
+        content: [
+          { icon: 'warning', title: 'Market grew 9.6% but outlet count dropped 7%', desc: 'Consolidation. New entrants compete with chains that have optimized operations. Harder than 2-3 years ago.', severity: 'critical' },
+          { icon: 'warning', title: 'Vietnam net margin (2-10%) trails global benchmark (5-15%)', desc: 'Due to ingredients + rent being relatively expensive vs. selling price. Optimize both: food cost ≤30%, rent ≤20%.', severity: 'critical' },
+          { icon: 'warning', title: 'Delivery 90% in 2 apps', desc: 'Single-app dependency = high risk. Need 2+ channels + self-delivery within 3km if volume justifies.', severity: 'warning' },
+          { icon: 'warning', title: 'Minimum wage rising 7.2% annually', desc: 'Labor cost rises steadily. Need menu pricing +5-7%/year or productivity gains.', severity: 'warning' },
+          { icon: 'warning', title: 'Cloud kitchen = low-risk entry', desc: 'CAGR 19%, market $1.1B. Low capex (VND 30-80M) vs. 300-700M traditional cafe. Test concept first.', severity: 'tip' },
+        ] as KBWarningItem[],
+      },
+      {
+        type: 'text',
+        content: 'These benchmarks are reference, not absolute targets. Each shop has unique context. Use these numbers to CHECK viability and set correct expectations. A new shop should expect 5-8% net margin year 1, 10-15% after 2-3 years. Expecting >20% net from day one = unrealistic. Use F&B Validator to model your specific numbers and know break-even time.',
+      },
+    ],
+  },
 ];
 
 export default TRENDS_ARTICLES;
