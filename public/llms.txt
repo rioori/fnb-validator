@@ -1,0 +1,53 @@
+# Validator.vn
+
+> Validator.vn is a Vietnamese F&B (food & beverage) business validation tool. We help cafe, restaurant, bar, and bubble tea operators in Vietnam validate their business model, estimate startup costs, and learn from industry experts and case studies. Our mission: enable small business owners to make data-driven decisions before investing millions of VND into a new restaurant or cafe.
+
+## Knowledge — Operations, Finance, Marketing, Legal
+
+- [F&B Business Models Overview](https://www.validator.vn/en/knowledge/mo-hinh-fnb-pho-bien): Comparison of 8 common F&B models in Vietnam — capital requirements, profit margins, and which suits your experience level
+- [Business Lifecycle & Milestones](https://www.validator.vn/en/knowledge/vong-doi-quan-fnb): Timeline from launch to profitability — understand the ramp-up period and when to expect break-even
+- [Common F&B Startup Mistakes](https://www.validator.vn/en/knowledge/loi-thuong-gap): Avoid the 10 most expensive mistakes that sink new restaurants and cafes
+- [Financial Structure & Profitability Ratios](https://www.validator.vn/en/knowledge/cau-truc-chi-phi-fnb): Understand gross margin, net margin, and key financial KPIs for F&B businesses
+- [Food Cost Management in Detail](https://www.validator.vn/en/knowledge/food-cost-chi-tiet): How to calculate and control COGS, target ratios by business type, and negotiation tactics with suppliers
+- [Menu Pricing Strategy](https://www.validator.vn/en/knowledge/dinh-gia-menu): Scientific pricing techniques to maximize revenue without losing customers
+- [Staff Management & Scheduling](https://www.validator.vn/en/knowledge/quan-ly-nhan-su): Labor cost control, shift optimization, and retention strategies for high-turnover F&B teams
+- [Rent Negotiation & Location Analysis](https://www.validator.vn/en/knowledge/chon-vi-tri-va-danh-gia-mat-bang): How to evaluate locations, negotiate rent, and calculate location payback period
+- [Delivery & App Economics](https://www.validator.vn/en/knowledge/chi-phi-delivery-va-app): Platform fees, commission structures, and profitability of delivery channels in Vietnam
+- [Cash Flow Management First Month](https://www.validator.vn/en/knowledge/quan-ly-dong-tien-thang-dau): Avoid liquidity crises during ramp-up with proper working capital planning
+- [Inventory & Procurement Systems](https://www.validator.vn/en/knowledge/quan-ly-ton-kho-va-nhap-hang): Prevent spoilage, optimize order cycles, and build efficient supplier relationships
+- [Customer Complaint Handling](https://www.validator.vn/en/knowledge/xu-ly-khieu-nai-khach-hang): Systematic complaint resolution and retention strategies
+- [Operational Processes & Shift Management](https://www.validator.vn/en/knowledge/van-hanh-ca-lam-va-quy-trinh): Standardize recipes, procedures, and quality control across all shifts
+- [Branding for F&B Startups](https://www.validator.vn/en/knowledge/xay-dung-thuong-hieu-fnb): Build a differentiated brand without massive marketing budgets
+- [Legal Registration — Permits & Licenses](https://www.validator.vn/en/knowledge/phap-ly-giay-phep): Required documents, timelines, and common compliance mistakes in Vietnam
+- [Food Safety Regulations](https://www.validator.vn/en/knowledge/an-toan-thuc-pham): Health inspections, certification, and food handling standards in Vietnam
+- [Taxes & Accounting for F&B](https://www.validator.vn/en/knowledge/thue-va-ke-toan-cho-quan-fnb): VAT, personal income tax, and bookkeeping requirements for restaurants and cafes
+- [Employee Contracts & Labor Law](https://www.validator.vn/en/knowledge/lao-dong-va-hop-dong-nhan-vien): Proper employment contracts and social insurance compliance
+- [Insurance for Restaurants](https://www.validator.vn/en/knowledge/bao-hiem-cho-quan-an): Liability, theft, and fire insurance options for F&B businesses
+
+## Expert Perspectives — Vietnamese F&B Leaders & Operators
+
+- [Đỗ Duy Thanh](https://www.validator.vn/en/experts/do-duy-thanh): Strategy consultant with 20+ years in F&B, author of the 9Ps restaurant management framework, advisor to Vingroup and Saigon Tourist
+- [Hà Chu](https://www.validator.vn/en/experts/ha-chu): Founder of COOKED — Vietnam's first F&B-specific business school with 100,000 students, host of "Ha Chu Works" podcast
+- [Trần Trung Hiếu](https://www.validator.vn/en/experts/tran-trung-hieu): F&B coach specializing in small restaurant operations, frequently quoted in VnExpress and ZNews on industry challenges
+- [Đào Thế Vinh](https://www.validator.vn/en/experts/dao-the-vinh): CEO/Founder of Golden Gate, Vietnam's largest restaurant group with 500+ locations across 40+ brands, $259M revenue
+- [Trần Lệ Nguyên](https://www.validator.vn/en/experts/tran-le-nguyen): CEO of KIDO Group, led $370-490M M&A exit of Kinh Đô to Mondelez, operates Merino ice cream brand and KIDO oils
+- [Danny Le](https://www.validator.vn/en/experts/danny-le): CEO of Masan Group (age 36), architected the $455M Phúc Long acquisition, raised $5B+ from KKR, Alibaba, SK Group
+- [Phạm Cao Vinh](https://www.validator.vn/en/experts/pham-cao-vinh): Founder of Goldsun Food Group with 16 brands and 200+ restaurants, formerly a Tier-1 supplier to Samsung
+- [Nguyễn Hải Ninh](https://www.validator.vn/en/experts/nguyen-hai-ninh): Restaurant operator and consultant, shares practical insights on kitchen management and standardization
+- [Nguyễn Hà Linh](https://www.validator.vn/en/experts/nguyen-ha-linh): Cafe operator with experience scaling 3+ concepts, expert in location analysis and unit economics
+- [Trần Nhật Quang](https://www.validator.vn/en/experts/tran-nhat-quang): Multi-brand operator sharing lessons on managing different customer segments in single portfolio
+- [Lý Quý Trung](https://www.validator.vn/en/experts/ly-quy-trung): Food and beverage strategist, advisor to mid-sized restaurant groups on expansion and operations
+- [Yosuke Masuko](https://www.validator.vn/en/experts/yosuke-masuko): Japanese F&B investor and operator sharing cross-cultural management insights for Vietnam market
+- [Summer Le](https://www.validator.vn/en/experts/summer-le): Bubble tea brand founder, expert in youth market targeting and social media driven growth
+- [Bobby Chinn](https://www.validator.vn/en/experts/bobby-chinn): Renowned restaurateur and cookbook author, founder of Hanoi upscale dining concepts
+- [Luke Nguyen](https://www.validator.vn/en/experts/luke-nguyen): Chef and restaurateur known for Vietnamese cuisine elevation and restaurant branding
+- [Phan Anh Minh](https://www.validator.vn/en/experts/phan-anh-minh): Food media expert and blogger influencing food culture and dining trends in Vietnam
+
+## Tools
+
+- [F&B Business Validator](https://www.validator.vn/fnb): Interactive wizard to validate F&B business viability — estimate startup costs, project break-even, analyze location profitability
+- [Opening Cost Calculator](https://www.validator.vn/en/opening-costs/coffee/tai/ho-chi-minh): City-specific capital requirements for coffee, restaurant, bar, bubble tea, and other F&B concepts in Vietnam
+
+## About
+
+- [About Validator.vn](https://www.validator.vn/en/about): Our mission, methodology, and team background
