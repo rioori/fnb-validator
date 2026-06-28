@@ -334,6 +334,8 @@ export interface KBTopic {
   publishDate?: string;
   highlights?: KBHighlight[];
   sections: KBSection[];
+  seoTitle?: string;
+  seoDescription?: string;
 }
 
 // ===== Blog Types =====
@@ -396,6 +398,8 @@ export interface Expert {
   socials: ExpertSocial[];
   featured?: boolean;
   faq?: ExpertFAQ[];
+  seoTitle?: string;
+  seoDescription?: string;
 }
 
 // ===== Chat Types =====

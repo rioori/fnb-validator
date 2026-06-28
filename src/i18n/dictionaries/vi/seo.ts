@@ -1,6 +1,6 @@
 const seo = {
-  titleTemplate: 'Chi phí mở {model} tại {city} — Validator.vn',
-  descTemplate: 'Ước tính chi phí đầu tư, doanh thu, chi phí vận hành và thời gian hoàn vốn cho {model} tại {city}. Phân tích miễn phí.',
+  titleTemplate: 'Chi phí mở {model} tại {city} 2026: Vốn đầu tư & thời gian hoàn vốn',
+  descTemplate: 'Mở {model} tại {city} cần bao nhiêu tiền? Ước tính vốn đầu tư, doanh thu, chi phí vận hành và hoàn vốn theo dữ liệu thực tế 2026. Tính ngay miễn phí.',
   heading: 'Chi phí mở {model} tại {city}',
   subheading: 'Ước tính chi phí đầu tư và thời gian hoàn vốn',
   investmentHeading: 'Ước tính vốn đầu tư',

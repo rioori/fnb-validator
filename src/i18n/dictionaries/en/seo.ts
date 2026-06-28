@@ -1,6 +1,6 @@
 const seo = {
-  titleTemplate: 'Cost to Open a {model} in {city} — Validator.vn',
-  descTemplate: 'Estimate investment costs, revenue, operating expenses and break-even time for a {model} in {city}. Free analysis.',
+  titleTemplate: 'Cost to Open a {model} in {city} 2026: Investment & Break-Even Analysis',
+  descTemplate: 'How much does opening a {model} in {city} cost? Estimate investment, revenue, operating expenses & payback time with 2026 real-world data. Free instant analysis.',
   heading: 'Cost to Open a {model} in {city}',
   subheading: 'Estimated investment and break-even analysis',
   investmentHeading: 'Estimated Investment',

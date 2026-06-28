@@ -35,7 +35,7 @@ export const MODEL_SEO_NAMES: Record<ModelKey, { vi: string; en: string }> = {
   bubbletea: { vi: 'quán trà sữa', en: 'bubble tea shop' },
   restaurant: { vi: 'nhà hàng', en: 'restaurant' },
   cloudkitchen: { vi: 'cloud kitchen', en: 'cloud kitchen' },
-  bakery: { vi: 'tiệm bánh', en: 'bakery' },
+  bakery: { vi: 'tiệm bánh ngọt', en: 'bakery' },
   bar: { vi: 'bar/pub', en: 'bar/pub' },
   kiosk: { vi: 'kiosk/food court', en: 'kiosk/food court' },
 };

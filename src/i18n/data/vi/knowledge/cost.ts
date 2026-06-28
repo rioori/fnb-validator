@@ -302,6 +302,8 @@ const COST_ARTICLES: KBTopic[] = [
     icon: 'phone',
     title: 'Chi phí app delivery: Grab, Shopee & tự giao',
     subtitle: 'Phí hoa hồng 20-30% ăn vào lợi nhuận như thế nào',
+    seoTitle: 'Phí hoa hồng GrabFood vs ShopeeFood 2026: 25-30% — Cách tính thực tế',
+    seoDescription: 'GrabFood thu 25-30%, ShopeeFood 22-27%. Thêm bao bì 3-8K/đơn. Tác động biên lợi nhuận + khi nào tự giao hàng rẻ hơn app. Hướng dẫn F&B Việt Nam 2026.',
     color: 'primary-light',
     category: 'cost',
     highlights: [

@@ -43,8 +43,10 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   if (!expert) return {};
 
   const dict = await getDictionary(locale as Locale);
-  const title = `${expert.name} — ${dict.experts.breadcrumb.experts} | Validator.vn`;
-  const description = expert.shortBio;
+  const title = expert.seoTitle
+    ? `${expert.seoTitle} | Validator.vn`
+    : `${expert.name} — ${dict.experts.breadcrumb.experts} | Validator.vn`;
+  const description = expert.seoDescription || expert.shortBio;
   const viUrl = `${BASE_URL}/goc-nhin-chuyen-gia/${expert.slug}`;
   const enUrl = `${BASE_URL}${localePath(`/goc-nhin-chuyen-gia/${expert.slug}`, 'en')}`;
   const canonical = locale === defaultLocale ? viUrl : enUrl;
