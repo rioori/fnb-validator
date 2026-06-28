@@ -9,6 +9,7 @@ const PATH_EN: [string, string][] = [
   // Translated slugs (longer prefixes first to avoid partial matches)
   ['/so-sanh', '/comparison'],
   ['/goc-nhin-chuyen-gia', '/experts'],
+  ['/chu-de', '/topics'],
   ['/kien-thuc', '/knowledge'],
   ['/chi-phi-mo', '/opening-costs'],
   ['/tinh-nang/phan-tich-tai-chinh', '/features/financial-analysis'],

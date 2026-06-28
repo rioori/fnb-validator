@@ -551,17 +551,17 @@ const TRENDS_ARTICLES: KBTopic[] = [
       {
         type: 'text',
         heading: 'Phần 1 · Cảnh quan thị trường — số liệu không nói dối',
-        content: 'Nửa đầu năm 2025, theo dữ liệu chính thức từ Vietstock và B-Company, 50.000+ cửa hàng F&B Việt Nam đã đóng cửa — tăng 67% so với cùng kỳ 2024 (~30.000 đóng cửa). Cùng lúc, thị trường F&B Việt Nam vẫn tăng trưởng 9.6% so với năm trước về doanh thu, đạt 726.5 nghìn tỷ VNĐ năm 2025.',
+        content: 'Nửa đầu năm 2025, theo dữ liệu chính thức từ [Vietstock](https://en.vietstock.vn/2025/10/over-50000-fb-outlets-close-in-first-half-of-2025-974-622391.htm) và [B-Company](https://b-company.jp/the-trend-of-mass-closure-of-fb-stores-in-the-first-half-of-2025/), 50.000+ cửa hàng F&B Việt Nam đã đóng cửa — tăng 67% so với cùng kỳ 2024 (~30.000 đóng cửa). Cùng lúc, thị trường F&B Việt Nam vẫn tăng trưởng 9.6% so với năm trước về doanh thu, đạt 726.5 nghìn tỷ VNĐ năm 2025.',
       },
       {
         type: 'text',
-        content: 'Nghịch lý này có một cách giải thích duy nhất: thị trường đang tập trung hoá (consolidation). Doanh thu vẫn tăng, nhưng tăng ở những chuỗi lớn đã tối ưu vận hành. Còn 50.000+ quán đóng kia? Phần lớn là quán độc lập, mở chưa đủ 2 năm. Theo Vietnam News, 60%+ doanh nghiệp F&B báo cáo doanh thu giảm trong 2024 — đây không phải thị trường sụp đổ, mà là thất bại do người vận hành.',
+        content: 'Nghịch lý này có một cách giải thích duy nhất: thị trường đang tập trung hoá (consolidation). Doanh thu vẫn tăng, nhưng tăng ở những chuỗi lớn đã tối ưu vận hành. Còn 50.000+ quán đóng kia? Phần lớn là quán độc lập, mở chưa đủ 2 năm. Theo [Vietnam News](https://vietnamnews.vn/economy/1694177/nearly-60-per-cent-of-food-and-beverage-companies-reported-decline-in-revenue-in-2024.html), 60%+ doanh nghiệp F&B báo cáo doanh thu giảm trong 2024 — đây không phải thị trường sụp đổ, mà là thất bại do người vận hành.',
       },
       {
         type: 'stat-grid',
         heading: 'So sánh quốc tế: tỷ lệ sống sót',
         content: [
-          { icon: 'chart', label: 'Mỹ — 5 năm', value: '~51%', desc: 'Theo Toast + Datassential 2025 — chỉ hơn 1/2 quán sống qua mốc 5 năm.' },
+          { icon: 'chart', label: 'Mỹ — 5 năm', value: '~51%', desc: 'Theo [Toast/Datassential 2025](https://pos.toasttab.com/blog/on-the-line/restaurant-failure-rate) — chỉ hơn 1/2 quán sống qua mốc 5 năm.' },
           { icon: 'chart', label: 'Mỹ — 10 năm', value: '~34.6%', desc: 'Sau 10 năm chỉ còn 1/3 sống. Việt Nam chưa có số chính thức.' },
           { icon: 'warning', label: 'VN quán độc lập (ước tính)', value: '< 50%', desc: 'Dựa trên trend đóng cửa, có thể thấp hơn Mỹ — không có hệ thống chuỗi hỗ trợ.' },
           { icon: 'wallet', label: 'Lý do gốc', value: 'Biên lợi nhuận mỏng', desc: 'Margin mỏng + vốn kẹt vào tài sản vật lý (decor, thiết bị) + khách không trung thành như tưởng.' },
@@ -584,7 +584,7 @@ const TRENDS_ARTICLES: KBTopic[] = [
           { label: 'Concept', range: 'Chuỗi đậu nành cao cấp', note: 'Một category duy nhất, định vị cao cấp đô thị.' },
           { label: 'Kế hoạch', range: '50+ cửa hàng trong 2 năm', note: 'Đua mở rộng với tiền nhà đầu tư.' },
           { label: 'Thực tế 2022', range: '1 cửa hàng còn lại', note: 'Mở rộng trước khi sản phẩm tìm được khách phù hợp. Không hợp khẩu vị Việt.' },
-          { label: 'Bài học (Vietnam Business Insider)', range: 'Tìm khách trước, mở rộng sau', note: 'Có vốn không thay được sản phẩm phù hợp thị trường (product-market fit). Đợi 3-5 cửa hàng có lãi + lặp lại được mới expand.' },
+          { label: 'Bài học ([Vietnam Business Insider](https://vietnambusinessinsider.vn/case-study-soya-garden-cai-gia-phai-tra-cho-viec-mo-rong-khi-chua-dinh-hinh-duoc-san-pham-cot-loi-a24361.html))', range: 'Tìm khách trước, mở rộng sau', note: 'Có vốn không thay được sản phẩm phù hợp thị trường (product-market fit). Đợi 3-5 cửa hàng có lãi + lặp lại được mới expand.' },
         ] as KBTableRow[],
       },
       {
@@ -614,7 +614,7 @@ const TRENDS_ARTICLES: KBTopic[] = [
         heading: 'Case 4 (mặt sáng) — Phúc Long: 50+ năm, biên gộp cao hơn Starbucks',
         content: [
           { label: 'Sáng lập', range: '1968 tại Bảo Lộc', note: 'Gia đình Lâm Bội Minh. Có profile chi tiết trong mục Góc nhìn chuyên gia.' },
-          { label: 'Doanh thu flagship 9 tháng 2024', range: '761 tỷ VNĐ', note: 'Theo VIR.' },
+          { label: 'Doanh thu flagship 9 tháng 2024', range: '761 tỷ VNĐ', note: 'Theo [VIR](https://vir.com.vn/the-story-of-phuc-longs-50-year-journey-107719.html).' },
           { label: 'Biên gộp (gross margin)', range: '> Starbucks toàn cầu', note: 'Một trong số ít F&B Việt vượt chuẩn quốc tế.' },
           { label: 'Bí quyết 1', range: 'Sản phẩm cốt lõi không đổi', note: 'Trà + cà phê Việt, chuỗi cung ứng 1.000+ nông hộ.' },
           { label: 'Bí quyết 2', range: 'Đa kênh linh hoạt', note: '35% doanh thu từ online/delivery.' },
@@ -657,7 +657,7 @@ const TRENDS_ARTICLES: KBTopic[] = [
         content: [
           { label: 'Lương tối thiểu vùng I', range: '5.31tr/tháng (+7.2%)', note: 'Nghị định 293/2025/NĐ-CP, hiệu lực 1/1/2026. Cộng 21.5% BHXH chủ phải đóng = chi phí nhân sự thực tăng ~9% so năm trước.' },
           { label: 'Thuế đường 2027', range: '10% thuế tiêu thụ đặc biệt', note: 'Đồ uống có đường ≥5g/100ml. Cafe, trà sữa, nước ngọt đều ảnh hưởng. Phúc Long + Highlands đã thử nghiệm menu "giảm đường".' },
-          { label: 'Lạm phát nguyên liệu', range: '+8-15% so năm trước', note: '35.4% doanh nghiệp F&B Việt cho rằng giá nguyên liệu là nguyên nhân chính của đóng cửa 2024 (VietData). Cà phê, đường, sữa, dầu ăn đều tăng.' },
+          { label: 'Lạm phát nguyên liệu', range: '+8-15% so năm trước', note: '35.4% doanh nghiệp F&B Việt cho rằng giá nguyên liệu là nguyên nhân chính của đóng cửa 2024 ([VietData](https://www.vietdata.vn/post/the-f-b-industry-is-seeing-its-profits-disappear-due-to-rising-costs)). Cà phê, đường, sữa, dầu ăn đều tăng.' },
         ] as KBTableRow[],
       },
       {

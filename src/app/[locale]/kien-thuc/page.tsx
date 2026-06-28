@@ -93,6 +93,27 @@ export default async function KienThucPage({ params }: PageProps) {
           </p>
         </div>
 
+        {/* Topical hubs — quick entry to mega-pages */}
+        <div className="clay-card-static bg-white p-4 mb-4">
+          <div className="text-[11px] font-bold uppercase tracking-wider text-text-muted mb-2">
+            {locale === 'en' ? 'Quick guides by business type' : 'Hướng dẫn nhanh theo loại quán'}
+          </div>
+          <div className="flex flex-wrap gap-2">
+            <Link
+              href={localePath('/chu-de/kinh-doanh-cafe', locale as Locale)}
+              className="clay-pill bg-pastel-cream !text-[12px] !py-1.5 px-3 hover:shadow-[2px_2px_0_var(--color-text)] transition-shadow"
+            >
+              ☕ {locale === 'en' ? 'Coffee Business' : 'Kinh doanh cà phê'}
+            </Link>
+            <Link
+              href={localePath('/chu-de/kinh-doanh-nha-hang', locale as Locale)}
+              className="clay-pill bg-pastel-cream !text-[12px] !py-1.5 px-3 hover:shadow-[2px_2px_0_var(--color-text)] transition-shadow"
+            >
+              🍽️ {locale === 'en' ? 'Restaurant Business' : 'Kinh doanh nhà hàng'}
+            </Link>
+          </div>
+        </div>
+
         {/* Filterable topic listing */}
         <KBListingFilter
           topics={kb}

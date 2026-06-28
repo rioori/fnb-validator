@@ -47,8 +47,14 @@
 
 - [F&B Business Validator](https://www.validator.vn/fnb): Interactive wizard to validate F&B business viability — estimate startup costs, project break-even, analyze location profitability
 - [Free F&B AI Advisor](https://www.validator.vn/ai-chat): Ask Vietnam F&B AI expert anything about running cafe, restaurant, bakery, bubble tea — no signup needed, 5 questions/day free
+- [F&B Survival Score](https://www.validator.vn/survival-score): Predict Year-1 survival probability for any Vietnam F&B shop based on 8 critical factors (cash reserves, rent ratio, food cost, menu size, marketing prep, prime cost, founder experience, city). Free, instant, shareable.
 - [Opening Cost Calculator](https://www.validator.vn/en/opening-costs/coffee/tai/ho-chi-minh): City-specific capital requirements for coffee, restaurant, bar, bubble tea, and other F&B concepts in Vietnam
 - [Embeddable Break-Even Calculator](https://www.validator.vn/embed/break-even): Free embeddable widget — any blog can iframe to give readers instant break-even analysis
+
+## Topical Hubs (Mega-Guides)
+
+- [Coffee Business in Vietnam — Complete Guide](https://www.validator.vn/en/topics/kinh-doanh-cafe): All-in-one guide — capital, location, operations, 9 founders, calculator + 13-city pricing
+- [Restaurant Business in Vietnam — Complete Guide](https://www.validator.vn/en/topics/kinh-doanh-nha-hang): Restaurant founders guide — lessons from Golden Gate, KIDO, Pizza 4P's + calculator
 
 ## Industry Data & Benchmarks
 

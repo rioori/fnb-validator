@@ -1,6 +1,7 @@
 import type { MetadataRoute } from 'next';
 import { KNOWLEDGE_BASE, EXPERTS_DATA } from '@/lib/constants';
 import { CITIES, MODEL_SLUGS } from '@/lib/seo-data';
+import { TOPICS } from '@/lib/topics';
 import { localePath } from '@/i18n/link';
 
 const BASE_URL = 'https://www.validator.vn';
@@ -47,15 +48,21 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ),
   );
 
+  // Topical hubs (high authority pages — link to articles + experts + cities)
+  const topicPages = TOPICS.map((t) => entry(`/chu-de/${t.slug}`, 'weekly', 0.92));
+
   return [
     entry('', 'weekly', 1),
     entry('/fnb', 'weekly', 0.95),
+    entry('/survival-score', 'monthly', 0.9),
+    entry('/ai-chat', 'monthly', 0.85),
     entry('/kien-thuc', 'monthly', 0.9),
     entry('/goc-nhin-chuyen-gia', 'monthly', 0.9),
     entry('/faq', 'monthly', 0.6),
     entry('/chinh-sach-bao-mat', 'monthly', 0.4),
     entry('/dieu-khoan', 'monthly', 0.4),
     ...featurePages,
+    ...topicPages,
     ...knowledgePages,
     ...expertPages,
     ...seoPages,
