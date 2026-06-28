@@ -193,7 +193,28 @@ export default async function ExpertDetailPage({ params }: PageProps) {
   if (!expert) notFound();
 
   const expertIndex = experts.findIndex((e) => e.slug === slug);
-  const otherExperts = experts.filter((e) => e.slug !== slug).slice(0, 4);
+
+  // Filter related experts: prioritize same category, then shared tags, then all others
+  const getRelatedExperts = (current: Expert, allExperts: Expert[]): Expert[] => {
+    const others = allExperts.filter((e) => e.slug !== current.slug);
+
+    // Score each expert: same category (2 pts) + shared tags (1 pt each)
+    const scored = others.map((e) => {
+      let score = 0;
+      if (e.category === current.category) score += 2;
+      const sharedTags = (e.tags || []).filter((tag) => (current.tags || []).includes(tag));
+      score += sharedTags.length;
+      return { expert: e, score };
+    });
+
+    // Sort by score (desc), then by order in array (stable)
+    scored.sort((a, b) => b.score - a.score);
+
+    // Return top 4 experts
+    return scored.slice(0, 4).map((s) => s.expert);
+  };
+
+  const otherExperts = getRelatedExperts(expert, experts);
 
   return (
     <>
