@@ -122,7 +122,7 @@ export default function KBSectionRenderer({ section }: KBSectionRendererProps) {
           {heading}
           <div className="bg-primary-light border-2 border-text rounded-2xl p-4 my-2">
             <div className="flex items-start gap-2.5 mb-3">
-              <Icon name="lightning" size={22} className="shrink-0 mt-0.5" />
+              <Icon name="bolt" size={22} className="shrink-0 mt-0.5" />
               <span className="text-[13px] font-bold font-[family-name:var(--font-heading)] text-text">TL;DR</span>
             </div>
             <ul className="space-y-1.5">
