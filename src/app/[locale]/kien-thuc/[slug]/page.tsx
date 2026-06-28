@@ -3,6 +3,7 @@ import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { getAllKBSlugs } from '@/lib/constants';
 import KBSectionRenderer from '@/components/knowledge/KBSectionRenderer';
+import InlineToolCTA from '@/components/knowledge/InlineToolCTA';
 import Icon from '@/components/ui/Icon';
 import { getDictionary } from '@/i18n/get-dictionary';
 import { defaultLocale, type Locale } from '@/i18n/config';
@@ -12,6 +13,19 @@ import PageTracker from '@/components/ui/PageTracker';
 import ShareBlock from '@/components/ui/ShareBlock';
 import KNOWLEDGE_BASE_VI from '@/i18n/data/vi/knowledge';
 import KNOWLEDGE_BASE_EN from '@/i18n/data/en/knowledge';
+
+// Infer F&B model from article slug — used to pre-fill wizard CTA
+function inferModelFromSlug(slug: string): string | undefined {
+  if (slug.includes('cafe') || slug.includes('coffee')) return 'coffee';
+  if (slug.includes('banh-ngot') || slug.includes('bakery')) return 'bakery';
+  if (slug.includes('tra-sua') || slug.includes('bubbletea')) return 'bubbletea';
+  if (slug.includes('nha-hang') || slug.includes('restaurant')) return 'restaurant';
+  if (slug.includes('quan-an') || slug.includes('eatery')) return 'eatery';
+  if (slug.includes('cloud-kitchen') || slug.includes('cloudkitchen') || slug.includes('bep-tren-may')) return 'cloudkitchen';
+  if (slug.includes('bar') || slug.includes('pub')) return 'bar';
+  if (slug.includes('kiosk')) return 'kiosk';
+  return undefined;
+}
 
 function getKB(locale: string): KBTopic[] {
   return locale === 'en' ? KNOWLEDGE_BASE_EN : KNOWLEDGE_BASE_VI;
@@ -190,11 +204,25 @@ export default async function KienThucTopicPage({ params }: PageProps) {
           </div>
         )}
 
-        {/* Sections — fully expanded for SEO */}
+        {/* Sections — fully expanded for SEO. Inline CTA injected after section 3 for long articles. */}
         <div className="clay-card-static p-5 mb-6 max-md:p-4">
-          {topic.sections.map((section, i) => (
-            <KBSectionRenderer key={i} section={section} />
-          ))}
+          {(() => {
+            const inferredModel = inferModelFromSlug(topic.slug);
+            const sections = topic.sections;
+            // Inject inline CTA after section 3 only for articles with ≥6 sections
+            const inlineCtaAfter = sections.length >= 6 ? 2 : -1;
+
+            return sections.map((section, i) => (
+              <div key={i}>
+                <KBSectionRenderer section={section} />
+                {inlineCtaAfter === i && (
+                  <InlineToolCTA locale={locale} model={inferredModel} variant="inline" />
+                )}
+              </div>
+            ));
+          })()}
+          {/* Final CTA after all sections — appears on every article */}
+          <InlineToolCTA locale={locale} model={inferModelFromSlug(topic.slug)} variant="final" />
         </div>
 
         {/* Prev / Next navigation */}

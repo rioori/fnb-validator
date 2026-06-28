@@ -10,8 +10,21 @@ import { localePath } from '@/i18n/link';
 import type { Expert } from '@/types';
 import PageTracker from '@/components/ui/PageTracker';
 import ShareBlock from '@/components/ui/ShareBlock';
+import InlineToolCTA from '@/components/knowledge/InlineToolCTA';
 import EXPERTS_VI from '@/i18n/data/vi/experts';
 import EXPERTS_EN from '@/i18n/data/en/experts';
+
+// Infer F&B model from expert tags — used to pre-fill wizard CTA
+function inferModelFromExpert(expert: Expert): string | undefined {
+  const tagsLower = expert.tags.map((t) => t.toLowerCase()).join(' ');
+  if (tagsLower.includes('cà phê') || tagsLower.includes('coffee')) return 'coffee';
+  if (tagsLower.includes('pizza')) return 'restaurant';
+  if (tagsLower.includes('trà sữa') || tagsLower.includes('bubble')) return 'bubbletea';
+  if (tagsLower.includes('nhà hàng') || tagsLower.includes('restaurant')) return 'restaurant';
+  if (tagsLower.includes('chuỗi') || tagsLower.includes('chain')) return 'restaurant';
+  if (tagsLower.includes('fmcg')) return 'eatery';
+  return undefined;
+}
 
 function getExperts(locale: string): Expert[] {
   return locale === 'en' ? EXPERTS_EN : EXPERTS_VI;
@@ -330,6 +343,9 @@ export default async function ExpertDetailPage({ params }: PageProps) {
             {expert.fullBio}
           </p>
         </div>
+
+        {/* ── Inline CTA — converts expert-page traffic to tool ── */}
+        <InlineToolCTA locale={locale} model={inferModelFromExpert(expert)} variant="inline" />
 
         {/* ── 6. Links, Articles & Socials ── */}
         {(expert.links.length > 0 || expert.socials.length > 0) && (

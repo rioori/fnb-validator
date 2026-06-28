@@ -26,6 +26,8 @@ export default function WizardShell() {
   const { t, locale } = useTranslation();
   const currentStep = useWizardStore((s) => s.currentStep);
   const setStep = useWizardStore((s) => s.setStep);
+  const selectModel = useWizardStore((s) => s.selectModel);
+  const setCity = useWizardStore((s) => s.setCity);
   const checkSession = useAuth((s) => s.checkSession);
   const { showWelcome, dismissWelcome } = useOnboarding();
 
@@ -38,7 +40,18 @@ export default function WizardShell() {
     if (viewParam) setStep(0);
     // Direct entry: ?start=1 jumps to step 1 (model selection)
     else if (params.get('start') === '1' && currentStep === 0) setStep(1);
-  }, [checkSession, setStep]); // eslint-disable-line react-hooks/exhaustive-deps
+
+    // Pre-fill model/city from URL (link from article CTA)
+    const modelParam = params.get('model');
+    const cityParam = params.get('city');
+    const VALID_MODELS = ['coffee', 'eatery', 'bubbletea', 'restaurant', 'cloudkitchen', 'bakery', 'bar', 'kiosk'];
+    if (modelParam && VALID_MODELS.includes(modelParam)) {
+      selectModel(modelParam as 'coffee' | 'eatery' | 'bubbletea' | 'restaurant' | 'cloudkitchen' | 'bakery' | 'bar' | 'kiosk');
+      // Skip model-selection step → jump to location (step 2)
+      setStep(2);
+    }
+    if (cityParam) setCity(cityParam);
+  }, [checkSession, setStep, selectModel, setCity]); // eslint-disable-line react-hooks/exhaustive-deps
 
   const stepNames = ['home', 'model', 'location', 'investment', 'revenue', 'costs', 'dashboard'];
   const stepEnteredAt = useRef<number>(Date.now());
