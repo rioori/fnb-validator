@@ -17,6 +17,15 @@ const OPERATIONS_ARTICLES: KBTopic[] = [
     ],
     sections: [
       {
+        type: 'tldr',
+        content: [
+          'Không có mô hình "dễ"; mỗi loại đều có rủi ro riêng — cà phê cạnh tranh khốc, quán ăn biên thấp, trà sữa bão hòa',
+          'Vốn thấp nhất: quán ăn (100-400tr) + Cloud Kitchen (100-500tr); cao nhất: nhà hàng (1-5 tỷ) + bar (1-8 tỷ)',
+          'Chọn mô hình phù hợp kinh nghiệm + ngân sách + khẩu vị rủi ro; không phải vốn nhiều = lãi nhiều',
+          'Nên test concept trước (1 quán nhỏ 6-12 tháng) trước khi mở rộng hay mô hình phức tạp'
+        ],
+      },
+      {
         type: 'table',
         heading: 'So sánh nhanh: vốn & biên lợi nhuận',
         content: [
@@ -131,6 +140,15 @@ const OPERATIONS_ARTICLES: KBTopic[] = [
       { label: 'Nhân sự/ca (quán nhỏ)', value: '3-5 người', note: 'tùy quy mô và mô hình' },
     ],
     sections: [
+      {
+        type: 'tldr',
+        content: [
+          'Turnover 40-60%/năm là chuẩn ngành; 1 người nghỉ = mất 3-8 triệu chi phí tuyển + training + năng suất thấp',
+          'Đầu tư giữ chân (thưởng 1-2 triệu, ngày lễ thêm...) rẻ hơn tuyển mới liên tục',
+          'Labor cost phải ≤30% doanh thu; >35% = nguy hiểm; kỹ năng + SOP → cắt được 1 nhân viên mà vẫn duy trì chất lượng',
+          'Hybrid model tốt: 60-70% full-time (ổn định) + 30-40% part-time (co giãn peak hours) = linh hoạt + rẻ'
+        ],
+      },
       {
         type: 'stat-grid',
         heading: 'Chỉ số nhân sự quan trọng',
@@ -270,6 +288,15 @@ const OPERATIONS_ARTICLES: KBTopic[] = [
     ],
     sections: [
       {
+        type: 'tldr',
+        content: [
+          'SOP là quy trình viết sẵn → ai đọc cũng hiểu → mỗi ca chạy giống nhau → chất lượng ổn định → giảm 70% lỗi vận hành',
+          'Không có SOP = mỗi nhân viên làm một kiểu → chất lượng theo người → chủ phải canh 24/7 → burnout + khó mở rộng',
+          'Opening SOP (30p trước mở): quét/lau, kiểm tra máy móc, bố trí thực đơn, chuẩn bị NVL, check cash. Closing: dọn, kiểm tra, ghi số ngày',
+          'Training tân nhân: nghe → xem → làm under supervision → làm solo; sử dụng checklist (✓ khi xong mỗi bước) = giảm sai sót'
+        ],
+      },
+      {
         type: 'text',
         content: 'SOP (Standard Operating Procedure) là quy trình chuẩn viết ra giấy — ai đọc cũng hiểu, ai làm cũng giống nhau. Quán không có SOP = mỗi nhân viên làm một kiểu, chất lượng lên xuống thất thường, chủ quán phải "canh" 24/7. SOP tốt giúp bạn vắng mặt 1 tuần mà quán vẫn chạy bình thường.',
       },
@@ -343,9 +370,18 @@ const OPERATIONS_ARTICLES: KBTopic[] = [
       { label: 'Thất thoát NVL trung bình', value: '5-10%', note: 'trên tổng NVL nhập' },
       { label: 'FIFO giảm hao hụt', value: '40%', note: 'so với không áp dụng' },
       { label: 'Kiểm kê chỉ cần', value: '15 phút/ngày', note: 'cho NVL chính' },
-      { label: 'Par stock tối ưu', value: '2-3 ngày dùng', note: 'tùy NVL và NCC' },
+      { label: 'Đa NVL đơn giản hóa', value: 'Giảm tồn 30%', note: 'ít hao hụt + ít tài chính' },
     ],
     sections: [
+      {
+        type: 'tldr',
+        content: [
+          'Thất thoát 5-10% NVL = 30-50K/ngày/quán nhỏ = 900K-1.5 triệu/tháng = ~10% lợi nhuận ròng cắt một khoản',
+          'FIFO (First In First Out): dán nhãn ngày nhập, dùng hàng cũ trước → giảm hao hụt 40%; dùng cân/lý đo chính xác → giảm thêm 20%',
+          'Kiểm kho hàng ngày (15 phút): Thịt, cá, sữa, trái cây + so khớp với số bán → phát hiện sai lệch ngay, trộm cắp, hỏng hàng',
+          'Menu đơn giản: 15-20 món vs 40-50 món = ít tồn kho (tiền phong phúc), ít hao hụt (héo, hỏng), dễ training, dễ control biến phí'
+        ],
+      },
       {
         type: 'text',
         content: 'Tồn kho trong F&B là "tiền nằm yên" — quá nhiều thì hao hụt, hết hạn, chiếm vốn; quá ít thì hết nguyên liệu, mất doanh thu. Quản lý tồn kho tốt = giảm chi phí + giảm lãng phí + luôn có đủ NVL để bán. Không cần phần mềm phức tạp — một cuốn sổ và 15 phút mỗi ngày là đủ.',

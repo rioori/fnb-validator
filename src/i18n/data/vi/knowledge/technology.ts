@@ -273,6 +273,15 @@ const TECHNOLOGY_ARTICLES: KBTopic[] = [
     ],
     sections: [
       {
+        type: 'tldr',
+        content: [
+          '70%+ khách tìm quán qua Google Maps, TikTok, Facebook trước khi đến; không online = "không tồn tại"',
+          '85% xem review trước khi đến; 1 review xấu không trả lời = mất 5-10 khách; phải trả lời review trong 24 giờ',
+          'Khách F&B chi tiêu nhỏ nhưng ghé thường xuyên (3-4 lần/tuần); tập trung giữ khách cũ (5x rẻ hơn tìm khách mới)',
+          'Bắt đầu miễn phí: Google Maps (5 phút), Facebook page + 5 bài/tuần (15 phút), TikTok (dùng hàng sẵn), reply bình luận + message (30 phút/ngày)'
+        ],
+      },
+      {
         type: 'text',
         content: 'Thời đại 2026, quán F&B không có hiện diện online gần như "không tồn tại" với phần lớn khách hàng. Theo khảo sát ngành, hơn 70% người tiêu dùng tìm quán ăn/uống qua Google Maps, TikTok hoặc Facebook trước khi đến. Tin tốt: bạn không cần ngân sách lớn — nhiều kênh hoàn toàn miễn phí, chỉ cần bỏ ra 30-60 phút mỗi ngày làm đúng cách.',
       },

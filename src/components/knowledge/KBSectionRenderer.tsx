@@ -116,6 +116,27 @@ export default function KBSectionRenderer({ section }: KBSectionRendererProps) {
         </>
       );
 
+    case 'tldr':
+      return (
+        <>
+          {heading}
+          <div className="bg-primary-light border-2 border-text rounded-2xl p-4 my-2">
+            <div className="flex items-start gap-2.5 mb-3">
+              <Icon name="lightning" size={22} className="shrink-0 mt-0.5" />
+              <span className="text-[13px] font-bold font-[family-name:var(--font-heading)] text-text">TL;DR</span>
+            </div>
+            <ul className="space-y-1.5">
+              {(section.content as string[]).map((bullet, i) => (
+                <li key={i} className="text-[13px] text-text leading-relaxed flex items-start gap-2">
+                  <span className="font-bold text-cta mt-0.5">•</span>
+                  <span>{bullet}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </>
+      );
+
     default:
       return null;
   }

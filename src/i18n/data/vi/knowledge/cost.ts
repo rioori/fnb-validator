@@ -165,6 +165,15 @@ const COST_ARTICLES: KBTopic[] = [
     ],
     sections: [
       {
+        type: 'tldr',
+        content: [
+          'Food cost là chi phí lớn nhất + kiểm soát được nhiều nhất; mỗi 1% giảm = ~10% lợi nhuận ròng tăng',
+          'Chênh lệch >5% giữa food cost thực tế vs lý thuyết = dấu hiệu portion sai, trộm cắp, hoặc hao hụt lớn',
+          'Cần recipe card chuẩn (chính xác gram/ml) + FIFO + kiểm kho hàng ngày + đàm phán NCC theo quý',
+          'Chiến lược: menu engineering (cắt món lỗ), nguyên liệu theo mùa (rẻ 20-40%), đơn giản menu (ít NVL = ít hao hụt)'
+        ],
+      },
+      {
         type: 'stat-grid',
         heading: 'Các công thức tính Food Cost',
         content: [
@@ -231,6 +240,15 @@ const COST_ARTICLES: KBTopic[] = [
     ],
     sections: [
       {
+        type: 'tldr',
+        content: [
+          'Tỷ lệ thuê tối đa 15% doanh thu; >20% = gần như chắc chắn thua lỗ, hãy tìm mặt bằng khác',
+          'Giá thuê rẻ ≠ lãi cao; thuê rẻ 50% nhưng doanh thu giảm 70% vì không có foot traffic = lỗ',
+          'Hợp đồng phải có: rent-free 2-3 tháng setup, cố định giá 2 năm đầu, quyền chuyển nhượng, rõ phí quản lý/điện nước',
+          'Kiểm tra pháp lý (sổ hồng, giấy phép xây, quy hoạch) TRƯỚC khi ký; đã từng giải tỏa sau 6 tháng'
+        ],
+      },
+      {
         type: 'stat-grid',
         heading: 'Mức giá thuê tham khảo (TPHCM)',
         content: [
@@ -293,6 +311,15 @@ const COST_ARTICLES: KBTopic[] = [
       { label: 'Biên thực sau phí', value: '5-12%', note: 'lợi nhuận ròng delivery' },
     ],
     sections: [
+      {
+        type: 'tldr',
+        content: [
+          'Hoa hồng app (Grab, Shopee) chiếm 25-30% giá bán — chi phí lớn nhất khiến lợi nhuận delivery chỉ 5-12%',
+          'Nhiều quán bán giá dine-in trên app = tự cắt hết lợi nhuận; phải tăng giá 10-15% hoặc giảm khẩu phần',
+          'Chi phí ẩn: bao bì (3-8K/đơn) + nhân sự đóng gói + free ship không tính toán = lỗ mỗi đơn',
+          'Delivery chỉ nên chiếm ≤40% tổng doanh thu; đừng phụ thuộc 100% vào 1 app vì có thể bị xóa thuật toán'
+        ],
+      },
       {
         type: 'table',
         heading: 'Phí hoa hồng theo từng app (2025-2026)',
@@ -370,6 +397,15 @@ const COST_ARTICLES: KBTopic[] = [
     ],
     sections: [
       {
+        type: 'tldr',
+        content: [
+          'Hết tiền là lý do #1 quán F&B đóng cửa (không phải hết khách); tháng 1-3 doanh thu <50% công suất nhưng chi phí 100%',
+          'Phải giữ tối thiểu 3-6 tháng chi phí vận hành trong tài khoản; <4 tuần tiền = báo động đỏ',
+          'App delivery trả sau 7-14 ngày nhưng bạn phải trả NVL + lương ngay → không tính tiền app là tiền trong tay',
+          'Khi sắp hết tiền: cắt chi phí biến đổi NGAY, đàm phán giãn nợ NCC, chuyển lương 2 kỳ/tháng, hoặc quyết định đóng cửa sớm'
+        ],
+      },
+      {
         type: 'text',
         content: 'Dòng tiền (cash flow) là lý do số 1 quán F&B đóng cửa — không phải vì hết khách, mà vì hết tiền mặt. Bạn có thể "có lãi trên sổ" nhưng vẫn phá sản nếu tiền chưa về mà đã phải trả lương, trả NCC, trả thuê. Hiểu dòng tiền 6 tháng đầu = tăng gấp đôi cơ hội sống sót.',
       },
@@ -441,6 +477,15 @@ const COST_ARTICLES: KBTopic[] = [
     ],
     sections: [
       {
+        type: 'tldr',
+        content: [
+          'Lương chỉ 50% chi phí nhân viên thực tế; thêm BHXH (21.5%), ăn ca, training, thay thế = +25-30% nữa',
+          'Chi phí thay thế 1 nhân viên = 5-10 triệu (tuyển + training + năng suất thấp); đầu tư giữ chân rẻ hơn',
+          'Mô hình hybrid tốt nhất: 60-70% full-time (team core ổn định) + 30-40% part-time (peak hours co giãn)',
+          'Cắt lương → nhân viên tốt nhất nghỉ trước → chất lượng giảm → mất khách → doanh thu giảm nhiều hơn tiết kiệm được'
+        ],
+      },
+      {
         type: 'table',
         heading: 'Chi phí thực tế cho 1 nhân viên',
         content: [
@@ -508,6 +553,15 @@ const COST_ARTICLES: KBTopic[] = [
       { label: 'Yếu tố #1', value: 'Doanh thu/ngày' },
     ],
     sections: [
+      {
+        type: 'tldr',
+        content: [
+          'BEP là con số động — phải tính lại mỗi quý vì thuê tăng, NVL tăng, nhân sự tăng lương → thay đổi liên tục',
+          'Tháng 1-3 doanh thu 30-60% công suất nhưng chi phí 100% → không tính giai đoạn ramp-up thì BEP sai 3-5 tháng',
+          'Tầm ảnh hưởng: thuê ↑10% → BEP ↑5-8%; food cost ↑10% → BEP ↑12-15%; doanh thu ↓10% → hoàn vốn ↑20-30%',
+          'Quán >18 tháng không hòa vốn = rủi ro cực cao; chạy 3 kịch bản (xấu/trung bình/tốt) để biết biên an toàn'
+        ],
+      },
       {
         type: 'stat-grid',
         heading: '4 chỉ số hòa vốn quan trọng',

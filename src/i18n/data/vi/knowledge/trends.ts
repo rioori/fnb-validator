@@ -18,6 +18,15 @@ const TRENDS_ARTICLES: KBTopic[] = [
     ],
     sections: [
       {
+        type: 'tldr',
+        content: [
+          'Từ 2027, đồ uống >5g/100ml chịu thuế 8% (2027) → 10% (2028); siro, nước ngọt đóng chai Grab/Shopee sẽ tăng giá',
+          'Sản phẩm miễn: sữa tươi + nước ép tự nhiên + nước dừa nguyên chất → cơ hội pivot menu sang healthy drinks',
+          'Thuế này áp lên nhà sản xuất/import → NCC sẽ tăng giá bán sỉ → chi phí nguyên liệu quán tăng 3-8%',
+          'Nên chuẩn bị 2026: kiểm tra hàm lượng đường siro/sản phẩm hiện tại, test công thức ít đường, plan tăng giá menu trước 2027'
+        ],
+      },
+      {
         type: 'text',
         content:
           'Từ năm 2027, nhiều loại nước ngọt, trà sữa, nước ép đóng chai bán tại quán F&B sẽ chịu thêm thuế tiêu thụ đặc biệt (TTĐB) — luật mới đã được Quốc hội thông qua và có hiệu lực từ 1/1/2026. Năm 2026 là năm "chuẩn bị": chưa thu thuế nhưng các quy định đã có hiệu lực để doanh nghiệp điều chỉnh. Nếu bạn đang bán trà sữa, nước ngọt, hay các loại đồ uống có pha thêm đường, đây là thông tin bạn cần biết ngay — để tránh bị bất ngờ khi giá nguyên liệu tăng và biên lợi nhuận giảm.',
@@ -214,6 +223,15 @@ const TRENDS_ARTICLES: KBTopic[] = [
       { label: 'Tỷ lệ quán độc lập', value: '77.4%', note: 'Phần lớn F&B VN là quán nhỏ lẻ' },
     ],
     sections: [
+      {
+        type: 'tldr',
+        content: [
+          'Cloud kitchen vốn 750tr-1.2 tỷ (vs 2.5-5 tỷ truyền thống), không cần mặt bằng đẹp, tăng trưởng 18.7%/năm',
+          'Rủi ro: phụ thuộc 100% vào app delivery (20-30% hoa hồng), khó build brand khi không mặt tiền, áp lực cash flow 7-14 ngày',
+          'Thích hợp: founder có tay nghề nấu ăn + gọi vốn 2-3 tỷ + team, hoặc muốn test concept rất nhanh (6-12 tuần)',
+          'Không thích hợp: quán nhỏ lẻ muốn độc lập, hoặc doanh thu kỳ vọng <100tr/tháng (không đủ trả phí app 25-30%)'
+        ],
+      },
       {
         type: 'text',
         content:

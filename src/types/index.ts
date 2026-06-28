@@ -317,7 +317,7 @@ export interface KBWarningItem {
 
 export interface KBSection {
   heading?: string;
-  type: 'text' | 'list' | 'table' | 'stat-grid' | 'timeline' | 'warning-list';
+  type: 'text' | 'list' | 'table' | 'stat-grid' | 'timeline' | 'warning-list' | 'tldr';
   content: string | string[] | KBTableRow[] | KBStat[] | KBTimelineStep[] | KBWarningItem[];
 }
 

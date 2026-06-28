@@ -69,6 +69,15 @@ const LEGAL_ARTICLES: KBTopic[] = [
     ],
     sections: [
       {
+        type: 'tldr',
+        content: [
+          '>80% quán F&B nhỏ chạy hộ KD (không phải công ty); hộ KD: setup 3 ngày, lệ phí 100K, thuế 4.5%/DT',
+          'Chỉ thành lập công ty nếu: doanh thu >500tr/năm (công ty thuế thực tế <4.5% khi lãi suất thấp), cần tư cách pháp nhân vay vốn lớn, hay mở chuỗi',
+          'Thuế khoán F&B 4.5% là lợi thế hộ KD; công ty phải nộp thuế TNDN 15-20% + GTGT 8-10% tổng cộng >20%',
+          'Hộ KD miễn thuế nếu doanh thu <200 triệu/năm (kiểm tra quản lý thuế); công ty phải kế toán bắt buộc 6-16 triệu/năm'
+        ],
+      },
+      {
         type: 'text',
         content: 'Nhiều người nghĩ mở quán ăn/cà phê phải thành lập công ty. Thực tế, phần lớn quán F&B nhỏ tại Việt Nam hoạt động dưới hình thức Hộ kinh doanh cá thể — thủ tục đơn giản, chi phí thấp, không cần kế toán chuyên nghiệp. Chỉ nên mở công ty khi có nhu cầu thực sự.',
       },
@@ -316,6 +325,15 @@ const LEGAL_ARTICLES: KBTopic[] = [
       { label: 'Phạt không ký HĐLĐ', value: '2-25 triệu', note: 'theo NĐ 12/2022' },
     ],
     sections: [
+      {
+        type: 'tldr',
+        content: [
+          'Quán nhỏ cũng phải ký HĐLĐ; không ký = phạt 2-25 triệu + bồi thường nhân viên nếu có tranh chấp',
+          'BHXH+BHYT bắt buộc từ ngày đầu làm (không phải sau 30 ngày); lương đóng BH ≥lương tối thiểu (hiện 4.96 triệu)',
+          'Chủ đóng 21.5% (BHXH 17.5% + BHYT 3% + BHTN 1%); đừng trừ từ lương nhân viên nếu chưa thỏa thuận rõ',
+          'Thử việc tối đa 60 ngày (CĐ+) hoặc 30 ngày (THPT); phải trả đủ tiền, không được trừ tiền khi sa thải thử việc không đạt'
+        ],
+      },
       {
         type: 'text',
         content: 'Nhiều chủ quán F&B nghĩ quán nhỏ không cần hợp đồng lao động (HĐLĐ). Sai lầm! Từ 2025, Bộ LĐTBXH siết chặt thanh tra lao động — đặc biệt ngành F&B vì tỷ lệ vi phạm cao. Ký hợp đồng đúng luật không chỉ tránh phạt mà còn giúp giữ chân nhân viên tốt, tránh tranh chấp khi sa thải.',
