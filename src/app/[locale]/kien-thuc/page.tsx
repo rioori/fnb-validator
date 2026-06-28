@@ -111,6 +111,24 @@ export default async function KienThucPage({ params }: PageProps) {
             >
               🍽️ {locale === 'en' ? 'Restaurant Business' : 'Kinh doanh nhà hàng'}
             </Link>
+            <Link
+              href={localePath('/chu-de/mo-tiem-banh-ngot', locale as Locale)}
+              className="clay-pill bg-pastel-cream !text-[12px] !py-1.5 px-3 hover:shadow-[2px_2px_0_var(--color-text)] transition-shadow"
+            >
+              🥐 {locale === 'en' ? 'Bakery Business' : 'Tiệm bánh ngọt'}
+            </Link>
+            <Link
+              href={localePath('/chu-de/kinh-doanh-tra-sua', locale as Locale)}
+              className="clay-pill bg-pastel-cream !text-[12px] !py-1.5 px-3 hover:shadow-[2px_2px_0_var(--color-text)] transition-shadow"
+            >
+              🧋 {locale === 'en' ? 'Bubble Tea' : 'Kinh doanh trà sữa'}
+            </Link>
+            <Link
+              href={localePath('/chu-de/cloud-kitchen-fnb', locale as Locale)}
+              className="clay-pill bg-pastel-cream !text-[12px] !py-1.5 px-3 hover:shadow-[2px_2px_0_var(--color-text)] transition-shadow"
+            >
+              📦 {locale === 'en' ? 'Cloud Kitchen' : 'Cloud Kitchen'}
+            </Link>
           </div>
         </div>
 

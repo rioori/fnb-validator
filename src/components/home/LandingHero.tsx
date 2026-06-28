@@ -404,6 +404,40 @@ export default function LandingHero() {
         </Link>
       </motion.div>
 
+      {/* Survival Score quick card — viral hook */}
+      <motion.div
+        className="clay-card-static bg-gradient-to-br from-emerald-50 to-amber-50 border-2 border-text/20 p-5 mb-4 max-md:p-4"
+        initial={{ opacity: 0, y: 16 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, margin: '-40px' }}
+        transition={{ duration: 0.5 }}
+      >
+        <div className="flex items-start gap-3 max-md:flex-col">
+          <div className="shrink-0 w-12 h-12 rounded-xl bg-text flex items-center justify-center shadow-[2px_2px_0_var(--color-text)]">
+            <Icon name="chart" size={26} className="text-white" />
+          </div>
+          <div className="flex-1 min-w-0">
+            <div className="text-[10px] font-bold tracking-widest text-text-muted mb-0.5">
+              {locale === 'en' ? 'NEW · QUICK CHECK · 30 SECONDS' : 'MỚI · TÍNH NHANH · 30 GIÂY'}
+            </div>
+            <h3 className="text-[16px] font-bold font-[family-name:var(--font-heading)] text-text leading-tight mb-1">
+              {locale === 'en' ? 'F&B Survival Score — Will your shop survive Year 1?' : 'Survival Score — Quán bạn sẽ sống năm đầu không?'}
+            </h3>
+            <p className="text-[12px] text-text-muted leading-relaxed mb-3">
+              {locale === 'en'
+                ? 'Predict Year-1 survival probability with 1-10 score based on 8 critical factors from real Vietnam F&B data.'
+                : 'Dự đoán % sống sót năm đầu — 1-10 điểm dựa trên 8 yếu tố quan trọng từ data thực tế F&B Việt Nam.'}
+            </p>
+            <Link
+              href={`${localePath('/survival-score', locale)}?utm_source=homepage&utm_medium=hero-card`}
+              className="inline-flex items-center gap-1.5 bg-text hover:opacity-90 text-white font-bold text-[13px] px-5 py-2 rounded-xl transition-opacity"
+            >
+              {locale === 'en' ? 'Calculate Survival Score →' : 'Tính Survival Score →'}
+            </Link>
+          </div>
+        </div>
+      </motion.div>
+
       {/* Expert Preview */}
       <ExpertPreview
         heading={t.landing.expertsPreview.heading}

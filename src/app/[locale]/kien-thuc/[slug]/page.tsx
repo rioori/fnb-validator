@@ -208,6 +208,17 @@ export default async function KienThucTopicPage({ params }: PageProps) {
         {/* AI Chat CTA at top — captures research-mode visitors before they bounce */}
         <AIChatCTA locale={locale} topic={topic.slug} />
 
+        {/* Subtle Survival Score chip — viral hook entry, doesn't compete with main CTAs */}
+        <div className="mb-4 text-[12px] text-text-muted">
+          {locale === 'en' ? '⚡ Quick check (30s):' : '⚡ Tính nhanh (30 giây):'}{' '}
+          <Link
+            href={`${localePath('/survival-score', locale as Locale)}?utm_source=article&utm_medium=top-chip`}
+            className="text-cta hover:text-cta-hover underline font-semibold"
+          >
+            {locale === 'en' ? 'Will your shop survive Year 1? Get your Survival Score →' : 'Quán bạn sẽ sống năm đầu không? Tính Survival Score →'}
+          </Link>
+        </div>
+
         {/* Sections — fully expanded for SEO. CTAs strategically placed:
             - InlineToolCTA after section 2 (early decision-mode capture)
             - AIChatCTA after section ~60% (question intent mid-read)
