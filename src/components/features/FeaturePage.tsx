@@ -47,12 +47,13 @@ interface FeaturePageProps {
   locale: string;
   share?: ShareLabels;
   ctaLabel: string;
+  customCtaHref?: string; // Override default ctaHref (e.g., AI Advisor → /ai-chat instead of /fnb)
   freeLabel: string;
   whatYouGet: string;
   whoIsFor: string;
 }
 
-export default function FeaturePage({ feature, breadcrumb, locale, share, ctaLabel, freeLabel, whatYouGet, whoIsFor }: FeaturePageProps) {
+export default function FeaturePage({ feature, breadcrumb, locale, share, ctaLabel, customCtaHref, freeLabel, whatYouGet, whoIsFor }: FeaturePageProps) {
   const prefix = locale === defaultLocale ? '' : '/en';
   const breadcrumbJsonLd = {
     '@context': 'https://schema.org',
@@ -63,11 +64,13 @@ export default function FeaturePage({ feature, breadcrumb, locale, share, ctaLab
     ],
   };
 
-  const ctaHref = feature.knowledgeLink
-    ? localePath(feature.knowledgeLink, locale as Locale)
-    : feature.verticalAction
-      ? `${localePath('/fnb', locale as Locale)}?view=${feature.verticalAction}`
-      : localePath('/fnb', locale as Locale);
+  const ctaHref = customCtaHref
+    ? localePath(customCtaHref, locale as Locale)
+    : feature.knowledgeLink
+      ? localePath(feature.knowledgeLink, locale as Locale)
+      : feature.verticalAction
+        ? `${localePath('/fnb', locale as Locale)}?view=${feature.verticalAction}`
+        : localePath('/fnb', locale as Locale);
 
   return (
     <div className="max-w-3xl mx-auto px-4 py-8 max-md:px-3 max-md:py-6">

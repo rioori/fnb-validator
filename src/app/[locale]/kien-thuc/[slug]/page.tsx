@@ -4,6 +4,7 @@ import { notFound } from 'next/navigation';
 import { getAllKBSlugs } from '@/lib/constants';
 import KBSectionRenderer from '@/components/knowledge/KBSectionRenderer';
 import InlineToolCTA from '@/components/knowledge/InlineToolCTA';
+import AIChatCTA from '@/components/knowledge/AIChatCTA';
 import Icon from '@/components/ui/Icon';
 import { getDictionary } from '@/i18n/get-dictionary';
 import { defaultLocale, type Locale } from '@/i18n/config';
@@ -203,6 +204,9 @@ export default async function KienThucTopicPage({ params }: PageProps) {
             ))}
           </div>
         )}
+
+        {/* AI Chat CTA at top — captures research-mode visitors before they bounce */}
+        <AIChatCTA locale={locale} topic={topic.slug} />
 
         {/* Sections — fully expanded for SEO. Inline CTA injected after section 3 for long articles. */}
         <div className="clay-card-static p-5 mb-6 max-md:p-4">

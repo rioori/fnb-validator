@@ -48,6 +48,7 @@ export default async function Page({ params }: PageProps) {
       locale={locale}
       share={dict.common.share}
       ctaLabel={dict.features.ctaLabel}
+      customCtaHref="/ai-chat"
       freeLabel={dict.features.freeLabel}
       whatYouGet={dict.features.whatYouGet}
       whoIsFor={dict.features.whoIsFor}

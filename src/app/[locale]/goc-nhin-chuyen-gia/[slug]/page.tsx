@@ -11,6 +11,7 @@ import type { Expert } from '@/types';
 import PageTracker from '@/components/ui/PageTracker';
 import ShareBlock from '@/components/ui/ShareBlock';
 import InlineToolCTA from '@/components/knowledge/InlineToolCTA';
+import AIChatCTA from '@/components/knowledge/AIChatCTA';
 import EXPERTS_VI from '@/i18n/data/vi/experts';
 import EXPERTS_EN from '@/i18n/data/en/experts';
 
@@ -264,6 +265,9 @@ export default async function ExpertDetailPage({ params }: PageProps) {
             </div>
           </div>
         </div>
+
+        {/* AI Chat CTA — capture research-mode visitors with a "ask question" angle */}
+        <AIChatCTA locale={locale} topic={`expert-${expert.slug}`} />
 
         {/* ── 2. Signature Quotes — The hero element ── */}
         {expert.quotes.length > 0 && (
