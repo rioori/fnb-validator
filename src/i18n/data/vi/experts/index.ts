@@ -74,7 +74,7 @@ const EXPERTS: Expert[] = [
     photo: '/experts/ha-chu.webp',
     category: 'consultant',
     tags: ['F&B Marketing', 'Branding', 'Đào tạo', 'Podcast'],
-    shortBio: 'Sáng lập COOKED — trường đào tạo Marketing F&B đầu tiên tại VN. Tư vấn cho 20+ thương hiệu bao gồm nhà hàng Gia (Michelin), The KAfe, Manwah. Host podcast "Ha Chu works".',
+    shortBio: 'Chu Hồng Hà (sinh 1992) — sáng lập COOKED (2018), trường Marketing F&B đầu tiên VN với 100.000 học viên. Tư vấn 20+ thương hiệu (Gia Michelin, The KAfe). Host podcast "Ha Chu works" 97 tập, 4.9★ Spotify. Triết lý: "Khẩu vị là điểm chạm quan trọng nhất."',
     fullBio: 'Chu Hồng Hà (Hà Chu), sinh năm 1992, là người sáng lập và CEO của COOKED — trường đào tạo Marketing & Kinh doanh chuyên ngành F&B đầu tiên và duy nhất tại Việt Nam.\n\nHà bắt đầu viết báo từ năm lớp 10, trở thành Marketing Manager năm 24 tuổi tại The KAfe. Năm 26 tuổi (2018), cô sáng lập COOKED với sứ mệnh "mang lại niềm hạnh phúc hơn một chút cho những người làm F&B." Đến nay, COOKED đã đào tạo gần 100.000 học viên. Hà trực tiếp host podcast "Ha Chu works" (97+ tập, 4.9 sao trên Spotify).',
     highlights: [
       'Sáng lập COOKED (2018) — trường Marketing F&B đầu tiên, gần 100.000 học viên',
@@ -130,7 +130,7 @@ const EXPERTS: Expert[] = [
     photo: '/experts/tran-trung-hieu.webp',
     category: 'consultant',
     tags: ['Tư vấn quán', 'Cà phê', 'Nhà hàng', 'SME'],
-    shortBio: 'F&B Coach chuyên tư vấn cho chủ quán nhỏ. Thường xuyên được VnExpress, ZNews trích dẫn. Sáng lập FnB Academy (fnb.edu.vn).',
+    shortBio: 'Trần Trung Hiếu — F&B Coach tư vấn quán nhỏ với triết lý "nói thẳng, nói thật." Được VnExpress, ZNews, Dân Trí trích dẫn thường xuyên. Sáng lập FnB Academy (fnb.edu.vn) — nền tảng đào tạo SME. Bí quyết: "Kinh doanh không phải cuộc chơi của đam mê suông mà người biết tính toán."',
     fullBio: 'Trần Trung Hiếu là chuyên gia tư vấn F&B được biết đến với phong cách "nói thẳng, nói thật" về thực trạng kinh doanh quán ăn, cà phê tại Việt Nam. Ông thường xuyên được các tờ báo lớn như VnExpress, ZNews, Dân Trí trích dẫn khi có vấn đề nóng trong ngành F&B.\n\nÔng sáng lập FnB Academy (fnb.edu.vn) — nền tảng đào tạo trực tuyến giúp chủ quán nhỏ nắm vững kiến thức quản lý, vận hành và marketing.',
     highlights: [
       'Chuyên gia F&B thường xuyên được VnExpress, ZNews, Dân Trí trích dẫn',
@@ -178,7 +178,7 @@ const EXPERTS: Expert[] = [
     photo: '/experts/dao-the-vinh.webp',
     category: 'inspiration' as const,
     tags: ['Chuỗi nhà hàng', 'Multi-brand', 'M&A', 'Hệ thống hóa'],
-    shortBio: 'Kỹ sư khí tượng du học Nga, chuyển sang kinh doanh ẩm thực. Sáng lập Golden Gate (2005) — từ 1 quán lẩu nấm đến 500+ nhà hàng, 40+ thương hiệu (Kichi-Kichi, Gogi House, Vuvuzela). Temasek đầu tư định giá ~$650 triệu.',
+    shortBio: 'Đào Thế Vinh (sinh 1972) — kỹ sư khí tượng du học Nga, chuyển F&B với 0 kinh nghiệm bếp. Sáng lập Golden Gate (2008) từ 1 quán lẩu nấm → 500+ nhà hàng, 40+ thương hiệu, 6.630 tỷ doanh thu (2024). Temasek định giá $650M. Hệ thống hóa mọi thứ: "Nghệ nhân chỉ tạo được thứ họ giỏi; hệ thống tạo được bất kỳ sản phẩm nào."',
     fullBio: 'Đào Thế Vinh (sinh 1972) tốt nghiệp Đại học Khí tượng Thủy văn Saint Petersburg, Nga. Sau 7 năm buôn bán xuất nhập khẩu tại Nga, ông trở về Việt Nam năm 2002 và đồng sáng lập thương hiệu trà Cozy.\n\nNăm 2005, cùng hai người bạn thành lập Golden Gate. Cảm hứng đến từ chuyến đi Vân Nam (Trung Quốc) khi phát hiện món lẩu nấm tại Shangri-La. Năm 2008, mở nhà hàng đầu tiên Ashima tại 44 Phan Đình Phùng, Hà Nội — chỉ 4-5 bàn, nội thất gỗ cổ mua sẵn để bán lại nếu thất bại.\n\nĐiểm đặc biệt: cả 3 sáng lập viên đều là kỹ sư, không ai có nền tảng ẩm thực — nên ngay từ đầu đã hệ thống hóa mọi thứ thay vì dựa vào nghệ nhân. Sau 16 năm: 500+ nhà hàng, 40+ thương hiệu, 19.000 nhân viên, phục vụ 18 triệu khách/năm. Năm 2025, mua lại The Coffee House với giá 270 tỷ VNĐ.',
     highlights: [
       'Từ 1 quán lẩu nấm (2008) → 500+ nhà hàng, 40+ thương hiệu tại 45 tỉnh thành',
@@ -292,7 +292,7 @@ const EXPERTS: Expert[] = [
     photo: '/experts/danny-le.webp',
     category: 'inspiration' as const,
     tags: ['Tập đoàn', 'M&A', 'Phúc Long', 'WinMart', 'Chiến lược'],
-    shortBio: 'CEO Masan Group từ năm 36 tuổi. Cựu analyst Morgan Stanley. Kiến trúc sư thương vụ mua Phúc Long ($455 triệu), WinCommerce, huy động $5 tỷ+ từ Alibaba, SK Group, Bain Capital.',
+    shortBio: 'Danny Le (sinh 1984) — CEO Masan từ 36 tuổi, trẻ nhất tập đoàn lớn VN. Cựu analyst Morgan Stanley. Kiến trúc sư thương vụ Phúc Long $455M định giá, huy động $5B+ từ Alibaba, SK, Bain. Doanh thu 81.6 tỷ (2025). Triết lý: "Xây từ đầu 5-7 năm không đảm bảo; M&A và scale là tối ưu."',
     fullBio: 'Danny Le (sinh 1984) là Việt kiều Mỹ, tốt nghiệp Bowdoin College (ngành Xã hội học). Sau 4 năm làm investment banking analyst tại Morgan Stanley New York, ông gia nhập Masan năm 2010 ở vị trí Giám đốc Chiến lược.\n\nNăm 2020, ở tuổi 36, được bổ nhiệm CEO Masan Group — một trong những CEO trẻ nhất của tập đoàn lớn tại VN. Thương vụ nổi bật nhất: mua 85% Phúc Long Heritage với tổng đầu tư ~$280 triệu, định giá $455 triệu. Tích hợp 971 kiosk Phúc Long vào WinMart+ chỉ trong 1 năm.\n\nDưới thời Danny Le, Masan huy động hơn $5 tỷ từ KKR, Alibaba, SK Group, Bain Capital. Doanh thu 2025: 81.621 tỷ VNĐ, lợi nhuận sau thuế 6.764 tỷ VNĐ.',
     highlights: [
       'CEO Masan Group từ tuổi 36 — một trong những CEO trẻ nhất tập đoàn lớn VN',
@@ -350,7 +350,7 @@ const EXPERTS: Expert[] = [
     photo: '/experts/pham-cao-vinh.webp',
     category: 'inspiration' as const,
     tags: ['Chuỗi nhà hàng', 'Multi-brand', 'Bao bì', 'Đa ngành'],
-    shortBio: 'Từ gas hóa lỏng (1994) → bao bì vendor cấp 1 Samsung → Goldsun Food (200+ nhà hàng, 16 thương hiệu: King BBQ, Thai Express, Khao Lao). Chuỗi nhà hàng lớn thứ 2 Việt Nam.',
+    shortBio: 'Phạm Cao Vinh (sinh 1968) — từ gas hóa lỏng (1994) → vendor cấp 1 Samsung ~20% bao bì điện thoại → Goldsun Food (2008): 16 thương hiệu, 200+ nhà hàng, 2.4M khách/năm. Chuỗi lớn #2 VN. Vì sao từ ngành bao bì chuyển F&B thành công? Hệ thống tư duy từ Samsung áp dụng được mọi ngành.',
     fullBio: 'Phạm Cao Vinh (sinh 1968) khởi nghiệp năm 1994 với công ty gas hóa lỏng Quang Vinh. Năm 1996, chuyển sang ngành in ấn bao bì — xây dựng Goldsun Printing & Packaging thành vendor cấp 1 của Samsung (cung cấp ~20% bao bì điện thoại Samsung), Canon, Brother, Coca-Cola.\n\nNăm 2008, lấn sân F&B với Redsun ITI. Đưa 4 thương hiệu quốc tế đầu tiên về VN (Seoul Garden, Thai Express, Xinwang HK Cafe, Capricciosa) và tự phát triển King BBQ (2011), Khao Lao, Hotpot Story, Sushi Kei. Năm 2019, tái cấu trúc thành Goldsun Food.\n\nHiện Goldsun Food vận hành 16 thương hiệu, 200+ nhà hàng, 6.000+ nhân viên, phục vụ 2.4 triệu khách/năm. Là chuỗi nhà hàng lớn thứ 2 Việt Nam sau Golden Gate.',
     highlights: [
       'Vendor cấp 1 Samsung 10+ năm, cung cấp ~20% bao bì điện thoại',
@@ -406,7 +406,7 @@ const EXPERTS: Expert[] = [
     photo: '/experts/nguyen-hai-ninh.webp',
     category: 'inspiration',
     tags: ['Serial Entrepreneur', 'Cà phê', 'Startup', 'Forbes 30U30'],
-    shortBio: 'Serial entrepreneur: Urban Station (60+ quán) → The Coffee House (175 quán, 800 tỷ doanh thu) → M Village → Every Half. Forbes 30 Under 30 Asia.',
+    shortBio: 'Nguyễn Hải Ninh (sinh 1987) — 4 ventures trong 14 năm: Urban Station (60+ quán) → The Coffee House (175 quán, 800 tỷ doanh thu, Forbes 30U30) → M Village ($10M Trip.com) → Every Half ($3M Pre-Series A, xuất khẩu Robusta Mỹ). Bí quyết: "3 yếu tố: đam mê + thế mạnh + xã hội cần."',
     fullBio: 'Nguyễn Hải Ninh (sinh 1987) tốt nghiệp ngành Hóa, ĐH Bách Khoa TP.HCM. Sau chương trình Management Trainee tại PepsiCo, anh bắt đầu hành trình khởi nghiệp.\n\nNăm 2011, đồng sáng lập Urban Station — nhanh chóng mở 60+ cửa hàng. Năm 2014, rời đi để sáng lập The Coffee House với triết lý "cà phê cộng đồng" — 175 cửa hàng, ~800 tỷ VNĐ doanh thu (2019), Forbes 30 Under 30 Asia. Rời TCH năm 2021, anh tiếp tục với M Village (co-living, $10M từ Trip.com) và Every Half Coffee Roasters ($3M Pre-Series A, 14+ cửa hàng).',
     highlights: [
       '4 ventures trong 14 năm: Urban Station, The Coffee House, M Village, Every Half',
@@ -468,7 +468,7 @@ const EXPERTS: Expert[] = [
     photo: '/experts/ngo-nguyen-kha.webp',
     category: 'inspiration' as const,
     tags: ['Cà phê', 'Chuỗi F&B', 'Chuyển ngành', 'Trải nghiệm khách hàng'],
-    shortBio: 'Gần 10 năm tại Ericsson/Sony Ericsson, sáng lập Mobiistar (top 5 smartphone VN). Chuyển sang F&B năm 2020, làm CEO The Coffee House từ 2021. Triết lý: "Khách hàng không hài lòng thì mọi thứ đều vô nghĩa."',
+    shortBio: 'Ngô Nguyên Kha (sinh 1971) — Country Manager Sony Ericsson → sáng lập Mobiistar (top 5 smartphone VN) → CEO The Coffee House (2021). Tái cấu trúc ~150 cửa hàng, mang tư duy tech vào F&B. Câu hỏi: Vì sao chuyên gia điện tử thành công trong ẩm thực? Trả lời trong triết lý: "Khách hàng không hài lòng thì mọi thứ vô nghĩa."',
     fullBio: 'Ngô Nguyên Kha (sinh 1971) có gần 10 năm kinh nghiệm tại Ericsson và Sony Ericsson, từng là Country Manager Sony Ericsson Việt Nam. Năm 2012, ông đồng sáng lập Mobiistar — thương hiệu smartphone Việt từng đạt top 5 thị phần, mở rộng sang Ấn Độ năm 2018 nhưng rút lui năm 2019.\n\nNăm 2020, ông gia nhập Seedcom làm Tổng Giám đốc Fashion Group. Tháng 12/2021, được bổ nhiệm CEO The Coffee House — chuỗi cà phê có ~150 cửa hàng (hiện ~93 cửa hàng sau tái cấu trúc). Ông mang tư duy công nghệ và trải nghiệm khách hàng từ ngành điện tử vào F&B.\n\nĐầu 2025, Golden Gate mua lại 99.98% The Coffee House với giá 270 tỷ VNĐ.',
     highlights: [
       'Country Manager Sony Ericsson → sáng lập Mobiistar (top 5 smartphone VN)',
@@ -509,7 +509,7 @@ const EXPERTS: Expert[] = [
     photo: '/experts/tran-nhat-quang.webp',
     category: 'inspiration',
     tags: ['Cà phê', 'Local brand', 'Đà Lạt', 'Bền vững'],
-    shortBio: 'Cựu giảng viên đại học, 30 tuổi khởi nghiệp cà phê. Sáng lập Là Việt Coffee — 18 cửa hàng, 100% nguyên liệu Việt Nam, xuất khẩu 6+ quốc gia.',
+    shortBio: 'Trần Nhật Quang (sinh 1980) — cựu giảng viên ĐH Đà Lạt, 30 tuổi khởi nghiệp cà phê Arabica (2013) "ngược chiều" 90% robusta VN. Từ thất bại 2013 → Là Việt 18 chi nhánh, 100% nguyên liệu Việt, xuất khẩu 6+, Asia Top 80 (2025). Kiên trì 5 năm không bán được — khi thị trường sẵn sàng, đột phá. 200-300 tấn/năm từ nông hộ Đà Lạt.',
     fullBio: 'Trần Nhật Quang (sinh 1980) từng là giảng viên ngành du lịch tại Đại học Đà Lạt. Năm 2010, ở tuổi 30, anh bắt đầu tham gia dự án cà phê hữu cơ — thất bại năm 2013 vì thị trường chưa sẵn sàng.\n\nTháng 8/2013, anh thành lập Là Việt Coffee với lựa chọn "ngược chiều" — hạt Arabica khi 90%+ cà phê VN là Robusta. Sau 10+ năm, từ 1 người → 200+ nhân sự, 18 cửa hàng tại Đà Lạt, TP.HCM, Hà Nội, Quy Nhơn, Nha Trang. Phục vụ gần 1 triệu ly/năm, xuất khẩu Mỹ, Đức, Nhật Bản. Năm 2025, Là Việt được vinh danh Asia\'s Top 80 quán cà phê.',
     highlights: [
       'Tiên phong mô hình "farm-to-cup" đầu tiên tại Việt Nam (2013)',
@@ -568,7 +568,7 @@ const EXPERTS: Expert[] = [
     photo: '/experts/ly-quy-trung.webp',
     category: 'inspiration',
     tags: ['Nhượng quyền', 'Phở', 'Tác giả', 'Giáo dục'],
-    shortBio: 'Sáng lập Phở 24 (2003) — chuỗi phở nhượng quyền đầu tiên, 70+ cửa hàng, bán lại $20 triệu USD (2011). Tác giả 10 cuốn sách. Giáo sư Đại học Western Sydney.',
+    shortBio: 'Lý Quý Trung (sinh 1966) — từ nhân viên lau sàn → Phở 24 (2003), tiên phong nhượng quyền F&B VN, 70+ cửa hàng, bán $20M (2011). Tác giả 10 sách kinh doanh, Giáo sư ĐH Western Sydney. Bài học: "Sai lầm dạy nhiều, thành công dạy ít. Vị trí quyết định sống còn." Thất bại: Jazz Club, Gloria Jean\'s, Singapore, Thái Lan — nhưng kiên trì chia sẻ lời học.',
     fullBio: 'Lý Quý Trung (sinh 1966, Sài Gòn) xuất thân gia đình doanh nhân — mẹ là chủ nhà hàng Thanh Niên hoạt động hơn 30 năm tại Quận 1. Năm 1985, thi rớt đại học, ông bắt đầu từ nhân viên lau sàn, dọn vệ sinh tại Khách sạn Đệ Nhất (Equatorial). Một vị khách nước ngoài nhìn thấy sự chăm chỉ, tài trợ du học Úc.\n\nTốt nghiệp Thạc sĩ Du lịch (Griffith University) và Tiến sĩ Quản trị Kinh doanh, ông trở về Việt Nam đồng sáng lập Nam An Group với các thương hiệu ẩm thực cao cấp. Năm 2003, ông mở Phở 24 — tiệm phở máy lạnh đầu tiên tại Việt Nam, tiên phong mô hình nhượng quyền F&B. Chuỗi mở rộng 70+ cửa hàng, có mặt tại Indonesia, Philippines, Hàn Quốc, Nhật Bản, Úc. Năm 2011, bán Phở 24 cho Việt Thái Quốc Tế với giá $20 triệu USD.\n\nÔng cũng thẳng thắn chia sẻ hàng loạt thất bại: Jazz Club, Gloria Jean\'s Coffee, Yogen Fruz, nhà hàng tại Singapore và Thái Lan. Hiện ông là Giáo sư Đại học Western Sydney và sáng lập Viện Doanh nhân LQT.',
     highlights: [
       'Sáng lập Phở 24 (2003) — chuỗi phở nhượng quyền đầu tiên Việt Nam, 70+ cửa hàng',
@@ -687,7 +687,7 @@ const EXPERTS: Expert[] = [
     photo: '/experts/hoang-tung.webp',
     category: 'inspiration',
     tags: ['Pizza', 'Chuỗi F&B', 'Khởi nghiệp', 'Content Creator'],
-    shortBio: 'Gần 10 lần khởi nghiệp, 3 lần thất bại. Sáng lập Pizza Home (~20 cửa hàng), Mr Lẩu, Cloud Cook. Burger Corona lên CNN, BBC. Nhà phân tích F&B trên Brands Vietnam.',
+    shortBio: 'Hoàng Tùng (sinh 1981) — gần 10 lần khởi nghiệp, 3 lần thất bại. Pizza Home ~20 quán, Mr Lẩu, Cloud Cook. Burger Corona (2020) lên CNN, BBC, Reuters toàn cầu. Chiến lược "CẮT-GIẢM-TĂNG" giữa COVID: cắt lỗ, giảm chi phí, tăng R&D → sống sót. Công thức: "Càng cố gắng thì càng may mắn." Phân tích F&B trên Brands Vietnam.',
     fullBio: 'Hoàng Tùng (sinh 1981, Hà Nội) tốt nghiệp ĐH Ngoại ngữ và ĐH KHXH&NV, khởi nghiệp từ thời sinh viên với công ty dịch thuật — thất bại. Năm 2006, mở nhà hàng Viet Kitchen tại 24 Bà Triệu, doanh thu 500 triệu/tháng nhưng mâu thuẫn cổ đông khiến ông phải rút vốn.\n\nNăm 2013, ông sáng lập Pizza Home với triết lý "Nhanh - Ngon - Sạch" — pizza giá phải chăng, hương vị Việt hóa. Chuỗi mở rộng ~20 cửa hàng tại Hà Nội. Năm 2020, sáng tạo "Burger Corona" được CNN, BBC, Reuters đưa tin toàn cầu. Ngoài Pizza Home, ông còn sáng lập Mr Lẩu (lẩu giao tận nhà) và Cloud Cook (bếp trên mây).\n\nHoàng Tùng cũng là cây viết phân tích F&B nổi tiếng trên Brands Vietnam và Spiderum, thường xuyên chia sẻ case study thực chiến.',
     highlights: [
       'Sáng lập Pizza Home (2013) — ~20 cửa hàng tại Hà Nội',
@@ -745,7 +745,7 @@ const EXPERTS: Expert[] = [
     photo: '/experts/yosuke-masuko.webp',
     category: 'inspiration',
     tags: ['Farm-to-table', 'Pizza', 'Chuỗi quốc tế', 'Bền vững'],
-    shortBio: 'Đồng sáng lập & CEO Pizza 4P\'s. Từ 5 chiếc bàn nhỏ ở Quận 1 (2011) đến 40+ nhà hàng tại Việt Nam, Campuchia, Nhật Bản, Ấn Độ, Indonesia. Tự tay làm mozzarella, xưởng phô mai riêng tại Đà Lạt.',
+    shortBio: 'Yosuke Masuko — từ 5 bàn nhỏ ($100K, 2011) → Pizza 4P\'s 40+ nhà hàng 5 quốc gia. Tự học làm mozzarella YouTube, thử 25+ nguồn sữa → xưởng Đà Lạt 2.000+ viên/ngày, xuất khẩu. Lợi nhuận 115 tỷ (2023), tăng 38%. Triết lý: "Biến hạn chế thành lợi thế cạnh tranh." Mở Nén Tokyo (2025), New York (2025).',
     fullBio: 'Yosuke Masuko (sinh tại Nhật Bản) từng làm việc tại CyberAgent Ventures. Năm 2008, chuyển đến Hà Nội để mở văn phòng đầu tư. Trong thời gian sống tại Việt Nam, vợ chồng anh — Masuko và Sanae Takasugi — bắt đầu tổ chức tiệc pizza sân sau mỗi cuối tuần. Tiệc đông đến mức bạn bè khuyên mở nhà hàng.\n\nThách thức lớn nhất: phô mai mozzarella tươi gần như không có ở Việt Nam. Masuko tự học làm phô mai từ YouTube, thử sữa từ hơn 25 nguồn khác nhau. Năm 2011, với $100.000 tiền tiết kiệm, cặp đôi mở Pizza 4P\'s đầu tiên tại Lê Thánh Tôn, Quận 1 — chỉ 4-5 bàn nhỏ.\n\nSau 14 năm: 40+ nhà hàng tại 5 quốc gia, xưởng phô mai riêng tại Đơn Dương (Đà Lạt) sản xuất 1.500-2.000 viên burrata và 2.000-3.000 viên mozzarella mỗi ngày. Năm 2023, lợi nhuận sau thuế đạt 115 tỷ VNĐ. Năm 2025, mở rộng sang New York (Mỹ).',
     highlights: [
       'Từ 5 bàn nhỏ ($100K, 2011) → 40+ nhà hàng tại 5 quốc gia',
@@ -804,7 +804,7 @@ const EXPERTS: Expert[] = [
     photo: '/experts/summer-le.webp',
     category: 'inspiration',
     tags: ['Michelin', 'Bền vững', 'Đà Nẵng', 'Farm-to-table'],
-    shortBio: 'Sáng lập & Bếp trưởng nhà hàng Nén — Sao xanh Michelin đầu tiên và duy nhất tại Việt Nam. Từ food blogger → đầu bếp, 99% nguyên liệu địa phương. Mở Nén Tokyo (2025).',
+    shortBio: 'Summer Lê (Lê Hạ Uyên) — từ food blogger "Danang Cuisine" → Nén nhà hàng (2017) → Sao xanh Michelin đầu tiên VN (2024). Không học bếp chính quy, 99% nguyên liệu hyper-local, Nén Farm cung 30%. Mở Nén Light Sài Gòn (2022), Nén Tokyo (2025). Vì sao food blogger thành Michelin? Câu trả lời trong triết lý: "Ẩm thực muốn có sức mạnh phải dùng nguyên liệu của chính vùng đất đó."',
     fullBio: 'Lê Hạ Uyên (Summer Lê) lớn lên tại Đà Nẵng, du học Nhật Bản (Đại học Ritsumeikan APU) và Úc (ANU). Năm cuối đại học, cô lập blog ẩm thực "Danang Cuisine" bằng tiếng Anh — muốn có một giọng nói Việt Nam kể về ẩm thực quê hương.\n\nTừ blog → food tour → nhà hàng. Năm 2017, cô cùng chồng sáng lập Nén Đà Nẵng với concept "Sto:ry Menu" — thực đơn tasting kể câu chuyện văn hóa Việt qua từng món. 99% nguyên liệu hyper-local, 30% đến từ Nén Farm ngay đối diện nhà hàng.\n\nNăm 2022, mở Nén Light Sài Gòn. Tháng 6/2024, Nén Đà Nẵng nhận Sao xanh Michelin đầu tiên và duy nhất tại Việt Nam — vinh danh cam kết bền vững. Tháng 9/2025, mở Nén Tokyo tại Daikanyama — nhà hàng fine dining Việt đầu tiên tại Nhật.',
     highlights: [
       'Sao xanh Michelin đầu tiên và duy nhất tại Việt Nam (2024, giữ 2025)',
@@ -867,7 +867,7 @@ const EXPERTS: Expert[] = [
     photo: '/experts/nguyen-trung-dung.webp',
     category: 'inspiration',
     tags: ['Gia vị', 'Khởi nghiệp muộn', 'Xuất khẩu', 'Bootstrap'],
-    shortBio: 'Khởi nghiệp tuổi 50 sau 30 năm ở châu Âu và 3 lần thất bại. Sáng lập Dh Foods — gia vị tự nhiên, tăng trưởng 50%/năm, xuất khẩu 20+ quốc gia. Chưa bao giờ vay ngân hàng.',
+    shortBio: 'Nguyễn Trung Dũng (sinh 1963) — khởi nghiệp tuổi 50 sau 30 năm Ba Lan + 3 lần thất bại. Dh Foods (2012) từ 1.2 tỷ: gia vị tự nhiên, 100+ SKU, tăng 50%/năm liên tục, xuất 20+ quốc gia. Bootstrap toàn bộ — chưa bao giờ vay. Danh hiệu "Hàng Việt Chất Lượng Cao" 2 năm (2023-2024). Bí quyết tuổi 50: "Bớt hiếu thắng, bớt ham giàu nhanh, biết kiên nhẫn để đi xa."',
     fullBio: 'Nguyễn Trung Dũng (sinh 1963) rời Việt Nam sang Ba Lan du học từ 1989. Suốt 30 năm ở châu Âu, ông trải qua 3 lần khởi nghiệp — từ buôn mì gói đến chế biến thực phẩm — cả 3 đều thất bại. Năm 2010, gần 50 tuổi, ông trở về Việt Nam gần như tay trắng.\n\nTháng 10/2012, với 1,2 tỷ đồng, ông thành lập Dh Foods — 100% gia vị tự nhiên, không phẩm màu, không bảo quản. Sau giai đoạn "đốt tiền" ban đầu, công ty đạt tăng trưởng 50%/năm suốt 6 năm. Hiện 100+ sản phẩm, phủ siêu thị lớn, xuất khẩu Mỹ, Nhật, Đức, Hàn Quốc, Úc.',
     highlights: [
       '3 lần khởi nghiệp thất bại trước tuổi 50',
@@ -930,7 +930,7 @@ const EXPERTS: Expert[] = [
     photo: '/experts/vu-thanh-hung.webp',
     category: 'inspiration' as const,
     tags: ['F&B Tech', 'POS', 'Startup', 'Dữ liệu ngành'],
-    shortBio: 'Cựu kỹ sư FPT Software, sáng lập iPOS.vn (2017) — nền tảng quản lý bán hàng phục vụ 50.000+ nhà hàng/quán cà phê. Tác giả Báo cáo thị trường F&B Việt Nam thường niên.',
+    shortBio: 'Vũ Thanh Hùng — cựu kỹ sư FPT Software, sáng lập iPOS.vn (2017), nền tảng POS F&B lớn nhất VN phục vụ 50.000+ cửa hàng. Báo cáo thị trường F&B VN thường niên được CafeF, VnExpress, Dân Trí trích dẫn. Triết lý: "Quản lý bằng sổ tay → không biết mình lãi hay lỗ. Dữ liệu giúp quán nhỏ cạnh tranh chuỗi lớn."',
     fullBio: 'Vũ Thanh Hùng là cựu kỹ sư phần mềm tại FPT Software. Năm 2017, nhận thấy phần lớn nhà hàng và quán cà phê Việt Nam vẫn quản lý thủ công, ông sáng lập iPOS.vn — nền tảng quản lý bán hàng (POS) chuyên biệt cho ngành F&B.\n\nSau 7 năm, iPOS.vn phục vụ 50.000+ cửa hàng, trở thành nền tảng POS F&B lớn nhất Việt Nam. Ngoài phần mềm, iPOS.vn còn nổi tiếng với Báo cáo thị trường F&B Việt Nam hàng năm — nguồn dữ liệu được truyền thông và nhà đầu tư trích dẫn rộng rãi.\n\nVũ Thanh Hùng thường xuyên chia sẻ kiến thức về quản trị F&B, xu hướng ngành và chuyển đổi số trên các diễn đàn doanh nghiệp.',
     highlights: [
       'Sáng lập iPOS.vn (2017) — POS F&B lớn nhất VN, 50.000+ cửa hàng',
@@ -975,7 +975,7 @@ const EXPERTS: Expert[] = [
     photo: '/experts/taku-tanaka.webp',
     category: 'inspiration',
     tags: ['Supply Chain', 'Startup', 'B2B', 'Forbes Asia'],
-    shortBio: 'Cựu COO Pizza 4P\'s → sáng lập KAMEREO (2018) — nền tảng mua nguyên liệu B2B đầu tiên tại VN. Phục vụ 3.000+ nhà hàng, huy động $15M+. Forbes Asia 100 to Watch 2025.',
+    shortBio: 'Taku Tanaka (sinh 1989) — cựu COO Pizza 4P\'s (mở 1→10 quán/3 năm) → KAMEREO (2018), nền tảng B2B mua nguyên liệu đầu tiên VN. Phục vụ 3.000+ nhà hàng, 100+ nông dân, 16.000 SKU, huy động $15M+. Forbes Asia 100 to Watch 2025. Insight: "Bộ mua hàng hỗn loạn → pivot từ SaaS (thất bại) sang e-commerce full-stack → tăng 15%/tháng liên tục."',
     fullBio: 'Taku Tanaka (sinh 1989, Nhật Bản) tốt nghiệp Đại học Keio, từng làm chuyên viên phân tích cổ phiếu tại Credit Suisse Tokyo. Năm 2015, anh gia nhập Pizza 4P\'s với vai trò COO — trong 3 năm, chuỗi mở rộng từ 1 lên 10 cửa hàng.\n\nChính tại Pizza 4P\'s, anh chứng kiến sự hỗn loạn của khâu mua nguyên liệu: mỗi nhân viên mua hàng dùng công cụ khác nhau, không có hệ thống, giá cả không minh bạch. Năm 2018, anh đồng sáng lập KAMEREO — nền tảng B2B đầu tiên kết nối nhà hàng với nông dân và nhà cung cấp.\n\nSau khi pivot từ mô hình SaaS (thất bại) sang mô hình thương mại điện tử B2B trọn gói, KAMEREO tăng trưởng 15%/tháng liên tục 12 tháng. Hiện phục vụ 3.000+ doanh nghiệp F&B, hợp tác 100+ nông dân, 16.000+ SKU. Forbes Asia 100 to Watch 2025.',
     highlights: [
       'Cựu COO Pizza 4P\'s — mở rộng từ 1 lên 10 cửa hàng trong 3 năm',
@@ -1104,7 +1104,7 @@ const EXPERTS: Expert[] = [
     photo: '/experts/david-thai.webp',
     category: 'inspiration',
     tags: ['Cà phê', 'Thương hiệu Việt', 'Việt kiều'],
-    shortBio: 'Người sáng lập Highlands Coffee — chuỗi cà phê lớn nhất Việt Nam. Ông là Việt kiều đầu tiên được cấp phép lập doanh nghiệp tư nhân ở Hà Nội (1998), từng từ chối đề nghị mua lại từ Starbucks.',
+    shortBio: 'David Thái (Thái Phi Diệp, sinh 1972) — Việt kiều đầu tiên cấp phép doanh nghiệp tư nhân Hà Nội (1998), từ $1K → Highlands Coffee (2002) chuỗi lớn nhất VN. Từ chối Starbucks: "Đây là thương hiệu Việt Nam, đây là Việt Nam." Young Global Leader WEF (2009). Không bao giờ rút cổ tức — tái đầu tư 100% lợi nhuận. "Chiến lược là con người, tất cả là con người."',
     fullBio: 'David Thái (Thái Phi Diệp) sinh năm 1972 tại Việt Nam, sang Mỹ năm 1979. Lớn lên ở Seattle, tốt nghiệp Quản trị Kinh doanh tại University of Washington. Năm 1996, ông trở về Việt Nam với gần 1.000 USD. Năm 1998, ông trở thành Việt kiều đầu tiên được cấp phép thành lập doanh nghiệp tư nhân tại Hà Nội.\n\nNăm 2002, hai cửa hàng Highlands Coffee đầu tiên khai trương. Khi Starbucks đề nghị mua lại, ông dứt khoát từ chối: "Đây là thương hiệu Việt Nam, đây là Việt Nam." Năm 2009, World Economic Forum vinh danh ông là Young Global Leader.\n\nĐiều đặc biệt: ông chưa từng rút cổ tức từ Highlands — kiếm tiền ở nơi khác và tái đầu tư toàn bộ vào công ty.',
     highlights: [
       'Việt kiều đầu tiên thành lập doanh nghiệp tư nhân tại Hà Nội (1998)',
@@ -1137,7 +1137,7 @@ const EXPERTS: Expert[] = [
     photo: '/experts/lam-boi-minh.webp',
     category: 'inspiration',
     tags: ['Trà Việt', 'Cà phê', 'Di sản thương hiệu'],
-    shortBio: 'Người sáng lập Phúc Long Coffee & Tea từ năm 1968 tại Bảo Lộc, Lâm Đồng. Suốt 55+ năm, ông xây dựng Phúc Long thành thương hiệu quốc gia, với thương vụ bán 31% cổ phần cho Masan trị giá hàng trăm triệu USD.',
+    shortBio: 'Lâm Bội Minh (sinh 1946) — sáng lập Phúc Long (1968) từ Bảo Lộc thị trường nhỏ lẻ → 55+ năm xây thương hiệu quốc gia, 1 công thức = hàng trăm lần thử. Masan mua 31% cổ phần (2022), cổ đông nhận 110 triệu USD. Mở Phúc Long Luxury (Đà Nẵng, 2025). Doanh nhân kín tiếng không mạng xã hội, nhưng di sản khổng lồ. Triết lý: "Danh tiếng tốt dễ mất hơn dễ có."',
     fullBio: 'Lâm Bội Minh sinh năm 1946, bắt đầu hành trình với Phúc Long từ năm 1968 trên cao nguyên trà Bảo Lộc. Ông tự nghiên cứu và học hỏi về trà và cà phê "từ những bước nhỏ nhất và đơn giản nhất." Mỗi công thức pha chế được thử nghiệm hàng trăm lần để đạt đủ tiêu chí: màu sắc, hương thơm, vẻ đẹp và hương vị.\n\nTrong những năm 1990, khi máy pha cà phê còn là món hàng xa xỉ, ông quyết tâm nhập một chiếc máy về cửa hàng tại Quận 1 TP.HCM. Triết lý của ông: "Giá trị không nằm ở số lượng cửa hàng mà nằm ở chất lượng cửa hàng."\n\nĐầu 2022, Masan Group mua 31% cổ phần, cổ đông nhận 110 triệu USD. Là doanh nhân cực kỳ kín tiếng — không ảnh công khai, không mạng xã hội — nhưng để lại di sản khổng lồ cho ngành F&B Việt Nam.',
     highlights: [
       'Sáng lập Phúc Long (1968) từ Bảo Lộc — thương hiệu trà & cà phê hơn 55 tuổi',
@@ -1170,7 +1170,7 @@ const EXPERTS: Expert[] = [
     photo: '/experts/truong-nguyen-thien-kim.webp',
     category: 'inspiration',
     tags: ['Cà phê', 'Nữ doanh nhân', 'Chuỗi F&B'],
-    shortBio: 'Chủ tịch HĐQT kiêm TGĐ D1 Concepts, sở hữu Katinat Saigon Kafe (84.21%) và Phê La (51%). Một trong những nữ doanh nhân F&B quyền lực nhất Việt Nam.',
+    shortBio: 'Trương Nguyễn Thiên Kim (sinh 1976) — Chủ tịch D1 Concepts, sở hữu Katinat 84.21% + Phê La 51%, khối tài sản 6 tỷ với chồng Tô Hải (Vietcap). Katinat = premium TP.HCM; Phê La = "cà phê lúc bình minh" viral TikTok (2024) #1 xu hướng mạng. Nữ doanh nhân F&B quyền lực nhất VN, kín tiếng hiếm phỏng vấn. Chiến lược: chia thị trường để tránh nội bộ cạnh tranh.',
     fullBio: 'Trương Nguyễn Thiên Kim sinh ngày 28/11/1976 tại Đà Lạt, tốt nghiệp Thạc sĩ Tài chính tại ĐH Kinh tế TP.HCM. Bà bắt đầu sự nghiệp trong ngành chứng khoán (Bảo Việt, Đông Á) và Trưởng Ban Kiểm soát tại PNJ.\n\nVới D1 Concepts (thành lập 2012), bà xây dựng portfolio F&B ấn tượng: San Fu Lou, Sorae, Dì Mai. Sự bùng nổ thực sự đến từ Katinat Saigon Kafe — chuỗi cà phê premium "made in Saigon" — và Phê La, tạo nên hiện tượng "cà phê lúc bình minh" trên mạng xã hội.\n\nCùng chồng Tô Hải (TGĐ Vietcap Securities), họ sở hữu khối tài sản gần 6.000 tỷ đồng. Bà là doanh nhân cực kỳ kín tiếng — hiếm khi trả lời phỏng vấn.',
     highlights: [
       'Sở hữu Katinat (84.21%), Phê La (51%), Chủ tịch D1 Concepts',
@@ -1201,7 +1201,7 @@ const EXPERTS: Expert[] = [
     photo: '/experts/nguyen-thi-kim-oanh.webp',
     category: 'inspiration',
     tags: ['Ẩm thực Việt', 'Nữ doanh nhân', 'Chuỗi nhà hàng'],
-    shortBio: 'Hoa khôi Thể thao đầu tiên của Việt Nam (1993), sáng lập Wrap & Roll (2006) — chuỗi nhà hàng món cuốn Việt hiện đại, gọi vốn 6.9 triệu USD từ Mekong Enterprise Fund III.',
+    shortBio: 'Nguyễn Thị Kim Oanh (sinh 1975) — Hoa khôi Thể thao #1 VN (1993) → Wrap & Roll (2006), tiên phong chuỗi nhà hàng món Việt hiện đại, 12 quán + 6 Singapore + gọi 6.9M USD (2016). Đại diện nữ doanh nhân châu Á Ernst & Young Winning Women. Triết lý: "Uy tín, trách nhiệm, cam kết > chuyên môn; muốn đi cùng lâu phải chia sẻ giá trị."',
     fullBio: 'Nguyễn Thị Kim Oanh sinh năm 1975 tại Hải Phòng, đăng quang Hoa khôi Thể thao đầu tiên của Việt Nam năm 1993. Bà dành 7 năm giúp chồng xây dựng Sudest Production — công ty sản xuất phim tư nhân đầu tiên tại Việt Nam.\n\nNăm 2006, bà sáng lập Wrap & Roll — chuỗi nhà hàng tiên phong đưa món cuốn truyền thống Việt vào mô hình hiện đại. Sau 10 năm: 12 cửa hàng tại Hà Nội và TP.HCM, 4 nhượng quyền tại Singapore, và 6.9 triệu USD đầu tư. Bà đại diện nữ doanh nhân châu Á tại Ernst & Young Winning Women.\n\nTriết lý: "Uy tín, trách nhiệm và cam kết — chuyên môn chỉ là công cụ, điều kết nối đội ngũ lâu dài là chia sẻ cùng giá trị."',
     highlights: [
       'Hoa khôi Thể thao đầu tiên của Việt Nam (1993)',
@@ -1234,7 +1234,7 @@ const EXPERTS: Expert[] = [
     photo: '/experts/sanae-takasugi.webp',
     category: 'inspiration',
     tags: ['Nhà hàng', 'Bền vững', 'Văn hóa doanh nghiệp'],
-    shortBio: 'Đồng sáng lập và Phó CEO Pizza 4P\'s. Cùng chồng Yosuke Masuko xây dựng từ tiệc pizza tại nhà (2011) thành chuỗi 32+ nhà hàng toàn châu Á với triết lý "Delivering Wow, Sharing Happiness."',
+    shortBio: 'Sanae Takasugi — đồng sáng lập & Phó CEO Pizza 4P\'s (2011), từ tiệc pizza sân sau 14-15 bánh → 32+ quán 4 quốc gia. Triết lý "Oneness: Earth to People." Tiên phong F&B bền vững: phô mai tự làm, rau organic, zero waste. "Wow moment" độc đáo: nhân viên viết tay tin nhắn lên hộp pizza. Câu hỏi: "Làm sao pizza giáp trái đất?" Câu trả lời trong 50-100 năm tương lai của Pizza 4P\'s.',
     fullBio: 'Sanae Takasugi tốt nghiệp Keio University (Nhật Bản), từng học tại Anh và Trung Quốc. Cùng chồng Yosuke Masuko sáng lập Pizza 4P\'s năm 2011 tại TP.HCM. Từ những buổi tiệc pizza tại nhà (mỗi lần chỉ 14-15 bánh), họ xây dựng chuỗi 32+ nhà hàng tại Việt Nam, Campuchia, Ấn Độ, Indonesia và Nhật Bản.\n\nPizza 4P\'s nổi tiếng với phô mai tự làm (từ trang trại ở Đơn Dương, Lâm Đồng), vườn rau organic, và cam kết bền vững (zero waste, năng lượng sạch). Triết lý "Oneness — Earth to People" tạo sự hài hòa giữa con người, thức ăn và trái đất.\n\nĐiểm đặc biệt: nhân viên viết tin nhắn tay lên mỗi hộp pizza — một "wow moment" nhỏ tạo nên trải nghiệm khác biệt.',
     highlights: [
       'Đồng sáng lập Pizza 4P\'s (2011) — từ tiệc pizza tại nhà thành chuỗi 32+ nhà hàng toàn châu Á',
@@ -1270,7 +1270,7 @@ const EXPERTS: Expert[] = [
     photo: '/experts/bobby-chinn.webp',
     category: 'inspiration',
     tags: ['Fine Dining', 'Ẩm thực Việt', 'Đầu bếp quốc tế'],
-    shortBio: 'Đầu bếp gốc Ai Cập-Trung Quốc. Đến Việt Nam năm 1995, trở thành người tiên phong fine dining tại Hà Nội, giành Five-Diamonds Award. Anthony Bourdain: "Những gì Bobby không biết về ẩm thực Đông Nam Á thì không đáng để biết."',
+    shortBio: 'Bobby Chinn (gốc Ai Cập-Trung Quốc-Anh) — đến VN (1995), tiên phong fine dining Hà Nội, Restaurant Bobby Chinn (2001) Five-Diamonds Award. Giám khảo MBC Top Chef ME, host World Cafe, tác giả "Wild Wild East" (lời tựa Bourdain). Tourism Ambassador Vietnam to EU (2014), WWF Sustainable Seafood Ambassador (2012). Anthony Bourdain: "Những gì Bobby không biết về ẩm thực ĐNA thì không đáng để biết."',
     fullBio: 'Bobby Chinn sinh tại New Zealand, cha gốc Trung Quốc-Mỹ và mẹ người Ai Cập. Sau sự nghiệp tại sàn giao dịch chứng khoán New York và làm hài độc lập, ông học nấu ăn tại Fleur de Lys (San Francisco) dưới sự chỉ dẫn của Hubert Keller.\n\nNăm 1995, ông đến Việt Nam. Đỉnh cao là Restaurant Bobby Chinn (Hà Nội, 2001) — nhà hàng fine dining mở đường cho ẩm thực cấp cao tại Việt Nam, giành Five-Diamonds Award. Khách hàng gồm Bill Clinton, Bob Dylan.\n\nÔng là giám khảo thường trực MBC\'s Top Chef Middle East, host "World Cafe," tác giả "Wild Wild East" (2007). Được bổ nhiệm Tourism Ambassador for Vietnam to EU (2014) và WWF Sustainable Seafood Ambassador (2012).',
     highlights: [
       'Tiên phong fine dining tại Việt Nam: Restaurant Bobby Chinn (2001) — Five-Diamonds Award',
@@ -1307,7 +1307,7 @@ const EXPERTS: Expert[] = [
     photo: '/experts/luke-nguyen.webp',
     category: 'inspiration',
     tags: ['Ẩm thực Việt', 'Đầu bếp quốc tế', 'Truyền hình'],
-    shortBio: 'Đầu bếp và MC truyền hình Úc gốc Việt. Mở nhà hàng Red Lantern lúc 23 tuổi, quay 9 series truyền hình phát sóng tại 150 quốc gia, nâng tầm ẩm thực Việt lên sân khấu quốc tế.',
+    shortBio: 'Luke Nguyen (sinh 1978, trại tị nạn Thái Lan) — đầu bếp Úc gốc Việt, Red Lantern (23 tuổi) nhà hàng được trao giải nhiều nhất Úc, người trẻ nhất Sydney Morning Herald Food Hall of Fame. 9 series TV → 150 quốc gia, 5 sách bán chạy. Red Lantern, Vietnam House (Đồng Khởi), GRAIN studio. Little Lantern Foundation Hội An đào tạo nghề thanh niên khó khăn. Câu chuyện: từ phở gia đình → nâng tầm ẩm thực Việt sân khấu quốc tế.',
     fullBio: 'Luke Nguyen sinh tại trại tị nạn ở Thái Lan năm 1978, gia đình đến Úc năm 1979. Lớn lên tại Cabramatta, Sydney, học nấu ăn từ bố mẹ tại nhà hàng gia đình Phở Cây Du suốt 15 năm.\n\nLúc 23 tuổi, ông cùng chị gái mở Red Lantern — nhà hàng Việt/Châu Á được trao giải nhiều nhất nước Úc. Ông là người trẻ nhất vào Sydney Morning Herald\'s Food Hall of Fame.\n\nÔng đã quay 9 series truyền hình phát sóng tại 150 quốc gia, tác giả 5 sách bán chạy quốc tế. Hiện sở hữu Vietnam House (Đồng Khởi) và đồng sáng lập GRAIN cooking studio tại TP.HCM. Sáng lập Little Lantern Foundation tại Hội An, đào tạo nghề cho thanh niên khó khăn.',
     highlights: [
       'Mở Red Lantern lúc 23 tuổi — nhà hàng Việt/Châu Á được trao giải nhiều nhất nước Úc',
@@ -1343,7 +1343,7 @@ const EXPERTS: Expert[] = [
     photo: '/experts/john-pemberton.webp',
     category: 'inspiration',
     tags: ['Bia craft', 'Khởi nghiệp', 'F&B Sài Gòn'],
-    shortBio: 'Sáng lập và CEO Heart of Darkness Craft Brewery (2016) tại Sài Gòn. Nguyên là Deputy Trading Area Manager của IKEA, ông tự học nấu bia và xây dựng thương hiệu bia craft hàng đầu Việt Nam.',
+    shortBio: 'John Pemberton — từ IKEA Deputy Trading Manager → Heart of Darkness (2016), thương hiệu bia craft hàng đầu VN xây từ tự học YouTube. Country Champion Asia Beer Championships 2023, Tokyo International Beer Cup. Mở Singapore, Thái Lan. Triết lý: "Người Việt quen hương vị đậm đà → tự nhiên thích bia profile phức tạp. Đối xử nhà xưởng như sân chơi." Vấn đề: "Bia craft ở VN còn phôi thai; còn rất nhiều việc phải làm."',
     fullBio: 'John Pemberton sinh tại Úc, lớn lên ở Anh. Những năm 1990 tại New York, ông phát triển tình yêu với bia craft qua phong trào craft beer đang non trẻ của Mỹ.\n\nNăm 2013, IKEA đưa ông đến Việt Nam. Thất vọng vì không tìm được bia craft chất lượng, ông tự học nấu bia tại nhà. Heart of Darkness ra đời năm 2016 tại Quận 1, TP.HCM.\n\nTừ đó, Heart of Darkness giành nhiều giải quốc tế: Country Champion tại Asia Beer Championships (2023), giải tại Tokyo International Beer Cup. Thương hiệu mở rộng ra Singapore và Thái Lan.',
     highlights: [
       'Sáng lập Heart of Darkness Brewery (2016) — thương hiệu bia craft hàng đầu Việt Nam',
@@ -1381,7 +1381,7 @@ const EXPERTS: Expert[] = [
     photo: '/experts/phan-anh-minh.webp',
     category: 'consultant',
     tags: ['Mặt bằng', 'Tư vấn F&B', 'Chuỗi cửa hàng'],
-    shortBio: 'CEO & Founder SitePlus — công ty tư vấn phát triển mặt bằng đầu tiên tại Việt Nam. Tác giả "Đến Sahara mở quán trà đá" — Top 10 sách kinh doanh hay nhất 2024.',
+    shortBio: 'Phan Anh Minh — CEO & Founder SitePlus, công ty tư vấn mặt bằng đầu tiên VN, 10+ năm phát triển 3 chuỗi tiện lợi lớn + tư vấn Ministop, 30Shine, Pi Thai, Levents, Fight100. Tác giả "Đến Sahara mở quán trà đá" (2024) Top 10 sách kinh doanh hay nhất, "Quy tắc 6T" + 21 sai lầm phổ biến. Triết lý: "Mặt bằng phải phù hợp mô hình; chọn sai địa điểm thì all-in chiến lược cũng thất bại."',
     fullBio: 'Phan Anh Minh là người sáng lập và CEO của SitePlus — công ty tư vấn chiến lược phát triển mặt bằng đầu tiên tại Việt Nam. Với hơn 10 năm kinh nghiệm, ông đã triển khai phát triển mặt bằng cho 3 chuỗi cửa hàng tiện lợi lớn nhất Việt Nam và tư vấn cho Ministop, 30Shine, Rau Má Mix, Pi Thai, Levents, Fight100.\n\nÔng là tác giả cuốn "Đến Sahara mở quán trà đá — Bí quyết tìm kiếm mặt bằng kinh doanh" (NXB Thế Giới / Giver Books) — cuốn sách đầu tiên tại Việt Nam về phát triển mặt bằng kinh doanh, lọt Top 10 sách kinh doanh hay nhất 2024. Sách giới thiệu "Quy tắc 6T" để nhận diện mặt bằng tiềm năng và 21 sai lầm phổ biến phải tránh.\n\nÔng thường xuyên chia sẻ kiến thức chuyên môn qua Substack, TikTok và Facebook.',
     highlights: [
       'Sáng lập SitePlus — công ty tư vấn mặt bằng kinh doanh đầu tiên tại Việt Nam',
