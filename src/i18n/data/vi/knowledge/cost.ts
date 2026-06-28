@@ -840,7 +840,7 @@ const COST_ARTICLES: KBTopic[] = [
     id: 'location_pitfalls',
     slug: 'sai-lam-khi-chon-mat-bang-fnb',
     publishDate: '2026-06-28',
-    icon: 'pin',
+    icon: 'location',
     title: '8 sai lầm khi chọn mặt bằng F&B — vì sao 50% quán đóng cửa do vị trí',
     subtitle: 'Foot traffic, rent ratio, hợp đồng thuê & những bẫy mặt bằng phổ biến nhất tại Việt Nam',
     seoTitle: 'Sai lầm khi chọn mặt bằng quán cafe & nhà hàng — 8 bẫy phổ biến + checklist',

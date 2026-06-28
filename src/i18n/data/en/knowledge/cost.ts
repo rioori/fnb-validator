@@ -786,7 +786,7 @@ const COST_ARTICLES: KBTopic[] = [
     id: 'location_pitfalls',
     slug: 'sai-lam-khi-chon-mat-bang-fnb',
     publishDate: '2026-06-28',
-    icon: 'pin',
+    icon: 'location',
     title: '8 Common Mistakes When Choosing an F&B Location in Vietnam',
     subtitle: 'Foot traffic, rent ratio, lease contracts & the most common location traps in Vietnam',
     seoTitle: 'F&B Location Mistakes Vietnam — 8 Common Traps + 12-Step Checklist',
