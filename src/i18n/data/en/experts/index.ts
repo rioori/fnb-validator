@@ -144,6 +144,8 @@ const EXPERTS: Expert[] = [
     id: 'dao-the-vinh',
     slug: 'dao-the-vinh',
     name: 'Đào Thế Vinh',
+    seoTitle: 'Đào Thế Vinh (b. 1972) — CEO Golden Gate, from meteorology engineer to 500-restaurant chain',
+    seoDescription: 'Đào Thế Vinh — studied meteorology in Russia, zero culinary background to Golden Gate: 500 restaurants, 40+ brands, $259M revenue (2024). Mekong Capital 9.1x exit.',
     descriptor: 'Chairman & CEO of Golden Gate — Vietnam\'s largest restaurant group with 40+ brands and 500+ locations',
     photo: '/experts/dao-the-vinh.webp',
     category: 'inspiration' as const,
@@ -152,14 +154,16 @@ const EXPERTS: Expert[] = [
     fullBio: 'Đào Thế Vinh (b. 1972) studied Hydro-Meteorology at Saint Petersburg University, Russia. After 7 years of import-export trading in post-Soviet Russia, he returned to Vietnam in 2002 and co-founded the Cozy tea brand.\n\nIn 2005, he and two friends founded Golden Gate. The inspiration came from a trip to Yunnan, China, where he discovered mushroom hotpot in Shangri-La. In 2008, he opened the first Ashima restaurant at 44 Phan Dinh Phung, Hanoi — just 4-5 tables, with antique furniture bought to be resold if the venture failed.\n\nKey insight: all 3 co-founders were engineers with zero culinary background — so they systematized everything from day one instead of relying on artisans. After 16 years: 500+ restaurants, 40+ brands, 19,000 employees, serving 18 million customers/year. In 2025, acquired The Coffee House for 270B VND.',
     highlights: [
       'From 1 hotpot shop (2008) → 500+ restaurants, 40+ brands across 45 provinces',
-      '2024 revenue: 6,630B VND (~$259M)',
-      'Temasek invested (2022), valuation ~$650 million USD',
-      'Mekong Capital invested $2.6M (2008), exited at 9x return (2014) — INSEAD case study',
+      '2024 revenue: 6,630B VND (~$259M), 17,000 employees, 18M customers/year',
+      'Standard Chartered PE (2014) + Temasek (2022) invested, valuation ~$653 million USD',
+      'Mekong Capital invested $2.6M (2008), exited at 9.1x return (2014) — INSEAD case study',
+      'Acquired 99.98% of The Coffee House (2024) — expanded from restaurants into coffee chain',
     ],
     quotes: [
       { text: 'I need to sell products that customers like, not products that satisfy my personal preferences.', source: 'Nhà Đầu Tư', sourceUrl: 'https://nhadautu.vn/vua-nha-hang-golden-gate-ke-chuyen-khoi-nghiep-mat-tien-bi-quy-dau-tu-lua-va-cai-ket-d66490.html' },
       { text: 'A system can produce any product; an artisan produces only what they\'re skilled at.', source: 'CafeBiz', sourceUrl: 'https://cafebiz.vn/dao-the-vinh-vi-dai-gia-dung-sau-golden-gate-tu-cam-hung-mon-lau-nam-trong-chuyen-di-shangrila-toi-chuoi-400-nha-hang-lon-nhat-viet-nam-nhu-kichi-kichi-gogi-house-vuvuzela-20211227124836345.chn' },
       { text: 'Difficulty reveals opportunity. During hardship, one satisfied customer equals thousands in normal times.', source: 'Vietnam Business Insider', sourceUrl: 'https://vietnambusinessinsider.vn/so-luoc-nganh-hospitality-o-viet-nam-bai-12-golden-gate-khi-nhung-ke-ngoai-dao-lam-nen-ky-tich-a19669.html' },
+      { text: 'Happy employees create satisfied customers.', source: 'VHDN', sourceUrl: 'https://vhdn.vn/chu-tich-golden-gate-dao-the-vinh-ong-chu-chuoi-nha-hang-lon-nhat-viet-nam-voi-van-hoa-kinh-doanh-nhan-vien-hanh-phuc-thi-khach-hang-se-hai-long/' },
     ],
     advice: [
       { title: 'Systematize from day one', desc: 'Don\'t rely on one talented chef or manager. Build standard processes so anyone can operate the business.' },
@@ -848,6 +852,8 @@ const EXPERTS: Expert[] = [
     id: 'le-hoang-diep-thao',
     slug: 'le-hoang-diep-thao',
     name: 'Lê Hoàng Diệp Thảo',
+    seoTitle: 'Lê Hoàng Diệp Thảo (b. 1973) — Founder King Coffee, Vietnam\'s Queen of Coffee',
+    seoDescription: 'Lê Hoàng Diệp Thảo — Trung Nguyên co-founder, launched King Coffee (2016) reaching 120+ countries. "Most Admired CEO Vietnam 2020". Reverse-market strategy + "3 children" philosophy.',
     descriptor: '"Queen of Coffee" — CEO of King Coffee, bringing Vietnamese coffee to 120+ countries',
     photo: '/experts/le-hoang-diep-thao.webp',
     category: 'inspiration',
@@ -864,6 +870,7 @@ const EXPERTS: Expert[] = [
       { text: 'Coffee has always brought me endless joy, creativity and passion.', source: 'Global Brands Magazine', sourceUrl: 'https://www.globalbrandsmagazine.com/interview-of-madame-le-hoangdiep-thao-founder-ceo-king-coffee/' },
       { text: 'Go out to see the opportunities and take action. It is your achievements that create your reputation, not your speeches.', source: 'King Coffee US', sourceUrl: 'https://us.kingcoffee.com/blogs/news/businesswoman-le-hoang-diep-thao-and-the-journey-to-build-the-worldwide-brand-named-king-coffee' },
       { text: 'Why, while the price of a cup of coffee abroad is 5 dollars, in our country farmers can only sell coffee beans for 5 cents per kg?', source: 'King Coffee US', sourceUrl: 'https://us.kingcoffee.com/blogs/news/businesswoman-le-hoang-diep-thao-and-the-journey-to-build-the-worldwide-brand-named-king-coffee' },
+      { text: 'I am like a mother with three children: Trung Nguyên, G7, and King Coffee. I do not want them to compete — I want them all to succeed together.', source: 'Vietnamnet', sourceUrl: 'https://vietnamnet.vn/ba-le-hoang-diep-thao-toi-nhu-me-voi-3-con-la-trung-nguyen-g7-va-king-coffee-2162390.html' },
     ],
     advice: [
       { title: 'The "reverse" strategy', desc: 'Enter international markets first to build world-class credibility, then return to dominate the domestic market with brand advantage.' },
@@ -877,6 +884,28 @@ const EXPERTS: Expert[] = [
     socials: [
       { platform: 'linkedin', url: 'https://vn.linkedin.com/in/le-hoang-diep-thao-%F0%9F%87%BB%F0%9F%87%B3-14436b142' },
       { platform: 'website', url: 'https://kingcoffee.com' },
+    ],
+    faq: [
+      {
+        question: 'When was Lê Hoàng Diệp Thảo born?',
+        answer: 'Lê Hoàng Diệp Thảo was born in 1973 in Gia Lai, Vietnam. She graduated in 1994 and began her career at the Gia Lai postal service before co-founding Trung Nguyên with her ex-husband Đặng Lê Nguyên Vũ in 1996.',
+      },
+      {
+        question: 'Who owns King Coffee?',
+        answer: 'King Coffee is owned by Lê Hoàng Diệp Thảo, who founded it in 2016 and serves as Chairman and CEO of TNI King Coffee. She previously co-founded Trung Nguyên Group and was the operational leader who launched G7 instant coffee globally.',
+      },
+      {
+        question: 'How many countries does King Coffee operate in?',
+        answer: 'King Coffee is present in over 120 countries today. Lê Hoàng Diệp Thảo used a "reverse" strategy — launching in the US in October 2016, then returning to Vietnam in July 2017 to build a 63-province network within just one year.',
+      },
+      {
+        question: 'What was her role at Trung Nguyên?',
+        answer: 'She directly managed operations at Trung Nguyên Group from 1998-2014 as Vice General Director, leading the international expansion of G7 instant coffee from 2001. She left Trung Nguyên in 2015 to found King Coffee.',
+      },
+      {
+        question: 'What awards has she received?',
+        answer: 'She received "Most Admired CEO in Vietnam" (Global Brands Magazine, 2020, F&B sector), Top 12 Strong National Brands 2025, and Top 10 Southeast Asia Coffee Companies. She was also the first Vietnamese speaker at the Allegra World Coffee Portal CEO Forum.',
+      },
     ],
   },
 

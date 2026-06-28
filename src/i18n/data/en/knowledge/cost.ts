@@ -556,6 +556,124 @@ const COST_ARTICLES: KBTopic[] = [
       },
     ],
   },
+  {
+    id: 'bakery_opening_cost',
+    slug: 'chi-phi-mo-tiem-banh-ngot-2026',
+    publishDate: '2026-06-28',
+    icon: 'money',
+    title: 'Cost to Open a Bakery in Vietnam 2026',
+    subtitle: 'Investment, operating costs & payback time for 3 sizes — kiosk to bakery cafe',
+    seoTitle: 'Cost to Open a Bakery in Vietnam 2026: $2K-$20K (3 sizes, full breakdown)',
+    seoDescription: 'How much does opening a bakery in Vietnam cost in 2026? Kiosk $2-4K, storefront $6-10K, bakery+cafe $12-20K. Investment breakdown + operating costs + 6-9 month payback.',
+    color: 'primary-light',
+    category: 'cost',
+    highlights: [
+      { label: 'Kiosk (20-30m²)', value: '$2-4K', note: 'initial investment' },
+      { label: 'Storefront (40-60m²)', value: '$6-10K', note: 'initial investment' },
+      { label: 'Bakery + cafe (80-120m²)', value: '$12-20K', note: 'initial investment' },
+      { label: 'Avg break-even', value: '6-9 months', note: 'with good management' },
+    ],
+    sections: [
+      {
+        type: 'tldr',
+        content: [
+          'Opening a bakery in Vietnam costs $2K (kiosk) to $20K (full bakery+cafe) — wide range depending on model + location',
+          'Oven + proofer + mixer = $1.2K-3.2K for basic equipment; premium gear can reach $8K+',
+          'Gross margin 60-70% (higher than cafe), but you need 2-3 months operating reserves before profitability',
+          'Mistake #1: great baker ≠ great manager; hire ops support early or partner with a business-minded co-founder',
+        ],
+      },
+      {
+        type: 'text',
+        content: 'Bakery is one of the highest-margin F&B niches (60-70% gross) but full of pitfalls. The 1-2 year failure rate is high because founders are usually "great bakers" — not "great shop owners". This article breaks down real 2026 costs across 3 sizes + the hidden expenses most people miss.',
+      },
+      {
+        type: 'table',
+        heading: 'Initial investment by size (2026)',
+        content: [
+          { label: 'Kiosk 20-30m²', range: 'VND 50-100M ($2-4K)', note: 'Rent VND 5-12M/mo (D7, Bình Tân, suburbs); minimum equipment; 8-12 product menu.' },
+          { label: 'Storefront 40-60m²', range: 'VND 150-250M ($6-10K)', note: 'Rent VND 12-25M/mo (D3, D1, D10); 8-15 seats; 20-30 product menu; large display case.' },
+          { label: 'Bakery + cafe 80-120m²', range: 'VND 300-500M ($12-20K)', note: 'Rent VND 25-50M/mo (D1, D3 main streets); 20-40 seats; industrial oven; full menu + beverages.' },
+        ] as KBTableRow[],
+      },
+      {
+        type: 'stat-grid',
+        heading: 'Core equipment costs (storefront 40-60m²)',
+        content: [
+          { icon: 'money', label: 'Convection oven', value: 'VND 10-20M', desc: '30-60L convection oven for small shops. Industrial 3-5 tray: VND 50-100M. Premium dedicated bakery oven: VND 200-240M.' },
+          { icon: 'money', label: 'Dough proofer', value: 'VND 8-15M', desc: 'Essential for yeasted breads (croissant, brioche). Skip it = uneven rise, inconsistent quality batch-to-batch.' },
+          { icon: 'money', label: 'Industrial mixer', value: 'VND 5-15M', desc: 'Spiral mixer 5-7kg for small shops. Hand mixing = labor-intensive + inconsistent = customers won\'t return.' },
+          { icon: 'money', label: 'Refrigerated display case', value: 'VND 8-20M', desc: '1.2-1.8m glass case with mirror + LED. Mandatory for cream cakes; without it = product spoils fast.' },
+          { icon: 'money', label: 'POS + receipt printer', value: 'VND 5-10M', desc: 'Sapo, KiotViet, CukCuk: VND 200-500K/mo + hardware. Manual tracking = lost revenue from errors.' },
+          { icon: 'money', label: 'Tools + molds', value: 'VND 5-10M', desc: 'Molds (20-30 types), boards, knives, piping bags, dough thermometer, scales, gloves, aprons.' },
+        ] as KBStat[],
+      },
+      {
+        type: 'table',
+        heading: 'Monthly operating costs (storefront 40-60m²)',
+        content: [
+          { label: 'Rent', range: 'VND 12-25M', note: '~30% of total opex — largest variable. Wrong location = guaranteed loss.' },
+          { label: 'Staff (2 bakers + 2 front)', range: 'VND 25-40M', note: 'Baker VND 8-13M/person, counter staff VND 5-8M/person. Solo founder = cut by 50%.' },
+          { label: 'Ingredients (COGS)', range: 'VND 15-25M', note: '25-40% of revenue (flour, butter, cream, eggs, sugar, fruit). Bulk-buying at Binh Tay saves 15-20%.' },
+          { label: 'Utilities', range: 'VND 4-8M', note: 'Heavy oven + fridge use = higher than cafe. 80m² shop can hit VND 10M+/month.' },
+          { label: 'Marketing + delivery', range: 'VND 3-8M', note: 'Facebook ads VND 2-3M, GrabFood/ShopeeFood commission 22-30% if selling online.' },
+          { label: 'Packaging', range: 'VND 2-5M', note: 'Cake boxes, paper bags, ribbon — hidden cost VND 3-8K/order; most owners forget this.' },
+          { label: 'Other (licenses, internet, repairs)', range: 'VND 1-3M', note: 'Annual food safety license renewal, wifi, AC repairs, bulb replacement.' },
+        ] as KBTableRow[],
+      },
+      {
+        type: 'stat-grid',
+        heading: 'Expected revenue & break-even',
+        content: [
+          { icon: 'chart', label: 'Customers/day', value: '40-100', desc: 'Kiosk 30-50/day, storefront 60-120, bakery+cafe 100-200 (with good location).' },
+          { icon: 'wallet', label: 'Avg order value', value: 'VND 50-150K', desc: 'Single item VND 30-60K, combo cake+drink VND 80-120K, birthday cake VND 250-800K lifts AOV.' },
+          { icon: 'money', label: 'Monthly revenue', value: 'VND 80-450M', desc: 'Kiosk VND 50-100M, storefront VND 100-250M, bakery+cafe VND 200-450M (after 6 months at full capacity).' },
+          { icon: 'chart', label: 'Break-even time', value: '6-9 months', desc: 'Good management + stable location = 6 months. Losses lasting 12+ months = re-evaluate model or close.' },
+        ] as KBStat[],
+      },
+      {
+        type: 'warning-list',
+        heading: 'Common mistakes — 90% of openings fail because of these',
+        content: [
+          { icon: 'warning', title: 'Great baker ≠ great shop manager', desc: 'Skilled bakers obsess over quality but struggle with staff management + cash flow + marketing. Hire a manager or co-founder early — don\'t try to do everything yourself.', severity: 'critical' },
+          { icon: 'warning', title: 'Over-investing in "Instagram" decor', desc: 'Spend VND 200M on photogenic decor but forget VND 100M in operating reserves for the first 3 months = bankruptcy by month 4. Pretty decor cannot replace cash flow.', severity: 'critical' },
+          { icon: 'warning', title: 'No customer research — baking to your own taste', desc: 'You like less sweet, but 70% of Vietnamese customers prefer medium-high sweetness. Before opening, run 3-4 test batches, invite 30-50 customers to taste + rate.', severity: 'critical' },
+          { icon: 'warning', title: 'No 2-3 month working capital buffer', desc: 'Months 1-2 revenue is only 30-50% of capacity but you still pay rent + salary + ingredients. Need at least VND 60-90M/month × 3 = VND 180-270M cash buffer.', severity: 'critical' },
+          { icon: 'warning', title: 'Marketing starts on opening day', desc: 'Buzz needs 2-3 weeks before opening. Facebook page running content, soft launch with friends + micro-KOLs, reviews ready before grand opening.', severity: 'warning' },
+          { icon: 'warning', title: 'Ignoring shrinkage (5-10% loss)', desc: 'Cream cakes last 2-3 days, bread 1 day. End-of-day unsold = waste. Budget 5-10% of ingredients as "fixed shrinkage", not bonus margin.', severity: 'warning' },
+          { icon: 'warning', title: 'Single-baker dependency', desc: 'Baker sick/quits = shop closes. Standardize recipes (recipe cards) so any baker can produce consistent results. Or cross-train 2 bakers in parallel.', severity: 'warning' },
+        ] as KBWarningItem[],
+      },
+      {
+        type: 'table',
+        heading: 'Quick comparison: indie vs cloud kitchen vs franchise',
+        content: [
+          { label: 'Indie shop', range: 'VND 50-500M', note: 'Flexible capital by size; full freedom on menu/price/concept; but you build brand from scratch. Best for those with unique recipes + medium budget.' },
+          { label: 'Cloud kitchen bakery', range: 'VND 30-80M', note: 'Skip expensive storefront rent + front-of-house staff → focus on production + delivery via apps. Like Savor Cake scaling 30 cloud kitchens by 2026.' },
+          { label: 'Franchise (Tous Les Jours/Paris Baguette)', range: 'VND 2-5B', note: 'Setup fee + brand + recipes + training. 4-6 year ROI with good location. Appeals to high-capital owners without baking background.' },
+          { label: 'Mid-tier chain (ABC Bakery)', range: 'VND 500M-1.5B', note: '30-50% cheaper than premium chains, still backed by system support. Underserved middle market — opportunity for right-location pick.' },
+        ] as KBTableRow[],
+      },
+      {
+        type: 'list',
+        heading: 'Pre-opening bakery checklist',
+        content: [
+          'Test 3-4 real batches, invite 30-50 customers to blind taste + rate (not friends giving polite praise).',
+          'Survey location: walk past at morning/afternoon/evening peaks, count potential customers + check competitor density.',
+          'Budget 3-month opex × 1.5 = cash buffer needed (ramp-up + budget variance).',
+          'Register food safety license (VND 5-15M, 2-4 weeks processing) — without it = illegal operation.',
+          'Hire bakers with real experience (review portfolio + bake test), don\'t pick fresh hires just for cheap salary.',
+          'Set up POS + daily revenue tracking from day 1 — no numbers = no idea if profitable or losing money.',
+          'Soft launch marketing 2-3 weeks before grand opening: FB page with content, invite 5-10 micro KOLs to taste, build expectation.',
+          'Use F&B Validator to input your specific numbers → check if your model breaks even within 9 months.',
+        ],
+      },
+      {
+        type: 'text',
+        content: 'Bakery is a niche with beautiful margins but harsh operations. If you\'re considering it, plug the numbers above into Validator to check whether your model — your specific location, your specific size — is truly viable. A right opening decision = 6-9 month payback. A wrong one = losing VND 200-500M + 12-18 months of your life.',
+      },
+    ],
+  },
 ];
 
 export default COST_ARTICLES;

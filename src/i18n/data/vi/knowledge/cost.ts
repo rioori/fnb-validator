@@ -610,6 +610,124 @@ const COST_ARTICLES: KBTopic[] = [
       },
     ],
   },
+  {
+    id: 'bakery_opening_cost',
+    slug: 'chi-phi-mo-tiem-banh-ngot-2026',
+    publishDate: '2026-06-28',
+    icon: 'money',
+    title: 'Chi phí mở tiệm bánh ngọt 2026',
+    subtitle: 'Vốn đầu tư, vận hành & thời gian hoàn vốn cho 3 quy mô kiosk → bakery cafe',
+    seoTitle: 'Chi phí mở tiệm bánh ngọt 2026: 50tr - 500tr (3 quy mô, breakdown chi tiết)',
+    seoDescription: 'Mở tiệm bánh ngọt cần bao nhiêu tiền 2026? Kiosk 50-100tr, storefront 150-250tr, bakery+cafe 300-500tr. Breakdown vốn + chi phí vận hành + hoàn vốn 6-9 tháng.',
+    color: 'primary-light',
+    category: 'cost',
+    highlights: [
+      { label: 'Kiosk (20-30m²)', value: '50-100tr', note: 'vốn ban đầu' },
+      { label: 'Storefront (40-60m²)', value: '150-250tr', note: 'vốn ban đầu' },
+      { label: 'Bakery + cafe (80-120m²)', value: '300-500tr', note: 'vốn ban đầu' },
+      { label: 'Hoàn vốn trung bình', value: '6-9 tháng', note: 'nếu quản lý tốt' },
+    ],
+    sections: [
+      {
+        type: 'tldr',
+        content: [
+          'Mở tiệm bánh ngọt cần 50tr (kiosk) đến 500tr (bakery+cafe full) — chênh lệch lớn tùy mô hình + vị trí',
+          'Lò nướng + tủ ủ bột + máy trộn = 30-80tr cho thiết bị cơ bản; cao cấp lên 200tr+',
+          'Biên lợi nhuận gộp bánh ngọt 60-70% (cao hơn café), nhưng cần dự trữ 2-3 tháng chi phí vận hành',
+          'Sai lầm #1: chủ tiệm giỏi nướng ≠ giỏi quản lý quán; cần phân vai sớm hoặc thuê quản lý',
+        ],
+      },
+      {
+        type: 'text',
+        content: 'Bánh ngọt là một trong những ngách F&B có biên lợi nhuận tốt nhất (gộp 60-70%) nhưng cũng đầy cạm bẫy. Tỷ lệ thất bại sau 1-2 năm khá cao vì người mở thường là "thợ làm bánh giỏi" — không phải "chủ quán giỏi". Bài này phân tích chi phí thực tế 2026 cho 3 quy mô + những khoản dễ phát sinh ngoài dự kiến.',
+      },
+      {
+        type: 'table',
+        heading: 'Vốn đầu tư ban đầu theo 3 quy mô (2026)',
+        content: [
+          { label: 'Kiosk 20-30m²', range: '50-100 triệu', note: 'Thuê 5-12tr/tháng (Q7, Bình Tân, ngoại ô); thiết bị tối thiểu; menu 8-12 loại bánh.' },
+          { label: 'Storefront 40-60m²', range: '150-250 triệu', note: 'Thuê 12-25tr/tháng (Q3, Q1, Q10); có chỗ ngồi 8-15 khách; menu 20-30 loại; tủ trưng bày lớn.' },
+          { label: 'Bakery + cafe 80-120m²', range: '300-500 triệu', note: 'Thuê 25-50tr/tháng (mặt tiền Q1, Q3); chỗ ngồi 20-40 khách; lò công nghiệp; menu đầy đủ bánh + đồ uống.' },
+        ] as KBTableRow[],
+      },
+      {
+        type: 'stat-grid',
+        heading: 'Chi phí thiết bị cốt lõi (storefront 40-60m²)',
+        content: [
+          { icon: 'money', label: 'Lò nướng đối lưu', value: '10-20tr', desc: 'Lò convection 30-60L cho tiệm nhỏ. Lò công nghiệp 3-5 khay: 50-100tr. Lò bakery chuyên dụng cao cấp: 200-240tr.' },
+          { icon: 'money', label: 'Tủ ủ bột (proofer)', value: '8-15tr', desc: 'Bắt buộc với bánh men (croissant, brioche). Bỏ qua = bánh không nở đều, mỗi mẻ chất lượng khác nhau.' },
+          { icon: 'money', label: 'Máy trộn bột công nghiệp', value: '5-15tr', desc: 'Spiral mixer 5-7kg cho tiệm nhỏ. Trộn thủ công = tốn nhân lực + không đều = mất khách quay lại.' },
+          { icon: 'money', label: 'Tủ trưng bày lạnh', value: '8-20tr', desc: 'Tủ kính 1.2-1.8m, có gương + đèn LED. Bánh kem bắt buộc tủ lạnh, không có = bánh hỏng nhanh.' },
+          { icon: 'money', label: 'POS + máy in bill', value: '5-10tr', desc: 'Sapo, KiotViet, CukCuk: 200-500K/tháng + thiết bị. Quản lý thủ công = mất doanh thu vì sai sót.' },
+          { icon: 'money', label: 'Dụng cụ + khuôn', value: '5-10tr', desc: 'Khuôn (20-30 loại), thớt, dao, túi bắt kem, nhiệt kế bột, cân điện tử, găng tay, tạp dề.' },
+        ] as KBStat[],
+      },
+      {
+        type: 'table',
+        heading: 'Chi phí vận hành hàng tháng (storefront 40-60m²)',
+        content: [
+          { label: 'Thuê mặt bằng', range: '12-25tr', note: '~30% tổng chi phí vận hành — đây là biến số lớn nhất, chọn vị trí sai = lỗ chắc.' },
+          { label: 'Nhân sự (2 thợ + 2 bán)', range: '25-40tr', note: 'Thợ bánh 8-13tr/người, nhân viên bán 5-8tr/người. Tiệm nhỏ chủ tiệm tự làm = giảm 50%.' },
+          { label: 'Nguyên liệu (NVL)', range: '15-25tr', note: '25-40% doanh thu (bột mì, bơ, kem, trứng, đường, trái cây). Mua sỉ tại Bình Tây tiết kiệm 15-20%.' },
+          { label: 'Điện + nước', range: '4-8tr', note: 'Lò nướng + tủ lạnh chạy nhiều = điện cao hơn cafe. Tiệm 80m² có thể lên 10tr+/tháng.' },
+          { label: 'Marketing + giao hàng', range: '3-8tr', note: 'Facebook ads 2-3tr, GrabFood/ShopeeFood hoa hồng 22-30% nếu bán online (xem bài delivery).' },
+          { label: 'Bao bì + đóng gói', range: '2-5tr', note: 'Hộp bánh kem, túi giấy, dây ruy băng — chi phí ẩn 3-8K/đơn, nhiều người quên tính.' },
+          { label: 'Khác (license, internet, sửa chữa)', range: '1-3tr', note: 'Phí license food safety renew hàng năm, wifi, máy lạnh sửa, thay bóng đèn.' },
+        ] as KBTableRow[],
+      },
+      {
+        type: 'stat-grid',
+        heading: 'Doanh thu kỳ vọng & break-even',
+        content: [
+          { icon: 'chart', label: 'Khách/ngày', value: '40-100', desc: 'Kiosk 30-50 khách/ngày, storefront 60-120, bakery+cafe 100-200 (nếu vị trí tốt).' },
+          { icon: 'wallet', label: 'AOV (giá trung bình)', value: '50-150K', desc: 'Bánh lẻ 30-60K, combo bánh+nước 80-120K, bánh kem sinh nhật 250-800K kéo AOV lên.' },
+          { icon: 'money', label: 'Doanh thu/tháng', value: '80-450tr', desc: 'Kiosk 50-100tr, storefront 100-250tr, bakery+cafe 200-450tr (sau 6 tháng đầy đủ khách).' },
+          { icon: 'chart', label: 'Break-even time', value: '6-9 tháng', desc: 'Quản lý tốt + vị trí ổn = 6 tháng. Lỗ kéo dài 12+ tháng = phải đánh giá lại model hoặc đóng cửa.' },
+        ] as KBStat[],
+      },
+      {
+        type: 'warning-list',
+        heading: 'Sai lầm phổ biến — 90% người mở mắc phải',
+        content: [
+          { icon: 'warning', title: 'Giỏi làm bánh ≠ giỏi quản lý quán', desc: 'Thợ bánh giỏi thường mê chất lượng, không giỏi quản lý nhân sự + dòng tiền + marketing. Nên thuê quản lý hoặc partner ngay từ đầu, đừng cố ôm hết.', severity: 'critical' },
+          { icon: 'warning', title: 'Đầu tư quá nhiều cho decor "Instagram"', desc: 'Bỏ 200tr trang trí check-in nhưng quên dự trữ 100tr vận hành 3 tháng đầu = phá sản tháng 4. Decor đẹp không thay thế được dòng tiền.', severity: 'critical' },
+          { icon: 'warning', title: 'Không khảo sát khách hàng — làm bánh theo "khẩu vị của mình"', desc: 'Bạn thích bánh ít ngọt, nhưng 70% khách VN thích ngọt vừa-cao. Trước khi mở, làm 3-4 mẻ test, mời 30-50 khách thử + chấm điểm.', severity: 'critical' },
+          { icon: 'warning', title: 'Quên dự trữ 2-3 tháng working capital', desc: 'Tháng 1-2 doanh thu chỉ 30-50% công suất nhưng vẫn phải trả lương, thuê, NVL. Cần ít nhất 60-90tr/tháng × 3 = 180-270tr cash buffer.', severity: 'critical' },
+          { icon: 'warning', title: 'Marketing bắt đầu vào ngày khai trương', desc: 'Buzz cần 2-3 tuần trước khi mở. Facebook page chạy nội dung, soft launch mời friends + KOL nhỏ, có review trước ngày khai trương.', severity: 'warning' },
+          { icon: 'warning', title: 'Tính rớt giá bánh (shrinkage 5-10%)', desc: 'Bánh kem chỉ giữ 2-3 ngày, bánh mì 1 ngày. Cuối ngày không bán hết = hủy. Phải tính 5-10% NVL là "hao hụt cố định", không phải bonus.', severity: 'warning' },
+          { icon: 'warning', title: 'Phụ thuộc 1 thợ làm bánh giỏi', desc: 'Thợ bệnh/nghỉ = đóng cửa tiệm. Phải có công thức chuẩn hóa (recipe card) để bất kỳ thợ nào cũng làm được. Hoặc training 2 thợ song song.', severity: 'warning' },
+        ] as KBWarningItem[],
+      },
+      {
+        type: 'table',
+        heading: 'So sánh nhanh: tiệm độc lập vs cloud kitchen vs nhượng quyền',
+        content: [
+          { label: 'Tiệm độc lập (indie)', range: '50-500tr', note: 'Vốn linh hoạt theo quy mô; tự do menu/giá/concept; nhưng phải tự build brand từ 0. Phù hợp người có công thức riêng + budget vừa.' },
+          { label: 'Cloud kitchen bánh', range: '30-80tr', note: 'Bỏ chi phí mặt bằng đắt + nhân viên bán → chỉ tập trung làm + giao qua app. Như Savor Cake đang mở rộng 30 cloud kitchens 2026.' },
+          { label: 'Franchise (Tous Les Jours/Paris Baguette)', range: '2-5 tỷ', note: 'Phí setup + brand + công thức + đào tạo. ROI 4-6 năm nếu vị trí tốt. Hấp dẫn người có vốn mạnh nhưng không có background bánh.' },
+          { label: 'Mid-tier chain (ABC Bakery)', range: '500tr-1.5 tỷ', note: 'Rẻ hơn premium chain 30-50%, vẫn có support hệ thống. Thị phần tầng giữa đang trống — cơ hội cho người chọn đúng vị trí.' },
+        ] as KBTableRow[],
+      },
+      {
+        type: 'list',
+        heading: 'Checklist trước khi mở tiệm bánh ngọt',
+        content: [
+          'Test 3-4 mẻ bánh thực tế, mời 30-50 khách thử + chấm điểm khách quan (không phải bạn bè khen lấy lệ).',
+          'Khảo sát vị trí: đi qua đường giờ cao điểm sáng/chiều/tối, đếm khách tiềm năng + check competitor density.',
+          'Dự toán chi phí 3 tháng đầu × 1.5 = số tiền cash buffer cần (ramp-up + sai số dự toán).',
+          'Đăng ký giấy phép food safety (5-15tr, 2-4 tuần xử lý) — không có = không được hoạt động hợp pháp.',
+          'Thuê thợ bánh có kinh nghiệm thực tế (xem portfolio + test bake), không tuyển fresh chỉ vì lương rẻ.',
+          'Setup POS + tracking doanh thu daily ngay từ ngày 1 — không quản lý số = không biết đang lỗ hay lãi.',
+          'Marketing soft launch 2-3 tuần trước khai trương: FB page có content, mời 5-10 KOL micro thử, build expectation.',
+          'Dùng F&B Validator để nhập số liệu cụ thể của bạn → kiểm tra mô hình có hòa vốn trong 9 tháng hay không.',
+        ],
+      },
+      {
+        type: 'text',
+        content: 'Bánh ngọt là ngách F&B đẹp về biên lợi nhuận nhưng khắc nghiệt về vận hành. Nếu bạn đang cân nhắc, hãy nhập các con số trên vào công cụ Validator để xem mô hình của bạn — vị trí cụ thể, quy mô cụ thể — thực sự có khả thi không. Một quyết định mở quán đúng đắn = 6-9 tháng hoàn vốn. Một quyết định sai = mất 200-500 triệu + 12-18 tháng cuộc đời.',
+      },
+    ],
+  },
 ];
 
 export default COST_ARTICLES;

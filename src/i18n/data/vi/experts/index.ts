@@ -240,6 +240,8 @@ const EXPERTS: Expert[] = [
     id: 'dao-the-vinh',
     slug: 'dao-the-vinh',
     name: 'Đào Thế Vinh',
+    seoTitle: 'Đào Thế Vinh (1972) — CEO Golden Gate, từ kỹ sư khí tượng đến chuỗi 500 nhà hàng',
+    seoDescription: 'Đào Thế Vinh — du học Nga ngành khí tượng, 0 kinh nghiệm bếp đến Golden Gate 500 nhà hàng, 40+ brand, 6.630 tỷ doanh thu 2024. Mekong Capital exit 9.1x.',
     descriptor: 'Chủ tịch & CEO Golden Gate — chuỗi nhà hàng lớn nhất Việt Nam với 40+ thương hiệu, 500+ nhà hàng',
     photo: '/experts/dao-the-vinh.webp',
     category: 'inspiration' as const,
@@ -248,9 +250,10 @@ const EXPERTS: Expert[] = [
     fullBio: 'Đào Thế Vinh (sinh 1972) tốt nghiệp Đại học Khí tượng Thủy văn Saint Petersburg, Nga. Sau 7 năm buôn bán xuất nhập khẩu tại Nga, ông trở về Việt Nam năm 2002 và đồng sáng lập thương hiệu trà Cozy.\n\nNăm 2005, cùng hai người bạn thành lập Golden Gate. Cảm hứng đến từ chuyến đi Vân Nam (Trung Quốc) khi phát hiện món lẩu nấm tại Shangri-La. Năm 2008, mở nhà hàng đầu tiên Ashima tại 44 Phan Đình Phùng, Hà Nội — chỉ 4-5 bàn, nội thất gỗ cổ mua sẵn để bán lại nếu thất bại.\n\nĐiểm đặc biệt: cả 3 sáng lập viên đều là kỹ sư, không ai có nền tảng ẩm thực — nên ngay từ đầu đã hệ thống hóa mọi thứ thay vì dựa vào nghệ nhân. Sau 16 năm: 500+ nhà hàng, 40+ thương hiệu, 19.000 nhân viên, phục vụ 18 triệu khách/năm. Năm 2025, mua lại The Coffee House với giá 270 tỷ VNĐ.',
     highlights: [
       'Từ 1 quán lẩu nấm (2008) → 500+ nhà hàng, 40+ thương hiệu tại 45 tỉnh thành',
-      'Doanh thu 2024: 6.630 tỷ VNĐ (~$259 triệu)',
-      'Temasek đầu tư (2022), định giá ~$650 triệu USD',
-      'Mekong Capital đầu tư $2.6M (2008), thoái vốn lãi 9 lần (2014) — case study INSEAD',
+      'Doanh thu 2024: 6.630 tỷ VNĐ (~$259 triệu), 17.000 nhân viên, 18 triệu khách/năm',
+      'Standard Chartered PE (2014) + Temasek (2022) đầu tư, định giá ~$653 triệu USD',
+      'Mekong Capital đầu tư $2.6M (2008), thoái vốn lãi 9.1 lần (2014) — case study INSEAD',
+      'Mua lại 99.98% The Coffee House (2024) — mở rộng từ nhà hàng sang chuỗi cà phê',
     ],
     quotes: [
       {
@@ -267,6 +270,11 @@ const EXPERTS: Expert[] = [
         text: 'Khó khăn lộ ra cơ hội. Trong lúc khó, một khách hàng hài lòng bằng hàng nghìn lúc bình thường.',
         source: 'Vietnam Business Insider',
         sourceUrl: 'https://vietnambusinessinsider.vn/so-luoc-nganh-hospitality-o-viet-nam-bai-12-golden-gate-khi-nhung-ke-ngoai-dao-lam-nen-ky-tich-a19669.html',
+      },
+      {
+        text: 'Nhân viên hạnh phúc thì khách hàng sẽ hài lòng.',
+        source: 'VHDN',
+        sourceUrl: 'https://vhdn.vn/chu-tich-golden-gate-dao-the-vinh-ong-chu-chuoi-nha-hang-lon-nhat-viet-nam-voi-van-hoa-kinh-doanh-nhan-vien-hanh-phuc-thi-khach-hang-se-hai-long/',
       },
     ],
     advice: [
@@ -1270,6 +1278,8 @@ const EXPERTS: Expert[] = [
     id: 'le-hoang-diep-thao',
     slug: 'le-hoang-diep-thao',
     name: 'Lê Hoàng Diệp Thảo',
+    seoTitle: 'Lê Hoàng Diệp Thảo (1973) — Founder King Coffee, "Nữ hoàng cà phê Việt"',
+    seoDescription: 'Lê Hoàng Diệp Thảo — đồng sáng lập Trung Nguyên, sáng lập King Coffee (2016) đến 120+ quốc gia. "Most Admired CEO Vietnam 2020". Chiến lược ngược dòng + "3 đứa con".',
     descriptor: '"Nữ hoàng cà phê" — CEO King Coffee, đưa cà phê Việt ra 120+ quốc gia',
     photo: '/experts/le-hoang-diep-thao.webp',
     category: 'inspiration',
@@ -1286,6 +1296,7 @@ const EXPERTS: Expert[] = [
       { text: 'Cà phê luôn mang đến cho tôi niềm vui, sự sáng tạo và đam mê vô tận.', source: 'Global Brands Magazine', sourceUrl: 'https://www.globalbrandsmagazine.com/interview-of-madame-le-hoangdiep-thao-founder-ceo-king-coffee/' },
       { text: 'Hãy ra ngoài để thấy cơ hội và hành động. Chính thành tựu tạo nên uy tín và danh tiếng, không phải lời nói.', source: 'King Coffee US', sourceUrl: 'https://us.kingcoffee.com/blogs/news/businesswoman-le-hoang-diep-thao-and-the-journey-to-build-the-worldwide-brand-named-king-coffee' },
       { text: 'Tại sao giá một tách cà phê ở nước ngoài là 5 đô la, mà ở nước ta nông dân chỉ bán hạt cà phê được 5 xu/kg?', source: 'King Coffee US', sourceUrl: 'https://us.kingcoffee.com/blogs/news/businesswoman-le-hoang-diep-thao-and-the-journey-to-build-the-worldwide-brand-named-king-coffee' },
+      { text: 'Tôi như mẹ với 3 đứa con là Trung Nguyên, G7 và King Coffee. Tôi không muốn chúng cạnh tranh mà muốn chúng cùng thành công.', source: 'Vietnamnet', sourceUrl: 'https://vietnamnet.vn/ba-le-hoang-diep-thao-toi-nhu-me-voi-3-con-la-trung-nguyen-g7-va-king-coffee-2162390.html' },
     ],
     advice: [
       { title: 'Chiến lược "ngược dòng"', desc: 'Xâm nhập thị trường quốc tế trước để xây dựng uy tín, sau đó quay về chiếm lĩnh nội địa với lợi thế thương hiệu.' },
@@ -1299,6 +1310,28 @@ const EXPERTS: Expert[] = [
     socials: [
       { platform: 'linkedin', url: 'https://vn.linkedin.com/in/le-hoang-diep-thao-%F0%9F%87%BB%F0%9F%87%B3-14436b142' },
       { platform: 'website', url: 'https://kingcoffee.com' },
+    ],
+    faq: [
+      {
+        question: 'Lê Hoàng Diệp Thảo sinh năm bao nhiêu?',
+        answer: 'Lê Hoàng Diệp Thảo sinh năm 1973 tại Gia Lai. Bà tốt nghiệp năm 1994 và bắt đầu sự nghiệp tại bưu điện Gia Lai trước khi cùng chồng cũ Đặng Lê Nguyên Vũ đồng sáng lập Trung Nguyên năm 1996.',
+      },
+      {
+        question: 'King Coffee là của ai?',
+        answer: 'King Coffee là thương hiệu cà phê do bà Lê Hoàng Diệp Thảo sáng lập năm 2016, hiện là Chủ tịch kiêm CEO của TNI King Coffee. Trước đó bà là đồng sáng lập Trung Nguyên Group và G7 cà phê hòa tan.',
+      },
+      {
+        question: 'King Coffee có mặt ở bao nhiêu quốc gia?',
+        answer: 'King Coffee hiện hiện diện tại hơn 120 quốc gia. Bà Lê Hoàng Diệp Thảo áp dụng chiến lược "ngược dòng" — ra mắt tại Mỹ tháng 10/2016, sau đó về Việt Nam tháng 7/2017 với mạng lưới phủ 63 tỉnh thành chỉ trong 1 năm.',
+      },
+      {
+        question: 'Vai trò của bà Thảo tại Trung Nguyên trước đây?',
+        answer: 'Bà trực tiếp điều hành Trung Nguyên Group từ 1998-2014, đóng vai trò Phó Tổng Giám đốc và là người đưa G7 cà phê hòa tan ra thị trường quốc tế năm 2001. Bà rời Trung Nguyên năm 2015 để sáng lập King Coffee.',
+      },
+      {
+        question: 'Bà đã đạt được những giải thưởng nào?',
+        answer: 'Bà nhận giải "Most Admired CEO in Vietnam" ngành F&B (Global Brands Magazine, 2020), Top 12 Thương hiệu Quốc gia Mạnh 2025, Top 10 Công ty Cà phê Đông Nam Á. Bà cũng là diễn giả người Việt đầu tiên tại Allegra World Coffee Portal CEO Forum.',
+      },
     ],
   },
 
