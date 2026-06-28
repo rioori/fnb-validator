@@ -17,8 +17,8 @@ const COPY = {
     inlineBody: 'Nhập số liệu cụ thể (vốn, doanh thu kỳ vọng, chi phí) → biết quán có lãi hay không trong 5 phút. Miễn phí, không cần đăng ký.',
     finalHeading: 'Đừng để 7 nguyên nhân trên giết ý tưởng của bạn',
     finalBody: 'Validate mô hình kinh doanh trước khi đầu tư 300-800 triệu. Validator tính break-even, cash flow, sensitivity scenarios cho bạn.',
-    cta: 'Test miễn phí — 5 phút',
-    quick: 'Hoặc tính nhanh với 6 ô input',
+    cta: 'Test miễn phí — 1 phút (6 ô input)',
+    quick: 'Hoặc tính siêu nhanh không cần đăng ký',
     quickLink: 'tại đây',
     badge: 'TOOL MIỄN PHÍ',
   },
@@ -27,8 +27,8 @@ const COPY = {
     inlineBody: 'Enter your specific numbers (capital, expected revenue, costs) → know if your shop is viable in 5 minutes. Free, no signup.',
     finalHeading: 'Don\'t let those 7 causes kill your idea',
     finalBody: 'Validate your business model before investing $12-32K. Validator calculates break-even, cash flow, sensitivity scenarios for you.',
-    cta: 'Test free — 5 minutes',
-    quick: 'Or quick-estimate with 6 input fields',
+    cta: 'Test free — 1 minute (6 inputs)',
+    quick: 'Or super-quick estimate, no signup',
     quickLink: 'here',
     badge: 'FREE TOOL',
   },
@@ -38,6 +38,7 @@ function buildWizardUrl(locale: string, model?: string, city?: string): string {
   const base = locale === defaultLocale ? '/fnb' : '/en/fnb';
   const params = new URLSearchParams();
   params.set('start', '1');
+  params.set('mode', 'quick'); // CTA from article → Quick mode (3 steps)
   params.set('utm_source', 'article');
   params.set('utm_medium', 'inline-cta');
   if (model) params.set('model', model);

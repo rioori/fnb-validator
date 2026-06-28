@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { track } from '@vercel/analytics';
@@ -16,6 +16,7 @@ import StepInvestment from './StepInvestment';
 import StepRevenue from './StepRevenue';
 import StepCosts from './StepCosts';
 import StepDashboard from './StepDashboard';
+import StepQuickInput from './StepQuickInput';
 import HomePage from '@/components/home/HomePage';
 import AuthOverlay from '@/components/auth/AuthOverlay';
 import UserBar from '@/components/auth/UserBar';
@@ -30,6 +31,7 @@ export default function WizardShell() {
   const setCity = useWizardStore((s) => s.setCity);
   const checkSession = useAuth((s) => s.checkSession);
   const { showWelcome, dismissWelcome } = useOnboarding();
+  const [quickMode, setQuickMode] = useState(false);
 
   useEffect(() => {
     checkSession();
@@ -51,6 +53,17 @@ export default function WizardShell() {
       setStep(2);
     }
     if (cityParam) setCity(cityParam);
+
+    // Quick mode: ?mode=quick → consolidated input UX
+    const modeParam = params.get('mode');
+    if (modeParam === 'quick') {
+      setQuickMode(true);
+      // If model not specified, jump to step 1 (model picker) → user picks → Quick step replaces 3-5
+      // If model specified, jump to step 2 (Quick step UI)
+      if (!modelParam) setStep(1);
+      else setStep(2);
+      track('quick_mode_entered', { source: 'url_param', model: modelParam || 'none' });
+    }
   }, [checkSession, setStep, selectModel, setCity]); // eslint-disable-line react-hooks/exhaustive-deps
 
   const stepNames = ['home', 'model', 'location', 'investment', 'revenue', 'costs', 'dashboard'];
@@ -113,10 +126,14 @@ export default function WizardShell() {
         <div className="animate-fade-in-up" key={currentStep}>
           {currentStep === 0 && <HomePage />}
           {currentStep === 1 && <StepModel />}
-          {currentStep === 2 && <StepLocation />}
-          {currentStep === 3 && <StepInvestment />}
-          {currentStep === 4 && <StepRevenue />}
-          {currentStep === 5 && <StepCosts />}
+          {/* Quick mode: replace steps 2-5 with single StepQuickInput */}
+          {quickMode && currentStep >= 2 && currentStep <= 5 && (
+            <StepQuickInput onSwitchToDetailed={() => { setQuickMode(false); setStep(2); track('quick_mode_exited'); }} />
+          )}
+          {!quickMode && currentStep === 2 && <StepLocation />}
+          {!quickMode && currentStep === 3 && <StepInvestment />}
+          {!quickMode && currentStep === 4 && <StepRevenue />}
+          {!quickMode && currentStep === 5 && <StepCosts />}
           {currentStep === 6 && <StepDashboard />}
         </div>
       </div>

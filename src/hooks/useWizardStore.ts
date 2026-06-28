@@ -134,6 +134,16 @@ interface WizardState {
   getCustWeekend: () => number;
   getDynTotal: (items: DynItem[]) => number;
 
+  // Quick mode: apply 6 core inputs in 1 call → set everything for runCalculations
+  applyQuickInputs: (input: {
+    totalInvestment: number;
+    monthlyRevenue: number;
+    rent: number;
+    staffCost: number;
+    foodCostPct: number;
+    otherFixedCost: number;
+  }) => void;
+
   // Save / Restore
   collectAll: () => Record<string, unknown>;
   restoreAll: (data: Record<string, unknown>) => void;
@@ -350,6 +360,49 @@ export const useWizardStore = create<WizardState>((set, get) => ({
     return m[0] + m[1] + m[2] + m[3];
   },
   getDynTotal: (items) => items.reduce((sum, i) => sum + i.amount, 0),
+
+  // Quick mode: 1-call setter for 6 core inputs → builds full wizard state for runCalculations
+  applyQuickInputs: (input) => {
+    const s = get();
+    // Total investment → put 100% into a single "Quick mode total" item in invXaydung,
+    // zero out all other inv categories. Deposit handled separately via rent × depositMonths.
+    const depositValue = input.rent * (s.depositMonths || 3);
+    const remainingInvestment = Math.max(0, input.totalInvestment - depositValue);
+    set({
+      // Investment (Step 3)
+      rent: input.rent,
+      deposit: depositValue,
+      invMatbang: [],
+      invXaydung: remainingInvestment > 0
+        ? [{ id: 'quick-total', name: 'Tổng vốn (Quick mode)', amount: remainingInvestment }]
+        : [],
+      invThietbi: [],
+      invKhac: [],
+      workingCap: 0,
+      // Revenue (Step 4) — derive from monthly target
+      // gRev formula: custWeekday × ticket × wdM + custWeekend × ticket × weM
+      // With daysPerWeek=7: wdM=22, weM=9, opD=31. Set ticket=1, both cust = monthlyRevenue/opD
+      // → gRev = (monthlyRevenue/31) × 1 × 31 = monthlyRevenue ✓
+      ticketItems: [{ id: 'quick-ticket', name: 'Doanh thu trung bình', price: 1 }],
+      custMatrix: {
+        wd: [Math.round(input.monthlyRevenue / 31), 0, 0, 0],
+        we: [Math.round(input.monthlyRevenue / 31), 0, 0, 0],
+      },
+      daysPerWeek: 7,
+      // Costs (Step 5)
+      staff: input.staffCost > 0
+        ? [{ pos: 'Quick mode', count: 1, salary: input.staffCost }]
+        : [],
+      bhxhOn: false, // already accounted in user's staffCost input
+      cogsPct: input.foodCostPct,
+      wastePct: 3,
+      fixedOther: input.otherFixedCost > 0
+        ? [{ id: 'quick-other-fixed', name: 'Chi phí cố định khác', amount: input.otherFixedCost }]
+        : [],
+      varOther: [],
+      rampFactors: [1, 1, 1, 1, 1, 1], // skip ramp-up in Quick mode for accurate immediate result
+    });
+  },
 
   // Save / Restore
   collectAll: () => {
