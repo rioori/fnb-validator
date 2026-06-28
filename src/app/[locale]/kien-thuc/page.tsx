@@ -102,6 +102,7 @@ export default async function KienThucPage({ params }: PageProps) {
           localePrefixedPaths={localePrefixedPaths}
           featuredBadge={dict.knowledge.featured.badge}
           featuredReadNow={dict.knowledge.featured.readNow}
+          clusterIntros={dict.knowledge.clusterIntros}
         />
 
         {/* CTA */}

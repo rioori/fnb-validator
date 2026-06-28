@@ -26,6 +26,14 @@ const knowledge = {
     technology: 'Công nghệ',
     trends: 'Xu hướng & báo cáo',
   },
+  clusterIntros: {
+    cost: 'Quản lý dòng tiền, định giá menu, kiểm soát chi phí nguyên liệu và phân tích điểm hòa vốn — những yếu tố quyết định sự sống còn của một quán F&B.',
+    operations: 'Vận hành ca làm, xây dựng SOP, quản lý nhân viên và đảm bảo an toàn thực phẩm — nền tảng để hoạt động hiệu quả mỗi ngày.',
+    strategy: 'Lựa chọn mô hình, định vị thị trường, phát triển menu và xây dựng lợi thế cạnh tranh — chiến lược dài hạn để đứng vững giữa thị trường.',
+    legal: 'Luật kinh doanh, quy định cấp phép, thuế và bảo vệ quyền lợi — những điều bạn cần biết để vận hành hợp pháp.',
+    technology: 'POS, quản lý hàng tồn kho, nền tảng đặt hàng trực tuyến và tự động hóa — công nghệ để tối ưu hoạt động.',
+    trends: 'Xu hướng thị trường F&B Việt Nam, báo cáo ngành, quy định mới và dữ liệu thống kê — cập nhật từ dữ liệu thị trường 2024-2025.',
+  },
   section: {
     heading: 'Thư viện kiến thức',
     desc: 'Tổng hợp kiến thức nền tảng cho người kinh doanh — từ chi phí, vận hành, chiến lược đến pháp lý.',

@@ -25,9 +25,10 @@ interface Props {
   localePrefixedPaths: Record<string, string>;
   featuredBadge: string;
   featuredReadNow: string;
+  clusterIntros?: Record<KBCategory, string>;
 }
 
-export default function KBListingFilter({ topics, categoryLabels, filterAllLabel, localePrefixedPaths, featuredBadge, featuredReadNow }: Props) {
+export default function KBListingFilter({ topics, categoryLabels, filterAllLabel, localePrefixedPaths, featuredBadge, featuredReadNow, clusterIntros }: Props) {
   const [filter, setFilter] = useState<FilterType>('all');
 
   const filterOptions: [FilterType, string][] = [
@@ -123,6 +124,11 @@ export default function KBListingFilter({ topics, categoryLabels, filterAllLabel
               <h2 className="text-[14px] font-bold font-[family-name:var(--font-heading)] uppercase tracking-wider text-text-muted mb-3">
                 {label}
               </h2>
+              {clusterIntros && clusterIntros[key as KBCategory] && (
+                <p className="text-[13px] text-text-muted leading-relaxed mb-4 max-w-2xl">
+                  {clusterIntros[key as KBCategory]}
+                </p>
+              )}
               <div className="grid grid-cols-2 gap-3 max-md:grid-cols-1">
                 {items.map((topic) => (
                   <Link

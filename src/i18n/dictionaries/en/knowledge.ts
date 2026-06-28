@@ -26,6 +26,14 @@ const knowledge = {
     technology: 'Technology',
     trends: 'Trends & Reports',
   },
+  clusterIntros: {
+    cost: 'Manage cash flow, price menus, control food costs, and analyze break-even — the factors that determine an F&B business survival.',
+    operations: 'Set up shift schedules, build SOPs, manage staff, and ensure food safety — the foundation for running efficiently every day.',
+    strategy: 'Choose your business model, position in the market, develop your menu, and build competitive advantages — long-term strategy to stay strong.',
+    legal: 'Business regulations, licensing requirements, taxes, and legal rights — what you need to know to operate legally.',
+    technology: 'POS systems, inventory management, online ordering platforms, and automation — tools to optimize your operations.',
+    trends: 'Vietnam F&B market trends, industry reports, new regulations, and market statistics — updated with 2024-2025 market data.',
+  },
   section: {
     heading: 'Knowledge Library',
     desc: 'Foundational knowledge for business owners — covering costs, operations, strategy, and legal.',
