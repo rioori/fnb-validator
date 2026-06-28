@@ -235,7 +235,7 @@ const EXPERTS: Expert[] = [
     photo: '/experts/tran-le-nguyen.webp',
     category: 'inspiration' as const,
     tags: ['FMCG', 'M&A', 'Kem', 'Dầu ăn', 'Chuỗi F&B'],
-    shortBio: 'Đồng sáng lập Kinh Đô (1993), bán mảng bánh kẹo cho Mondelez ~$370-490 triệu. Chuyển hướng sang dầu ăn (#2 thị trường), kem (47% thị phần). Ra mắt Chuk Chuk (2021) — bài học thất bại thực chiến.',
+    shortBio: 'Trần Lệ Nguyên (sinh 1968) — CEO KIDO Group, đồng sáng lập Kinh Đô bán mảng bánh kẹo cho Mondelez ~$370-490 triệu (2014). Dẫn đầu kem Việt 47% thị phần, #2 dầu ăn. Vì sao Chuk Chuk thất bại sau 18 tháng?',
     fullBio: 'Trần Lệ Nguyên (sinh 1968) xuất thân từ gia đình gốc Hoa. Năm 1992, thuyết phục anh trai Trần Kim Thành thế chấp nhà để vay vốn — "một trong những quyết định liều lĩnh nhất đời tôi". Năm 1993, đồng sáng lập Kinh Đô với 1,5 tỷ VNĐ và 70 nhân viên.\n\nNăm 2003, mua lại nhà máy kem Wall\'s từ Unilever → thương hiệu Merino, Celano (47% thị phần kem VN). Năm 2014, bán 80% mảng bánh kẹo cho Mondelez với giá ~$370-490 triệu — thương vụ M&A lớn nhất ngành tiêu dùng VN thời điểm đó. Dùng tiền mua Tường An, Vocarimex → #2 dầu ăn VN (30% thị phần).\n\nNăm 2021, ra mắt Chuk Chuk (kem, trà sữa, cà phê) — tham vọng 1.000 cửa hàng nhưng thất bại, thoái vốn cuối 2022. Bài học quý giá về unit economics trong chuỗi F&B.',
     highlights: [
       'Đồng sáng lập Kinh Đô (1993) → bán cho Mondelez ~$370-490 triệu (2014)',
@@ -629,7 +629,7 @@ const EXPERTS: Expert[] = [
     photo: '/experts/nguyen-ha-linh.webp',
     category: 'inspiration',
     tags: ['Khởi nghiệp trẻ', 'Nhà hàng', 'Forbes 30U30', 'Cộng đồng'],
-    shortBio: 'Khởi nghiệp với 250.000đ lúc 18 tuổi, Forbes 30 Under 30. Sáng lập chuỗi Koh Yam Thai (~10 chi nhánh) và cộng đồng Nghiện Nhà (2.6 triệu thành viên).',
+    shortBio: 'Nguyễn Hà Linh (sinh 1988) — Forbes 30 Under 30, từ 250.000đ tuổi 18 đến chuỗi Bếp Thái Koh Yam (10 chi nhánh) và group Nghiện Nhà 2.6 triệu thành viên. Bài học sau cú lỗ 7 tỷ với kem dừa Koh Samui.',
     fullBio: 'Nguyễn Hà Linh (sinh 1988, Hà Nội) bỏ dở đại học năm thứ 3 để toàn tâm khởi nghiệp. Năm 18 tuổi, với 250.000 đồng, cô mở lớp luyện thi IELTS — ngày đầu thu 120 triệu. Mở rộng sang F&B với chuỗi kem dừa Koh Samui, thua lỗ 7 tỷ đồng — bài học đắt giá về kinh doanh theo trào lưu.\n\nKhông nản, cô tái cấu trúc thành Bếp Thái Koh Yam — mô hình bền vững với công thức Thái "Việt hóa". Hiện Koh Yam có ~10 chi nhánh. Forbes Vietnam vinh danh 30 Under 30 (2016). Năm 2020, cô sáng lập group "Nghiện Nhà" — 2.6 triệu thành viên.',
     highlights: [
       'Khởi nghiệp với 250.000 đồng lúc 18 tuổi, ngày đầu thu 120 triệu',
@@ -1035,7 +1035,7 @@ const EXPERTS: Expert[] = [
     photo: '/experts/dang-le-nguyen-vu.webp',
     category: 'inspiration',
     tags: ['Cà phê', 'Khởi nghiệp', 'Thương hiệu Việt'],
-    shortBio: 'Sáng lập và Chủ tịch Tập đoàn Trung Nguyên Legend. Từ gia đình nông dân nghèo ở M\'Drắk, Đắk Lắk, ông bỏ học ngành Y để xây dựng đế chế cà phê lớn nhất Việt Nam, với thương hiệu G7 chiếm 38% thị phần cà phê hòa tan suốt 9 năm.',
+    shortBio: 'Đặng Lê Nguyên Vũ (sinh 1971) — "Vua cà phê Việt", Chủ tịch Trung Nguyên Legend. Từ con nông dân M\'Drắk bỏ học Y khoa đến đế chế cà phê 60+ quốc gia, G7 chiếm 38% thị phần hòa tan suốt 9 năm. Forbes Asia "Zero to Hero".',
     fullBio: 'Đặng Lê Nguyên Vũ sinh ngày 10/02/1971 tại huyện Ninh Hòa, Khánh Hòa trong một gia đình nông dân nghèo. Năm 1979, gia đình ông chuyển đến M\'Drắk, huyện miền núi của Đắk Lắk. Từ nhỏ ông phụ gia đình bằng nhiều công việc: bẻ ngô, chăn lợn, làm gạch. Năm 1992, ông nhập học Khoa Y, ĐH Tây Nguyên nhưng sớm quyết định bỏ học để theo đuổi đam mê cà phê.\n\nNăm 1996, ông thành lập Trung Nguyên Coffee tại Buôn Ma Thuột — thủ phủ cà phê Việt Nam. Năm 1998, cửa hàng Trung Nguyên đầu tiên mở tại TP.HCM và nhanh chóng bùng nổ qua mô hình nhượng quyền, trở thành chuỗi cà phê lớn nhất Việt Nam. Từ 2003, thương hiệu cà phê hòa tan G7 dẫn đầu thị trường nội địa với 38% thị phần suốt 9 năm liên tiếp. Trung Nguyên hiện xuất khẩu đến hơn 60 quốc gia.\n\nNăm 2012, Forbes Asia vinh danh ông là "Vietnam\'s Coffee King" với hành trình "Zero to Hero." Ông theo đuổi triết lý "Cà Phê Triết Đạo" — nâng tầm cà phê từ thương mại thành triết lý sống, với khát vọng biến Việt Nam thành "thánh địa cà phê toàn cầu."',
     highlights: [
       'Sáng lập Trung Nguyên (1996) từ Buôn Ma Thuột; G7 chiếm 38% thị phần cà phê hòa tan suốt 9 năm',

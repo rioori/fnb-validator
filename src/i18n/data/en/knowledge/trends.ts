@@ -6,8 +6,8 @@ const TRENDS_ARTICLES: KBTopic[] = [
     slug: 'vietnam-sugar-tax-2026-fb-impact',
     icon: 'chart',
     publishDate: '2026-03-01',
-    title: 'Vietnam Sugar Tax 2026–2028: What F&B Operators Need to Know',
-    subtitle: 'New excise law targets sugary drinks — how to prepare your menu and margins',
+    title: 'Vietnam Sugar Tax 2027: 8% Excise on Sugary Drinks — F&B Impact & Menu Strategy',
+    subtitle: 'New 8% tax (rising to 10% in 2028) hits drinks >5g sugar/100ml. Exact pricing math, menu reformulation playbook, and margin protection for cafes, bubble tea, and restaurants.',
     color: 'primary-light',
     category: 'trends',
     highlights: [
