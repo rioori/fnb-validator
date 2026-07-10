@@ -4,7 +4,7 @@ import { useEffect, useRef, useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { track } from '@vercel/analytics';
-import { useWizardStore, restoreDraft } from '@/hooks/useWizardStore';
+import { useWizardStore } from '@/hooks/useWizardStore';
 import { useAuth } from '@/hooks/useAuth';
 import { useTranslation } from '@/i18n/LocaleProvider';
 import Icon from '@/components/ui/Icon';
@@ -17,6 +17,7 @@ import StepRevenue from './StepRevenue';
 import StepCosts from './StepCosts';
 import StepDashboard from './StepDashboard';
 import StepQuickInput from './StepQuickInput';
+import ResumeDraftBanner from './ResumeDraftBanner';
 import HomePage from '@/components/home/HomePage';
 import AuthOverlay from '@/components/auth/AuthOverlay';
 import UserBar from '@/components/auth/UserBar';
@@ -35,7 +36,9 @@ export default function WizardShell() {
 
   useEffect(() => {
     checkSession();
-    restoreDraft();
+    // Note: restoreDraft is NOT auto-called anymore.
+    // ResumeDraftBanner detects draft and prompts user explicitly (Continue / Reset).
+    // This fixes silent state restore that confused users returning to the page.
     const params = new URLSearchParams(window.location.search);
     // Deep-link: if ?view= param exists, force step=0 so HomePage handles it
     const viewParam = params.get('view');
@@ -124,6 +127,7 @@ export default function WizardShell() {
         {currentStep >= 1 && <ProgressBar />}
 
         <div className="animate-fade-in-up" key={currentStep}>
+          {currentStep === 0 && <ResumeDraftBanner />}
           {currentStep === 0 && <HomePage />}
           {currentStep === 1 && <StepModel />}
           {/* Quick mode: replace steps 2-5 with single StepQuickInput */}

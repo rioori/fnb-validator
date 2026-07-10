@@ -3,7 +3,7 @@
 import { useState } from 'react';
 import { useAuth } from '@/hooks/useAuth';
 import { useScenarios } from '@/hooks/useScenarios';
-import { useWizardStore } from '@/hooks/useWizardStore';
+import { useWizardStore, clearDraft } from '@/hooks/useWizardStore';
 import { useModels } from '@/hooks/useModels';
 import Icon from '@/components/ui/Icon';
 import { useTranslation, tpl } from '@/i18n/LocaleProvider';
@@ -29,6 +29,9 @@ export default function SavePrompt() {
       const scenarioName = store.projectName.trim() || fallback;
       setLoading(true);
       await save(user.id, scenarioName, store.selectedModel, store.collectAll());
+      // Draft persisted to a saved scenario — clear localStorage draft so ResumeDraftBanner
+      // won't nag the user with an already-saved scenario on next visit.
+      clearDraft();
       setLoading(false);
       setSaved(true);
     };
@@ -107,6 +110,7 @@ export default function SavePrompt() {
       const fallback = store.selectedModel ? models[store.selectedModel].name : t.dashboard.save.defaultScenarioName;
       const scenarioName = store.projectName.trim() || fallback;
       await save(authUser.id, scenarioName, store.selectedModel, store.collectAll());
+      clearDraft();
       setSaved(true);
     } catch {
       setError(t.dashboard.save.genericError);
