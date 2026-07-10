@@ -385,7 +385,7 @@ export default function LandingHero() {
         </div>
       </motion.div>
 
-      {/* D6: Mid-page CTA Band */}
+      {/* D6: Mid-page CTA Band — dual mode (Quick vs Detailed) */}
       <motion.div
         className="cta-band mb-4 p-5 text-center"
         initial={{ opacity: 0, y: 16 }}
@@ -396,12 +396,26 @@ export default function LandingHero() {
         <p className="text-[13px] text-text font-semibold font-[family-name:var(--font-heading)] mb-3">
           {t.landing.about.cta}
         </p>
-        <Link
-          href={`${localePath('/fnb', locale)}?start=1`}
-          className="clay-btn clay-btn-primary text-[14px] px-6 py-2.5 inline-flex items-center gap-2"
-        >
-          {t.landing.midCta.label}
-        </Link>
+        <div className="flex items-center justify-center gap-3 flex-wrap max-md:flex-col max-md:gap-2">
+          {/* Use plain <a> so URL params trigger a full mount → WizardShell useEffect picks up ?mode=quick */}
+          <a
+            href={`${localePath('/fnb', locale)}?mode=quick&utm_source=homepage&utm_medium=mid-cta&utm_campaign=quick`}
+            className="clay-btn clay-btn-primary text-[14px] px-6 py-2.5 inline-flex items-center gap-2 max-md:w-full max-md:justify-center"
+          >
+            ⚡ {locale === 'en' ? 'Quick check — 1 minute' : 'Tính nhanh — 1 phút'}
+          </a>
+          <a
+            href={`${localePath('/fnb', locale)}?start=1&utm_source=homepage&utm_medium=mid-cta&utm_campaign=detailed`}
+            className="text-[13px] text-text-muted hover:text-cta transition-colors underline font-semibold max-md:mt-1"
+          >
+            {locale === 'en' ? 'or detailed — 6 steps →' : 'hoặc chi tiết — 6 bước →'}
+          </a>
+        </div>
+        <p className="text-[11px] text-text-muted mt-2.5 max-w-[440px] mx-auto leading-snug">
+          {locale === 'en'
+            ? 'Quick: enter 6 core numbers, see verdict instantly. Detailed: full walkthrough with cost breakdown.'
+            : 'Nhanh: nhập 6 con số cốt lõi, biết kết quả ngay. Chi tiết: đi từng bước với breakdown chi phí đầy đủ.'}
+        </p>
       </motion.div>
 
       {/* Survival Score quick card — viral hook */}

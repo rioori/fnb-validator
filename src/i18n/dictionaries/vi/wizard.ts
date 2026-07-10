@@ -52,6 +52,8 @@ const wizard = {
     projectNameHint: 'Đặt tên để dễ phân biệt khi lưu nhiều kịch bản.',
     defaultProjectNew: '{model} - Dự án mới',
     defaultProjectExisting: '{model} - Chẩn đoán',
+    quickSwitchTitle: 'Đang vội? Dùng chế độ Tính nhanh',
+    quickSwitchDesc: 'Chỉ 6 con số cốt lõi, biết kết quả trong 1 phút — thay vì 6 bước chi tiết.',
   },
 
   // ─── StepLocation ─────────────────────────────────────────

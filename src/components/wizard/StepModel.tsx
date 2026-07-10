@@ -1,5 +1,6 @@
 'use client';
 
+import { track } from '@vercel/analytics';
 import { useWizardStore } from '@/hooks/useWizardStore';
 import { MODELS } from '@/lib/constants';
 import { useModels } from '@/hooks/useModels';
@@ -131,6 +132,26 @@ export default function StepModel() {
           <strong className="font-[family-name:var(--font-heading)] inline-flex items-center gap-1.5"><Icon name={model.icon} size={22} /> {model.name}</strong><br />
           <span className="text-text-muted">{model.desc}</span>
         </div>
+      )}
+
+      {/* Quick mode switch — offered after model selected, before 6-step detailed flow */}
+      {!isExisting && selectedModel && (
+        <a
+          href={`?mode=quick&model=${selectedModel}&utm_source=step-model&utm_medium=inline-switch`}
+          onClick={() => track('quick_mode_switch', { source: 'step-model', model: selectedModel })}
+          className="clay-sm bg-gradient-to-r from-amber-50 to-emerald-50 border-2 border-text/20 px-4 py-3 mb-4 flex items-center gap-3 hover:shadow-[3px_3px_0_var(--color-text)] transition-shadow cursor-pointer"
+        >
+          <span className="text-xl shrink-0">⚡</span>
+          <div className="flex-1 min-w-0">
+            <div className="text-[13px] font-bold text-text font-[family-name:var(--font-heading)]">
+              {t.wizard.stepModel.quickSwitchTitle}
+            </div>
+            <div className="text-[11px] text-text-muted leading-snug">
+              {t.wizard.stepModel.quickSwitchDesc}
+            </div>
+          </div>
+          <span className="text-cta text-[12px] font-bold shrink-0">→</span>
+        </a>
       )}
 
       {/* Project Name */}

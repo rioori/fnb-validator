@@ -52,6 +52,8 @@ const wizard = {
     projectNameHint: 'Name your project to easily identify saved scenarios.',
     defaultProjectNew: '{model} - New project',
     defaultProjectExisting: '{model} - Diagnosis',
+    quickSwitchTitle: 'In a hurry? Try Quick Mode',
+    quickSwitchDesc: 'Just 6 core numbers, know the result in 1 minute — instead of the 6-step detailed flow.',
   },
 
   // ─── StepLocation ─────────────────────────────────────────
