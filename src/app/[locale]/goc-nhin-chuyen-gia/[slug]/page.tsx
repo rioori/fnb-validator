@@ -266,6 +266,19 @@ export default async function ExpertDetailPage({ params }: PageProps) {
           </div>
         </div>
 
+        {/* Survival Score CTA — convert curiosity-mode expert traffic into tool users */}
+        <div className="mb-4 text-[12px] text-text-muted">
+          {locale === 'en' ? '⚡ Quick check (30s):' : '⚡ Tính nhanh (30 giây):'}{' '}
+          <Link
+            href={`${localePath('/survival-score', locale as Locale)}?utm_source=expert&utm_medium=top-chip&utm_campaign=${expert.slug}`}
+            className="text-cta hover:text-cta-hover underline font-semibold"
+          >
+            {locale === 'en'
+              ? `Will your F&B shop survive Year 1 like ${expert.name}? Get your Survival Score →`
+              : `Quán bạn có sống nổi năm đầu như ${expert.name}? Tính Survival Score →`}
+          </Link>
+        </div>
+
         {/* AI Chat CTA — capture research-mode visitors with a "ask question" angle */}
         <AIChatCTA locale={locale} topic={`expert-${expert.slug}`} />
 

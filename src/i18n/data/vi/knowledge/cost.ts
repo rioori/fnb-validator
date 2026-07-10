@@ -617,8 +617,8 @@ const COST_ARTICLES: KBTopic[] = [
     icon: 'money',
     title: 'Chi phí mở tiệm bánh ngọt 2026',
     subtitle: 'Vốn đầu tư, vận hành & thời gian hoàn vốn cho 3 quy mô kiosk → bakery cafe',
-    seoTitle: 'Chi phí mở tiệm bánh ngọt 2026: 50tr - 500tr (3 quy mô, breakdown chi tiết)',
-    seoDescription: 'Mở tiệm bánh ngọt cần bao nhiêu tiền 2026? Kiosk 50-100tr, storefront 150-250tr, bakery+cafe 300-500tr. Breakdown vốn + chi phí vận hành + hoàn vốn 6-9 tháng.',
+    seoTitle: 'Chi phí mở tiệm bánh ngọt: 50-500tr theo 3 quy mô [2026]',
+    seoDescription: 'Chi phí mở tiệm bánh ngọt bao nhiêu? Kiosk 50-100tr, storefront 150-250tr, bakery+cafe 300-500tr. Vốn ban đầu, chi phí vận hành, thời gian hoàn vốn 6-9 tháng — chi tiết 2026.',
     color: 'primary-light',
     category: 'cost',
     highlights: [

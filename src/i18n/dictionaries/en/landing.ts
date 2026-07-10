@@ -1,8 +1,8 @@
 const landing = {
   meta: {
-    title: 'Validate & Optimize Your Business — Validator.vn',
+    title: 'Validator.vn — F&B Business Validation Tool for Vietnam',
     description:
-      'Free tool to analyze finances and assess risks — whether you\'re preparing to launch or optimizing an existing business.',
+      'Validator.vn — free tool to validate & optimize F&B businesses in Vietnam. Financial analysis, break-even projection, risk assessment for cafes, restaurants, bakeries, and bubble tea shops.',
   },
   hero: {
     logoAlt: 'Vietnam Validator',

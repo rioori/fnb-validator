@@ -1,8 +1,8 @@
 const landing = {
   meta: {
-    title: 'Thẩm định & tối ưu kinh doanh — Validator.vn',
+    title: 'Validator.vn — Thẩm định kinh doanh F&B trước khi mở quán',
     description:
-      'Công cụ miễn phí giúp bạn phân tích tài chính, đánh giá rủi ro — dù bạn đang chuẩn bị khởi nghiệp hay muốn tối ưu mô hình đang vận hành.',
+      'Validator.vn — công cụ miễn phí thẩm định & tối ưu kinh doanh F&B tại Việt Nam. Phân tích tài chính, dự báo hoà vốn, đánh giá rủi ro cho quán cà phê, nhà hàng, tiệm bánh, trà sữa.',
   },
   hero: {
     logoAlt: 'Vietnam Validator',
