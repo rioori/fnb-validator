@@ -19,7 +19,7 @@ export default function Footer() {
       <div className="h-[40px] overflow-hidden opacity-30">
         <Image
           src="/illustrations/footer-scene.webp"
-          alt=""
+          alt="Vietnam F&B storefront illustration"
           width={1200}
           height={80}
           className="w-full object-cover"

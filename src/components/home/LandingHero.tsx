@@ -98,7 +98,7 @@ export default function LandingHero() {
         >
           <Image
             src="/illustrations/landing-hero-v4.webp"
-            alt=""
+            alt="Validator.vn — F&B business validation tool for Vietnamese cafe, restaurant, and bubble tea owners"
             width={1584}
             height={672}
             className="w-full"
@@ -310,7 +310,7 @@ export default function LandingHero() {
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
           src="/illustrations/stats-narrative.webp"
-          alt=""
+          alt="Vietnam F&B market reality vs opportunity — 198K shops, 50% close rate, 5.2M industry workers"
           className="w-full"
           loading="lazy"
         />

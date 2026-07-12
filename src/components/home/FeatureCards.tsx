@@ -73,7 +73,7 @@ export default function FeatureCards({ onNavigate }: FeatureCardsProps) {
             <div className="h-[72px] flex items-center justify-center mb-1">
               <Image
                 src={`/illustrations/${meta.illust}.webp`}
-                alt=""
+                alt={f.title}
                 width={72}
                 height={72}
                 loading="lazy"

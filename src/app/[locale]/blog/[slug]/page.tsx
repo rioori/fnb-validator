@@ -39,7 +39,13 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 
   const dict = await getDictionary(locale as Locale);
   const title = `${post.title} — ${dict.blog.title}`;
-  const description = post.excerpt;
+
+  // Description fallback with padding when excerpt is too short for SEO (< 140 chars).
+  const baseDesc = post.excerpt || '';
+  const padSuffix = locale === 'en'
+    ? ` Read the full guide on Validator.vn — free F&B business validation & optimization tool for Vietnam.`
+    : ` Đọc bài đầy đủ trên Validator.vn — công cụ miễn phí thẩm định & tối ưu kinh doanh F&B tại Việt Nam.`;
+  const description = baseDesc.length >= 140 ? baseDesc : (baseDesc + padSuffix).slice(0, 300);
   const viUrl = `${BASE_URL}/blog/${post.slug}`;
   const enUrl = `${BASE_URL}/en/blog/${post.slug}`;
   const canonical = locale === defaultLocale ? viUrl : enUrl;

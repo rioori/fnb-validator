@@ -38,7 +38,13 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const title = comparison.seoTitle
     ? `${comparison.seoTitle} | Validator.vn`
     : `${comparison.title} | Validator.vn`;
-  const description = comparison.seoDescription || comparison.subtitle;
+
+  // Description fallback with padding when subtitle is too short for SEO (< 140 chars).
+  const baseDesc = comparison.seoDescription || comparison.subtitle || '';
+  const padSuffix = locale === 'en'
+    ? ` Compare options side-by-side and choose the right F&B tool. Free guide on Validator.vn.`
+    : ` So sánh chi tiết, chọn giải pháp F&B phù hợp cho quán của bạn. Hướng dẫn miễn phí trên Validator.vn.`;
+  const description = baseDesc.length >= 140 ? baseDesc : (baseDesc + padSuffix).slice(0, 300);
   const viUrl = `${BASE_URL}/so-sanh/${comparison.slug}`;
   const enUrl = `${BASE_URL}${localePath(`/so-sanh/${comparison.slug}`, 'en')}`;
   const canonical = locale === defaultLocale ? viUrl : enUrl;

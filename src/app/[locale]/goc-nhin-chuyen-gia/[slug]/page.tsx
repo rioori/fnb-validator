@@ -60,7 +60,17 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const title = expert.seoTitle
     ? `${expert.seoTitle} | Validator.vn`
     : `${expert.name} — ${dict.experts.breadcrumb.experts} | Validator.vn`;
-  const description = expert.seoDescription || expert.shortBio;
+
+  // Description fallback: use seoDescription if present; otherwise build a padded
+  // description from shortBio + descriptor + expertise anchor so Bing/Google don't
+  // flag the meta description as too short (target ~140-160 chars).
+  const baseBio = expert.seoDescription || expert.shortBio || '';
+  const padSuffix = locale === 'en'
+    ? ` ${expert.name} — ${expert.descriptor}. Read profile, quotes, and expert F&B advice on Validator.vn.`
+    : ` ${expert.name} — ${expert.descriptor}. Đọc tiểu sử, quote & lời khuyên F&B từ chuyên gia trên Validator.vn.`;
+  const description = baseBio.length >= 140
+    ? baseBio
+    : (baseBio + padSuffix).slice(0, 300);
   const viUrl = `${BASE_URL}/goc-nhin-chuyen-gia/${expert.slug}`;
   const enUrl = `${BASE_URL}${localePath(`/goc-nhin-chuyen-gia/${expert.slug}`, 'en')}`;
   const canonical = locale === defaultLocale ? viUrl : enUrl;

@@ -61,8 +61,8 @@ export default function KBListingFilter({ topics, categoryLabels, filterAllLabel
         >
           <div className="overflow-hidden bg-pastel-cream/50">
             <Image
-              src="/illustrations/kb-featured-banner.webp"
-              alt=""
+              src={"/illustrations/kb-featured-banner.webp"}
+              alt={featuredTopic.title}
               width={1584}
               height={672}
               className="w-full h-auto"

@@ -49,7 +49,7 @@ export default function HeroSection({ onNavigate }: HeroSectionProps) {
       >
         <Image
           src="/illustrations/hero-shops-v6.webp"
-          alt=""
+          alt="Cafe, restaurant, and bubble tea shopfronts illustration — Validator.vn F&B business validation"
           width={1584}
           height={672}
           className="w-full"
@@ -78,15 +78,15 @@ export default function HeroSection({ onNavigate }: HeroSectionProps) {
           {t.fnbHome.hero.tagline}
         </motion.p>
 
-        {/* Heading — fade up */}
-        <motion.h2
+        {/* Heading — fade up (h1 for SEO; page-level primary heading) */}
+        <motion.h1
           className="text-xl font-bold text-text font-[family-name:var(--font-heading)] mb-1.5 max-md:text-lg"
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.35, duration: 0.5 }}
         >
           {t.fnbHome.hero.heading}
-        </motion.h2>
+        </motion.h1>
 
         {/* Rotating quotes — AnimatePresence crossfade + slide */}
         <div className="h-[24px] max-md:h-[20px] flex items-center justify-center mb-3 overflow-hidden">
