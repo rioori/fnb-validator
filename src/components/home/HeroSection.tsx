@@ -1,17 +1,20 @@
 'use client';
 
 import { useState, useEffect } from 'react';
+import { useRouter } from 'next/navigation';
 import Image from 'next/image';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useWizardStore } from '@/hooks/useWizardStore';
 import Icon from '@/components/ui/Icon';
 import { useTranslation } from '@/i18n/LocaleProvider';
 import { useModels } from '@/hooks/useModels';
+import { localePath } from '@/i18n/link';
+import type { Locale } from '@/i18n/config';
 import type { ModelKey, FnBModel } from '@/types';
 import type { HomeView } from './HomePage';
 
-const CTA_ICONS = ['wizard', 'bolt', 'chat'] as const;
-const CTA_CLS = ['clay-btn-primary', 'bg-pastel-mint', 'bg-pastel-blue'] as const;
+const CTA_ICONS = ['chat', 'book', 'wizard'] as const;
+const CTA_CLS = ['clay-btn-primary', 'bg-pastel-cream', 'bg-pastel-blush'] as const;
 
 const spring = { type: 'spring' as const, stiffness: 300, damping: 22 };
 
@@ -20,9 +23,10 @@ interface HeroSectionProps {
 }
 
 export default function HeroSection({ onNavigate }: HeroSectionProps) {
-  const { t } = useTranslation();
+  const { t, locale } = useTranslation();
   const models = useModels();
   const setStep = useWizardStore((s) => s.setStep);
+  const router = useRouter();
   const [quoteIdx, setQuoteIdx] = useState(0);
   const quotes = t.fnbHome.quotes;
 
@@ -34,9 +38,10 @@ export default function HeroSection({ onNavigate }: HeroSectionProps) {
   }, [quotes.length]);
 
   const handleCta = (i: number) => {
-    if (i === 0) setStep(1);
-    else if (i === 1) onNavigate('quick-calc');
-    else onNavigate('ai-chat');
+    // New order: [0] Ask AI, [1] Read Knowledge, [2] Validate feasibility
+    if (i === 0) onNavigate('ai-chat');
+    else if (i === 1) router.push(localePath('/kien-thuc', locale as Locale));
+    else setStep(1);
   };
 
   return (

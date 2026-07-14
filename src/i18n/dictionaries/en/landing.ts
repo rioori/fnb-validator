@@ -1,19 +1,19 @@
 const landing = {
   meta: {
-    title: 'Validator.vn — F&B Business Validation Tool for Vietnam',
+    title: 'Validator.vn — The Data Playbook for F&B Owners in Vietnam',
     description:
-      'Validator.vn — free tool to validate & optimize F&B businesses in Vietnam. Financial analysis, break-even projection, risk assessment for cafes, restaurants, bakeries, and bubble tea shops.',
+      'Before you open: validate feasibility. After you open: benchmark costs, ask AI, learn from experts. Free — built for small & mid-sized cafe, restaurant, bakery, and bubble tea owners in Vietnam.',
   },
   hero: {
-    logoAlt: 'Vietnam Validator',
-    h1: 'Validate & optimize your business',
-    desc: 'Free tool to analyze finances and assess risks — whether you\'re preparing to launch or optimizing an existing business.',
+    logoAlt: 'Validator.vn',
+    h1: 'The data playbook for owners',
+    desc: 'Free platform to read your numbers, benchmark against the market, and ask experts — whether you\'re preparing to open or already running.',
   },
   quotes: [
-    'Failure doesn\'t start with a bad idea — it starts with not validating before investing.',
-    'Know your numbers — whether you\'re starting out or already running.',
-    'Your business dream deserves a solid foundation.',
-    'You don\'t need to be perfect to start. You just need to start right.',
+    'Smart owners read numbers — not fortune.',
+    'Before you open, after you open — every number deserves a question.',
+    'Nobody runs a shop alone. Reading data together makes decisions easier.',
+    'One smart decision a week — your shop looks different after 6 months.',
   ],
   stats: [
     { value: '198K', label: 'Businesses close every year', sub: 'Over 500 businesses disappear every day in Vietnam' },
@@ -59,17 +59,17 @@ const landing = {
     { title: 'Checklist', desc: '80+ items to prepare before launching — from legal to operations' },
   ],
   about: {
-    heading: 'What is Validator.vn?',
-    desc: 'A free tool to validate your business idea or optimize an existing operation.',
+    heading: 'Who is Validator.vn for?',
+    desc: 'A data playbook for F&B owners — use it before opening to validate feasibility, use it after opening to read numbers and make smarter weekly decisions.',
     audiences: [
-      { icon: 'rocket', label: 'Preparing to launch?', desc: 'Test feasibility before investing capital' },
-      { icon: 'chart', label: 'Already running?', desc: 'Input real numbers to diagnose financial health' },
+      { icon: 'chart', label: 'Already running?', desc: 'Benchmark costs, ask the AI about revenue/menu, learn from experts' },
+      { icon: 'rocket', label: 'Preparing to open?', desc: '6-step validation, know month-one profit/loss, plan real capital' },
     ],
-    howItWorks: 'How it works',
+    howItWorks: 'How to use it',
     steps: [
-      { step: '1', title: 'Enter your data', desc: 'Choose an industry & model, input investment costs, projected revenue & operating expenses' },
-      { step: '2', title: 'Auto analysis', desc: 'AI calculates 12-month P&L, break-even, health score & risk assessment' },
-      { step: '3', title: 'Get results', desc: 'Detailed report, AI advisor for strategy, and business preparation checklist' },
+      { step: '1', title: 'Start with a question', desc: 'High costs? Slow sales? Which dish makes money? Ask the AI, read articles, check benchmarks' },
+      { step: '2', title: 'Compare your numbers', desc: 'Use the calculator, score your health, model 12 months if you\'re preparing to open' },
+      { step: '3', title: 'Decide smarter', desc: 'Data brings confidence. No signup needed — create an account only if you want scenario history' },
     ],
     cta: 'Free · No signup required · Bilingual Vietnamese-English',
   },
@@ -116,9 +116,9 @@ const landing = {
     ],
   },
   closing: {
-    heading: 'Ready to validate your idea?',
+    heading: 'Start with a question.',
     desc: 'Free · No signup required · Bilingual Vietnamese-English',
-    cta: 'Start validating',
+    cta: 'Ask the AI or read the knowledge',
   },
   footer: {
     builtForCommunity: 'Built with {heart} for community by',

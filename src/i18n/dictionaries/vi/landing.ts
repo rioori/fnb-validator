@@ -1,19 +1,19 @@
 const landing = {
   meta: {
-    title: 'Validator.vn — Thẩm định kinh doanh F&B trước khi mở quán',
+    title: 'Validator.vn — Sổ tay dữ liệu cho chủ quán F&B Việt Nam',
     description:
-      'Validator.vn — công cụ miễn phí thẩm định & tối ưu kinh doanh F&B tại Việt Nam. Phân tích tài chính, dự báo hoà vốn, đánh giá rủi ro cho quán cà phê, nhà hàng, tiệm bánh, trà sữa.',
+      'Trước khi mở: kiểm tra khả thi. Sau khi mở: so benchmark, hỏi AI, học từ chuyên gia. Miễn phí — dành cho chủ quán café, quán ăn, tiệm bánh, trà sữa vừa & nhỏ tại Việt Nam.',
   },
   hero: {
-    logoAlt: 'Vietnam Validator',
-    h1: 'Thẩm định & tối ưu kinh doanh',
-    desc: 'Công cụ miễn phí giúp bạn phân tích tài chính, đánh giá rủi ro — dù bạn đang chuẩn bị khởi nghiệp hay muốn tối ưu mô hình đang vận hành.',
+    logoAlt: 'Validator.vn',
+    h1: 'Sổ tay dữ liệu cho chủ quán',
+    desc: 'Nền tảng miễn phí giúp bạn đọc số, so benchmark, hỏi chuyên gia — dù bạn chuẩn bị mở quán hay đã đang vận hành.',
   },
   quotes: [
-    'Thất bại không bắt đầu từ ý tưởng tệ — mà từ việc không kiểm chứng trước khi bỏ vốn.',
-    'Biết rõ con số — dù bạn mới bắt đầu hay đang vận hành.',
-    'Giấc mơ kinh doanh của bạn xứng đáng có một nền tảng vững chắc.',
-    'Bạn không cần hoàn hảo để bắt đầu. Bạn chỉ cần bắt đầu đúng cách.',
+    'Chủ quán khôn hơn nhờ đọc số — không phải nhờ may mắn.',
+    'Trước khi mở, sau khi mở — mỗi con số đều đáng để hỏi.',
+    'Không ai mở quán một mình. Đọc số cùng nhau, quyết định dễ hơn.',
+    'Một quyết định khôn ngoan mỗi tuần — quán bạn sẽ khác sau 6 tháng.',
   ],
   stats: [
     { value: '198K', label: 'Doanh nghiệp đóng cửa mỗi năm', sub: 'Hơn 500 doanh nghiệp biến mất mỗi ngày tại Việt Nam' },
@@ -59,17 +59,17 @@ const landing = {
     { title: 'Checklist', desc: '80+ mục cần chuẩn bị trước khi khởi nghiệp — từ pháp lý đến vận hành' },
   ],
   about: {
-    heading: 'Validator.vn là gì?',
-    desc: 'Công cụ miễn phí giúp bạn thẩm định ý tưởng kinh doanh hoặc tối ưu mô hình đang vận hành.',
+    heading: 'Validator.vn dành cho ai?',
+    desc: 'Sổ tay dữ liệu cho chủ quán F&B — dùng trước khi mở để kiểm tra khả thi, dùng sau khi mở để đọc số & quyết định khôn ngoan hơn mỗi tuần.',
     audiences: [
-      { icon: 'rocket', label: 'Chuẩn bị khởi nghiệp?', desc: 'Kiểm tra tính khả thi trước khi bỏ vốn' },
-      { icon: 'chart', label: 'Đang kinh doanh?', desc: 'Chẩn đoán sức khỏe tài chính từ số liệu thực tế' },
+      { icon: 'chart', label: 'Đã đang mở quán?', desc: 'So benchmark cost, hỏi AI về doanh thu/menu, học từ chuyên gia' },
+      { icon: 'rocket', label: 'Chuẩn bị mở quán?', desc: 'Thẩm định 6 bước, biết lãi/lỗ tháng đầu, chuẩn bị vốn thật' },
     ],
-    howItWorks: 'Hoạt động thế nào?',
+    howItWorks: 'Dùng thế nào?',
     steps: [
-      { step: '1', title: 'Nhập dữ liệu', desc: 'Chọn ngành & mô hình, nhập chi phí đầu tư, doanh thu & chi phí vận hành dự kiến' },
-      { step: '2', title: 'Phân tích tự động', desc: 'AI tính P&L 12 tháng, break-even, health score và đánh giá rủi ro' },
-      { step: '3', title: 'Nhận kết quả', desc: 'Báo cáo chi tiết, AI advisor tư vấn chiến lược, checklist chuẩn bị kinh doanh' },
+      { step: '1', title: 'Bắt đầu từ câu hỏi', desc: 'Cost cao? Doanh thu sụt? Menu nào lời? Hỏi AI, đọc bài, so benchmark' },
+      { step: '2', title: 'Đối chiếu số của bạn', desc: 'Dùng calculator, chấm điểm sức khỏe, xem mô hình 12 tháng nếu chuẩn bị mở' },
+      { step: '3', title: 'Quyết định khôn hơn', desc: 'Có data → có tự tin. Không cần đăng ký, giữ lịch sử scenarios nếu tạo tài khoản' },
     ],
     cta: 'Miễn phí · Không cần đăng ký · Song ngữ Việt-Anh',
   },
@@ -116,9 +116,9 @@ const landing = {
     ],
   },
   closing: {
-    heading: 'Sẵn sàng kiểm chứng ý tưởng?',
+    heading: 'Bắt đầu bằng một câu hỏi.',
     desc: 'Miễn phí · Không cần đăng ký · Song ngữ Việt-Anh',
-    cta: 'Bắt đầu thẩm định',
+    cta: 'Hỏi AI hoặc đọc kiến thức',
   },
   footer: {
     builtForCommunity: 'Built with {heart} for community by',

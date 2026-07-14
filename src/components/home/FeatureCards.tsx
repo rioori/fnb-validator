@@ -11,14 +11,14 @@ import type { Locale } from '@/i18n/config';
 import type { HomeView } from './HomePage';
 
 const FEATURE_META = [
-  { icon: 'trendingup', action: 'why-fnb' as const, bg: 'bg-pastel-gold', illust: 'feat-whyfnb' },
-  { icon: 'wizard', action: 'start-wizard' as const, bg: 'bg-pastel-blush', illust: 'feat-validate' },
-  { icon: 'bolt', action: 'quick-calc' as const, bg: 'bg-pastel-mint', illust: 'feat-quickcalc' },
   { icon: 'chat', action: 'ai-chat' as const, bg: 'bg-pastel-blue', illust: 'feat-aichat' },
   { icon: 'book', action: 'knowledge' as const, bg: 'bg-pastel-cream', illust: 'feat-knowledge' },
-  { icon: 'checklist', action: 'checklist' as const, bg: 'bg-pastel-blue', illust: 'feat-checklist' },
   { icon: 'star', action: 'experts' as const, bg: 'bg-pastel-gold', illust: 'feat-experts' },
   { icon: 'trending', action: 'trends' as const, bg: 'bg-pastel-mint', illust: 'feat-trends' },
+  { icon: 'wizard', action: 'start-wizard' as const, bg: 'bg-pastel-blush', illust: 'feat-validate' },
+  { icon: 'bolt', action: 'quick-calc' as const, bg: 'bg-pastel-mint', illust: 'feat-quickcalc' },
+  { icon: 'checklist', action: 'checklist' as const, bg: 'bg-pastel-blue', illust: 'feat-checklist' },
+  { icon: 'trendingup', action: 'why-fnb' as const, bg: 'bg-pastel-gold', illust: 'feat-whyfnb' },
 ];
 
 interface FeatureCardsProps {
