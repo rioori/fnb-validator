@@ -342,7 +342,7 @@ export default function LandingHero() {
                       ) : <>0{suffix}</>}
                     </span>
                     <p className="text-[12px] font-semibold text-text leading-tight mb-0.5 max-md:text-[11px]">{s.label}</p>
-                    <p className="text-[10px] text-text-muted leading-snug max-md:text-[9px]">{s.sub}</p>
+                    <p className="text-[11px] text-text-muted leading-snug">{s.sub}</p>
                   </div>
                 );
               })}
@@ -370,7 +370,7 @@ export default function LandingHero() {
                       ) : <>0{suffix}</>}
                     </span>
                     <p className="text-[12px] font-semibold text-text leading-tight mb-0.5 max-md:text-[11px]">{s.label}</p>
-                    <p className="text-[10px] text-text-muted leading-snug max-md:text-[9px]">{s.sub}</p>
+                    <p className="text-[11px] text-text-muted leading-snug">{s.sub}</p>
                   </div>
                 );
               })}
