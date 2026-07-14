@@ -29,6 +29,8 @@ import SavePrompt from '@/components/dashboard/SavePrompt';
 import EmailCaptureModal from '@/components/dashboard/EmailCaptureModal';
 import ShareResultCTA from '@/components/dashboard/ShareResultCTA';
 import NextStepPanel from '@/components/dashboard/NextStepPanel';
+import AIInsightCards from '@/components/dashboard/AIInsightCards';
+import { buildBusinessContextFromState } from '@/lib/businessContext';
 import CollapsibleSection from '@/components/ui/CollapsibleSection';
 import NavButtons from '@/components/ui/NavButtons';
 import Icon from '@/components/ui/Icon';
@@ -281,6 +283,19 @@ export default function StepDashboard() {
               netMargin={results.stableMonth.netMargin}
               paybackMonth={results.paybackMonth}
             />
+            {/* AI-generated 3-insight cards — auto-fires on dashboard mount, session-cached */}
+            {(() => {
+              const ctx = buildBusinessContextFromState(store);
+              if (!ctx) return null;
+              return (
+                <AIInsightCards
+                  businessContext={ctx}
+                  score={results.score}
+                  netMargin={results.stableMonth.netMargin}
+                  paybackMonth={results.paybackMonth}
+                />
+              );
+            })()}
           </div>
 
           {/* P&L + Cash Flow */}

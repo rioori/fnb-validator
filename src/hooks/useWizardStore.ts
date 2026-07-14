@@ -15,7 +15,7 @@ function toTicketItems(arr: [string, number][]): TicketItem[] {
   return arr.map(([name, price]) => ({ id: uid(), name, price }));
 }
 
-interface WizardState {
+export interface WizardState {
   // Navigation
   currentStep: number;
   setStep: (step: number) => void;
