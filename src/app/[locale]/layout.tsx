@@ -10,6 +10,7 @@ import { LocaleProvider } from '@/i18n/LocaleProvider';
 import LocaleSwitcher from '@/components/ui/LocaleSwitcher';
 import GlobalNav from '@/components/ui/GlobalNav';
 import UTMCapture from '@/components/ui/UTMCapture';
+import { ToastViewport } from '@/components/ui/Toast';
 import '../globals.css';
 
 const BASE_URL = 'https://www.validator.vn';
@@ -131,6 +132,7 @@ export default async function RootLayout({ children, params }: LayoutProps) {
           <LocaleSwitcher />
           <UTMCapture />
           {children}
+          <ToastViewport />
         </LocaleProvider>
         {process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID && (
           <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID} />

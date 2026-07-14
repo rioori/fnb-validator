@@ -7,6 +7,8 @@ import { useScenarios } from '@/hooks/useScenarios';
 import { useWizardStore, clearDraft } from '@/hooks/useWizardStore';
 import { useModels } from '@/hooks/useModels';
 import Icon from '@/components/ui/Icon';
+import Spinner from '@/components/ui/Spinner';
+import { useToast } from '@/components/ui/Toast';
 import { useTranslation, tpl } from '@/i18n/LocaleProvider';
 
 export default function SavePrompt() {
@@ -15,6 +17,7 @@ export default function SavePrompt() {
   const { user, login, signup } = useAuth();
   const { save, canSave, scenarioCount } = useScenarios();
   const store = useWizardStore();
+  const toast = useToast((s) => s.push);
 
   const [id, setId] = useState('');
   const [pass, setPass] = useState('');
@@ -30,18 +33,23 @@ export default function SavePrompt() {
       const scenarioName = store.projectName.trim() || fallback;
       setLoading(true);
       const isUpdate = !!useScenarios.getState().selectedId;
-      await save(user.id, scenarioName, store.selectedModel, store.collectAll());
-      track('scenario_saved', {
-        model: store.selectedModel || 'none',
-        mode: isUpdate ? 'update' : 'new',
-        business_mode: store.businessMode,
-      });
-      track('north_star_action', { source: 'scenario_saved' });
-      // Draft persisted to a saved scenario — clear localStorage draft so ResumeDraftBanner
-      // won't nag the user with an already-saved scenario on next visit.
-      clearDraft();
-      setLoading(false);
-      setSaved(true);
+      try {
+        await save(user.id, scenarioName, store.selectedModel, store.collectAll());
+        track('scenario_saved', {
+          model: store.selectedModel || 'none',
+          mode: isUpdate ? 'update' : 'new',
+          business_mode: store.businessMode,
+        });
+        track('north_star_action', { source: 'scenario_saved' });
+        clearDraft();
+        setSaved(true);
+        toast('success', t.dashboard.save.savedSuccess);
+      } catch (err) {
+        const msg = err instanceof Error ? err.message : 'save failed';
+        toast('error', msg === 'MAX_SCENARIOS' ? t.dashboard.save.scenarioLimitMax : msg);
+      } finally {
+        setLoading(false);
+      }
     };
 
     if (saved) {
@@ -73,8 +81,9 @@ export default function SavePrompt() {
         <button
           onClick={handleSave}
           disabled={loading || atLimit}
-          className="clay-btn clay-btn-primary text-[13px] shrink-0 disabled:opacity-50"
+          className="clay-btn clay-btn-primary text-[13px] shrink-0 disabled:opacity-50 inline-flex items-center gap-2"
         >
+          {loading && <Spinner size={14} />}
           {loading ? t.dashboard.save.saving : t.dashboard.save.saveScenario}
         </button>
       </div>
