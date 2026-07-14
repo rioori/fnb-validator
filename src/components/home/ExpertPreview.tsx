@@ -18,8 +18,17 @@ const FEATURED_IDS = [
   'yosuke-masuko',
 ];
 
+// Rotated deterministic BG set — pastel primitives (decorative rotation, not semantic per-expert)
 const CARD_BGS = ['bg-pastel-cream', 'bg-pastel-mint', 'bg-pastel-blue', 'bg-pastel-gold', 'bg-pastel-blush', 'bg-pastel-cream'];
-const BORDER_ACCENTS = ['border-l-[#C8A96E]', 'border-l-[#7CB98B]', 'border-l-[#7BAFCB]', 'border-l-[#D4956A]', 'border-l-[#B88BAF]', 'border-l-[#C8A96E]'];
+// Border accents now reference semantic accent tokens via CSS vars — no more hex literals
+const BORDER_ACCENTS = [
+  'var(--color-accent-gold)',
+  'var(--color-accent-mint)',
+  'var(--color-accent-sky)',
+  'var(--color-accent-terra)',
+  'var(--color-accent-plum)',
+  'var(--color-accent-gold)',
+];
 
 function smartTruncate(text: string, max: number): string {
   if (text.length <= max) return text;
@@ -60,7 +69,10 @@ export default function ExpertPreview({ heading, desc, viewAllLabel }: Props) {
             >
               {/* Quote */}
               {quote && (
-                <p className={`text-[13px] text-text italic leading-relaxed border-l-[3px] ${BORDER_ACCENTS[i]} pl-3 mb-3 flex-1`}>
+                <p
+                  className="text-[13px] text-text italic leading-relaxed border-l-[3px] pl-3 mb-3 flex-1"
+                  style={{ borderLeftColor: BORDER_ACCENTS[i] }}
+                >
                   &ldquo;{smartTruncate(quote.text, 80)}&rdquo;
                 </p>
               )}

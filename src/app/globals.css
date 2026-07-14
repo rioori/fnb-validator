@@ -13,12 +13,33 @@
   --color-accent: #22C55E;
   --color-accent-light: #86EFAC;
 
-  /* BenAI-inspired pastel palette */
+  /* BenAI-inspired pastel palette (decorative primitives) */
   --color-pastel-cream: #FAF3E3;
   --color-pastel-blue: #E5F4F8;
   --color-pastel-mint: #D2ECD0;
   --color-pastel-gold: #FDEEC4;
   --color-pastel-blush: #FDE8E4;
+
+  /* Semantic card tokens — meaning-mapped, not decoration */
+  /* Use these instead of raw --color-pastel-* in components */
+  --color-card-story: #D2ECD0;    /* owner stories = growth green */
+  --color-card-tool: #E5F4F8;     /* calculators/tools = trust blue */
+  --color-card-expert: #FDEEC4;   /* expert insights = wisdom gold */
+  --color-card-market: #FAF3E3;   /* market data = neutral cream */
+  --color-card-onboard: #FDE8E4;  /* onboarding/wizard = warm blush */
+
+  /* Semantic accent borders (retire hex-literal per-card) */
+  --color-accent-gold: #C8A96E;
+  --color-accent-mint: #7CB98B;
+  --color-accent-sky: #7BAFCB;
+  --color-accent-terra: #D4956A;
+  --color-accent-plum: #B88BAF;
+
+  /* Elevation scale — 3 levels, semantic (rest/hover/lift) */
+  --shadow-clay-rest: 2px 2px 0 var(--color-text);
+  --shadow-clay-hover: 4px 4px 0 var(--color-text);
+  --shadow-clay-lift: 6px 6px 0 var(--color-text);
+  --shadow-focus: 0 0 0 3px rgba(34, 197, 94, 0.35);
 
   --color-surface: #FFFFFF;
   --color-surface2: #F8FAFC;
@@ -72,23 +93,35 @@ h1, h2, h3, h4 {
 
 @layer components {
 
-/* Clay Card - the core component */
+/* Clay Card - the core component (elevation: rest → hover) */
 .clay-card {
   background: var(--color-surface);
   border-radius: 12px;
   border: 2px solid var(--color-text);
-  box-shadow: 2px 2px 0 var(--color-text);
+  box-shadow: var(--shadow-clay-rest);
   transition: transform 0.2s, box-shadow 0.2s;
 }
 .clay-card:hover {
   transform: translate(-1px, -1px);
-  box-shadow: 4px 4px 0 var(--color-text);
+  box-shadow: var(--shadow-clay-hover);
 }
 .clay-card-static {
   background: var(--color-surface);
   border-radius: 12px;
   border: 2px solid var(--color-text);
-  box-shadow: 2px 2px 0 var(--color-text);
+  box-shadow: var(--shadow-clay-rest);
+}
+/* Lift variant — for hero/signature moments (elevation: hover default → lift on hover) */
+.clay-card-lift {
+  background: var(--color-surface);
+  border-radius: 12px;
+  border: 2px solid var(--color-text);
+  box-shadow: var(--shadow-clay-hover);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.clay-card-lift:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: var(--shadow-clay-lift);
 }
 
 /* Clay small - lighter version for inner elements */
@@ -111,6 +144,10 @@ h1, h2, h3, h4 {
 }
 .clay-input:focus {
   border-color: var(--color-text);
+  box-shadow: var(--shadow-focus);
+}
+.clay-input:focus-visible {
+  outline: none;
 }
 .clay-input::placeholder {
   color: var(--color-text-light);
