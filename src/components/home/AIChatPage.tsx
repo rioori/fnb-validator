@@ -125,6 +125,18 @@ export default function AIChatPage() {
     }
   }, [user?.id, loadSessions, checkQuota, loadScenarios]);
 
+  // Pick up seed question from Hero AI input (sessionStorage)
+  useEffect(() => {
+    try {
+      const seed = sessionStorage.getItem('ai_chat_seed_question');
+      if (seed) {
+        setInput(seed);
+        sessionStorage.removeItem('ai_chat_seed_question');
+        track('ai_chat_seeded_from_hero', { length: seed.length });
+      }
+    } catch {}
+  }, []);
+
   // Handle scenario selection
   const handleScenarioPick = async (scenarioId: string) => {
     if (!scenarioId) {

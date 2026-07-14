@@ -8,6 +8,16 @@ const fnbHome = {
     logoAlt: 'Validator.vn',
     tagline: 'Free · No spam · Built for real F&B operators',
     heading: 'The data playbook for F&B owners',
+    primaryCta: {
+      label: 'Ask AI about your shop',
+      desc: 'Costs too high? Sales dropping? Menu underperforming? — Ask now, grounded in Vietnam F&B data',
+      placeholder: 'e.g. Is 18M VND rent reasonable for a 60m² café in District 3?',
+      button: 'Ask now',
+    },
+    secondaryLinks: {
+      wizard: 'Planning to open? 6-step validation →',
+      knowledge: 'Read 80+ F&B knowledge articles →',
+    },
   },
   quotes: [
     'Smart owners read numbers — not fortune.',

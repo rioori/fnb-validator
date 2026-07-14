@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 import Image from 'next/image';
 import { motion, AnimatePresence } from 'framer-motion';
+import { track } from '@vercel/analytics';
 import { useWizardStore } from '@/hooks/useWizardStore';
 import Icon from '@/components/ui/Icon';
 import { useTranslation } from '@/i18n/LocaleProvider';
@@ -12,11 +13,6 @@ import { localePath } from '@/i18n/link';
 import type { Locale } from '@/i18n/config';
 import type { ModelKey, FnBModel } from '@/types';
 import type { HomeView } from './HomePage';
-
-const CTA_ICONS = ['chat', 'book', 'wizard'] as const;
-const CTA_CLS = ['clay-btn-primary', 'bg-pastel-cream', 'bg-pastel-blush'] as const;
-
-const spring = { type: 'spring' as const, stiffness: 300, damping: 22 };
 
 interface HeroSectionProps {
   onNavigate: (view: HomeView) => void;
@@ -28,7 +24,10 @@ export default function HeroSection({ onNavigate }: HeroSectionProps) {
   const setStep = useWizardStore((s) => s.setStep);
   const router = useRouter();
   const [quoteIdx, setQuoteIdx] = useState(0);
+  const [aiQuestion, setAiQuestion] = useState('');
   const quotes = t.fnbHome.quotes;
+  const primary = t.fnbHome.hero.primaryCta;
+  const secondary = t.fnbHome.hero.secondaryLinks;
 
   useEffect(() => {
     const timer = setInterval(() => {
@@ -37,11 +36,22 @@ export default function HeroSection({ onNavigate }: HeroSectionProps) {
     return () => clearInterval(timer);
   }, [quotes.length]);
 
-  const handleCta = (i: number) => {
-    // New order: [0] Ask AI, [1] Read Knowledge, [2] Validate feasibility
-    if (i === 0) onNavigate('ai-chat');
-    else if (i === 1) router.push(localePath('/kien-thuc', locale as Locale));
-    else setStep(1);
+  const handleAskAi = (e?: React.FormEvent) => {
+    e?.preventDefault();
+    track('hero_ai_ask', { has_question: aiQuestion.trim().length > 0 });
+    track('north_star_action', { source: 'hero_ai' });
+    if (aiQuestion.trim().length > 0) {
+      try {
+        sessionStorage.setItem('ai_chat_seed_question', aiQuestion.trim());
+      } catch {}
+    }
+    onNavigate('ai-chat');
+  };
+
+  const handleSecondary = (target: 'wizard' | 'knowledge') => {
+    track('hero_secondary_click', { target });
+    if (target === 'wizard') setStep(1);
+    else router.push(localePath('/kien-thuc', locale as Locale));
   };
 
   return (
@@ -109,39 +119,68 @@ export default function HeroSection({ onNavigate }: HeroSectionProps) {
           </AnimatePresence>
         </div>
 
-        {/* CTA buttons — staggered spring pop */}
-        <motion.div
-          className="flex gap-3 justify-center flex-wrap max-md:flex-col max-md:items-center"
-          initial="hidden"
-          animate="show"
-          variants={{
-            hidden: {},
-            show: { transition: { staggerChildren: 0.1, delayChildren: 0.5 } },
-          }}
+        {/* PRIMARY: AI Chat inline input (hero of hero) */}
+        <motion.form
+          onSubmit={handleAskAi}
+          className="max-w-[560px] mx-auto"
+          initial={{ opacity: 0, y: 16 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.5, duration: 0.5 }}
         >
-          {t.fnbHome.cta.map((btn, i) => (
-            <motion.div
-              key={btn.label}
-              className="flex flex-col items-center w-[180px]"
-              variants={{
-                hidden: { opacity: 0, scale: 0.85 },
-                show: { opacity: 1, scale: 1 },
-              }}
-              transition={spring}
+          <div className="mb-2 flex items-center justify-center gap-1.5">
+            <span className="inline-flex w-2 h-2 rounded-full bg-cta animate-pulse" />
+            <span className="text-[11px] font-bold uppercase tracking-[0.14em] text-cta font-[family-name:var(--font-heading)]">
+              {primary.label}
+            </span>
+          </div>
+          <div className="clay-card-static bg-white p-2 flex items-center gap-2 max-md:flex-col max-md:p-2.5">
+            <div className="flex items-center gap-2 flex-1 w-full px-2">
+              <Icon name="chat" size={20} className="!border-0 !shadow-none !bg-transparent shrink-0" />
+              <input
+                type="text"
+                value={aiQuestion}
+                onChange={(e) => setAiQuestion(e.target.value)}
+                placeholder={primary.placeholder}
+                className="flex-1 bg-transparent text-[13px] py-2 outline-none text-text placeholder:text-text-light max-md:w-full"
+                aria-label={primary.label}
+              />
+            </div>
+            <motion.button
+              type="submit"
+              className="clay-btn clay-btn-primary text-[13px] px-5 py-2.5 whitespace-nowrap max-md:w-full max-md:justify-center"
+              whileHover={{ scale: 1.03, y: -1 }}
+              whileTap={{ scale: 0.97 }}
+              transition={{ type: 'spring', stiffness: 400, damping: 17 }}
             >
-              <motion.button
-                onClick={() => handleCta(i)}
-                className={`clay-btn text-[14px] w-full py-2.5 justify-center whitespace-nowrap ${CTA_CLS[i]}`}
-                whileHover={{ scale: 1.04, y: -2 }}
-                whileTap={{ scale: 0.96 }}
-                transition={{ type: 'spring', stiffness: 400, damping: 17 }}
-              >
-                <Icon name={CTA_ICONS[i]} size={18} className="inline-flex align-text-bottom !border-0 !shadow-none !bg-transparent mr-1" />
-                {btn.label}
-              </motion.button>
-              <span className="text-[10px] text-text-muted mt-1.5">{btn.desc}</span>
-            </motion.div>
-          ))}
+              {primary.button}
+              <span className="ml-1">→</span>
+            </motion.button>
+          </div>
+          <p className="text-[11px] text-text-muted mt-2 text-center">{primary.desc}</p>
+        </motion.form>
+
+        {/* SECONDARY: 2 supporting links (demoted from equal-weight buttons) */}
+        <motion.div
+          className="mt-4 flex items-center justify-center gap-5 flex-wrap max-md:gap-3 max-md:flex-col"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 0.75, duration: 0.4 }}
+        >
+          <button
+            onClick={() => handleSecondary('wizard')}
+            className="text-[12px] font-semibold text-text-muted hover:text-cta transition-colors flex items-center gap-1"
+          >
+            <Icon name="wizard" size={14} className="!border-0 !shadow-none !bg-transparent" />
+            {secondary.wizard}
+          </button>
+          <span className="text-text-light text-[10px] max-md:hidden">·</span>
+          <button
+            onClick={() => handleSecondary('knowledge')}
+            className="text-[12px] font-semibold text-text-muted hover:text-cta transition-colors flex items-center gap-1"
+          >
+            <Icon name="book" size={14} className="!border-0 !shadow-none !bg-transparent" />
+            {secondary.knowledge}
+          </button>
         </motion.div>
 
         {/* Model grid — staggered fade in */}

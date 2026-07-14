@@ -57,6 +57,8 @@ export default function FeatureCards({ onNavigate }: FeatureCardsProps) {
       }}
     >
       {FEATURE_META.map((meta, i) => {
+        // AI Chat has been promoted to the hero as the primary CTA — hide the duplicate card here.
+        if (meta.action === 'ai-chat') return null;
         const f = t.fnbHome.features[i];
         const isDisabled = comingSoon.includes(meta.action);
         return (

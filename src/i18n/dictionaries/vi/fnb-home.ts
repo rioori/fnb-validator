@@ -8,6 +8,16 @@ const fnbHome = {
     logoAlt: 'Validator.vn',
     tagline: 'Miễn phí · Không spam · Cho chủ quán thực chiến',
     heading: 'Sổ tay dữ liệu cho chủ quán F&B',
+    primaryCta: {
+      label: 'Hỏi AI về quán của bạn',
+      desc: 'Cost cao? Doanh thu sụt? Menu chưa hiệu quả? — Hỏi ngay, trả lời dựa data F&B Việt Nam',
+      placeholder: 'Ví dụ: chi phí thuê 18tr cho café 60m² Q3 có hợp lý không?',
+      button: 'Hỏi ngay',
+    },
+    secondaryLinks: {
+      wizard: 'Chuẩn bị mở quán? Thẩm định 6 bước →',
+      knowledge: 'Đọc 80+ bài kiến thức F&B →',
+    },
   },
   quotes: [
     'Chủ quán khôn hơn nhờ đọc số — không phải nhờ may mắn.',
