@@ -125,6 +125,19 @@ export default function AIChatPage() {
     }
   }, [user?.id, loadSessions, checkQuota, loadScenarios]);
 
+  // Auto-load latest scenario into wizard store when AI chat opens with no context —
+  // enables RAG on user's own P&L data for cost/margin questions (persona finding:
+  // 32.5% intents are cost-related; users expect AI to know their numbers).
+  const scenariosCount = scenarios.length;
+  useEffect(() => {
+    if (!user?.id || selectedModel || scenariosCount === 0 || loadingScenario) return;
+    const latestId = scenarios[0]?.id;
+    if (!latestId) return;
+    handleScenarioPick(latestId);
+    track('ai_chat_auto_loaded_scenario', { scenario_count: scenariosCount });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [user?.id, scenariosCount]);
+
   // Pick up seed question from Hero AI input (sessionStorage)
   useEffect(() => {
     try {

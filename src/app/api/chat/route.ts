@@ -118,9 +118,12 @@ export async function POST(request: Request) {
 
   if (body.businessContext) {
     const header = locale === 'vi'
-      ? '--- THÔNG TIN DỰ ÁN KINH DOANH CỦA NGƯỜI DÙNG ---'
-      : '--- USER BUSINESS PROJECT INFO ---';
-    systemPrompt += `\n\n${header}\n${body.businessContext}`;
+      ? '--- THÔNG TIN DỰ ÁN KINH DOANH CỦA NGƯỜI DÙNG (đã lưu trên Validator.vn) ---'
+      : '--- USER BUSINESS PROJECT INFO (saved on Validator.vn) ---';
+    const instruction = locale === 'vi'
+      ? '\n\nQUAN TRỌNG: Khi trả lời câu hỏi liên quan đến chi phí, doanh thu, margin, break-even — LUÔN reference con số cụ thể của user ở trên (VD "Chi phí thuê của bạn là X, so với benchmark ngành Y..."). Không đưa câu trả lời chung chung khi có data cụ thể.'
+      : '\n\nIMPORTANT: When answering cost/revenue/margin/break-even questions, ALWAYS reference the user\'s specific numbers above (e.g., "Your rent is X, vs industry benchmark Y..."). Do not give generic answers when specific data is available.';
+    systemPrompt += `\n\n${header}\n${body.businessContext}${instruction}`;
   }
 
   const messages: ChatMsg[] = [
