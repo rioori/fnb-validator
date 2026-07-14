@@ -1,4 +1,4 @@
-import type { KBTopic, KBTableRow, KBStat, KBTimelineStep, KBWarningItem } from '@/types';
+import type { KBTopic, KBTableRow, KBStat, KBTimelineStep, KBWarningItem, KBFAQItem } from '@/types';
 
 const COST_ARTICLES: KBTopic[] = [
   {
@@ -380,6 +380,60 @@ const COST_ARTICLES: KBTopic[] = [
         type: 'text',
         content: 'Delivery là kênh bán hàng tiềm năng — nhưng chỉ khi bạn tính đúng chi phí. Nhiều quán "bận rộn" với 50-100 đơn delivery/ngày mà vẫn lỗ, vì lợi nhuận mỗi đơn chỉ 2-5K sau khi trừ hết phí. Hãy nhập số liệu delivery vào F&B Validator để xem kênh này thực sự mang lại bao nhiêu.',
       },
+      {
+        type: 'faq',
+        heading: 'Câu hỏi thường gặp về phí delivery & app',
+        content: [
+          {
+            question: 'Phí hoa hồng GrabFood, ShopeeFood, BeFood 2026 là bao nhiêu %?',
+            answer: 'Cập nhật 2026: GrabFood 25-30% (mặc định 25%, một số ngành hàng cao cấp/cá nhân 27-30%). ShopeeFood 22-27% (thấp hơn Grab 2-3%). BeFood 20-25% (mới, cạnh tranh bằng phí thấp). Foody 25-28%. Đây là phí trên tổng giá trị đơn — chưa tính phí thanh toán, phí bao bì, phí giao. Cộng bao bì 3-8K/đơn và VAT trên khoản merchant nhận được → tổng chi phí thực tế khoảng 30-38% giá bán.',
+          },
+          {
+            question: 'GrabFood và ShopeeFood khác nhau như thế nào?',
+            answer: 'GrabFood: user base lớn nhất (~60% market share VN), phí cao hơn 25-30%, chương trình marketing mạnh (Grab Đỉnh, Voucher), thu hút khách chi tiêu cao. ShopeeFood: user base trẻ hơn, phí 22-27% thấp hơn 2-3%, khách nhạy giá hơn, promo code nhiều, tăng trưởng nhanh. Chiến lược thông thường: cả 2 app cho reach tối đa; nếu chỉ chọn 1 → GrabFood cho premium, ShopeeFood cho mass market.',
+          },
+          {
+            question: 'Phí bao bì delivery bao nhiêu?',
+            answer: 'Chi phí bao bì thực tế 3-8K/đơn tùy loại. Cà phê take-away: cốc giấy 500-1.500đ + nắp 500đ + túi giấy 500-1.500đ = 1.5-3.5K/đơn. Đồ ăn nóng: hộp giấy chống nước 2-4K + túi giấy 500-1.500đ + đũa/muỗng nhựa 500đ = 3-6K/đơn. Đồ uống trà sữa (cốc lớn + trân châu riêng): 5-8K/đơn. Lỗi thường gặp: chọn bao bì đẹp nhưng đắt → 1 đơn 40K mà tốn 8K bao bì = 20% chi phí.',
+          },
+          {
+            question: 'Khi nào nên tự giao hàng thay vì dùng app?',
+            answer: 'Khi có 30-50+ đơn/ngày trong bán kính 3km, thuê 1 shipper 6-8tr/tháng rẻ hơn nhiều vs phí app. Ví dụ: 40 đơn/ngày x 200k/đơn = 240tr doanh thu/tháng. Phí Grab 25% = 60tr. Shipper riêng 7tr + xăng 2tr = 9tr → tiết kiệm 51tr/tháng. Điều kiện: (1) có Zalo/hotline khách gọi trực tiếp, (2) khu vực delivery tập trung, (3) món ăn đơn giản không cần bảo quản đặc biệt.',
+          },
+          {
+            question: 'Tại sao app delivery lấy hoa hồng cao như vậy?',
+            answer: 'Phí 25-30% bao gồm: (1) chi phí công nghệ + server + dev app (~5%); (2) marketing acquisition (voucher, ads, khuyến mãi) — Grab/Shopee đốt tiền để giữ user (~10%); (3) phí thanh toán + xử lý đơn (~3%); (4) chi phí vận hành shipper network (~5%); (5) margin lợi nhuận của app (~2-7%). Đây là mô hình marketplace 2-sided — app chịu chi phí acquire khách hàng thay cho quán, đổi lại lấy commission cao.',
+          },
+          {
+            question: 'Delivery ảnh hưởng biên lợi nhuận quán như thế nào?',
+            answer: 'Ước tính thực tế: món 50K trên app khách trả 50K → quán nhận ~37.5K sau phí Grab 25% → trừ 5K bao bì → còn 32.5K → trừ food cost 30% (15K) → gross profit 17.5K (thay vì 35K nếu bán tại quán, biên gộp giảm từ 70% xuống ~35%). Nếu quán có labor + rent + marketing cao → net margin delivery có thể chỉ 2-5%. Bài học: chỉ đẩy delivery khi tối ưu được food cost + bao bì rẻ + đơn giá trên 80K để dilute phí cố định/đơn.',
+          },
+          {
+            question: 'Chi phí Grab delivery so với ShopeeFood cái nào rẻ hơn?',
+            answer: 'ShopeeFood rẻ hơn 2-3% (22-27% vs 25-30% Grab). Nhưng đừng chỉ so phí — cần so revenue thực tế. Grab thường tạo đơn cao hơn 20-30% vì user base chi tiêu mạnh + voucher lớn. Ví dụ: quán A lên Grab 100 đơn x 200K = 20tr doanh thu, phí 5tr → net 15tr. Cùng quán lên Shopee 120 đơn x 150K = 18tr, phí 4.2tr → net 13.8tr. Grab lợi hơn dù phí cao hơn. Nên A/B test 2 tháng trước khi quyết định.',
+          },
+          {
+            question: 'Làm sao giảm chi phí delivery cho quán F&B?',
+            answer: '5 cách proven: (1) Thiết kế "combo delivery-only" giá cao (150-250K) để dilute phí cố định/đơn; (2) Menu delivery tập trung món có food cost <25% (bún, phở, cơm — thay vì steak, hải sản); (3) Bao bì rẻ nhưng chuyên nghiệp — bulk order từ supplier chính (2-4K/đơn thay vì 6-8K); (4) Tối ưu thời gian chuẩn bị đơn <8 phút để nhận đơn nhiều hơn/ca; (5) Chạy own delivery cho khu bán kính 3km khi đủ đơn.',
+          },
+          {
+            question: 'Có cần tham gia cả GrabFood và ShopeeFood không?',
+            answer: 'Nên có ít nhất 2 app để không phụ thuộc 1 platform. Grab dominant nhưng đang tăng phí + siết cạnh tranh. Shopee đang tăng trưởng nhanh + phí thấp hơn. Chiến lược: Grab làm main (60-70% đơn), Shopee làm secondary (25-35%), own delivery hoặc BeFood cho phần còn lại (5-10%). Không nên chỉ 1 app — 2024 có nhiều case Grab đóng account đột ngột hoặc thay đổi thuật toán làm quán mất 30-50% doanh thu qua đêm.',
+          },
+          {
+            question: 'Phí app delivery có bao gồm VAT không?',
+            answer: 'Không. Phí commission Grab/Shopee được TÍNH TRÊN tổng giá bán INCLUDING VAT (nếu bạn kê khai VAT). Ví dụ: món 100K (đã bao gồm VAT 10%) trên app → Grab lấy 25K commission trên full 100K. Sau đó quán nhận 75K nhưng phải kê VAT 10% (~9K) → net thực tế 66K. Đây là lý do quán bán trên app nếu là hộ kinh doanh (không kê VAT) có lợi hơn. Nếu đăng ký công ty → tính toán kỹ để không âm vốn.',
+          },
+          {
+            question: 'Có tính năng nào của app delivery giúp tăng doanh thu?',
+            answer: '3 tools proven: (1) Auto-boost feature (Grab Boost, Shopee Ads) — trả thêm 3-8% để lên top search 1-2h/ngày peak time, ROI 2-4x nếu đúng slot; (2) Combo pricing — set "mua 2 tặng 1" hoặc menu combo 200K, tăng AOV từ 80K lên 150K, giảm % phí trên đơn; (3) Loyalty voucher gửi khách cũ (Grab Deals, Shopee Voucher) — CAC $0, LTV cao. Tránh: khuyến mãi giảm 30-50% liên tục vì làm khách quen giá thấp, khó bán full price sau đó.',
+          },
+          {
+            question: 'ShopeeFood có phí delivery Southeast Asia khác nhau như thế nào?',
+            answer: 'ShopeeFood hoạt động Vietnam, Thailand, Indonesia, Philippines, Malaysia. Phí commission dao động 20-30% tùy thị trường: Việt Nam 22-27%, Thailand 25-30%, Indonesia 22-28%, Philippines 25-30%, Malaysia 20-25%. Việt Nam có phí thấp hơn trung bình vì cạnh tranh Grab/BeFood mạnh. Xu hướng chung 2026: các app trong khu vực đang tăng phí 1-2%/năm vì áp lực profitability từ IPO/investor.',
+          },
+        ] as KBFAQItem[],
+      },
     ],
   },
   {
@@ -725,6 +779,60 @@ const COST_ARTICLES: KBTopic[] = [
       {
         type: 'text',
         content: 'Bánh ngọt là ngách F&B đẹp về biên lợi nhuận nhưng khắc nghiệt về vận hành. Nếu bạn đang cân nhắc, hãy nhập các con số trên vào công cụ Validator để xem mô hình của bạn — vị trí cụ thể, quy mô cụ thể — thực sự có khả thi không. Một quyết định mở quán đúng đắn = 6-9 tháng hoàn vốn. Một quyết định sai = mất 200-500 triệu + 12-18 tháng cuộc đời.',
+      },
+      {
+        type: 'faq',
+        heading: 'Câu hỏi thường gặp về chi phí mở tiệm bánh ngọt',
+        content: [
+          {
+            question: 'Chi phí mở tiệm bánh ngọt 2026 là bao nhiêu?',
+            answer: 'Vốn đầu tư 2026 tùy quy mô: Kiosk 20-30m² cần 50-100 triệu (thuê 5-12tr/tháng, thiết bị tối thiểu, menu 8-12 loại). Storefront 40-60m² cần 150-250 triệu (thuê 12-25tr, ghế ngồi 8-15 khách, menu 20-30 loại). Bakery + cafe 80-120m² cần 300-500 triệu (thuê 25-45tr, ghế ngồi 25-50, menu 40+ loại). Chưa tính vốn xoay 2-3 tháng chi phí vận hành.',
+          },
+          {
+            question: 'Mở tiệm bánh kem cần bao nhiêu vốn?',
+            answer: 'Tiệm bánh kem tương tự bakery ngọt về vốn: 50-100tr kiosk, 150-250tr storefront, 300-500tr full. Nhưng có yếu tố khác biệt: (1) Tủ trưng bày kem lớn hơn (thêm 15-25tr); (2) Máy đánh kem chuyên dụng (10-20tr); (3) Bao bì kem đẹp (cao hơn 30-40%); (4) Cần dự trữ nguyên liệu cao cấp (bơ Pháp, chocolate Bỉ). Cộng thêm 30-50 triệu so với bakery thường. Hoàn vốn thường chậm hơn 2-3 tháng.',
+          },
+          {
+            question: 'Thiết bị làm bánh cơ bản bao gồm gì và giá bao nhiêu?',
+            answer: 'Setup thiết bị cơ bản 30-80 triệu: (1) Lò nướng công nghiệp 3-4 tầng (15-40tr — Unox, Rational hạng phổ thông); (2) Máy trộn bột 20 lít (8-15tr); (3) Tủ ủ bột (5-12tr); (4) Bàn thao tác inox (3-5tr); (5) Cân điện tử + dụng cụ (2-3tr); (6) Tủ trưng bày lạnh (8-15tr). Cao cấp có thể lên 200tr+ (Rofco, Miwe, Werner Pfleiderer). Nếu vốn ít → thuê máy hoặc mua secondhand tại các chợ nghề Q6/Q11.',
+          },
+          {
+            question: 'Biên lợi nhuận của tiệm bánh ngọt là bao nhiêu?',
+            answer: 'Bánh ngọt có biên gộp 60-70% — cao nhất trong ngành F&B (cà phê 65-70%, nhà hàng 40-55%). Chi tiết: bánh mì basic 55-65%, bánh ngọt cao cấp 65-75%, bánh kem custom 70-80%. Nhưng biên NET margin chỉ 12-18% sau khi trừ labor, rent, waste (bánh ế phải bỏ 15-25% sản lượng), electricity (lò nướng ăn điện). So với cà phê net margin 10-15% và nhà hàng 8-12% → bánh ngọt vẫn hấp dẫn.',
+          },
+          {
+            question: 'Chi phí thuê mặt bằng cho tiệm bánh ngọt là bao nhiêu?',
+            answer: 'Rent chiếm 15-25% doanh thu (target < 20%). TP.HCM Q1/Q3/Q7: 40-100tr/tháng cho storefront tốt; Q Bình Tân/Thủ Đức: 12-25tr; ngoại ô/tỉnh: 5-15tr. Hà Nội tương tự HCM -10-15%. Đà Nẵng/tỉnh nhỏ: 8-25tr. Vị trí quan trọng: gần trường học, văn phòng, khu dân cư đông đúc. Tránh trung tâm thương mại (rent 60-120tr, chỉ hiệu quả cho brand đã có traffic).',
+          },
+          {
+            question: 'Chi phí nguyên liệu (food cost) cho bánh ngọt bao nhiêu?',
+            answer: 'Food cost bánh ngọt 25-35% giá bán (thấp hơn nhà hàng 30-40% và trà sữa 30-38%). Chi tiết: bột mì 3-8K/kg, bơ Anchor/President 250-350K/kg, đường 20-30K/kg, trứng 3.5-5K/quả, chocolate Callebaut 350-550K/kg. Tối ưu food cost bằng: (1) Order số lượng lớn từ nhà cung cấp chính (Anco, Interflour); (2) Chuẩn hóa công thức để tránh waste; (3) Kiểm soát tồn kho weekly, đặc biệt các nguyên liệu high-value như bơ, chocolate.',
+          },
+          {
+            question: 'Thời gian hoàn vốn khi mở tiệm bánh ngọt là bao lâu?',
+            answer: 'Trung bình 6-9 tháng nếu quản lý tốt. Kiosk vốn 50-100tr → hoàn vốn 4-8 tháng nếu bán 50-100 chiếc/ngày (revenue 15-30tr/tháng). Storefront 150-250tr → 8-12 tháng. Bakery+cafe 300-500tr → 10-15 tháng. Ramp-up: tháng 1-2 chỉ đạt 40-60% doanh thu kỳ vọng, tháng 4-6 đạt 80-100%. Nếu > 12 tháng chưa hoàn vốn: kiểm tra positioning, giá, kênh bán (delivery, corporate order).',
+          },
+          {
+            question: 'Sai lầm phổ biến khi mở tiệm bánh ngọt là gì?',
+            answer: 'Top 5 sai lầm: (1) Chủ tiệm giỏi làm bánh nhưng không giỏi quản lý — cần phân vai sớm hoặc thuê manager 8-15tr/tháng; (2) Menu quá đa dạng (40+ loại) → tồn kho cao, waste 30%+; nên start 12-20 SKU rồi mở rộng; (3) Không tính hết waste — bánh ế cuối ngày phải bỏ, thường 15-25% sản lượng; (4) Thuê mặt bằng đẹp nhưng traffic thấp — chọn location dựa trên foot traffic thực tế, không phải "cảm giác"; (5) Không dự trù vốn xoay 2-3 tháng → cash flow âm tháng 3-4 → phá sản dù có khách.',
+          },
+          {
+            question: 'Mở tiệm bánh ngọt nhỏ có lãi không?',
+            answer: 'Có, nếu quản lý được 3 yếu tố: (1) Foot traffic ≥ 100 khách qua/ngày với 15-25% ghé mua; (2) AOV ≥ 60K (bánh + nước); (3) Food cost ≤ 32% + Waste ≤ 15%. Ví dụ: kiosk 50m² tại quận đông dân, 80 khách/ngày × 65K AOV = 5.2tr/ngày = 156tr/tháng. Food cost 30% (47tr) + rent 12tr + labor 25tr + var/fixed 15tr = 99tr chi phí → net profit 57tr/tháng (36% margin). Hoàn vốn 100tr trong 2 tháng.',
+          },
+          {
+            question: 'Nên chọn kiosk hay storefront khi mở tiệm bánh?',
+            answer: 'Kiosk (50-100tr): phù hợp founder ít vốn, muốn test concept trước khi scale, có location trong mall/khu vực đông người. Break-even nhanh 4-8 tháng, nhưng khó build brand vì không có "trải nghiệm" cho khách. Storefront (150-250tr): phù hợp muốn build brand lâu dài, có budget marketing, target middle-class trở lên. Break-even 8-12 tháng nhưng tạo được loyal customer. Lời khuyên: nếu chưa có kinh nghiệm F&B → start kiosk, chứng minh mô hình rồi scale sang storefront.',
+          },
+          {
+            question: 'Cần license/giấy phép gì để mở tiệm bánh?',
+            answer: '4 loại giấy tờ bắt buộc: (1) Giấy chứng nhận đăng ký hộ kinh doanh (hoặc công ty) — nộp UBND phường, 3-5 ngày, phí 100K; (2) Giấy chứng nhận cơ sở đủ điều kiện ATTP — Chi cục ATTP quận, 15-20 ngày, phí 500K-2tr; (3) Giấy khám sức khỏe nhân viên — bệnh viện quận, 200-500K/người/năm; (4) Đăng ký thuế + hóa đơn điện tử (Cục thuế). Nếu kiosk trong mall: thêm hợp đồng thuê + giấy phép của mall. Tổng thời gian 3-4 tuần trước khai trương.',
+          },
+          {
+            question: 'Nguyên liệu làm bánh mua ở đâu chất lượng và rẻ?',
+            answer: 'Top suppliers B2B tại VN: (1) Anco — bột mì Pháp/Nhật, giá tốt cho volume lớn; (2) Interflour — bột mì Úc, chất lượng ổn định, có nhiều loại (bánh mì, bánh ngọt, pizza); (3) La Rose Noire (HCM) — bơ, chocolate, syrup nhập khẩu, giá thấp hơn Metro 15-20%; (4) DacsanBep.com — nguyên liệu Nhật, bơ Hokkaido; (5) Chợ Nghề Q6/Q11 — mua lẻ, thử nguyên liệu trước khi cam kết supplier lớn. Đàm phán được credit 15-30 ngày nếu order đều đặn.',
+          },
+        ] as KBFAQItem[],
       },
     ],
   },

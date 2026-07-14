@@ -1,4 +1,4 @@
-import type { KBTopic, KBTableRow, KBStat, KBTimelineStep, KBWarningItem } from '@/types';
+import type { KBTopic, KBTableRow, KBStat, KBTimelineStep, KBWarningItem, KBFAQItem } from '@/types';
 
 const COST_ARTICLES: KBTopic[] = [
   {
@@ -353,6 +353,60 @@ const COST_ARTICLES: KBTopic[] = [
         type: 'text',
         content: 'Delivery is a powerful revenue channel — but only when you price it correctly. Many shops are "busy" with 50-100 delivery orders a day yet still losing money, because each order only nets VND 2-5K after all fees. Plug your delivery numbers into F&B Validator to see whether this channel is truly profitable for you.',
       },
+      {
+        type: 'faq',
+        heading: 'Delivery & App Fees — Frequently Asked Questions',
+        content: [
+          {
+            question: 'What is the commission fee for GrabFood, ShopeeFood, BeFood in Vietnam 2026?',
+            answer: '2026 commission rates: GrabFood 25-30% (default 25%, premium categories 27-30%). ShopeeFood 22-27% (typically 2-3% lower than Grab). BeFood 20-25% (newer, competing on price). Foody 25-28%. These are commissions on the total order value — not counting payment processing fees, packaging, and delivery surcharges. Effective total cost is 30-38% of retail price after packaging (3-8K/order) and VAT.',
+          },
+          {
+            question: 'How does GrabFood commission compare to ShopeeFood in Vietnam?',
+            answer: 'GrabFood: largest user base in Vietnam (~60% market share), higher fees at 25-30%, strong marketing programs (Grab Deals, vouchers), attracts higher-spending customers. ShopeeFood: younger demographic, 22-27% lower fees, more price-sensitive users, promo codes drive volume. Common strategy: use both apps for maximum reach. If forced to pick one → GrabFood for premium positioning, ShopeeFood for mass market.',
+          },
+          {
+            question: 'What is the packaging cost per delivery order?',
+            answer: 'Actual packaging cost 3-8K VND/order depending on category. Take-away coffee: paper cup 500-1,500 + lid 500 + bag 500-1,500 = 1.5-3.5K. Hot food: waterproof paper box 2-4K + bag 500-1,500 + chopsticks/spoon 500 = 3-6K. Bubble tea (large cup + pearls separate): 5-8K. Common mistake: choosing premium packaging (looks great, costs 8K) on a 40K order = 20% margin drain.',
+          },
+          {
+            question: 'When should F&B shops do their own delivery instead of using apps?',
+            answer: 'When you consistently get 30-50+ orders/day within a 3km radius, hiring 1 dedicated driver (VND 6-8M/month) is far cheaper than paying app commission. Example: 40 orders/day × 200K = 240M revenue/month. Grab 25% commission = 60M. Own driver 7M + fuel 2M = 9M → saves 51M/month. Requirements: (1) direct customer channel (Zalo/hotline), (2) concentrated delivery radius, (3) menu items that don\'t require complex handling.',
+          },
+          {
+            question: 'Why do delivery apps charge such high commissions?',
+            answer: 'The 25-30% fee covers: (1) tech infrastructure + servers + app development (~5%); (2) marketing acquisition (vouchers, ads, promos) — Grab/Shopee burn cash to retain users (~10%); (3) payment processing + order management (~3%); (4) driver network operations (~5%); (5) app profit margin (~2-7%). It\'s a 2-sided marketplace model — the app pays customer acquisition costs for you, then extracts commission in return.',
+          },
+          {
+            question: 'How does delivery affect F&B shop profit margins?',
+            answer: 'Real math: 50K item on the app → customer pays 50K → shop receives ~37.5K after Grab 25% → minus 5K packaging → net 32.5K → minus food cost 30% (15K) → gross profit 17.5K (vs 35K if sold in-store, gross margin drops from 70% to ~35%). If shop has high labor + rent + marketing → net delivery margin can be just 2-5%. Lesson: only push delivery hard when food cost is optimized + packaging is cheap + AOV is above 80K to dilute fixed per-order costs.',
+          },
+          {
+            question: 'Is Grab delivery cheaper than ShopeeFood?',
+            answer: 'ShopeeFood is 2-3% cheaper on commission (22-27% vs Grab\'s 25-30%). But don\'t just compare fees — compare net revenue. Grab typically generates 20-30% higher AOV thanks to bigger spender demographics + larger voucher discounts. Example: shop A on Grab = 100 orders × 200K = 20M revenue, 5M fees → net 15M. Same shop on Shopee = 120 orders × 150K = 18M, 4.2M fees → net 13.8M. Grab wins despite higher fee. A/B test both for 2 months before deciding.',
+          },
+          {
+            question: 'How can F&B shops reduce delivery costs?',
+            answer: '5 proven tactics: (1) Design "delivery-only combos" at higher price points (150-250K) to dilute fixed fees per order; (2) Focus delivery menu on items with food cost <25% (noodles, rice, pho — not steak, seafood); (3) Cheap-but-professional packaging via bulk sourcing from primary supplier (2-4K/order vs 6-8K); (4) Optimize prep time to <8 min per order to handle more volume per shift; (5) Run own delivery for 3km radius when order volume justifies a dedicated driver.',
+          },
+          {
+            question: 'Should F&B shops list on both GrabFood and ShopeeFood?',
+            answer: 'Yes — never rely on a single platform. Grab is dominant but raising fees and squeezing competition. Shopee is growing fast with lower fees. Strategy: Grab as primary (60-70% of orders), Shopee as secondary (25-35%), own delivery or BeFood for the rest (5-10%). Multiple 2024 cases where Grab suspended accounts or changed algorithms overnight — shops lost 30-50% revenue instantly. Diversification is risk management.',
+          },
+          {
+            question: 'Does delivery app commission include VAT?',
+            answer: 'No. Grab/Shopee commission is calculated on the total sale price INCLUDING VAT (if you\'re VAT-registered). Example: 100K menu item (VAT-inclusive) on app → Grab takes 25K commission on the full 100K. You receive 75K but must remit 10% VAT (~9K) → net ~66K. This is why household businesses (không kê VAT) benefit more from delivery apps vs registered companies. Model this carefully to avoid negative unit economics.',
+          },
+          {
+            question: 'What delivery app features actually increase revenue?',
+            answer: '3 proven tools: (1) Auto-boost (Grab Boost, Shopee Ads) — pay 3-8% extra to appear top of search during peak hours, ROI 2-4x if targeted at correct time slots; (2) Combo pricing — set "buy 2 get 1 free" or 200K combo menus, raises AOV from 80K to 150K, reduces % fee per order; (3) Loyalty vouchers to returning customers (Grab Deals, Shopee Voucher) — CAC $0, high LTV. Avoid: constant 30-50% discounts that condition customers to expect low prices, killing full-price sales.',
+          },
+          {
+            question: 'How do ShopeeFood delivery fees compare across Southeast Asia?',
+            answer: 'ShopeeFood operates in Vietnam, Thailand, Indonesia, Philippines, Malaysia. Commission ranges 20-30% across markets: Vietnam 22-27%, Thailand 25-30%, Indonesia 22-28%, Philippines 25-30%, Malaysia 20-25%. Vietnam has below-average fees due to intense competition from Grab and local player BeFood. General trend for 2026: regional apps are raising fees 1-2% per year under profitability pressure from IPOs and investor demand.',
+          },
+        ] as KBFAQItem[],
+      },
     ],
   },
   {
@@ -671,6 +725,60 @@ const COST_ARTICLES: KBTopic[] = [
       {
         type: 'text',
         content: 'Bakery is a niche with beautiful margins but harsh operations. If you\'re considering it, plug the numbers above into Validator to check whether your model — your specific location, your specific size — is truly viable. A right opening decision = 6-9 month payback. A wrong one = losing VND 200-500M + 12-18 months of your life.',
+      },
+      {
+        type: 'faq',
+        heading: 'Bakery Opening Costs in Vietnam — Frequently Asked Questions',
+        content: [
+          {
+            question: 'How much does it cost to open a bakery in Vietnam in 2026?',
+            answer: 'Investment varies by scale: Kiosk (20-30m²) needs VND 50-100M (~$2-4K) — rent 5-12M/month, minimal equipment, 8-12 SKUs. Storefront (40-60m²) needs 150-250M (~$6-10K) — rent 12-25M, seating for 8-15, 20-30 SKUs. Full bakery + cafe (80-120m²) needs 300-500M (~$12-20K) — rent 25-45M, seating for 25-50, 40+ SKUs. Add 2-3 months of operating capital as a cash buffer.',
+          },
+          {
+            question: 'What basic bakery equipment is needed and how much does it cost?',
+            answer: 'Basic setup 30-80M VND ($1.2-3.2K): (1) Commercial 3-4 tier deck oven (15-40M — Unox, Rational entry level); (2) 20L stand mixer (8-15M); (3) Proofer cabinet (5-12M); (4) Stainless steel work tables (3-5M); (5) Digital scale + tools (2-3M); (6) Refrigerated display case (8-15M). Premium setup can exceed 200M+ (Rofco, Miwe, Werner Pfleiderer). Budget-constrained: rent equipment or buy secondhand at trade markets in D6/D11 HCMC.',
+          },
+          {
+            question: 'What is the gross margin for a bakery in Vietnam?',
+            answer: 'Bakery gross margin is 60-70% — highest in F&B (coffee shop 65-70%, restaurant 40-55%). Breakdown: basic bread 55-65%, sweet pastries 65-75%, custom cakes 70-80%. However net margin drops to 12-18% after labor, rent, waste (15-25% of unsold products discarded), electricity (ovens are energy-hungry). Compared to coffee shop 10-15% net and restaurant 8-12% → bakery is still attractive with disciplined operations.',
+          },
+          {
+            question: 'How long does it take to break even on a Vietnam bakery?',
+            answer: 'Average 6-9 months if well-managed. Kiosk 50-100M capital → 4-8 months break-even at 50-100 pieces/day (revenue 15-30M/month). Storefront 150-250M → 8-12 months. Full bakery+cafe 300-500M → 10-15 months. Ramp-up: month 1-2 only hits 40-60% of target revenue, month 4-6 reaches 80-100%. If >12 months without break-even: audit positioning, pricing, sales channels (delivery, corporate orders, wholesale).',
+          },
+          {
+            question: 'What is the food cost percentage for a Vietnam bakery?',
+            answer: 'Food cost 25-35% of retail price (lower than restaurant 30-40% and bubble tea 30-38%). Ingredient prices: flour 3-8K/kg, Anchor/President butter 250-350K/kg, sugar 20-30K/kg, eggs 3.5-5K/each, Callebaut chocolate 350-550K/kg. Optimize food cost by: (1) Bulk ordering from primary suppliers (Anco, Interflour); (2) Standardized recipes to reduce waste; (3) Weekly inventory tracking, especially for high-value items like butter and chocolate.',
+          },
+          {
+            question: 'How much is rent for a bakery in Ho Chi Minh City?',
+            answer: 'Rent should target 15-25% of revenue (max 20%). HCMC D1/D3/D7: 40-100M/month for good storefront; D. Binh Tan/Thu Duc: 12-25M; outskirts/provinces: 5-15M. Hanoi similar to HCMC -10-15%. Da Nang/small cities: 8-25M. Best locations: near schools, offices, dense residential areas. Avoid shopping malls (rent 60-120M) unless brand already has traffic — mall foot traffic doesn\'t guarantee bakery sales.',
+          },
+          {
+            question: 'What are the most common bakery opening mistakes?',
+            answer: 'Top 5 mistakes: (1) Owner is a great baker but poor manager — hire a manager (8-15M/month) or delegate ops early; (2) Menu too diverse (40+ SKUs) → high inventory, 30%+ waste; start with 12-20 SKUs and expand based on sales data; (3) Underestimating waste — unsold end-of-day products must be discarded, typically 15-25% of daily output; (4) Renting a beautiful space with low foot traffic — choose location based on actual foot traffic count, not "feel"; (5) Insufficient working capital (2-3 months buffer) → negative cash flow in months 3-4 → bankruptcy despite having customers.',
+          },
+          {
+            question: 'Is a small bakery profitable in Vietnam?',
+            answer: 'Yes, if you manage 3 factors: (1) Foot traffic ≥ 100 passers/day with 15-25% conversion; (2) AOV ≥ 60K VND (pastry + drink); (3) Food cost ≤ 32% + Waste ≤ 15%. Example: 50m² kiosk in a dense district, 80 customers/day × 65K AOV = 5.2M/day = 156M/month. Food cost 30% (47M) + rent 12M + labor 25M + var/fixed 15M = 99M total costs → net profit 57M/month (36% margin). Break-even on 100M investment in ~2 months.',
+          },
+          {
+            question: 'Kiosk or storefront: which format should I choose for a bakery?',
+            answer: 'Kiosk (50-100M): suited to founders with limited capital, testing concept before scaling, with mall/high-foot-traffic locations available. Fast break-even 4-8 months, but hard to build brand without a "customer experience" space. Storefront (150-250M): suited to long-term brand building, marketing budget available, targeting middle-class and up. Break-even 8-12 months but creates loyal customers. Advice: no prior F&B experience → start with kiosk, prove the model, then scale to storefront.',
+          },
+          {
+            question: 'What permits and licenses are needed to open a bakery in Vietnam?',
+            answer: '4 required documents: (1) Business registration certificate (household or company) — Ward People\'s Committee, 3-5 days, fee 100K; (2) Food safety certificate — District Food Safety Bureau, 15-20 days, fee 500K-2M; (3) Staff health certificates — District hospital, 200-500K/person/year; (4) Tax registration + e-invoice (Tax Department). For mall kiosks: additional lease agreement + mall permits. Total timeline 3-4 weeks before grand opening.',
+          },
+          {
+            question: 'Where to buy baking ingredients affordably in Vietnam?',
+            answer: 'Top B2B suppliers: (1) Anco — French/Japanese flour, good pricing for volume; (2) Interflour — Australian flour, stable quality, multiple varieties (bread, pastry, pizza); (3) La Rose Noire (HCM) — imported butter, chocolate, syrup at 15-20% below Metro pricing; (4) DacsanBep.com — Japanese ingredients, Hokkaido butter; (5) Trade markets D6/D11 — retail purchases, test ingredients before committing to a large supplier. Negotiate 15-30 day credit terms if ordering consistently.',
+          },
+          {
+            question: 'Should I use industrial ingredients or premium imports for my bakery?',
+            answer: 'Depends on positioning. Budget/mass market bakery (Kinh Do, ABC style): use Vietnamese/regional ingredients (Vinamilk butter, local flour, Malaysian chocolate) — food cost 20-25%, price competitively at 15-40K per item. Premium bakery (Tous Les Jours, Paris Baguette style): use imported (Anchor/President butter, Callebaut chocolate, French flour) — food cost 30-38%, price 40-120K per item, positioning matters more than raw margin. Don\'t mix — pick a tier and be consistent, customers can tell.',
+          },
+        ] as KBFAQItem[],
       },
     ],
   },

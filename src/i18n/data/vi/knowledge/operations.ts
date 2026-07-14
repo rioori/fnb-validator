@@ -1,4 +1,4 @@
-import type { KBTopic, KBTableRow, KBStat, KBTimelineStep, KBWarningItem } from '@/types';
+import type { KBTopic, KBTableRow, KBStat, KBTimelineStep, KBWarningItem, KBFAQItem } from '@/types';
 
 const OPERATIONS_ARTICLES: KBTopic[] = [
   {
@@ -683,6 +683,60 @@ const OPERATIONS_ARTICLES: KBTopic[] = [
       {
         type: 'text',
         content: 'Lương là chi phí lớn nhưng cũng là đầu tư — trả đúng + đối xử tốt = nhân viên gắn bó + năng suất cao + chất lượng đều. Trả thấp = turnover liên tục, chất lượng không đều, khách hàng cảm nhận được. Tính chi phí thực (lương × 1.4-1.5 sau BHXH + thưởng + replacement risk) trước khi quyết định mở quán.',
+      },
+      {
+        type: 'faq',
+        heading: 'Câu hỏi thường gặp về lương nhân viên F&B',
+        content: [
+          {
+            question: 'Lương barista 2026 là bao nhiêu?',
+            answer: 'Lương barista 2026 dao động 6-12 triệu/tháng. Chi tiết theo kinh nghiệm: Junior (<1 năm) 6-8tr, Mid (1-3 năm) 8-10tr, Senior/Head barista (3+ năm) 10-15tr, Q-grader/coffee expert 15-25tr. Chuỗi lớn (Highlands, Phúc Long, Starbucks) trả cao hơn quán độc lập 15-25%. Bonus: service charge 5% chia đội (thêm 500K-2tr/tháng), sale KPI bonus 300K-1tr/tháng. Tổng thu nhập thực tế 7-15tr với barista có kinh nghiệm.',
+          },
+          {
+            question: 'Lương phục vụ (server) quán cà phê 2026 bao nhiêu?',
+            answer: 'Lương server 2026: 5-8tr/tháng (full-time 8h/ngày). Part-time theo giờ: 25-40K/h ở TP.HCM/HN, 20-30K/h tỉnh khác (thấp hơn lương tối thiểu vùng cần cẩn thận). Server ca đêm hoặc cuối tuần thường cao hơn 20-30%. Bonus phổ biến: tip pool (200-800K/tháng), commission bán món cao cấp (100-500K), attendance bonus (200-500K). Tổng thu nhập server ổn định 6-10tr/tháng, giỏi + chăm chỉ có thể 12tr+.',
+          },
+          {
+            question: 'Chi phí nhân sự F&B bao nhiêu là hợp lý?',
+            answer: 'Labor cost target theo mô hình: Cà phê 20-25% doanh thu, Nhà hàng phổ thông 25-30%, Nhà hàng cao cấp 28-35% (labor nhiều hơn nhưng biên gộp cao), Bakery 22-28%, Bar 18-25%, Cloud kitchen 15-20% (không có server). Nếu labor >30-35% = báo động đỏ. Chi phí thật = lương × 1.4-1.5 sau khi cộng BHXH chủ đóng (21.5%), thưởng, đồng phục, đào tạo. Ví dụ: nhân viên 8tr → chi phí thực 11-12tr/tháng.',
+          },
+          {
+            question: 'BHXH cho nhân viên F&B là bao nhiêu %?',
+            answer: 'BHXH tổng 32% lương: chủ đóng 21.5% (BHXH 17.5%, BHYT 3%, BHTN 1%), nhân viên đóng 10.5% (khấu trừ vào lương). Tính trên mức lương ĐÓNG BHXH (không phải lương thực nhận). Ngưỡng trần: 20 lần lương tối thiểu vùng (~44tr/tháng ở Q1 TP.HCM 2026). Ngưỡng sàn: lương tối thiểu vùng. Bắt buộc đóng nếu HĐLĐ ≥ 1 tháng. Không đóng: hộ kinh doanh nhỏ (<10 nhân viên có thể đóng tự nguyện, không bắt buộc). Vi phạm bị phạt 15-75tr/nhân viên.',
+          },
+          {
+            question: 'Lương đầu bếp (chef) F&B ở Việt Nam là bao nhiêu?',
+            answer: 'Lương đầu bếp 2026: Line cook (junior) 7-10tr, Sous chef 12-20tr, Chef (main) 20-40tr, Executive Chef (nhà hàng cao cấp) 40-100tr, Head Chef quốc tế (5 sao) 100-300tr. Chef Nhật/Hàn/Ý có kinh nghiệm 30-80tr. Chef Tây được đưa từ nước ngoài 100-300tr+ (kèm visa, housing, air ticket). Nhà hàng cao cấp thường tính tổng cost chef = 3-5% doanh thu, không phải % labor tổng. Bonus phổ biến: 13th month, KPI bonus, profit share.',
+          },
+          {
+            question: 'Lương manager/quản lý quán F&B bao nhiêu?',
+            answer: 'Manager quán F&B 2026: Shift manager 8-15tr, Store manager (quán độc lập) 12-25tr, Store manager (chuỗi lớn) 15-30tr, Area manager (5-10 stores) 25-45tr, Regional manager (chuỗi 20+ stores) 40-80tr, F&B Director/Operations Director 60-150tr. Cộng bonus KPI 10-30% lương/quý nếu đạt target. Nhà hàng cao cấp trả cao hơn 20-40% quán phổ thông. Quản lý giỏi = quyết định 50%+ profit của quán, nên đừng tiết kiệm ở vị trí này.',
+          },
+          {
+            question: 'Lương tối thiểu vùng cho ngành F&B ở TP.HCM 2026 là bao nhiêu?',
+            answer: 'Lương tối thiểu vùng I (TP.HCM, Hà Nội trung tâm) 2026: 4.96 triệu/tháng (tăng 6% từ 2025). Vùng II (ngoại ô HCM/HN, TP loại I): 4.41tr. Vùng III (TP loại II, thành phố nhỏ): 3.86tr. Vùng IV (huyện nông thôn): 3.45tr. Đây là lương SÀN đóng BHXH, không phải lương thực trả. Nhân viên F&B thực tế nhận cao hơn 25-70% mức tối thiểu tùy vị trí. Vi phạm trả dưới lương tối thiểu = phạt 25-40tr + truy thu.',
+          },
+          {
+            question: 'Nên tuyển full-time hay part-time cho quán F&B?',
+            answer: 'Optimal mix: 60-70% full-time + 30-40% part-time. Full-time: quản lý, chef chính, barista senior, server ổn định (đảm bảo chất lượng + trách nhiệm). Part-time (25-40K/h): peak hour reinforcement (11-13h, 17-20h), cuối tuần, sinh viên hoặc mẹ nội trợ. Lợi ích part-time: không BHXH bắt buộc (nếu <20h/tuần), flex theo demand, không commit lâu dài. Rủi ro: turnover cao (30-50%/năm), training tốn. Không nên >50% part-time vì mất consistency.',
+          },
+          {
+            question: 'Cách tính chi phí nhân sự (labor cost) cho quán F&B?',
+            answer: 'Công thức: Total labor cost = (Lương gross × 1.4-1.5) + bonus + thưởng + đồng phục + training + replacement risk. Chi tiết: Base salary + 21.5% BHXH chủ đóng + 5-15% bonus/KPI + 200-500K/tháng đồng phục + 500K-2tr training/nhân viên/năm + 15-30% turnover cost (nhân viên nghỉ, tuyển + train người mới). Ví dụ: quán có 8 nhân viên với lương trung bình 10tr → labor cost thực tế 100-115tr/tháng (không phải 80tr). Đây là số dùng để tính break-even.',
+          },
+          {
+            question: 'Turnover rate ngành F&B Việt Nam là bao nhiêu?',
+            answer: 'Turnover rate F&B VN 2026: 30-60%/năm (trung bình 45%). Chi tiết theo vị trí: Part-time server 60-80% (sinh viên nghỉ hè, tốt nghiệp), Full-time server 40-50%, Barista 30-45%, Chef 20-35%, Manager 15-25%. Cao hơn nhiều industries khác (retail 25-35%, IT 15-25%). Chi phí replacement = 1.5-3 tháng lương/nhân viên (recruit + train + productivity loss). Ví dụ: 10 nhân viên lương 10tr, turnover 50% → chi phí replacement 75-150tr/năm.',
+          },
+          {
+            question: 'Có cần trả overtime cho nhân viên F&B không?',
+            answer: 'Bắt buộc theo Luật Lao Động 2019: OT phải trả 150% lương giờ thường (ngày thường), 200% (Chủ nhật), 300% (lễ Tết). OT tối đa 40h/tháng, 300h/năm. Thực tế F&B: nhiều quán trả flat OT (25-40K/h ngoài giờ) hoặc "bonus cuối tháng" thay vì tính chuẩn. Rủi ro: nhân viên khiếu nại có thể phạt 15-40tr/nhân viên + truy thu OT. Best practice: setup HĐLĐ ghi rõ ca làm việc, OT policy transparent, dùng POS/timesheet track chính xác giờ làm.',
+          },
+          {
+            question: 'Làm sao giảm chi phí nhân sự F&B mà không giảm chất lượng?',
+            answer: '5 chiến lược proven: (1) Cross-training — 1 người làm được 2-3 vị trí (barista + cashier + server), giảm số headcount cần 15-20%; (2) SOP + recipe card chuẩn hóa — giảm phụ thuộc "chef giỏi", đào tạo new staff nhanh; (3) Schedule optimization — dùng data 2-3 tuần để pattern demand, staff đúng peak thay vì "9-9 8 người"; (4) Part-time cho peak hour, không phải full shift; (5) Tech tools — POS auto (giảm cashier), tablet order (giảm server), inventory app (giảm shrinkage). Target: labor cost xuống 2-4% doanh thu trong 6-12 tháng.',
+          },
+        ] as KBFAQItem[],
       },
     ],
   },

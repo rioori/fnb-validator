@@ -534,6 +534,60 @@ const TRENDS_ARTICLES: KBTopic[] = [
         type: 'text',
         content: 'These benchmarks are reference, not absolute targets. Each shop has unique context. Use these numbers to CHECK viability and set correct expectations. A new shop should expect 5-8% net margin year 1, 10-15% after 2-3 years. Expecting >20% net from day one = unrealistic. Use F&B Validator to model your specific numbers and know break-even time.',
       },
+      {
+        type: 'faq',
+        heading: 'Vietnam F&B Industry Benchmarks — Frequently Asked Questions',
+        content: [
+          {
+            question: 'What is the Vietnam F&B market size in 2026?',
+            answer: 'The Vietnam F&B market reaches VND 726.5 trillion (~USD 30 billion) in 2026, up 12.8% from 2025. Breakdown: food service 550 trillion (75.7%), alcoholic beverages 100 trillion (13.8%), non-alcoholic beverages 76.5 trillion (10.5%). Approximately 329,000 F&B outlets nationwide, with 77% independent small shops (under 50m²). Projected growth 10-12% annually through 2030, driven by urbanization, rising incomes, and delivery penetration.',
+          },
+          {
+            question: 'What is a typical F&B cost structure in Vietnam?',
+            answer: 'Standard cost breakdown: Food cost 28-35% of revenue, Labor 25-35% (including social insurance), Rent 8-15% (target <20%), Marketing 3-8%, Utilities + operations 5-8%, Others 3-5%. Total 72-100% → net margin 8-15% (good) or negative (poorly managed). Prime cost (Food + Labor) should not exceed 60-65%. If Prime cost >70% = the shop struggles to sustain even when busy.',
+          },
+          {
+            question: 'What is prime cost in the F&B industry?',
+            answer: 'Prime cost = Food cost + Labor cost (including social insurance, staff tips). This is the most important metric in F&B, representing 55-65% of revenue in well-run shops. Target by model: Coffee shop 55-60%, casual restaurant 60-65%, upscale restaurant 55-60% (higher labor but lower food cost due to higher AOV). If Prime cost >68% = red flag, cut labor or renegotiate suppliers immediately. Good prime cost management = 80% of your net margin outcome.',
+          },
+          {
+            question: 'What percentage of Vietnam F&B revenue comes from delivery?',
+            answer: 'On average 25-40% of revenue for HCMC/Hanoi shops, 10-20% in other cities. Take-away coffee 30-45% (morning/lunch office orders). Casual restaurants 20-35%. Upscale restaurants <15% (customers want dine-in experience). Fast food/cloud kitchen 60-95%. Vietnam delivery market 2026 ~ USD 2.2B, growing 12.9%/year. GrabFood dominant (~60%), ShopeeFood 25%, BeFood + others 15%.',
+          },
+          {
+            question: 'What is the average net profit margin in Vietnam F&B?',
+            answer: 'Average net margin 5-12% (after all costs + taxes). By segment: Chain coffee 8-15%, Independent coffee 5-10%, Casual restaurant 6-12%, Upscale restaurant 10-18%, Chain bubble tea 12-20%, Bakery 12-18%, Cloud kitchen 15-25% (with sufficient volume), Bar/pub 15-25% (higher risk). Year 1 typically 3-8% (ramp-up), years 2-3 rise to 10-15% with good management. Healthy threshold = 10%+ sustained over 3 years.',
+          },
+          {
+            question: 'What percentage of new F&B businesses fail in Vietnam?',
+            answer: 'Approximately 50% of new F&B businesses close within 1-2 years (VIRAC 2025 report). Detail: 30% close within year 1, 50% by year 2, 70% by year 5. Top 5 causes: (1) Wrong location - 34%; (2) Insufficient working capital - 27%; (3) Unclear concept - 18%; (4) Poor cost management - 15%; (5) Weak marketing - 6%. This failure rate is lower than retail (60% close within 3 years) but higher than other service industries.',
+          },
+          {
+            question: 'What is the F&B business model breakdown in Vietnam?',
+            answer: 'Top 4 popular models: (1) Take-away coffee 25% of new openings — capital 100-500M VND, high gross margin, suits startups; (2) Casual restaurant (bun, pho, com) 30% — capital 200M-1B, targets middle class, net margin 8-12%; (3) Bubble tea 15% — capital 300-800M, good margins but fierce competition; (4) Cloud kitchen 8% (fast-growing) — capital 150-400M, delivery-first. Remaining includes bakery, bar, buffet, seafood, Japanese/Korean cuisine.',
+          },
+          {
+            question: 'What is average AOV (average order value) in Vietnam F&B?',
+            answer: 'Average AOV by model (2026): Coffee 40-80K/customer, Bubble tea 45-70K, Bakery 50-90K (pastry + drink), Fast food 60-120K, Casual restaurant 100-200K/customer, Mid-tier restaurant 250-500K, Upscale restaurant 800K-3M, Buffet 250-800K, Bar 300-800K. Delivery orders are typically 15-25% higher than dine-in (customers add items to dilute delivery fees). AOV = revenue / number of orders or customers, not per menu item.',
+          },
+          {
+            question: 'What are the top Vietnam F&B consumer trends for 2026?',
+            answer: 'Top 5 trends 2026: (1) Healthy drinks — low sugar, fresh juices, matcha (+45%); (2) Plant-based menus — vegan/vegetarian options (+35%); (3) Experience > product — customers choose venues for check-in space, brand story, not just food; (4) Delivery + subscription — coffee subscriptions 200-400K/month for 30-60 cups; (5) Community-driven — support local Vietnamese independents over international chains. Reverse trend: declining super-sweet iced coffee, replaced by specialty coffee.',
+          },
+          {
+            question: 'How does the Vietnam F&B market compare to Southeast Asia?',
+            answer: 'Vietnam ranks 3rd in SEA F&B market size (~USD 30B), behind Indonesia (~USD 90B) and Thailand (~USD 45B). Growth rate 10-12%/year is highest in the region (Thailand 6-8%, Indonesia 8-10%, Philippines 9-11%). Vietnam has highest per-capita restaurant density (2.9 outlets per 1000 people vs SEA avg 1.8). Foreign brand penetration lower (~15% of chains) vs Thailand (28%) and Malaysia (32%) — signals room for both local growth and international expansion.',
+          },
+          {
+            question: 'What is the F&B failure rate compared to other industries?',
+            answer: 'F&B failure rate in Vietnam: 50% within 2 years, 70% within 5 years. Compared to: Retail 60% within 3 years, E-commerce 45% within 3 years, Services (beauty, education) 55% within 5 years, Manufacturing 30% within 5 years. F&B is higher-risk than most industries due to: (1) high fixed costs (rent, staff) requiring consistent daily revenue; (2) perishable inventory; (3) intense competition; (4) location-dependent revenue. Yet successful F&B has higher upside (net margin 15-25% possible) vs stable industries (5-10%).',
+          },
+          {
+            question: 'What financial metrics should every F&B owner track?',
+            answer: '7 must-track metrics: (1) Daily revenue vs target (know today\'s performance); (2) Prime cost % weekly (Food+Labor should stay <65%); (3) Food cost by menu item monthly (identify low-margin items); (4) AOV trend (should grow 3-5%/quarter); (5) Customer count by day-of-week (staffing decisions); (6) Rent-to-revenue ratio monthly (<20%); (7) Cash on hand (never below 2 months of fixed costs). Use POS + simple spreadsheet or F&B Validator to model scenarios. What gets measured gets managed.',
+          },
+        ] as KBFAQItem[],
+      },
     ],
   },
   {

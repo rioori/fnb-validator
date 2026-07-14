@@ -1,4 +1,4 @@
-import type { KBTopic, KBTableRow, KBStat, KBTimelineStep, KBWarningItem } from '@/types';
+import type { KBTopic, KBTableRow, KBStat, KBTimelineStep, KBWarningItem, KBFAQItem } from '@/types';
 
 const OPERATIONS_ARTICLES: KBTopic[] = [
   {
@@ -646,6 +646,60 @@ const OPERATIONS_ARTICLES: KBTopic[] = [
       {
         type: 'text',
         content: 'Salary is a major cost but also an investment — paying right + treating well = retention + high productivity + consistent quality. Paying low = constant turnover, inconsistent quality, customers notice. Calculate real cost (salary × 1.4-1.5 including BHXH + bonus + replacement risk) before deciding to open.',
+      },
+      {
+        type: 'faq',
+        heading: 'F&B Salaries in Vietnam — Frequently Asked Questions',
+        content: [
+          {
+            question: 'What is the salary for a barista in Vietnam 2026?',
+            answer: 'Barista salaries 2026 range VND 6-12M/month. By experience: Junior (<1 year) 6-8M, Mid (1-3 years) 8-10M, Senior/Head barista (3+ years) 10-15M, Q-grader/coffee expert 15-25M. Large chains (Highlands, Phúc Long, Starbucks) pay 15-25% more than independent shops. Bonuses: 5% service charge split (adds 500K-2M/month), sales KPI bonus 300K-1M/month. Total take-home for experienced baristas: 7-15M/month.',
+          },
+          {
+            question: 'What is the server salary at a Vietnamese cafe in 2026?',
+            answer: 'Server salary 2026: 5-8M VND/month (full-time 8h/day). Part-time hourly: 25-40K/h in HCMC/Hanoi, 20-30K/h in smaller cities (must exceed regional minimum wage). Night shift and weekend rates typically 20-30% higher. Common bonuses: tip pool (200-800K/month), premium menu commission (100-500K), attendance bonus (200-500K). Steady total income 6-10M/month, with skilled and diligent servers reaching 12M+.',
+          },
+          {
+            question: 'What is a reasonable labor cost percentage for F&B in Vietnam?',
+            answer: 'Target labor cost by model: Coffee 20-25% of revenue, Casual restaurant 25-30%, Upscale restaurant 28-35% (more labor but higher gross margin), Bakery 22-28%, Bar 18-25%, Cloud kitchen 15-20% (no servers). If labor >30-35% = red alert. Real cost = salary × 1.4-1.5 after employer\'s 21.5% social insurance, bonus, uniforms, training. Example: 8M salary → real cost 11-12M/month.',
+          },
+          {
+            question: 'How much is social insurance (BHXH) for F&B employees?',
+            answer: 'Total BHXH 32% of salary: employer pays 21.5% (BHXH 17.5%, BHYT 3%, BHTN 1%), employee pays 10.5% (deducted from salary). Calculated on the BHXH salary base (not take-home). Cap: 20× regional minimum wage (~44M/month in HCMC D1 2026). Floor: regional minimum wage. Mandatory if labor contract ≥1 month. Not required: small household businesses (<10 employees can opt-in voluntarily). Non-compliance fines: 15-75M per employee.',
+          },
+          {
+            question: 'What is the chef salary in Vietnam F&B?',
+            answer: 'Chef salaries 2026: Line cook (junior) 7-10M, Sous chef 12-20M, Chef (main) 20-40M, Executive Chef (upscale restaurants) 40-100M, International Head Chef (5-star) 100-300M. Experienced Japanese/Korean/Italian chefs: 30-80M. Western chefs brought from abroad: 100-300M+ (includes visa, housing, air ticket). Upscale restaurants often calculate total chef cost as 3-5% of revenue, not just labor percentage. Common bonuses: 13th month, KPI bonus, profit share.',
+          },
+          {
+            question: 'What is a manager\'s salary at a Vietnam F&B business?',
+            answer: 'F&B manager salaries 2026: Shift manager 8-15M, Store manager (independent) 12-25M, Store manager (large chain) 15-30M, Area manager (5-10 stores) 25-45M, Regional manager (20+ store chain) 40-80M, F&B Director/Operations Director 60-150M. Plus quarterly KPI bonus of 10-30% base salary if targets hit. Upscale restaurants pay 20-40% more than casual. A great manager decides 50%+ of your profit — don\'t skimp on this role.',
+          },
+          {
+            question: 'What is the regional minimum wage for F&B in HCMC 2026?',
+            answer: 'Regional minimum wage 2026, Zone I (HCMC, Hanoi central districts): VND 4.96M/month (up 6% from 2025). Zone II (HCMC/Hanoi outskirts, Class I cities): 4.41M. Zone III (Class II cities, smaller towns): 3.86M. Zone IV (rural districts): 3.45M. This is the FLOOR for BHXH contribution, not the actual pay. F&B employees typically earn 25-70% above minimum depending on role. Paying below minimum: fine 25-40M + back-pay owed.',
+          },
+          {
+            question: 'Should F&B businesses hire full-time or part-time staff?',
+            answer: 'Optimal mix: 60-70% full-time + 30-40% part-time. Full-time: managers, head chef, senior barista, stable servers (ensures quality + accountability). Part-time (25-40K/h): peak-hour reinforcement (11am-1pm, 5-8pm), weekends, students or homemakers. Part-time benefits: no mandatory BHXH (if <20h/week), flex per demand, no long commitment. Risks: high turnover (30-50%/year), training costs. Don\'t exceed 50% part-time or lose consistency.',
+          },
+          {
+            question: 'How do I calculate labor cost for my F&B business?',
+            answer: 'Formula: Total labor cost = (Gross salary × 1.4-1.5) + bonus + rewards + uniforms + training + replacement risk. Detail: Base salary + 21.5% employer BHXH + 5-15% bonus/KPI + 200-500K/month uniforms + 500K-2M training/employee/year + 15-30% turnover cost (leavers, recruit + train replacement). Example: 8 employees at 10M average → real labor cost 100-115M/month (not 80M). Use this number for break-even calculations.',
+          },
+          {
+            question: 'What is F&B turnover rate in Vietnam?',
+            answer: 'Vietnam F&B turnover rate 2026: 30-60%/year (average 45%). By role: Part-time servers 60-80% (students on summer break, graduating), Full-time servers 40-50%, Baristas 30-45%, Chefs 20-35%, Managers 15-25%. Much higher than other industries (retail 25-35%, IT 15-25%). Replacement cost = 1.5-3 months\' salary per employee (recruit + train + productivity loss). Example: 10 employees at 10M salary, 50% turnover → replacement cost 75-150M/year.',
+          },
+          {
+            question: 'Do F&B businesses need to pay overtime in Vietnam?',
+            answer: 'Mandatory per 2019 Labor Law: OT pays 150% regular hourly rate (weekdays), 200% (Sundays), 300% (public holidays/Tet). Max OT: 40h/month, 300h/year. Common F&B practice: flat OT (25-40K/h after hours) or "end-of-month bonus" instead of proper calculation. Risk: employee complaints trigger 15-40M fine per employee + back-pay OT. Best practice: labor contract specifies shifts, OT policy transparent, POS/timesheet tracks exact hours.',
+          },
+          {
+            question: 'How can F&B reduce labor cost without hurting quality?',
+            answer: '5 proven strategies: (1) Cross-training — 1 person handles 2-3 roles (barista + cashier + server), cuts headcount 15-20%; (2) SOP + recipe cards standardized — reduces dependency on "star chef", speeds new-hire training; (3) Schedule optimization — use 2-3 weeks of data to pattern demand, staff peak accurately not "9am-9pm × 8 people"; (4) Part-time for peak hours only, not full shifts; (5) Tech tools — POS automation (fewer cashiers), tablet ordering (fewer servers), inventory apps (less shrinkage). Target: labor cost down 2-4% of revenue in 6-12 months.',
+          },
+        ] as KBFAQItem[],
       },
     ],
   },

@@ -568,6 +568,60 @@ const TRENDS_ARTICLES: KBTopic[] = [
         type: 'text',
         content: 'Số liệu trên là benchmark — không phải target tuyệt đối. Mỗi quán có context riêng (vị trí, concept, customer base). Dùng các con số này để CHECK xem mô hình của bạn có khả thi không, và đặt expectation đúng. Một quán mới nên kỳ vọng net margin 5-8% năm đầu, 10-15% sau 2-3 năm. Nếu kỳ vọng >20% net từ ngày đầu = thiếu thực tế. Để model số liệu cụ thể của bạn, dùng F&B Validator — nhập vốn, doanh thu, chi phí thực tế → biết breakeven trong bao lâu.',
       },
+      {
+        type: 'faq',
+        heading: 'Câu hỏi thường gặp về ngành F&B Việt Nam 2026',
+        content: [
+          {
+            question: 'Quy mô thị trường F&B Việt Nam năm 2026 là bao nhiêu?',
+            answer: 'Thị trường F&B Việt Nam năm 2026 đạt 726,5 nghìn tỷ VND (khoảng 30 tỷ USD), tăng 12,8% so với 2025. Bao gồm: dịch vụ ăn uống 550 nghìn tỷ (75.7%), đồ uống có cồn 100 nghìn tỷ (13.8%), đồ uống không cồn 76.5 nghìn tỷ (10.5%). Có ~329.000 cửa hàng F&B, trong đó 77% là quán độc lập nhỏ (dưới 50m²). Tốc độ tăng trưởng dự kiến 10-12%/năm giai đoạn 2026-2030.',
+          },
+          {
+            question: 'Cấu trúc chi phí ngành F&B Việt Nam gồm những gì?',
+            answer: 'Cơ cấu chi phí chuẩn: Food cost 28-35% doanh thu, Labor 25-35% (bao gồm BHXH), Rent 8-15% (target < 20%), Marketing 3-8%, Utilities + operations 5-8%, Others 3-5%. Total 72-100% → net margin còn lại 8-15% (tốt) hoặc âm (nếu quản lý kém). Prime cost (Food + Labor) không nên vượt 60-65%. Nếu Prime cost > 70% = quán sẽ khó bền vững dù bận rộn.',
+          },
+          {
+            question: 'Prime cost trong F&B là gì?',
+            answer: 'Prime cost = Food cost + Labor cost (bao gồm cả BHXH, tips staff). Đây là chỉ số quan trọng nhất trong F&B vì chiếm 55-65% doanh thu ở quán vận hành tốt. Target theo mô hình: Cà phê 55-60%, Nhà hàng phổ thông 60-65%, Nhà hàng cao cấp 55-60% (labor cao hơn nhưng food cost thấp hơn nhờ AOV cao). Nếu Prime cost > 68% = red flag, cần cắt labor hoặc renegotiate NCC ngay. Quản lý Prime cost tốt = quyết định 80% net margin.',
+          },
+          {
+            question: 'Biên phí trên doanh thu là gì trong F&B?',
+            answer: 'Biến phí (Variable Cost) = chi phí thay đổi theo doanh thu, chủ yếu là Food cost (28-35%) + phí delivery app (25-30%) + bao bì delivery (3-8K/đơn) + commission bán hàng nếu có. Tổng biến phí trong F&B thường 30-45% doanh thu (bán tại quán) hoặc 45-60% (bán qua app). Contribution margin = 100% - biến phí % = % còn lại để trả fixed cost (rent, labor cố định). Càng cao contribution margin, càng an toàn khi doanh thu thấp.',
+          },
+          {
+            question: 'Tỷ lệ quán F&B đóng cửa ở Việt Nam là bao nhiêu?',
+            answer: 'Khoảng 50% quán F&B mới đóng cửa trong 1-2 năm đầu (theo báo cáo VIRAC 2025). Chi tiết: 30% đóng trong năm đầu tiên, 50% trong 2 năm, 70% trong 5 năm. Nguyên nhân top 5: (1) Chọn sai mặt bằng - 34%; (2) Thiếu vốn xoay - 27%; (3) Concept không rõ ràng - 18%; (4) Quản lý chi phí kém - 15%; (5) Marketing yếu - 6%. Tỷ lệ này thấp hơn ngành retail (60% đóng trong 3 năm) nhưng cao hơn ngành dịch vụ khác.',
+          },
+          {
+            question: 'Kênh delivery chiếm bao nhiêu % doanh thu F&B ở VN?',
+            answer: 'Trung bình 25-40% doanh thu quán tại TP.HCM/Hà Nội, 10-20% ở tỉnh khác. Cà phê take-away 30-45% (khách văn phòng đặt buổi sáng/trưa). Nhà hàng phổ thông 20-35%. Nhà hàng cao cấp <15% (khách muốn trải nghiệm dine-in). Fast food/cloud kitchen 60-95%. Quy mô market delivery VN 2026 ~ 2.2 tỷ USD, tăng 12.9%/năm. GrabFood dominant (~60%), ShopeeFood 25%, BeFood + others 15%.',
+          },
+          {
+            question: 'Biên lợi nhuận net trong ngành F&B Việt Nam là bao nhiêu?',
+            answer: 'Net margin trung bình 5-12% (sau khi trừ hết chi phí + thuế). Chi tiết theo segment: Cà phê chain 8-15%, Cà phê độc lập 5-10%, Nhà hàng phổ thông 6-12%, Nhà hàng cao cấp 10-18%, Trà sữa chain 12-20%, Bakery 12-18%, Cloud kitchen 15-25% (nếu volume đủ), Bar/pub 15-25% (nhưng risk cao hơn). Năm đầu thường 3-8% (do ramp-up), năm 2-3 lên 10-15% nếu quản lý tốt. Ngưỡng "khỏe mạnh" = 10%+ trong 3 năm.',
+          },
+          {
+            question: 'Chi phí thuê mặt bằng F&B ở TP.HCM là bao nhiêu?',
+            answer: 'Rent target 8-20% doanh thu (< 20% là an toàn, >25% = nguy hiểm). Giá thuê thực tế TP.HCM 2026: Q1 (Bến Thành, Bùi Viện) 80-200tr/tháng cho 40-80m²; Q3 (Pasteur, Điện Biên Phủ) 40-100tr; Q7 (Phú Mỹ Hưng) 35-90tr; Thảo Điền Q2 45-120tr; Bình Tân, Thủ Đức 15-40tr; ngoại ô Q9/Q12 8-25tr. Giá /m² dao động 800K-2.5tr/tháng ở trung tâm. Đàm phán được điều khoản: rent-free 1-2 tháng đầu, tăng giá hàng năm max 5-8%.',
+          },
+          {
+            question: 'Vietnam F&B market size 2025 là bao nhiêu?',
+            answer: 'Thị trường F&B Việt Nam 2025 đạt khoảng 655 nghìn tỷ VND (~27 tỷ USD), tăng 11.5% so với 2024. Chia theo segment: Restaurant + dine-in service 490 nghìn tỷ (75%), Bar + đồ uống có cồn 90 nghìn tỷ (14%), Cà phê + trà sữa 75 nghìn tỷ (11%). Dự báo 2026 lên 726.5 nghìn tỷ (+12.8%), 2027 lên 815 nghìn tỷ (+12.2%). Tăng trưởng chủ yếu từ: (1) urbanization + income tăng; (2) millennial spending; (3) delivery penetration; (4) tourism recovery.',
+          },
+          {
+            question: 'F&B business model nào phổ biến nhất tại Việt Nam?',
+            answer: 'Top 4 mô hình phổ biến: (1) Cà phê take-away 25% số quán mới mở — vốn thấp 100-500tr, biên gộp cao, phù hợp startup; (2) Nhà hàng phổ thông (bún, phở, cơm) 30% — vốn 200tr-1 tỷ, target middle-class, biên net 8-12%; (3) Trà sữa 15% — vốn 300-800tr, biên tốt nhưng cạnh tranh khốc liệt; (4) Cloud kitchen 8% (đang tăng nhanh) — vốn thấp 150-400tr, delivery-first. Còn lại là bakery, bar, buffet, hải sản, món Nhật/Hàn.',
+          },
+          {
+            question: 'AOV (giá trung bình mỗi lần) trong F&B Việt Nam là bao nhiêu?',
+            answer: 'AOV trung bình theo mô hình 2026: Cà phê 40-80K/khách, Trà sữa 45-70K, Bakery 50-90K (bánh + nước), Fast food 60-120K, Nhà hàng phổ thông 100-200K/khách, Nhà hàng trung cấp 250-500K, Nhà hàng cao cấp 800K-3M, Buffet 250-800K, Bar 300-800K. Delivery orders thường cao hơn 15-25% vs dine-in (khách order thêm để dilute phí ship). AOV = revenue / số đơn hoặc khách, không phải revenue/số món.',
+          },
+          {
+            question: 'Xu hướng tiêu dùng F&B của giới trẻ Việt Nam năm 2026?',
+            answer: 'Top 5 xu hướng 2026: (1) Healthy drinks — ít đường, nước ép tươi, matcha (tăng 45%); (2) Plant-based menu — vegan/vegetarian option (tăng 35%); (3) Trải nghiệm > sản phẩm — chọn quán vì không gian check-in, story brand chứ không chỉ vì món; (4) Delivery + subscription model — coffee subscription 200-400K/tháng lấy đủ 30-60 ly; (5) Community-driven — support quán độc lập, local Vietnamese thay vì chain quốc tế. Xu hướng ngược: giảm dần cà phê sữa đá siêu ngọt, thay bằng cà phê specialty.',
+          },
+        ] as KBFAQItem[],
+      },
     ],
   },
   {
