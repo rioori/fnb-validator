@@ -4,6 +4,7 @@ import { useState, useEffect, useRef } from 'react';
 import { track } from '@vercel/analytics';
 import Icon from '@/components/ui/Icon';
 import LoginPromptCard from '@/components/auth/LoginPromptCard';
+import ReturnUserMonitor from '@/components/dashboard/ReturnUserMonitor';
 import { useAuth } from '@/hooks/useAuth';
 import { useTranslation } from '@/i18n/LocaleProvider';
 import { useChat } from '@/hooks/useChat';
@@ -242,6 +243,9 @@ export default function AIChatPage() {
           </button>
         </div>
       </div>
+
+      {/* Return-user monitor — for Minh persona (auto-shows when user has ≥2 scenarios or updated ≥1) */}
+      <ReturnUserMonitor />
 
       {/* Scenario Picker */}
       {scenarios.length > 0 && (
