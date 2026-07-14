@@ -12,6 +12,7 @@ import {
   MODEL_SEO_NAMES,
   getCityBySlug,
   getAdjustedDefaults,
+  getCityInsight,
 } from '@/lib/seo-data';
 import type { ModelKey } from '@/types';
 import Icon from '@/components/ui/Icon';
@@ -312,7 +313,7 @@ export default async function ChiPhiMoPage({ params }: PageProps) {
         </div>
 
         {/* City info pills */}
-        <div className="flex flex-wrap gap-2 mb-6">
+        <div className="flex flex-wrap gap-2 mb-4">
           <span className="clay-pill bg-surface !py-1 !px-3 !text-[12px]">
             <strong className="text-cta">{cityData.population}</strong> {seo.populationLabel}
           </span>
@@ -322,6 +323,18 @@ export default async function ChiPhiMoPage({ params }: PageProps) {
           <span className="clay-pill bg-surface !py-1 !px-3 !text-[12px]">
             <strong className="text-cta">{densityLabel(cityData.fnbDensity, seo)}</strong> {seo.fnbDensityLabel}
           </span>
+        </div>
+
+        {/* City × Model market insight — unique paragraph per combo so pages aren't classified as duplicate/thin by search engines */}
+        <div className="clay-card-static bg-pastel-cream/40 p-4 mb-6 max-md:p-3.5">
+          <p className="text-[13px] text-text leading-relaxed">
+            {getCityInsight(city, modelKey, isEn ? 'en' : 'vi')}
+          </p>
+          <p className="text-[11px] text-text-muted mt-2">
+            {isEn
+              ? `Data refreshed ${new Date().toLocaleDateString('en-US', { month: 'long', year: 'numeric' })} · Validator.vn`
+              : `Cập nhật ${new Date().toLocaleDateString('vi-VN', { month: 'long', year: 'numeric' })} · Validator.vn`}
+          </p>
         </div>
 
         {/* 4 KPI Cards */}
