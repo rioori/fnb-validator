@@ -28,6 +28,7 @@ import InlineChat from '@/components/dashboard/InlineChat';
 import SavePrompt from '@/components/dashboard/SavePrompt';
 import EmailCaptureModal from '@/components/dashboard/EmailCaptureModal';
 import ShareResultCTA from '@/components/dashboard/ShareResultCTA';
+import NextStepPanel from '@/components/dashboard/NextStepPanel';
 import CollapsibleSection from '@/components/ui/CollapsibleSection';
 import NavButtons from '@/components/ui/NavButtons';
 import Icon from '@/components/ui/Icon';
@@ -274,6 +275,12 @@ export default function StepDashboard() {
               bepCustomersDay: results.bepCustomersDay,
               locale,
             }} />
+            {/* Guided next-step panel — fixes Thư persona (users disappearing after feasibility check) */}
+            <NextStepPanel
+              score={results.score}
+              netMargin={results.stableMonth.netMargin}
+              paybackMonth={results.paybackMonth}
+            />
           </div>
 
           {/* P&L + Cash Flow */}
