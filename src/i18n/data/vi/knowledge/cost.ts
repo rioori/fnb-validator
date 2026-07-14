@@ -1247,6 +1247,163 @@ const COST_ARTICLES: KBTopic[] = [
       },
     ],
   },
+  {
+    id: 'cost_10_mistakes_hidden_loss',
+    slug: '10-loi-tinh-gia-von-khien-quan-cafe-lo-ngam',
+    publishDate: '2026-07-15',
+    icon: 'warning',
+    title: '10 lỗi tính giá vốn khiến quán café lỗ ngầm',
+    subtitle: 'Vì sao bảng P&L đang có lãi mà tài khoản vẫn cạn tiền',
+    color: 'primary-light',
+    category: 'cost',
+    seoTitle: '10 lỗi tính giá vốn khiến quán café lỗ ngầm — Validator.vn',
+    seoDescription: '10 sai lầm phổ biến khi tính giá vốn F&B ở Việt Nam khiến chủ quán lỗ ngầm dù P&L có lãi: từ hao hụt nguyên liệu, phí delivery, thuế khoán, BHXH đến lãi vay và khấu hao.',
+    highlights: [
+      { label: 'COGS thực tế cao hơn dự tính', value: '20-35%', note: 'do 10 loại chi phí ẩn' },
+      { label: '~4 trên 5 quán café', value: 'ước lỗ ngầm', note: 'trong 6 tháng đầu' },
+      { label: 'Chi phí ẩn thường gặp nhất', value: 'Hao hụt + Phí app', note: '5-8% + 20-30%' },
+      { label: 'Tần suất recheck P&L', value: 'Hàng tuần', note: 'không phải hàng tháng' },
+    ],
+    sections: [
+      {
+        type: 'tldr',
+        content: [
+          'Phần lớn chủ quán café tính giá vốn chỉ dựa trên hoá đơn nhập + lương nhân viên → tưởng lãi 15-20%.',
+          'Cộng đủ 10 chi phí ẩn (hao hụt, phí app, BHXH, thuế khoán, khấu hao, lãi vay, đóng gói, waste, freebie, mix cá nhân) → biên thực chỉ 2-5%, thậm chí âm.',
+          'Tổng thiệt hại ẩn ~20-28% doanh thu ở quán 40m² doanh thu 120tr/tháng — đủ để "lãi trên giấy" trở thành lỗ thật.',
+          'Fix 4 tuần: audit → đo waste → recalc P&L → cắt lỗ theo priority. Rồi verify trên Validator.vn để có số thật trước khi ra quyết định lớn.',
+        ],
+      },
+      {
+        type: 'text',
+        content: 'Một chủ quán café ở Q3 TP.HCM từng kể với Validator: "Doanh thu tháng 120 triệu, chi phí trên giấy 95 triệu, lãi 25 triệu — nhưng cuối tháng tài khoản còn 3 triệu, không hiểu tiền đi đâu." Sau khi ngồi tính lại 10 khoản chi phí ẩn dưới đây, con số thật hoá ra: quán đang lỗ 4 triệu/tháng đều đặn. Đây không phải trường hợp cá biệt — đó là pattern chung ở phần lớn quán F&B nhỏ tại Việt Nam.',
+      },
+      {
+        type: 'warning-list',
+        heading: '10 lỗi phổ biến nhất — từ nghiêm trọng đến hay bị bỏ quên',
+        content: [
+          {
+            icon: 'warning',
+            title: 'Lỗi 1: Không tính hao hụt nguyên liệu',
+            desc: 'Rau héo, sữa hết date, đá tan, ly vỡ, staff tay to — thực tế NVL bị hao 3-8% (café) đến 5-12% (quán ăn). Nhập 100 triệu tức chỉ dùng được 92-95 triệu. Fix: đo tồn kho đầu-cuối tuần, cộng thêm 5-8% buffer vào bảng food cost.',
+            severity: 'critical',
+          },
+          {
+            icon: 'warning',
+            title: 'Lỗi 2: Tính phí delivery như "khuyến mãi" chứ không phải chi phí',
+            desc: 'GrabFood/ShopeeFood ăn 20-30% mỗi đơn. Đơn 100k khách trả, quán nhận 70-80k, nhưng bảng P&L nhiều chủ vẫn ghi 100k. Kênh delivery thường có biên âm sau khi trừ hao hụt + đóng gói. Fix: tách kênh — dine-in vs delivery — tính biên riêng. Nếu delivery lỗ, cắt hoặc tăng giá app.',
+            severity: 'critical',
+          },
+          {
+            icon: 'warning',
+            title: 'Lỗi 3: Bỏ qua BHXH + BHYT nhân viên',
+            desc: 'Chủ phải đóng 21.5% trên lương cơ bản cho phần chủ. Nhân viên lương 8tr → cost thực 9.72tr/tháng. 5 nhân viên = thiếu ~8-9tr/tháng khỏi bảng chi phí. Fix: chi phí lương phải là gross cost, không phải net paid.',
+            severity: 'critical',
+          },
+          {
+            icon: 'warning',
+            title: 'Lỗi 4: Không tính thuế khoán / VAT',
+            desc: 'Quán doanh thu >100tr/năm (hầu hết) phải nộp thuế khoán ~1.5% doanh thu + thuế TNCN ~0.5%. Doanh thu 120tr/tháng = ~2.4tr thuế/tháng bị quên. Cộng 12 tháng = 29tr — đủ để một quán borderline sang lỗ. Fix: hỏi kế toán khu vực để biết mức khoán chính xác + đặt thuế vào chi phí cố định hàng tháng.',
+            severity: 'critical',
+          },
+          {
+            icon: 'warning',
+            title: 'Lỗi 5: Không khấu hao thiết bị',
+            desc: 'Máy pha 80tr xài 3 năm = 2.2tr/tháng khấu hao. Bàn ghế, tủ lạnh, POS, điều hòa cộng dồn thường 3-6tr/tháng. Không khấu hao = ảo giác lãi cao, đến lúc thiết bị hỏng không có tiền thay = phải vay. Fix: mỗi tháng "để dành" khấu hao vào tài khoản riêng.',
+            severity: 'warning',
+          },
+          {
+            icon: 'warning',
+            title: 'Lỗi 6: Bỏ qua lãi vay ngân hàng / vay người thân',
+            desc: 'Vay 500tr setup, lãi 12%/năm = 5tr/tháng lãi thuần. Nhiều chủ chỉ tính khoản trả gốc, quên rằng lãi là chi phí kinh doanh. Nếu vay người thân "không tính lãi", cost cơ hội vẫn tồn tại — nên hạch toán như đang vay với lãi thị trường. Fix: cộng lãi vay vào chi phí tài chính hàng tháng.',
+            severity: 'warning',
+          },
+          {
+            icon: 'warning',
+            title: 'Lỗi 7: Đóng gói mang về không tính vào food cost',
+            desc: 'Ly nhựa, ống hút, túi giấy, tem — trung bình 2-4k/đơn takeaway + delivery. 100 đơn/ngày = 200-400k/ngày = 6-12tr/tháng. Quán 40% doanh thu takeaway thường cost đóng gói bằng 1/3 phí thuê. Fix: tính bao bì như phần của food cost, không phải "chi phí khác".',
+            severity: 'warning',
+          },
+          {
+            icon: 'warning',
+            title: 'Lỗi 8: Không tính waste + trả hàng khách',
+            desc: 'Ly ngọt quá, cà phê nhạt, khách phàn nàn → làm lại. Trung bình 1-3% doanh thu bị "làm lại" free. Doanh thu 120tr = 1.2-3.6tr NVL wasted. Không track = không biết bảo staff pha đúng công thức. Fix: log mọi ly bỏ đi trong 2 tuần, xem tỷ lệ thực.',
+            severity: 'warning',
+          },
+          {
+            icon: 'warning',
+            title: 'Lỗi 9: Free đồ + khuyến mãi không hạch toán riêng',
+            desc: 'Ly cà phê tặng bạn, đồ ăn cho staff, "khuyến mãi ngày khai trương". Nếu tính doanh thu = 0 nhưng food cost = 100% thì margin âm 100% cho những ly đó. Trung bình 5-10% doanh thu bị "ghost sale". Fix: tách rõ voucher/khuyến mãi trên POS, tính food cost đủ cho cả những đơn free.',
+            severity: 'tip',
+          },
+          {
+            icon: 'warning',
+            title: 'Lỗi 10: Trộn tiền cá nhân vào tiền quán',
+            desc: 'Rút 5tr đi ăn nhà hàng, mua điện thoại 20tr từ tài khoản quán. Cuối tháng thấy hụt tiền tưởng do lỗ. Thực tế đó là chi phí sinh hoạt, không phải cost quán. Nhưng vì trộn nên không phân biệt được. Fix: tài khoản quán ≠ tài khoản cá nhân; chủ trả lương cho chính mình mỗi tháng con số cố định.',
+            severity: 'tip',
+          },
+        ] as KBWarningItem[],
+      },
+      {
+        type: 'stat-grid',
+        heading: 'Tổng thiệt hại 10 lỗi cộng lại (quán café 40m², doanh thu 120tr/tháng)',
+        content: [
+          { icon: 'meat', label: 'Hao hụt + đóng gói', value: '~8-10tr', desc: 'Lỗi 1, 7, 8 cộng lại: 7-8% doanh thu thường bị quên khỏi COGS.' },
+          { icon: 'users', label: 'BHXH + thuế khoán', value: '~10-13tr', desc: 'Lỗi 3, 4: chi phí bắt buộc nhưng ~40% chủ quán nhỏ bỏ ra ngoài bảng.' },
+          { icon: 'money', label: 'Khấu hao + lãi vay', value: '~7-10tr', desc: 'Lỗi 5, 6: cost cơ hội + hao mòn tài sản, ảo giác lãi cao khi bỏ qua.' },
+          { icon: 'wallet', label: 'Tổng chi phí ẩn / tháng', value: '~25-33tr', desc: 'Tương đương 20-28% doanh thu. Đủ để 1 quán "có lãi trên giấy" trở thành lỗ thật.' },
+        ] as KBStat[],
+      },
+      {
+        type: 'timeline',
+        heading: 'Fix trong 30 ngày — lộ trình cụ thể',
+        content: [
+          { month: 'Ngày 1-7', title: 'Audit chi phí ẩn', desc: 'Ngồi 2 tiếng liệt kê 10 lỗi trên, đánh dấu quán mình dính bao nhiêu. In bảng food cost hiện tại + so với 10 danh mục.', status: 'ramp' },
+          { month: 'Ngày 8-14', title: 'Đo waste + hao hụt', desc: 'Cân nguyên liệu đầu tuần / cuối tuần, log mọi ly bỏ đi, mọi đơn khuyến mãi. Lấy số thực, không đoán.', status: 'ramp' },
+          { month: 'Ngày 15-21', title: 'Recalculate P&L thực', desc: 'Cộng hết 10 khoản ẩn vào bảng P&L. Xem biên lợi nhuận thật là bao nhiêu. Nhiều quán sẽ shock — bình tĩnh, chuyển sang bước tiếp.', status: 'stable' },
+          { month: 'Ngày 22-30', title: 'Action plan cắt lỗ', desc: 'Ưu tiên: 1) tăng giá 2-3 món high-volume 8-15%, 2) cắt kênh delivery lỗ, 3) đàm phán supplier chính, 4) tối ưu menu (bỏ 20% món bán ít nhất).', status: 'stable' },
+        ] as KBTimelineStep[],
+      },
+      {
+        type: 'text',
+        content: 'Sau khi audit xong, dùng Validator để verify: nhập chi phí NVL thực (đã cộng hao hụt), lương gross (đã tính BHXH), phí app, đóng gói, thuế khoán, khấu hao — công cụ sẽ tính lại break-even + biên lợi nhuận thực. Nhiều chủ quán phát hiện break-even không phải 6 tháng như dự tính, mà 14-18 tháng. Biết sớm = có thời gian sửa. Biết muộn = mất 300-500 triệu.',
+      },
+      {
+        type: 'faq',
+        heading: 'Câu hỏi thường gặp',
+        content: [
+          {
+            question: 'Tôi mới mở quán 2 tháng, chưa cần tính chi tiết vậy?',
+            answer: 'Sai — 2 tháng đầu là lúc dễ chết nhất vì chi phí cao (marketing khai trương, staff chưa quen tay). Càng sớm biết cost thật, càng có cơ hội sửa trước khi cạn vốn dự phòng.',
+          },
+          {
+            question: 'Kế toán của tôi làm hết mấy khoản này rồi mà?',
+            answer: 'Nếu kế toán bên ngoài (~2-3tr/tháng), họ chỉ làm tờ khai thuế đúng luật. Họ không tính waste, không track kênh delivery, không phân bổ khấu hao chi tiết cho quyết định kinh doanh. Bảng của kế toán ≠ bảng để chủ quán ra quyết định.',
+          },
+          {
+            question: 'Nếu tính đủ 10 khoản mà thấy lỗ thì làm gì?',
+            answer: 'Thứ tự ưu tiên: (1) Tăng giá 8-15% ở 2-3 món chủ lực trước (khách ít nhạy giá món signature). (2) Cắt kênh biên âm — thường là delivery. (3) Đàm phán supplier NVL chính (đổi supplier hoặc thương lượng volume discount). (4) Tối ưu menu — bỏ 20% món bán ít nhất, giảm hao hụt tồn kho. Đừng cắt chất lượng — mất khách nhanh hơn cứu chi phí.',
+          },
+          {
+            question: 'Có cần phần mềm POS + kế toán chuyên dụng không?',
+            answer: 'Giai đoạn dưới 100tr/tháng doanh thu: Excel + POS đơn giản đủ dùng. Lên trên 200tr/tháng hoặc mở chi nhánh 2: cần POS có báo cáo tự động (KiotViet, Sapo, Haravan) + kế toán chuyên nghiệp. Đừng đầu tư sớm quá — công cụ đúng cho stage đúng.',
+          },
+          {
+            question: 'Recheck P&L hàng tuần có quá nhiều không?',
+            answer: 'Không — F&B là ngành cash-heavy + biên mỏng. Chờ hết tháng mới xem = đã muộn 3-4 tuần để sửa. Mỗi thứ 2, dành 30 phút xem tuần trước: doanh thu, food cost %, tồn kho, các bất thường. Habit này là khác biệt giữa quán sống 3 năm và quán đóng cửa tháng 8.',
+          },
+          {
+            question: 'Validator có tính được cả 10 khoản này không?',
+            answer: 'Có. Trong bước Costs, nhập: COGS % (đã cộng hao hụt), Waste %, Delivery commission %, BHXH toggle, và các chi phí cố định khác. Bảng Dashboard sẽ show biên lợi nhuận thực + Alert nếu Prime Cost > 65%. Miễn phí, không đăng ký.',
+          },
+        ] as KBFAQItem[],
+      },
+      {
+        type: 'text',
+        content: 'Cost transparency không phải feature "nice to have" — nó là khác biệt giữa chủ quán biết mình đang thắng hay thua trong game này. Bạn không cần MBA để tính đúng, chỉ cần dành 4 tuần audit 10 khoản trên. Sau đó, mỗi thứ 2 dành 30 phút track. Sáu tháng sau, bạn sẽ ra quyết định khác hoàn toàn: món nào giữ, món nào bỏ, kênh nào scale, kênh nào cắt. Bắt đầu bằng cách nhập số vào Validator.vn — ít nhất bạn sẽ biết mình đang ở đâu.',
+      },
+    ],
+  },
 ];
 
 export default COST_ARTICLES;

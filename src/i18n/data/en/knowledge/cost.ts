@@ -1193,6 +1193,95 @@ const COST_ARTICLES: KBTopic[] = [
       },
     ],
   },
+  {
+    id: 'cost_10_mistakes_hidden_loss',
+    slug: '10-loi-tinh-gia-von-khien-quan-cafe-lo-ngam',
+    publishDate: '2026-07-15',
+    icon: 'warning',
+    title: '10 costing mistakes that make cafes silently unprofitable',
+    subtitle: 'Why your P&L shows a profit but your account keeps running dry',
+    color: 'primary-light',
+    category: 'cost',
+    seoTitle: '10 F&B costing mistakes that hide real losses — Validator.vn',
+    seoDescription: '10 common F&B costing mistakes in Vietnam that hide real losses even when P&L looks profitable: material waste, delivery fees, tax, social insurance, depreciation, interest, and more.',
+    highlights: [
+      { label: 'Actual COGS higher than budgeted', value: '20-35%', note: 'due to 10 hidden costs' },
+      { label: '~4 in 5 cafes', value: 'silently loss-making', note: 'in first 6 months' },
+      { label: 'Most common hidden costs', value: 'Waste + App fees', note: '5-8% + 20-30%' },
+      { label: 'P&L review cadence', value: 'Weekly', note: 'not monthly' },
+    ],
+    sections: [
+      {
+        type: 'tldr',
+        content: [
+          'Most F&B owners calculate cost using only invoices + salaries → assume 15-20% margin.',
+          'Add all 10 hidden costs (waste, app fees, insurance, tax, depreciation, interest, packaging, freebies, personal mix) → real margin drops to 2-5% or negative.',
+          'Hidden damage totals ~20-28% of revenue at a 40m² cafe doing VND 120M/mo — enough to flip "paper profit" to real loss.',
+          '4-week fix: audit → measure waste → recalc P&L → cut losses by priority. Then verify on Validator.vn for real numbers before major decisions.',
+        ],
+      },
+      {
+        type: 'text',
+        content: 'A District 3 HCMC cafe owner told Validator: "Revenue VND 120M/month, on-paper costs VND 95M, profit VND 25M — but end of month the account had VND 3M left. No idea where the money went." After recalculating 10 hidden costs below, the real number: the shop was losing VND 4M/month steadily. This isn\'t an edge case — it\'s the norm for most small F&B in Vietnam.',
+      },
+      {
+        type: 'warning-list',
+        heading: '10 most common mistakes — critical to easy-to-miss',
+        content: [
+          { icon: 'warning', title: 'Mistake 1: Not counting material waste', desc: 'Wilted veggies, expired milk, melting ice, broken glasses, generous portions — actual waste runs 3-8% (cafe) to 5-12% (restaurant). Buy VND 100M, only VND 92-95M ends up used. Fix: measure inventory start/end of week, add 5-8% buffer to food cost sheet.', severity: 'critical' },
+          { icon: 'warning', title: 'Mistake 2: Treating delivery fees as "promo" instead of cost', desc: 'GrabFood/ShopeeFood take 20-30% per order. Customer pays 100k, shop nets 70-80k, but many P&Ls still record 100k. Delivery channels often have negative margin after waste + packaging. Fix: separate dine-in vs delivery margins. If delivery loses money, cut it or raise app prices.', severity: 'critical' },
+          { icon: 'warning', title: 'Mistake 3: Ignoring social insurance + health insurance', desc: 'Employer pays 21.5% on base salary as employer contribution. Staff at VND 8M salary = real cost VND 9.72M/month. 5 staff = ~VND 8-9M/month missing from expense sheet. Fix: labor cost must be gross cost, not net paid.', severity: 'critical' },
+          { icon: 'warning', title: 'Mistake 4: No presumptive tax / VAT', desc: 'Shops with revenue >VND 100M/year (most) owe ~1.5% presumptive tax + ~0.5% personal income tax. VND 120M revenue = ~VND 2.4M tax/month forgotten. Over 12 months = VND 29M — enough to push a borderline shop into loss. Fix: check with local accountant + book tax into monthly fixed costs.', severity: 'critical' },
+          { icon: 'warning', title: 'Mistake 5: No equipment depreciation', desc: 'VND 80M espresso machine over 3 years = VND 2.2M/month depreciation. Furniture, fridge, POS, AC often total VND 3-6M/month. Skipping depreciation = illusion of high profit; when equipment fails there\'s no cash to replace = must borrow. Fix: set aside depreciation monthly in a separate account.', severity: 'warning' },
+          { icon: 'warning', title: 'Mistake 6: Skipping bank / family loan interest', desc: 'Borrow VND 500M setup at 12%/year = VND 5M/month interest. Many owners count principal repayment but forget interest is a business cost. Even "interest-free" family loans have opportunity cost — book them at market rate. Fix: add loan interest to monthly financial expenses.', severity: 'warning' },
+          { icon: 'warning', title: 'Mistake 7: Not counting takeaway packaging in food cost', desc: 'Plastic cups, straws, paper bags, labels — avg VND 2-4k/takeaway or delivery order. 100 orders/day = VND 200-400k/day = VND 6-12M/month. A shop with 40% takeaway revenue often has packaging cost = 1/3 of rent. Fix: count packaging inside food cost, not "misc".', severity: 'warning' },
+          { icon: 'warning', title: 'Mistake 8: No tracking of waste + customer returns', desc: 'Too sweet, too weak, customer complaint → remake. Avg 1-3% revenue is "remake" free. VND 120M revenue = VND 1.2-3.6M wasted ingredients. Not tracked = no data to fix staff recipe adherence. Fix: log every dumped cup for 2 weeks, see the real rate.', severity: 'warning' },
+          { icon: 'warning', title: 'Mistake 9: Free items + promos not booked separately', desc: 'Free coffee for a friend, staff meals, "grand opening promo". Booking revenue = 0 but food cost = 100% means margin -100% on those. Avg 5-10% revenue is "ghost sale". Fix: separate voucher/promo tracking on POS, count food cost for freebies too.', severity: 'tip' },
+          { icon: 'warning', title: 'Mistake 10: Mixing personal money with shop money', desc: 'Withdraw VND 5M for dinner, buy VND 20M phone from shop account. End of month cash gap looks like loss. Actually it\'s living expense, not shop cost. But mixed = can\'t tell. Fix: shop account ≠ personal account; owner pays themself a fixed salary each month.', severity: 'tip' },
+        ] as KBWarningItem[],
+      },
+      {
+        type: 'stat-grid',
+        heading: 'Total damage of 10 mistakes combined (40m² cafe, VND 120M/month revenue)',
+        content: [
+          { icon: 'meat', label: 'Waste + packaging', value: '~VND 8-10M', desc: 'Mistakes 1, 7, 8: 7-8% of revenue often missing from COGS.' },
+          { icon: 'users', label: 'Social insurance + tax', value: '~VND 10-13M', desc: 'Mistakes 3, 4: mandatory costs but ~40% of small shop owners leave off the sheet.' },
+          { icon: 'money', label: 'Depreciation + interest', value: '~VND 7-10M', desc: 'Mistakes 5, 6: opportunity cost + asset wear, illusion of high profit when ignored.' },
+          { icon: 'wallet', label: 'Total hidden cost / month', value: '~VND 25-33M', desc: 'Equivalent to 20-28% revenue. Enough to turn "profitable on paper" into real loss.' },
+        ] as KBStat[],
+      },
+      {
+        type: 'timeline',
+        heading: 'Fix in 30 days — concrete roadmap',
+        content: [
+          { month: 'Day 1-7', title: 'Audit hidden costs', desc: 'Spend 2 hours listing the 10 mistakes above, mark which apply to your shop. Print current food cost sheet + compare against 10 categories.', status: 'ramp' },
+          { month: 'Day 8-14', title: 'Measure waste', desc: 'Weigh ingredients start/end of week, log every dumped cup, every promo order. Real numbers, no guessing.', status: 'ramp' },
+          { month: 'Day 15-21', title: 'Recalculate real P&L', desc: 'Add all 10 hidden buckets into P&L. See real margin. Many owners will be shocked — stay calm, move to next step.', status: 'stable' },
+          { month: 'Day 22-30', title: 'Cut-loss action plan', desc: 'Priority: 1) raise price of 2-3 high-volume items 8-15%, 2) cut losing delivery channels, 3) renegotiate main supplier, 4) prune menu (remove bottom 20% by volume).', status: 'stable' },
+        ] as KBTimelineStep[],
+      },
+      {
+        type: 'text',
+        content: 'After the audit, use Validator to verify: input real ingredient cost (with waste), gross salary (with insurance), app fees, packaging, presumptive tax, depreciation — the tool recalculates break-even + real margin. Many owners discover break-even isn\'t 6 months as budgeted, but 14-18 months. Knowing early = time to fix. Knowing late = losing VND 300-500M.',
+      },
+      {
+        type: 'faq',
+        heading: 'Frequently asked questions',
+        content: [
+          { question: 'I just opened 2 months ago, do I need this detail already?', answer: 'Wrong — first 2 months are the deadliest (high grand-opening marketing, unstable staff). The sooner you know real cost, the more chance to fix before reserves run out.' },
+          { question: 'My accountant already handles this?', answer: 'If external accountant (~VND 2-3M/month), they only file taxes legally. They don\'t track waste, delivery-channel margin, or allocate depreciation for decisions. Accounting book ≠ owner\'s decision book.' },
+          { question: 'What if the full 10-cost view shows a loss?', answer: 'Priority order: (1) Raise prices 8-15% on 2-3 signature items first (less price-sensitive). (2) Cut negative-margin channels — usually delivery. (3) Renegotiate main ingredient supplier. (4) Menu optimization — cut bottom 20%, reduce inventory waste. Don\'t cut quality — losing customers faster than saving cost.' },
+          { question: 'Do I need pro POS + accounting software?', answer: 'Under VND 100M/month revenue: Excel + simple POS suffice. Over VND 200M/month or opening branch 2: need auto-reporting POS (KiotViet, Sapo, Haravan) + pro accounting. Don\'t over-invest early — right tools for right stage.' },
+          { question: 'Isn\'t weekly P&L review too frequent?', answer: 'No — F&B is cash-heavy + thin-margin. Waiting monthly = 3-4 weeks late to fix. Every Monday spend 30 min on last week: revenue, food cost %, inventory, anomalies. This habit is the difference between 3-year survival and Month-8 closure.' },
+          { question: 'Does Validator handle all 10 costs?', answer: 'Yes. In Costs step, enter: COGS % (waste included), Waste %, Delivery commission %, BHXH toggle, and other fixed costs. Dashboard shows real margin + alerts if Prime Cost > 65%. Free, no signup.' },
+        ] as KBFAQItem[],
+      },
+      {
+        type: 'text',
+        content: 'Cost transparency isn\'t a "nice to have" feature — it\'s the difference between an owner who knows whether they\'re winning or losing this game. You don\'t need an MBA to calculate correctly, just 4 weeks auditing the 10 categories above. Then 30 min every Monday. Six months later, you make completely different decisions: what to keep, cut, scale, retire. Start by putting your numbers into Validator.vn — at least you\'ll know where you stand.',
+      },
+    ],
+  },
 ];
 
 export default COST_ARTICLES;
