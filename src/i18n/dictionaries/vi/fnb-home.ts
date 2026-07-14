@@ -70,6 +70,11 @@ const fnbHome = {
       cta: 'Xem ngay →',
     },
     {
+      title: 'Câu chuyện chủ quán',
+      desc: 'Học từ chủ quán thật — thành công, thất bại, bài học từng con số cụ thể.',
+      cta: 'Đọc chuyện →',
+    },
+    {
       title: 'Vì sao F&B?',
       desc: 'Thị trường $32 tỷ, 100 triệu dân, ẩm thực #1 Đông Nam Á — nhưng khắc nghiệt.',
       cta: 'Khám phá →',

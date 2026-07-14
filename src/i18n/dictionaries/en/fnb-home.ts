@@ -70,6 +70,11 @@ const fnbHome = {
       cta: 'View now →',
     },
     {
+      title: 'Owner Stories',
+      desc: 'Learn from real owners — wins, losses, and lessons behind every number.',
+      cta: 'Read stories →',
+    },
+    {
       title: 'Why F&B?',
       desc: '$32B market, 100M population, #1 cuisine in Southeast Asia — but brutally competitive.',
       cta: 'Explore →',

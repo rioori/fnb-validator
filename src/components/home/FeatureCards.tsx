@@ -11,14 +11,15 @@ import type { Locale } from '@/i18n/config';
 import type { HomeView } from './HomePage';
 
 const FEATURE_META = [
-  { icon: 'chat', action: 'ai-chat' as const, bg: 'bg-pastel-blue', illust: 'feat-aichat' },
-  { icon: 'book', action: 'knowledge' as const, bg: 'bg-pastel-cream', illust: 'feat-knowledge' },
-  { icon: 'star', action: 'experts' as const, bg: 'bg-pastel-gold', illust: 'feat-experts' },
-  { icon: 'trending', action: 'trends' as const, bg: 'bg-pastel-mint', illust: 'feat-trends' },
-  { icon: 'wizard', action: 'start-wizard' as const, bg: 'bg-pastel-blush', illust: 'feat-validate' },
-  { icon: 'bolt', action: 'quick-calc' as const, bg: 'bg-pastel-mint', illust: 'feat-quickcalc' },
-  { icon: 'checklist', action: 'checklist' as const, bg: 'bg-pastel-blue', illust: 'feat-checklist' },
-  { icon: 'trendingup', action: 'why-fnb' as const, bg: 'bg-pastel-gold', illust: 'feat-whyfnb' },
+  { icon: 'chat', action: 'ai-chat' as const, bg: 'bg-pastel-blue', illust: 'feat-aichat', emoji: null as string | null },
+  { icon: 'book', action: 'knowledge' as const, bg: 'bg-pastel-cream', illust: 'feat-knowledge', emoji: null },
+  { icon: 'star', action: 'experts' as const, bg: 'bg-pastel-gold', illust: 'feat-experts', emoji: null },
+  { icon: 'trending', action: 'trends' as const, bg: 'bg-pastel-mint', illust: 'feat-trends', emoji: null },
+  { icon: 'wizard', action: 'start-wizard' as const, bg: 'bg-pastel-blush', illust: 'feat-validate', emoji: null },
+  { icon: 'bolt', action: 'quick-calc' as const, bg: 'bg-pastel-mint', illust: 'feat-quickcalc', emoji: null },
+  { icon: 'checklist', action: 'checklist' as const, bg: 'bg-pastel-blue', illust: 'feat-checklist', emoji: null },
+  { icon: 'users', action: 'stories' as const, bg: 'bg-pastel-blush', illust: null, emoji: '👥' },
+  { icon: 'trendingup', action: 'why-fnb' as const, bg: 'bg-pastel-gold', illust: 'feat-whyfnb', emoji: null },
 ];
 
 interface FeatureCardsProps {
@@ -40,6 +41,8 @@ export default function FeatureCards({ onNavigate }: FeatureCardsProps) {
       router.push(localePath('/kien-thuc', locale as Locale));
     } else if (action === 'experts') {
       router.push(localePath('/goc-nhin-chuyen-gia', locale as Locale));
+    } else if (action === 'stories') {
+      router.push(localePath('/cau-chuyen-chu-quan', locale as Locale));
     } else {
       onNavigate(action as HomeView);
     }
@@ -73,14 +76,23 @@ export default function FeatureCards({ onNavigate }: FeatureCardsProps) {
             transition={{ type: 'spring', stiffness: 300, damping: 22 }}
           >
             <div className="h-[72px] flex items-center justify-center mb-1">
-              <Image
-                src={`/illustrations/${meta.illust}.webp`}
-                alt={f.title}
-                width={72}
-                height={72}
-                loading="lazy"
-                className="opacity-85 rounded-2xl"
-              />
+              {meta.illust ? (
+                <Image
+                  src={`/illustrations/${meta.illust}.webp`}
+                  alt={f.title}
+                  width={72}
+                  height={72}
+                  loading="lazy"
+                  className="opacity-85 rounded-2xl"
+                />
+              ) : (
+                <div
+                  className="w-[72px] h-[72px] rounded-2xl bg-white/70 border-2 border-text/10 flex items-center justify-center text-[42px] leading-none"
+                  aria-hidden="true"
+                >
+                  {meta.emoji}
+                </div>
+              )}
             </div>
             <Icon name={meta.icon} size={28} className="mx-auto mb-1.5 !border-[1.5px] !shadow-none" />
             <h3 className="text-[14px] font-bold font-[family-name:var(--font-heading)] text-text mb-1">
