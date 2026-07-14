@@ -945,6 +945,206 @@ const COST_ARTICLES: KBTopic[] = [
     ],
   },
   {
+    id: 'coffee_shop_hcmc_2026_complete',
+    slug: 'mo-quan-ca-phe-tphcm-2026-huong-dan-day-du',
+    publishDate: '2026-07-15',
+    icon: 'coffee',
+    title: 'Mở quán cà phê tại TP.HCM 2026 — Hướng dẫn đầy đủ từ chọn quận đến hoàn vốn',
+    subtitle: 'Vốn, vị trí, vận hành, case studies thực tế + roadmap 12 tháng cho chủ quán mới tại Sài Gòn',
+    seoTitle: 'Mở quán cà phê TP.HCM 2026: Vốn 100-800tr theo quận + Case studies + Roadmap 12 tháng',
+    seoDescription: 'Hướng dẫn đầy đủ mở quán cà phê tại TP.HCM 2026: chi phí theo từng quận (Q1-Q12, Thủ Đức, Bình Tân), 5 case studies thực (Highlands, Phúc Long, Katinat, indie), roadmap 12 tháng, 20 câu hỏi thường gặp.',
+    color: 'secondary-light',
+    category: 'cost',
+    highlights: [
+      { label: 'Vốn take-away kiosk', value: '80-200tr', note: '20-30m², cần 1 vị trí đông người qua' },
+      { label: 'Vốn quán nhỏ có ghế', value: '300-700tr', note: '40-60m², 20-40 chỗ ngồi' },
+      { label: 'Vốn specialty coffee', value: '800tr-1.5 tỷ', note: '60-100m², signature concept' },
+      { label: 'Break-even trung bình', value: '6-12 tháng', note: 'nếu chọn đúng quận + concept' },
+    ],
+    sections: [
+      {
+        type: 'tldr',
+        content: [
+          'TP.HCM có 15.000+ quán cà phê — thị trường cạnh tranh nhất VN. Cần positioning + location rõ ràng để không chết trong 6 tháng.',
+          'Vốn theo mô hình: kiosk 80-200tr (Q. Bình Tân, Q7 ngoại vi), quán nhỏ 300-700tr (Q3, Q7, Q10), specialty 800tr-1.5 tỷ (Q1, Thảo Điền).',
+          'Quận tốt nhất theo profile: Q1 (thu nhập cao, du khách), Q3 (Millennials + văn phòng), Q7 (Phú Mỹ Hưng expat), Thảo Điền Q2 (specialty + Instagram).',
+          '3 quyết định quan trọng: (1) Chọn concept phù hợp quận; (2) Hiểu foot traffic thật (đếm 3 ngày); (3) Dự trù vốn xoay 6 tháng đầu.',
+          'Hoàn vốn: kiosk 6-10 tháng nếu 100+ đơn/ngày, quán nhỏ 12-18 tháng nếu AOV 45-70K + 80-120 khách/ngày, specialty 18-24 tháng.',
+        ],
+      },
+      {
+        type: 'text',
+        content: 'TP.HCM là thị trường cà phê lớn và cạnh tranh nhất Việt Nam. Với hơn 15.000 quán cà phê đang hoạt động, mỗi phường trung bình có 30-60 quán. Điều này vừa là cơ hội (culture uống cà phê ngoài quán đã trưởng thành, khách sẵn sàng chi 40-100K/ly) vừa là thách thức (ai cũng có thể là đối thủ trực tiếp trong bán kính 500m). Bài này tổng hợp toàn bộ kiến thức bạn cần để mở quán cà phê tại TP.HCM năm 2026: từ chọn quận, tính vốn, đàm phán mặt bằng, đến xây concept, quản lý vận hành 12 tháng đầu — với case studies thực từ Highlands, Phúc Long, Katinat, và các quán indie đã thành công hoặc thất bại.',
+      },
+      {
+        type: 'stat-grid',
+        heading: 'TP.HCM cà phê market — những con số nên biết',
+        content: [
+          { icon: 'chart', label: 'Số quán cà phê tại HCMC', value: '15.000+', desc: 'Mật độ 1 quán / 630 người — cao nhất VN. Q1 riêng 800+ quán, Q3 600+, Q7 550+.' },
+          { icon: 'growth', label: 'Chi tiêu cà phê/người/tháng', value: '350-600K', desc: 'Nhóm 25-40 tuổi tại TP.HCM chi trung bình 400K/tháng cho cà phê ngoài quán (2026 data).' },
+          { icon: 'users', label: 'Tần suất đi quán/tuần', value: '3-5 lần', desc: 'Millennials + Gen Z chiếm 60% khách. 45% khách quán cà phê là dân văn phòng.' },
+          { icon: 'money', label: 'AOV trung bình', value: '55-80K/khách', desc: 'Cà phê 45-70K, thêm 10-20K nếu có bánh/topping. Specialty coffee 80-150K.' },
+        ] as KBStat[],
+      },
+      {
+        type: 'table',
+        heading: 'Vốn đầu tư theo mô hình (chi tiết 2026)',
+        content: [
+          { label: 'Kiosk take-away 20-30m²', range: '80-200 triệu', note: 'Thuê Q. Bình Tân/Thủ Đức/Q12 5-12tr/tháng. Thiết bị tối thiểu: máy pha bán tự động (25-50tr), máy xay (5-10tr), tủ lạnh (8-15tr). Menu 10-15 loại. Cần cash reserve 3 tháng ~ 30-50tr.' },
+          { label: 'Quán nhỏ có ghế 40-60m²', range: '300-700 triệu', note: 'Thuê Q3/Q7/Q10 20-45tr/tháng. Thi công 100-200tr (không chi lớn về interior). Thiết bị 80-150tr (máy pha semi-auto tốt, máy xay commercial). Menu 25-35 loại + món bánh. Cần cash reserve 6 tháng ~ 100-200tr.' },
+          { label: 'Specialty coffee 60-100m²', range: '800tr-1.5 tỷ', note: 'Thuê Q1/Thảo Điền Q2/Q7 45-100tr/tháng. Thi công interior đẹp 250-500tr (branding matters). Thiết bị cao cấp La Marzocco/Slayer (200-400tr). Menu specialty + food. Cần cash reserve 6-9 tháng ~ 300-500tr.' },
+          { label: 'Concept "third wave" 80-150m²', range: '1.5-3 tỷ', note: 'Vị trí prime Q1 Bến Thành/Đồng Khởi hoặc Thảo Điền (100-250tr/tháng). Signature interior + roastery on-site. Máy espresso 500-800tr. Positioning premium, target expat + specialty crowd. Cash reserve 12 tháng.' },
+        ] as KBTableRow[],
+      },
+      {
+        type: 'table',
+        heading: 'Chi phí thuê mặt bằng theo quận (2026 data thực tế)',
+        content: [
+          { label: 'Q1 (Bến Thành, Bùi Viện, ĐBP)', range: '80-250 triệu/tháng', note: '40-80m² prime location. Foot traffic cực cao (10-25K/ngày qua). Deposit 3-6 tháng. Hợp đồng thường 3-5 năm. Tăng rent 5-10%/năm.' },
+          { label: 'Q3 (Pasteur, Võ Văn Tần)', range: '35-100 triệu/tháng', note: '40-70m². Millennials + văn phòng đông. Deposit 3 tháng. Rent tốt nhất về ROI cho quán specialty tầm trung.' },
+          { label: 'Q7 (Phú Mỹ Hưng)', range: '30-90 triệu/tháng', note: '40-80m². Expat + gia đình trẻ. AOV cao (60-100K). Nhưng traffic phụ thuộc weekend, weekday quiet hơn Q1/Q3.' },
+          { label: 'Thảo Điền Q2', range: '35-120 triệu/tháng', note: '40-100m². Specialty + Instagram culture. Expat + du khách chi cao. Concept & interior quan trọng hơn ở đây.' },
+          { label: 'Q10 (3/2, Sư Vạn Hạnh)', range: '18-50 triệu/tháng', note: 'Sinh viên + văn phòng nhỏ. Price-sensitive. Cà phê giá phổ thông 30-50K work tốt.' },
+          { label: 'Bình Tân, Q6', range: '8-25 triệu/tháng', note: 'Dân cư đông đúc, purchasing power thấp hơn. Kiosk + take-away 20-40K/ly hoạt động tốt.' },
+          { label: 'Thủ Đức (Q9 cũ)', range: '10-35 triệu/tháng', note: 'Đang gentrification. Gần Vinhome, khu công nghệ cao. Traffic tăng nhanh 2025-2026. Cơ hội mở sớm.' },
+          { label: 'Q12, Gò Vấp', range: '7-20 triệu/tháng', note: 'Ngoại ô. Dân cư đông, đông sinh viên. Rent rẻ nhưng AOV cũng thấp (30-50K).' },
+        ] as KBTableRow[],
+      },
+      {
+        type: 'text',
+        heading: 'Chọn quận theo profile khách hàng',
+        content: 'Không có quận "tốt nhất" — chỉ có quận PHÙ HỢP với concept của bạn. Q1 lý tưởng cho brand cao cấp/du khách nhưng rent 100-200tr/tháng cần AOV cao (80K+) và 200+ khách/ngày để hoàn vốn. Q7 Phú Mỹ Hưng phù hợp specialty coffee với gia đình expat, nhưng traffic weekend > weekday. Q3 Pasteur là "sweet spot" cho quán tầm trung: rent hợp lý (35-70tr) + traffic ổn định + khách chi tiêu tốt. Bình Tân/Q12 phù hợp mô hình take-away giá rẻ 25-45K/ly, target sinh viên/công nhân. Sai lầm thường gặp: chọn Q1 cho brand phổ thông (rent quá cao vs AOV), hoặc chọn Q. Bình Tân cho specialty coffee (khách không sẵn sàng trả 80K+/ly).',
+      },
+      {
+        type: 'timeline',
+        heading: 'Roadmap 12 tháng — Từ ý tưởng đến break-even',
+        content: [
+          { month: 'Tháng -3 đến 0 (Chuẩn bị)', title: 'Research + Concept + Vốn', desc: 'Khảo sát 5-8 quận (đếm foot traffic thực tế 3 ngày mỗi vị trí). Xây concept + menu draft. Chuẩn bị vốn (100% investment + 6 tháng cash reserve). Nộp giấy phép hộ kinh doanh + ATTP (3-4 tuần).', status: 'ramp' },
+          { month: 'Tháng 1-2 (Ramp-up)', title: 'Soft launch + Test', desc: 'Doanh thu 40-60% target. Chi phí có thể vượt (thất thoát nguyên liệu, staff chưa quen). Marketing soft: FB page, Instagram, mời 5-10 KOL micro thử. Đừng vội tăng giá hay cắt menu.', status: 'ramp' },
+          { month: 'Tháng 3-6 (Stabilize)', title: 'Đạt 70-90% target', desc: 'Foot traffic dần ổn định. Bắt đầu có khách quen (repeat rate 30-40%). Tối ưu SOP, kiểm soát food cost. Đây là giai đoạn quyết định — nếu đến tháng 6 chưa đạt 80% target = review lại concept/pricing.', status: 'stable' },
+          { month: 'Tháng 7-12 (Profitable)', title: 'Break-even + Optimize', desc: 'Doanh thu 90-110% target. Net margin dương 5-15%. Bắt đầu tích lũy để trả nợ vốn/scale. Cân nhắc thêm SKU (bánh, food), extend giờ mở, hoặc mở kênh delivery.', status: 'stable' },
+        ] as KBTimelineStep[],
+      },
+      {
+        type: 'stat-grid',
+        heading: '5 Case studies thực tế tại TP.HCM',
+        content: [
+          { icon: 'growth', label: 'Highlands Coffee', value: '600+ store', desc: 'Master of location + supply chain. Model chuỗi lớn — vốn/store 2-4 tỷ. Không phải model cho founder cá nhân.' },
+          { icon: 'growth', label: 'Katinat', value: '80+ store (2026)', desc: 'Sinh 2016 tại Q1, scale nhanh nhờ concept "quán cà phê + trà" positioning trung cấp. Vốn/store 1-2 tỷ.' },
+          { icon: 'growth', label: 'Every Half (Vũ Hải Ninh)', value: 'Specialty niche', desc: 'Founder cũ The Coffee House + M Village, mở Every Half specialty. Vốn 3-5 tỷ/store. Target coffee enthusiast.' },
+          { icon: 'warning', label: 'Cộng Cà Phê', value: '~40 store', desc: 'Concept độc đáo (vintage/retro). Grow chậm nhưng bền. Bài học: brand equity > scale nhanh.' },
+        ] as KBStat[],
+      },
+      {
+        type: 'warning-list',
+        heading: '7 sai lầm chết người khi mở quán cà phê tại TP.HCM',
+        content: [
+          { icon: 'warning', title: '#1: Chọn mặt bằng dựa trên "cảm giác" thay vì foot traffic thật', desc: 'Đếm foot traffic 3 ngày (weekday + weekend, 3 khung giờ). Xin data mall/tòa nhà nếu có. Đừng tin "cảm nhận đông" — nhiều nơi chỉ đông giờ tan sở nhưng ban ngày quiet.', severity: 'critical' },
+          { icon: 'warning', title: '#2: Vốn cash reserve dưới 6 tháng', desc: 'Nhiều quán chết trong tháng 3-5 vì hết tiền dù đã có khách. Ramp-up cần 3-6 tháng đạt 80% target. Dự trù cash reserve = 6 tháng total operating cost (rent + labor + food cost + utilities).', severity: 'critical' },
+          { icon: 'warning', title: '#3: Concept không rõ ràng, "cà phê chung chung"', desc: 'Q1 có 800+ quán — không có positioning rõ ràng = khách quên ngay. Chọn 1 angle: specialty coffee, Instagram-worthy, workspace, community, price-conscious take-away. Không thể "for everyone".', severity: 'warning' },
+          { icon: 'warning', title: '#4: Rent > 20% doanh thu kỳ vọng', desc: 'Rent Q1 100tr/tháng cần doanh thu 500-600tr/tháng để healthy (rent 15-18%). Nhiều quán fantasize doanh thu 800tr/tháng để justify rent, thực tế đạt 300-400tr → sập trong 12 tháng.', severity: 'critical' },
+          { icon: 'warning', title: '#5: Đăng ký công ty thay vì hộ kinh doanh (quán nhỏ)', desc: 'Quán nhỏ <10 nhân viên nên đăng ký hộ kinh doanh (thuế khoán, đơn giản). Đăng ký công ty phức tạp: BHXH bắt buộc, kế toán, VAT 10% ăn vào margin. Chỉ chuyển company khi scale 3+ store.', severity: 'warning' },
+          { icon: 'warning', title: '#6: Menu quá đa dạng 40-60 loại', desc: 'Menu lớn = tồn kho cao + waste cao + staff training khó + khách bối rối. Start với 15-20 SKU core, mở rộng theo data bán thực tế. Menu Instagram cần đẹp không phải nhiều.', severity: 'warning' },
+          { icon: 'warning', title: '#7: Đầu tư quá nặng vào interior', desc: 'Nhiều founder chi 300-500tr cho decor "sang" trước khi biết concept có work không. Better: MVP interior đẹp (100-150tr) tại quán #1, prove business model, rồi mới invest heavy interior khi mở store #2-3.', severity: 'tip' },
+        ] as KBWarningItem[],
+      },
+      {
+        type: 'faq',
+        heading: 'Câu hỏi thường gặp về mở quán cà phê tại TP.HCM',
+        content: [
+          {
+            question: 'Mở quán cà phê tại TP.HCM cần bao nhiêu tiền 2026?',
+            answer: 'Tùy mô hình: Kiosk take-away 80-200tr (thuê Q. Bình Tân/Thủ Đức 5-12tr/tháng, thiết bị tối thiểu). Quán nhỏ có ghế 300-700tr (thuê Q3/Q7 20-45tr/tháng, 40-60m², 20-40 chỗ). Specialty coffee 800tr-1.5 tỷ (Q1/Thảo Điền, thiết bị cao cấp, interior đẹp). Chưa tính vốn xoay 6 tháng đầu.',
+          },
+          {
+            question: 'Quận nào tốt nhất để mở quán cà phê tại TP.HCM?',
+            answer: 'Phụ thuộc concept: Q3 (Pasteur, Võ Văn Tần) là sweet spot cho quán tầm trung — rent 35-70tr, khách văn phòng + millennials chi tốt. Q1 cho premium/du khách (rent 80-250tr). Q7 Phú Mỹ Hưng cho specialty + gia đình expat. Thảo Điền Q2 cho concept Instagram-worthy. Bình Tân/Q12 cho take-away giá rẻ 25-45K/ly.',
+          },
+          {
+            question: 'Giá thuê mặt bằng quán cà phê ở TP.HCM 2026 là bao nhiêu?',
+            answer: 'Q1: 80-250tr/tháng cho 40-80m² prime. Q3: 35-100tr. Q7 Phú Mỹ Hưng: 30-90tr. Thảo Điền Q2: 35-120tr. Q10: 18-50tr. Q. Bình Tân/Thủ Đức/Q12: 8-25tr. Deposit thường 3-6 tháng, hợp đồng 3-5 năm, tăng rent 5-10%/năm. Rent nên < 20% doanh thu kỳ vọng.',
+          },
+          {
+            question: 'Break-even trong bao lâu khi mở quán cà phê tại TP.HCM?',
+            answer: 'Trung bình 6-18 tháng: Kiosk vốn 100-200tr → 6-10 tháng nếu 100+ đơn/ngày. Quán nhỏ vốn 300-700tr → 12-18 tháng nếu AOV 55-70K + 80-120 khách/ngày. Specialty vốn 800tr-1.5 tỷ → 18-24 tháng. Nếu > 24 tháng chưa break-even = review lại concept/pricing/location.',
+          },
+          {
+            question: 'Vốn xoay (working capital) cần bao nhiêu?',
+            answer: 'Tối thiểu 6 tháng operating cost. Ví dụ: quán 40m² Q3 có rent 40tr + labor 50tr + food cost dự kiến 40tr + var/fixed 20tr = 150tr/tháng. Cash reserve cần 900tr (6 tháng). Nhiều quán chết vì tính đủ vốn setup nhưng thiếu vốn xoay ramp-up 3-6 tháng đầu (doanh thu chưa đủ trả chi phí).',
+          },
+          {
+            question: 'Nên đăng ký hộ kinh doanh hay công ty khi mở quán cà phê?',
+            answer: 'Quán nhỏ 1 store, <10 nhân viên: hộ kinh doanh — thuế khoán đơn giản, không BHXH bắt buộc, không VAT. Phí đăng ký 100K. Quán lớn hoặc plan mở chuỗi: công ty TNHH — phức tạp hơn (BHXH 21.5% chủ, VAT 10%, kế toán) nhưng scalable + có thể gọi vốn. Best: start hộ kinh doanh, chuyển công ty khi mở store #3.',
+          },
+          {
+            question: 'Menu cà phê nên có bao nhiêu loại?',
+            answer: 'Start 15-20 SKU core: 5-7 cà phê classic (đen/sữa/latte/capuccino/americano), 3-4 specialty (cold brew, drip, single origin), 3-5 non-coffee (matcha, milk tea, chocolate), 2-3 signature drinks unique. Thêm 5-8 bánh/snacks. Sau 3 tháng, xóa 20% SKU bán ít nhất, thêm 5 mới dựa trên feedback. Menu quá lớn (40+ SKU) = waste cao + staff confused.',
+          },
+          {
+            question: 'Food cost quán cà phê nên bao nhiêu %?',
+            answer: 'Target 25-32% doanh thu. Cà phê pha: hạt cà phê 10-15% (1 shot 15-20g × 400-800K/kg), sữa/topping 8-12%, cốc/nắp/ống hút 3-5%. Bánh kèm: 30-40% (food cost bánh cao hơn cà phê). Tối ưu bằng: (1) Mua hạt bulk từ roaster địa phương (rẻ hơn Nespresso 40-50%); (2) Chuẩn hóa recipe (grammage cụ thể); (3) Waste tracking daily.',
+          },
+          {
+            question: 'Labor cost quán cà phê tại TP.HCM là bao nhiêu?',
+            answer: 'Target 22-28% doanh thu. Quán 40-60m² cần: 1 store manager (12-20tr) + 2-3 barista full-time (7-12tr/người) + 1-2 server part-time (25-35K/h) = 45-70tr/tháng. Thêm 21.5% BHXH chủ đóng (nếu công ty) → thực tế 55-85tr. Peak time (11-13h, 17-20h) cần thêm 1-2 part-time. Turnover barista 30-45%/năm → dự trù replacement cost.',
+          },
+          {
+            question: 'Cần giấy phép gì để mở quán cà phê tại TP.HCM?',
+            answer: '4 giấy tờ bắt buộc: (1) Giấy đăng ký hộ kinh doanh/công ty tại UBND phường/quận (3-5 ngày, 100K); (2) Giấy chứng nhận đủ điều kiện ATTP tại Chi cục ATTP quận (15-20 ngày, 500K-2tr); (3) Giấy khám sức khỏe nhân viên (200-500K/người/năm); (4) Đăng ký thuế + hóa đơn điện tử. Tổng thời gian 3-4 tuần trước opening. Không có giấy ATTP = phạt 5-15tr + đóng quán.',
+          },
+          {
+            question: 'Nên mở quán cà phê franchise hay tự làm brand riêng?',
+            answer: 'Franchise (Highlands, Trung Nguyên, Café Amazon): vốn 1-3 tỷ, phí franchise 200-500tr + royalty 3-8% doanh thu, ROI 24-36 tháng. Ưu: brand có sẵn, supply chain, training. Nhược: không tự chủ concept, chia lợi nhuận, phụ thuộc chuỗi. Tự làm brand: vốn linh hoạt 200tr-2 tỷ, tự chủ 100%, ROI 12-24 tháng nếu concept tốt. Best: tự làm nếu là founder có background F&B; franchise nếu là investor không có kinh nghiệm.',
+          },
+          {
+            question: 'Marketing quán cà phê mới mở tại TP.HCM cần budget bao nhiêu?',
+            answer: '3-8% doanh thu tháng, phân bổ: FB/Instagram ads 40-50% (30-50 khách/tháng qua ads, CAC 30-80K), KOL micro 20-30% (10-20 khách nano-influencers 500K-3tr/deal), Google Maps + SEO 10-20% (freeish, nhưng cần time), Loyalty program 10-20% (free coffee lần 10, giữ khách quen). Tháng 1-3 launch push mạnh hơn (10-15% doanh thu), tháng 4+ giảm xuống 3-5%.',
+          },
+          {
+            question: 'Có nên mở quán cà phê tại mall (Vincom, Aeon, Landmark 81)?',
+            answer: 'Chỉ nên nếu là brand đã có traffic (Highlands, Phúc Long). Mall rent 60-150tr/tháng cho 30-60m² + phí quản lý + service charge 5-10% doanh thu → total 25-30% doanh thu (quá cao vs benchmark 15-20%). Foot traffic mall lớn nhưng convert rate thấp (2-4% người qua ghé) vs quán mặt phố (8-15%). Chỉ break-even nếu doanh thu > 300-500tr/tháng — khó cho brand mới.',
+          },
+          {
+            question: 'Delivery kênh nào tốt nhất cho quán cà phê tại TP.HCM?',
+            answer: 'GrabFood dominant (60% market share) — phí 25-30%, khách chi tiêu tốt hơn Shopee, tốt cho brand premium. ShopeeFood — phí 22-27%, khách trẻ nhạy giá, tốt cho quán mass-market. BeFood — mới, phí 20-25%, market share thấp nhưng đang tăng. Chiến lược: cả 3 để tối đa reach, own delivery (Zalo/hotline) khi >50 đơn/ngày trong 3km. Cà phê take-away delivery share thường 30-45% total doanh thu.',
+          },
+          {
+            question: 'Peak time của quán cà phê tại TP.HCM là khi nào?',
+            answer: '3 peak times: (1) Sáng 7-9h — dân văn phòng mang đi (30-40% orders); (2) Trưa 11-13h — meeting, chill lunch break (25-30% orders); (3) Chiều 15-17h — coffee break, chat friends (25-30% orders). Weekend pattern khác: peak muộn hơn 9-11h + 14-17h. Staffing cần match pattern này. Quán specialty peak weekend > weekday, quán văn phòng peak weekday > weekend.',
+          },
+          {
+            question: 'AOV (average order value) quán cà phê TP.HCM 2026 là bao nhiêu?',
+            answer: 'Trung bình 55-80K/khách: cà phê 45-70K (đen 25-40K, sữa 30-50K, latte/capuccino 55-75K, specialty 70-120K). Thêm 10-20K nếu order kèm bánh/snack. Quán Q1/Thảo Điền AOV 75-120K (higher-end). Quán ngoại ô/kiosk 30-50K. Cách tăng AOV: (1) Combo deal cà phê + bánh giảm 5-10%; (2) Menu size up (M/L +10-15K); (3) Signature drinks premium (100K+); (4) Loyalty program tặng free size up.',
+          },
+          {
+            question: 'Có nên hire barista giỏi hay tự học?',
+            answer: 'Depends: nếu bạn là founder có background F&B → tự học + hire junior barista 6-8tr. Nếu không có background → hire head barista 12-18tr (Q-grader hoặc từng làm chuỗi lớn) để build SOP + đào tạo team trong 3-6 tháng đầu. Sau khi SOP stable, chuyển head barista qua vai trò quản lý hoặc replace bằng junior. Đầu tư training barista đầu vào = quyết định 60% chất lượng cà phê + reviews.',
+          },
+          {
+            question: 'Làm sao tăng doanh thu quán cà phê sau 6 tháng?',
+            answer: '5 kênh proven: (1) Delivery (GrabFood/ShopeeFood) — thêm 20-40% doanh thu; (2) Corporate orders — bán sỉ cho office building lân cận (100-500K/ngày ổn định); (3) Extend giờ mở — nếu peak weekend mạnh, mở đến 22-23h; (4) Add món mới (bánh, food nhẹ) — tăng AOV 15-25%; (5) Loyalty program — repeat rate từ 30% lên 45-55%. Tránh giảm giá liên tục — làm khách quen giá thấp, khó về full price.',
+          },
+          {
+            question: 'Nên mở quán cà phê tại Thủ Đức 2026 không?',
+            answer: 'Có, đây là quận đang gentrification mạnh nhất TP.HCM 2025-2026. Rent 10-35tr/tháng (rẻ hơn Q1/Q3 60-70%), foot traffic tăng nhanh nhờ Vinhome Grand Park + khu công nghệ cao Q9. Concept phù hợp: specialty coffee tầm trung, quán workspace-friendly cho tech workers, cà phê + food gia đình. Rủi ro: khách chưa quen brand mới, cần patience 6-9 tháng ramp-up. Cơ hội: mở sớm khi thị trường chưa saturate.',
+          },
+          {
+            question: 'Kinh nghiệm gì trước khi mở quán cà phê đầu tiên?',
+            answer: 'Recommended: làm 3-6 tháng tại quán cà phê (barista hoặc manager) để hiểu operations thực tế, khách hàng, waste, staffing challenges. Đọc 3-5 books: "The Third Wave of Coffee", "Setting the Table" (Danny Meyer), "The Coffee Shop Business Plan". Tham quan 20-30 quán khác nhau tại TP.HCM để hiểu concept + pricing landscape. Kết nối với 2-3 founder đã mở quán để học lessons. Đầu tư 3-6 tháng chuẩn bị = tránh mất 300tr trong 12 tháng.',
+          },
+          {
+            question: 'Nếu vốn chỉ 100-150tr có mở được quán cà phê tại TP.HCM không?',
+            answer: 'Có, nhưng phải constrain: mô hình kiosk take-away 15-25m² tại Q. Bình Tân/Thủ Đức/Q12 (rent 5-10tr/tháng), thiết bị secondhand (máy pha 15-25tr thay vì new 40-60tr), menu tối thiểu 8-10 loại. Vốn xoay 3 tháng = 30-45tr. Break-even 6-8 tháng nếu 50-80 đơn/ngày × AOV 30-40K. Không đủ vốn mở tại Q1/Q3/Q7 — đừng cố, sẽ chết. Alternative: bán online (subscription/wholesale) trước, tích vốn 6-12 tháng rồi mở physical.',
+          },
+        ] as KBFAQItem[],
+      },
+      {
+        type: 'text',
+        content: 'Mở quán cà phê tại TP.HCM 2026 không phải "trend" mà là quyết định kinh doanh nghiêm túc — với thị trường 15.000+ đối thủ, chỉ những quán có concept rõ + location đúng + vốn đủ + team giỏi mới sống được. Dùng F&B Validator để nhập số liệu cụ thể (quận cụ thể, quy mô, AOV kỳ vọng, chi phí thuê) → biết mô hình có break-even trong 12-18 tháng hay không TRƯỚC KHI ký hợp đồng thuê 3-5 năm. Thời gian phân tích trước khi mở = tiết kiệm 300-800tr nếu concept sai.',
+      },
+    ],
+  },
+  {
     id: 'location_pitfalls',
     slug: 'sai-lam-khi-chon-mat-bang-fnb',
     publishDate: '2026-06-28',
