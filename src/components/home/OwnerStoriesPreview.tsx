@@ -18,7 +18,7 @@ export default function OwnerStoriesPreview() {
 
   return (
     <motion.section
-      className="clay-card-static bg-white p-5 mb-4 max-md:p-4"
+      className="clay-card-static bg-white p-5 max-md:p-4"
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, amount: 0.1 }}

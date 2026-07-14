@@ -87,7 +87,7 @@ export default function HomePage() {
   }
 
   return (
-    <div>
+    <div className="space-y-8 max-md:space-y-6">
       <HeroSection onNavigate={setView} />
       <FeatureCards onNavigate={setView} />
       <OwnerStoriesPreview />

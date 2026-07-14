@@ -48,7 +48,7 @@ export default function ExpertPreview({ heading, desc, viewAllLabel }: Props) {
   const featured = FEATURED_IDS.map((id) => allExperts.find((e) => e.id === id)).filter(Boolean) as Expert[];
 
   return (
-    <div className="mb-4">
+    <div>
       {/* Section header */}
       <div className="text-center mb-4">
         <h2 className="text-[15px] font-bold font-[family-name:var(--font-heading)] text-text">

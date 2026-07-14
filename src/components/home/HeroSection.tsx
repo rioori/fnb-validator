@@ -55,7 +55,7 @@ export default function HeroSection({ onNavigate }: HeroSectionProps) {
   };
 
   return (
-    <div className="clay-card-static bg-white pb-4 mb-4 text-center max-md:pb-3 overflow-hidden">
+    <div className="clay-card-static bg-white pb-4 text-center max-md:pb-3 overflow-hidden">
       {/* Storefront banner — flush top, no padding */}
       <motion.div
         initial={{ opacity: 0, y: 10 }}

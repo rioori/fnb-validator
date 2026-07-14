@@ -47,7 +47,7 @@ export default function FeatureCards({ onNavigate }: FeatureCardsProps) {
 
   return (
     <motion.div
-      className="grid grid-cols-4 gap-3 mb-4 max-lg:grid-cols-3 max-md:grid-cols-2"
+      className="grid grid-cols-4 gap-3 max-lg:grid-cols-3 max-md:grid-cols-2"
       initial="hidden"
       whileInView="show"
       viewport={{ once: true, amount: 0.05 }}
