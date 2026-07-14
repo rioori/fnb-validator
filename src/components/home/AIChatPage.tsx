@@ -176,6 +176,7 @@ export default function AIChatPage() {
     setInput('');
     sendMessage(trimmed, user.id, buildBusinessContext(), locale);
     track('ai_chat_send', { has_context: !!buildBusinessContext() });
+    track('north_star_action', { source: 'ai_chat_send' });
   };
 
   const handleNewChat = () => {

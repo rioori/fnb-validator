@@ -72,18 +72,69 @@ export default function WizardShell() {
   const stepNames = ['home', 'model', 'location', 'investment', 'revenue', 'costs', 'dashboard'];
   const stepEnteredAt = useRef<number>(Date.now());
   const prevStep = useRef<number>(currentStep);
+  const maxReachedStep = useRef<number>(0);
+  const stepsCompleted = useRef<Set<number>>(new Set());
+  const wizardStartedFired = useRef<boolean>(false);
+  const wizardCompletedFired = useRef<boolean>(false);
+
   useEffect(() => {
     if (currentStep >= 1) {
-      // Track time spent on previous step
-      if (prevStep.current >= 1 && prevStep.current !== currentStep) {
-        const seconds = Math.round((Date.now() - stepEnteredAt.current) / 1000);
-        track('wizard_step_time', { step: prevStep.current, name: stepNames[prevStep.current], seconds });
+      const prev = prevStep.current;
+      const isForward = currentStep > prev;
+      const isBackward = currentStep < prev && prev >= 1;
+      const isFirstEntry = !wizardStartedFired.current;
+
+      // Fire wizard_started once, on first step ≥ 1 entry (funnel entry point)
+      if (isFirstEntry) {
+        track('wizard_started', { entry_step: currentStep, name: stepNames[currentStep] });
+        wizardStartedFired.current = true;
       }
+
+      // Fire wizard_step_complete for the previous step when user moves forward
+      // (they finished it well enough to advance — the funnel-progression signal)
+      if (isForward && prev >= 1 && !stepsCompleted.current.has(prev)) {
+        const seconds = Math.round((Date.now() - stepEnteredAt.current) / 1000);
+        track('wizard_step_complete', {
+          step: prev,
+          name: stepNames[prev],
+          next_step: currentStep,
+          seconds,
+        });
+        stepsCompleted.current.add(prev);
+      }
+
+      // Legacy time event (kept for parity with existing dashboards)
+      if (prev >= 1 && prev !== currentStep) {
+        const seconds = Math.round((Date.now() - stepEnteredAt.current) / 1000);
+        track('wizard_step_time', { step: prev, name: stepNames[prev], seconds });
+      }
+
+      // wizard_step_view — every step entry (view event, distinct from complete)
+      track('wizard_step_view', {
+        step: currentStep,
+        name: stepNames[currentStep],
+        direction: isForward ? 'forward' : isBackward ? 'backward' : 'entry',
+        max_reached: Math.max(maxReachedStep.current, currentStep),
+      });
+
+      // Legacy wizard_step (kept for backward-compat with existing analytics dashboards)
       track('wizard_step', { step: currentStep, name: stepNames[currentStep] });
+
+      // wizard_completed — once user reaches dashboard (step 6)
+      if (currentStep === 6 && !wizardCompletedFired.current) {
+        track('wizard_completed', {
+          reached_from_step: prev,
+          steps_completed: stepsCompleted.current.size,
+        });
+        track('north_star_action', { source: 'wizard_completed' });
+        wizardCompletedFired.current = true;
+      }
+
+      maxReachedStep.current = Math.max(maxReachedStep.current, currentStep);
       stepEnteredAt.current = Date.now();
     }
     prevStep.current = currentStep;
-  }, [currentStep]);
+  }, [currentStep]); // eslint-disable-line react-hooks/exhaustive-deps
 
   return (
     <>

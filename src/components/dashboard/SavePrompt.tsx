@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import { track } from '@vercel/analytics';
 import { useAuth } from '@/hooks/useAuth';
 import { useScenarios } from '@/hooks/useScenarios';
 import { useWizardStore, clearDraft } from '@/hooks/useWizardStore';
@@ -28,7 +29,14 @@ export default function SavePrompt() {
       const fallback = store.selectedModel ? models[store.selectedModel].name : t.dashboard.save.defaultScenarioName;
       const scenarioName = store.projectName.trim() || fallback;
       setLoading(true);
+      const isUpdate = !!useScenarios.getState().selectedId;
       await save(user.id, scenarioName, store.selectedModel, store.collectAll());
+      track('scenario_saved', {
+        model: store.selectedModel || 'none',
+        mode: isUpdate ? 'update' : 'new',
+        business_mode: store.businessMode,
+      });
+      track('north_star_action', { source: 'scenario_saved' });
       // Draft persisted to a saved scenario — clear localStorage draft so ResumeDraftBanner
       // won't nag the user with an already-saved scenario on next visit.
       clearDraft();
