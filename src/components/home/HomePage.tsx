@@ -20,6 +20,7 @@ import AIChatPage from './AIChatPage';
 import ExpertPreview from './ExpertPreview';
 import TrendPreview from './TrendPreview';
 import OwnerStoriesPreview from './OwnerStoriesPreview';
+import SignatureCounter from './SignatureCounter';
 import Footer from './Footer';
 
 export type HomeView = 'main' | 'quick-calc' | 'knowledge' | 'about' | 'stories' | 'checklist' | 'trends' | 'why-fnb' | 'ai-chat';
@@ -89,6 +90,7 @@ export default function HomePage() {
   return (
     <div className="space-y-8 max-md:space-y-6">
       <HeroSection onNavigate={setView} />
+      <SignatureCounter />
       <FeatureCards onNavigate={setView} />
       <OwnerStoriesPreview />
       <ExpertPreview
