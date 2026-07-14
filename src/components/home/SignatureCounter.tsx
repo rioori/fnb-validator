@@ -67,10 +67,11 @@ export default function SignatureCounter() {
     return () => { cancelled = true; };
   }, []);
 
-  if (!stats || stats.validations < 3) {
-    // Suppress the signature moment until there's meaningful signal —
-    // showing "1 owner" would break the credibility promise. Ships hidden
-    // until Validator has >=3 scenarios (baseline: 18 as of Jul 2026).
+  // Show only when validations reach a credibility threshold. 18 scenarios
+  // from ~10 users (Jul 2026) reads as weak, not strong — enable this at
+  // validations ≥ 200 AND messages ≥ 500. Kept in codebase so it auto-
+  // enables when we cross the threshold, no re-import needed.
+  if (!stats || stats.validations < 200 || stats.messages < 500) {
     return null;
   }
 
