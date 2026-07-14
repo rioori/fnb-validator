@@ -19,6 +19,7 @@ export default function robots(): MetadataRoute.Robots {
           '/*?city=',        // pre-fill param — canonical is /fnb
           '/embed/',         // embeddable widgets — should not be indexed as standalone pages
           '/api/',           // API routes
+          '/admin/',         // internal dashboards (WAU, etc.)
         ],
       },
     ],
