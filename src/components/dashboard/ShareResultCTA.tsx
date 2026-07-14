@@ -20,6 +20,7 @@ const COPY = {
     download: 'Tải hình share',
     downloading: 'Đang tạo hình...',
     facebook: 'Share FB',
+    zalo: 'Share Zalo',
     copyLink: 'Copy link',
     copied: '✓ Đã copy',
   },
@@ -33,6 +34,7 @@ const COPY = {
     download: 'Download share image',
     downloading: 'Generating...',
     facebook: 'Share FB',
+    zalo: 'Share Zalo',
     copyLink: 'Copy link',
     copied: '✓ Copied',
   },
@@ -60,6 +62,7 @@ export default function ShareResultCTA({ resultData }: ShareResultCTAProps) {
   const shareUrl = `${SITE_URL}/fnb?score=${score}&model=${encodeURIComponent(resultData.modelName)}&payback=${resultData.paybackMonth || ''}&utm_source=share&utm_medium=result-cta`;
 
   const fbShareUrl = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(shareUrl)}&quote=${encodeURIComponent(shareText)}`;
+  const zaloShareUrl = `https://zalo.me/share?u=${encodeURIComponent(shareUrl)}`;
 
   const handleDownload = async () => {
     if (!cardRef.current || generating) return;
@@ -126,6 +129,18 @@ export default function ShareResultCTA({ resultData }: ShareResultCTAProps) {
               <Icon name="facebook" size={16} className="!border-0 !shadow-none !bg-transparent !p-0 text-white" />
               {t.facebook}
             </a>
+            {locale === 'vi' && (
+              <a
+                href={zaloShareUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={() => track('share_result_cta_zalo', { score })}
+                className="clay-pill flex items-center gap-1.5 px-3 py-2 text-[12px] font-semibold bg-[#0068FF] text-white hover:brightness-110 transition-all"
+              >
+                <span className="text-[13px] font-bold">Z</span>
+                {t.zalo}
+              </a>
+            )}
             <button
               onClick={handleCopyLink}
               className="clay-pill flex items-center gap-1.5 px-3 py-2 text-[12px] font-semibold bg-white text-text border border-text/20 hover:bg-surface3 transition-all"
