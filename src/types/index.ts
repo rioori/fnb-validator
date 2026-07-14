@@ -407,6 +407,46 @@ export interface Expert {
   seoDescription?: string;
 }
 
+// ===== Owner Story Types =====
+
+export type StoryModel = 'coffee' | 'eatery' | 'restaurant' | 'bubbletea' | 'bakery' | 'bar' | 'kiosk' | 'cloudkitchen';
+
+export interface StoryMetric {
+  label: string;
+  before: string;
+  after: string;
+  delta?: string;
+}
+
+export interface StoryStep {
+  title: string;
+  desc: string;
+}
+
+export interface OwnerStory {
+  id: string;
+  slug: string;
+  ownerName: string;
+  ownerRole: string;
+  city: string;
+  model: StoryModel;
+  scale: string;
+  monthsOpen: number;
+  headline: string;
+  summary: string;
+  context: string;
+  painPoints: string[];
+  turningPoint: string;
+  actions: StoryStep[];
+  metrics: StoryMetric[];
+  lessons: string[];
+  toolsUsed: Array<{ label: string; href: string }>;
+  timeframe: string;
+  disclaimer: string;
+  seoTitle?: string;
+  seoDescription?: string;
+}
+
 // ===== Chat Types =====
 
 export interface ChatMessage {

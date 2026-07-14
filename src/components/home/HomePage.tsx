@@ -19,6 +19,7 @@ import WhyFnBPage from './WhyFnBPage';
 import AIChatPage from './AIChatPage';
 import ExpertPreview from './ExpertPreview';
 import TrendPreview from './TrendPreview';
+import OwnerStoriesPreview from './OwnerStoriesPreview';
 import Footer from './Footer';
 
 export type HomeView = 'main' | 'quick-calc' | 'knowledge' | 'about' | 'stories' | 'checklist' | 'trends' | 'why-fnb' | 'ai-chat';
@@ -89,6 +90,7 @@ export default function HomePage() {
     <div>
       <HeroSection onNavigate={setView} />
       <FeatureCards onNavigate={setView} />
+      <OwnerStoriesPreview />
       <ExpertPreview
         heading={t.fnbHome.expertsPreview.heading}
         desc={t.fnbHome.expertsPreview.desc}

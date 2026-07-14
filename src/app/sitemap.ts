@@ -5,6 +5,7 @@ import { TOPICS } from '@/lib/topics';
 import { localePath } from '@/i18n/link';
 import COMPARISON_ARTICLES from '@/i18n/data/vi/comparison/articles';
 import BLOG_POSTS from '@/i18n/data/vi/blog';
+import OWNER_STORIES from '@/i18n/data/vi/stories';
 
 const BASE_URL = 'https://www.validator.vn';
 
@@ -63,6 +64,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
     entry(`/blog/${p.slug}`, 'monthly', 0.7),
   );
 
+  // Owner stories — post-launch operator case studies
+  const storyPages = OWNER_STORIES.map((s) =>
+    entry(`/cau-chuyen-chu-quan/${s.slug}`, 'monthly', 0.85),
+  );
+
   return [
     entry('', 'weekly', 1),
     entry('/fnb', 'weekly', 0.95),
@@ -70,6 +76,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     entry('/ai-chat', 'monthly', 0.85),
     entry('/kien-thuc', 'monthly', 0.9),
     entry('/goc-nhin-chuyen-gia', 'monthly', 0.9),
+    entry('/cau-chuyen-chu-quan', 'weekly', 0.9),
     entry('/so-sanh', 'monthly', 0.85),
     entry('/blog', 'monthly', 0.75),
     entry('/about', 'monthly', 0.7),
@@ -81,6 +88,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ...topicPages,
     ...knowledgePages,
     ...expertPages,
+    ...storyPages,
     ...comparisonPages,
     ...blogPages,
     ...seoPages,
