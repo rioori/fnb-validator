@@ -9,7 +9,7 @@ import Icon from '@/components/ui/Icon';
 import { getDictionary } from '@/i18n/get-dictionary';
 import { defaultLocale, type Locale } from '@/i18n/config';
 import { localePath } from '@/i18n/link';
-import type { KBTopic } from '@/types';
+import type { KBTopic, KBFAQItem } from '@/types';
 import PageTracker from '@/components/ui/PageTracker';
 import ShareBlock from '@/components/ui/ShareBlock';
 import KNOWLEDGE_BASE_VI from '@/i18n/data/vi/knowledge';
@@ -142,6 +142,39 @@ function BreadcrumbJsonLd({ topic, locale, dict }: { topic: KBTopic; locale: str
   );
 }
 
+/**
+ * FAQPage schema — emit when the article contains any FAQ section. Google + Bing use
+ * this for rich results, and AI engines (Bing Chat, Copilot, Perplexity, Google AI Overviews)
+ * consume it heavily to source direct answers. Sugar tax article has 12 FAQs targeting
+ * long-tail Vietnamese/English queries observed in Bing Webmaster.
+ */
+function FAQPageJsonLd({ topic }: { topic: KBTopic }) {
+  const faqItems: KBFAQItem[] = [];
+  for (const section of topic.sections) {
+    if (section.type === 'faq' && Array.isArray(section.content)) {
+      faqItems.push(...(section.content as KBFAQItem[]));
+    }
+  }
+  if (faqItems.length === 0) return null;
+
+  const jsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: faqItems.map((item) => ({
+      '@type': 'Question',
+      name: item.question,
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: item.answer,
+      },
+    })),
+  };
+
+  return (
+    <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
+  );
+}
+
 // ── Page Component ──
 export default async function KienThucTopicPage({ params }: PageProps) {
   const { locale, slug } = await params;
@@ -159,6 +192,7 @@ export default async function KienThucTopicPage({ params }: PageProps) {
       <PageTracker event="article_read" data={{ slug: topic.slug, category: topic.category }} />
       <ArticleJsonLd topic={topic} categoryLabel={categoryLabel} locale={locale} />
       <BreadcrumbJsonLd topic={topic} locale={locale} dict={dict} />
+      <FAQPageJsonLd topic={topic} />
 
       <article className="py-2 max-md:py-0">
         {/* Breadcrumbs */}

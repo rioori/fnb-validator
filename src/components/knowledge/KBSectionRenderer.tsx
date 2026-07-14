@@ -1,4 +1,4 @@
-import type { KBSection, KBTableRow, KBStat, KBTimelineStep, KBWarningItem } from '@/types';
+import type { KBSection, KBTableRow, KBStat, KBTimelineStep, KBWarningItem, KBFAQItem } from '@/types';
 import Icon from '@/components/ui/Icon';
 
 interface KBSectionRendererProps {
@@ -163,6 +163,26 @@ export default function KBSectionRenderer({ section }: KBSectionRendererProps) {
                 </li>
               ))}
             </ul>
+          </div>
+        </>
+      );
+
+    case 'faq':
+      return (
+        <>
+          {heading}
+          <div className="space-y-2 my-2">
+            {(section.content as KBFAQItem[]).map((item, i) => (
+              <details key={i} className="clay-sm p-3.5 group cursor-pointer">
+                <summary className="text-[13px] font-bold font-[family-name:var(--font-heading)] text-text flex items-start gap-2 list-none">
+                  <span className="text-cta text-[15px] group-open:rotate-90 transition-transform inline-block shrink-0 leading-none mt-0.5">›</span>
+                  <span className="flex-1">{item.question}</span>
+                </summary>
+                <div className="text-[13px] text-text-muted leading-relaxed mt-2.5 pl-5">
+                  {linkify(item.answer)}
+                </div>
+              </details>
+            ))}
           </div>
         </>
       );

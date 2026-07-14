@@ -1,4 +1,4 @@
-import type { KBTopic, KBTableRow, KBStat, KBWarningItem } from '@/types';
+import type { KBTopic, KBTableRow, KBStat, KBWarningItem, KBFAQItem } from '@/types';
 
 const TRENDS_ARTICLES: KBTopic[] = [
   {
@@ -179,6 +179,60 @@ const TRENDS_ARTICLES: KBTopic[] = [
         type: 'text',
         content:
           'The sugar tax is not an existential threat to Vietnam\'s F&B sector, but it will separate operators who plan ahead from those who react too late. With 2026 as your runway, there is time to renegotiate supplier terms, test lower-sugar recipes, and adjust pricing gradually. Use Validator.vn to model your financials with a 5–10% increase in ingredient costs — see how your break-even point shifts and what adjustments will protect your margins in the years ahead.',
+      },
+      {
+        type: 'faq',
+        heading: 'Vietnam Sugar Tax — Frequently Asked Questions',
+        content: [
+          {
+            question: 'When does Vietnam start taxing sugary drinks?',
+            answer: 'Vietnam\'s Special Consumption Tax (SCT) on sugary drinks >5g sugar/100ml takes effect from January 1, 2027 at 8%, rising to 10% from 2028. The law was passed in 2025, with 2026 as the preparation year (no tax collected yet, but regulations already in force). It applies to bottled carbonated drinks, bottled bubble tea, energy drinks (Sting, Red Bull), and other packaged beverages with sugar >5g/100ml.',
+          },
+          {
+            question: 'What is the sugar tax rate in Vietnam?',
+            answer: 'The tax rate is 8% in 2027, rising to 10% in 2028. Applied to the factory price (or import price) of beverages containing more than 5g of sugar per 100ml (per Vietnamese Standard TCVN). This is on top of the standard 10% VAT. Manufacturers will pass the tax through to wholesale prices, so F&B operators should expect ingredient costs to rise 5-10% from 2027.',
+          },
+          {
+            question: 'Which drinks are exempt from Vietnam\'s sugar tax?',
+            answer: 'Exemptions include: (1) Fresh milk and dairy products; (2) 100% natural fruit juices (no added sugar); (3) Pure coconut water; (4) Mineral and purified water; (5) Any beverage with less than 5g sugar/100ml. This creates an opportunity for F&B shops to pivot toward healthy drinks — both avoiding the tax and capturing the growing consumer preference for lower-sugar options in Vietnam.',
+          },
+          {
+            question: 'Do Coca-Cola, Pepsi, Sprite get taxed?',
+            answer: 'Yes. Coca-Cola (~10.6g/100ml), Pepsi (~11g), Sprite (~9g), Fanta, and Schweppes Tonic all far exceed the 5g/100ml threshold. From 2027 they face 8% SCT (rising to 10% in 2028) on top of the standard 10% VAT. Manufacturers will pass this through, so cafes/restaurants buying these drinks wholesale should expect 8-10% higher prices from 2027.',
+          },
+          {
+            question: 'How does the sugar tax affect bubble tea shops?',
+            answer: 'Bubble tea prepared on-premise (not industrially bottled) is NOT directly taxed. However: (1) Industrial syrups, packaged tapioca pearls, and liquid creamers with sugar >5g/100ml WILL be taxed → ingredient costs up 5-8%; (2) Bottled tea products sold alongside are taxed. Expect a typical bubble tea shop to see ingredient costs rise 3-6% from 2027, requiring price adjustments of 1,000-2,000 VND per cup to preserve margins.',
+          },
+          {
+            question: 'What is the sugar threshold that triggers the tax?',
+            answer: 'The threshold is >5g of sugar per 100ml (measured per Vietnamese Standard TCVN). Example: a 500ml drink containing more than 25g of sugar is taxed. Most carbonated soft drinks (Coca 10.6g, Pepsi 11g, Sprite 9g), bottled bubble tea (40-60g per 500ml), and energy drinks (8-12g) far exceed this threshold. Low-sugar drinks below 5g/100ml (some flavored water, lightly-sweetened tea) are not taxed.',
+          },
+          {
+            question: 'Who pays Vietnam\'s sugar tax — seller or buyer?',
+            answer: 'Legally, the SCT is collected from manufacturers/importers at the factory/import stage. In practice, however, the tax is passed through the supply chain: suppliers raise wholesale prices → F&B operators pay more → end consumers ultimately absorb the higher retail price. So while F&B businesses do not file SCT returns themselves, they bear the tax indirectly through higher ingredient costs. The end consumer is the effective payer.',
+          },
+          {
+            question: 'What should F&B businesses do to prepare before 2027?',
+            answer: '5-step checklist for 2026: (1) Audit all beverage ingredients — identify which will be taxed; (2) Recalculate cost-of-goods assuming 8-10% supplier price increases from 2027; (3) Add low-sugar/no-sugar options to menu to reduce dependence on taxed ingredients; (4) Replace industrial syrups with fresh alternatives (fresh fruit, honey, palm sugar); (5) Plan gradual price increases from late 2026 rather than sudden hikes when the tax hits — customers need time to adjust.',
+          },
+          {
+            question: 'Does Vietnam\'s sugar tax apply to drinks made in the cafe?',
+            answer: 'No — drinks prepared on-site (bubble tea, coffee, smoothies) are NOT directly subject to SCT. The tax only applies to bottled/canned drinks produced industrially. However, cafes still feel the impact indirectly: industrial ingredients they buy (syrups, bottled tea, liquid creamer with sugar >5g/100ml) will be taxed, raising ingredient costs 5-10%. Plan a menu review and price adjustment strategy for late 2026.',
+          },
+          {
+            question: 'Which Vietnam sugar tax rate applies to energy drinks?',
+            answer: 'Energy drinks (Sting, Red Bull, Number 1, Wake-Up 247, etc.) typically contain 8-12g sugar per 100ml and often include caffeine — both criteria for SCT. From 2027 they face 8% SCT, rising to 10% in 2028, on top of standard 10% VAT. F&B operators selling energy drinks should expect cost of goods to rise ~10% from 2027 and factor this into 2027 pricing decisions now.',
+          },
+          {
+            question: 'Is Vietnam the only country with a sugar tax?',
+            answer: 'No — Vietnam joins about 50 countries worldwide that have implemented some form of sugar-sweetened beverage (SSB) tax. Notable examples: UK (from 2018, up to 24p/liter), Mexico (10% since 2014), Philippines (6-12 pesos/liter since 2018), Thailand (since 2017, tiered by sugar content), South Africa (2018). The stated goal is to reduce sugar consumption and combat obesity, with tax revenue often earmarked for public health programs.',
+          },
+          {
+            question: 'What are the F&B industry\'s options to reduce sugar tax impact?',
+            answer: '4 strategic responses: (1) Reformulate — reduce sugar content in industrial products below 5g/100ml to avoid the tax entirely (many international brands did this in the UK); (2) Pivot menu — shift toward exempt categories (fresh juices, milk-based, coconut water); (3) Absorb the cost — for premium brands with pricing power, keep prices stable and let margins compress slightly; (4) Pass-through — raise prices 3-5% and communicate the reason clearly to customers. Most operators will use a mix depending on category.',
+          },
+        ] as KBFAQItem[],
       },
     ],
   },

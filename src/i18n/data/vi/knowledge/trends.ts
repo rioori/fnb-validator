@@ -1,4 +1,4 @@
-import type { KBTopic, KBTableRow, KBStat, KBWarningItem } from '@/types';
+import type { KBTopic, KBTableRow, KBStat, KBWarningItem, KBFAQItem } from '@/types';
 
 const TRENDS_ARTICLES: KBTopic[] = [
   {
@@ -204,6 +204,60 @@ const TRENDS_ARTICLES: KBTopic[] = [
         type: 'text',
         content:
           'Thuế mới không phải là tận thế của ngành F&B, nhưng nó sẽ phân hóa rõ hơn: quán nào chuẩn bị trước, điều chỉnh menu và giá bán hợp lý, sẽ giữ được biên lãi. Quán nào bị động, để chi phí nguyên liệu ăn dần vào lợi nhuận mà không điều chỉnh, sẽ khó hơn. Dùng Validator.vn để chạy lại mô hình tài chính với giả định chi phí nguyên liệu tăng 5-10% — xem quán bạn cần điều chỉnh gì để vẫn có lãi trong môi trường mới.',
+      },
+      {
+        type: 'faq',
+        heading: 'Câu hỏi thường gặp về thuế đồ uống có đường',
+        content: [
+          {
+            question: 'Từ năm bao nhiêu đánh thuế tiêu thụ đặc biệt vào đồ uống có ga?',
+            answer: 'Thuế tiêu thụ đặc biệt (TTĐB) mới áp lên đồ uống có đường >5g/100ml có hiệu lực từ 1/1/2027, mức thuế 8%. Đến 2028 tăng lên 10%. Năm 2026 là năm chuẩn bị — luật đã ban hành nhưng chưa thu thuế. Áp dụng cho nước ngọt có ga, trà sữa đóng chai, nước tăng lực Sting/Red Bull, và các loại đồ uống pha sẵn có đường >5g/100ml.',
+          },
+          {
+            question: 'Trà sữa đóng chai chịu thuế suất bao nhiêu từ 2026?',
+            answer: 'Từ 2026, trà sữa đóng chai chưa chịu TTĐB — chỉ áp dụng từ 2027 với mức 8%, sau đó 10% từ 2028. Điều kiện: hàm lượng đường >5g/100ml (theo Tiêu chuẩn Việt Nam). Hầu hết trà sữa đóng chai bán tại quán/cửa hàng đều vượt ngưỡng này (thường 40-60g đường/500ml). Trà sữa pha bán tại quán không chịu thuế TTĐB nếu không đóng chai công nghiệp.',
+          },
+          {
+            question: 'Nước cam ép, nước dừa, sữa tươi có bị đánh thuế không?',
+            answer: 'Không. Sữa tươi, nước ép trái cây tự nhiên (không thêm đường), nước dừa nguyên chất được MIỄN thuế TTĐB dù có đường tự nhiên. Đây là lý do quán F&B có thể pivot sang healthy drinks — vừa hợp xu hướng vừa tránh được tác động của thuế. Lưu ý: nước ép có thêm đường/siro thì vẫn có thể vượt ngưỡng 5g/100ml và bị tính thuế.',
+          },
+          {
+            question: 'Coca-Cola, Pepsi, Sprite bị đánh thuế bao nhiêu %?',
+            answer: 'Coca-Cola, Pepsi, Sprite, Fanta, Schweppes Tonic đều có hàm lượng đường >10g/100ml (Coca ~10.6g, Pepsi ~11g) — vượt xa ngưỡng 5g/100ml. Từ 2027 sẽ chịu thuế TTĐB 8% (áp lên giá xuất xưởng/nhập khẩu), 2028 lên 10%. Ngoài ra vẫn có VAT 10% như thông thường. Nhà sản xuất sẽ chuyển thuế vào giá bán sỉ → quán sẽ mua Coca giá cao hơn 8-10% từ 2027.',
+          },
+          {
+            question: 'Nước tăng lực nhân sâm, Sting, Red Bull chịu thuế bao nhiêu?',
+            answer: 'Sting, Red Bull, nước tăng lực nhân sâm đều là nhóm có đường cao (thường 8-12g/100ml) và chứa caffeine — thuộc diện chịu TTĐB từ 2027 ở mức 8%, 2028 là 10%. Ngoài ra vẫn có VAT 10%. Quán bán các loại nước tăng lực nên tính trước tác động giá vốn tăng ~10% từ 2027 và điều chỉnh giá bán.',
+          },
+          {
+            question: 'Thuế đồ uống có đường ảnh hưởng gì đến quán trà sữa?',
+            answer: 'Quán trà sữa pha tại chỗ (không đóng chai công nghiệp) KHÔNG trực tiếp chịu thuế TTĐB. Nhưng: (1) siro, trân châu đóng chai, kem béo dạng lỏng nếu là sản phẩm công nghiệp có đường >5g/100ml sẽ chịu thuế → giá nguyên liệu tăng 5-8%; (2) trà đóng chai bán kèm cũng chịu thuế. Ước tính quán trà sữa trung bình có chi phí nguyên liệu tăng thêm 3-6% từ 2027, phải tăng giá 1.000-2.000đ/ly để giữ biên lãi.',
+          },
+          {
+            question: 'Sugar tax là gì và Việt Nam có áp dụng chưa?',
+            answer: 'Sugar tax (thuế đường) là thuế đánh vào đồ uống có đường vượt ngưỡng nhất định, mục tiêu giảm tiêu thụ và ngừa béo phì. Việt Nam đã ban hành Luật thuế TTĐB sửa đổi (thông qua 2025) áp dụng từ 1/1/2027 với mức 8%, sau đó 10% từ 2028 — áp lên đồ uống có đường >5g/100ml theo TCVN. Năm 2026 chưa thu thuế nhưng là năm chuẩn bị. Việt Nam là nước thứ ~50 trên thế giới áp dụng loại thuế này.',
+          },
+          {
+            question: 'Ngưỡng đường bị đánh thuế ở Việt Nam là bao nhiêu?',
+            answer: 'Ngưỡng chịu thuế TTĐB là >5g đường/100ml theo Tiêu chuẩn Việt Nam (TCVN). Ví dụ: ly 500ml đồ uống chứa >25g đường → chịu thuế. Hầu hết nước ngọt có ga (Coca 10.6g, Pepsi 11g, Sprite 9g), trà sữa đóng chai (40-60g/500ml), nước tăng lực (8-12g) đều vượt ngưỡng xa. Đồ uống dưới 5g/100ml (một số nước uống ít đường, nước khoáng có vị) sẽ không bị áp thuế.',
+          },
+          {
+            question: 'Sản phẩm nào được miễn thuế đồ uống có đường?',
+            answer: 'Miễn thuế TTĐB: (1) Sữa tươi, sữa chua uống, các sản phẩm sữa; (2) Nước ép trái cây tự nhiên không thêm đường; (3) Nước dừa nguyên chất; (4) Nước khoáng, nước tinh khiết; (5) Đồ uống có đường <5g/100ml. Đây là cơ hội cho quán pivot menu sang healthy drinks — vừa tránh thuế, vừa bắt xu hướng khách VN đang ưa đồ uống ít ngọt.',
+          },
+          {
+            question: 'Quán F&B nên chuẩn bị gì trước 2027?',
+            answer: 'Checklist 5 việc cần làm trong 2026: (1) Rà soát tất cả nguyên liệu đồ uống, xác định cái nào chịu thuế; (2) Tính lại giá vốn theo giả định NCC tăng giá 8-10% từ 2027; (3) Thêm option ít đường/không đường vào menu để giảm phụ thuộc nguyên liệu chịu thuế; (4) Thay siro công nghiệp bằng nguyên liệu tươi (trái cây, mật ong, đường thốt nốt); (5) Lên kế hoạch tăng giá dần từ cuối 2026 thay vì tăng đột ngột khi thuế có hiệu lực.',
+          },
+          {
+            question: 'Đồ uống pha chế tại quán có bị đánh thuế 8% hay 10%?',
+            answer: 'Đồ uống pha chế trực tiếp tại quán (trà sữa, cà phê, sinh tố) KHÔNG chịu thuế TTĐB — thuế chỉ áp lên đồ uống có đường được ĐÓNG CHAI công nghiệp bởi nhà sản xuất/nhà nhập khẩu. Tuy nhiên quán vẫn chịu tác động gián tiếp: siro, trà đóng chai, kem béo dạng lỏng, và các nguyên liệu công nghiệp có đường mà quán mua sẽ tăng giá 5-10%. Cách tính thuế: 8% (2027) hoặc 10% (2028) áp lên giá xuất xưởng của nhà sản xuất.',
+          },
+          {
+            question: 'Ai chịu thuế: người bán hay người mua?',
+            answer: 'Về mặt pháp lý, TTĐB đánh vào nhà sản xuất/nhà nhập khẩu tại khâu xuất xưởng/nhập khẩu. Nhưng trên thực tế, thuế được chuyển toàn bộ vào giá bán → NCC tăng giá bán sỉ → quán mua giá cao hơn → khách hàng trả giá cuối cùng cao hơn. Do đó dù quán F&B không phải kê khai nộp thuế TTĐB, quán vẫn chịu tác động qua chi phí nguyên liệu. Người tiêu dùng cuối là bên chịu thuế thực tế.',
+          },
+        ] as KBFAQItem[],
       },
     ],
   },

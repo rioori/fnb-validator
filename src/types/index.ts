@@ -315,10 +315,15 @@ export interface KBWarningItem {
   severity: 'critical' | 'warning' | 'tip';
 }
 
+export interface KBFAQItem {
+  question: string;
+  answer: string;
+}
+
 export interface KBSection {
   heading?: string;
-  type: 'text' | 'list' | 'table' | 'stat-grid' | 'timeline' | 'warning-list' | 'tldr';
-  content: string | string[] | KBTableRow[] | KBStat[] | KBTimelineStep[] | KBWarningItem[];
+  type: 'text' | 'list' | 'table' | 'stat-grid' | 'timeline' | 'warning-list' | 'tldr' | 'faq';
+  content: string | string[] | KBTableRow[] | KBStat[] | KBTimelineStep[] | KBWarningItem[] | KBFAQItem[];
 }
 
 export type KBCategory = 'cost' | 'operations' | 'strategy' | 'legal' | 'technology' | 'trends';
