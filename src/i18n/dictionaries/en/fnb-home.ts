@@ -14,6 +14,12 @@ const fnbHome = {
       placeholder: 'e.g. Is 18M VND rent reasonable for a 60m² café in District 3?',
       button: 'Ask now',
     },
+    primaryCtaB: {
+      label: 'Check your shop\'s health in 60 seconds',
+      desc: 'Enter a few numbers — AI compares to 1000+ VN shops, spots outliers, suggests fixes instantly',
+      placeholder: 'e.g. Revenue 180M/mo, rent 25M, COGS 65M — how healthy is my shop?',
+      button: 'Check now',
+    },
     secondaryLinks: {
       wizard: 'Planning to open? 6-step validation →',
       knowledge: 'Read 80+ F&B knowledge articles →',

@@ -20,6 +20,7 @@ const DEFAULT_URLS = [
   '/ai-chat',
   '/kien-thuc',
   '/goc-nhin-chuyen-gia',
+  '/cau-chuyen-chu-quan',
   '/so-sanh',
   '/blog',
   '/about',

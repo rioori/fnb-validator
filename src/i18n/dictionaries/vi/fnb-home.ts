@@ -14,6 +14,12 @@ const fnbHome = {
       placeholder: 'Ví dụ: chi phí thuê 18tr cho café 60m² Q3 có hợp lý không?',
       button: 'Hỏi ngay',
     },
+    primaryCtaB: {
+      label: 'Kiểm tra sức khỏe quán trong 60 giây',
+      desc: 'Nhập vài con số — AI so với 1000+ quán VN, chỉ ra cost lệch, gợi ý cải thiện ngay',
+      placeholder: 'Ví dụ: doanh thu tháng 180tr, thuê 25tr, nguyên liệu 65tr — quán em thế nào?',
+      button: 'Kiểm tra ngay',
+    },
     secondaryLinks: {
       wizard: 'Chuẩn bị mở quán? Thẩm định 6 bước →',
       knowledge: 'Đọc 80+ bài kiến thức F&B →',

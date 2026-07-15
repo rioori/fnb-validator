@@ -18,6 +18,27 @@ interface HeroSectionProps {
   onNavigate: (view: HomeView) => void;
 }
 
+// A/B test — hero primary CTA copy.
+// Variant A = original ("Hỏi AI về quán của bạn"), Variant B = benchmark-forward
+// ("Kiểm tra sức khỏe quán trong 60 giây"). Persisted per-visitor in localStorage
+// so the same user sees the same variant across sessions and the analytics stays
+// clean. Track fires on: initial view (once/session), form submit, secondary click.
+type HeroVariant = 'A' | 'B';
+const HERO_VARIANT_KEY = 'hero_cta_variant_v1';
+
+function resolveHeroVariant(): HeroVariant {
+  if (typeof window === 'undefined') return 'A';
+  try {
+    const existing = localStorage.getItem(HERO_VARIANT_KEY);
+    if (existing === 'A' || existing === 'B') return existing;
+    const assigned: HeroVariant = Math.random() < 0.5 ? 'A' : 'B';
+    localStorage.setItem(HERO_VARIANT_KEY, assigned);
+    return assigned;
+  } catch {
+    return 'A';
+  }
+}
+
 export default function HeroSection({ onNavigate }: HeroSectionProps) {
   const { t, locale } = useTranslation();
   const models = useModels();
@@ -25,8 +46,11 @@ export default function HeroSection({ onNavigate }: HeroSectionProps) {
   const router = useRouter();
   const [quoteIdx, setQuoteIdx] = useState(0);
   const [aiQuestion, setAiQuestion] = useState('');
+  const [variant, setVariant] = useState<HeroVariant>('A');
   const quotes = t.fnbHome.quotes;
-  const primary = t.fnbHome.hero.primaryCta;
+  const primary = variant === 'B'
+    ? t.fnbHome.hero.primaryCtaB
+    : t.fnbHome.hero.primaryCta;
   const secondary = t.fnbHome.hero.secondaryLinks;
 
   useEffect(() => {
@@ -36,10 +60,23 @@ export default function HeroSection({ onNavigate }: HeroSectionProps) {
     return () => clearInterval(timer);
   }, [quotes.length]);
 
+  useEffect(() => {
+    const v = resolveHeroVariant();
+    setVariant(v);
+    // Fire once per session so we can compute impression → conversion rate per variant.
+    try {
+      const seenKey = `hero_variant_seen_${v}`;
+      if (!sessionStorage.getItem(seenKey)) {
+        track('hero_variant_view', { variant: v });
+        sessionStorage.setItem(seenKey, '1');
+      }
+    } catch {}
+  }, []);
+
   const handleAskAi = (e?: React.FormEvent) => {
     e?.preventDefault();
-    track('hero_ai_ask', { has_question: aiQuestion.trim().length > 0 });
-    track('north_star_action', { source: 'hero_ai' });
+    track('hero_ai_ask', { has_question: aiQuestion.trim().length > 0, variant });
+    track('north_star_action', { source: 'hero_ai', variant });
     if (aiQuestion.trim().length > 0) {
       try {
         sessionStorage.setItem('ai_chat_seed_question', aiQuestion.trim());
@@ -49,7 +86,7 @@ export default function HeroSection({ onNavigate }: HeroSectionProps) {
   };
 
   const handleSecondary = (target: 'wizard' | 'knowledge') => {
-    track('hero_secondary_click', { target });
+    track('hero_secondary_click', { target, variant });
     if (target === 'wizard') setStep(1);
     else router.push(localePath('/kien-thuc', locale as Locale));
   };
