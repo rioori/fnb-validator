@@ -100,7 +100,6 @@ export default function HomePage() {
         heading={t.fnbHome.trendsPreview.heading}
         desc={t.fnbHome.trendsPreview.desc}
         viewAllLabel={t.fnbHome.trendsPreview.viewAll}
-        viewAllHref="?view=trends"
       />
       <Footer />
     </div>

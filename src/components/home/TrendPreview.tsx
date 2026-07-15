@@ -73,14 +73,14 @@ interface Props {
   heading: string;
   desc: string;
   viewAllLabel: string;
-  /** Where "View all" links to — landing uses /fnb?view=trends, FnB home uses onNavigate */
+  /** Where "View all" links to — defaults to the canonical /thi-truong-fnb route. */
   viewAllHref?: string;
 }
 
 export default function TrendPreview({ heading, desc, viewAllLabel, viewAllHref }: Props) {
   const { locale } = useTranslation();
   const trends = locale === 'en' ? TRENDS_EN : TRENDS_VI;
-  const href = viewAllHref || localePath('/fnb', locale as Locale) + '?view=trends';
+  const href = viewAllHref || localePath('/thi-truong-fnb', locale as Locale);
 
   return (
     <div className="mb-4">

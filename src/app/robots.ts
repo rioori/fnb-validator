@@ -9,7 +9,7 @@ export default function robots(): MetadataRoute.Robots {
         // Block URL variants that duplicate primary content — they were showing up in GSC
         // as separate URLs, splitting authority and triggering "Crawled - currently not indexed".
         disallow: [
-          '/*?view=',        // /fnb?view=trends, ?view=checklist, ?view=ai-chat, etc — all duplicate /fnb
+          '/*?view=',        // legacy /fnb?view={x} — now 308-redirected to canonical routes by middleware; block just in case
           '/*?utm_source=',  // analytics UTM variants should not be indexed
           '/*?utm_medium=',
           '/*?utm_campaign=',

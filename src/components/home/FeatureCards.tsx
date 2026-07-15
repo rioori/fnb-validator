@@ -37,15 +37,24 @@ export default function FeatureCards({ onNavigate }: FeatureCardsProps) {
     if (comingSoon.includes(action)) return;
     if (action === 'start-wizard') {
       setStep(1);
-    } else if (action === 'knowledge') {
-      router.push(localePath('/kien-thuc', locale as Locale));
-    } else if (action === 'experts') {
-      router.push(localePath('/goc-nhin-chuyen-gia', locale as Locale));
-    } else if (action === 'stories') {
-      router.push(localePath('/cau-chuyen-chu-quan', locale as Locale));
-    } else {
-      onNavigate(action as HomeView);
+      return;
     }
+    // Migrated sub-views now have their own canonical routes — navigate hard, not via HomePage state.
+    const routeFor: Record<string, string> = {
+      knowledge: '/kien-thuc',
+      experts: '/goc-nhin-chuyen-gia',
+      stories: '/cau-chuyen-chu-quan',
+      trends: '/thi-truong-fnb',
+      checklist: '/checklist-mo-quan',
+      'why-fnb': '/vi-sao-fnb',
+      'ai-chat': '/ai-chat',
+    };
+    const target = routeFor[action];
+    if (target) {
+      router.push(localePath(target, locale as Locale));
+      return;
+    }
+    onNavigate(action as HomeView);
   };
 
   return (
