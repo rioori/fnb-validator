@@ -25,6 +25,8 @@ interface HeroSectionProps {
 // clean. Track fires on: initial view (once/session), form submit, secondary click.
 type HeroVariant = 'A' | 'B';
 const HERO_VARIANT_KEY = 'hero_cta_variant_v1';
+const HERO_CLIENT_ID_KEY = 'hero_ab_client_id_v1';
+const HERO_EXPERIMENT = 'hero_cta_v1';
 
 function resolveHeroVariant(): HeroVariant {
   if (typeof window === 'undefined') return 'A';
@@ -37,6 +39,35 @@ function resolveHeroVariant(): HeroVariant {
   } catch {
     return 'A';
   }
+}
+
+function resolveClientId(): string {
+  if (typeof window === 'undefined') return 'ssr';
+  try {
+    const existing = localStorage.getItem(HERO_CLIENT_ID_KEY);
+    if (existing) return existing;
+    const fresh = 'c_' + Math.random().toString(36).slice(2, 12) + Date.now().toString(36);
+    localStorage.setItem(HERO_CLIENT_ID_KEY, fresh);
+    return fresh;
+  } catch {
+    return 'anon';
+  }
+}
+
+function postAbEvent(variant: HeroVariant, event: 'view' | 'ask') {
+  try {
+    void fetch('/api/ab-track', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        experiment: HERO_EXPERIMENT,
+        variant,
+        event,
+        clientId: resolveClientId(),
+      }),
+      keepalive: true,
+    }).catch(() => {});
+  } catch {}
 }
 
 export default function HeroSection({ onNavigate }: HeroSectionProps) {
@@ -68,6 +99,7 @@ export default function HeroSection({ onNavigate }: HeroSectionProps) {
       const seenKey = `hero_variant_seen_${v}`;
       if (!sessionStorage.getItem(seenKey)) {
         track('hero_variant_view', { variant: v });
+        postAbEvent(v, 'view');
         sessionStorage.setItem(seenKey, '1');
       }
     } catch {}
@@ -77,6 +109,7 @@ export default function HeroSection({ onNavigate }: HeroSectionProps) {
     e?.preventDefault();
     track('hero_ai_ask', { has_question: aiQuestion.trim().length > 0, variant });
     track('north_star_action', { source: 'hero_ai', variant });
+    postAbEvent(variant, 'ask');
     if (aiQuestion.trim().length > 0) {
       try {
         sessionStorage.setItem('ai_chat_seed_question', aiQuestion.trim());
