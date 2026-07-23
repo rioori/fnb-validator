@@ -405,6 +405,10 @@ export interface Expert {
   faq?: ExpertFAQ[];
   seoTitle?: string;
   seoDescription?: string;
+  // AI-search citation block: 2-3 sentence self-contained answer to "Who is X?".
+  // Rendered near the top of the page + emitted in Person schema description.
+  // Optimizes for Perplexity / ChatGPT / Google AI Overviews extraction.
+  definition?: string;
 }
 
 // ===== Owner Story Types =====

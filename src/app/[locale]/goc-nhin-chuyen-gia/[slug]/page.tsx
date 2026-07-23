@@ -12,6 +12,7 @@ import PageTracker from '@/components/ui/PageTracker';
 import ShareBlock from '@/components/ui/ShareBlock';
 import InlineToolCTA from '@/components/knowledge/InlineToolCTA';
 import AIChatCTA from '@/components/knowledge/AIChatCTA';
+import ExpertFinalCTA from '@/components/experts/ExpertFinalCTA';
 import EXPERTS_VI from '@/i18n/data/vi/experts';
 import EXPERTS_EN from '@/i18n/data/en/experts';
 
@@ -105,7 +106,10 @@ function PersonJsonLd({ expert, locale }: { expert: Expert; locale: string }) {
     '@context': 'https://schema.org',
     '@type': 'Person',
     name: expert.name,
-    description: expert.shortBio,
+    // AI-search citation optimization: prefer the atomic `definition` if present,
+    // fall back to shortBio. The definition is intentionally a self-contained
+    // "Who is X?" answer that Perplexity/Claude can quote verbatim.
+    description: expert.definition || expert.shortBio,
     jobTitle: expert.descriptor,
     url: `${BASE_URL}${prefix}/goc-nhin-chuyen-gia/${expert.slug}`,
     ...(expert.photo && { image: `${BASE_URL}${expert.photo}` }),
@@ -275,6 +279,20 @@ export default async function ExpertDetailPage({ params }: PageProps) {
             </div>
           </div>
         </div>
+
+        {/* Definition block — AI-search citation anchor. Self-contained answer to
+            "Who is X?" so Perplexity / ChatGPT / Google AI Overviews can extract it
+            without pulling other people's summaries of this expert. */}
+        {expert.definition && (
+          <div className="clay-card-static bg-white border-l-[4px] border-cta p-4 mb-3">
+            <p className="text-[11px] font-bold uppercase tracking-[0.15em] text-cta font-[family-name:var(--font-heading)] mb-1">
+              {locale === 'en' ? `Who is ${expert.name}?` : `${expert.name} là ai?`}
+            </p>
+            <p className="text-[14px] text-text leading-relaxed">
+              {expert.definition}
+            </p>
+          </div>
+        )}
 
         {/* Survival Score CTA — convert curiosity-mode expert traffic into tool users */}
         <div className="mb-4 text-[12px] text-text-muted">
@@ -492,16 +510,14 @@ export default async function ExpertDetailPage({ params }: PageProps) {
           <ShareBlock {...dict.common.share} />
         </div>
 
-        {/* CTA */}
-        <div className="text-center mt-8">
-          <Link
-            href={localePath('/fnb', locale as Locale)}
-            className="clay-btn clay-btn-primary text-[14px] px-6 py-2.5 inline-flex items-center gap-2"
-          >
-            <Icon name="wizard" size={18} className="!border-0 !shadow-none !bg-transparent" />
-            {dict.experts.cta.validateIdea}
-          </Link>
-        </div>
+        {/* Final CTA — anchors the after-reading moment with context + 2 concrete next steps */}
+        <ExpertFinalCTA
+          locale={locale}
+          expertName={expert.name}
+          expertSlug={expert.slug}
+          expertDescriptor={expert.descriptor}
+          model={inferModelFromExpert(expert)}
+        />
       </article>
     </>
   );

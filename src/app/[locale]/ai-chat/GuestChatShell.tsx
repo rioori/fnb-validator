@@ -138,6 +138,16 @@ export default function GuestChatShell({ locale }: { locale: string }) {
 
   useEffect(() => {
     setQuotaUsed(getQuotaToday());
+    // Seed input from ?q= query param — used by ExpertFinalCTA and other deep links.
+    // Trim + hard-cap to avoid pathological URLs.
+    try {
+      const url = new URL(window.location.href);
+      const seed = url.searchParams.get('q');
+      if (seed) {
+        setInput(seed.slice(0, 500));
+        track('ai_chat_seeded', { source: url.searchParams.get('utm_source') || 'unknown', campaign: url.searchParams.get('utm_campaign') || '' });
+      }
+    } catch {}
   }, []);
 
   useEffect(() => {
