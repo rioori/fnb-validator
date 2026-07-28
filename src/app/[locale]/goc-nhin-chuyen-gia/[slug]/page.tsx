@@ -13,6 +13,7 @@ import ShareBlock from '@/components/ui/ShareBlock';
 import InlineToolCTA from '@/components/knowledge/InlineToolCTA';
 import AIChatCTA from '@/components/knowledge/AIChatCTA';
 import ExpertFinalCTA from '@/components/experts/ExpertFinalCTA';
+import ScrollDepthTracker from '@/components/experts/ScrollDepthTracker';
 import EXPERTS_VI from '@/i18n/data/vi/experts';
 import EXPERTS_EN from '@/i18n/data/en/experts';
 
@@ -249,6 +250,7 @@ export default async function ExpertDetailPage({ params }: PageProps) {
   return (
     <>
       <PageTracker event="expert_view" data={{ slug: expert.slug, category: expert.category }} />
+      <ScrollDepthTracker page="expert_bio" slug={expert.slug} />
       <PersonJsonLd expert={expert} locale={locale} />
       <BreadcrumbJsonLd expert={expert} locale={locale} dict={dict} />
       <FAQPageJsonLd expert={expert} locale={locale} />

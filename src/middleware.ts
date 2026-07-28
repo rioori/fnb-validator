@@ -14,6 +14,39 @@ const VIEW_REDIRECT_MAP: Record<string, string> = {
   experts: '/goc-nhin-chuyen-gia',
 };
 
+// External backlinks and typed URLs commonly land on English slugs without the
+// /en/ prefix, or on short/legacy paths. Each entry redirects a 404-prone path
+// to its canonical VI page (which the middleware will then handle normally).
+// Confirmed 404 sources: GSC Coverage report 2026-07-28 (32 not-found pages).
+const LEGACY_REDIRECT_MAP: Record<string, string> = {
+  // English slug without /en/ prefix
+  '/experts': '/goc-nhin-chuyen-gia',
+  '/expert': '/goc-nhin-chuyen-gia',
+  '/knowledge': '/kien-thuc',
+  '/comparison': '/so-sanh',
+  '/fnb-market': '/thi-truong-fnb',
+  '/opening-checklist': '/checklist-mo-quan',
+  '/why-fnb': '/vi-sao-fnb',
+  '/owner-stories': '/cau-chuyen-chu-quan',
+  '/partners': '/doi-tac',
+  '/privacy': '/chinh-sach-bao-mat',
+  '/terms': '/dieu-khoan',
+  '/topics': '/chu-de',
+  '/opening-costs': '/chi-phi-mo',
+  '/features': '/tinh-nang',
+  // Short / legacy Vietnamese paths
+  '/tinh-nang': '/tinh-nang/phan-tich-tai-chinh',
+  '/thi-truong': '/thi-truong-fnb',
+  '/checklist': '/checklist-mo-quan',
+  '/vi-sao': '/vi-sao-fnb',
+  '/goc-nhin': '/goc-nhin-chuyen-gia',
+  '/chuyen-gia': '/goc-nhin-chuyen-gia',
+  '/mo-quan-cafe': '/chi-phi-mo/coffee/tai/ho-chi-minh',
+  '/mo-quan-tra-sua': '/chi-phi-mo/bubbletea/tai/ho-chi-minh',
+  '/mo-nha-hang': '/chi-phi-mo/restaurant/tai/ho-chi-minh',
+  '/blogs': '/blog',
+};
+
 export function middleware(request: NextRequest) {
   const { pathname, searchParams } = request.nextUrl;
 
@@ -38,6 +71,14 @@ export function middleware(request: NextRequest) {
     const localePrefix = pathname.startsWith('/en/') ? 'en' : defaultLocale;
     const target = localePath(VIEW_REDIRECT_MAP[viewParam], localePrefix as typeof defaultLocale);
     return NextResponse.redirect(new URL(target, request.url), 308);
+  }
+
+  // Legacy path redirect: common 404 patterns identified from GSC Coverage report.
+  // Matches exact path only (no query, no trailing subpath) — safe because these
+  // are all top-level slugs the codebase never generates. 308 preserves method +
+  // signals permanence to Google.
+  if (LEGACY_REDIRECT_MAP[pathname]) {
+    return NextResponse.redirect(new URL(LEGACY_REDIRECT_MAP[pathname], request.url), 308);
   }
 
   // Check if pathname starts with a supported locale

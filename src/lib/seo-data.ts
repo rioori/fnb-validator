@@ -115,15 +115,49 @@ const CITY_INSIGHTS_EN: Record<string, Record<string, string>> = {
  * Falls back to a density-based generic insight if the specific combo isn't authored yet.
  * Purpose: give each of 104 city×model pages unique content so Google doesn't classify as duplicate.
  */
+// City-specific competitive context. Named landmarks / competitors / districts
+// per city so the fallback paragraph has unique real-world content instead of
+// interchangeable template text. Keyed by city slug; used by all 8 model pages.
+const CITY_CONTEXT_VI: Record<string, { districts: string; competitors: string; opportunity: string }> = {
+  'hai-phong': { districts: 'Lê Chân, Ngô Quyền, Hải An', competitors: 'Highlands, Cộng Cà Phê, ToTo Coffee', opportunity: 'kinh tế cảng biển tăng trưởng, dân trí lao động 20-40 tuổi tăng chi tiêu F&B 12%/năm' },
+  'can-tho': { districts: 'Ninh Kiều, Bình Thuỷ, Cái Răng', competitors: 'Highlands, Trung Nguyên, Cà Phê Sỏi Đá', opportunity: 'trung tâm ĐBSCL, sinh viên ĐH Cần Thơ + Y Dược Cần Thơ tạo cụm khách chính' },
+  'nha-trang': { districts: 'Lộc Thọ, Xương Huân, Vĩnh Nguyên', competitors: 'Highlands, King Coffee, Cà Phê Muối Sài Gòn', opportunity: 'khách du lịch 5-6 triệu lượt/năm, biên lợi nhuận cao mùa hè nhưng cần quản lý low-season' },
+  'hue': { districts: 'Phú Hội, Vĩnh Ninh, An Cựu', competitors: 'Highlands, Cà Phê Muối, Ca Phê Kim Long', opportunity: 'du lịch di sản + sinh viên ĐH Huế, khách quen ưa không gian truyền thống + đặc sản miền Trung' },
+  'bien-hoa': { districts: 'Tân Hiệp, Tân Phong, Long Bình', competitors: 'Highlands, Milano Coffee, chuỗi cà phê công nhân', opportunity: 'công nhân khu công nghiệp Amata + Biên Hoà là cụm khách ổn định, giá bình dân' },
+  'vung-tau': { districts: 'Bãi Sau, Bãi Trước, Thắng Tam', competitors: 'Highlands, Coffee Beans, cà phê bờ biển địa phương', opportunity: 'du lịch cuối tuần từ TP.HCM ổn định quanh năm, khách business trip HCMC-Vũng Tàu' },
+  'da-lat': { districts: 'Phường 1, Phường 3, Phường 8', competitors: 'La Viet Coffee, Là Cà, chuỗi cà phê đặc sản Đà Lạt', opportunity: 'du lịch nghỉ dưỡng + đặc sản cà phê Đà Lạt, khách săn workspace view núi + concept độc đáo' },
+  'binh-duong': { districts: 'Thủ Dầu Một, Dĩ An, Thuận An', competitors: 'Highlands, King Coffee, chuỗi cà phê văn phòng', opportunity: 'văn phòng khu công nghiệp Sóng Thần + VSIP, công nhân trung tính, khách trẻ chi tiêu 30-80K/lần' },
+  'bac-ninh': { districts: 'Kinh Bắc, Đại Phúc, Thị Cầu', competitors: 'Highlands, Trung Nguyên, cà phê công nhân Samsung', opportunity: 'công nhân Samsung + Foxconn + khu công nghiệp Yên Phong tạo dòng khách công nhân ổn định' },
+  'ha-long': { districts: 'Bãi Cháy, Hồng Gai, Hùng Thắng', competitors: 'Highlands, Cà Phê Vịnh, chuỗi cà phê ven biển', opportunity: 'du lịch di sản Vịnh Hạ Long, khách nội địa cuối tuần + Hàn/Trung Quốc, seasonal T3-T10 mạnh' },
+};
+
+const CITY_CONTEXT_EN: Record<string, { districts: string; competitors: string; opportunity: string }> = {
+  'hai-phong': { districts: 'Le Chan, Ngo Quyen, Hai An', competitors: 'Highlands, Cong Ca Phe, ToTo Coffee', opportunity: 'growing port economy, working-age 20-40 population spending 12%/yr more on F&B' },
+  'can-tho': { districts: 'Ninh Kieu, Binh Thuy, Cai Rang', competitors: 'Highlands, Trung Nguyen, Ca Phe Soi Da', opportunity: 'Mekong Delta hub, Can Tho University + medical students form the core customer cluster' },
+  'nha-trang': { districts: 'Loc Tho, Xuong Huan, Vinh Nguyen', competitors: 'Highlands, King Coffee, Ca Phe Muoi Sai Gon', opportunity: 'tourism 5-6M visitors/year, high summer margins but need to manage low season' },
+  'hue': { districts: 'Phu Hoi, Vinh Ninh, An Cuu', competitors: 'Highlands, Ca Phe Muoi, Ca Phe Kim Long', opportunity: 'heritage tourism + Hue University, customers prefer traditional space + central-VN specialties' },
+  'bien-hoa': { districts: 'Tan Hiep, Tan Phong, Long Binh', competitors: 'Highlands, Milano Coffee, worker-focused cafe chains', opportunity: 'Amata + Bien Hoa industrial workers form a stable customer cluster, affordable price point' },
+  'vung-tau': { districts: 'Bai Sau, Bai Truoc, Thang Tam', competitors: 'Highlands, Coffee Beans, local beachfront cafes', opportunity: 'stable HCMC weekend tourism year-round + business trips from HCMC' },
+  'da-lat': { districts: 'Ward 1, Ward 3, Ward 8', competitors: 'La Viet Coffee, La Ca, Da Lat specialty coffee chains', opportunity: 'resort tourism + Da Lat coffee specialty, customers hunt for mountain-view workspaces + unique concepts' },
+  'binh-duong': { districts: 'Thu Dau Mot, Di An, Thuan An', competitors: 'Highlands, King Coffee, office-focused cafe chains', opportunity: 'Song Than + VSIP industrial-park offices, mid-price customers spending 30-80K VND/visit' },
+  'bac-ninh': { districts: 'Kinh Bac, Dai Phuc, Thi Cau', competitors: 'Highlands, Trung Nguyen, Samsung worker cafes', opportunity: 'Samsung + Foxconn + Yen Phong industrial-park workers form a stable worker-customer flow' },
+  'ha-long': { districts: 'Bai Chay, Hong Gai, Hung Thang', competitors: 'Highlands, Ca Phe Vinh, waterfront cafe chains', opportunity: 'Ha Long Bay heritage tourism, domestic weekend + Korean/Chinese visitors, strong seasonality Mar-Oct' },
+};
+
 export function getCityInsight(citySlug: string, modelKey: ModelKey, locale: 'vi' | 'en'): string {
   const table = locale === 'en' ? CITY_INSIGHTS_EN : CITY_INSIGHTS_VI;
   const specific = table[citySlug]?.[modelKey];
   if (specific) return specific;
 
-  // Fallback: build from city density + model name
+  // Fallback: build from city density + model name + city-specific context.
+  // The context table above supplies unique real-world detail (districts, competitors,
+  // opportunity) per city, so each city×model page has different narrative content
+  // even when the specific combo isn't authored — avoids duplicate-content penalty.
   const city = getCityBySlug(citySlug);
   if (!city) return '';
   const modelName = MODEL_SEO_NAMES[modelKey]?.[locale] ?? modelKey;
+  const ctxTable = locale === 'en' ? CITY_CONTEXT_EN : CITY_CONTEXT_VI;
+  const ctx = ctxTable[citySlug];
 
   const densityLabelVi = {
     'very-high': 'rất cao',
@@ -140,7 +174,11 @@ export function getCityInsight(citySlug: string, modelKey: ModelKey, locale: 'vi
   }[city.fnbDensity];
 
   if (locale === 'en') {
-    return `Opening a ${modelName} in ${city.nameEn} — population ${city.population}, F&B density is ${densityLabelEn}, average rent range ${city.avgRentRange}. Cost estimates below adjusted for local market conditions (${Math.round(city.rentMultiplier * 100)}% of HCMC baseline).`;
+    const base = `Opening a ${modelName} in ${city.nameEn} — population ${city.population}, F&B density is ${densityLabelEn}, average rent range ${city.avgRentRange}. Cost estimates below adjusted for local market conditions (${Math.round(city.rentMultiplier * 100)}% of HCMC baseline).`;
+    if (!ctx) return base;
+    return `${base} Popular business districts in ${city.nameEn} include ${ctx.districts}. Main competitors: ${ctx.competitors}. Local opportunity: ${ctx.opportunity}.`;
   }
-  return `Mở ${modelName} tại ${city.nameVi} — dân số ${city.population}, mật độ F&B ${densityLabelVi}, tiền thuê trung bình ${city.avgRentRange}. Ước tính chi phí bên dưới đã điều chỉnh theo thị trường địa phương (${Math.round(city.rentMultiplier * 100)}% so với TP.HCM).`;
+  const base = `Mở ${modelName} tại ${city.nameVi} — dân số ${city.population}, mật độ F&B ${densityLabelVi}, tiền thuê trung bình ${city.avgRentRange}. Ước tính chi phí bên dưới đã điều chỉnh theo thị trường địa phương (${Math.round(city.rentMultiplier * 100)}% so với TP.HCM).`;
+  if (!ctx) return base;
+  return `${base} Các khu vực kinh doanh phổ biến tại ${city.nameVi}: ${ctx.districts}. Đối thủ chính: ${ctx.competitors}. Cơ hội thị trường: ${ctx.opportunity}.`;
 }
