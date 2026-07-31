@@ -215,6 +215,14 @@ const dashboard = {
     signupLink: 'Sign up',
     scenarioLimitWarn: "You've saved {count}/10 scenarios. Delete some to add more.",
     scenarioLimitMax: 'Maximum 10 scenarios reached. Delete old ones to save more.',
+    guestSaveNow: 'Save results (free, no signup needed)',
+    guestSaveHint: 'Saves to your browser — still here when you come back.',
+    guestSavedTitle: 'Scenario saved!',
+    guestSavedHint: "Saved locally in this browser. Sign up to sync, share, and access from other devices.",
+    guestSavedSyncCta: 'Sync + share →',
+    guestLimitReached: "You've saved {count}/{max} local scenarios. Sign up to save unlimited.",
+    guestSyncingNote: 'Syncing {count} saved scenarios...',
+    guestSyncSuccess: 'Synced {count} scenarios to your account!',
   },
 
   // ─── ComparisonBar ───

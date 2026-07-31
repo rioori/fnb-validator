@@ -215,6 +215,14 @@ const dashboard = {
     signupLink: 'Đăng ký mới',
     scenarioLimitWarn: 'Bạn đã lưu {count}/10 kịch bản. Hãy xóa bớt để thêm mới.',
     scenarioLimitMax: 'Đã đạt tối đa 10 kịch bản. Xóa bớt kịch bản cũ để lưu thêm.',
+    guestSaveNow: 'Lưu kết quả (miễn phí, không cần đăng ký)',
+    guestSaveHint: 'Lưu ngay vào trình duyệt — mở lại sau vẫn còn.',
+    guestSavedTitle: 'Đã lưu kịch bản!',
+    guestSavedHint: 'Lưu tạm trong trình duyệt này. Đăng ký để đồng bộ, chia sẻ, và mở trên thiết bị khác.',
+    guestSavedSyncCta: 'Đồng bộ + chia sẻ được →',
+    guestLimitReached: 'Bạn đã lưu {count}/{max} kịch bản tạm. Đăng ký để lưu không giới hạn.',
+    guestSyncingNote: 'Đang đồng bộ {count} kịch bản đã lưu tạm...',
+    guestSyncSuccess: 'Đã đồng bộ {count} kịch bản vào tài khoản!',
   },
 
   // ─── ComparisonBar ───
