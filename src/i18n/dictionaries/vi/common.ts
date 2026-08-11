@@ -124,5 +124,12 @@ const common = {
     followUs: 'Theo dõi Validator.vn',
     shareText: 'Mình vừa thử công cụ thẩm định F&B miễn phí — khá hay! Nhập số liệu vào là biết ngay quán có lãi không, bao lâu hòa vốn. Chia sẻ cho ai đang tính mở quán hoặc đang kinh doanh F&B nhé 👉',
   },
+  stickyCta: {
+    heading: 'Quán của bạn có sống nổi không?',
+    subheading: 'Nhập số liệu → biết ngay có lãi hay không, miễn phí.',
+    button: 'Kiểm tra ngay',
+    dismiss: 'Đóng',
+    aria: 'Kiểm tra khả năng sống sót của quán F&B',
+  },
 };
 export default common;

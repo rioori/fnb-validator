@@ -124,5 +124,12 @@ const common = {
     followUs: 'Follow Validator.vn',
     shareText: "I just tried this free F&B validation tool — pretty useful! Enter your numbers and instantly see profitability, break-even, and more. Share with anyone planning to open or running an F&B business 👉",
   },
+  stickyCta: {
+    heading: 'Will your restaurant actually survive?',
+    subheading: 'Plug in your numbers → see if it turns a profit. Free.',
+    button: 'Check now',
+    dismiss: 'Close',
+    aria: 'Check F&B business survival',
+  },
 };
 export default common;

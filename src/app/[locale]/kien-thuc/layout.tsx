@@ -3,6 +3,7 @@ import Image from 'next/image';
 import Footer from '@/components/home/Footer';
 import KBLayoutShell from '@/components/knowledge/KBLayoutShell';
 import KBSidebar from '@/components/knowledge/KBSidebar';
+import StickyArticleCTA from '@/components/article/StickyArticleCTA';
 import { getDictionary } from '@/i18n/get-dictionary';
 import type { Locale } from '@/i18n/config';
 import { localePath } from '@/i18n/link';
@@ -76,6 +77,8 @@ export default async function KienThucLayout({ children, params }: LayoutProps) 
       <div className="mt-8">
         <Footer />
       </div>
+
+      <StickyArticleCTA />
     </div>
   );
 }

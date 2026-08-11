@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import Footer from '@/components/home/Footer';
+import StickyArticleCTA from '@/components/article/StickyArticleCTA';
 import { getDictionary } from '@/i18n/get-dictionary';
 import type { Locale } from '@/i18n/config';
 import { localePath } from '@/i18n/link';
@@ -44,6 +45,8 @@ export default async function BlogLayout({ children, params }: LayoutProps) {
       <div className="mt-8">
         <Footer />
       </div>
+
+      <StickyArticleCTA />
     </div>
   );
 }
