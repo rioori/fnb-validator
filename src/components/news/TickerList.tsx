@@ -57,23 +57,19 @@ export default function TickerList({ items, locale, initialShow, expandable = fa
   // long session, freshness re-evaluates on next navigation.
   const [now] = useState(() => Date.now());
 
-  // Grid layout policy: keep even count so the 2-col grid never orphans a lonely
-  // last card. If initialShow is set but items.length - initialShow is 1 (only
-  // one hidden), just show them all — a "show 1 more" button is more friction
-  // than value.
+  // Grid layout policy: 1 col mobile, 2 col md, 3 col lg. To avoid orphan
+  // cards, snap showCount to multiples of 6 (LCM of 2 and 3) when hiding some
+  // items. If <=2 items would be hidden, just show them all — a tiny "show 2
+  // more" button is more friction than value.
   let showCount = items.length;
-  if (initialShow && items.length > initialShow) {
+  if (initialShow && items.length > initialShow && !expanded) {
     const wouldHide = items.length - initialShow;
-    if (expanded || wouldHide <= 1) {
+    if (wouldHide <= 2) {
       showCount = items.length;
     } else {
-      // Round initialShow down to nearest even to avoid odd row at the bottom
-      showCount = initialShow - (initialShow % 2);
+      // Snap to multiple of 6 so 3-col and 2-col grids stay balanced
+      showCount = Math.max(6, Math.floor(initialShow / 6) * 6);
     }
-  }
-  // Force even count regardless (drop the last odd item if grid would leave it hanging)
-  if (!expanded && items.length > 2 && showCount % 2 === 1 && showCount < items.length) {
-    showCount -= 1;
   }
   const remaining = items.length - showCount;
 
@@ -83,7 +79,7 @@ export default function TickerList({ items, locale, initialShow, expandable = fa
 
   return (
     <div>
-      <div className="grid gap-3 md:grid-cols-2">
+      <div className="grid gap-3 md:grid-cols-2 lg:grid-cols-3">
         {items.slice(0, showCount).map((it, idx) => {
           const tags = (it.matched_keywords || []).slice(0, 2);
           const bg = CARD_BG_ROTATION[idx % CARD_BG_ROTATION.length];

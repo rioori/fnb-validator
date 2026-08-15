@@ -34,7 +34,7 @@ export default function NewsTickerHome({ locale }: Props) {
   if (items === null || items.length === 0) return null;
 
   return (
-    <section className="max-w-3xl mx-auto">
+    <section>
       <div className="clay-card-static bg-white p-4 md:p-5">
         {/* Slim rail header inside the container */}
         <div className="flex items-baseline justify-between mb-3">
