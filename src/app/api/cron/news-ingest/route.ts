@@ -74,7 +74,8 @@ export async function GET(req: NextRequest) {
           continue;
         }
         const { score, matched } = scoreText(combined);
-        if (score < 25) {
+        if (score < 15) {
+          // Ingest floor low; strict auto-publish gate handles quality
           skipped++;
           continue;
         }

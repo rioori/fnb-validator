@@ -10,7 +10,7 @@ export const runtime = 'nodejs';
 export const dynamic = 'force-dynamic';
 export const maxDuration = 300;
 
-const AUTO_SCORE_THRESHOLD = Number(process.env.NEWS_AUTO_SCORE_THRESHOLD || 40);
+const AUTO_SCORE_THRESHOLD = Number(process.env.NEWS_AUTO_SCORE_THRESHOLD || 30);
 const MAX_PER_DAY = Number(process.env.NEWS_MAX_PER_DAY || 3);
 const MAX_PER_WEEK = Number(process.env.NEWS_MAX_PER_WEEK || 15);
 const MIN_GAP_MINUTES = Number(process.env.NEWS_MIN_GAP_MINUTES || 240);
