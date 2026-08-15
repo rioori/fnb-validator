@@ -284,8 +284,8 @@ const COST_ARTICLES: KBTopic[] = [
     icon: 'phone',
     title: 'Delivery App Costs: Grab, Shopee & Self-Delivery',
     subtitle: 'How 20-30% commission fees eat into your profit margins',
-    seoTitle: 'GrabFood vs ShopeeFood Commission 2026: 25-30% Real Cost Breakdown',
-    seoDescription: 'GrabFood charges 25-30%, ShopeeFood 22-27%. Add packaging 3-8K/order. Real margin impact + when self-delivery beats apps. Vietnam F&B 2026 guide.',
+    seoTitle: 'GrabFood vs ShopeeFood 2026: Which is Cheaper? Real Commission Compared',
+    seoDescription: 'GrabFood 25-30%, ShopeeFood 22-27%, GoFood 20-25% — ShopeeFood is 3-5% cheaper than Grab. Add 3-8K packaging/order, real margin only 5-12%. Full breakdown + when self-delivery wins.',
     color: 'primary-light',
     category: 'cost',
     highlights: [
