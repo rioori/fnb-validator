@@ -21,6 +21,21 @@ interface Props {
   expandable?: boolean;
 }
 
+// Pastel palette rotation — uses the same 5 pastel tokens as feature cards
+// (cream/mint/blue/blush/gold) so the ticker feels part of the homepage grid,
+// not a bolted-on utility strip.
+const CARD_BG_ROTATION = [
+  'bg-pastel-cream',
+  'bg-pastel-mint',
+  'bg-pastel-blue',
+  'bg-pastel-blush',
+  'bg-pastel-gold',
+] as const;
+
+// Anything published within the last 3 hours gets a pulsing "NEW" chip so the
+// "site alive" signal survives casual scanning.
+const NEW_THRESHOLD_MS = 3 * 60 * 60 * 1000;
+
 function relativeTime(iso: string, locale: 'vi' | 'en'): string {
   const then = new Date(iso).getTime();
   const now = Date.now();
@@ -38,6 +53,9 @@ export default function TickerList({ items, locale, initialShow, expandable = fa
   const isEn = locale === 'en';
   const tagLabels = isEn ? TAG_LABELS_EN : TAG_LABELS_VI;
   const [expanded, setExpanded] = useState(false);
+  // Fresh-badge cutoff captured once at mount; ok if a tick stale during a
+  // long session, freshness re-evaluates on next navigation.
+  const [now] = useState(() => Date.now());
   const showCount = expanded || !initialShow ? items.length : Math.min(initialShow, items.length);
   const remaining = items.length - showCount;
 
@@ -47,55 +65,69 @@ export default function TickerList({ items, locale, initialShow, expandable = fa
 
   return (
     <div>
-      <ol className="divide-y divide-slate-200 border-y-2 border-slate-900 bg-white">
-        {items.slice(0, showCount).map((it) => {
-          const tags = (it.matched_keywords || []).slice(0, 3);
+      <div className="grid gap-3">
+        {items.slice(0, showCount).map((it, idx) => {
+          const tags = (it.matched_keywords || []).slice(0, 2);
+          const bg = CARD_BG_ROTATION[idx % CARD_BG_ROTATION.length];
+          const isFresh = now - new Date(it.published_at).getTime() < NEW_THRESHOLD_MS;
+
           return (
-            <li key={it.id} className="p-4 hover:bg-amber-50/40 transition-colors">
-              <div className="flex flex-wrap items-center gap-2 mb-1.5 text-[11px]">
-                <span className="bg-slate-900 text-white px-2 py-0.5 rounded font-bold uppercase tracking-wider">
+            <a
+              key={it.id}
+              href={it.source_url}
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={() => onClick(it)}
+              className={`clay-card-static ${bg} p-4 block group hover:shadow-[4px_4px_0_var(--color-text)] transition-shadow`}
+            >
+              {/* Meta row: source (dark) · tags (outlined) · fresh badge · time */}
+              <div className="flex flex-wrap items-center gap-1.5 mb-2 text-[10px] leading-none">
+                <span className="bg-slate-900 text-white px-1.5 py-1 rounded font-bold uppercase tracking-wider">
                   {it.source_name}
                 </span>
                 {tags.map((t) => (
-                  <span key={t} className="bg-emerald-100 text-emerald-800 px-2 py-0.5 rounded font-semibold">
+                  <span
+                    key={t}
+                    className="bg-white/60 text-slate-700 border border-slate-300 px-1.5 py-1 rounded font-semibold"
+                  >
                     {tagLabels[t] || t}
                   </span>
                 ))}
-                <span className="text-slate-500 ml-auto">{relativeTime(it.published_at, locale)}</span>
+                {isFresh && (
+                  <span className="relative inline-flex items-center gap-1 bg-emerald-500 text-white px-1.5 py-1 rounded font-bold uppercase tracking-wider">
+                    <span className="w-1.5 h-1.5 bg-white rounded-full animate-ping absolute left-1.5" />
+                    <span className="w-1.5 h-1.5 bg-white rounded-full" />
+                    <span className="ml-2">{isEn ? 'NEW' : 'MỚI'}</span>
+                  </span>
+                )}
+                <span className="text-slate-600 ml-auto text-[11px] font-medium">
+                  {relativeTime(it.published_at, locale)}
+                </span>
               </div>
-              <a
-                href={it.source_url}
-                target="_blank"
-                rel="noopener noreferrer"
-                onClick={() => onClick(it)}
-                className="block text-[15px] font-semibold text-slate-900 leading-snug hover:text-emerald-700 transition-colors"
-              >
+
+              {/* Title — leading link */}
+              <div className="text-[14px] font-bold text-slate-900 leading-snug group-hover:text-emerald-800 transition-colors">
                 {it.title}
-              </a>
+              </div>
+
+              {/* Excerpt — one line only, kept short */}
               {it.summary && (
-                <p className="mt-1 text-[13px] text-slate-600 leading-relaxed line-clamp-2">{it.summary}</p>
+                <p className="mt-1 text-[12px] text-slate-700 leading-snug line-clamp-1">
+                  {it.summary}
+                </p>
               )}
-              <a
-                href={it.source_url}
-                target="_blank"
-                rel="noopener noreferrer"
-                onClick={() => onClick(it)}
-                className="inline-block mt-1.5 text-[12px] text-emerald-700 font-semibold hover:underline"
-              >
-                {isEn ? 'Read at source →' : 'Đọc bài gốc →'}
-              </a>
-            </li>
+            </a>
           );
         })}
-      </ol>
+      </div>
 
       {expandable && remaining > 0 && !expanded && (
         <div className="text-center mt-4">
           <button
             onClick={() => setExpanded(true)}
-            className="clay-btn clay-btn-primary text-[13px] px-5 py-2 font-semibold"
+            className="clay-btn text-[12px] px-4 py-2 font-semibold bg-white"
           >
-            {isEn ? `Show ${remaining} more news` : `Xem ${remaining} tin nữa`}
+            {isEn ? `Show ${remaining} more →` : `Xem ${remaining} tin nữa →`}
           </button>
         </div>
       )}

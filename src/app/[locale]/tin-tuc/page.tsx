@@ -44,7 +44,7 @@ export default async function NewsTickerPage({ params }: PageProps) {
 
   return (
     <div className="max-w-3xl mx-auto py-6">
-      <div className="clay-card-static bg-pastel-yellow p-6 mb-4 text-center">
+      <div className="clay-card-static bg-pastel-gold p-6 mb-4 text-center">
         <div className="text-[11px] font-bold uppercase tracking-widest text-emerald-700 mb-1">
           {isEn ? 'Curated daily · Aug 2026' : 'Cập nhật mỗi ngày · Tháng 8/2026'}
         </div>

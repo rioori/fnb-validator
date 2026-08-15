@@ -13,7 +13,7 @@ export const runtime = 'nodejs';
 export const dynamic = 'force-dynamic';
 export const maxDuration = 60;
 
-const AUTO_SCORE_THRESHOLD = Number(process.env.NEWS_AUTO_SCORE_THRESHOLD || 25);
+const AUTO_SCORE_THRESHOLD = Number(process.env.NEWS_AUTO_SCORE_THRESHOLD || 15);
 const MAX_PER_DAY = Number(process.env.NEWS_MAX_PER_DAY || 10);
 const MAX_PER_WEEK = Number(process.env.NEWS_MAX_PER_WEEK || 50);
 
@@ -127,6 +127,13 @@ export async function GET(req: NextRequest) {
     // via candidate id (not used for landing page, only for React key + admin).
     const slug = `ticker-${c.id}`;
 
+    // Clean excerpt: strip common wire-service prefixes, cap at 140 chars
+    const cleanExcerpt = c.excerpt
+      .replace(/^(TPO|TT|TTO|VNA|Vietnamplus|VOV|VOH|Zing|VnExpress|Znews|VOX)\s*[-–—:]\s*/i, '')
+      .replace(/\s+/g, ' ')
+      .trim()
+      .slice(0, 140);
+
     // Insert single VI row (no bilingual duplication needed for ticker; users
     // click through to the source in their preferred language).
     const { error: insErr } = await supabaseAdmin.from('news_published').insert({
@@ -134,7 +141,7 @@ export async function GET(req: NextRequest) {
       slug,
       locale: 'vi',
       title: c.title,
-      summary: c.excerpt.slice(0, 300),
+      summary: cleanExcerpt,
       operator_angle: null,
       wizard_preset_id: null,
       source_name: sourceName,

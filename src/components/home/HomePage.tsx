@@ -90,8 +90,8 @@ export default function HomePage() {
   return (
     <div className="space-y-8 max-md:space-y-6">
       <HeroSection onNavigate={setView} />
-      <FeatureCards onNavigate={setView} />
       <NewsTickerHome locale={locale as Locale} />
+      <FeatureCards onNavigate={setView} />
       <OwnerStoriesPreview />
       <ExpertPreview
         heading={t.fnbHome.expertsPreview.heading}
