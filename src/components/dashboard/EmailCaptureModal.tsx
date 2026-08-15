@@ -1,7 +1,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import { track } from '@vercel/analytics';
+import { track } from '@/lib/analytics';
 import Icon from '@/components/ui/Icon';
 import { useTranslation } from '@/i18n/LocaleProvider';
 

@@ -1,7 +1,7 @@
 'use client';
 
 import { useEffect, useRef } from 'react';
-import { track } from '@vercel/analytics';
+import { track } from '@/lib/analytics';
 
 // Fires `scroll_depth` events at 25/50/75/100% of the article, one per session
 // per page, so we can distinguish "landed and bounced" from "read to the end

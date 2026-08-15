@@ -1,6 +1,6 @@
 'use client';
 
-import { track } from '@vercel/analytics';
+import { track } from '@/lib/analytics';
 import { SocialIcon } from '@/components/ui/Icon';
 
 const SITE_URL = 'https://www.validator.vn';

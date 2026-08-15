@@ -2,7 +2,7 @@
 
 import { useRouter } from 'next/navigation';
 import { motion } from 'framer-motion';
-import { track } from '@vercel/analytics';
+import { track } from '@/lib/analytics';
 import Icon from '@/components/ui/Icon';
 import { useTranslation } from '@/i18n/LocaleProvider';
 import { useWizardStore } from '@/hooks/useWizardStore';

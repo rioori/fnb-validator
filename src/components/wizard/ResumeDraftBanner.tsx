@@ -1,7 +1,7 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import { track } from '@vercel/analytics';
+import { track } from '@/lib/analytics';
 import { useWizardStore, clearDraft } from '@/hooks/useWizardStore';
 import { useTranslation } from '@/i18n/LocaleProvider';
 import { MODELS } from '@/lib/constants';

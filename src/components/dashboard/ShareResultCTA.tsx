@@ -1,7 +1,7 @@
 'use client';
 
 import { useRef, useState } from 'react';
-import { track } from '@vercel/analytics';
+import { track } from '@/lib/analytics';
 import { useTranslation } from '@/i18n/LocaleProvider';
 import Icon from '@/components/ui/Icon';
 import ResultCard, { type ResultCardData } from '@/components/dashboard/ResultCard';

@@ -1,6 +1,6 @@
 'use client';
 
-import { track } from '@vercel/analytics';
+import { track } from '@/lib/analytics';
 import { useWizardStore } from '@/hooks/useWizardStore';
 import { MODELS } from '@/lib/constants';
 import { useModels } from '@/hooks/useModels';

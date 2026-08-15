@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
-import { track } from '@vercel/analytics';
+import { track } from '@/lib/analytics';
 import { useAuth } from '@/hooks/useAuth';
 import { useTranslation } from '@/i18n/LocaleProvider';
 import { supabase } from '@/lib/supabase';

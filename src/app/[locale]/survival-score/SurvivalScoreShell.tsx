@@ -2,7 +2,7 @@
 
 import { useMemo, useState } from 'react';
 import Link from 'next/link';
-import { track } from '@vercel/analytics';
+import { track } from '@/lib/analytics';
 import Icon from '@/components/ui/Icon';
 import VNDInput from '@/components/ui/VNDInput';
 import { calculateSurvivalScore, type SurvivalScoreInput } from '@/lib/survivalScore';

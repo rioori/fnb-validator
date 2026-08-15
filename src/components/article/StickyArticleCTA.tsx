@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from 'react';
 import Link from 'next/link';
-import { track } from '@vercel/analytics';
+import { track } from '@/lib/analytics';
 import { useTranslation } from '@/i18n/LocaleProvider';
 import { localePath } from '@/i18n/link';
 

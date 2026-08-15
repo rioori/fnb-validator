@@ -1,7 +1,7 @@
 'use client';
 
 import { useMemo, useEffect, useRef, useState } from 'react';
-import { track } from '@vercel/analytics';
+import { track } from '@/lib/analytics';
 import { useWizardStore } from '@/hooks/useWizardStore';
 import { useAuth } from '@/hooks/useAuth';
 import { runCalculations } from '@/lib/calculations';

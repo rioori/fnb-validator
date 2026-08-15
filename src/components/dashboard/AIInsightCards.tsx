@@ -2,7 +2,7 @@
 
 import { useEffect, useRef, useState } from 'react';
 import { motion } from 'framer-motion';
-import { track } from '@vercel/analytics';
+import { track } from '@/lib/analytics';
 import { useTranslation } from '@/i18n/LocaleProvider';
 
 interface Insight {

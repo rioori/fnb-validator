@@ -1,7 +1,7 @@
 'use client';
 
 import { useState, useMemo } from 'react';
-import { track } from '@vercel/analytics';
+import { track } from '@/lib/analytics';
 import { useWizardStore } from '@/hooks/useWizardStore';
 import SectionCard from '@/components/ui/SectionCard';
 import VNDInput from '@/components/ui/VNDInput';

@@ -1,7 +1,7 @@
 'use client';
 
 import { useRef, useState, useCallback, useEffect } from 'react';
-import { track } from '@vercel/analytics';
+import { track } from '@/lib/analytics';
 import { useTranslation } from '@/i18n/LocaleProvider';
 import { SocialIcon } from '@/components/ui/Icon';
 import Icon from '@/components/ui/Icon';

@@ -1,7 +1,7 @@
 'use client';
 
 import { useState, useEffect, useRef } from 'react';
-import { track } from '@vercel/analytics';
+import { track } from '@/lib/analytics';
 import Icon from '@/components/ui/Icon';
 import { useAuth } from '@/hooks/useAuth';
 import { useChat } from '@/hooks/useChat';

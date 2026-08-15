@@ -3,7 +3,7 @@
 import { useEffect, useRef, useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import { track } from '@vercel/analytics';
+import { track } from '@/lib/analytics';
 import { useWizardStore } from '@/hooks/useWizardStore';
 import { useAuth } from '@/hooks/useAuth';
 import { useTranslation } from '@/i18n/LocaleProvider';

@@ -1,7 +1,7 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import { track } from '@vercel/analytics';
+import { track } from '@/lib/analytics';
 import { useAuth } from '@/hooks/useAuth';
 import { useScenarios } from '@/hooks/useScenarios';
 import { useGuestScenarios, GUEST_MAX_SCENARIOS } from '@/hooks/useGuestScenarios';
