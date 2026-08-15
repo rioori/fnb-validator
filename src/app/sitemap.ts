@@ -6,6 +6,7 @@ import { localePath } from '@/i18n/link';
 import COMPARISON_ARTICLES from '@/i18n/data/vi/comparison/articles';
 import BLOG_POSTS from '@/i18n/data/vi/blog';
 import OWNER_STORIES from '@/i18n/data/vi/stories';
+import { listAllSlugs } from '@/lib/news-server';
 
 const BASE_URL = 'https://www.validator.vn';
 
@@ -28,7 +29,7 @@ function entry(
   };
 }
 
-export default function sitemap(): MetadataRoute.Sitemap {
+export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const knowledgePages = KNOWLEDGE_BASE.map((topic) =>
     entry(`/kien-thuc/${topic.slug}`, 'monthly', 0.8),
   );
@@ -69,6 +70,23 @@ export default function sitemap(): MetadataRoute.Sitemap {
     entry(`/cau-chuyen-chu-quan/${s.slug}`, 'monthly', 0.85),
   );
 
+  // News posts — dynamic from Supabase (VI parents only; alternates emit EN via `entry`)
+  const newsSlugs = await listAllSlugs();
+  const newsPages = newsSlugs
+    .filter((s) => s.locale === 'vi')
+    .map((s): MetadataRoute.Sitemap[number] => ({
+      url: `${BASE_URL}/tin-tuc/${s.slug}`,
+      lastModified: new Date(s.published_at),
+      changeFrequency: 'monthly',
+      priority: 0.75,
+      alternates: {
+        languages: {
+          vi: `${BASE_URL}/tin-tuc/${s.slug}`,
+          en: `${BASE_URL}/en/tin-tuc/${s.slug}`,
+        },
+      },
+    }));
+
   return [
     entry('', 'weekly', 1),
     entry('/fnb', 'weekly', 0.95),
@@ -82,6 +100,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     entry('/vi-sao-fnb', 'monthly', 0.75),
     entry('/so-sanh', 'monthly', 0.85),
     entry('/blog', 'monthly', 0.75),
+    entry('/tin-tuc', 'weekly', 0.85),
     entry('/about', 'monthly', 0.7),
     entry('/doi-tac', 'monthly', 0.6),
     entry('/faq', 'monthly', 0.6),
@@ -94,6 +113,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ...storyPages,
     ...comparisonPages,
     ...blogPages,
+    ...newsPages,
     ...seoPages,
   ];
 }
