@@ -133,10 +133,10 @@ export default function HeroSection({ onNavigate }: HeroSectionProps) {
         transition={{ duration: 0.6 }}
       >
         <Image
-          src="/illustrations/hero-shops-v7.webp"
+          src="/illustrations/hero-shops-v8.webp"
           alt="Cafe, restaurant, and bubble tea shopfronts illustration — Validator.vn F&B business validation"
           width={1584}
-          height={512}
+          height={412}
           className="w-full"
           priority
         />
