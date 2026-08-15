@@ -1,69 +1,46 @@
 import 'server-only';
 import { supabaseAdmin } from './supabase-server';
-import type { NewsLocale } from './news';
 
-export interface PublicNewsPost {
+export interface TickerItem {
   id: string;
-  slug: string;
-  locale: NewsLocale;
   title: string;
   summary: string;
-  operator_angle: string | null;
   source_name: string;
   source_url: string;
-  cover_image_url: string | null;
-  cover_image_credit: string | null;
-  cover_image_source: string | null;
   published_at: string;
-  week_of: string | null;
-  wizard_preset: {
-    id: string;
-    slug: string;
-    label_vi: string;
-    label_en: string;
-    wizard_url: string;
-  } | null;
+  matched_keywords: string[];
 }
 
-export async function listPublishedNews(locale: NewsLocale, limit = 30): Promise<PublicNewsPost[]> {
+// Ticker listing: join news_published (curator's ok signal) back to news_candidates
+// to pull matched_keywords (tag chips) + the current source_url. One VI row per candidate.
+export async function listTickerItems(limit = 30): Promise<TickerItem[]> {
   const { data, error } = await supabaseAdmin
     .from('news_published')
-    .select('id,slug,locale,title,summary,operator_angle,source_name,source_url,cover_image_url,cover_image_credit,cover_image_source,published_at,week_of,wizard_preset:news_wizard_presets(id,slug,label_vi,label_en,wizard_url)')
-    .eq('locale', locale)
+    .select('id,title,summary,source_name,source_url,published_at,candidate_id,news_candidates(matched_keywords)')
+    .eq('locale', 'vi')
     .eq('status', 'published')
     .order('published_at', { ascending: false })
     .limit(limit);
-
   if (error) return [];
   return (data ?? []).map((row) => {
-    const r = row as unknown as PublicNewsPost & { wizard_preset: PublicNewsPost['wizard_preset'] | PublicNewsPost['wizard_preset'][] };
-    const preset = Array.isArray(r.wizard_preset) ? r.wizard_preset[0] ?? null : r.wizard_preset;
-    return { ...r, wizard_preset: preset };
+    const r = row as unknown as {
+      id: string;
+      title: string;
+      summary: string;
+      source_name: string;
+      source_url: string;
+      published_at: string;
+      news_candidates: { matched_keywords?: string[] } | { matched_keywords?: string[] }[] | null;
+    };
+    const cand = Array.isArray(r.news_candidates) ? r.news_candidates[0] : r.news_candidates;
+    return {
+      id: r.id,
+      title: r.title,
+      summary: r.summary || '',
+      source_name: r.source_name,
+      source_url: r.source_url,
+      published_at: r.published_at,
+      matched_keywords: cand?.matched_keywords ?? [],
+    };
   });
-}
-
-export async function getPublishedNewsBySlug(slug: string, locale: NewsLocale): Promise<PublicNewsPost | null> {
-  const { data, error } = await supabaseAdmin
-    .from('news_published')
-    .select('id,slug,locale,title,summary,operator_angle,source_name,source_url,cover_image_url,cover_image_credit,cover_image_source,published_at,week_of,wizard_preset:news_wizard_presets(id,slug,label_vi,label_en,wizard_url)')
-    .eq('slug', slug)
-    .eq('locale', locale)
-    .eq('status', 'published')
-    .single();
-
-  if (error || !data) return null;
-  const r = data as unknown as PublicNewsPost & { wizard_preset: PublicNewsPost['wizard_preset'] | PublicNewsPost['wizard_preset'][] };
-  const preset = Array.isArray(r.wizard_preset) ? r.wizard_preset[0] ?? null : r.wizard_preset;
-  return { ...r, wizard_preset: preset };
-}
-
-export async function listAllSlugs(): Promise<Array<{ slug: string; locale: NewsLocale; published_at: string }>> {
-  const { data, error } = await supabaseAdmin
-    .from('news_published')
-    .select('slug,locale,published_at')
-    .eq('status', 'published')
-    .order('published_at', { ascending: false })
-    .limit(500);
-  if (error) return [];
-  return (data ?? []) as Array<{ slug: string; locale: NewsLocale; published_at: string }>;
 }

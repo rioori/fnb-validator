@@ -6,7 +6,6 @@ import { localePath } from '@/i18n/link';
 import COMPARISON_ARTICLES from '@/i18n/data/vi/comparison/articles';
 import BLOG_POSTS from '@/i18n/data/vi/blog';
 import OWNER_STORIES from '@/i18n/data/vi/stories';
-import { listAllSlugs } from '@/lib/news-server';
 
 const BASE_URL = 'https://www.validator.vn';
 
@@ -70,22 +69,8 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     entry(`/cau-chuyen-chu-quan/${s.slug}`, 'monthly', 0.85),
   );
 
-  // News posts — dynamic from Supabase (VI parents only; alternates emit EN via `entry`)
-  const newsSlugs = await listAllSlugs();
-  const newsPages = newsSlugs
-    .filter((s) => s.locale === 'vi')
-    .map((s): MetadataRoute.Sitemap[number] => ({
-      url: `${BASE_URL}/tin-tuc/${s.slug}`,
-      lastModified: new Date(s.published_at),
-      changeFrequency: 'monthly',
-      priority: 0.75,
-      alternates: {
-        languages: {
-          vi: `${BASE_URL}/tin-tuc/${s.slug}`,
-          en: `${BASE_URL}/en/tin-tuc/${s.slug}`,
-        },
-      },
-    }));
+  // News ticker: only the listing page is a canonical URL; individual ticker
+  // items link directly to source publications, not internal pages.
 
   return [
     entry('', 'weekly', 1),
@@ -113,7 +98,6 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     ...storyPages,
     ...comparisonPages,
     ...blogPages,
-    ...newsPages,
     ...seoPages,
   ];
 }

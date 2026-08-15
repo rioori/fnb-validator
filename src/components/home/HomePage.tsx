@@ -10,6 +10,7 @@ import { localePath } from '@/i18n/link';
 import type { Locale } from '@/i18n/config';
 import HeroSection from './HeroSection';
 import FeatureCards from './FeatureCards';
+import NewsTickerHome from './NewsTickerHome';
 import QuickCalc from './QuickCalc';
 import AboutAuthor from './AboutAuthor';
 import StoriesPage from './StoriesPage';
@@ -90,6 +91,7 @@ export default function HomePage() {
     <div className="space-y-8 max-md:space-y-6">
       <HeroSection onNavigate={setView} />
       <FeatureCards onNavigate={setView} />
+      <NewsTickerHome locale={locale as Locale} />
       <OwnerStoriesPreview />
       <ExpertPreview
         heading={t.fnbHome.expertsPreview.heading}

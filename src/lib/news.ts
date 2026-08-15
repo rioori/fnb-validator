@@ -60,6 +60,33 @@ export function hasFnbCoreTag(matched: string[]): boolean {
   return matched.some((t) => FNB_CORE_TAGS.has(t));
 }
 
+// User-facing labels for matched_keywords tags. Missing tags fall through to raw tag name.
+export const TAG_LABELS_VI: Record<string, string> = {
+  venue: 'Quán',
+  fnb: 'F&B',
+  delivery: 'Delivery',
+  ingredient: 'Nguyên liệu',
+  brand: 'Thương hiệu',
+  rent: 'Mặt bằng',
+  regulation: 'Quy định',
+  openings: 'Mở/đóng quán',
+  trend: 'Xu hướng',
+  financial: 'Tài chính',
+};
+
+export const TAG_LABELS_EN: Record<string, string> = {
+  venue: 'Venue',
+  fnb: 'F&B',
+  delivery: 'Delivery',
+  ingredient: 'Ingredient',
+  brand: 'Brand',
+  rent: 'Rent',
+  regulation: 'Regulation',
+  openings: 'Openings',
+  trend: 'Trend',
+  financial: 'Finance',
+};
+
 export interface KeywordMatch {
   score: number;
   matched: string[];
