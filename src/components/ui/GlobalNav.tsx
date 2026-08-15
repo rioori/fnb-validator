@@ -13,6 +13,7 @@ const NAV_ITEMS = [
   { key: 'home', href: '/', icon: 'home' },
   { key: 'wizard', href: '/fnb', icon: 'wizard' },
   { key: 'knowledge', href: '/kien-thuc', icon: 'book' },
+  { key: 'news', href: '/tin-tuc', icon: 'book' },
   { key: 'experts', href: '/goc-nhin-chuyen-gia', icon: 'person' },
   { key: 'about', href: '/about', icon: 'lightbulb' },
 ] as const;
