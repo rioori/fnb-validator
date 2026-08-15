@@ -19,18 +19,44 @@ export const NEWS_SOURCES: NewsSource[] = [
 ];
 
 // Keyword scoring for relevance to F&B operators. Higher weight = more relevant.
+// Tags in FNB_CORE_TAGS gate auto-publish (must have >=1 of these).
+export const FNB_CORE_TAGS = new Set(['venue', 'fnb', 'delivery', 'ingredient', 'brand']);
+
 export const KEYWORDS: Array<{ pattern: RegExp; weight: number; tag: string }> = [
-  { pattern: /\b(quán ăn|quán cà phê|quán cafe|nhà hàng|restaurant|cafe|coffee shop|trà sữa|milk tea|bakery|tiệm bánh)\b/gi, weight: 30, tag: 'venue' },
-  { pattern: /\b(F&B|food service|dịch vụ ăn uống|ẩm thực|food and beverage)\b/gi, weight: 25, tag: 'fnb' },
-  { pattern: /\b(grabfood|shopeefood|gofood|beamin|delivery|giao hàng|hoa hồng|commission)\b/gi, weight: 20, tag: 'delivery' },
-  { pattern: /\b(nguyên liệu|giá thịt|giá cà phê|giá sữa|giá bột mì|ingredient|pork price|coffee price)\b/gi, weight: 20, tag: 'ingredient' },
-  { pattern: /\b(mặt bằng|thuê nhà|rent|tiền thuê|real estate)\b/gi, weight: 15, tag: 'rent' },
-  { pattern: /\b(VSATTP|an toàn thực phẩm|food safety|quy định|regulation|giấy phép|license|thuế|tax)\b/gi, weight: 20, tag: 'regulation' },
-  { pattern: /\b(khai trương|mở quán|đóng cửa|phá sản|khởi nghiệp|startup|franchise|nhượng quyền|chuỗi)\b/gi, weight: 18, tag: 'openings' },
-  { pattern: /\b(xu hướng|trend|matcha|sourdough|tea-based|specialty coffee|cold brew|artisan)\b/gi, weight: 15, tag: 'trend' },
-  { pattern: /\b(Highlands|Phúc Long|The Coffee House|Starbucks|Trung Nguyên|KOI|Gong Cha|Katinat|Cheese Coffee)\b/gi, weight: 12, tag: 'brand' },
-  { pattern: /\b(doanh thu|lợi nhuận|margin|revenue|profit|BEP|break-even|điểm hoà vốn)\b/gi, weight: 15, tag: 'financial' },
+  { pattern: /\b(quán ăn|quán cà phê|quán cafe|nhà hàng|restaurant|cafe|coffee shop|trà sữa|milk tea|bakery|tiệm bánh|đồ uống|thức uống|ăn uống)\b/gi, weight: 30, tag: 'venue' },
+  { pattern: /\b(F&B|food service|dịch vụ ăn uống|ẩm thực|food and beverage|đồ ăn)\b/gi, weight: 25, tag: 'fnb' },
+  { pattern: /\b(grabfood|shopeefood|gofood|beamin|delivery|giao hàng|hoa hồng|commission|shipper)\b/gi, weight: 20, tag: 'delivery' },
+  { pattern: /\b(nguyên liệu|giá thịt|giá cà phê|giá sữa|giá bột mì|ingredient|pork price|coffee price|thịt heo|cà phê nhân)\b/gi, weight: 20, tag: 'ingredient' },
+  { pattern: /\b(mặt bằng|thuê nhà|rent|tiền thuê)\b/gi, weight: 12, tag: 'rent' },
+  { pattern: /\b(VSATTP|an toàn thực phẩm|food safety|giấy phép|thuế khoán)\b/gi, weight: 15, tag: 'regulation' },
+  { pattern: /\b(khai trương|mở quán|đóng cửa|phá sản|khởi nghiệp F&B|franchise|nhượng quyền|chuỗi cà phê|chuỗi nhà hàng)\b/gi, weight: 18, tag: 'openings' },
+  { pattern: /\b(xu hướng|matcha|sourdough|tea-based|specialty coffee|cold brew|artisan|omakase|fine dining|street food)\b/gi, weight: 15, tag: 'trend' },
+  { pattern: /\b(Highlands|Phúc Long|The Coffee House|Starbucks|Trung Nguyên|KOI|Gong Cha|Katinat|Cheese Coffee|Golden Gate|Redsun|Al Fresco|Pizza 4Ps|Ba Con Cừu|Coffee Bike)\b/gi, weight: 20, tag: 'brand' },
+  { pattern: /\b(doanh thu|lợi nhuận|margin|revenue|profit|BEP|break-even|điểm hoà vốn)\b/gi, weight: 8, tag: 'financial' },
 ];
+
+// Hard blocklist — instantly reject if any of these appear anywhere in title+excerpt.
+// These keywords are the noise found in the first ingest test (BDS, finance, mining).
+export const BLOCKLIST_PATTERNS: RegExp[] = [
+  /\b(bất động sản|BĐS|chung cư|căn hộ|dự án nhà ở|nhà phố|biệt thự|đất nền|dự án bất động sản)\b/gi,
+  /\b(khoáng sản|khai khoáng|dầu khí|xăng dầu|than đá|thép|xi măng)\b/gi,
+  /\b(chứng khoán|cổ phiếu|VN-Index|IPO|phát hành trái phiếu|niêm yết)\b/gi,
+  /\b(ngân hàng|tín dụng|lãi suất|Thông tư 06|NHNN|tỷ giá)\b/gi,
+  /\b(ô tô|xe máy|xe điện|VinFast|Hyundai|Toyota)\b/gi,
+];
+
+export function isBlocked(text: string): boolean {
+  if (!text) return false;
+  for (const p of BLOCKLIST_PATTERNS) {
+    p.lastIndex = 0; // stateful global regex
+    if (p.test(text)) return true;
+  }
+  return false;
+}
+
+export function hasFnbCoreTag(matched: string[]): boolean {
+  return matched.some((t) => FNB_CORE_TAGS.has(t));
+}
 
 export interface KeywordMatch {
   score: number;

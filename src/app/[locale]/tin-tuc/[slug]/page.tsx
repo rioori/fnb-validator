@@ -76,6 +76,7 @@ export default async function NewsPostPage({ params }: PageProps) {
       url: post.source_url,
     },
     image: post.cover_image_url ? [post.cover_image_url] : [`${BASE_URL}/api/og?locale=${locale}&page=news&slug=${encodeURIComponent(slug)}`],
+    thumbnailUrl: post.cover_image_url || undefined,
   };
 
   return (
@@ -98,6 +99,20 @@ export default async function NewsPostPage({ params }: PageProps) {
       <h1 className="text-3xl font-bold text-text mb-4 font-[family-name:var(--font-heading)] leading-tight">
         {post.title}
       </h1>
+
+      {post.cover_image_url && (
+        <figure className="mb-6">
+          <div className="aspect-[16/9] bg-slate-100 overflow-hidden border-2 border-slate-900 rounded-xl shadow-[3px_3px_0_theme(colors.slate.900)]">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img src={post.cover_image_url} alt={post.title} className="w-full h-full object-cover" />
+          </div>
+          {post.cover_image_credit && (
+            <figcaption className="text-[11px] text-slate-500 mt-2 text-right italic">
+              {post.cover_image_credit}
+            </figcaption>
+          )}
+        </figure>
+      )}
 
       <div className="text-[16px] text-text leading-relaxed whitespace-pre-line">
         {post.summary}

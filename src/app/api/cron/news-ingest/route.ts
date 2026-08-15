@@ -1,6 +1,6 @@
 import { NextResponse, type NextRequest } from 'next/server';
 import { supabaseAdmin } from '@/lib/supabase-server';
-import { NEWS_SOURCES, parseFeed, scoreText, hashUrl } from '@/lib/news';
+import { NEWS_SOURCES, parseFeed, scoreText, hashUrl, isBlocked } from '@/lib/news';
 
 export const runtime = 'nodejs';
 export const dynamic = 'force-dynamic';
@@ -69,9 +69,12 @@ export async function GET(req: NextRequest) {
           continue;
         }
         const combined = `${it.title}\n${it.description}`;
+        if (isBlocked(combined)) {
+          skipped++;
+          continue;
+        }
         const { score, matched } = scoreText(combined);
-        if (score < 15) {
-          // Below relevance floor — skip entirely (not even stored)
+        if (score < 25) {
           skipped++;
           continue;
         }

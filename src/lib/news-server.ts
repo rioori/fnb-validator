@@ -12,6 +12,8 @@ export interface PublicNewsPost {
   source_name: string;
   source_url: string;
   cover_image_url: string | null;
+  cover_image_credit: string | null;
+  cover_image_source: string | null;
   published_at: string;
   week_of: string | null;
   wizard_preset: {
@@ -26,7 +28,7 @@ export interface PublicNewsPost {
 export async function listPublishedNews(locale: NewsLocale, limit = 30): Promise<PublicNewsPost[]> {
   const { data, error } = await supabaseAdmin
     .from('news_published')
-    .select('id,slug,locale,title,summary,operator_angle,source_name,source_url,cover_image_url,published_at,week_of,wizard_preset:news_wizard_presets(id,slug,label_vi,label_en,wizard_url)')
+    .select('id,slug,locale,title,summary,operator_angle,source_name,source_url,cover_image_url,cover_image_credit,cover_image_source,published_at,week_of,wizard_preset:news_wizard_presets(id,slug,label_vi,label_en,wizard_url)')
     .eq('locale', locale)
     .eq('status', 'published')
     .order('published_at', { ascending: false })
@@ -43,7 +45,7 @@ export async function listPublishedNews(locale: NewsLocale, limit = 30): Promise
 export async function getPublishedNewsBySlug(slug: string, locale: NewsLocale): Promise<PublicNewsPost | null> {
   const { data, error } = await supabaseAdmin
     .from('news_published')
-    .select('id,slug,locale,title,summary,operator_angle,source_name,source_url,cover_image_url,published_at,week_of,wizard_preset:news_wizard_presets(id,slug,label_vi,label_en,wizard_url)')
+    .select('id,slug,locale,title,summary,operator_angle,source_name,source_url,cover_image_url,cover_image_credit,cover_image_source,published_at,week_of,wizard_preset:news_wizard_presets(id,slug,label_vi,label_en,wizard_url)')
     .eq('slug', slug)
     .eq('locale', locale)
     .eq('status', 'published')

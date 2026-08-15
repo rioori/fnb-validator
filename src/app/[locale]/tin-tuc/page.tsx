@@ -63,19 +63,27 @@ export default async function NewsListingPage({ params }: PageProps) {
         {posts.map((p) => {
           const href = isEn ? `/en/tin-tuc/${p.slug}` : `/tin-tuc/${p.slug}`;
           return (
-            <Link key={p.id} href={href} className="clay-card-static bg-white p-5 block hover:shadow-[3px_3px_0_var(--color-text)] transition-shadow">
-              <div className="flex items-center gap-3 text-[11px] text-text-muted mb-2">
-                <span className="uppercase font-bold tracking-wider text-emerald-700">{p.source_name}</span>
-                <span>·</span>
-                <span>{dateFmt.format(new Date(p.published_at))}</span>
-              </div>
-              <h2 className="text-lg font-bold text-text mb-2">{p.title}</h2>
-              <p className="text-[14px] text-text-muted leading-relaxed">{p.summary.slice(0, 180)}{p.summary.length > 180 ? '…' : ''}</p>
-              {p.operator_angle && (
-                <div className="mt-3 text-[13px] text-emerald-800 border-l-4 border-emerald-500 pl-3 italic">
-                  {isEn ? 'Operator angle:' : 'Góc nhìn chủ quán:'} {p.operator_angle}
+            <Link key={p.id} href={href} className="clay-card-static bg-white p-0 block hover:shadow-[3px_3px_0_var(--color-text)] transition-shadow overflow-hidden">
+              {p.cover_image_url && (
+                <div className="aspect-[16/9] bg-slate-100 overflow-hidden border-b-2 border-slate-900">
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img src={p.cover_image_url} alt="" className="w-full h-full object-cover" loading="lazy" />
                 </div>
               )}
+              <div className="p-5">
+                <div className="flex items-center gap-3 text-[11px] text-text-muted mb-2">
+                  <span className="uppercase font-bold tracking-wider text-emerald-700">{p.source_name}</span>
+                  <span>·</span>
+                  <span>{dateFmt.format(new Date(p.published_at))}</span>
+                </div>
+                <h2 className="text-lg font-bold text-text mb-2">{p.title}</h2>
+                <p className="text-[14px] text-text-muted leading-relaxed">{p.summary.slice(0, 180)}{p.summary.length > 180 ? '…' : ''}</p>
+                {p.operator_angle && (
+                  <div className="mt-3 text-[13px] text-emerald-800 border-l-4 border-emerald-500 pl-3 italic">
+                    {isEn ? 'Operator angle:' : 'Góc nhìn chủ quán:'} {p.operator_angle}
+                  </div>
+                )}
+              </div>
             </Link>
           );
         })}
