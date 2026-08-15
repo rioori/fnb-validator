@@ -38,13 +38,16 @@ export const KEYWORDS: Array<{ pattern: RegExp; weight: number; tag: string }> =
 ];
 
 // Hard blocklist — instantly reject if any of these appear anywhere in title+excerpt.
-// These keywords are the noise found in the first ingest test (BDS, finance, mining).
+// Grown from real ingest noise: BĐS, finance, mining, celebrity crime tin.
 export const BLOCKLIST_PATTERNS: RegExp[] = [
   /\b(bất động sản|BĐS|chung cư|căn hộ|dự án nhà ở|nhà phố|biệt thự|đất nền|dự án bất động sản)\b/gi,
   /\b(khoáng sản|khai khoáng|dầu khí|xăng dầu|than đá|thép|xi măng)\b/gi,
   /\b(chứng khoán|cổ phiếu|VN-Index|IPO|phát hành trái phiếu|niêm yết)\b/gi,
   /\b(ngân hàng|tín dụng|lãi suất|Thông tư 06|NHNN|tỷ giá)\b/gi,
   /\b(ô tô|xe máy|xe điện|VinFast|Hyundai|Toyota)\b/gi,
+  // Celebrity / crime / scandal patterns — non-F&B even if they mention "giao hàng" or brands
+  /\b(Huấn Hoa Hồng|nước hoa|khởi tố|bắt giam|tạm giam|lừa đảo|tham ô|hình sự|truy tố|vi phạm quy định về kế toán)\b/gi,
+  /\b(sao Việt|showbiz|nghệ sĩ|ca sĩ|diễn viên|người mẫu|hoa hậu|MC|streamer|YouTuber|TikToker)\b/gi,
 ];
 
 export function isBlocked(text: string): boolean {
