@@ -34,26 +34,28 @@ export default function NewsTickerHome({ locale }: Props) {
   if (items === null || items.length === 0) return null;
 
   return (
-    <section className="mt-2 mb-2 max-w-3xl mx-auto">
-      {/* Slim rail header — matches feature-cards vertical rhythm, doesn't dominate */}
-      <div className="flex items-baseline justify-between px-1 mb-2">
-        <div className="flex items-baseline gap-2">
-          <div className="text-[11px] font-bold uppercase tracking-widest text-emerald-700">
-            {isEn ? 'F&B Ticker' : 'Tin F&B mỗi ngày'}
+    <section className="max-w-3xl mx-auto">
+      <div className="clay-card-static bg-white p-4 md:p-5">
+        {/* Slim rail header inside the container */}
+        <div className="flex items-baseline justify-between mb-3">
+          <div className="flex items-baseline gap-2 flex-wrap">
+            <div className="text-[11px] font-bold uppercase tracking-widest text-emerald-700">
+              {isEn ? 'F&B Ticker' : 'Tin F&B mỗi ngày'}
+            </div>
+            <div className="text-[11px] text-text-muted">
+              {isEn ? `${items.length} updates · from 6 sources` : `${items.length} tin · 6 nguồn`}
+            </div>
           </div>
-          <div className="text-[11px] text-text-muted">
-            {isEn ? `${items.length} updates · from 6 sources` : `${items.length} tin · 6 nguồn`}
-          </div>
+          <Link
+            href={localePath('/tin-tuc', locale)}
+            className="text-[11px] text-emerald-700 font-semibold hover:underline whitespace-nowrap"
+          >
+            {isEn ? 'View all →' : 'Xem tất cả →'}
+          </Link>
         </div>
-        <Link
-          href={localePath('/tin-tuc', locale)}
-          className="text-[11px] text-emerald-700 font-semibold hover:underline"
-        >
-          {isEn ? 'View all →' : 'Xem tất cả →'}
-        </Link>
-      </div>
 
-      <TickerList items={items} locale={isEn ? 'en' : 'vi'} initialShow={5} expandable={true} />
+        <TickerList items={items} locale={isEn ? 'en' : 'vi'} initialShow={6} expandable={true} />
+      </div>
     </section>
   );
 }

@@ -56,7 +56,25 @@ export default function TickerList({ items, locale, initialShow, expandable = fa
   // Fresh-badge cutoff captured once at mount; ok if a tick stale during a
   // long session, freshness re-evaluates on next navigation.
   const [now] = useState(() => Date.now());
-  const showCount = expanded || !initialShow ? items.length : Math.min(initialShow, items.length);
+
+  // Grid layout policy: keep even count so the 2-col grid never orphans a lonely
+  // last card. If initialShow is set but items.length - initialShow is 1 (only
+  // one hidden), just show them all — a "show 1 more" button is more friction
+  // than value.
+  let showCount = items.length;
+  if (initialShow && items.length > initialShow) {
+    const wouldHide = items.length - initialShow;
+    if (expanded || wouldHide <= 1) {
+      showCount = items.length;
+    } else {
+      // Round initialShow down to nearest even to avoid odd row at the bottom
+      showCount = initialShow - (initialShow % 2);
+    }
+  }
+  // Force even count regardless (drop the last odd item if grid would leave it hanging)
+  if (!expanded && items.length > 2 && showCount % 2 === 1 && showCount < items.length) {
+    showCount -= 1;
+  }
   const remaining = items.length - showCount;
 
   const onClick = (item: TickerItem) => {
@@ -107,8 +125,8 @@ export default function TickerList({ items, locale, initialShow, expandable = fa
                 </span>
               </div>
 
-              {/* Title — 2 lines max */}
-              <div className="text-[14px] font-bold text-slate-900 leading-snug group-hover:text-emerald-800 transition-colors line-clamp-2">
+              {/* Title — reserve 2 lines so 1-line titles don't shrink the card */}
+              <div className="text-[14px] font-bold text-slate-900 leading-snug group-hover:text-emerald-800 transition-colors line-clamp-2 min-h-[2.6rem]">
                 {it.title}
               </div>
 
