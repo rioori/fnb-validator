@@ -784,6 +784,433 @@ const TRENDS_ARTICLES: KBTopic[] = [
       },
     ],
   },
+  {
+    id: 'coffee_market_data_2026',
+    slug: 'so-lieu-ca-phe-viet-nam-2026',
+    publishDate: '2026-08-15',
+    icon: 'chart',
+    title: 'Vietnam Coffee Market Data 2026: Benchmark for New Shop Owners',
+    subtitle: 'Market size $1.6B, gross margin 60-75%, top chains + cost benchmarks',
+    seoTitle: 'Vietnam Coffee Market 2026: $1.6B Size + Profit Margin by Model',
+    seoDescription: 'Vietnam coffee industry 2026: $1.6B market, 26,000+ shops, gross margin 60-75%, net margin 5-15%. Highlands 800+ stores, Phúc Long 170+, Trung Nguyên E-Coffee 850+. Cost benchmarks + AOV by model.',
+    color: 'primary-light',
+    category: 'strategy',
+    highlights: [
+      { label: 'Coffee market size', value: '$1.6B', note: '~40 trillion VND (2025)' },
+      { label: 'Coffee shops in Vietnam', value: '26,000+', note: 'Chains + independents' },
+      { label: 'Average gross margin', value: '60-75%', note: 'Espresso higher than drip' },
+      { label: 'Average AOV', value: '40-80K/customer', note: 'Take-away lower than dine-in' },
+    ],
+    sections: [
+      {
+        type: 'tldr',
+        content: [
+          'Vietnam coffee market 2025 reached ~$1.6B (~40 trillion VND), growing 6-8%/year — Vietnam is 6th largest per capita coffee consumer in Asia',
+          'Coffee gross margins 60-75% are the highest in F&B, but net margins are only 5-15% due to rent + labor + delivery fees',
+          'Top 5 largest chains: Highlands (~800 stores), Trung Nguyên E-Coffee (~850), Phúc Long (170+), The Coffee House (~120 after restructuring), Starbucks (~120)',
+          'Coffee shop opening capital: kiosk 100-300M VND, take-away 300-500M, full dine-in 500M-2B depending on location',
+        ],
+      },
+      {
+        type: 'text',
+        content: 'Coffee is Vietnam\'s most popular F&B model with 25% of new shops opening each year — thanks to low capital, high gross margins, and familiarity for most entrepreneurs. But it\'s also the most competitive industry: only 30% of shops survive the first year. This page compiles official benchmarks on market, costs, and revenue — use it as a reference when planning to open or improve operations.',
+      },
+      {
+        type: 'table',
+        heading: '1. Market size & growth',
+        content: [
+          { label: 'Vietnam coffee revenue 2025', range: '~40 trillion VND (~$1.6B)', note: 'About 5.5% of total F&B market ($27.3B). Source: [Vietnam.vn](https://www.vietnam.vn/en/nganh-f-b-tai-viet-nam-se-tiep-tuc-tang-truong-9-6-trong-nam-2025).' },
+          { label: 'CAGR 2024-2028', range: '6-8%/year', note: 'Slower than 2019-2023 (10-15%) — market saturated in city centers. Source: [IMARC Group](https://www.imarcgroup.com/vietnam-coffee-market).' },
+          { label: 'Estimated coffee shops', range: '26,000+', note: 'Including chains + independents. Estimated from Ministry of Industry & Trade reports + Grab/Shopee data.' },
+          { label: 'Coffee consumption per capita', range: '~2 kg/person/year', note: '6th highest in Asia after Japan, Korea, Taiwan, Malaysia, Thailand. Source: [Vietnam Coffee Association](https://www.vicofa.org.vn/).' },
+          { label: '% of shops in D1-D3 HCMC/HN', range: '~45%', note: 'Rest distributed to suburbs + provinces. City centers saturated, suburbs growing.' },
+        ] as KBTableRow[],
+      },
+      {
+        type: 'table',
+        heading: '2. Top Vietnam coffee chains (2026)',
+        content: [
+          { label: 'Highlands Coffee', range: '~800 stores', note: 'Largest chain (owned by Jollibee Foods). 2024 revenue ~$150M. Source: [VIR](https://vir.com.vn/highlands-coffee-parent-jollibee-eyes-vietnam-ipo-post-record-2024-performance.html).' },
+          { label: 'Trung Nguyên E-Coffee', range: '~850+ (franchise)', note: 'Franchise model with low capital 65-175M VND. Most locations but each is small.' },
+          { label: 'The Coffee House', range: '~120 (after restructuring)', note: 'Closed nearly 30 stores 2024-2025 after acquisition by Golden Gate. Peaked at ~180. Source: [Vietnamnet](https://vietnamnet.vn/en/the-coffee-house-shuts-down-multiple-stores-2276291.html).' },
+          { label: 'Phúc Long', range: '~170+ stores', note: 'Owned by Masan (since 2021). Combines tea + coffee. 2024 net profit grew 4x YoY. Source: [Masan Group](https://masangroup.com/en/investor-relations).' },
+          { label: 'Starbucks Vietnam', range: '~120 stores', note: 'Slower expansion than other SEA countries. Premium segment.' },
+          { label: 'Cộng Cà Phê', range: '~80+ stores', note: 'Vintage/military concept, expanded to Korea + Malaysia.' },
+          { label: 'Katinat Saigon Kafe', range: '~90+ (2025)', note: 'Fastest growth in 2023-2025, targets Gen Z. Source: [Katinat](https://katinat.vn/).' },
+        ] as KBTableRow[],
+      },
+      {
+        type: 'table',
+        heading: '3. Coffee shop cost structure (% of revenue)',
+        content: [
+          { label: 'Food cost (coffee beans + ingredients)', range: '25-32%', note: 'Espresso 20-25%, drip 15-20% (whole beans cheaper). Ice + syrup + milk add 5-10%.' },
+          { label: 'Labor cost', range: '20-25%', note: 'Full-time barista 8-15M/month, part-time 25-35K/hour. Plus 21.5% social insurance. Source: [Talentnet](https://www.talentnetgroup.com/vn/featured-insights/socio-economic-insights/average-salary-vietnam).' },
+          { label: 'Rent', range: '10-18%', note: 'Take-away D1 HCMC: 40-80M/month for 30-50m². Full dine-in: 80-200M. Suburbs: 15-40M.' },
+          { label: 'Marketing + promotions', range: '3-6%', note: 'FB + Grab/Shopee ads. Large chains 5-8% (brand campaigns).' },
+          { label: 'Utilities + operations', range: '4-7%', note: 'Electricity higher than other shops (espresso machines consume power). Water filter + gas + wifi.' },
+          { label: 'Packaging + delivery', range: '3-8%', note: 'Plastic/paper cups 800-2000 VND/cup. Paper bags 500-1500 VND. Delivery app fees 25-30%.' },
+          { label: 'Prime cost (Food + Labor)', range: '45-55%', note: 'Target below 55%. >60% = warning.' },
+        ] as KBTableRow[],
+      },
+      {
+        type: 'table',
+        heading: '4. Revenue & AOV by coffee shop model',
+        content: [
+          { label: 'Take-away kiosk (10-15m²)', range: '30-80M/month', note: 'AOV 30-50K, 30-80 customers/day. Capital 100-250M. Breakeven 4-8 months.' },
+          { label: 'Small take-away (20-40m²)', range: '80-200M/month', note: 'AOV 40-70K, 60-150 customers/day. Capital 300-500M. Breakeven 8-14 months.' },
+          { label: 'Casual dine-in cafe (40-80m²)', range: '150-400M/month', note: 'AOV 55-90K, 80-200 customers/day. Capital 500M-1B. Breakeven 12-24 months.' },
+          { label: 'Premium cafe (80-150m²)', range: '400M-1.2B/month', note: 'AOV 80-150K, 100-250 customers/day. Capital 1-3B. Breakeven 18-36 months.' },
+          { label: 'Large chain (Highlands, TCH)', range: '300M-1B/month/store', note: 'Brand + supply chain advantage, AOV 55-95K. Ramp-up 3-6 months.' },
+        ] as KBTableRow[],
+      },
+      {
+        type: 'table',
+        heading: '5. Coffee margins by segment',
+        content: [
+          { label: 'Take-away kiosk', range: 'Gross 65-75% / Net 8-18%', note: 'Low capital, low overhead, highest net margin if location is right.' },
+          { label: 'Small take-away', range: 'Gross 60-70% / Net 5-12%', note: 'Rent starts eating into profit.' },
+          { label: 'Casual dine-in cafe', range: 'Gross 55-65% / Net 3-8%', note: 'Higher labor + rent. Need AOV 60K+ to profit.' },
+          { label: 'Premium / specialty cafe', range: 'Gross 60-70% / Net 8-15%', note: 'High AOV compensates for high rent + labor. But lower volume.' },
+          { label: 'Franchise chain', range: 'Gross 55-60% / Net 5-10%', note: 'Plus royalty + brand fee 6-10% of revenue.' },
+        ] as KBTableRow[],
+      },
+      {
+        type: 'warning-list',
+        heading: 'Insights for opening a coffee shop in 2026',
+        content: [
+          { icon: 'warning', title: 'HCMC/HN centers are saturated — high density, hard to compete', desc: 'Coffee density D1 HCMC: 1 shop/50m². New entrants struggle. Better opportunities in D7, D9, Thủ Đức, suburbs, tier-2 provinces.', severity: 'critical' },
+          { icon: 'warning', title: 'Vietnam AOV low (40-80K) vs SEA (100-150K)', desc: 'Hard to raise prices — customers are price-sensitive. Only specialty cafes / unique concepts allow AOV 100K+.', severity: 'warning' },
+          { icon: 'warning', title: 'Delivery app fees 25-30% eat gross margin', desc: 'If 40%+ revenue comes from Grab/Shopee → net margin drops to 2-5%. Must optimize dine-in + self-delivery in 3km radius.', severity: 'critical' },
+          { icon: 'warning', title: 'Kiosk + take-away = lowest capital, highest net margin', desc: '100-250M capital, breakeven 4-8 months. Good for beginners or testing concept before scaling.', severity: 'tip' },
+        ] as KBWarningItem[],
+      },
+      {
+        type: 'text',
+        content: 'Vietnam coffee is "easy to enter, hard to win." Low capital attracts many, but competition is fierce and real net margins are thin. Before opening, use F&B Validator to test revenue — cost — breakeven for your specific concept + location. The benchmark data above is a reference, not a target — actual results depend heavily on location and operational skill.',
+      },
+      {
+        type: 'faq',
+        heading: 'FAQs about opening a coffee shop in Vietnam',
+        content: [
+          {
+            question: 'How much capital is needed to open a coffee shop in Vietnam?',
+            answer: 'Capital depends on model: Take-away kiosk 100-300M VND (10-15m² + basic equipment), Small take-away 300-500M (20-40m² + semi-auto espresso), Casual dine-in cafe 500M-1B (40-80m² + full setup), Premium cafe 1-3B (80-150m² + brand + concept). Franchise: Trung Nguyên E-Coffee 65-175M, Highlands does not franchise. Add 3-6 months of operating expenses as working capital.',
+          },
+          {
+            question: 'What is the profit margin of a coffee shop?',
+            answer: 'Gross margin for coffee is 60-75%, highest in F&B — espresso 65-75%, pure drip coffee 85-90%. But net margin is only 5-15% after all expenses: kiosk 8-18%, take-away 5-12%, casual dine-in 3-8%, premium 8-15%. Margin killers: rent (10-18%), labor (20-25%), delivery app fees (25-30%).',
+          },
+          {
+            question: 'What is the average AOV of a Vietnamese coffee shop?',
+            answer: 'Average AOV 40-80K per customer. Details: Take-away kiosk 30-50K, full take-away 40-70K, casual dine-in 55-90K, premium 80-150K, specialty coffee 100-200K. Delivery orders 15-25% higher than dine-in as customers add items to dilute shipping fees. Large chains (Highlands, TCH) AOV 55-95K thanks to combos + food items.',
+          },
+          {
+            question: 'How many coffee shops are in Vietnam in 2026?',
+            answer: 'Estimated 26,000+ coffee shops (chains + independents). Top 5 chains: Highlands ~800, Trung Nguyên E-Coffee ~850 franchise, Phúc Long 170+, The Coffee House ~120 (post-restructuring), Starbucks ~120. Rest are mid-chains (Katinat ~90, Cộng Cà Phê ~80) and ~24,000 independents. Highest density in D1/D3 HCMC and Hoàn Kiếm/Ba Đình Hanoi.',
+          },
+          {
+            question: 'What are monthly operating costs for a coffee shop?',
+            answer: 'For a 40-80m² shop with 200M VND monthly revenue: Rent 30-40M (15-20%), Labor 40-50M (20-25%), Food cost 55-65M (28-32%), Utilities + ops 10-15M (5-7%), Marketing 6-12M (3-6%), Packaging + delivery 6-16M (3-8%). Total costs 150-200M → net margin 5-25M (2.5-12%). A take-away kiosk with 60M revenue costs 45-55M, net 5-15M.',
+          },
+          {
+            question: 'How long does a coffee shop take to break even?',
+            answer: 'Breakeven depends on capital + stable revenue: Kiosk 100-250M capital → 4-8 months breakeven, Take-away 300-500M → 8-14 months, Casual dine-in 500M-1B → 12-24 months, Premium 1-3B → 18-36 months. Condition: achieve 80-100% of forecasted revenue within 3-6 months. If ramp-up is slow (50-60%), breakeven doubles.',
+          },
+          {
+            question: 'How big is Vietnam\'s coffee market in USD?',
+            answer: 'Vietnam coffee market 2025 reached ~$1.6B USD (~40 trillion VND), about 5.5% of total F&B market ($27.3B). Growing 6-8%/year during 2024-2028, slower than 2019-2023 (+10-15%) due to saturation. Vietnam is the 6th largest per capita coffee consumer in Asia (~2 kg/person/year) after Japan, Korea, Taiwan, Malaysia, Thailand.',
+          },
+        ] as KBFAQItem[],
+      },
+    ],
+  },
+  {
+    id: 'bubbletea_market_data_2026',
+    slug: 'so-lieu-tra-sua-viet-nam-2026',
+    publishDate: '2026-08-15',
+    icon: 'chart',
+    title: 'Vietnam Bubble Tea Market Data 2026: Owner\'s Benchmark',
+    subtitle: 'Market $500M, gross margin 65-75%, top chains + cost benchmarks',
+    seoTitle: 'Vietnam Bubble Tea 2026: $500M Market + Net Margin 15-20%',
+    seoDescription: 'Vietnam bubble tea industry 2026: ~$500M market, 3,500+ shops, gross margin 65-75%, net margin 12-20% (highest in F&B). Phúc Long 170+, KOI 90+, Gong Cha 100+, Mixue 1,500+. Cost benchmarks + AOV.',
+    color: 'secondary-light',
+    category: 'strategy',
+    highlights: [
+      { label: 'Bubble tea market size', value: '~$500M', note: '~12.5 trillion VND (2025)' },
+      { label: 'Bubble tea shops', value: '3,500+', note: 'Chains + independents' },
+      { label: 'Highest net margin in F&B', value: '12-20%', note: 'Beats coffee + restaurants' },
+      { label: 'Average AOV', value: '45-70K/customer', note: 'Combo 80-120K' },
+    ],
+    sections: [
+      {
+        type: 'tldr',
+        content: [
+          'Vietnam bubble tea market 2025 reached ~$500M (~12.5 trillion VND), growing 8-12%/year — recovered from 2018-2019 "bubble" phase',
+          'Bubble tea net margin 12-20% is highest in F&B, thanks to low food cost (18-25%) + high combo AOV + good volume',
+          'Top 5 chains: Mixue ~1,500 (low-capital franchise), Phúc Long 170+, Gong Cha 100+, KOI Thé 90+, TocoToco ~200 franchise',
+          'Bubble tea shop capital: kiosk 150-300M VND, take-away 300-600M, small dine-in 500M-1B',
+        ],
+      },
+      {
+        type: 'text',
+        content: 'Bubble tea has the highest profit margins in Vietnam F&B thanks to low food costs and high combo AOVs. After the "bubble" phase 2018-2019 (when thousands of shops opened rapidly and then closed), the market has stabilized and consolidated around large chains. This page compiles official benchmarks on market size, top chains, cost structure — use as reference when planning to open or joining a franchise.',
+      },
+      {
+        type: 'table',
+        heading: '1. Market size & growth',
+        content: [
+          { label: 'Vietnam bubble tea revenue 2025', range: '~$500M USD', note: 'Including bubble tea + fruit tea + smoothies. ~12.5 trillion VND. Source: [Vietnam.vn](https://www.vietnam.vn/en/tra-sua-tu-thuc-uong-vui-nhon-thanh-nganh-cong-nghiep-ty-usd).' },
+          { label: 'CAGR 2024-2028', range: '8-12%/year', note: 'Recovered from 2018-2019 bubble. Slow but stable growth.' },
+          { label: 'Total bubble tea shops', range: '~3,500+', note: 'Estimated from Grab/Shopee + Decision Lab reports. 2019 peak ~5,000, dropped to 2,500 after saturation, now recovering.' },
+          { label: '% regular customers', range: '~45% Gen Z', note: 'Drink bubble tea 2+ times/week. Source: [Decision Lab F&B Report](https://www.decisionlab.co/fnb_trends_report).' },
+          { label: 'Peak time', range: '2pm-6pm', note: 'After school, after work. Delivery peak 9pm-10pm.' },
+        ] as KBTableRow[],
+      },
+      {
+        type: 'table',
+        heading: '2. Top Vietnam bubble tea chains (2026)',
+        content: [
+          { label: 'Mixue Vietnam', range: '~1,500+ (franchise)', note: 'Chinese chain, low franchise capital 150-300M VND. Most locations in VN. Low AOV (20-40K).' },
+          { label: 'TocoToco', range: '~200+ (franchise)', note: 'Popular Vietnamese franchise, capital 200-500M.' },
+          { label: 'Phúc Long', range: '~170+', note: 'Owned by Masan. Combines tea + coffee. 2024 net profit grew 4x YoY. Source: [Masan Group](https://masangroup.com/en/investor-relations).' },
+          { label: 'Gong Cha Vietnam', range: '~100+', note: 'Premium Taiwanese chain, AOV 55-85K.' },
+          { label: 'KOI Thé', range: '~90+', note: 'Taiwanese chain targeting Gen Z + office workers, AOV 50-80K.' },
+          { label: 'The Alley', range: '~40+', note: 'Premium Taiwanese chain, AOV 70-100K.' },
+          { label: 'ChaGo, Ding Tea, Royaltea', range: '20-80 each', note: 'Mid-tier chains, mostly franchise.' },
+        ] as KBTableRow[],
+      },
+      {
+        type: 'table',
+        heading: '3. Bubble tea shop cost structure (% of revenue)',
+        content: [
+          { label: 'Food cost (tea + milk + toppings)', range: '18-25%', note: 'Lowest in F&B thanks to cheap tapioca pearls + syrup. Premium/organic tea raises to 25-30%.' },
+          { label: 'Labor cost', range: '18-25%', note: 'Prep staff 6-12M/month, part-time 25-35K/hour. Requires less skill than barista.' },
+          { label: 'Rent', range: '10-15%', note: 'Bubble tea targets Gen Z, often locations near schools/universities. Small take-away 30-60M/month suburbs, 60-120M D1 HCMC.' },
+          { label: 'Marketing + promotions', range: '5-8%', note: 'Combos + KOL + livestream. Higher than coffee since Gen Z is online-first.' },
+          { label: 'Packaging', range: '4-8%', note: 'Thick plastic/paper cups 1500-3000 VND, straws 300-500 VND, plastic bags 500 VND. Higher than coffee.' },
+          { label: 'Delivery app fees', range: '25-30% on delivery orders', note: 'Many bubble tea shops 50-70% revenue from Grab/Shopee → app fees eat much margin.' },
+          { label: 'Utilities + ops', range: '3-6%', note: 'Lower electricity than coffee (no espresso machines).' },
+          { label: 'Prime cost (Food + Labor)', range: '40-50%', note: 'Lowest in F&B → basis for high net margin.' },
+        ] as KBTableRow[],
+      },
+      {
+        type: 'table',
+        heading: '4. Revenue & AOV by model',
+        content: [
+          { label: 'Kiosk (10-15m²)', range: '50-120M/month', note: 'AOV 30-50K, 50-100 customers/day. Capital 150-300M. Breakeven 4-8 months.' },
+          { label: 'Small take-away (20-40m²)', range: '120-300M/month', note: 'AOV 45-70K, 80-180 customers/day. Capital 300-600M. Breakeven 6-12 months.' },
+          { label: 'Small dine-in (40-80m²)', range: '250-600M/month', note: 'AOV 55-90K, 100-250 customers/day. Capital 500M-1B. Breakeven 10-18 months.' },
+          { label: 'Large chain (Phúc Long, Gong Cha)', range: '300M-1.5B/month/store', note: 'Brand + supply chain, AOV 60-90K, ramp-up 2-4 months.' },
+          { label: 'Mixue franchise', range: '80-250M/month', note: 'Low AOV 20-40K but high volume 150-350 customers/day. Breakeven 4-8 months from low capital.' },
+        ] as KBTableRow[],
+      },
+      {
+        type: 'table',
+        heading: '5. Bubble tea margins by model',
+        content: [
+          { label: 'Kiosk', range: 'Gross 70-80% / Net 12-22%', note: 'Low capital + low overhead = highest net margin.' },
+          { label: 'Small take-away', range: 'Gross 65-75% / Net 10-18%', note: 'Rent starts eating margin.' },
+          { label: 'Small dine-in', range: 'Gross 60-70% / Net 8-15%', note: 'Higher labor + rent.' },
+          { label: 'Large chain (Phúc Long, Gong Cha)', range: 'Gross 65-70% / Net 12-20%', note: 'Scale + supply chain advantage. Phúc Long 2024 net grew 4x YoY.' },
+          { label: 'Franchise (Mixue, TocoToco)', range: 'Gross 55-65% / Net 8-15%', note: 'Plus royalty + brand fee 5-8%. Low capital offsets.' },
+        ] as KBTableRow[],
+      },
+      {
+        type: 'warning-list',
+        heading: 'Insights for opening a bubble tea shop in 2026',
+        content: [
+          { icon: 'warning', title: 'Highest net margin in F&B (12-20%) but fierce competition', desc: 'Mixue has 1,500+ locations with super-low AOV, compressing industry margins. Independent chains struggle on price — must differentiate via concept/toppings/premium.', severity: 'critical' },
+          { icon: 'warning', title: 'Short 2-3 year "trend" lifecycle', desc: 'Peach tea 2018, matcha 2020, fresh milk brown sugar 2021, milk tea foam 2023 — each trend lasts 2-3 years. Must update menu constantly.', severity: 'warning' },
+          { icon: 'warning', title: '50-70% revenue from delivery = margin eaten by apps', desc: 'Bubble tea is delivery-heavy. Grab/Shopee fees 25-30% + packaging 4-8% → if all sales via apps, gross margin drops from 75% to 45%.', severity: 'critical' },
+          { icon: 'warning', title: 'Mixue franchise = lowest capital entry', desc: 'Capital 150-300M (lowest in F&B franchise), breakeven 4-8 months, simple management. Risk: many Mixue locations compete + low per-cup margin.', severity: 'tip' },
+          { icon: 'warning', title: 'Location near schools/universities = gold', desc: 'Gen Z is core customer. Shops near universities have stable school-year revenue, drop 30-50% in summer.', severity: 'tip' },
+        ] as KBWarningItem[],
+      },
+      {
+        type: 'text',
+        content: 'Bubble tea has the best "entry door" in F&B: low capital, high margins, simple model. But it\'s also the fastest-changing trend industry — shops not updating menu every 6-12 months lose customers. Before opening, use F&B Validator to test revenue, cost, breakeven — especially delivery-heavy scenarios (50-70% via apps) to see real margins.',
+      },
+      {
+        type: 'faq',
+        heading: 'FAQs about opening a bubble tea shop in Vietnam',
+        content: [
+          {
+            question: 'How much capital is needed to open a bubble tea shop?',
+            answer: 'Capital by model: Kiosk 150-300M VND (10-15m² + basic equipment), Small take-away 300-600M (20-40m² + full setup), Small dine-in 500M-1B (40-80m² + seating). Franchise: Mixue 150-300M, TocoToco 200-500M, Gong Cha 800M-1.5B, KOI Thé 1-2B. Plus 3-6 months of operating expenses as working capital.',
+          },
+          {
+            question: 'What is the profit margin for a bubble tea shop?',
+            answer: 'Gross margin 65-75% and net margin 12-20% — highest in F&B. Details: kiosk 12-22%, take-away 10-18%, dine-in 8-15%, large chains 12-20% (Phúc Long 2024 net grew 4x YoY). Mixue/TocoToco franchise 8-15% (after royalty). Margin drivers: low food cost (18-25%) + good combo AOV.',
+          },
+          {
+            question: 'What is the AOV of a Vietnam bubble tea shop?',
+            answer: 'Average AOV 45-70K per customer. Details: Mixue/budget 20-40K, TocoToco/mid 45-70K, Gong Cha/KOI Thé/Phúc Long 55-85K, The Alley/premium 70-100K. Combos (2-3 drinks + toppings) 80-120K. Delivery orders 15-25% higher than dine-in as customers order more to share shipping fees.',
+          },
+          {
+            question: 'Is Mixue franchise profitable?',
+            answer: 'Mixue has the lowest franchise capital (150-300M vs Gong Cha 800M, KOI Thé 1-2B) and fastest breakeven (4-8 months with good location). But low margins: AOV only 20-40K, revenue/store 80-250M/month, net margin 8-15% (after 5-8% royalty). Good for beginners with 200-400M who want to test F&B business. Risk: high Mixue density, many locations compete.',
+          },
+          {
+            question: 'How many bubble tea shops are in Vietnam in 2026?',
+            answer: '~3,500+ shops (chains + independents). Top 5 chains: Mixue ~1,500 franchise, TocoToco ~200 franchise, Phúc Long 170+, Gong Cha ~100+, KOI Thé ~90+. Rest ~1,500 independents + small chains. 2019 peak ~5,000 shops, dropped to ~2,500 after 2020-2022 saturation, recovering since 2023.',
+          },
+          {
+            question: 'What are monthly operating costs for a bubble tea shop?',
+            answer: 'For 40m² shop with 200M VND monthly revenue: Food cost 40-50M (20-25%), Labor 35-45M (18-22%), Rent 25-35M (12-17%), Marketing 10-15M (5-7%), Packaging 10-15M (5-7%), Delivery app fees 20-30M (10-15% if 40-50% from apps), Utilities 8-12M (4-6%). Total costs 150-200M → net margin 0-50M (0-25%). Kiosk with 80M revenue costs 55-70M, net 10-25M (higher margin).',
+          },
+          {
+            question: 'How big is Vietnam\'s bubble tea market in USD?',
+            answer: 'Vietnam bubble tea market 2025 reached ~$500M USD (~12.5 trillion VND), about 2% of total F&B market ($27.3B). Growing 8-12%/year during 2024-2028. Vietnam is one of top 5 SEA bubble tea markets. The 2018-2019 "bubble" peak saw thousands of shops open rapidly (many closed within 6-12 months); market has stabilized and consolidated around large chains.',
+          },
+        ] as KBFAQItem[],
+      },
+    ],
+  },
+  {
+    id: 'franchise_market_data_2026',
+    slug: 'so-lieu-nhuong-quyen-fnb-2026',
+    publishDate: '2026-08-15',
+    icon: 'chart',
+    title: 'Vietnam F&B Franchise Data 2026: Costs + Top Brands',
+    subtitle: 'Capital from 65M to 3B VND, net margin 5-15%, top 10 franchise brands',
+    seoTitle: 'Vietnam F&B Franchise 2026: Capital 65M-3B + Top 10 Brands',
+    seoDescription: 'Vietnam F&B franchise 2026: capital from 65M VND (Trung Nguyên E-Coffee) to 3B VND (KFC ~1.5B). Royalty 5-8%, breakeven 12-24 months. Compare 10 brands.',
+    color: 'mint-light',
+    category: 'strategy',
+    highlights: [
+      { label: 'F&B franchise brands', value: '150+', note: 'Coffee + bubble tea + fast food' },
+      { label: 'Lowest entry capital', value: '65M VND', note: 'Trung Nguyên E-Coffee mini' },
+      { label: 'Highest capital', value: '~3B VND', note: 'KFC, Lotteria full store' },
+      { label: 'Average net margin', value: '5-15%', note: 'After royalty deduction' },
+    ],
+    sections: [
+      {
+        type: 'tldr',
+        content: [
+          'Vietnam F&B franchises have 150+ brands, capital from 65M VND (Trung Nguyên E-Coffee) to 3B (KFC, Lotteria full store)',
+          'Standard franchise fees: Initial fee (100-500M) + Royalty 5-8% revenue + Marketing fee 2-4% + Refundable deposit',
+          'Franchise net margin 5-15%, lower than self-owned by 5-8% due to royalty, but offset by brand + supply chain + training',
+          'Average breakeven 12-24 months — fastest is Mixue (4-8 months), slowest is KFC/Lotteria (24-36 months)',
+        ],
+      },
+      {
+        type: 'text',
+        content: 'Franchising is a popular route for F&B newcomers — brand + system + training already exist, reducing risk vs. building from scratch. But there\'s a trade-off: royalty fees eat margins, less menu/marketing flexibility, dependence on parent brand reputation. This page compiles benchmark costs, royalty fees, and breakeven of Vietnam\'s top 10 F&B franchise brands — use it to compare before signing.',
+      },
+      {
+        type: 'table',
+        heading: '1. F&B franchise capital by tier (2026)',
+        content: [
+          { label: 'Low capital (< 300M VND)', range: 'Trung Nguyên E-Coffee, Mixue, Highlands (no franchise)', note: 'Kiosk/small take-away model. Low financial risk.' },
+          { label: 'Mid capital (300M - 1B VND)', range: 'TocoToco, ChaGo, King Coffee, Aha Cafe', note: 'Full take-away or small dine-in.' },
+          { label: 'High capital (1-3B VND)', range: 'Gong Cha, KOI Thé, Lotteria, KFC, Jollibee', note: 'Full dine-in with strong brand, slower breakeven.' },
+          { label: 'Very high (>3B VND)', range: 'McDonald\'s (~5B), Starbucks (no VN franchise)', note: 'Top international brands, high capital + location requirements.' },
+        ] as KBTableRow[],
+      },
+      {
+        type: 'table',
+        heading: '2. Top 10 Vietnam F&B franchise brands',
+        content: [
+          { label: 'Trung Nguyên E-Coffee', range: 'Capital 65-175M VND', note: 'Mini coffee kiosk. Most franchise locations in VN ~850. Royalty ~5%. Source: [Trung Nguyên Legend](https://trungnguyenlegend.com/e-coffee).' },
+          { label: 'Mixue Vietnam', range: 'Capital 150-300M VND', note: 'Cheap bubble tea + ice cream. ~1,500 VN locations. Royalty + brand fee ~6-8%. Breakeven 4-8 months.' },
+          { label: 'TocoToco', range: 'Capital 200-500M VND', note: 'Vietnamese bubble tea. ~200 locations. Royalty 5-7%. Breakeven 6-12 months.' },
+          { label: 'King Coffee', range: 'Capital 300-800M VND', note: 'Smaller Trung Nguyên chain, targets office workers.' },
+          { label: 'ChaGo, Royaltea', range: 'Capital 300-600M VND', note: 'Mid-tier bubble tea, royalty 5-7%.' },
+          { label: 'Gong Cha Vietnam', range: 'Capital 800M-1.5B VND', note: 'Premium Taiwanese bubble tea. Royalty 6-8% + marketing 2%. ~100 VN locations.' },
+          { label: 'KOI Thé', range: 'Capital 1-2B VND', note: 'Premium Taiwanese bubble tea. ~90 locations.' },
+          { label: 'Lotteria', range: 'Capital 1.5-2.5B VND', note: 'Korean fast food. Royalty 6% + marketing 4%. Breakeven 18-30 months.' },
+          { label: 'KFC Vietnam', range: 'Capital 2-3B VND', note: 'Fried chicken fast food. Requires good location + experience. Breakeven 24-36 months.' },
+          { label: 'Jollibee', range: 'Capital 2-3B VND', note: 'Philippine fast food, expanded rapidly 2020-2025.' },
+        ] as KBTableRow[],
+      },
+      {
+        type: 'table',
+        heading: '3. Standard franchise fee structure',
+        content: [
+          { label: 'Initial franchise fee', range: '100-500M (one-time)', note: 'Brand rights + training + setup. Non-refundable. Small coffee 30-100M, mid F&B 100-300M, large fast food 300-500M.' },
+          { label: 'Royalty fee', range: '5-8% of revenue (monthly)', note: 'Monthly brand rights fee to parent. Directly eats net margin.' },
+          { label: 'Marketing / brand fee', range: '2-4% of revenue', note: 'Contribution to brand-wide marketing budget. Separate from your local marketing budget.' },
+          { label: 'Deposit / security', range: '50-200M (refundable)', note: 'Refunded when contract ends, deducted if violated.' },
+          { label: 'Setup / construction', range: '300M-2B depending on size', note: 'Design + build to brand standards. Franchise fee includes design, but construction is yours.' },
+          { label: 'Initial inventory', range: '30-150M', note: 'Initial materials per brand requirements.' },
+          { label: 'POS + training setup', range: '20-80M', note: 'System + staff training. Many brands include this in initial fee.' },
+        ] as KBTableRow[],
+      },
+      {
+        type: 'table',
+        heading: '4. Franchise revenue & margins by model',
+        content: [
+          { label: 'Coffee mini franchise (Trung Nguyên E-Coffee)', range: 'Revenue 40-100M/month, Net 8-15%', note: 'Low capital 65-175M, breakeven 6-12 months.' },
+          { label: 'Low-capital bubble tea franchise (Mixue)', range: 'Revenue 80-250M/month, Net 8-15%', note: 'Low AOV but high volume. Breakeven 4-8 months.' },
+          { label: 'Mid bubble tea franchise (TocoToco, ChaGo)', range: 'Revenue 150-400M/month, Net 8-15%', note: 'Breakeven 8-18 months.' },
+          { label: 'Premium bubble tea franchise (Gong Cha, KOI Thé)', range: 'Revenue 300M-1B/month, Net 10-18%', note: 'High capital 800M-2B, breakeven 12-24 months.' },
+          { label: 'Fast food franchise (Lotteria, KFC)', range: 'Revenue 500M-2B/month, Net 5-12%', note: 'High capital 1.5-3B, breakeven 18-36 months. Lower margin due to higher royalty + food cost.' },
+        ] as KBTableRow[],
+      },
+      {
+        type: 'table',
+        heading: '5. F&B franchise cost structure (% of revenue)',
+        content: [
+          { label: 'Food cost', range: '25-35%', note: 'Higher than self-owned since ingredients must be purchased from brand (no bargaining).' },
+          { label: 'Labor cost', range: '20-30%', note: 'Similar to self-owned.' },
+          { label: 'Rent', range: '10-18%', note: 'Many brands require approved locations = higher rent.' },
+          { label: 'Royalty + brand fee', range: '7-12%', note: 'This is the "direct deduction" cost not present in self-owned.' },
+          { label: 'Local marketing', range: '2-4%', note: 'On top of brand-wide marketing fee.' },
+          { label: 'Utilities + ops', range: '4-7%', note: 'Similar to self-owned.' },
+          { label: 'Prime cost (Food + Labor + Royalty)', range: '55-65%', note: 'Higher than self-owned (45-55%) due to royalty.' },
+        ] as KBTableRow[],
+      },
+      {
+        type: 'warning-list',
+        heading: 'Insights for F&B franchise consideration in 2026',
+        content: [
+          { icon: 'warning', title: 'Franchise ≠ easy win — 30-40% still close in first 2 years', desc: 'Brand + system only reduce operational risk, not location + market fit risk. Many franchisees at wrong locations still close.', severity: 'critical' },
+          { icon: 'warning', title: 'Royalty + brand fee eat 7-12% of margin', desc: 'If gross margin is 15-20%, royalty cuts nearly half. Franchise only profits with consistently high revenue.', severity: 'critical' },
+          { icon: 'warning', title: 'Read contract carefully — exit + non-compete clauses', desc: 'Many franchises have 3-5 year non-compete after exit. Deposit non-refundable if you cancel.', severity: 'warning' },
+          { icon: 'warning', title: 'Low capital = new/unproven brand', desc: 'Franchise <100M capital is often unproven brand in Vietnam. Beware — financial instability → brand may collapse in 1-2 years.', severity: 'warning' },
+          { icon: 'warning', title: 'Trung Nguyên E-Coffee + Mixue = best entry points', desc: 'Low capital 65-300M, fast breakeven 4-12 months, stable brand, many proven locations. Great for F&B beginners.', severity: 'tip' },
+        ] as KBWarningItem[],
+      },
+      {
+        type: 'text',
+        content: 'F&B franchising suits people who: (1) want to reduce brand + operational risk, (2) have capital but no F&B experience, (3) accept lower margins than self-owned in exchange for brand + system. Before signing, use F&B Validator to test scenarios: enter initial fee + royalty as costs, conservative revenue forecast → see real breakeven time. If breakeven > 24 months under conservative scenario = reconsider.',
+      },
+      {
+        type: 'faq',
+        heading: 'FAQs about F&B franchising in Vietnam',
+        content: [
+          {
+            question: 'How much capital does F&B franchising need in Vietnam?',
+            answer: 'Vietnam F&B franchise capital ranges from 65M VND (Trung Nguyên E-Coffee mini) to 3B (KFC, Jollibee, Lotteria full store). Details: Coffee mini 65-175M, Low-cap bubble tea 150-300M (Mixue), Mid bubble tea 300-800M (TocoToco, ChaGo), Premium bubble tea 800M-2B (Gong Cha, KOI Thé), Fast food 1.5-3B (Lotteria, KFC, Jollibee), Premium international >3B (McDonald\'s). Plus 3-6 months operating expenses as working capital.',
+          },
+          {
+            question: 'What is the F&B franchise royalty fee?',
+            answer: 'Standard royalty is 5-8% of monthly revenue. Plus marketing fee 2-4% = total brand fee 7-12% of revenue. Details: Trung Nguyên E-Coffee ~5%, Mixue 6-8%, TocoToco 5-7%, Gong Cha 6-8%, Lotteria 6%, KFC 6%. Plus one-time initial franchise fee 100-500M depending on brand. Royalty directly eats net margin — franchise only profits with consistently high revenue.',
+          },
+          {
+            question: 'How long does F&B franchise breakeven take?',
+            answer: 'Average breakeven 12-24 months, depending on capital + revenue. Fastest: Trung Nguyên E-Coffee 6-12 months, Mixue 4-8 months (low capital). Mid: TocoToco 8-18 months, ChaGo 10-18 months. Slow: Gong Cha/KOI Thé 12-24 months, Lotteria 18-30 months, KFC/Jollibee 24-36 months. Condition: achieve 80-100% forecasted revenue in first 3-6 months. Slow ramp-up (50-60%) doubles breakeven.',
+          },
+          {
+            question: 'Franchise vs self-owned F&B — which is more profitable?',
+            answer: 'Self-owned typically has 5-8% higher margins (no 7-12% royalty), but much higher risk. Franchise wins if: (1) no F&B experience, (2) want existing brand to reduce ramp-up, (3) choose proven multi-location brand. Self-owned wins if: (1) F&B experience, (2) unique concept hard to copy, (3) accept 6-12 months building brand from zero. Reference numbers: franchise net 5-15%, self-owned net 8-20% (if operated well).',
+          },
+          {
+            question: 'What are the top F&B franchise brands in Vietnam?',
+            answer: 'Vietnam 2026 top 10 F&B franchise brands: (1) Trung Nguyên E-Coffee ~850 stores — lowest capital 65-175M; (2) Mixue ~1,500 stores — cheap bubble tea/ice cream 150-300M; (3) TocoToco ~200 stores — Vietnamese bubble tea 200-500M; (4) Gong Cha ~100 stores — Taiwanese bubble tea 800M-1.5B; (5) KOI Thé ~90 stores — premium bubble tea 1-2B; (6) The Alley ~40 stores — 1-2B; (7) Lotteria — fast food 1.5-2.5B; (8) KFC — fast food 2-3B; (9) Jollibee — fast food 2-3B; (10) King Coffee — coffee 300-800M.',
+          },
+          {
+            question: 'Should I franchise Mixue?',
+            answer: 'Mixue pros: lowest capital in bubble tea (150-300M), fastest breakeven 4-8 months, strong Chinese brand expanding fast in VN (~1,500 stores). Cons: (1) high Mixue density, many stores compete directly; (2) low AOV 20-40K, small margin per cup; (3) royalty + brand fee 6-8% eats margin; (4) little menu differentiation. Suits: F&B beginners with 200-400M who want to test with low risk. Not for: those wanting to build their own long-term brand.',
+          },
+          {
+            question: 'How much capital does KFC / Lotteria franchise need?',
+            answer: 'KFC Vietnam requires 2-3B (initial fee + setup + working capital), Lotteria 1.5-2.5B, Jollibee 2-3B. Additional requirements: (1) good location (large space, parking), (2) F&B or retail management experience, (3) financial proof of capital + 6 months operations. Royalty 6% + marketing 4% = total 10% of revenue. Breakeven 24-36 months. Stable revenue 500M-2B/month/store. Not for beginners or limited-capital operators.',
+          },
+        ] as KBFAQItem[],
+      },
+    ],
+  },
 ];
 
 export default TRENDS_ARTICLES;

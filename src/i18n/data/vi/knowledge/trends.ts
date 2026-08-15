@@ -818,6 +818,433 @@ const TRENDS_ARTICLES: KBTopic[] = [
       },
     ],
   },
+  {
+    id: 'coffee_market_data_2026',
+    slug: 'so-lieu-ca-phe-viet-nam-2026',
+    publishDate: '2026-08-15',
+    icon: 'chart',
+    title: 'Số liệu ngành cà phê Việt Nam 2026: Benchmark cho quán mới mở',
+    subtitle: 'Quy mô $1.6 tỷ, biên gộp 60-75%, top chuỗi + benchmark chi phí',
+    seoTitle: 'Số liệu cà phê Việt Nam 2026: $1.6B thị trường + biên lợi nhuận theo mô hình',
+    seoDescription: 'Ngành cà phê Việt Nam 2026: quy mô $1.6 tỷ, 26.000+ quán, biên gộp 60-75%, biên net 5-15%. Highlands 800+ store, Phúc Long 170+, Trung Nguyên E-Coffee 850+. Benchmark chi phí + AOV theo mô hình.',
+    color: 'primary-light',
+    category: 'strategy',
+    highlights: [
+      { label: 'Quy mô thị trường cà phê', value: '$1.6 tỷ', note: '~40 nghìn tỷ VNĐ (2025)' },
+      { label: 'Số quán cà phê Việt Nam', value: '26.000+', note: 'Chuỗi + độc lập' },
+      { label: 'Biên gộp trung bình', value: '60-75%', note: 'Espresso cao hơn drip' },
+      { label: 'AOV trung bình', value: '40-80K/khách', note: 'Take-away thấp hơn dine-in' },
+    ],
+    sections: [
+      {
+        type: 'tldr',
+        content: [
+          'Thị trường cà phê Việt Nam 2025 đạt ~$1.6 tỷ (~40 nghìn tỷ VNĐ), tăng 6-8%/năm — Việt Nam là nước tiêu thụ cà phê per capita cao thứ 6 châu Á',
+          'Biên gộp cà phê 60-75% cao nhất trong F&B, nhưng biên net chỉ 5-15% do rent + labor + phí delivery ăn vào',
+          'Top 5 chuỗi lớn nhất: Highlands (~800 store), Trung Nguyên E-Coffee (~850), Phúc Long (170+), The Coffee House (~120 sau tái cấu trúc), Starbucks (~120)',
+          'Vốn mở quán cà phê: kiosk 100-300tr, take-away 300-500tr, dine-in đầy đủ 500tr-2 tỷ tùy mặt bằng',
+        ],
+      },
+      {
+        type: 'text',
+        content: 'Cà phê là mô hình F&B phổ biến nhất Việt Nam với 25% số quán mới mở mỗi năm — nhờ vốn thấp, biên gộp cao, quen thuộc với đa số người khởi nghiệp. Nhưng cũng là ngành cạnh tranh khốc liệt nhất: chỉ 30% quán sống qua năm đầu tiên. Trang này tổng hợp benchmark chính thức về thị trường, chi phí, doanh thu — dùng làm tham chiếu khi lên kế hoạch mở quán hoặc cải thiện vận hành.',
+      },
+      {
+        type: 'table',
+        heading: '1. Quy mô thị trường & tăng trưởng',
+        content: [
+          { label: 'Doanh thu cà phê Việt Nam 2025', range: '~40 nghìn tỷ VNĐ (~$1.6B)', note: 'Chiếm ~5.5% tổng thị trường F&B ($27.3B). Nguồn: [Vietnam.vn](https://www.vietnam.vn/en/nganh-f-b-tai-viet-nam-se-tiep-tuc-tang-truong-9-6-trong-nam-2025).' },
+          { label: 'Tăng trưởng CAGR 2024-2028', range: '6-8%/năm', note: 'Chậm hơn giai đoạn 2019-2023 (10-15%) — thị trường bão hoà ở trung tâm. Nguồn: [IMARC Group Vietnam Coffee](https://www.imarcgroup.com/vietnam-coffee-market).' },
+          { label: 'Số quán cà phê ước tính', range: '26.000+', note: 'Bao gồm chuỗi + độc lập. Số chính thức khó, ước từ báo cáo bộ công thương + Grab/Shopee.' },
+          { label: 'Tiêu thụ cà phê per capita', range: '~2 kg/người/năm', note: 'Cao thứ 6 châu Á sau Nhật, Hàn, Đài Loan, Malaysia, Thái. Nguồn: [Vietnam Coffee Association](https://www.vicofa.org.vn/).' },
+          { label: '% quán cà phê Q1-Q3 HCM/HN', range: '~45%', note: 'Còn lại phân bổ ngoại ô + tỉnh. Trung tâm bão hoà, ngoại ô tăng trưởng.' },
+        ] as KBTableRow[],
+      },
+      {
+        type: 'table',
+        heading: '2. Top chuỗi cà phê Việt Nam (2026)',
+        content: [
+          { label: 'Highlands Coffee', range: '~800 cửa hàng', note: 'Chuỗi lớn nhất (Jollibee Foods sở hữu). Doanh thu 2024 ~$150M. Nguồn: [VIR](https://vir.com.vn/highlands-coffee-parent-jollibee-eyes-vietnam-ipo-post-record-2024-performance.html).' },
+          { label: 'Trung Nguyên E-Coffee', range: '~850+ (franchise)', note: 'Mô hình nhượng quyền vốn thấp 65-175tr. Số điểm nhiều nhất nhưng mỗi điểm nhỏ.' },
+          { label: 'The Coffee House', range: '~120 (sau tái cấu trúc)', note: 'Đóng gần 30 điểm 2024-2025 sau khi bị Golden Gate mua lại. Từng đỉnh cao ~180. Nguồn: [Vietnamnet](https://vietnamnet.vn/en/the-coffee-house-shuts-down-multiple-stores-2276291.html).' },
+          { label: 'Phúc Long', range: '~170+ cửa hàng', note: 'Masan sở hữu (2021). Kết hợp trà + cà phê. Net profit 2024 tăng 4x YoY. Nguồn: [Masan Group](https://masangroup.com/en/investor-relations).' },
+          { label: 'Starbucks Vietnam', range: '~120 cửa hàng', note: 'Chậm mở rộng so với các nước ĐNÁ khác. Premium segment.' },
+          { label: 'Cộng Cà Phê', range: '~80+ cửa hàng', note: 'Concept vintage/military, expand ra Hàn + Malaysia.' },
+          { label: 'Katinat Saigon Kafe', range: '~90+ (2025)', note: 'Tăng trưởng nhanh nhất giai đoạn 2023-2025, target Gen Z. Nguồn: [Katinat](https://katinat.vn/).' },
+        ] as KBTableRow[],
+      },
+      {
+        type: 'table',
+        heading: '3. Cơ cấu chi phí quán cà phê (% doanh thu)',
+        content: [
+          { label: 'Food cost (hạt cà phê + nguyên liệu)', range: '25-32%', note: 'Espresso 20-25%, drip 15-20% (hạt nguyên chất giá rẻ hơn). Đá + syrup + sữa cộng thêm 5-10%.' },
+          { label: 'Labor cost (nhân sự)', range: '20-25%', note: 'Barista full-time 8-15tr/tháng, part-time 25-35K/giờ. Cộng BHXH 21.5%. Nguồn: [Talentnet](https://www.talentnetgroup.com/vn/featured-insights/socio-economic-insights/average-salary-vietnam).' },
+          { label: 'Rent / mặt bằng', range: '10-18%', note: 'Take-away Q1 HCM: 40-80tr/tháng cho 30-50m². Dine-in đầy đủ: 80-200tr. Ngoại ô: 15-40tr.' },
+          { label: 'Marketing + khuyến mãi', range: '3-6%', note: 'FB + Grab/Shopee ads. Chuỗi lớn 5-8% (brand campaign).' },
+          { label: 'Utilities + operations', range: '4-7%', note: 'Điện cao hơn quán khác (máy espresso đốt điện). Máy lọc nước + gas + wifi.' },
+          { label: 'Bao bì + delivery', range: '3-8%', note: 'Ly nhựa/giấy 800-2000đ/ly. Túi giấy 500-1500đ. Phí app delivery 25-30% trên đơn.' },
+          { label: 'Prime cost (Food + Labor)', range: '45-55%', note: 'Target dưới 55%. >60% = báo động.' },
+        ] as KBTableRow[],
+      },
+      {
+        type: 'table',
+        heading: '4. Doanh thu & AOV theo mô hình quán cà phê',
+        content: [
+          { label: 'Kiosk take-away (10-15m²)', range: '30-80tr/tháng', note: 'AOV 30-50K, 30-80 khách/ngày. Vốn 100-250tr. Breakeven 4-8 tháng.' },
+          { label: 'Take-away nhỏ (20-40m²)', range: '80-200tr/tháng', note: 'AOV 40-70K, 60-150 khách/ngày. Vốn 300-500tr. Breakeven 8-14 tháng.' },
+          { label: 'Cafe dine-in phổ thông (40-80m²)', range: '150-400tr/tháng', note: 'AOV 55-90K, 80-200 khách/ngày. Vốn 500tr-1 tỷ. Breakeven 12-24 tháng.' },
+          { label: 'Cafe cao cấp (80-150m²)', range: '400tr-1.2 tỷ/tháng', note: 'AOV 80-150K, 100-250 khách/ngày. Vốn 1-3 tỷ. Breakeven 18-36 tháng.' },
+          { label: 'Cafe chuỗi lớn (Highlands, TCH)', range: '300tr-1 tỷ/tháng/store', note: 'Có brand + supply chain lợi thế, AOV 55-95K. Ramp-up 3-6 tháng.' },
+        ] as KBTableRow[],
+      },
+      {
+        type: 'table',
+        heading: '5. Biên lợi nhuận cà phê theo phân khúc',
+        content: [
+          { label: 'Kiosk take-away', range: 'Gross 65-75% / Net 8-18%', note: 'Vốn thấp, chi phí thấp, biên net cao nhất nếu chọn vị trí đúng.' },
+          { label: 'Take-away nhỏ', range: 'Gross 60-70% / Net 5-12%', note: 'Rent bắt đầu ăn vào lợi nhuận.' },
+          { label: 'Cafe dine-in phổ thông', range: 'Gross 55-65% / Net 3-8%', note: 'Nhân sự + rent cao. Cần AOV 60K+ để có lời.' },
+          { label: 'Cafe cao cấp / specialty', range: 'Gross 60-70% / Net 8-15%', note: 'AOV cao bù được rent + labor cao. Nhưng volume thấp.' },
+          { label: 'Cafe chuỗi (nhượng quyền)', range: 'Gross 55-60% / Net 5-10%', note: 'Cộng phí royalty + brand fee 6-10% doanh thu.' },
+        ] as KBTableRow[],
+      },
+      {
+        type: 'warning-list',
+        heading: 'Insights cho người mở quán cà phê 2026',
+        content: [
+          { icon: 'warning', title: 'Trung tâm HCM/HN đã bão hoà — nhiều mật độ, khó cạnh tranh', desc: 'Mật độ cà phê Q1 HCM: 1 quán/50m². Người mới khó chen chân. Cơ hội tốt hơn ở Q7, Q9, Thủ Đức, ngoại ô, tỉnh loại 2.', severity: 'critical' },
+          { icon: 'warning', title: 'AOV Việt Nam thấp (40-80K) so với ĐNÁ (100-150K)', desc: 'Khó tăng giá vì khách nhạy cảm giá. Chỉ specialty cafe / concept độc mới cho phép AOV 100K+.', severity: 'warning' },
+          { icon: 'warning', title: 'Phí delivery app 25-30% ăn hết biên gộp', desc: 'Nếu 40%+ doanh thu từ Grab/Shopee → biên net rơi xuống 2-5%. Cần tối ưu dine-in + tự giao bán kính 3km.', severity: 'critical' },
+          { icon: 'warning', title: 'Kiosk + take-away = vốn thấp nhất, biên net cao nhất', desc: '100-250tr vốn ban đầu, breakeven 4-8 tháng. Tốt cho người mới hoặc test concept trước khi scale.', severity: 'tip' },
+        ] as KBWarningItem[],
+      },
+      {
+        type: 'text',
+        content: 'Cà phê Việt Nam là ngành "dễ vào, khó thắng". Vốn thấp nên nhiều người mở, nhưng cạnh tranh khốc liệt và biên net thực tế mỏng. Trước khi mở quán, dùng F&B Validator để test doanh thu — chi phí — breakeven cho concept + vị trí cụ thể của bạn. Số liệu benchmark trên chỉ là tham chiếu, không phải target — thực tế phụ thuộc rất nhiều vào mặt bằng và tay nghề vận hành.',
+      },
+      {
+        type: 'faq',
+        heading: 'Câu hỏi thường gặp về mở quán cà phê Việt Nam',
+        content: [
+          {
+            question: 'Mở quán cà phê cần bao nhiêu vốn?',
+            answer: 'Vốn tuỳ mô hình: Kiosk take-away 100-300tr (10-15m² + máy đơn giản), Take-away nhỏ 300-500tr (20-40m² + máy espresso semi-auto), Cafe dine-in phổ thông 500tr-1 tỷ (40-80m² + full setup), Cafe cao cấp 1-3 tỷ (80-150m² + brand + concept đầu tư). Nhượng quyền Trung Nguyên E-Coffee 65-175tr, Highlands không franchise. Cộng thêm 3-6 tháng chi phí vận hành (rent + labor) làm working capital.',
+          },
+          {
+            question: 'Biên lợi nhuận quán cà phê là bao nhiêu?',
+            answer: 'Biên gộp (gross margin) cà phê 60-75% cao nhất trong F&B — espresso 65-75%, drip cà phê nguyên chất 85-90%. Nhưng biên ròng (net margin) chỉ 5-15% sau khi trừ hết chi phí: kiosk 8-18%, take-away 5-12%, dine-in phổ thông 3-8%, cao cấp 8-15%. Yếu tố ăn biên net: rent (10-18%), labor (20-25%), phí delivery app (25-30% trên đơn).',
+          },
+          {
+            question: 'AOV (giá trung bình) quán cà phê Việt Nam là bao nhiêu?',
+            answer: 'AOV trung bình 40-80K/khách. Chi tiết: Kiosk take-away 30-50K, take-away đầy đủ 40-70K, cafe dine-in phổ thông 55-90K, cafe cao cấp 80-150K, specialty coffee 100-200K. Delivery orders cao hơn 15-25% vs dine-in vì khách order thêm để dilute phí ship. Chuỗi lớn (Highlands, TCH) AOV 55-95K nhờ combo + món ăn kèm.',
+          },
+          {
+            question: 'Số quán cà phê Việt Nam 2026 là bao nhiêu?',
+            answer: 'Ước ~26.000+ quán cà phê (bao gồm chuỗi + độc lập). Top 5 chuỗi: Highlands ~800, Trung Nguyên E-Coffee ~850 franchise, Phúc Long 170+, The Coffee House ~120 (sau tái cấu trúc), Starbucks ~120. Còn lại là chuỗi trung bình (Katinat ~90, Cộng Cà Phê ~80) và ~24.000 quán độc lập. Mật độ cao nhất ở Q1/Q3 HCM và Hoàn Kiếm/Ba Đình Hà Nội.',
+          },
+          {
+            question: 'Chi phí vận hành quán cà phê hàng tháng là bao nhiêu?',
+            answer: 'Với quán 40-80m² doanh thu 200tr/tháng: Rent 30-40tr (15-20%), Labor 40-50tr (20-25%), Food cost 55-65tr (28-32%), Utilities + ops 10-15tr (5-7%), Marketing 6-12tr (3-6%), Bao bì + delivery 6-16tr (3-8%). Tổng chi phí 150-200tr → net margin 5-25tr (2.5-12%). Kiosk take-away doanh thu 60tr thì chi phí 45-55tr, net 5-15tr.',
+          },
+          {
+            question: 'Quán cà phê hoà vốn (breakeven) bao lâu?',
+            answer: 'Breakeven phụ thuộc vốn + doanh thu ổn định: Kiosk 100-250tr vốn → breakeven 4-8 tháng, Take-away 300-500tr → 8-14 tháng, Dine-in phổ thông 500tr-1 tỷ → 12-24 tháng, Cao cấp 1-3 tỷ → 18-36 tháng. Điều kiện: đạt được 80-100% doanh thu forecast trong 3-6 tháng đầu. Nếu ramp-up chậm (chỉ 50-60%) thì breakeven kéo dài gấp đôi.',
+          },
+          {
+            question: 'Cà phê Việt Nam bao nhiêu tỷ USD?',
+            answer: 'Thị trường cà phê Việt Nam 2025 đạt ~$1.6 tỷ USD (~40 nghìn tỷ VNĐ), chiếm ~5.5% tổng thị trường F&B Việt Nam ($27.3B). Tốc độ tăng trưởng 6-8%/năm giai đoạn 2024-2028, chậm hơn giai đoạn 2019-2023 (+10-15%) do bão hoà. Việt Nam là nước tiêu thụ cà phê per capita cao thứ 6 châu Á (~2 kg/người/năm), sau Nhật, Hàn, Đài Loan, Malaysia, Thái Lan.',
+          },
+        ] as KBFAQItem[],
+      },
+    ],
+  },
+  {
+    id: 'bubbletea_market_data_2026',
+    slug: 'so-lieu-tra-sua-viet-nam-2026',
+    publishDate: '2026-08-15',
+    icon: 'chart',
+    title: 'Số liệu ngành trà sữa Việt Nam 2026: Benchmark cho chủ quán',
+    subtitle: 'Quy mô $500 triệu, biên gộp 65-75%, top chuỗi + benchmark chi phí',
+    seoTitle: 'Số liệu trà sữa Việt Nam 2026: $500M thị trường + biên lợi nhuận 15-20%',
+    seoDescription: 'Ngành trà sữa Việt Nam 2026: quy mô ~$500 triệu, 3.500+ quán, biên gộp 65-75%, biên net 12-20% (cao nhất F&B). Phúc Long 170+, KOI 90+, Gong Cha 100+, Mixue 1.500+. Benchmark chi phí + AOV.',
+    color: 'secondary-light',
+    category: 'strategy',
+    highlights: [
+      { label: 'Quy mô thị trường trà sữa', value: '~$500 triệu', note: '~12.5 nghìn tỷ VNĐ (2025)' },
+      { label: 'Số quán trà sữa', value: '3.500+', note: 'Chuỗi + độc lập' },
+      { label: 'Biên ròng cao nhất F&B', value: '12-20%', note: 'Vượt cà phê + nhà hàng' },
+      { label: 'AOV trung bình', value: '45-70K/khách', note: 'Combo 80-120K' },
+    ],
+    sections: [
+      {
+        type: 'tldr',
+        content: [
+          'Thị trường trà sữa Việt Nam 2025 đạt ~$500 triệu (~12.5 nghìn tỷ VNĐ), tăng trưởng 8-12%/năm — hồi phục sau đợt "bong bóng" 2018-2019',
+          'Biên ròng trà sữa 12-20% cao nhất trong F&B, nhờ food cost thấp (18-25%) + AOV combo cao + volume tốt',
+          'Top 5 chuỗi: Mixue ~1.500 (nhượng quyền vốn thấp), Phúc Long 170+, Gong Cha 100+, KOI Thé 90+, TocoToco ~200 franchise',
+          'Vốn mở quán trà sữa: kiosk 150-300tr, take-away 300-600tr, dine-in nhỏ 500tr-1 tỷ',
+        ],
+      },
+      {
+        type: 'text',
+        content: 'Trà sữa là mô hình F&B có biên lợi nhuận cao nhất Việt Nam nhờ food cost thấp và AOV combo tốt. Sau đợt "bong bóng" 2018-2019 (khi cả nghìn quán mở nhanh rồi đóng), thị trường đã ổn định và consolidation về các chuỗi lớn. Trang này tổng hợp benchmark chính thức về market size, top chuỗi, cơ cấu chi phí — dùng làm tham chiếu khi lên kế hoạch mở quán hoặc join franchise.',
+      },
+      {
+        type: 'table',
+        heading: '1. Quy mô thị trường & tăng trưởng',
+        content: [
+          { label: 'Doanh thu trà sữa Việt Nam 2025', range: '~$500 triệu USD', note: 'Bao gồm trà sữa + trà hoa quả + smoothie. ~12.5 nghìn tỷ VNĐ. Nguồn: [Vietnam.vn](https://www.vietnam.vn/en/tra-sua-tu-thuc-uong-vui-nhon-thanh-nganh-cong-nghiep-ty-usd).' },
+          { label: 'Tăng trưởng CAGR 2024-2028', range: '8-12%/năm', note: 'Hồi phục sau đợt bong bóng 2018-2019. Tăng chậm nhưng ổn định.' },
+          { label: 'Số quán trà sữa Việt Nam', range: '~3.500+', note: 'Ước từ Grab/Shopee + báo cáo Decision Lab. Đỉnh cao 2019 là ~5.000, giảm còn 2.500 sau bão hoà, hồi phục lại.' },
+          { label: '% khách hàng thường xuyên', range: '~45% Gen Z', note: 'Uống trà sữa 2+ lần/tuần. Nguồn: [Decision Lab F&B Report](https://www.decisionlab.co/fnb_trends_report).' },
+          { label: 'Peak time', range: '14:00-18:00', note: 'Sau giờ học, giờ tan sở. Delivery peak 21:00-22:00.' },
+        ] as KBTableRow[],
+      },
+      {
+        type: 'table',
+        heading: '2. Top chuỗi trà sữa Việt Nam (2026)',
+        content: [
+          { label: 'Mixue Vietnam', range: '~1.500+ (franchise)', note: 'Chuỗi Trung Quốc, vốn nhượng quyền thấp 150-300tr. Số điểm nhiều nhất VN. AOV thấp (20-40K).' },
+          { label: 'TocoToco', range: '~200+ (franchise)', note: 'Chuỗi Việt Nam franchise phổ biến, vốn 200-500tr.' },
+          { label: 'Phúc Long', range: '~170+', note: 'Masan sở hữu. Kết hợp trà + cà phê. Net profit 2024 tăng 4x YoY. Nguồn: [Masan Group](https://masangroup.com/en/investor-relations).' },
+          { label: 'Gong Cha Vietnam', range: '~100+', note: 'Chuỗi Đài Loan premium, AOV 55-85K.' },
+          { label: 'KOI Thé', range: '~90+', note: 'Chuỗi Đài Loan, target Gen Z + văn phòng, AOV 50-80K.' },
+          { label: 'The Alley', range: '~40+', note: 'Chuỗi Đài Loan cao cấp, AOV 70-100K.' },
+          { label: 'ChaGo, Ding Tea, Royaltea', range: '20-80 mỗi chuỗi', note: 'Chuỗi trung bình, phần lớn franchise.' },
+        ] as KBTableRow[],
+      },
+      {
+        type: 'table',
+        heading: '3. Cơ cấu chi phí quán trà sữa (% doanh thu)',
+        content: [
+          { label: 'Food cost (trà + sữa + topping)', range: '18-25%', note: 'Thấp nhất F&B nhờ trân châu + syrup rẻ. Nếu dùng trà cao cấp/organic thì lên 25-30%.' },
+          { label: 'Labor cost (nhân sự)', range: '18-25%', note: 'Nhân viên pha chế 6-12tr/tháng, part-time 25-35K/giờ. Ít cần kỹ năng cao như barista.' },
+          { label: 'Rent / mặt bằng', range: '10-15%', note: 'Trà sữa target Gen Z nên hay chọn vị trí gần trường/đại học. Take-away nhỏ 30-60tr/tháng ngoại ô, 60-120tr Q1 HCM.' },
+          { label: 'Marketing + khuyến mãi', range: '5-8%', note: 'Combo + KOL + livestream. Cao hơn cà phê vì target Gen Z online-first.' },
+          { label: 'Bao bì', range: '4-8%', note: 'Ly nhựa/giấy dày 1500-3000đ/ly, ống hút 300-500đ, túi nilon 500đ. Cao hơn cà phê.' },
+          { label: 'Delivery phí app', range: '25-30% trên đơn delivery', note: 'Nhiều quán trà sữa 50-70% doanh thu từ Grab/Shopee → phí app ăn nhiều biên.' },
+          { label: 'Utilities + ops', range: '3-6%', note: 'Điện thấp hơn cà phê (không cần máy espresso đốt điện).' },
+          { label: 'Prime cost (Food + Labor)', range: '40-50%', note: 'Thấp nhất F&B → cơ sở cho biên ròng cao.' },
+        ] as KBTableRow[],
+      },
+      {
+        type: 'table',
+        heading: '4. Doanh thu & AOV theo mô hình',
+        content: [
+          { label: 'Kiosk (10-15m²)', range: '50-120tr/tháng', note: 'AOV 30-50K, 50-100 khách/ngày. Vốn 150-300tr. Breakeven 4-8 tháng.' },
+          { label: 'Take-away nhỏ (20-40m²)', range: '120-300tr/tháng', note: 'AOV 45-70K, 80-180 khách/ngày. Vốn 300-600tr. Breakeven 6-12 tháng.' },
+          { label: 'Dine-in nhỏ (40-80m²)', range: '250-600tr/tháng', note: 'AOV 55-90K, 100-250 khách/ngày. Vốn 500tr-1 tỷ. Breakeven 10-18 tháng.' },
+          { label: 'Chuỗi lớn (Phúc Long, Gong Cha)', range: '300tr-1.5 tỷ/tháng/store', note: 'Có brand + supply chain, AOV 60-90K, ramp-up 2-4 tháng.' },
+          { label: 'Mixue nhượng quyền', range: '80-250tr/tháng', note: 'AOV thấp 20-40K nhưng volume cao 150-350 khách/ngày. Breakeven 4-8 tháng nhờ vốn thấp.' },
+        ] as KBTableRow[],
+      },
+      {
+        type: 'table',
+        heading: '5. Biên lợi nhuận trà sữa theo mô hình',
+        content: [
+          { label: 'Kiosk', range: 'Gross 70-80% / Net 12-22%', note: 'Vốn thấp + chi phí thấp = biên net cao nhất.' },
+          { label: 'Take-away nhỏ', range: 'Gross 65-75% / Net 10-18%', note: 'Rent bắt đầu ăn vào biên.' },
+          { label: 'Dine-in nhỏ', range: 'Gross 60-70% / Net 8-15%', note: 'Nhân sự + rent cao hơn.' },
+          { label: 'Chuỗi lớn (Phúc Long, Gong Cha)', range: 'Gross 65-70% / Net 12-20%', note: 'Có scale + supply chain lợi thế. Phúc Long 2024 net tăng 4x YoY.' },
+          { label: 'Nhượng quyền (Mixue, TocoToco)', range: 'Gross 55-65% / Net 8-15%', note: 'Cộng phí royalty + brand fee 5-8%. Nhưng vốn thấp bù lại.' },
+        ] as KBTableRow[],
+      },
+      {
+        type: 'warning-list',
+        heading: 'Insights cho người mở quán trà sữa 2026',
+        content: [
+          { icon: 'warning', title: 'Biên ròng cao nhất F&B (12-20%) nhưng cạnh tranh khốc liệt', desc: 'Mixue đã có 1.500+ điểm với AOV siêu thấp, ép biên ngành. Chuỗi độc lập khó cạnh tranh giá — phải khác biệt qua concept/topping/premium.', severity: 'critical' },
+          { icon: 'warning', title: 'Vòng đời "trend" ngắn 2-3 năm', desc: 'Trà đào cam sả 2018, matcha 2020, sữa tươi trân châu đường đen 2021, milk tea foam 2023 — mỗi trend chỉ 2-3 năm. Phải update menu liên tục.', severity: 'warning' },
+          { icon: 'warning', title: '50-70% doanh thu từ delivery = biên bị app ăn', desc: 'Trà sữa là ngành delivery-heavy. Phí Grab/Shopee 25-30% + bao bì 4-8% → nếu tất cả bán qua app, biên gộp rơi từ 75% xuống 45%.', severity: 'critical' },
+          { icon: 'warning', title: 'Nhượng quyền Mixue = vốn thấp nhất', desc: 'Vốn 150-300tr (thấp nhất trong nhượng quyền F&B), breakeven 4-8 tháng, quản lý đơn giản. Rủi ro: nhiều điểm cạnh tranh nhau + margin thấp trên mỗi ly.', severity: 'tip' },
+          { icon: 'warning', title: 'Location gần trường / đại học = vàng', desc: 'Gen Z là customer chính. Quán gần đại học doanh thu ổn định năm học, giảm 30-50% mùa hè.', severity: 'tip' },
+        ] as KBWarningItem[],
+      },
+      {
+        type: 'text',
+        content: 'Trà sữa là ngành có "cửa vào" tốt nhất F&B: vốn thấp, biên cao, mô hình đơn giản. Nhưng cũng là ngành thay đổi trend nhanh nhất — quán không update menu 6-12 tháng có thể mất khách. Trước khi mở, dùng F&B Validator để test doanh thu, chi phí, breakeven — đặc biệt scenario delivery-heavy (50-70% qua app) để biết biên thực còn bao nhiêu.',
+      },
+      {
+        type: 'faq',
+        heading: 'Câu hỏi thường gặp về mở quán trà sữa Việt Nam',
+        content: [
+          {
+            question: 'Mở quán trà sữa cần bao nhiêu vốn?',
+            answer: 'Vốn tuỳ mô hình: Kiosk 150-300tr (10-15m² + máy đơn giản), Take-away nhỏ 300-600tr (20-40m² + full setup), Dine-in nhỏ 500tr-1 tỷ (40-80m² + không gian ngồi). Nhượng quyền: Mixue 150-300tr, TocoToco 200-500tr, Gong Cha 800tr-1.5 tỷ, KOI Thé 1-2 tỷ. Cộng thêm 3-6 tháng chi phí vận hành làm working capital.',
+          },
+          {
+            question: 'Biên lợi nhuận quán trà sữa là bao nhiêu?',
+            answer: 'Biên gộp (gross margin) trà sữa 65-75% và biên ròng (net margin) 12-20% — cao nhất trong F&B. Chi tiết: kiosk 12-22%, take-away 10-18%, dine-in 8-15%, chuỗi lớn 12-20% (Phúc Long 2024 net tăng 4x YoY). Nhượng quyền Mixue/TocoToco 8-15% (đã trừ phí royalty). Yếu tố tạo biên cao: food cost thấp (18-25%) + AOV combo tốt.',
+          },
+          {
+            question: 'AOV quán trà sữa Việt Nam là bao nhiêu?',
+            answer: 'AOV trung bình 45-70K/khách. Chi tiết: Mixue/quán bình dân 20-40K, TocoToco/quán trung 45-70K, Gong Cha/KOI Thé/Phúc Long 55-85K, The Alley/premium 70-100K. Combo (2-3 ly + topping) 80-120K. Delivery orders cao hơn 15-25% vs dine-in vì khách order thêm để share phí ship.',
+          },
+          {
+            question: 'Nhượng quyền Mixue có lời không?',
+            answer: 'Mixue có vốn nhượng quyền thấp nhất (150-300tr, so với Gong Cha 800tr, KOI Thé 1-2 tỷ) và breakeven nhanh nhất (4-8 tháng nếu vị trí tốt). Nhưng biên thấp: AOV chỉ 20-40K, doanh thu/store 80-250tr/tháng, net margin 8-15% (đã trừ royalty 5-8%). Phù hợp với người mới có 200-400tr, muốn test kinh doanh F&B. Rủi ro: mật độ Mixue cao, nhiều điểm cạnh tranh nhau.',
+          },
+          {
+            question: 'Số quán trà sữa Việt Nam 2026 là bao nhiêu?',
+            answer: '~3.500+ quán trà sữa (bao gồm chuỗi + độc lập). Top 5 chuỗi: Mixue ~1.500 franchise, TocoToco ~200 franchise, Phúc Long 170+, Gong Cha ~100+, KOI Thé ~90+. Còn lại ~1.500 quán độc lập + chuỗi nhỏ. Đỉnh cao 2019 ~5.000 quán, giảm còn ~2.500 sau bão hoà 2020-2022, hồi phục lại từ 2023.',
+          },
+          {
+            question: 'Chi phí vận hành quán trà sữa hàng tháng là bao nhiêu?',
+            answer: 'Với quán 40m² doanh thu 200tr/tháng: Food cost 40-50tr (20-25%), Labor 35-45tr (18-22%), Rent 25-35tr (12-17%), Marketing 10-15tr (5-7%), Bao bì 10-15tr (5-7%), Delivery app phí 20-30tr (10-15% nếu 40-50% từ app), Utilities 8-12tr (4-6%). Tổng chi phí 150-200tr → net margin 0-50tr (0-25%). Kiosk doanh thu 80tr thì chi phí 55-70tr, net 10-25tr (biên cao hơn).',
+          },
+          {
+            question: 'Trà sữa Việt Nam bao nhiêu tỷ USD?',
+            answer: 'Thị trường trà sữa Việt Nam 2025 đạt ~$500 triệu USD (~12.5 nghìn tỷ VNĐ), chiếm ~2% tổng thị trường F&B ($27.3B). Tăng trưởng 8-12%/năm giai đoạn 2024-2028. Việt Nam là 1 trong 5 thị trường trà sữa lớn nhất ĐNÁ. Đỉnh cao "bong bóng" 2018-2019 khi hàng nghìn quán mở nhanh (nhiều đóng sau 6-12 tháng), thị trường đã ổn định và consolidation về chuỗi lớn.',
+          },
+        ] as KBFAQItem[],
+      },
+    ],
+  },
+  {
+    id: 'franchise_market_data_2026',
+    slug: 'so-lieu-nhuong-quyen-fnb-2026',
+    publishDate: '2026-08-15',
+    icon: 'chart',
+    title: 'Số liệu nhượng quyền F&B Việt Nam 2026: Chi phí + top thương hiệu',
+    subtitle: 'Vốn từ 65tr đến 3 tỷ, biên net 5-15%, top 10 thương hiệu nhượng quyền',
+    seoTitle: 'Nhượng quyền F&B Việt Nam 2026: Vốn 65tr-3 tỷ + top 10 thương hiệu',
+    seoDescription: 'Nhượng quyền F&B Việt Nam 2026: vốn từ 65tr (Trung Nguyên E-Coffee) đến 3 tỷ (Highlands không franchise, KFC ~1.5 tỷ). Phí royalty 5-8%, breakeven 12-24 tháng. So sánh 10 thương hiệu.',
+    color: 'mint-light',
+    category: 'strategy',
+    highlights: [
+      { label: 'Số thương hiệu nhượng quyền F&B', value: '150+', note: 'Cà phê + trà sữa + fast food' },
+      { label: 'Vốn khởi điểm thấp nhất', value: '65tr', note: 'Trung Nguyên E-Coffee mini' },
+      { label: 'Vốn cao nhất', value: '~3 tỷ', note: 'KFC, Lotteria full store' },
+      { label: 'Biên ròng trung bình', value: '5-15%', note: 'Sau khi trừ royalty' },
+    ],
+    sections: [
+      {
+        type: 'tldr',
+        content: [
+          'Nhượng quyền F&B tại Việt Nam có 150+ thương hiệu, vốn từ 65tr (Trung Nguyên E-Coffee) đến 3 tỷ (KFC, Lotteria full store)',
+          'Phí franchise thường gồm: Initial fee (100-500tr) + Royalty 5-8% doanh thu + Marketing fee 2-4% + Deposit hoàn lại',
+          'Biên ròng nhượng quyền 5-15%, thấp hơn tự mở 5-8% do phí royalty, nhưng bù lại brand + supply chain + training có sẵn',
+          'Breakeven trung bình 12-24 tháng — nhanh nhất là Mixue (4-8 tháng), chậm nhất là KFC/Lotteria (24-36 tháng)',
+        ],
+      },
+      {
+        type: 'text',
+        content: 'Nhượng quyền (franchise) là con đường phổ biến cho người mới vào F&B — có brand + hệ thống + training có sẵn, giảm rủi ro so với tự build. Nhưng cũng có trade-off: phí royalty ăn vào biên, ít linh động về menu/marketing, phụ thuộc uy tín thương hiệu mẹ. Trang này tổng hợp benchmark chi phí, phí royalty, breakeven của top 10 thương hiệu F&B nhượng quyền Việt Nam — dùng để so sánh trước khi quyết định.',
+      },
+      {
+        type: 'table',
+        heading: '1. Vốn nhượng quyền F&B theo phân khúc (2026)',
+        content: [
+          { label: 'Vốn thấp (< 300tr)', range: 'Trung Nguyên E-Coffee, Mixue, Highland Coffee (không franchise)', note: 'Mô hình kiosk/take-away nhỏ. Ít rủi ro tài chính.' },
+          { label: 'Vốn trung (300tr - 1 tỷ)', range: 'TocoToco, ChaGo, King Coffee, Aha Cafe', note: 'Take-away đầy đủ hoặc dine-in nhỏ.' },
+          { label: 'Vốn cao (1-3 tỷ)', range: 'Gong Cha, KOI Thé, Lotteria, KFC, Jollibee', note: 'Full store dine-in với brand mạnh, breakeven chậm hơn.' },
+          { label: 'Rất cao (>3 tỷ)', range: 'McDonald\'s (~5 tỷ), Starbucks (không franchise VN)', note: 'Brand quốc tế top, yêu cầu vốn + location cao.' },
+        ] as KBTableRow[],
+      },
+      {
+        type: 'table',
+        heading: '2. Top 10 thương hiệu F&B nhượng quyền Việt Nam',
+        content: [
+          { label: 'Trung Nguyên E-Coffee', range: 'Vốn 65-175tr', note: 'Cà phê kiosk mini. Số điểm nhượng quyền nhiều nhất VN ~850. Royalty ~5%. Nguồn: [Trung Nguyên Legend](https://trungnguyenlegend.com/e-coffee).' },
+          { label: 'Mixue Vietnam', range: 'Vốn 150-300tr', note: 'Trà sữa + kem giá rẻ. ~1.500 điểm VN. Royalty + brand fee ~6-8%. Breakeven 4-8 tháng.' },
+          { label: 'TocoToco', range: 'Vốn 200-500tr', note: 'Trà sữa Việt Nam. ~200 điểm. Royalty 5-7%. Breakeven 6-12 tháng.' },
+          { label: 'King Coffee', range: 'Vốn 300-800tr', note: 'Chuỗi Trung Nguyên nhỏ hơn, target văn phòng.' },
+          { label: 'ChaGo, Royaltea', range: 'Vốn 300-600tr', note: 'Trà sữa trung bình, royalty 5-7%.' },
+          { label: 'Gong Cha Vietnam', range: 'Vốn 800tr-1.5 tỷ', note: 'Trà sữa Đài Loan premium. Royalty 6-8% + marketing 2%. ~100 điểm VN.' },
+          { label: 'KOI Thé', range: 'Vốn 1-2 tỷ', note: 'Trà sữa Đài Loan cao cấp. ~90 điểm.' },
+          { label: 'Lotteria', range: 'Vốn 1.5-2.5 tỷ', note: 'Fast food Hàn. Royalty 6% + marketing 4%. Breakeven 18-30 tháng.' },
+          { label: 'KFC Vietnam', range: 'Vốn 2-3 tỷ', note: 'Fast food gà rán. Yêu cầu location tốt + kinh nghiệm. Breakeven 24-36 tháng.' },
+          { label: 'Jollibee', range: 'Vốn 2-3 tỷ', note: 'Fast food Philippines, mở rộng nhanh 2020-2025.' },
+        ] as KBTableRow[],
+      },
+      {
+        type: 'table',
+        heading: '3. Cơ cấu phí nhượng quyền (chuẩn)',
+        content: [
+          { label: 'Initial franchise fee', range: '100-500tr (một lần)', note: 'Phí bản quyền brand + training + setup. Không hoàn lại. Cà phê nhỏ 30-100tr, F&B trung 100-300tr, fast food lớn 300-500tr.' },
+          { label: 'Royalty fee', range: '5-8% doanh thu (hàng tháng)', note: 'Phí bản quyền hàng tháng trả thương hiệu mẹ. Ăn trực tiếp vào biên ròng.' },
+          { label: 'Marketing / brand fee', range: '2-4% doanh thu', note: 'Đóng góp vào ngân sách marketing chung của brand. Riêng biệt với ngân sách marketing quán.' },
+          { label: 'Deposit / security', range: '50-200tr (hoàn lại)', note: 'Hoàn khi kết thúc hợp đồng, trừ nếu vi phạm.' },
+          { label: 'Setup / construction', range: '300tr-2 tỷ tùy quy mô', note: 'Design + xây dựng theo standard brand. Franchise fee đã bao thiết kế, nhưng thi công tự trả.' },
+          { label: 'Nguyên liệu tồn đầu', range: '30-150tr', note: 'Nhập nguyên liệu ban đầu theo yêu cầu brand.' },
+          { label: 'Setup POS + training', range: '20-80tr', note: 'Hệ thống + đào tạo nhân viên. Nhiều brand đã bao trong initial fee.' },
+        ] as KBTableRow[],
+      },
+      {
+        type: 'table',
+        heading: '4. Doanh thu & biên lợi nhuận nhượng quyền theo mô hình',
+        content: [
+          { label: 'Nhượng quyền cà phê mini (Trung Nguyên E-Coffee)', range: 'Doanh thu 40-100tr/tháng, Net 8-15%', note: 'Vốn thấp 65-175tr, breakeven 6-12 tháng.' },
+          { label: 'Nhượng quyền trà sữa vốn thấp (Mixue)', range: 'Doanh thu 80-250tr/tháng, Net 8-15%', note: 'AOV thấp nhưng volume cao. Breakeven 4-8 tháng.' },
+          { label: 'Nhượng quyền trà sữa trung (TocoToco, ChaGo)', range: 'Doanh thu 150-400tr/tháng, Net 8-15%', note: 'Breakeven 8-18 tháng.' },
+          { label: 'Nhượng quyền trà sữa cao cấp (Gong Cha, KOI Thé)', range: 'Doanh thu 300tr-1 tỷ/tháng, Net 10-18%', note: 'Vốn cao 800tr-2 tỷ, breakeven 12-24 tháng.' },
+          { label: 'Nhượng quyền fast food (Lotteria, KFC)', range: 'Doanh thu 500tr-2 tỷ/tháng, Net 5-12%', note: 'Vốn cao 1.5-3 tỷ, breakeven 18-36 tháng. Biên thấp hơn do royalty + food cost cao.' },
+        ] as KBTableRow[],
+      },
+      {
+        type: 'table',
+        heading: '5. Cơ cấu chi phí quán nhượng quyền F&B (% doanh thu)',
+        content: [
+          { label: 'Food cost', range: '25-35%', note: 'Cao hơn tự mở vì phải mua nguyên liệu từ brand (không mặc cả được).' },
+          { label: 'Labor cost', range: '20-30%', note: 'Tương tự tự mở.' },
+          { label: 'Rent', range: '10-18%', note: 'Nhiều brand yêu cầu location approve = rent cao hơn.' },
+          { label: 'Royalty + brand fee', range: '7-12%', note: 'Đây là chi phí "trừ trực tiếp" mà tự mở không có.' },
+          { label: 'Marketing quán', range: '2-4%', note: 'Ngoài marketing fee chung của brand.' },
+          { label: 'Utilities + ops', range: '4-7%', note: 'Tương tự tự mở.' },
+          { label: 'Prime cost (Food + Labor + Royalty)', range: '55-65%', note: 'Cao hơn tự mở (45-55%) do royalty.' },
+        ] as KBTableRow[],
+      },
+      {
+        type: 'warning-list',
+        heading: 'Insights cho người tính nhượng quyền F&B 2026',
+        content: [
+          { icon: 'warning', title: 'Franchise ≠ dễ thắng — vẫn 30-40% đóng cửa 2 năm đầu', desc: 'Brand + hệ thống chỉ giảm rủi ro operational, không loại rủi ro location + market fit. Nhiều franchisee mở ở vị trí sai vẫn đóng cửa.', severity: 'critical' },
+          { icon: 'warning', title: 'Royalty + brand fee ăn 7-12% biên', desc: 'Nếu biên ròng gross 15-20% thì royalty đã "cắt" gần một nửa. Nhượng quyền chỉ có lời nếu doanh thu ổn định cao.', severity: 'critical' },
+          { icon: 'warning', title: 'Đọc kỹ hợp đồng — điều khoản exit + non-compete', desc: 'Nhiều franchise có điều khoản 3-5 năm không được mở quán tương tự sau khi rời. Deposit không hoàn lại nếu tự cancel.', severity: 'warning' },
+          { icon: 'warning', title: 'Vốn thấp = brand mới / kém uy tín', desc: 'Franchise vốn <100tr thường là brand chưa proven ở Việt Nam. Cẩn thận vì tài chính không stable → brand có thể collapse trong 1-2 năm.', severity: 'warning' },
+          { icon: 'warning', title: 'Trung Nguyên E-Coffee + Mixue = entry point tốt nhất', desc: 'Vốn thấp 65-300tr, breakeven nhanh 4-12 tháng, brand ổn định, nhiều điểm đã proven. Tốt cho người mới F&B.', severity: 'tip' },
+        ] as KBWarningItem[],
+      },
+      {
+        type: 'text',
+        content: 'Nhượng quyền F&B phù hợp với người: (1) muốn giảm rủi ro brand + operational, (2) có vốn nhưng không có kinh nghiệm F&B, (3) chấp nhận biên thấp hơn tự mở để có brand + hệ thống. Trước khi ký hợp đồng, dùng F&B Validator để test scenario: nhập initial fee + royalty vào chi phí, doanh thu forecast conservative → xem breakeven thực tế bao lâu. Nếu breakeven > 24 tháng ở scenario conservative = nên xem xét lại.',
+      },
+      {
+        type: 'faq',
+        heading: 'Câu hỏi thường gặp về nhượng quyền F&B Việt Nam',
+        content: [
+          {
+            question: 'Nhượng quyền F&B cần bao nhiêu vốn?',
+            answer: 'Vốn nhượng quyền F&B Việt Nam từ 65tr (Trung Nguyên E-Coffee mini) đến 3 tỷ (KFC, Jollibee, Lotteria full store). Chi tiết: Cà phê mini 65-175tr, Trà sữa vốn thấp 150-300tr (Mixue), Trà sữa trung 300-800tr (TocoToco, ChaGo), Trà sữa cao cấp 800tr-2 tỷ (Gong Cha, KOI Thé), Fast food 1.5-3 tỷ (Lotteria, KFC, Jollibee), Cao cấp quốc tế >3 tỷ (McDonald\'s). Cộng thêm chi phí vận hành 3-6 tháng làm working capital.',
+          },
+          {
+            question: 'Phí royalty franchise F&B là bao nhiêu?',
+            answer: 'Phí royalty chuẩn 5-8% doanh thu hàng tháng. Cộng thêm marketing fee 2-4% doanh thu = tổng brand fee 7-12% doanh thu. Chi tiết: Trung Nguyên E-Coffee ~5%, Mixue 6-8%, TocoToco 5-7%, Gong Cha 6-8%, Lotteria 6%, KFC 6%. Cộng thêm initial franchise fee (một lần) 100-500tr tùy brand. Royalty ăn trực tiếp vào biên ròng — nhượng quyền chỉ lời nếu doanh thu ổn định cao.',
+          },
+          {
+            question: 'Nhượng quyền F&B breakeven bao lâu?',
+            answer: 'Breakeven trung bình 12-24 tháng, phụ thuộc vốn + doanh thu. Nhanh nhất: Trung Nguyên E-Coffee 6-12 tháng, Mixue 4-8 tháng (vốn thấp). Trung: TocoToco 8-18 tháng, ChaGo 10-18 tháng. Chậm: Gong Cha/KOI Thé 12-24 tháng, Lotteria 18-30 tháng, KFC/Jollibee 24-36 tháng. Điều kiện: đạt 80-100% doanh thu forecast trong 3-6 tháng đầu. Nếu ramp-up chậm (chỉ 50-60% forecast) thì breakeven kéo dài gấp đôi.',
+          },
+          {
+            question: 'Nhượng quyền vs tự mở quán F&B — cái nào lời hơn?',
+            answer: 'Tự mở thường biên cao hơn 5-8% (không mất royalty 7-12%) nhưng rủi ro cao hơn nhiều. Nhượng quyền lời hơn nếu: (1) chưa có kinh nghiệm F&B, (2) muốn brand có sẵn để giảm ramp-up, (3) chọn brand đã proven ở nhiều điểm. Tự mở lời hơn nếu: (1) có kinh nghiệm F&B, (2) concept độc đáo khó copy, (3) chấp nhận mất 6-12 tháng build brand từ 0. Con số tham khảo: nhượng quyền net 5-15%, tự mở net 8-20% (nếu vận hành tốt).',
+          },
+          {
+            question: 'Top thương hiệu F&B nhượng quyền tại Việt Nam là gì?',
+            answer: 'Top 10 thương hiệu franchise F&B Việt Nam 2026: (1) Trung Nguyên E-Coffee ~850 điểm — vốn thấp nhất 65-175tr; (2) Mixue ~1.500 điểm — trà sữa/kem giá rẻ 150-300tr; (3) TocoToco ~200 điểm — trà sữa Việt 200-500tr; (4) Gong Cha ~100 điểm — trà sữa Đài Loan 800tr-1.5 tỷ; (5) KOI Thé ~90 điểm — trà sữa cao cấp 1-2 tỷ; (6) The Alley ~40 điểm — 1-2 tỷ; (7) Lotteria — fast food 1.5-2.5 tỷ; (8) KFC — fast food 2-3 tỷ; (9) Jollibee — fast food 2-3 tỷ; (10) King Coffee — cà phê 300-800tr.',
+          },
+          {
+            question: 'Có nên nhượng quyền Mixue không?',
+            answer: 'Mixue có ưu điểm: vốn thấp nhất trong trà sữa (150-300tr), breakeven nhanh 4-8 tháng, brand mạnh Trung Quốc mở rộng nhanh VN (~1.500 điểm). Nhược điểm: (1) mật độ Mixue cao, nhiều điểm cạnh tranh trực tiếp; (2) AOV thấp 20-40K, biên margin nhỏ trên mỗi ly; (3) royalty + brand fee 6-8% ăn vào biên; (4) menu ít khác biệt. Phù hợp: người mới F&B, có 200-400tr, muốn test kinh doanh với rủi ro thấp. Không phù hợp: muốn build brand riêng dài hạn.',
+          },
+          {
+            question: 'Nhượng quyền KFC / Lotteria cần bao nhiêu vốn?',
+            answer: 'KFC Vietnam yêu cầu vốn 2-3 tỷ (initial fee + setup + working capital), Lotteria 1.5-2.5 tỷ, Jollibee 2-3 tỷ. Yêu cầu thêm: (1) location tốt (mặt bằng lớn, có bãi đậu xe), (2) kinh nghiệm quản lý F&B hoặc retail, (3) chứng minh tài chính đủ vốn + 6 tháng vận hành. Royalty 6% + marketing 4% = tổng 10% doanh thu. Breakeven 24-36 tháng. Doanh thu ổn định 500tr-2 tỷ/tháng/store. Không phù hợp cho người mới hoặc vốn hạn chế.',
+          },
+        ] as KBFAQItem[],
+      },
+    ],
+  },
 ];
 
 export default TRENDS_ARTICLES;
