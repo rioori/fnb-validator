@@ -50,11 +50,12 @@ const LEGACY_REDIRECT_MAP: Record<string, string> = {
 export function middleware(request: NextRequest) {
   const { pathname, searchParams } = request.nextUrl;
 
-  // Skip static files, API routes, _next, embed widgets (no locale)
+  // Skip static files, API routes, _next, embed widgets, admin (no locale)
   if (
     pathname.startsWith('/_next') ||
     pathname.startsWith('/api') ||
     pathname.startsWith('/embed') ||
+    pathname.startsWith('/admin') ||
     pathname.includes('.')
   ) {
     return NextResponse.next();
