@@ -65,11 +65,13 @@ export default function TickerList({ items, locale, initialShow, expandable = fa
 
   return (
     <div>
-      <div className="grid gap-3">
+      <div className="grid gap-3 md:grid-cols-2">
         {items.slice(0, showCount).map((it, idx) => {
           const tags = (it.matched_keywords || []).slice(0, 2);
           const bg = CARD_BG_ROTATION[idx % CARD_BG_ROTATION.length];
-          const isFresh = now - new Date(it.published_at).getTime() < NEW_THRESHOLD_MS;
+          // Only show NEW pulse on the top 2 items so the signal stays meaningful
+          // instead of tagging every visible card.
+          const isFresh = idx < 2 && now - new Date(it.published_at).getTime() < NEW_THRESHOLD_MS;
 
           return (
             <a
@@ -78,7 +80,7 @@ export default function TickerList({ items, locale, initialShow, expandable = fa
               target="_blank"
               rel="noopener noreferrer"
               onClick={() => onClick(it)}
-              className={`clay-card-static ${bg} p-4 block group hover:shadow-[4px_4px_0_var(--color-text)] transition-shadow`}
+              className={`clay-card-static ${bg} p-4 flex flex-col group hover:shadow-[4px_4px_0_var(--color-text)] transition-shadow`}
             >
               {/* Meta row: source (dark) · tags (outlined) · fresh badge · time */}
               <div className="flex flex-wrap items-center gap-1.5 mb-2 text-[10px] leading-none">
@@ -105,17 +107,21 @@ export default function TickerList({ items, locale, initialShow, expandable = fa
                 </span>
               </div>
 
-              {/* Title — leading link */}
-              <div className="text-[14px] font-bold text-slate-900 leading-snug group-hover:text-emerald-800 transition-colors">
+              {/* Title — 2 lines max */}
+              <div className="text-[14px] font-bold text-slate-900 leading-snug group-hover:text-emerald-800 transition-colors line-clamp-2">
                 {it.title}
               </div>
 
-              {/* Excerpt — one line only, kept short */}
+              {/* Excerpt — up to 3 lines, fills the card */}
               {it.summary && (
-                <p className="mt-1 text-[12px] text-slate-700 leading-snug line-clamp-1">
+                <p className="mt-2 text-[12px] text-slate-700 leading-relaxed line-clamp-3 flex-1">
                   {it.summary}
                 </p>
               )}
+
+              <div className="mt-3 text-[11px] font-semibold text-emerald-700">
+                {isEn ? 'Read at source →' : 'Đọc bài gốc →'}
+              </div>
             </a>
           );
         })}

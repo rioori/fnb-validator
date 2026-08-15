@@ -127,12 +127,13 @@ export async function GET(req: NextRequest) {
     // via candidate id (not used for landing page, only for React key + admin).
     const slug = `ticker-${c.id}`;
 
-    // Clean excerpt: strip common wire-service prefixes, cap at 140 chars
+    // Clean excerpt: strip common wire-service prefixes, cap at 260 chars
+    // (fits 3 lines in the 2-column ticker card without truncating mid-sentence)
     const cleanExcerpt = c.excerpt
       .replace(/^(TPO|TT|TTO|VNA|Vietnamplus|VOV|VOH|Zing|VnExpress|Znews|VOX)\s*[-–—:]\s*/i, '')
       .replace(/\s+/g, ' ')
       .trim()
-      .slice(0, 140);
+      .slice(0, 260);
 
     // Insert single VI row (no bilingual duplication needed for ticker; users
     // click through to the source in their preferred language).
