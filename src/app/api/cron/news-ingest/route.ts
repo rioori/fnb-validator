@@ -23,7 +23,10 @@ async function fetchWithTimeout(url: string, ms = 15000): Promise<Response> {
     return await fetch(url, {
       signal: controller.signal,
       headers: {
-        'user-agent': 'ValidatorNewsBot/1.0 (+https://www.validator.vn)',
+        // Some VN news CDNs 503/500 generic bot UAs. Present as a browser —
+        // same reason og-scraper uses this; RSS is public data + rel canonical.
+        'user-agent':
+          'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36',
         accept: 'application/rss+xml, application/xml, text/xml, */*',
       },
       cache: 'no-store',

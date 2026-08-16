@@ -22,6 +22,7 @@ const SOURCE_LABELS: Record<string, string> = {
   'vnexpress-kinhdoanh': 'VnExpress',
   'cafef-thi-truong': 'CafeF',
   'cafef-doanh-nghiep': 'CafeF',
+  'cafebiz-home': 'CafeBiz',
   'vietnambiz-kinh-doanh': 'Vietnambiz',
   'tuoitre-kinh-doanh': 'Tuổi Trẻ',
   'vna-kinhte': 'VNA',

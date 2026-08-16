@@ -15,6 +15,7 @@ export const NEWS_SOURCES: NewsSource[] = [
   { key: 'vnexpress-kinhdoanh', label: 'VnExpress Kinh doanh', rssUrl: 'https://vnexpress.net/rss/kinh-doanh.rss', language: 'vi' },
   { key: 'cafef-thi-truong', label: 'CafeF Thị trường', rssUrl: 'https://cafef.vn/thi-truong.rss', language: 'vi' },
   { key: 'cafef-doanh-nghiep', label: 'CafeF Doanh nghiệp', rssUrl: 'https://cafef.vn/doanh-nghiep.rss', language: 'vi' },
+  { key: 'cafebiz-home', label: 'CafeBiz', rssUrl: 'https://cafebiz.vn/rss/home.rss', language: 'vi' },
   { key: 'vietnambiz-kinh-doanh', label: 'Vietnambiz Kinh doanh', rssUrl: 'https://vietnambiz.vn/rss/kinh-doanh.rss', language: 'vi' },
   { key: 'tuoitre-kinh-doanh', label: 'Tuổi Trẻ Kinh doanh', rssUrl: 'https://tuoitre.vn/rss/kinh-doanh.rss', language: 'vi' },
   { key: 'vna-kinhte', label: 'Vietnam News Agency Kinh tế', rssUrl: 'https://www.vietnamplus.vn/rss/kinhte.rss', language: 'vi' },
