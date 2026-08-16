@@ -15,9 +15,13 @@ export async function fetchOgMeta(url: string): Promise<OgMeta> {
     const res = await fetch(url, {
       signal: AbortSignal.timeout(FETCH_TIMEOUT_MS),
       headers: {
+        // VN news sites (CafeF, Vietnambiz, VnExpress) block generic bot UAs
+        // with 503. Present as a real desktop browser instead — legit for OG
+        // scraping, which is what social apps like Facebook do.
         'user-agent':
-          'Mozilla/5.0 (compatible; ValidatorBot/1.0; +https://www.validator.vn)',
-        accept: 'text/html,application/xhtml+xml',
+          'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36',
+        accept: 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+        'accept-language': 'vi,en;q=0.9',
       },
       redirect: 'follow',
     });
