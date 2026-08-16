@@ -14,6 +14,7 @@ interface TickerItem {
   source_url: string;
   published_at: string;
   matched_keywords: string[];
+  og_image_url: string | null;
 }
 
 interface Props {
@@ -25,7 +26,7 @@ export default function NewsTickerHome({ locale }: Props) {
   const isEn = locale === 'en';
 
   useEffect(() => {
-    fetch('/api/news/ticker?limit=10', { cache: 'no-store' })
+    fetch('/api/news/ticker?limit=9', { cache: 'no-store' })
       .then((r) => (r.ok ? r.json() : { items: [] }))
       .then((json: { items: TickerItem[] }) => setItems(json.items || []))
       .catch(() => setItems([]));
@@ -54,7 +55,7 @@ export default function NewsTickerHome({ locale }: Props) {
           </Link>
         </div>
 
-        <TickerList items={items} locale={isEn ? 'en' : 'vi'} initialShow={6} expandable={true} />
+        <TickerList items={items} locale={isEn ? 'en' : 'vi'} />
       </div>
     </section>
   );

@@ -57,7 +57,7 @@ export default async function NewsTickerPage({ params }: PageProps) {
           {isEn ? 'No news yet. Check back soon.' : 'Chưa có tin. Quay lại sau nhé.'}
         </div>
       ) : (
-        <TickerList items={items} locale={isEn ? 'en' : 'vi'} />
+        <TickerList items={items} locale={isEn ? 'en' : 'vi'} staticGrid />
       )}
 
       <div className="text-center mt-8">

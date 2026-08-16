@@ -8,6 +8,7 @@ import { NextResponse, type NextRequest } from 'next/server';
 import { supabaseAdmin } from '@/lib/supabase-server';
 import { sendEmail } from '@/lib/email';
 import { hasFnbCoreTag, isBlocked } from '@/lib/news';
+import { fetchOgMeta } from '@/lib/og-scraper';
 
 export const runtime = 'nodejs';
 export const dynamic = 'force-dynamic';
@@ -135,6 +136,10 @@ export async function GET(req: NextRequest) {
       .trim()
       .slice(0, 260);
 
+    // Scrape OG image from source (best-effort — null is ok, card falls back
+    // to a gradient placeholder)
+    const og = await fetchOgMeta(c.source_url);
+
     // Insert single VI row (no bilingual duplication needed for ticker; users
     // click through to the source in their preferred language).
     const { error: insErr } = await supabaseAdmin.from('news_published').insert({
@@ -150,6 +155,7 @@ export async function GET(req: NextRequest) {
       cover_image_url: null,
       cover_image_credit: null,
       cover_image_source: null,
+      og_image_url: og.imageUrl,
       week_of: dayStart.toISOString().slice(0, 10),
       status: 'published',
       published_at: now.toISOString(),
